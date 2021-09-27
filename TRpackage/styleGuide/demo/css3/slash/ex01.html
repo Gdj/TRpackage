@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>slash-css</title>
+  <style>
+    .slash-box span, .backslash-box span{ position: absolute; z-index: 1 }
+
+    .slash-box{ position: relative; width: 150px; height: 50px;
+      background-color: #ccc;
+      border: 1px solid #ccc;
+    }
+    .slash-box:before { content: ""; position: absolute; bottom: 0; width: 0; height: 0;
+      border-bottom: 49px solid #fff;
+      border-left: 0px solid transparent;
+      border-right: 150px solid transparent;
+    }
+    .slash-box:after { content: ""; position: absolute; right: 0px;  width: 0; height: 0;
+      border-top: 49px solid #fff;
+      border-left: 150px solid transparent;
+      border-right: 0px solid transparent;
+    }  
+
+
+    .backslash-box{ position: relative; width: 150px; height: 50px;
+      background-color: #ccc;
+      border: 1px solid #ccc;
+    }
+    .backslash-box:before { content: ""; position: absolute; width: 0; height: 0;
+      border-top: 49px solid #fff;
+      border-left: 0px solid transparent;
+      border-right: 150px solid transparent;
+    }
+    .backslash-box:after { content: ""; position: absolute; bottom: 0; right: 0px;  width: 0; height: 0;
+      border-bottom: 49px solid #fff;
+      border-left: 150px solid transparent;
+      border-right: 0px solid transparent;
+    }
+
+  </style>
+ </head>
+<body>
+
+  
+  <div class="slash-box"><span>slash</span></div>
+  <br>
+  <div class="backslash-box"><span>backslash</span></div>
+    
+
+</body>
+</html>

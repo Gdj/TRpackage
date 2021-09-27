@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>input_guide</title>
+<style type="text/css">
+	
+</style>
+<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js"></script>
+<!-- <script type="text/javascript" src="../../../../asset/js/libs/trpForm.js"></script>-->
+
+<script type="text/javascript">	  
+	$(document).ready(function(){
+
+	   $("input[type=file].imFile").each(function(){
+		   
+			var _add_html1 =  "<input type='text' id='imFileName' name='imFileName' class='file_textbox' title='file name' readonly='readonly' style='display:inline;'>";
+			
+			var _add_html2 ="<div style='position: absolute; width: 51px; height: 24px; display: inline; overflow: hidden; background: url(./images/search.gif) 100% 50% no-repeat;' class='file_input_button'></div>";
+			_add_html2 ="<div style='position: absolute; width: 51px; height: 24px; display: inline; overflow: hidden; background: url(./images/search.gif) 0 0 no-repeat;' class='file_input_button'></div>";
+
+			
+			$(this).before(_add_html1);
+			$(this).wrap(_add_html2);
+			$(this).css({ opacity: 0, "width":"51px", "overflow":"hidden" });
+			$(this).attr("onchange" ,"javascript: document.getElementById('imFileName').value = this.value");
+
+			
+			//$(this).css( {position: absolute, top: 0px , left: 0px, height: 24px, width: 51px, display: inline, cursor: pointer,  opacity: 0 }  );
+			
+	   });
+
+
+	});
+
+
+
+</script>
+
+
+ 
+</head>
+<body>		
+
+	<div class="wapper">
+		 <div class="input_box">
+			<label for="id_1" id="label_1" class="lbl_in">파일이미지 : </label>
+			<input type="file" id="id_1" name="name" value="" class="imFile">
+		 </div>	 
+	</div>
+	<br />
+	<hr />
+	<br />
+	<div class="wapper">
+		 <div class="input_box">
+			<label for="id_1" id="label_1" class="lbl_in">파일이미지 : </label>
+			<input type="file" id="id_1" name="name" value="" >
+		 </div>	 
+	</div>
+
+
+
+</body>
+</html>

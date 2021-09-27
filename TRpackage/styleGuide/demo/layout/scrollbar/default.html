@@ -1,0 +1,414 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+<title>scrollbar | TR package</title>
+<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.js" charset="UTF-8"></script>
+<link rel="stylesheet" type="text/css"  href="../../../../asset/css/common.css" media="all" />
+<link rel="stylesheet" type="text/css"  href="../../../../asset/css/trpBase.css" media="all" />
+
+<!-- 
+<style type="text/css">
+
+
+
+</style> -->
+
+
+</head>
+<body>
+  <div id="header" ></div>
+  <div id="container">
+	<div id="lnb" class="gnb"></div>
+	<!-- s: 컨텐츠 시작 -->
+	<div id="contents" class="contents">
+		<!-- s: css 설명  -->
+		<div class="desc_wapper">
+			<h1 class="desc_title">scollbar</h1>
+			<p>ie, webkit 스크롤바 스타일 정의</p>
+		</div>
+		
+		<!-- e: css 설명 -->
+	
+
+		<!-- s: api 설명 -->
+		<div class="api">
+			<h2 class="api-title">scrollbar</h2>
+			<div class="api-body">
+				<dl>
+					<dt>ie </dt>					
+					<dd><span class="icon"></span>IE5 이상 브라우져에 적용가능하며 색만 정의 할수 있다.</dd>
+					<dt>webkit </dt>					
+					<dd><span class="icon"></span>색밑 크기를 한정적으로 적용할수 있다.</dd>
+				</dl>
+				
+
+<!-- ===VIEW=== -->	
+				<div class="ex_wapper">
+					<h3 class="api-title_h3">VIEW</h3>
+					<p class="ex-more"><a href="javascript:return false;"><span class="d-n">+</span><span style="display: inline;">-</span></a></p>
+					<p class="ex-view"><a href="ex01.html" target="_blank">View Sample</a></p>
+					<div class="ex-body d-n" >
+                    <!-- 소스 -->
+  
+  <div class="trp_scrollbar_y">
+      a <br/>
+      b <br/>
+      c <br/>
+      d <br/>
+      e <br/>
+      f <br/>
+      g <br/>
+      h <br/>
+      i <br/>
+      j <br/>
+      k <br/>
+      l <br/>
+      n <br/>
+      m <br/>
+      o <br/>
+      p <br/>
+      q <br/>
+      r <br/>
+      s <br/>
+      t <br/>
+      u <br/>
+      v <br/>
+      w <br/>
+      x <br/>
+      y <br/>
+    z <br/>
+  </div>                
+
+                    <!-- //소스 -->
+					</div>
+				</div>
+				
+
+<!-- ===CSS=== -->	
+				<div class="ex_wapper">
+					<h3 class="api-title_h3 css">CSS</h3>
+					<div class="api-body_h3 css">
+                    <!-- 소스 -->
+                    
+                    
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #f92672">&lt;style </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/css&quot;</span><span style="color: #f92672">&gt;</span>
+
+  <span style="color: #75715e">/*  ie 용 스크롤 바  *********************************************/</span>
+  <span style="color: #a6e22e">.trp_scrollbar_y</span> <span style="color: #f8f8f2">{</span> 
+    <span style="color: #66d9ef">overflow-y</span><span style="color: #f92672">:</span><span style="color: #66d9ef">auto</span><span style="color: #f8f8f2">;</span> 
+    <span style="color: #66d9ef">border</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">1px</span> <span style="color: #66d9ef">solid</span> <span style="color: #ae81ff">#333</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">10px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">150px</span><span style="color: #f8f8f2">;</span> 
+    <span style="color: #f8f8f2">scrollbar</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">arrow</span><span style="color: #f92672">-</span><span style="color: #66d9ef">color</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#ffffff</span><span style="color: #f8f8f2">;</span> 
+    <span style="color: #f8f8f2">scrollbar</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">Face</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">Color</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#dadada</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #f8f8f2">scrollbar</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">Track</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">Color</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#ffffff</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #f8f8f2">scrollbar</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">base</span><span style="color: #f92672">-</span><span style="color: #66d9ef">color</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#ffffff</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #f8f8f2">scrollbar</span><span style="color: #ae81ff">-3</span><span style="color: #f8f8f2">dLight</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">Color</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#f3f3f3</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #f8f8f2">scrollbar</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">DarkShadow</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">Color</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#f3f3f3</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #f8f8f2">scrollbar</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">Highlight</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">Color</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#f3f3f3</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #f8f8f2">scrollbar</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">Shadow</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">Color</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#f3f3f3</span><span style="color: #f8f8f2">;</span>
+  <span style="color: #f8f8f2">}</span>
+  <span style="color: #75715e">/* webkit (Chrome, Safari, firefox )용 스크롤 바 */</span>
+  <span style="color: #a6e22e">.trp_scrollbar_y</span><span style="color: #f92672">:</span><span style="color: #a6e22e">:-webkit-scrollbar</span> <span style="color: #f8f8f2">{</span><span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">15px</span><span style="color: #f8f8f2">;}</span>
+  <span style="color: #a6e22e">.trp_scrollbar_y</span><span style="color: #f92672">:</span><span style="color: #a6e22e">:-webkit-scrollbar-button:start:decrement</span><span style="color: #f92672">,</span>
+  <span style="color: #a6e22e">.trp_scrollbar_y</span><span style="color: #f92672">:</span><span style="color: #a6e22e">:-webkit-scrollbar-button:end:increment</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span><span style="color: #66d9ef">block</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+  <span style="color: #a6e22e">.trp_scrollbar_y</span><span style="color: #f92672">:</span><span style="color: #a6e22e">:-webkit-scrollbar-thumb</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">background</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">rgba(</span><span style="color: #ae81ff">0</span><span style="color: #f92672">,</span><span style="color: #ae81ff">0</span><span style="color: #f92672">,</span><span style="color: #ae81ff">0</span><span style="color: #f92672">,.</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">);</span> <span style="color: #f8f8f2">}</span>
+
+<span style="color: #f92672">&lt;/style&gt;</span>
+</pre></td></tr></table></div>
+
+
+                    <!-- //소스 -->
+					</div>
+				</div>
+
+
+<!-- ===HTML=== -->	
+				<div class="ex_wapper">
+				<h3 class="api-title_h3 html">HTML</h3>
+					<div class="api-body_h3 html">
+                    <!-- 소스 -->
+
+  <!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28</pre></td><td><pre style="margin: 0; line-height: 125%">  <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;trp_scrollbar_y&quot;</span><span style="color: #f92672">&gt;</span>
+      a <span style="color: #f92672">&lt;br/&gt;</span>
+      b <span style="color: #f92672">&lt;br/&gt;</span>
+      c <span style="color: #f92672">&lt;br/&gt;</span>
+      d <span style="color: #f92672">&lt;br/&gt;</span>
+      e <span style="color: #f92672">&lt;br/&gt;</span>
+      f <span style="color: #f92672">&lt;br/&gt;</span>
+      g <span style="color: #f92672">&lt;br/&gt;</span>
+      h <span style="color: #f92672">&lt;br/&gt;</span>
+      i <span style="color: #f92672">&lt;br/&gt;</span>
+      j <span style="color: #f92672">&lt;br/&gt;</span>
+      k <span style="color: #f92672">&lt;br/&gt;</span>
+      l <span style="color: #f92672">&lt;br/&gt;</span>
+      n <span style="color: #f92672">&lt;br/&gt;</span>
+      m <span style="color: #f92672">&lt;br/&gt;</span>
+      o <span style="color: #f92672">&lt;br/&gt;</span>
+      p <span style="color: #f92672">&lt;br/&gt;</span>
+      q <span style="color: #f92672">&lt;br/&gt;</span>
+      r <span style="color: #f92672">&lt;br/&gt;</span>
+      s <span style="color: #f92672">&lt;br/&gt;</span>
+      t <span style="color: #f92672">&lt;br/&gt;</span>
+      u <span style="color: #f92672">&lt;br/&gt;</span>
+      v <span style="color: #f92672">&lt;br/&gt;</span>
+      w <span style="color: #f92672">&lt;br/&gt;</span>
+      x <span style="color: #f92672">&lt;br/&gt;</span>
+      y <span style="color: #f92672">&lt;br/&gt;</span>
+    z <span style="color: #f92672">&lt;br/&gt;</span>
+  <span style="color: #f92672">&lt;/div&gt;</span>
+</pre></td></tr></table></div>
+
+                                          
+                    
+                    <!-- //소스 -->
+					</div>
+				</div>
+					
+		        
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+		
+	
+    <!-- s: api 설명 -->
+		<div class="api">
+			<h2 class="api-title">iphone 스타일</h2>
+			<div class="api-body">
+				<dl>
+					<dt>webkit 기반 브라우져</dt>					
+					<dd><span class="icon"></span>iphone 모양 스크롤</dd>
+				</dl>
+				
+
+<!-- ===VIEW=== -->	
+				<div class="ex_wapper">
+					<h3 class="api-title_h3">VIEW</h3>
+					<p class="ex-more"><a href="javascript:return false;"><span class="d-n">+</span><span style="display: inline;">-</span></a></p>
+					<p class="ex-view"><a href="ex02.html" target="_blank">View Sample</a></p>
+					<div class="ex-body d-n" >
+                    <!-- 소스 -->
+  
+  <div class="trp_webkitscroll_y">
+      a <br/>
+      b <br/>
+      c <br/>
+      d <br/>
+      e <br/>
+      f <br/>
+      g <br/>
+      h <br/>
+      i <br/>
+      j <br/>
+      k <br/>
+      l <br/>
+      n <br/>
+      m <br/>
+      o <br/>
+      p <br/>
+      q <br/>
+      r <br/>
+      s <br/>
+      t <br/>
+      u <br/>
+      v <br/>
+      w <br/>
+      x <br/>
+      y <br/>
+    z <br/>
+  </div>
+
+                    <!-- //소스 -->
+					</div>
+				</div>
+				
+
+<!-- ===CSS=== -->	
+				<div class="ex_wapper">
+					<h3 class="api-title_h3 css">CSS</h3>
+					<div class="api-body_h3 css">
+                    <!-- 소스 -->
+                    
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #f92672">&lt;style </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/css&quot;</span><span style="color: #f92672">&gt;</span>
+  <span style="color: #a6e22e">.trp_webkitscroll_y</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">border</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">1px</span> <span style="color: #66d9ef">solid</span> <span style="color: #ae81ff">#333</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">10px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">50px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">overflow-y</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">auto</span><span style="color: #f8f8f2">;}</span>
+  <span style="color: #a6e22e">.trp_webkitscroll_y</span><span style="color: #f92672">:</span><span style="color: #a6e22e">:-webkit-scrollbar</span><span style="color: #f8f8f2">{</span>
+    <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">5px</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">5px</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #f92672">-</span><span style="color: #f8f8f2">webkit</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">appearance</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">none</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #66d9ef">background</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">rgba(</span><span style="color: #ae81ff">0</span><span style="color: #f92672">,</span> <span style="color: #ae81ff">0</span><span style="color: #f92672">,</span> <span style="color: #ae81ff">0</span><span style="color: #f92672">,</span> <span style="color: #ae81ff">0</span><span style="color: #f92672">.</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">);</span>
+    <span style="color: #66d9ef">border</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">radius</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">3px</span><span style="color: #f8f8f2">;</span>
+  <span style="color: #f8f8f2">}</span>
+  <span style="color: #a6e22e">.trp_webkitscroll_y</span><span style="color: #f92672">:</span><span style="color: #a6e22e">:-webkit-scrollbar-thumb</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #66d9ef">background</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">rgba(</span><span style="color: #ae81ff">0</span><span style="color: #f92672">,</span> <span style="color: #ae81ff">0</span><span style="color: #f92672">,</span> <span style="color: #ae81ff">0</span><span style="color: #f92672">,</span> <span style="color: #ae81ff">0</span><span style="color: #f92672">.</span><span style="color: #ae81ff">3</span><span style="color: #f8f8f2">);</span>
+    <span style="color: #66d9ef">border</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">radius</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">3px</span><span style="color: #f8f8f2">;</span>
+  <span style="color: #f8f8f2">}</span>
+<span style="color: #f92672">&lt;/style&gt;</span>
+</pre></td></tr></table></div>
+                   
+
+
+                    <!-- //소스 -->
+					</div>
+				</div>
+
+
+<!-- ===HTML=== -->	
+				<div class="ex_wapper">
+				<h3 class="api-title_h3 html">HTML</h3>
+					<div class="api-body_h3 html">
+                    <!-- 소스 -->
+                    
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29</pre></td><td><pre style="margin: 0; line-height: 125%">  <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;trp_webkitscroll_y&quot;</span><span style="color: #f92672">&gt;</span>
+    a <span style="color: #f92672">&lt;br/&gt;</span>
+    b <span style="color: #f92672">&lt;br/&gt;</span>
+    c <span style="color: #f92672">&lt;br/&gt;</span>
+    d <span style="color: #f92672">&lt;br/&gt;</span>
+    e <span style="color: #f92672">&lt;br/&gt;</span>
+    f <span style="color: #f92672">&lt;br/&gt;</span>
+    g <span style="color: #f92672">&lt;br/&gt;</span>
+    h <span style="color: #f92672">&lt;br/&gt;</span>
+    i <span style="color: #f92672">&lt;br/&gt;</span>
+    j <span style="color: #f92672">&lt;br/&gt;</span>
+    k <span style="color: #f92672">&lt;br/&gt;</span>
+    l <span style="color: #f92672">&lt;br/&gt;</span>
+    n <span style="color: #f92672">&lt;br/&gt;</span>
+    m <span style="color: #f92672">&lt;br/&gt;</span>
+    o <span style="color: #f92672">&lt;br/&gt;</span>
+    p <span style="color: #f92672">&lt;br/&gt;</span>
+    q <span style="color: #f92672">&lt;br/&gt;</span>
+    r <span style="color: #f92672">&lt;br/&gt;</span>
+    s <span style="color: #f92672">&lt;br/&gt;</span>
+    t <span style="color: #f92672">&lt;br/&gt;</span>
+    u <span style="color: #f92672">&lt;br/&gt;</span>
+    v <span style="color: #f92672">&lt;br/&gt;</span>
+    w <span style="color: #f92672">&lt;br/&gt;</span>
+    x <span style="color: #f92672">&lt;br/&gt;</span>
+    y <span style="color: #f92672">&lt;br/&gt;</span>
+    z <span style="color: #f92672">&lt;br/&gt;</span>
+  <span style="color: #f92672">&lt;/div&gt;</span>
+  
+</pre></td></tr></table></div>
+                 
+                    
+
+                    <!-- //소스 -->
+					</div>
+				</div>
+					
+		        
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+		
+	
+	
+		</div>		
+	<!-- e: 컨텐츠 끝 -->
+	<p class="cl-b"></p>
+</div>
+
+
+
+<script type="text/javascript">
+	$("#header").load("../../../head.html");
+	$("#lnb").load("../../../lnb.html");	
+
+
+	$(".ex-more a").click(function() {
+		$( this ).find("span").toggle();
+		$( this ).parent().siblings(".ex-body").slideToggle();
+		return false;
+	});
+
+</script>
+
+</body>
+</html>

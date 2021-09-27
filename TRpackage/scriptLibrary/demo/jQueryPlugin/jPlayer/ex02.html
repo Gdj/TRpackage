@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="kr">
+ <head>
+  <meta charset="UTF-8">  
+  <title>sample_guide_jPlayer</title>
+  <link rel="stylesheet" href="./css/base.css" />	
+  <style type="text/css">
+		#movie img { position:absolute; }
+		.controler img { width:50px; }
+  </style>
+  <script type="text/javascript" src="./js/library/jquery-1.10.2.min.js"></script>
+  <script type="text/javascript" src="./js/library/jplayer/jquery.jplayer.min.js"></script>
+  <script type="text/javascript">
+	$(document).ready(function(){
+
+        var jPlayerBox = $("#movie").jPlayer({
+		ready: function () {
+			$(this).jPlayer("setMedia", {			
+				 poster:"./images/sample/video/poster_1.png",
+				 m4v: "./images/sample/video/video_1.mp4"	
+				 //ogv: "./images/sample/video/video_1.ogv"	
+				 //webmv: "./images/sample/video/video_1.webmv"
+				 //flv: "./images/sample/video/video_1.flv"
+			}).jPlayer("play");
+		},
+		swfPath: ".js/library/jplayer",
+		supplied: "webmv, ogv, m4v , flv",
+		size: {
+			width: "960px",
+			height: "467px",
+			cssClass: "jp-video-360p"
+		},
+		nativeVideoControls: {
+		  ipad: /ipad/,
+		  iphone: /iphone/,
+		  android: /android/,
+		  blackberry: /blackberry/,
+		  iemobile: /iemobile/
+		},
+		useStateClassSkin: true,
+		autoBlur: false,
+		smoothPlayBar: true,
+		keyEnabled: true,
+		remainingDuration: true,
+		volume: 0.5,
+		loop: false,
+
+        //cssSelectorAncestor: "#player_wrap",
+		toggleDuration: true,
+		ended: function() { 
+			console.log("비디오 끝!");
+			jPlayer_stop();
+		}
+		
+		});
+		
+
+	});
+		
+		function jPlayer_play(){
+			$("#movie").find("img").hide();
+			$('#movie').jPlayer('play');
+		}
+
+		function jPlayer_stop(){
+			$("#movie").find("img").show();
+			$('#movie').jPlayer('stop');
+		}
+
+	
+        function video_1(){
+            $('#movie').jPlayer("setMedia", {           
+                     poster:"./images/sample/video/poster_1.png",
+                     m4v: "./images/sample/video/video_1.mp4"   
+                     //ogv: "./images/sample/video/video_1.ogv" 
+                     //webmv: "./images/sample/video/video_1.webmv"
+            }).jPlayer('play');
+        
+        }
+        
+        function video_2(){
+            $('#movie').jPlayer("setMedia", {           
+                     poster:"./images/sample/video/poster_2.png",
+                     m4v: "./images/sample/video/video_2.mp4"   
+                     //ogv: "./images/sample/video/video_2.ogv" 
+                     //webmv: "./images/sample/video/video_2.webmv"
+             });
+            $('#movie').jPlayer('play');
+        }  
+        function video_3(){
+            //jPlayerBox.ready( function() {
+                $('#movie').jPlayer("setMedia", {           
+                     poster:"./images/sample/video/poster_3.png",
+                     m4v: "./images/sample/video/video_3.mp4"   
+                     //ogv: "./images/sample/video/video_3.ogv" 
+                     //webmv: "./images/sample/video/video_3.webmv"
+                });
+            //});
+            $('#movie').jPlayer('play');
+        }    
+
+  </script>
+ </head>
+ <body>
+
+
+ 	<div class="wrap">		
+		<div id="movie"></div>
+		<div class="controler">
+			<a href="javascript:jPlayer_play();"	><img src="./images/sample/btn_play.png"	               alt="play" /></a>
+			<a href="javascript:$('#movie').jPlayer('pause');"	><img src="./images/sample/btn_pause.png"      alt="pause"/></a>
+			<a href="javascript:jPlayer_stop();"	><img src="./images/sample/btn_stop.png"	               alt="stop" /></a>
+		</div>
+		
+		<ul>
+		    <li><a href="javascript:video_1();">video1</a></li>
+		    <li><a href="javascript:video_2();">video2</a></li>
+		    <li><a href="javascript:video_3();">video3</a></li>
+		</ul>		
+	</div>
+
+
+ </body>  
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Textillate | TR package</title>
+  <link href="../../../../asset/js/libs/textillate/css/style.css" rel="stylesheet">
+  <link href="../../../../asset/js/libs/textillate/css/animate.css" rel="stylesheet">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="../../../../asset/js/libs/textillate/jquery.lettering.js"></script>
+  <script src="../../../../asset/js/libs/textillate/jquery.textillate.js"></script>
+  <style type="text/css">
+		
+  </style>
+  <body>
+      <div class="grid grid-pad">
+        <section class="col-1-1">
+            <div class="playground grid">
+              <div class="col-1-1 viewport">
+                  <div class="tlt" >Grumpy wizards make toxic brew for the evil Queen and Jack.</div>
+              </div>
+            </div>
+            <div class="col-1-1 controls" style="padding-right: 0">
+                
+                  <div class="control col-1-2">
+                    <label for=""><a href="#" id="InAnimation">In Animation start</a></label>
+                  </div>
+                  <div class="control col-1-2">
+                    <label for=""><a href="#" id="OutAnimation">Out Animation start</a></label>
+            	  </div>
+            </div>
+        </section>
+      </div>
+
+<script>
+$(function (){
+	/* 폰트 크기 조절  .fitText(0.5, { maxFontSize: 18 }) */
+	
+
+	// 모션 타입 선언
+
+	$('.viewport .tlt').textillate({ autoStart: false ,
+		in: { effect: 'flash',   sync: false,  shuffle: false,  reverse: false },
+	   out: { effect: 'flash',   sync: false,  shuffle: true,   reverse: false }
+	 });
+	
+
+	// 모션 실행
+	$("#InAnimation").on("click",function(){
+		 $('.viewport .tlt').textillate("in");
+	    // $('.viewport .tlt span span span').css({ "visibility":"hidden" });
+		
+	})
+
+	 $("#OutAnimation").on("click",function(){		 
+		 $('.viewport .tlt').textillate("out")
+	})
+	
+
+
+});
+
+	</script>
+
+  </body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>망했스</title>
+	<style>
+		.overlay {
+			position: absolute;
+			width: 200px;
+			height: 100%;
+			top: 0;
+			background-color: red;
+			opacity: 0.5;
+		}
+
+		.box {
+			width: 100px;
+			height: 100px;
+			margin-left: 150px;
+			background: indigo;
+		}
+
+		.active {
+			background: cyan;
+		}
+		
+			
+		.nonevent {pointer-events:none; }
+	</style>
+	
+	<!--[if IE]>
+      <style type="text/css">
+
+        .nonevent {          filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../../../../asset/images/sample_600x600.png"', sizingMethod='scale');
+          background:none !important;
+        }
+
+        </style>
+    <![endif]-->
+	
+	
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.1/jquery.min.js" ></script>
+</head>
+
+<body>
+	<div class="overlay nonevent">overlay ie11 이상</div>
+	<div class="box">box</div>
+	
+	
+	
+	<script>
+		
+		$('.box').hover(function() {
+			$(this).toggleClass('active');
+		});
+	</script>
+</body>
+</html>

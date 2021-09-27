@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+	<title>height-resize | TR package</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>	
+	<script type="text/javascript" src="../../../../asset/js/libs/trpUnit.js"></script>
+	<style type="text/css">
+		div { border:1px dashed red;}
+		.h50w500 { font-size:16px; max-width:500px; }		
+		.h100w500 { font-size:16px; max-width:500px; }		
+		.h150w500 { font-size:16px; max-width:500px; }		
+		
+		.h50w800 { font-size:16px; max-width:800px; }		
+		.h100w800 { font-size:16px; max-width:800px; }		
+		.h200w800 { font-size:16px; max-width:800px; }	
+		
+		.video { max-width:640px; max-height: 360px; }	
+
+	</style>
+	<script type="text/javascript">
+		$(document).ready(function(){
+
+			$(".h50w500").trpRatioSize({
+				maxTri	: 500, 
+				maxTar  : 50
+			});
+			$(".h100w500").trpRatioSize({
+				maxTri	: 500, 
+				maxTar  : 100
+			});
+			$(".h150w500").trpRatioSize({
+				maxTri	: 500, 
+				maxTar  : 150
+			});
+
+
+			$(".h50w800").trpRatioSize({
+				maxTri	: 800, 
+				maxTar  : 50
+			});
+			$(".h100w800").trpRatioSize({
+				maxTri	: 800, 
+				maxTar  : 100
+			});
+			var bbb = $(".h200w800").trpRatioSize({
+				maxTri	: 800, 
+				maxTar  : 200
+			});
+			
+			
+			
+			$(".video").trpRatioSize({
+				maxTri	: 640, 
+				minTri	: 320, 
+				maxTar  : 360,
+				minTar  : 180
+			});
+			
+		})
+	</script>
+</head>
+<body>
+	<div class="h50w500">기본 높이 50px   : max-width:500</div>
+	<div class="h100w500">기본 높이 100px : max-width:500</div>
+	<div class="h150w500">기본 높이 150px : max-width:500</div>
+	
+	<div class="h50w800">기본 높이 50px   : max-width:800</div>
+	<div class="h100w800">기본 높이 100px : max-width:800</div>
+	<div class="h200w800">기본 높이 200px : max-width:800</div>
+	
+	<br><br><br>
+	
+	<div class="video">max-width:640px; max-height: 360px;</div>
+	
+	
+</body>
+</html>

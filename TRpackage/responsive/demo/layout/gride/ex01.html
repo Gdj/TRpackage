@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+	<title>Gride System</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+	/* 컬럼 박스 */
+	.row {position:relative; width:auto; margin-top:0px; margin-bottom:20px; *zoom:1;}
+	.row:after {content:""; clear:both; display:block;}
+	.row:last-child {margin-bottom:0px;}
+	.row .row {width:auto; box-sizing:border-box;}
+	.row section {margin-bottom:0px;}
+
+	/* 컬럼 모션 */
+	.col {
+		float:left; 
+		margin-right:2.12765%; 
+		-webkit-transition-property: width;
+		-moz-transition-property: width;
+		-o-transition-property: width;
+		transition-property: width;
+		-webkit-transition-duration: 0.5s, 0.5s;
+		-moz-transition-duration: 0.5s, 0.5s;
+		-o-transition-duration: 0.5s, 0.5s;
+		transition-duration: 0.5s, 0.5s; 
+		-webkit-transition-timing-function: linear, ease-in;
+		-moz-transition-timing-function: linear, ease-in; 
+		-o-transition-timing-function: linear, ease-in; 
+		transition-timing-function: linear, ease-in;	
+	}
+	
+	/* 마지막 컬럼 */
+	.col_last, .col:last-child {float:right; margin-right:0px;}
+	
+	/* 컬럼 크기 */
+	.col1 {width:6.38297%;}
+	.col2 {width:14.89361%;} @media all and (max-width:640px) {.col2 {width:48.93617%; } .col2:nth-child(even){  float: right; margin-right: 0px;} }
+	.col3 {width:23.40425%;} @media all and (max-width:640px) {.col3 {width:100%;}}
+	.col4 {width:31.91489%;} @media all and (max-width:640px) {.col4 {width:100%;}}
+	.col5 {width:40.42553%;} @media all and (max-width:640px) {.col5 {width:100%;}}
+	.col6 {width:48.93617%;} @media all and (max-width:640px) {.col6 {width:100%;}}  
+	.col7 {width:57.44680%;} @media all and (max-width:640px) {.col7 {width:100%;}}
+	.col8 {width:65.95744%;} @media all and (max-width:640px) {.col8 {width:100%;}}
+	.col9 {width:74.46808%;} @media all and (max-width:640px) {.col9 {width:100%;}}
+	.col10 {width:82.97872%;} @media all and (max-width:640px) {.col10 {width:100%;}}
+	.col11 {width:91.48936%;}
+	.col12 {width:100%;}
+
+	/* 짜투리 예외처리 */
+	@media all and (max-width:640px){
+		.col_50_c {  float:left; margin-left:25%  }		
+		.col_50_c:nth-child(even){   float:left; margin-left:25%  }	
+		.row {margin-bottom:0px;}
+	}
+	
+	/* 박스모양 */
+	.box {height:20px; border:1px solid #ddd; text-align:center; line-height:20px; background-color:#fff;}
+</style>
+</head>
+<body>
+
+<section class="section">
+	<!-- Section Header -->
+	<div class="section_header">
+		<h4>Gride System</h4>
+	</div>
+	<!--// Section Header -->					
+	<!-- Section Body -->
+	<div class="section_body">
+
+		<div class="row">
+			<div class="col col1">
+				<div class="box">.col1</div>
+			</div>
+			<div class="col col1">
+				<div class="box">.col1</div>
+			</div>
+			<div class="col col1">
+				<div class="box">.col1</div>
+			</div>
+			<div class="col col1">
+				<div class="box">.col1</div>
+			</div>
+			<div class="col col1">
+				<div class="box">.col1</div>
+			</div>
+			<div class="col col1">
+				<div class="box">.col1</div>
+			</div>
+			<div class="col col1">
+				<div class="box">.col1</div>
+			</div>
+			<div class="col col1">
+				<div class="box">.col1</div>
+			</div>
+			<div class="col col1">
+				<div class="box">.col1</div>
+			</div>
+			<div class="col col1">
+				<div class="box">.col1</div>
+			</div>
+			<div class="col col1">
+				<div class="box">.col1</div>
+			</div>
+			<div class="col_last col1">
+				<div class="box">.col1</div>
+			</div>		
+		</div>
+		<div class="row">
+			<div class="col col2">
+				<div class="box">.col2-1</div>
+			</div>
+			<div class="col col2">
+				<div class="box">.col2-2</div>
+			</div>
+			<div class="col col2">
+				<div class="box">.col2-3</div>
+			</div>
+			<div class="col col2">
+				<div class="box">.col2-4</div>
+			</div>
+			<div class="col col2">
+				<div class="box">.col2-5</div>
+			</div>
+			<div class="col_last col2">
+				<div class="box">.col2-6</div>
+			</div>
+		</div>	
+		<div class="row">
+			<div class="col col3">
+				<div class="box">.col3</div>
+			</div>
+			<div class="col col3">
+				<div class="box">.col3</div>
+			</div>
+			<div class="col col3">
+				<div class="box">.col3</div>
+			</div>
+			<div class="col_last col3">
+				<div class="box">.col3</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col col4">
+				<div class="box">.col4</div>
+			</div>
+			<div class="col col4">
+				<div class="box">.col4</div>
+			</div>
+			<div class="col_last col4">
+				<div class="box">.col4</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col col5">
+				<div class="box">.col5</div>
+			</div>
+			<div class="col col5">
+				<div class="box">.col5</div>
+			</div>
+			<div class="col_last col2 col_50_c">
+				<div class="box">.col2</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col col6">
+				<div class="box">.col6</div>
+			</div>
+			<div class="col_last col6">
+				<div class="box">.col6</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col col7">
+				<div class="box">.col7</div>
+			</div>
+			<div class="col_last col5">
+				<div class="box">.col5</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col col8">
+				<div class="box">.col8</div>
+			</div>
+			<div class="col_last col4">
+				<div class="box">.col4</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col col9">
+				<div class="box">.col9</div>
+			</div>
+			<div class="col_last col3">
+				<div class="box">.col3</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col col10">
+				<div class="box">.col10</div>
+			</div>
+			<div class="col_last col2 col_50_c">
+				<div class="box">.col2</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col col11">
+				<div class="box">.col11</div>
+			</div>
+			<div class="col_last col1">
+				<div class="box">.col1</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col12">
+				<div class="box">.col12</div>
+			</div>
+		</div>
+	</div>
+	<!--// Section Body -->				
+</section>				
+			
+</body>
+</html>

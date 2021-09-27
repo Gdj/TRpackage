@@ -1,0 +1,404 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+<title>textillate | TR package</title>
+<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="../../../../asset/js/libs/trpMenu.js"></script>
+<link rel="stylesheet" href="../../../../asset/css/common.css" type="text/css" media="all" />
+
+
+</head>
+<body>
+  <div id="header" ></div>
+  <div id="container">
+	<div id="lnb" class="gnb"></div>
+	<!-- s: 컨텐츠 시작 -->
+	<div id="contents" class="contents">
+		<!-- s: 스크립드 설명 -->
+		<div class="desc_wapper">
+			<h1 class="desc_title">textillate</h1>
+			<p>텍스트 모션을 생성 <a href="http://textillate.js.org/" target="_blank">textillate.js</a></p>
+			
+		</div>
+		<!-- e: 스크립드 설명 -->
+	
+		<!-- s: api 설명 -->
+		<div class="api">
+			<h2 class="api-title">.textillate({ option } )</h2>
+			<div class="api-body">
+				<dl>
+					<dt>설명</dt>
+					<dd><span class="icon"></span>이미지로된 숫자를 호전하듯이 정열된는 효과.</dd>
+					<dd><span class="icon"></span>관련 css가 선언되어야 합니다. </dd>
+					
+				</dl>
+				<table class="table_col" summary="option속성 설명 ">
+					<caption>option</caption>
+					<colgroup>
+						<col style="width:150px">
+						<col style="width:auto">		
+					</colgroup>
+					<tbody>
+					<tr>
+						<th scope="col">매개변수</th>
+						<th scope="col">매개변수 설명</th>
+					</tr>
+					<tr>
+						<td>selector</td>
+						<td>감지될 텍스트를 담아둘 선택자, 기본값은 "texts" </td>		
+					</tr>
+					<tr>
+						<td>loop</td>
+						<td>반복실행 여부, 기본값은 false</td>		
+					</tr>
+					<tr>
+						<td>minDisplayTime</td>
+						<td>각텍스트의 최소 모션 시간, 기본값은 2000</td>		
+					</tr>
+					<tr>
+						<td>initialDelay</td>
+						<td>처음 실행될 지연 신간, 기본값은 0</td>	
+					</tr>
+					<tr>
+						<td>autoStart</td>
+						<td>자동으로 실행될지에 대한 여부, 기본 값은 true</td>	
+					</tr>
+					<tr>
+						<td>inEffects</td>
+						<td>보여지는 효과, 배열형태로 정의
+						  <select data-key="effect" data-type="in">
+                              <option value="" label>:: effect list ::</option>
+                              <option value="flash">flash</option>
+                              <option value="bounce">bounce</option>
+                              <option value="shake">shake</option>
+                              <option value="tada">tada</option>
+                              <option value="swing">swing</option>
+                              <option value="wobble">wobble</option>
+                              <option value="pulse">pulse</option>
+                              <option value="flip">flip</option>
+                              <option value="flipInX">flipInX</option>
+                              <option value="flipInY">flipInY</option>
+                              <option value="fadeIn">fadeIn</option>
+                              <option value="fadeInUp">fadeInUp</option>
+                              <option value="fadeInDown">fadeInDown</option>						  
+                              <option value="fadeInLeft">fadeInLeft</option>
+                              <option value="fadeInRight">fadeInRight</option>
+                              <option value="fadeInUpBig">fadeInUpBig</option>
+                              <option value="fadeInDownBig">fadeInDownBig</option>
+                              <option value="fadeInLeftBig">fadeInLeftBig</option>
+                              <option value="fadeInRightBig">fadeInRightBig</option>
+                              <option value="bounceIn">bounceIn</option>
+                              <option value="bounceInDown">bounceInDown</option>
+                              <option value="bounceInUp">bounceInUp</option>
+                              <option value="bounceInLeft">bounceInLeft</option>
+                              <option value="bounceInRight">bounceInRight</option>
+                              <option value="rotateIn">rotateIn</option>
+                              <option value="rotateInDownLeft">rotateInDownLeft</option>
+                              <option value="rotateInDownRight">rotateInDownRight</option>
+                              <option value="rotateInUpLeft">rotateInUpLeft</option>
+                              <option value="rotateInUpRight">rotateInUpRight</option>
+                              <option value="rollIn">rollIn</option>
+						  </select>
+						</td>	
+					</tr>
+					<tr>
+						<td>outEffects</td>
+						<td>숨겨지는 효과, 배열형태로 정의 기본값은 ['hinge']</td>		
+					</tr>
+					<tr>
+						<td>in:{}</td>
+						<td>보여지는 모션의 옵션 <br>
+    <pre>
+    effect: 'fadeInLeftBig',    // 보여지는 효과      
+    delayScale: 1.5,            // 각 문자에대한 지연 크기 
+    delay: 50,                  // 각 문자에대한 지연 시간   
+    sync: false,                // true 면 각문자가 동시에 모션됨 
+    shuffle: false,             // 각문자가 렌덤으로 모션된지 여부 (sync:true 면 의미없음)
+    reverse: false,             // 문자순서를 반대로 모션줄지 여부 (sync:true 면 의미없음) 
+    callback: function () {}    // 보이는 모션이 끝나면 호출되는 함수 </pre> 
+   
+						</td>	
+					</tr>
+					<tr>
+						<td>out:{}</td>
+						<td>숨겨지는 모션의 옵션 <br>
+    <pre>
+    effect: 'hinge',            // 보여지는 효과     
+    delayScale: 1.5,            // 각 문자에대한 지연 크기 
+    delay: 50,                  // 각 문자에대한 지연 시간 
+    sync: false,                // true 면 각문자가 동시에 모션됨 
+    shuffle: false,             // 각문자가 렌덤으로 모션된지 여부 (sync:true 면 의미없음)
+    reverse: false,             // 문자순서를 반대로 모션줄지 여부 (sync:true 면 의미없음)
+    callback: function () {}    // 숨김 모션이 끝나면 호출되는 함수 </pre>
+    
+						</td>	
+					</tr>
+					<tr>
+						<td>callback</td>
+						<td>전체 모션이 끝나면 호출되는 함수</td>	
+					</tr>
+					<tr>
+						<td>type</td>
+						<td>모션 줄단위, 기본값은 char('char' and 'word')</td>	
+					</tr>				
+					</tbody>
+				</table>
+
+				<table class="table_col" summary="메서드 설명 ">
+					<caption>메서드</caption>
+					<colgroup>
+						<col width="150">
+						<col width="">		
+					</colgroup>
+					<tbody>
+					<tr>
+						<th scope="col">메서드</th>
+						<th scope="col">메서드 설명</th>
+					</tr>
+					<tr>
+						<td>$(element).textillate('start')</td>
+						<td>수동으로 모션 시작</td>		
+					</tr>
+					<tr>
+						<td>$(element).textillate('stop')</td>
+						<td>수동으로 모션 멈춤</td>		
+					</tr>	
+					<tr>
+						<td>$(element).textillate('in')</td>
+						<td>수동으로 보여지는 모션 시작</td>		
+					</tr>	
+					<tr>
+						<td>$(element).textillate('out')</td>
+						<td>수동으로 숨겨지는 모션 시작</td>	
+					</tr>						
+					</tbody>
+				</table>
+				
+				<table class="table_col" summary="Events 설명 ">
+					<caption>메서드</caption>
+					<colgroup>
+						<col width="150">
+						<col width="">		
+					</colgroup>
+					<tbody>
+					<tr>
+						<th scope="col">Events 이름</th>
+						<th scope="col">Events 설명</th>
+					</tr>
+					<tr>
+						<td>start.tlt</td>
+						<td>textillate 모션 시작할때 호출 <br>
+						    ex) $('start.tlt').on('inAnimationBegin.tlt', function () {  //do something });
+						</td>		
+					</tr>
+					<tr>
+						<td>end.tlt</td>
+						<td>textillate 모션 끝날때 호출</td>		
+					</tr>
+					<tr>
+						<td>inAnimationBegin.tlt</td>
+						<td>보여지는 모션 시작할때 호출</td>
+					</tr>
+					<tr>
+						<td>inAnimationEnd.tlt</td>
+						<td>보여지는 모션 끝날때 호출</td>
+					</tr>
+					<tr>
+						<td>outAnimationBegin.tlt</td>
+						<td>숨겨지는 모션 시작할때 호출</td>		
+					</tr>
+					<tr>
+						<td>outAnimationEnd.tlt</td>
+						<td>숨겨지는 모션 끝날때 호출</td>		
+					</tr>		
+					</tbody>
+				</table>
+			
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+
+		<!-- s: examples 예제 -->
+		<div class="ex_wapper">
+			<div class="section">
+				<h2 class="ex-title">예제) 1.기본사용법 </h2>
+				<p class="ex-more" ><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p>
+				<p class="ex-view" ><a href="ex01.html" target="_blank">View</a></p>
+				<div class="ex-body" style="display:none" >					
+					<div class="source">
+					<!-- 소스 -->
+
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!DOCTYPE HTML&gt;</span>
+<span style="color: #f92672">&lt;html&gt;</span>
+  <span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">charset=</span><span style="color: #e6db74">&quot;utf-8&quot;</span><span style="color: #f92672">&gt;</span>
+  <span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">http-equiv=</span><span style="color: #e6db74">&quot;X-UA-Compatible&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;chrome=1&quot;</span><span style="color: #f92672">&gt;</span>
+  <span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">name=</span><span style="color: #e6db74">&quot;viewport&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;width=device-width, initial-scale=1.0&quot;</span><span style="color: #f92672">&gt;</span>
+  <span style="color: #f92672">&lt;title&gt;</span>Textillate | TR package<span style="color: #f92672">&lt;/title&gt;</span>
+  <span style="color: #f92672">&lt;link</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/textillate/css/style.css&quot;</span> <span style="color: #a6e22e">rel=</span><span style="color: #e6db74">&quot;stylesheet&quot;</span><span style="color: #f92672">&gt;</span>
+  <span style="color: #f92672">&lt;link</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/textillate/css/animate.css&quot;</span> <span style="color: #a6e22e">rel=</span><span style="color: #e6db74">&quot;stylesheet&quot;</span><span style="color: #f92672">&gt;</span>
+  <span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+  <span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/textillate/jquery.lettering.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+  <span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/textillate/jquery.textillate.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+  <span style="color: #f92672">&lt;style </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/css&quot;</span><span style="color: #f92672">&gt;</span>
+		
+  <span style="color: #f92672">&lt;/style&gt;</span>
+  <span style="color: #f92672">&lt;body&gt;</span>
+      <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;grid grid-pad&quot;</span><span style="color: #f92672">&gt;</span>
+        <span style="color: #f92672">&lt;section</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;col-1-1&quot;</span><span style="color: #f92672">&gt;</span>
+            <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;playground grid&quot;</span><span style="color: #f92672">&gt;</span>
+              <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;col-1-1 viewport&quot;</span><span style="color: #f92672">&gt;</span>
+                  <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;tlt&quot;</span> <span style="color: #f92672">&gt;</span>Grumpy wizards make toxic brew for the evil Queen and Jack.<span style="color: #f92672">&lt;/div&gt;</span>
+              <span style="color: #f92672">&lt;/div&gt;</span>
+            <span style="color: #f92672">&lt;/div&gt;</span>
+            <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;col-1-1 controls&quot;</span> <span style="color: #a6e22e">style=</span><span style="color: #e6db74">&quot;padding-right: 0&quot;</span><span style="color: #f92672">&gt;</span>
+                
+                  <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;control col-1-2&quot;</span><span style="color: #f92672">&gt;</span>
+                    <span style="color: #f92672">&lt;label</span> <span style="color: #a6e22e">for=</span><span style="color: #e6db74">&quot;&quot;</span><span style="color: #f92672">&gt;&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#&quot;</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;InAnimation&quot;</span><span style="color: #f92672">&gt;</span>In Animation start<span style="color: #f92672">&lt;/a&gt;&lt;/label&gt;</span>
+                  <span style="color: #f92672">&lt;/div&gt;</span>
+                  <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;control col-1-2&quot;</span><span style="color: #f92672">&gt;</span>
+                    <span style="color: #f92672">&lt;label</span> <span style="color: #a6e22e">for=</span><span style="color: #e6db74">&quot;&quot;</span><span style="color: #f92672">&gt;&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#&quot;</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;OutAnimation&quot;</span><span style="color: #f92672">&gt;</span>Out Animation start<span style="color: #f92672">&lt;/a&gt;&lt;/label&gt;</span>
+            	  <span style="color: #f92672">&lt;/div&gt;</span>
+            <span style="color: #f92672">&lt;/div&gt;</span>
+        <span style="color: #f92672">&lt;/section&gt;</span>
+      <span style="color: #f92672">&lt;/div&gt;</span>
+
+<span style="color: #f92672">&lt;script&gt;</span>
+<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span> <span style="color: #f8f8f2">(){</span>
+	<span style="color: #75715e">/* 폰트 크기 조절  .fitText(0.5, { maxFontSize: 18 }) */</span>
+	
+
+	<span style="color: #75715e">// 모션 타입 선언</span>
+
+	<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;.viewport .tlt&#39;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">textillate</span><span style="color: #f8f8f2">({</span> <span style="color: #a6e22e">autoStart</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">false</span> <span style="color: #f8f8f2">,</span>
+		<span style="color: #66d9ef">in</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">{</span> <span style="color: #a6e22e">effect</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;flash&#39;</span><span style="color: #f8f8f2">,</span>   <span style="color: #a6e22e">sync</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">false</span><span style="color: #f8f8f2">,</span>  <span style="color: #a6e22e">shuffle</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">false</span><span style="color: #f8f8f2">,</span>  <span style="color: #a6e22e">reverse</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">false</span> <span style="color: #f8f8f2">},</span>
+	   <span style="color: #a6e22e">out</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">{</span> <span style="color: #a6e22e">effect</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;flash&#39;</span><span style="color: #f8f8f2">,</span>   <span style="color: #a6e22e">sync</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">false</span><span style="color: #f8f8f2">,</span>  <span style="color: #a6e22e">shuffle</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">true</span><span style="color: #f8f8f2">,</span>   <span style="color: #a6e22e">reverse</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">false</span> <span style="color: #f8f8f2">}</span>
+	 <span style="color: #f8f8f2">});</span>
+	
+
+	<span style="color: #75715e">// 모션 실행</span>
+	<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;#InAnimation&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">on</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;click&quot;</span><span style="color: #f8f8f2">,</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(){</span>
+		 <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;.viewport .tlt&#39;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">textillate</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;in&quot;</span><span style="color: #f8f8f2">);</span>
+	    <span style="color: #75715e">// $(&#39;.viewport .tlt span span span&#39;).css({ &quot;visibility&quot;:&quot;hidden&quot; });</span>
+		
+	<span style="color: #f8f8f2">})</span>
+
+	 <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;#OutAnimation&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">on</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;click&quot;</span><span style="color: #f8f8f2">,</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(){</span>		 
+		 <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;.viewport .tlt&#39;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">textillate</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;out&quot;</span><span style="color: #f8f8f2">)</span>
+	<span style="color: #f8f8f2">})</span>
+	
+
+
+<span style="color: #f8f8f2">});</span>
+
+	<span style="color: #f92672">&lt;/script&gt;</span>
+
+  <span style="color: #f92672">&lt;/body&gt;</span>
+<span style="color: #f92672">&lt;/html&gt;</span>
+</pre></td></tr></table></div>
+
+
+				
+
+				    <!--// 소스 -->
+					</div>
+				</div>
+			</div>			
+		</div>
+		<!-- e: examples 예제 -->
+
+
+
+
+	</div>
+	<!-- e: 컨텐츠 끝 -->
+</div>
+
+
+
+<script type="text/javascript">
+	$("#header").load("../../../head.html");
+	$("#lnb").load("../../../lnb.html");	
+
+	$(".ex-more a").click(function() {
+		$( this ).find("span").toggle();
+		$( this ).parent().siblings(".ex-body").slideToggle();
+		return false;
+	});
+
+	$(".icon-more a").click(function() {
+		$( this ).find("span").toggle();
+		$( this ).parent().siblings(".ex-body").slideToggle();
+		return false;
+	});
+</script>
+
+</body>
+</html>

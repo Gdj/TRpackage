@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>basic layout</title>
+	<style type="text/css">
+		/*  layout */
+		#wrap { min-width: 940px; }
+		#header { width:100%; background:#ccc}
+		#container { width: 940px; margin: 0 auto;  text-align: left; zoom: 1;  outline:1px solid blue;}
+		#container .col_left{ float: left; width: 640px;  }			
+		#container .col_right{  float: right; width: 300px; }			
+		.float_c { overflow: hidden; border:0; margin:0; padding:0; height:0; clear: both; visibility:hidden; } 
+		#footer { overflow: hidden; clear: both; position: relative;  background:#aaa } 
+
+
+	</style>
+ </head>
+ <body>
+	<div id="wrap">
+		<div id="header">id="header"</div>
+		<div id="container">
+			<div class="col_left">
+				class="col_left" <br />
+				class="col_left" <br />
+				class="col_left" <br />
+			</div>
+			<div class="col_right">
+				class="col_right"  <br />
+				class="col_right"  <br />
+				class="col_right"  <br />
+				class="col_right"  <br />
+				class="col_right"  <br />
+				class="col_right"  <br />				
+			</div>
+			<div  class="float_c" ></div>
+		</div>
+		<div id="footer">id="footer"</div>  
+	</div>  
+ </body>
+</html>

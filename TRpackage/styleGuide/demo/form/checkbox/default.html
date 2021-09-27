@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+<title>checkbox</title>
+<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.js" charset="UTF-8"></script>
+<link rel="stylesheet" type="text/css"  href="../../../../asset/css/common.css" media="all" />
+<link rel="stylesheet" type="text/css"  href="../../../../asset/css/trpBase.css" media="all" />
+
+<!--
+<style type="text/css">
+
+/** list **/
+.tr.list-dot li, .list-dot dd { text-indent: -11px; vertical-align:bottom; }
+.tr.list-dot .icon18 { width:18px; margin-left:-7px; *margin-left:-18px; text-indent: 7px; *text-indent: -0px; text-align:center;  }
+/** //list **/
+
+
+/** trp_icon **/
+.icon18 { display:inline-block; line-height:1; width:18px; height:18px; text-indent: -9999px; vertical-align: middle; background: url('../../../images/icons-18-base.png') -18px -36px no-repeat; }}
+.map18_01-01 { background-position:0	 -36px; }
+.map18_01-02 { background-position:-36px -36px; }
+.map18_01-03 { background-position:-72px -36px; }
+/**  //trp_icon  **/
+
+</style>
+-->
+
+</head>
+<body>
+  <div id="header" ></div>
+  <div id="container">
+	<div id="lnb" class="gnb"></div>
+	<!-- s: 컨텐츠 시작 -->
+	<div id="contents" class="contents">
+		<!-- s: css 설명
+		<div class="desc_wapper">
+			<h1 class="desc_title">list</h1>
+			<p>목록에 대한 정의입니다.</p>
+		</div>
+		 -->
+		<!-- e: css 설명 -->
+	
+
+		<!-- s: api 설명 -->
+		<div class="api">
+			<h2 class="api-title">input [type="checkbox"]</h2>
+			<div class="api-body">
+				<dl>
+					<dt>설명</dt>					
+					<dd><span class="icon"></span>input 요소의 checkbox 대한 재정의</dd>
+				</dl>
+				
+
+
+				<div class="ex_wapper">
+					<h3 class="api-title_h3">VIEW</h3>
+					<p class="ex-more"><a href="javascript:return false;"><span class="d-n">+</span><span style="display: inline;">-</span></a></p>
+					<p class="ex-view"><a href="ex01.html" target="_blank">View Sample</a></p>
+					<div class="ex-body d-n" >
+						
+						
+						
+						<div class="trp input-box">	
+							<div class="checkbox-box">
+								<input type="checkbox" id="trp-checkbox" name="trp-checkbox">
+								<label for="trp-checkbox">동의하겠습니까?</label>				
+							</div>
+						</div>
+
+
+
+
+					</div>
+				</div>
+				
+
+				<div class="ex_wapper">
+					<h3 class="api-title_h3 css">CSS</h3>
+					<div class="api-body_h3 css">
+
+
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7
+8</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #f92672">&lt;style </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/css&quot;</span><span style="color: #f92672">&gt;</span>
+    
+	<span style="color: #75715e">/*** checkbox ***/</span>
+    <span style="color: #a6e22e">.trp.input-box</span> <span style="color: #a6e22e">.checkbox-box</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">float</span><span style="color: #f92672">:</span><span style="color: #66d9ef">left</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">margin-right</span><span style="color: #f92672">:</span><span style="color: #ae81ff">10px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+    <span style="color: #a6e22e">.trp.input-box</span> <span style="color: #a6e22e">.checkbox-box</span> <span style="color: #f92672">label</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">vertical-align</span><span style="color: #f92672">:</span><span style="color: #66d9ef">top</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+    <span style="color: #75715e">/*** checkbox ***/</span>
+    
+<span style="color: #f92672">&lt;/style&gt;</span>
+</pre></td></tr></table></div>
+
+
+
+
+
+
+
+
+					</div>
+				</div>
+
+
+
+				<div class="ex_wapper">
+				<h3 class="api-title_h3 html">HTML</h3>
+					<div class="api-body_h3 html">
+
+
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;trp input-box&quot;</span><span style="color: #f92672">&gt;</span>	
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;checkbox-box&quot;</span><span style="color: #f92672">&gt;</span>
+		<span style="color: #f92672">&lt;input</span> <span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;checkbox&quot;</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;trp-checkbox&quot;</span> <span style="color: #a6e22e">name=</span><span style="color: #e6db74">&quot;trp-checkbox&quot;</span><span style="color: #f92672">&gt;</span>
+		<span style="color: #f92672">&lt;label</span> <span style="color: #a6e22e">for=</span><span style="color: #e6db74">&quot;trp-checkbox&quot;</span><span style="color: #f92672">&gt;</span>동의하겠습니까?<span style="color: #f92672">&lt;/label&gt;</span>				
+	<span style="color: #f92672">&lt;/div&gt;</span>
+<span style="color: #f92672">&lt;/div&gt;</span>
+</pre></td></tr></table></div>
+
+
+
+
+					</div>
+				</div>
+					
+		
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+		
+	
+		</div>		
+	<!-- e: 컨텐츠 끝 -->
+	<p class="cl-b"></p>
+</div>
+
+
+
+<script type="text/javascript">
+	$("#header").load("../../../head.html");
+	$("#lnb").load("../../../lnb.html");	
+
+
+	$(".ex-more a").click(function() {
+		$( this ).find("span").toggle();
+		$( this ).parent().siblings(".ex-body").slideToggle();
+		return false;
+	});
+
+</script>
+
+</body>
+</html>

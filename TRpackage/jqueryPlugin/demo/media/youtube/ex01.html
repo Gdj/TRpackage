@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+	<title>you tube player</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+	<script src="https://www.youtube.com/iframe_api"></script>
+	<style type="text/css">
+	
+	</style>
+</head>
+  <body>
+	<!-- https://developers.google.com/youtube/iframe_api_reference#Loading_a_Video_Player -->
+	
+    <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+	<div id="player"></div>
+	<div class="menu">
+		<ul>
+			<li><a href="javascript:void(0)" onclick="playVideo()">재생</a></li>
+			<li><a href="javascript:void(0)" onclick="stopVideo()">정지</a></li>
+			<li><a href="javascript:void(0)" onclick="pauseVideo()">일시정지</a></li>
+			<li><a href="javascript:void(0)" onclick="seekTo(150,true)">150초뒤로 이동</a></li>
+			<li><a href="javascript:void(0)" onclick="unMute()">음소거 해지</a></li>
+			<li><a href="javascript:void(0)" onclick="mute()">음소거</a></li>
+			<li><a href="javascript:void(0)" onclick="setVolume(50)">볼룸 50</a></li>
+			<li><a href="javascript:void(0)" onclick="setPlaybackRate(2.5)">재생속도 x2.5</a>  |  <a href="javascript:void(0)" onclick="setPlaybackRate(1)">정상속도 x1</a></li>
+		</ul>
+	</div>
+
+
+    <script>
+      
+      var player;
+      function onYouTubeIframeAPIReady() { 	
+				player = new YT.Player('player', {
+					height: '390',
+					width: '640',
+					videoId: 'M7lc1UVf-VE',					
+					events: {
+					'onReady': playVideo					
+				}
+        });
+      }
+
+  
+	  /* 재생 */
+      function playVideo() {
+        player.playVideo();
+      }
+
+	  /* 재생정지 */
+      function stopVideo() {
+		player.seekTo(0, true );
+        player.stopVideo();		
+        player.clearVideo(); //잔여영상지우기
+      }
+
+	  /* 재생 일시정지*/
+	  function pauseVideo() {
+        player.pauseVideo();
+      }
+
+	  /* seekTo */
+	  function seekTo($seconds, $allowSeekAhead ) {
+        player.seekTo($seconds, $allowSeekAhead );
+      }
+
+
+	  /* 음소거 해지 => player.isMuted() : 플레이어가 음소거 상태인 경우 true를 반환하고 음소가 상태가 아닌 경우 false를 반환합니다.*/	
+      function unMute() {
+        player.unMute();
+      }
+
+	  /* 음소거 */	
+      function mute() {
+        player.mute();
+      }	
+	  
+  	  /* 볼륨 조절 : 볼륨을 설정합니다. 0에서 100 사이의 정수를 허용합니다. */
+      function setVolume($volume) {
+        player.setVolume($volume);
+		// player.getVolume()  볼륨 반환
+      }
+
+
+	  /* 재생속도 변경 ( x1=1 , x22=2.5 )*/
+      function setPlaybackRate($suggestedRate) {
+        player.setPlaybackRate($suggestedRate);
+		// player.getPlaybackRate():Number 이 함수는 현재 재생 중인 동영상의 재생 속도를 가져옵니다.  
+      }
+    
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+
+  .width_check { padding: 20px 0; text-align: center;   background-color: black}
+  .width_check .p1 { margin: 10px 0; text-align: center; font-size: 30px; color:bisque; font-weight: bold; }
+  .width_check .p2 { margin: 10px 0; text-align: center; font-size: 25px; color: brown; font-weight: bold;}
+  .width_check.is_pc {  background-color: blueviolet; }
+  .width_check.is_tb {  background-color: cornflowerblue;}
+  .width_check.is_mb {  background-color: darkseagreen;}
+
+  </style> 
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript" src="../../../../asset/js/libs/trpUtility.js"></script>
+
+  <!-- resize -->
+  <script>
+  $(document).ready(function(){
+    var _classNames = ["is_pc", "is_tb", "is_mb"]   
+    var _className  = "";
+    var _win_width ="";
+    var onceFn = $(".width_check").trpUtilityChangeOnceFn(
+      function(){ 
+        $(".width_check").removeClass("is_pc is_tb is_mb");
+        $(".width_check").addClass(_className);     
+        $(".width_check .p1").text("width 1200 / 768 / 768 under : " + _className);     
+        $(".width_check .p2").text( "width : " + _win_width );
+        console.log(" width : " + _win_width ) ;
+      } 
+    );
+    $(window).resize(function(){ 
+      _win_width = window.innerWidth; //  $(window).innerWidth();
+      if( _win_width > 1200){
+        _className = _classNames[0];
+      }else if( _win_width > 768 ){
+        _className = _classNames[1];
+      }else{
+        _className = _classNames[2];
+      }
+      onceFn.setChange(_className);
+    });
+    $(window).trigger("resize");
+
+  })
+  </script>
+	
+  <!-- interval 다중 사용 -->
+  <script> 
+    var _count2 = 0;
+    var _changed = "---";
+    var onceFn2 = $(".js-count2").trpUtilityChangeOnceFn(function(){
+        $(".js-count2").text( "change / 5 : " + _changed  );
+        console.log( "count2" , _changed );
+    });
+    setInterval(function(){
+      ++_count2;
+      var _temp = (_count2 % 5);
+      console.log(_count2);
+      if( _temp == 0 ){_changed = "chang_" + _count2;}
+
+      onceFn2.setChange( _changed );
+    }, 500);
+  </script>
+  
+	
+</head>
+<body>
+	
+  <div class="width_check">
+    <p class="p1">width 1200 / 768 / 768 under</p>
+    <p class="p2">www</p>
+  </div>
+  <br>
+  
+  <div>
+    <h2 class="js-count2"></h2>
+  </div>
+  
+ <div class="width_check">
+    <p class="p1">width 1200 / 768 / 768 under</p>
+    <p class="p2">www</p>
+  </div>
+  <br>
+ <div class="width_check">
+    <p class="p1">width 1200 / 768 / 768 under</p>
+    <p class="p2">www</p>
+  </div>
+  <br>
+ <div class="width_check">
+    <p class="p1">width 1200 / 768 / 768 under</p>
+    <p class="p2">www</p>
+  </div>
+  <br>
+ <div class="width_check">
+    <p class="p1">width 1200 / 768 / 768 under</p>
+    <p class="p2">www</p>
+  </div>
+  <br>
+ <div class="width_check">
+    <p class="p1">width 1200 / 768 / 768 under</p>
+    <p class="p2">www</p>
+  </div>
+  <br>
+ <div class="width_check">
+    <p class="p1">width 1200 / 768 / 768 under</p>
+    <p class="p2">www</p>
+  </div>
+  <br>
+  
+
+ 
+</body>
+</html>

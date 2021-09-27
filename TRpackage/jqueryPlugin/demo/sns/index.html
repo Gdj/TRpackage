@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.1.min.js" ></script>
+  <title>SNS공유</title>
+</head>
+<body>
+
+  <h4>Twitter</h4>
+  <a href="#" onclick="javascript:window.open('https://twitter.com/intent/tweet?text=[%EA%B3%B5%EC%9C%A0]%20'
+  +encodeURIComponent(document.URL)+'%20-%20'+encodeURIComponent(document.title), 'twittersharedialog',
+  'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank"
+  alt="Share on Twitter" >트위터 공유</a>
+
+  <br><hr><br>
+
+  <h4>Facebook</h4>
+  <a href="#" onclick="javascript:window.open('https://www.facebook.com/sharer/sharer.php?u='
+  +encodeURIComponent(document.URL)+'&t='+encodeURIComponent(document.title), 'facebooksharedialog',
+  'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank"
+   alt="Share on Facebook" >
+   페이스북 공유</a>
+   
+  <br><hr><br>
+   
+  <h4>Kakaostory </h4>
+  <a href="#" onclick="javascript:window.open('https://story.kakao.com/s/share?url='+encodeURIComponent(document.URL), 'kakaostorysharedialog', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=600');return false;" target="_blank" alt="Share on kakaostory">
+  카카오스토리 공유</a>
+  
+
+  <br><hr><br>
+
+  <h4>NAVER </h4>
+  <a href="#" onclick="javascript:window.open('https://share.naver.com/web/shareView.nhn?url='
+  +encodeURIComponent(document.URL)+'&title='+encodeURIComponent(document.title),
+    'naversharedialog', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" 
+    target="_blank" alt="Share on Naver" >
+  네이버 공유</a>
+  
+  <br><hr><br>
+
+  <h4>KakaoTalk </h4>
+  <script>
+    /* Kakao.init('카카오톡 자바스크립트 API 키');  */
+    function shareKatalk() {
+      Kakao.Link.sendScrap({
+        requestUrl: location.href
+      });
+    };
+  </script>
+  <a href="javascript:shareKatalk()">카카오톡 공유</a>
+
+    
+</body>
+</html>

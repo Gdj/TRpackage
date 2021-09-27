@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>trpLayerPopup01</title>	
+  <style type="text/css">
+    .trp.popup-wrap  { display:none; position: absolute;  top: 0; left: 0; z-index: 9999; width: 100%; height: 100%; text-align: center;  } 
+    .trp.popup-wrap .trp_popup { display: inline-block; *display:inline; zoom:1; position: relative;   } 
+    .trp.popup-wrap .trp_popup.option {  top:50px; width:600px; background:#fff ; }
+    .trp.popup-wrap .trp_popup .btn_x { position:absolute; top:15px; right:15px;  }
+    .trp.popup-wrap .trp_popup .con { position:relative; clear: both; height: 220px; padding:10px; text-align: center; }	 
+    .trp.popup-wrap .popup-dim { position:absolute; top:0; left:0; width:100%; height:100%;  background: #000000; opacity: 0.7;  filter: alpha(opacity=70);  } 
+    </style>
+  <script src="http://code.jquery.com/jquery-1.12.1.min.js"></script>
+  <script type="text/javascript" src="../../../../asset/js/libs/trpPopup_all0.83.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function(){
+
+    var layerPopup = $(".popupBtn").trpLayerPopup();
+    $(".popupBtn").on("click",function(){ 	
+      var _scrollY = $(document).scrollTop() + 100;
+      layerPopup.align( _scrollY ,"center");
+      layerPopup.bgDim(".popup-dim");
+      layerPopup.open(this);		
+      return false;
+    })
+
+    /* 팝업닫기 */
+    $("#popup-wrap").on("click", ".js-popclose", function(){ 	  
+      layerPopup.close();
+      return false;
+    })
+
+  });
+  </script>
+ 
+</head>
+<body>
+ 
+  <div id="wrapper" class="wrapper">
+    <p><a class="popupBtn" href="#popup-wrap">popup 1</a></p>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <p><a class="popupBtn" href="#popup-wrap">popup 2</a></p>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <p><a class="popupBtn" href="#popup-wrap">popup 3</a></p>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <p><a class="popupBtn" href="#popup-wrap">popup 4</a></p>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <p><a class="popupBtn" href="#popup-wrap">popup 5</a></p>
+  </div>	
+
+  <div  id="popup-wrap" class="trp popup-wrap">
+    <div class="popup-dim js-popclose"></div>	
+    <div class="trp_popup option">
+      <div class="con">
+        <a class="btn_x js-popclose" href="#">X</a>			
+        팝업 내용
+      </div>
+    </div>
+  </div>	
+
+</body>
+</html>

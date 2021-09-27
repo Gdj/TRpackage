@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+ <head>
+  <title>imageloader jQuery Plugin</title>
+    
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" ></script>
+    <script src="../../../../asset/js/libs/jquery.imageloader/jquery.imageloader.js" ></script>
+
+    <style type="text/css">
+    /* 공통 스타일 */        
+    body {  font-size: 62.5%;   font-family: "Trebuchet MS", "Arial", "Helvetica", "Verdana", "sans-serif";     }
+    form {  font-size: 1.2em; }
+    .lazy-img { display:none; width: 250px; height: 250px; float: left; background-size:100%;}
+	.end { clear:both }
+
+    </style>
+
+    <script type="text/javascript">
+    $(function() {		
+			
+			
+		$("#load_btn").on("click" ,function(){
+			var num_total = $(".lazy-img").length;
+			var num_cound=0;
+			$('.lazy-img').imageloader(
+				{ 				
+					background: true,
+					each: function (elm) {
+					  console.log(elm);
+					},
+					callback: function (elm) {
+						num_cound = num_cound+1;
+						console.log(num_total + " : "+ num_cound +":"+ elm ) 						
+						$(elm).fadeIn();
+					}
+				}
+			);	// imageloader
+		});		// click	
+
+	}); 
+    </script>
+
+</head>
+<body>
+	<h2>imageloader (background)</h2>
+	<button id="load_btn">load image</button>
+		<div class="example">
+			<p class="lazy-img"  data-src="https://lh3.googleusercontent.com/-U264-5VZhZQ/Ucti-ph5iQI/AAAAAAAAz88/pBTGtQQNweQ/s512/13_06_15_Underwater_session_00690.jpg" >
+		   <p class="lazy-img" data-src="https://lh6.googleusercontent.com/-tEjyw4Ga-EA/UcFk5xUZ5OI/AAAAAAADEgo/V-JzKZBw7zg/s640/magic-peter-from.jpg">
+		   <p class="lazy-img"  data-src="https://lh6.googleusercontent.com/-BAvaCwV2C3A/UbmK4DmMpXI/AAAAAAADDvM/3kt8CI3O4aM/s720/fantasy40-mirror-peter-from.jpg"></p>
+			<p class="lazy-img" data-src="http://wbk.kr/wp/wp-content/uploads/2012/09/%EC%9D%84%EC%88%99%EB%8F%84_2_%ED%81%B0%EA%B3%A0%EB%8B%88.jpg"></p>
+		</div>
+		<div class="end">end</div>
+		
+</body>
+</html>

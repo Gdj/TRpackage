@@ -1,0 +1,67 @@
+
+body { margin:0 ; padding:0;}
+/*=================================================================================
+* gallery - Css
+=================================================================================*/
+/* ex01 */
+.gallery_view { position:relative; width: 100%; padding: 15px 0; background: #2a2a2a; }
+.gallery_view .gallery_center { width: 100%; height:535px; position: relative; overflow:hidden;  text-align:center;}
+.gallery_view .prev {  z-index: 5; font: 0/0 serif; position: absolute; left: 0; top: 250px; width: 40px; display: block; height: 64px; background: url('../images/btn_prev02_off.png') no-repeat left top;}
+.gallery_view .next {  z-index: 5; font: 0/0 serif; position: absolute; right: 0; top: 250px; width: 40px; display: block; height: 64px; background: url('../images/btn_next02_off.png') no-repeat left top;}
+.gallery_view .prev:hover {  z-index: 5; position: absolute; left: 0; top: 250px; width: 40px; display: block; height: 64px; background: url('../images/btn_prev02_on.png') no-repeat left top;}
+.gallery_view .next:hover {  z-index: 5; position: absolute; right: 0; top: 250px; width: 40px; display: block; height: 64px; background: url('../images/btn_next02_on.png') no-repeat left top;}
+.gallery_view .gallery_center div.swiper-slide { text-align: center; width:600px; height: 535px; float:left; cursor:pointer  }
+.gallery_view .gallery_center div.swiper-slide img { vertical-align: middle;}
+.gallery_view .pagination {  padding-top: 20px; width: 100%; text-align: center; }
+.gallery_view .pagination .swiper-pagination-bullet { display: inline-block; width: 10px; height: 10px; border-radius: 10px; background: #777; margin: 0 5px; cursor: pointer; } 
+.gallery_view .pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {  background: #fff; } 
+
+
+/* ex02 */
+.gallery_view:after { content:""; display:block; clear:both;}
+.gallery_view .gallery_left { float: left; width: 600px; position: relative; background: #1f1f1f; padding: 15px 0;}
+.gallery_view .gallery_left .prev {  z-index: 5; font: 0/0 serif; position: absolute; left: 0; top: 250px; width: 40px; display: block; height: 64px; background: url('../images/btn_prev02_off.png') no-repeat left top;}
+.gallery_view .gallery_left .next {  z-index: 5; font: 0/0 serif; position: absolute; right: 0; top: 250px; width: 40px; display: block; height: 64px; background: url('../images/btn_next02_off.png') no-repeat left top;}
+.gallery_view .gallery_left .prev:hover {  z-index: 5; position: absolute; left: 0; top: 250px; width: 40px; display: block; height: 64px; background: url('../images/btn_prev02_on.png') no-repeat left top;}
+.gallery_view .gallery_left .next:hover {  z-index: 5; position: absolute; right: 0; top: 250px; width: 40px; display: block; height: 64px; background: url('../images/btn_next02_on.png') no-repeat left top;}
+.gallery_view .gallery_left div.swiper-slide { text-align: center; width:600px; height: 535px; float:left; cursor:pointer  }
+.gallery_view .gallery_left div.swiper-slide img { vertical-align: middle;}
+.gallery_view .gallery_right { float: left; width: 430px;}
+.gallery_view .gallery_right .gallery_article { padding-left: 40px;  width: 360px; float:left}
+.gallery_view .gallery_right .gallery_article dl { margin-bottom: 30px;}
+.gallery_view .gallery_right .gallery_article dl dt { color: #fff; font-weight: bolder; font-size: 30px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; line-height: 40px; width: 100%; margin-bottom: 15px;}
+.gallery_view .gallery_right .gallery_article dl dd { color: #fff; font-size: 13px; line-height: 18px;}
+.gallery_view .gallery_right .gallery_article p { margin-bottom: 50px;}
+
+
+
+
+#products_example { width: 600px; height: 535px; position:relative;}
+#products .slides_container { width:600px; height: 535px; overflow:hidden; float:left; position:relative; }
+#products .slides_container a { width: 600px; height:535px; display:block; text-align: center;}
+#products .pagination { position: absolute; right: -400px; top: 265px; width: 360px;}
+#products .pagination:after { content:""; display:block; clear:both;}
+#products .pagination li { float: left; width: 83px; height: 111px; margin-right: 6px; margin-bottom: 6px; list-style-type:none;}
+#products .pagination li.last { margin-right: 0;}
+#products .pagination li a { display: block; width: 83px; height: 111px; position: relative;}
+#products .pagination li a .bg_gray { display: none;}
+#products .pagination li.current a .bg_gray { display: block; border: 3px solid #fff; width: 77px; height: 105px; position: absolute; left: 0; top: 0; z-index: 3;}
+#products .pagination li.current a .bg_gray span { display: block; width: 100%; height: 100%; zoom: 1; filter: alpha(opacity=30); opacity: 0.3; background: #000;}
+
+
+#ex03 { width: 100%; background: #2a2a2a; height:auto;  margin-bottom: 6px;}
+#ex03 .gallery_center { width: 100%; position: relative; padding: 15px 0;}
+#ex03 .gallery_center .prev {  z-index: 5; font: 0/0 serif; position: absolute; left: 0; top: 250px; width: 40px; display: block; height: 64px; background: url('../images/btn_prev02_off.png') no-repeat left top;}
+#ex03 .gallery_center .next {  z-index: 5; font: 0/0 serif; position: absolute; right: 0; top: 250px; width: 40px; display: block; height: 64px; background: url('../images/btn_next02_off.png') no-repeat left top;}
+#ex03 .gallery_center .prev:hover {  z-index: 5; position: absolute; left: 0; top: 250px; width: 40px; display: block; height: 64px; background: url('../images/btn_prev02_on.png') no-repeat left top;}
+#ex03 .gallery_center .next:hover {  z-index: 5; position: absolute; right: 0; top: 250px; width: 40px; display: block; height: 64px; background: url('../images/btn_next02_on.png') no-repeat left top;}
+#ex03 .gallery_center .slides_container { width:100%; overflow:hidden; float:left; position:relative; }
+#ex03 .gallery_center .slides_container a { width: 600px; height:535px; display:block; text-align: center;}
+#ex03 .gallery_center .slides_container .swiper-wrapper {}
+#ex03 .gallery_center div.swiper-slide { text-align: center; width:600px;  float:left; cursor:pointer  }
+#ex03 .gallery_center div.swiper-slide img { vertical-align: middle; width:100%; max-width:500px;}
+#ex03 .gallery_center .dot_btn { position:absolute; height:30px; }
+#ex03 .gallery_center .dot_btn li { list-style-type:none; float:left; }
+#ex03 .gallery_center .dot_btn li a { display: inline-block; width: 20px; height: 20px; border-radius: 20px; background: #999; box-shadow: 0px 1px 2px #555 inset; margin: 0 3px; cursor: pointer;}
+#ex03 .gallery_center .dot_btn li.current a { background:#fff; }
+#ex03 .redBox { width:100%; height:30px; background:red;}

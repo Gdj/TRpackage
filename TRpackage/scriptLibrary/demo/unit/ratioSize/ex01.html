@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+	<title>font-resize</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>	
+	<script type="text/javascript" src="../../../../asset/js/libs/trpUnit.js"></script>
+	<style type="text/css">
+		div { border:1px dashed red;}
+		.f12w500 { font-size:12px; max-width:500px; }		
+		.f16w500 { font-size:16px; max-width:500px; }		
+		.f20w500 { font-size:20px; max-width:500px; }		
+		.f24w500 { font-size:24px; max-width:500px; }		
+		.f28w500 { font-size:28px; max-width:500px; }		
+
+		.f12w800 { font-size:12px; max-width:800px; }		
+		.f16w800 { font-size:16px; max-width:800px; }		
+		.f20w800 { font-size:20px; max-width:800px; }		
+		.f24w800 { font-size:24px; max-width:800px; }		
+		.f28w800 { font-size:28px; max-width:800px; }		
+
+	</style>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$(".f12w500").trpRatioSize({
+				maxTri	: 500, 
+				maxTar  : 12,
+				property  : "font-size"
+			})
+			$(".f16w500").trpRatioSize({
+				maxTri	: 500, 
+				maxTar  : 16,
+				property  : "font-size"
+			})
+			$(".f20w500").trpRatioSize({
+				maxTri	: 500, 
+				maxTar  : 20,
+				property  : "font-size"
+			})
+			$(".f24w500").trpRatioSize({
+				maxTri	: 500, 
+				maxTar  : 24,
+				property  : "font-size"
+			})
+			$(".f28w500").trpRatioSize({
+				maxTri	: 500, 
+				maxTar  : 28,
+				property  : "font-size"
+			})
+
+
+
+			$(".f12w800").trpRatioSize({
+				maxTri	: 800, 
+				maxTar  : 12,
+				property  : "font-size"
+			})
+			$(".f16w800").trpRatioSize({
+				maxTri	: 800, 
+				maxTar  : 16,
+				property  : "font-size"
+			})
+			$(".f20w800").trpRatioSize({
+				maxTri	: 800, 
+				maxTar  : 20,
+				property  : "font-size"
+			})
+			$(".f24w800").trpRatioSize({
+				maxTri	: 800, 
+				maxTar  : 24,
+				property  : "font-size"
+			})
+			$(".f28w800").trpRatioSize({
+				maxTri	: 800, 
+				maxTar  : 28,
+				property  : "font-size"
+			})
+			
+		
+		})
+	</script>
+</head>
+<body>
+	<div class="f12w500">폰트 크기 12px : max-width:500</div>
+	<div class="f16w500">폰트 크기 16px : max-width:500</div>
+	<div class="f20w500">폰트 크기 20px : max-width:500</div>
+	<div class="f24w500">폰트 크기 24px : max-width:500</div>
+	<div class="f28w500">폰트 크기 28px : max-width:500</div>
+	<br />
+	<div class="f12w800">폰트 크기 12px : max-width:800</div>
+	<div class="f16w800">폰트 크기 16px : max-width:800</div>
+	<div class="f20w800">폰트 크기 20px : max-width:800</div>
+	<div class="f24w800">폰트 크기 24px : max-width:800</div>
+	<div class="f28w800">폰트 크기 28px : max-width:800</div>
+</body>
+</html>

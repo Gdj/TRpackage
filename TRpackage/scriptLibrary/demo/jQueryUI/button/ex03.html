@@ -1,0 +1,59 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+ <head>
+  <title> jQuery UI button </title>
+  <!-- 
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+  -->	
+
+	<link rel="stylesheet" href="../../../../asset/js/libs/jquery-ui-1.10.4.custom/themes/base/jquery.ui.all.css">
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" ></script>	
+	<script src="../../../../asset/js/libs/jquery-ui-1.10.4.custom/ui/jquery.ui.core.js"></script>
+	<script src="../../../../asset/js/libs/jquery-ui-1.10.4.custom/ui/jquery.ui.widget.js"></script>
+	<script src="../../../../asset/js/libs/jquery-ui-1.10.4.custom/ui/jquery.ui.button.js"></script>
+
+	<style type="text/css">
+	/* 공통 스타일 */		
+	body {	font-size: 62.5%; 	font-family: "Trebuchet MS", "Arial", "Helvetica", "Verdana", "sans-serif"; 	}
+	table {	font-size: 1em; }
+	.demo-description {	clear: both; padding: 12px; font-size: 1.3em; line-height: 1.4em; }
+	.ui-draggable, .ui-droppable {	background-position: top;	}
+	
+	/* 페이지 스타일*/
+	#format { margin-top: 2em; }	
+	</style>
+
+	<script>
+	  $(function() {
+		$( "#format" ).buttonset();
+
+		$( "#radio" ).buttonset();
+	  });
+  </script>
+
+</head>
+<body>
+
+<div id="format">
+  <input type="checkbox" id="check1"><label for="check1">B</label>
+  <input type="checkbox" id="check2"><label for="check2">I</label>
+  <input type="checkbox" id="check3"><label for="check3">U</label>
+</div>
+
+<br />
+
+<form>
+  <div id="radio">
+    <input type="radio" id="radio1" name="radio"><label for="radio1">Choice 1</label>
+    <input type="radio" id="radio2" name="radio" checked="checked"><label for="radio2">Choice 2</label>
+    <input type="radio" id="radio3" name="radio"><label for="radio3">Choice 3</label>
+  </div>
+</form>
+
+ </body>
+</html>

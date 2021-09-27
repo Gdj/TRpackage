@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>gnbActive custom</title>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript" src="../../../../asset/js/libs/trpMenu.js"></script>
+  <style type="text/css">
+    @charset "euc-kr";
+
+    /* 기본설정 */
+    html, body, div, p, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, a, img, fieldset, legend, select, textarea, input, button, table, th, td, form {margin:0; padding:0;}
+    li {list-style:none;}
+    a, select, label, input, button, img{color:#333; font-size:12px; vertical-align:middle;}
+    a {text-decoration:none; color:#333;}
+    body {font-family:'Malgun Gothic'; font-size:12px; color:#333;}   /* 기본폰트 맑은 고딕 */
+
+    /*------------------------------------------------------------------*/
+
+    #bar_bg1 { position:absolute; top:34px; height:35px; width:700px; background:#ccc; }	
+    /* 서브네비게이션 */
+    #gnb {width:700px; height:70px; position:relative; border:1px solid red }
+    #gnb > ul > li {float:left; position: relative; }
+    #gnb > ul > li a{ width:76px; height:74px; padding-right:5px; font-weight:bold; }
+    #gnb > ul > li > a{display: block; height: 24px; text-align: center; padding-top: 10px;}
+    #gnb > ul > li > a:hover{background:#314987; color:#ffffff;}
+    #gnb li.sub01 ul{width:700px; left:0px;}
+    #gnb li.sub02 ul{width:700px; left:0px;}
+    #gnb li.sub03 ul{width:700px; left:-150px;}
+    #gnb li.sub04 ul{width:700px; left:-200px;}
+    #gnb li.sub05 ul{width:700px; left:10px;}
+    #gnb li.sub06 ul{width:700px; right:0px; }
+    #gnb > ul ul{ position:absolute; top:40px; display:none; }
+    #gnb > ul ul li { margin-right:5px;  padding:0 8px;  float:left;}
+    #gnb > ul ul a{color:#000;}
+    #gnb > ul ul a.active{color:#c33;}
+
+    #gnb  li.sub01 > a.active{background:#b00; z-index:100;}
+    #gnb  li.sub02 > a.active{background:#b63; z-index:100;}
+    #gnb  li.sub03 > a.active{background:#bb3; z-index:100;}
+    #gnb  li.sub04 > a.active{background:#3b3; z-index:100;}
+    #gnb  li.sub05 > a.active{background:#33b; z-index:100;}
+    #gnb  li.sub06 > a.active{background:#3bb; z-index:100;}
+
+  </style>
+  <script type="text/javascript">
+    // JavaScript Document
+    $(document).ready(function(){	
+
+      $('#gnb').trpGNBactive("active" , gnbActiave ).setBtn([2,2]);	
+      var _oldDep1=-1;
+      function gnbActiave($dep1, $dep2){
+        var _dep1_ul = $('#gnb').find(' > ul ');							//  뎁스 1 ul
+        var _dep2_ul = $('#gnb').find(' > ul ul');							//  뎁스 2 ul
+        if($dep1 == -1){													//	1뎁스가 없으면 초기화
+          _dep1_ul.find('li > a').removeClass("active");
+          _dep2_ul.css( {'display':'none'} );
+          _dep2_ul.eq($dep1).find(' li a').removeClass("active");
+          return;
+        }
+
+        _dep1_ul.find(' li > a').removeClass("active");						//뎁스1	숨김
+        _dep1_ul.find(' > li').eq($dep1).find(' > a').addClass("active");	//뎁스1	보임
+
+        if(_oldDep1 != $dep1 ){												//뎁스2	숨김
+            _dep2_ul.css({'display':'none'});						
+        }	
+        _dep2_ul.eq($dep1).css({'display':'block'});						//뎁스2	보임
+        //_dep2_ul.eq($dep1).stop().slideDown();			
+
+        if($dep2 != -1){													//뎁스2 가없을때
+         _dep2_ul.eq($dep1).find(' li a').removeClass("active");
+         _dep2_ul.eq($dep1).find(' li:eq('+($dep2)+') a').addClass("active");		  
+        }
+        _oldDep1 = $dep1;
+        return false;			// 내부정의 사용하지 않음
+      }
+    })
+  </script>
+</head>
+<body>
+  <!-- GNB -->
+  <div id="gnb">
+    <div id="bar_bg1"></div>
+    <ul>
+      <li class="sub01"><a href="#">알리미</a>
+        <ul>
+          <li><a href="#">행사안내</a></li>
+          <li><a href="#">교통편안내</a></li>
+          <li><a href="#">자율운영단소개</a></li>
+          <li><a href="#">프로그램안내</a></li>
+          <li><a href="#">복장 및 준비물 안내</a></li>
+          <li><a href="#">비상연락망 안내</a></li>
+        </ul>
+      </li>
+      <li class="sub02"><a href="sub_02_01.html">함께해요</a>
+        <ul>
+          <li><a href="#">학술캠프 참가신청</a></li>
+          <li><a href="#">졸업생 한마디</a></li>
+        </ul>
+      </li>
+      <li class="sub03"><a href="#">배움터</a>
+        <ul>
+          <li><a href="#">학술박람회 개요</a></li>
+          <li><a href="#">SSOT 신청</a></li>
+          <li><a href="#">포스터 전시회 신청</a></li>
+          <li><a href="#">배워 보아요 신청</a></li>
+          <li><a href="#">분야별 졸업생 간담회 신청</a></li>
+        </ul>
+      </li>
+      <li class="sub04"><a href="#">어깨동무</a>
+        <ul>
+          <li><a href="#">자치위원회</a></li>
+          <li><a href="#">학술캠프 심사기준</a></li>
+          <li><a href="#">A팀</a></li>
+          <li><a href="#">B팀</a></li>
+          <li><a href="#">C팀</a></li>
+          <li><a href="#">D팀</a></li>
+        </ul>
+      </li>
+      <li class="sub05"><a href="#">신바람</a>
+        <ul>
+          <li><a href="#">신바람</a></li>
+        </ul>
+      </li>
+      <li class="sub06"><a href="#">이벤트</a>
+        <ul>
+          <li><a href="#">사회봉사 사진전</a></li>
+          <li><a href="#">추억 사진전</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+ <!--// GNB -->
+</body>
+</html>

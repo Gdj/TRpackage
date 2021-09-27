@@ -1,0 +1,328 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+<title> clipboard | TR package</title>
+<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="../../../../asset/js/libs/trpMenu.js"></script>
+<link rel="stylesheet" href="../../../../asset/css/common.css" type="text/css" media="all" />
+
+
+</head>
+<body>
+  <div id="header" ></div>
+  <div id="container">
+	<div id="lnb" class="gnb"></div>
+	<!-- s: 컨텐츠 시작 -->
+	<div id="contents" class="contents">
+		<!-- s: 스크립드 설명 -->
+		<div class="desc_wapper">
+			<h1 class="desc_title">clipboard</h1>
+			<p>
+				clipboard 플러그인을 이용해 문자열을 클립보드에 저장합니다. <br />
+			</p>												
+		</div>
+		<!-- e: 스크립드 설명 -->
+	
+		<!-- s: api 설명 -->
+		<div class="api">
+			<h2 class="api-title">zclip( {options} )</h2>
+			<div class="api-body">
+				<dl>
+					<dt>설명</dt>
+					<dd><span class="icon"></span>내용르 클립보드에 저장합니다.</dd>
+				<!-- 	http://www.steamdev.com/zclip/ -->
+									
+				</dl>
+				<table class="table_col" summary="zclip의 속성 설명">
+					<caption class="tit">zclip 설명</caption>
+					<colgroup>
+						<col width="150">
+						<col width="">		
+					</colgroup>
+					<tbody>
+					<tr>
+						<th scope="col">속성 이름</th>
+						<th scope="col">속성 설명</th>
+					</tr>
+					<tr>
+						<td>path</td>
+						<td>ZeroClipboard.swf 파일 위치
+						</td>		
+					</tr>
+					<tr>
+						<td>copy</td>
+						<td>클립 보드에 들어갈 내용.
+						</td>		
+					</tr>
+					<tr>
+						<td>afterCopy</td>
+						<td>알럿창 내용을 입력합니다. 설정하지 않으면 클립보드 내용이 들어갑니다.
+						</td>		
+					</tr>
+					
+							
+					</tbody>
+				</table>
+
+
+			
+		
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+
+		<!-- s: examples 예제1 -->
+		<div class="ex_wapper">
+			<div class="section">
+				<h2 class="ex-title">예제) 1.기본 사용방법 </h2>
+				<p class="ex-more" ><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p>
+				<p class="ex-view" ><a href="ex01.html" target="_blank">View</a></p>
+				<div class="ex-body" style="display:none" >					
+					<div class="source"><!-- 소스 -->
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</span>
+<span style="color: #f92672">&lt;html</span> <span style="color: #a6e22e">xmlns=</span><span style="color: #e6db74">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span style="color: #a6e22e">lang=</span><span style="color: #e6db74">&quot;ko&quot;</span> <span style="color: #a6e22e">xml:lang=</span><span style="color: #e6db74">&quot;ko&quot;</span><span style="color: #f92672">&gt;</span>
+<span style="color: #f92672">&lt;head&gt;</span>
+	<span style="color: #f92672">&lt;title&gt;</span> zclip | TR package<span style="color: #f92672">&lt;/title&gt;</span>
+	<span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">http-equiv=</span><span style="color: #e6db74">&quot;Content-Type&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;text/html; charset=utf-8&quot;</span> <span style="color: #f92672">/&gt;</span>
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js&quot;</span> <span style="color: #f92672">&gt;&lt;/script&gt;</span>
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./js/jquery.zclip.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./js/jquery.snippet.min.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+
+<span style="color: #f92672">&lt;/head&gt;</span>
+<span style="color: #f92672">&lt;body&gt;</span>
+	<span style="color: #f92672">&lt;textarea</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;text-to-copy&quot;</span> <span style="color: #a6e22e">cols=</span><span style="color: #e6db74">&quot;50&quot;</span> <span style="color: #a6e22e">onfocus=</span><span style="color: #e6db74">&quot;if(this.value==&#39;Type your text here.&#39;)this.value=&#39;&#39;;&quot;</span> <span style="color: #a6e22e">onblur=</span><span style="color: #e6db74">&quot;if(this.value==&#39;&#39;)this.value=&#39;이 내용을 클리보드로 카피&#39;;&quot;</span><span style="color: #f92672">&gt;</span>이 내용을 클리보드로 카피<span style="color: #f92672">&lt;/textarea&gt;</span> <span style="color: #f92672">&lt;br</span> <span style="color: #f92672">/&gt;</span>
+
+	<span style="color: #f92672">&lt;button</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;copy-button&quot;</span>  <span style="color: #a6e22e">title=</span><span style="color: #e6db74">&quot;복사하기&quot;</span><span style="color: #f92672">&gt;</span>복사하기<span style="color: #f92672">&lt;/button&gt;</span> <span style="color: #f92672">&lt;br</span> <span style="color: #f92672">/&gt;&lt;br</span> <span style="color: #f92672">/&gt;</span>
+
+	<span style="color: #f92672">&lt;textarea</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #a6e22e">cols=</span><span style="color: #e6db74">&quot;50&quot;</span> <span style="color: #a6e22e">rows=</span><span style="color: #e6db74">&quot;3&quot;</span><span style="color: #f92672">&gt;&lt;/textarea&gt;</span> 
+
+
+<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #f92672">&gt;</span>
+	 <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(document).</span><span style="color: #a6e22e">ready</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(){</span>
+		 
+		<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;#copy-button&#39;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">zclip</span><span style="color: #f8f8f2">({</span>
+			<span style="color: #a6e22e">path</span><span style="color: #f92672">:</span><span style="color: #e6db74">&#39;./js/ZeroClipboard.swf&#39;</span><span style="color: #f8f8f2">,</span>
+			<span style="color: #a6e22e">copy</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;#text-to-copy&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">val</span><span style="color: #f8f8f2">()</span>	
+		<span style="color: #f8f8f2">});</span>
+
+	<span style="color: #f8f8f2">});</span>
+<span style="color: #f92672">&lt;/script&gt;</span>
+<span style="color: #f92672">&lt;/body&gt;</span>
+<span style="color: #f92672">&lt;/html&gt;</span>
+</pre></td></tr></table></div>
+
+				
+					</div><!--// 소스 -->
+				<div>
+			</div>			
+		</div>
+		<!-- e: examples 예제1 -->
+		
+
+
+				<!-- s: examples 예제2 -->
+		<div class="ex_wapper">
+			<div class="section">
+				<h2 class="ex-title">예제) 2. 파일 내용 클립보드 저장 </h2>
+				<p class="ex-more" ><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p>
+				<p class="ex-view" ><a href="ex02.html" target="_blank">View</a></p>
+				<div class="ex-body" style="display:none" >					
+					<div class="source"><!-- 소스 -->
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</span>
+<span style="color: #f92672">&lt;html</span> <span style="color: #a6e22e">xmlns=</span><span style="color: #e6db74">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span style="color: #a6e22e">lang=</span><span style="color: #e6db74">&quot;ko&quot;</span> <span style="color: #a6e22e">xml:lang=</span><span style="color: #e6db74">&quot;ko&quot;</span><span style="color: #f92672">&gt;</span>
+<span style="color: #f92672">&lt;head&gt;</span>
+	<span style="color: #f92672">&lt;title&gt;</span> zclip | TR package<span style="color: #f92672">&lt;/title&gt;</span>
+	<span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">http-equiv=</span><span style="color: #e6db74">&quot;Content-Type&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;text/html; charset=utf-8&quot;</span> <span style="color: #f92672">/&gt;</span>
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js&quot;</span> <span style="color: #f92672">&gt;&lt;/script&gt;</span>
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./js/jquery.zclip.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./js/jquery.snippet.min.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+<span style="color: #f92672">&lt;/head&gt;</span>
+
+<span style="color: #f92672">&lt;body&gt;</span>
+
+	<span style="color: #f92672">&lt;textarea</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;text-to-copy&quot;</span> <span style="color: #a6e22e">cols=</span><span style="color: #e6db74">&quot;50&quot;</span> <span style="color: #f92672">&gt;</span>./copy.html 파일내용이 클리보드에 저장됩니다. <span style="color: #f92672">&lt;/textarea&gt;</span>
+	<span style="color: #f92672">&lt;br</span> <span style="color: #f92672">/&gt;</span>
+	<span style="color: #f92672">&lt;button</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;copy-button&quot;</span>  <span style="color: #a6e22e">title=</span><span style="color: #e6db74">&quot;복사하기&quot;</span><span style="color: #f92672">&gt;</span>복사하기<span style="color: #f92672">&lt;/button&gt;</span> <span style="color: #f92672">&lt;br</span> <span style="color: #f92672">/&gt;&lt;br</span> <span style="color: #f92672">/&gt;</span>
+	
+	<span style="color: #f92672">&lt;textarea</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #a6e22e">cols=</span><span style="color: #e6db74">&quot;50&quot;</span> <span style="color: #a6e22e">rows=</span><span style="color: #e6db74">&quot;30&quot;</span>  <span style="color: #a6e22e">onfocus=</span><span style="color: #e6db74">&quot;this.value=&#39;&#39;;&quot;</span> <span style="color: #f92672">&gt;&lt;/textarea&gt;</span> 
+
+<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span><span style="color: #f92672">&gt;</span>
+<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(document).</span><span style="color: #a6e22e">ready</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(){</span>
+
+
+
+	
+	<span style="color: #75715e">// 클립보드 </span>
+	<span style="color: #66d9ef">function</span> <span style="color: #a6e22e">copyURL</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">$btn</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">$url</span><span style="color: #f8f8f2">){</span> 
+		
+		<span style="color: #66d9ef">var</span> <span style="color: #a6e22e">request</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">ajax</span><span style="color: #f8f8f2">({</span>
+		  <span style="color: #a6e22e">url</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">$url</span><span style="color: #f8f8f2">,</span>
+		  <span style="color: #a6e22e">method</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;GET&quot;</span><span style="color: #f8f8f2">,</span>			
+		  <span style="color: #a6e22e">dataType</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;html&quot;</span>
+		<span style="color: #f8f8f2">});</span>
+		<span style="color: #a6e22e">request</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">done</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(</span> <span style="color: #a6e22e">msg</span> <span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>			 
+		  <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">_data</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">msg</span> <span style="color: #f8f8f2">;</span>
+		  <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">$btn</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">attr</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;data-clipboard-text&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">_data</span> <span style="color: #f8f8f2">);</span>
+			<span style="color: #75715e">// 클립보드 선언</span>
+
+
+				<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;#copy-button&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">zclip</span><span style="color: #f8f8f2">({</span>
+					<span style="color: #a6e22e">path</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;js/ZeroClipboard.swf&quot;</span><span style="color: #f8f8f2">,</span>
+					<span style="color: #a6e22e">copy</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span> <span style="color: #e6db74">&quot;#text-to-copy&quot;</span> <span style="color: #f8f8f2">).</span><span style="color: #a6e22e">attr</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;data-clipboard-text&quot;</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">,</span>
+					<span style="color: #a6e22e">afterCopy</span><span style="color: #f92672">:</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(){</span> <span style="color: #a6e22e">alert</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;복사 되었습니다.&quot;</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">}</span>
+
+				<span style="color: #f8f8f2">});</span>
+
+
+
+		<span style="color: #f8f8f2">});</span>
+
+		<span style="color: #75715e">// 실패했을경우</span>
+		<span style="color: #a6e22e">request</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">fail</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(</span> <span style="color: #a6e22e">jqXHR</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">textStatus</span> <span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+		  <span style="color: #a6e22e">alert</span><span style="color: #f8f8f2">(</span> <span style="color: #a6e22e">jqXHR</span> <span style="color: #f92672">+</span> <span style="color: #e6db74">&quot;: Request failed: &quot;</span> <span style="color: #f92672">+</span> <span style="color: #a6e22e">textStatus</span> <span style="color: #f8f8f2">);</span>
+		<span style="color: #f8f8f2">});</span>		
+
+	<span style="color: #f8f8f2">}</span>
+
+		
+	<span style="color: #a6e22e">copyURL</span><span style="color: #f8f8f2">(</span> <span style="color: #e6db74">&quot;#text-to-copy&quot;</span> <span style="color: #f8f8f2">,</span><span style="color: #e6db74">&quot;./copy.html&quot;</span><span style="color: #f8f8f2">);</span>	
+
+
+<span style="color: #f8f8f2">});</span>
+<span style="color: #f92672">&lt;/script&gt;</span>
+
+
+<span style="color: #f92672">&lt;/body&gt;</span>
+<span style="color: #f92672">&lt;/html&gt;</span>
+</pre></td></tr></table></div>
+
+				
+					</div><!--// 소스 -->
+				<div>
+			</div>			
+		</div>
+		<!-- e: examples 예제2 -->
+				
+
+	</div>
+	<!-- e: 컨텐츠 끝 -->
+</div>
+
+
+
+<script type="text/javascript">
+	$("#header").load("../../../head.html");
+	$("#lnb").load("../../../lnb.html");	
+
+	$(".ex-more a").click(function() {
+		$( this ).find("span").toggle();
+		$( this ).parent().siblings(".ex-body").slideToggle();
+		return false;
+	});
+
+	$(".icon-more a").click(function() {
+		$( this ).find("span").toggle();
+		$( this ).parent().siblings(".ex-body").slideToggle();
+		return false;
+	});
+</script>
+
+</body>
+</html>

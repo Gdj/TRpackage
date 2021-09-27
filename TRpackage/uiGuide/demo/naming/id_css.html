@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>TR package U.I 표준 프레임워크 ver.1.0 </title>
+<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.js" charset="UTF-8"></script>
+<link rel="stylesheet" href="../../../asset/css/common.css" type="text/css" media="all" />
+</head>
+
+<body>
+	<div id="header" class="head" ></div>
+	<div id="container">
+		<div id="lnb" class="gnb"></div>
+		
+		<!-- s:컨텐츠영역 -->
+		<div id="contents"  class="contents id_css">
+			<h1 class="h1_tit">Naming 가이드</h1>
+			<div class="con_comm">
+				<h2 class="h2_tit">id 및 css 네이밍 규칙</h2>
+				<table class="table_col" summary="이미지 네이밍 규칙에 관한 테이블입니다.">
+					<caption>이미지 네이밍 규칙의 잘된 예와 잘못된 예</caption>
+					<colgroup>
+						<col width="" />
+						<col width="110" />
+						<col width="110" />
+					</colgroup>
+					<tr>
+						<th scope="col">규칙</th>
+						<th scope="col">잘못된 예</th>
+						<th scope="col">올바른 예</th>
+					</tr>
+					<tr>
+						<td>id는 문서에서 한 번만 사용한다.</td>
+						<td>-</td>
+						<td>-</td>
+					</tr>
+					<tr>
+						<td>영문 소문자, 숫자, 언더바(_) 만 사용한다.</td>
+						<td>month-num</td>
+						<td>month_num</td>
+					</tr>
+					<tr>
+						<td rowspan="2">첫글자는 반드시 영문 소문자로 시작한다.</td>
+						<td>Cnt_list<br /></td>
+						<td>cnt_list<br /></td>
+					</tr>
+					<tr>
+					  <td>5news</td>
+					  <td>news5</td>
+					</tr>
+					<tr>
+						<td> 의미있고 직관적인 단어를 사용한다.</td>
+						<td>bluetxt</td>
+						<td>con_tit</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	<!-- e:컨텐츠영역 -->
+		
+	</div>
+	
+	
+
+<script type="text/javascript">
+	$("#header").load("../../head.html")	  	
+	$("#lnb").load("../../html_list.html")
+</script>
+
+
+
+</body>
+</html>

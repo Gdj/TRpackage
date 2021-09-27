@@ -1,0 +1,812 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Swiper | TR package</title>
+<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="../../../../asset/js/libs/trpMenu.js"></script>
+<link rel="stylesheet" type="text/css"  href="../../../../asset/css/common.css" media="all" />
+
+
+
+</head>
+<body>
+  <div id="header" ></div>
+  <div id="container">
+	<div id="lnb" class="gnb"></div>
+	<!-- s: 컨텐츠 시작 -->
+	<div id="contents" class="contents">
+		<!-- s: 스크립드 설명 -->
+		<div class="desc_wapper">
+			<h1 class="desc_title">Swiper4.5.0</h1>
+			<p>플리킹 스라이딩 플러그인 <a href="http://idangero.us/swiper/" target="_blank">Swiper</a></p>
+			<p><a href="https://github.com/nolimits4web/Swiper/blob/Swiper4/API.md" target="_blank">Swiper-v4 API</a></p>
+		</div>
+		<!-- e: 스크립드 설명 -->
+
+
+		<!-- s: api 설명 -->
+		<div class="api">
+			<h2 class="api-title">new Swipe(container, options)</h2>
+			<div class="api-body">
+				<dl>
+					<dt>설명</dt>
+					<dd><span class="icon"></span>mobile 전용 <br /></dd>
+					<dd><span class="icon"></span>기본 위치값은 CSS 에서 설정해야합니다. <br /></dd>
+					<dd><span class="icon"></span>아이템을 감싸고있는 "<strong>.swiper-wrapper</strong>"과 아이템들"<strong>.swiper-slide</strong>"의 클래스이름은 기본적으로 가지고 있어야합니다.</dd>
+					<dd><span class="icon"></span>swiper-4.5.0 스타일   : <a href="./css/idangerous.swiper.css">swiper.css</a> </dd>
+					<dd><span class="icon"></span>swiper-4.5.0 스크립트 : <a href="./js/swiper.min.js">swiper.js</a> </dd>
+					<dd><span class="icon"></span>swiper-3.4.2 버젼 : <a href="../swiper-3.4.2/default.html?dep1=1&dep2=0">swiper-3.4.2</a> </dd>
+					<dd><span class="icon"></span>swiper-2.7.6 버젼 : <a href="../swiper-2.7.6/default.html?dep1=1&dep2=0">swiper-2.7.6</a> </dd>
+
+				</dl>
+
+				<table class="table_col" summary="Swiper 속성, 메소드">
+					<caption>Swiper 설명</caption>
+					<colgroup>
+						<col width="150">
+						<col width="">
+					</colgroup>
+					<tbody>
+					<tr>
+						<th scope="col">매개변수</th>
+						<th scope="col">매개변수 설명</th>
+					</tr>
+					<tr>
+						<td>container</td>
+						<td>Swiper 컨테이너 선택자를 설정합니다.</td>
+					</tr>
+					<tr>
+						<td>options</td>
+						<td>Swiper 여러가지 옵션을 오브젝트 타입으로 줄수 있습니다.</td>
+					</tr>
+
+					</tbody>
+				</table>
+
+				<table class="table_col" summary="Swiper options 속성 설명">
+					<caption>Swiper options 설명</caption>
+					<colgroup>
+						<col width="150">
+						<col width="">
+					</colgroup>
+					<tbody>
+					<tr>
+						<th scope="col">options 속성</th>
+						<th scope="col">options 속성 설명</th>
+					</tr>
+					<tr>
+						<td>initialSlide</td>
+						<td>기본값은 0 이고 첨시작되는 인덱스를 설정한다.</td>
+					</tr>
+					<tr>
+						<td>loop</td>
+						<td>기본 값은 "false" 이고 "true" 설정하면 루프 모드로 설정할수 있습니다.</td>
+					</tr>
+					<tr>
+						<td>direction</td>
+						<td>기본 값은 "horizontal" 이고 "vertical" 설정하면 세로로 형으로 모드를 변경할수 있습니다.</td>
+					</tr>
+					<tr>
+						<td>effect</td>
+						<td>기본 값은 "slide" 이고 "fade", "cube", "overflow"로 변경할수 있습니다.</td>
+					</tr>
+					<tr>
+						<td>speed</td>
+						<td>기본 값은 "300" 이고 숫자형태로 움직이는 시간을 정의할수 있습니다.</td>
+					</tr>
+					<tr>
+						<td>spaceBetween</td>
+						<td>기본 값은 0 이고 숫자형태로 item 간격을 정의할수 있습니다.</td>
+					</tr>
+					<tr>
+						<td>slidesPerView</td>
+						<td>슬라이더 컨테이너에 동시에 표현할수있는 슬라이드 겟수를 숫자 형태로 정의 합니다. </td>
+					</tr>
+					<tr>
+				  <td>autoplay: {delay: 5000,},</td>
+						<td>(1000 = 1초) 로시간을 정의하면 자동으로 슬라이드를 합니다.</td>
+					</tr>
+					<tr>
+						<td>pagination: {el: '.swiper-pagination',type: 'bullets',},</td>
+						<td>el(태그 선텍자), type ["bullets", "fraction", "progressbar", "custom"] </td>
+					</tr>
+					<tr>
+						<td>breakpoints</td>
+						<td> <strong>반응형</strong>
+							<pre>
+{							
+	slidesPerView: 1,
+	spaceBetween: 10,
+	breakpointsInverse: true,
+	breakpoints: {
+	  320: {
+      slidesPerView: 2,
+      spaceBetween: 20
+    },
+	  640: {
+      slidesPerView: 4,
+      spaceBetween: 20
+    },
+	}
+}
+							</pre>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+
+				<table class="table_col" summary="Swiper methods 종류와 설명">
+					<caption>Swiper methods 설명</caption>
+					<colgroup>
+						<col width="150">
+						<col width="">
+					</colgroup>
+					<tbody>
+					<tr>
+						<th scope="col">Swiper 메서드</th>
+						<th scope="col">Swiper 메서드 설명</th>
+					</tr>
+					<tr>
+						<td>.realIndex</td>
+						<td>진행중인 인덱스 값을 리턴합다.
+						</td>
+					</tr>
+					<tr>
+						<td>.previousIndex</td>
+						<td>이전 슬라이드 인덱스 번호</td>
+					</tr>
+					<tr>
+						<td>.slideTo(index, speed, runCallbacks)</td>
+						<td>인덱스 번호로 슬라이드로 실행 </td>
+					</tr>
+					<tr>
+						<td>.slidePrev(index, speed, runCallbacks)</td>
+						<td>이전 슬라이드로 진행합니다.</td>
+					</tr>
+					<tr>
+						<td>.slideNext(index, speed, runCallbacks)</td>
+						<td>다음 슬라이드로 진행합니다.</td>
+					</tr>
+					<tr>
+						<td>.autoplay.stop()</td>
+						<td>autoplay 모드일때 진행을 정지 합니다.</td>
+					</tr>
+					<tr>
+						<td>.autoplay.start()</td>
+						<td>autoplay 모드일때 진행을 시작 합니다.</td>
+					</tr>
+					<tr>
+						<td>.destroy(deleteInstance, cleanupStyles)</td>
+						<td>Swiper 를초기화 합니다. 기본값(true, false <br>
+							- deleteInstance : Swiper 인스턴스를 삭제하지 않으려면 false
+							- cleanupStyles  : 모든 사용자 정의 스타일이 슬라이드, 래퍼 및 컨테이너에서 제거 하지않으려면 false
+						 </td>
+					</tr>
+					<tr>
+						<td>.update()</td>
+						<td>Swiper 컨테이너크기, 슬라이더크기, 컨텐츠등을 새로 불러오기. <br>
+							.updateSize () - 컨테이너의 크기를 다시 계산합니다.
+							.updateSlides () - 슬라이드 수와 해당 오프셋을 다시 계산합니다. JavaScript를 사용하여 슬라이드를 추가 / 제거한 후에 유용합니다.
+							.updateProgress () - 스와이퍼 진행률 다시 계산
+							.updateSlidesClasses () - 슬라이드 및 글 머리 기호에서 활성 / 이전 / 다음 클래스 업데이트
+						</td>
+					</tr>
+					</tbody>
+				</table>
+
+				<table class="table_col" summary="Swiper event 종류와 설명">
+					<caption>Swiper event 설명</caption>
+					<colgroup>
+						<col width="150">
+						<col width="">
+					</colgroup>
+					<tbody>
+					<tr>
+						<th scope="col">Swiper 이벤트</th>
+						<th scope="col">Swiper 이벤트 설명</th>
+					</tr>
+					<tr>
+						<td>선언 방법</td>
+						<td>
+<pre>
+var swiper = new Swiper('.swiper-container', {
+  // other parameters
+  on: {
+    init: function () {
+      /* do something */
+    },
+  }
+});
+</pre>
+	<strong>=== or ===</strong>
+<pre>
+var swiper = new Swiper('.swiper-container', {
+  init: false,
+  // other parameters
+})
+swiper.on('init', function() { /* do something */ });
+// init Swiper
+swiper.init();
+</pre>
+									
+						</td>
+					</tr>		
+					<tr>
+						<td>init: function () { },</td>
+						<td>swiper 초기화 후 실행</td>
+					</tr>
+					<tr>
+						<td>transitionStart:function(event){},</td>
+						<td>슬라이드 모션이 시작되는 시점에 호출되는 콜백 합수입니다. 인자값으로 현제"Swiper"를 오브젝트로 받아옵니다. </td>
+					</tr>
+					<tr>
+						<td>transitionEnd:function(){},</td>
+						<td>슬라이드 모션이 끝나는 시점에 호출되는 콜백 합수입니다. 인자값으로 현제"Swiper"를 오브젝트로 받아옵니다. </td>
+					</tr>
+					<tr>
+						<td>touchMove:function(event){}</td>
+						<td>손으로 터치 이동할때 콜백 함수 실행</td>
+					</tr>
+
+					</tbody>
+				</table>
+
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+
+		<!-- s: examples 예제 -->
+		<div class="ex_wapper">
+			<div class="section">
+				<h2 class="ex-title">예제1 (basic , auto play)</h2>
+				<p class="ex-more" ><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p>
+				<p class="ex-view" ><a href="ex01.html" target="_blank">View</a></p>
+				<div class="ex-body" style="display:none">
+					<div class="source"><!-- 소스 -->
+
+
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</span>
+<span style="color: #f92672">&lt;html</span> <span style="color: #a6e22e">xmlns=</span><span style="color: #e6db74">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span style="color: #a6e22e">lang=</span><span style="color: #e6db74">&quot;ko&quot;</span> <span style="color: #a6e22e">xml:lang=</span><span style="color: #e6db74">&quot;ko&quot;</span><span style="color: #f92672">&gt;</span>
+<span style="color: #f92672">&lt;head&gt;</span>
+	<span style="color: #f92672">&lt;title&gt;</span>swiper (auto play)<span style="color: #f92672">&lt;/title&gt;</span>
+	<span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">http-equiv=</span><span style="color: #e6db74">&quot;Content-Type&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;text/html;charset=utf-8&quot;</span> <span style="color: #f92672">/&gt;</span>
+	<span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">http-equiv=</span><span style="color: #e6db74">&quot;X-UA-Compatible&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;IE=edge&quot;</span> <span style="color: #f92672">/&gt;</span>	
+	<span style="color: #f92672">&lt;link</span> <span style="color: #a6e22e">rel=</span><span style="color: #e6db74">&quot;stylesheet&quot;</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;./css/style.css&quot;</span><span style="color: #f92672">/&gt;</span>
+	<span style="color: #f92672">&lt;link</span> <span style="color: #a6e22e">rel=</span><span style="color: #e6db74">&quot;stylesheet&quot;</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;./css/swiper.min.css&quot;</span><span style="color: #f92672">&gt;</span>
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./js/swiper.min.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+	
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span><span style="color: #f92672">&gt;</span>
+	
+	<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(document).</span><span style="color: #a6e22e">ready</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(){</span>
+
+		<span style="color: #75715e">// Swiper 세팅</span>
+		<span style="color: #66d9ef">var</span> <span style="color: #a6e22e">mySwiper</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">new</span> <span style="color: #a6e22e">Swiper</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;.gallery_center&#39;</span><span style="color: #f8f8f2">,{</span>    
+			<span style="color: #a6e22e">loop</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">true</span><span style="color: #f8f8f2">,</span> 
+			<span style="color: #a6e22e">autoplay</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">{</span>
+				<span style="color: #a6e22e">delay</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">5000</span><span style="color: #f8f8f2">,</span>
+			<span style="color: #f8f8f2">},</span>	
+		  <span style="color: #a6e22e">pagination</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">{</span>
+				<span style="color: #a6e22e">el</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;.pagination&#39;</span><span style="color: #f8f8f2">,</span>
+				<span style="color: #a6e22e">type</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;bullets&#39;</span><span style="color: #f8f8f2">,</span>
+				<span style="color: #a6e22e">clickable</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">true</span><span style="color: #f8f8f2">,</span> <span style="color: #75715e">// default false</span>
+			<span style="color: #f8f8f2">},</span>
+			<span style="color: #a6e22e">on</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">{</span>
+				<span style="color: #a6e22e">transitionEnd</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(){</span>										<span style="color: #75715e">// 움직임이 끝나면 실행</span>
+					<span style="color: #75715e">//console.log(&quot;end1 : &quot; + this.realIndex)</span>
+				<span style="color: #f8f8f2">},</span>
+			<span style="color: #f8f8f2">}</span>
+			
+		<span style="color: #f8f8f2">})</span>
+	 
+		<span style="color: #75715e">// 좌우버튼</span>
+	  <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;.prev&#39;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">on</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;click&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">e</span><span style="color: #f8f8f2">){</span>
+			<span style="color: #a6e22e">e</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">preventDefault</span><span style="color: #f8f8f2">();</span>					<span style="color: #75715e">//이벤트 객체의 preventDefault 메소드를 실행하면 기본 동작이 취소된다	</span>
+			<span style="color: #a6e22e">mySwiper</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">slidePrev</span><span style="color: #f8f8f2">();</span>
+	  <span style="color: #f8f8f2">})</span>
+	  <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;.next&#39;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">on</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;click&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">e</span><span style="color: #f8f8f2">){</span>
+			<span style="color: #a6e22e">e</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">preventDefault</span><span style="color: #f8f8f2">();</span>					<span style="color: #75715e">//이벤트 객체의 preventDefault 메소드를 실행하면 기본 동작이 취소된다	</span>
+			<span style="color: #a6e22e">mySwiper</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">slideNext</span><span style="color: #f8f8f2">();</span>
+
+	  <span style="color: #f8f8f2">})</span>
+		
+      <span style="color: #75715e">// 컨텐츠에 마우스 올리면 일시정지</span>
+	  <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.gallery_center&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">hover</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(){</span>
+			<span style="color: #a6e22e">mySwiper</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">autoplay</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">stop</span><span style="color: #f8f8f2">();</span> 
+	  <span style="color: #f8f8f2">}</span> <span style="color: #f8f8f2">,</span>
+	  <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(){</span>
+			<span style="color: #a6e22e">mySwiper</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">autoplay</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">start</span><span style="color: #f8f8f2">();</span> 
+	  <span style="color: #f8f8f2">})</span>
+
+	<span style="color: #f8f8f2">})</span>
+    <span style="color: #f92672">&lt;/script&gt;</span>
+<span style="color: #f92672">&lt;/head&gt;</span>
+
+<span style="color: #f92672">&lt;body&gt;</span>
+
+<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;gallery_view&quot;</span> <span style="color: #a6e22e">style=</span><span style="color: #e6db74">&quot;&quot;</span><span style="color: #f92672">&gt;</span>
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;gallery_center&quot;</span><span style="color: #f92672">&gt;</span>				
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;swiper-wrapper&quot;</span><span style="color: #f92672">&gt;</span>
+			<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;swiper-slide&quot;</span><span style="color: #f92672">&gt;&lt;img</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/view_01.jpg&quot;</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;400&quot;</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;535&quot;</span>  <span style="color: #a6e22e">alt=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f92672">/&gt;&lt;/div&gt;</span>
+			<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;swiper-slide&quot;</span><span style="color: #f92672">&gt;&lt;img</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/view_01.jpg&quot;</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;400&quot;</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;535&quot;</span>  <span style="color: #a6e22e">alt=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f92672">/&gt;&lt;/div&gt;</span>
+			<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;swiper-slide&quot;</span><span style="color: #f92672">&gt;&lt;img</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/view_01.jpg&quot;</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;400&quot;</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;535&quot;</span>  <span style="color: #a6e22e">alt=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f92672">/&gt;&lt;/div&gt;</span>
+			<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;swiper-slide&quot;</span><span style="color: #f92672">&gt;&lt;img</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/view_01.jpg&quot;</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;400&quot;</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;535&quot;</span>  <span style="color: #a6e22e">alt=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f92672">/&gt;&lt;/div&gt;</span>
+			<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;swiper-slide&quot;</span><span style="color: #f92672">&gt;&lt;img</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/view_01.jpg&quot;</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;400&quot;</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;535&quot;</span>  <span style="color: #a6e22e">alt=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f92672">/&gt;&lt;/div&gt;</span>
+			<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;swiper-slide&quot;</span><span style="color: #f92672">&gt;&lt;img</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/view_01.jpg&quot;</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;400&quot;</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;535&quot;</span>  <span style="color: #a6e22e">alt=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f92672">/&gt;&lt;/div&gt;</span>
+			<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;swiper-slide&quot;</span><span style="color: #f92672">&gt;&lt;img</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/view_01.jpg&quot;</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;400&quot;</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;535&quot;</span>  <span style="color: #a6e22e">alt=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f92672">/&gt;&lt;/div&gt;</span>
+			<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;swiper-slide&quot;</span><span style="color: #f92672">&gt;&lt;img</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/view_01.jpg&quot;</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;400&quot;</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;535&quot;</span>  <span style="color: #a6e22e">alt=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f92672">/&gt;&lt;/div&gt;</span>
+		<span style="color: #f92672">&lt;/div&gt;</span>	
+		<span style="color: #f92672">&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;prev&quot;</span><span style="color: #f92672">&gt;</span>Prev<span style="color: #f92672">&lt;/a&gt;</span>
+		<span style="color: #f92672">&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;next&quot;</span><span style="color: #f92672">&gt;</span>Next<span style="color: #f92672">&lt;/a&gt;</span>	
+	<span style="color: #f92672">&lt;/div&gt;</span>			
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;pagination&quot;</span><span style="color: #f92672">&gt;&lt;/div&gt;</span>
+<span style="color: #f92672">&lt;/div&gt;</span>
+
+<span style="color: #75715e">&lt;!-- // wrap --&gt;</span>
+
+<span style="color: #f92672">&lt;/body&gt;</span>
+<span style="color: #f92672">&lt;/html&gt;</span>
+</pre></td></tr></table></div>
+
+
+
+
+
+					</div><!-- //소스 -->
+                </div>
+			</div>
+		</div>
+		<!-- e: examples 예제 -->
+
+		<!-- s: examples 예제 -->
+		<div class="ex_wapper">
+			<div class="section">
+				<h2 class="ex-title">예제2. customer</h2>
+				<p class="ex-more" ><a href="javascript:return false;"><span>+</span><span style="display:none">-</span></a></p>
+				<p class="ex-view" ><a href="ex02.html" target="_blank">View</a></p>
+				<div class="ex-body" style="display:none">
+					<div class="source"><!-- 소스 -->
+
+
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</span>
+<span style="color: #f92672">&lt;html</span> <span style="color: #a6e22e">xmlns=</span><span style="color: #e6db74">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span style="color: #a6e22e">lang=</span><span style="color: #e6db74">&quot;ko&quot;</span> <span style="color: #a6e22e">xml:lang=</span><span style="color: #e6db74">&quot;ko&quot;</span><span style="color: #f92672">&gt;</span>
+<span style="color: #f92672">&lt;head&gt;</span>
+	<span style="color: #f92672">&lt;title&gt;</span>swiper thumbnail <span style="color: #f92672">&lt;/title&gt;</span>
+	<span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">http-equiv=</span><span style="color: #e6db74">&quot;Content-Type&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;text/html;charset=utf-8&quot;</span> <span style="color: #f92672">/&gt;</span>
+	<span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">http-equiv=</span><span style="color: #e6db74">&quot;X-UA-Compatible&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;IE=edge&quot;</span> <span style="color: #f92672">/&gt;</span>	
+	<span style="color: #f92672">&lt;link</span> <span style="color: #a6e22e">rel=</span><span style="color: #e6db74">&quot;stylesheet&quot;</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;./css/style.css&quot;</span><span style="color: #f92672">/&gt;</span>
+	<span style="color: #f92672">&lt;link</span> <span style="color: #a6e22e">rel=</span><span style="color: #e6db74">&quot;stylesheet&quot;</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;./css/swiper.min.css&quot;</span><span style="color: #f92672">&gt;</span>
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./js/swiper.min.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+	
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span><span style="color: #f92672">&gt;</span>
+		<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(document).</span><span style="color: #a6e22e">ready</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
+
+			<span style="color: #75715e">// Swiper 세팅</span>
+			<span style="color: #66d9ef">var</span> <span style="color: #a6e22e">_index</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+			<span style="color: #66d9ef">var</span> <span style="color: #a6e22e">mySwiper</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">new</span> <span style="color: #a6e22e">Swiper</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;.gallery_left&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">{</span>
+				<span style="color: #a6e22e">loop</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">true</span><span style="color: #f8f8f2">,</span>
+				<span style="color: #a6e22e">threshold</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">30</span><span style="color: #f8f8f2">,</span> <span style="color: #75715e">// 수치보다 작으면 슬라이드를 안한다.</span>
+				<span style="color: #a6e22e">watchSlidesVisibility</span> <span style="color: #f92672">:</span> <span style="color: #66d9ef">true</span><span style="color: #f8f8f2">,</span> 
+			  <span style="color: #a6e22e">slidesPerView</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span>  <span style="color: #75715e">// 보여질 슬라이더수 </span>
+				<span style="color: #a6e22e">on</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">{</span>
+					<span style="color: #a6e22e">transitionEnd</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(){</span>	
+						<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.pagination-list li&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">removeClass</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;current&quot;</span><span style="color: #f8f8f2">);</span>
+						<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.pagination-list li&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">eq</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">this</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">realIndex</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">addClass</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;current&quot;</span><span style="color: #f8f8f2">);</span>
+					<span style="color: #f8f8f2">}</span>
+				<span style="color: #f8f8f2">}</span>
+			<span style="color: #f8f8f2">})</span>
+
+			<span style="color: #75715e">// 좌우버튼</span>
+			<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;.prev&#39;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">on</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;click&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">e</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+				<span style="color: #a6e22e">e</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">preventDefault</span><span style="color: #f8f8f2">();</span> <span style="color: #75715e">// 이벤트 객체의 preventDefault 메소드를 실행하면 기본 동작이 취소된다	</span>
+				<span style="color: #a6e22e">mySwiper</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">slidePrev</span><span style="color: #f8f8f2">()</span> <span style="color: #75715e">// return false ;	// ie9 이하 버전에서는 event.returnValue를 false로 해야 한다. </span>
+			<span style="color: #f8f8f2">})</span>
+			<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;.next&#39;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">on</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;click&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">e</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+				<span style="color: #a6e22e">e</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">preventDefault</span><span style="color: #f8f8f2">();</span> <span style="color: #75715e">//이벤트 객체의 preventDefault 메소드를 실행하면 기본 동작이 취소된다	</span>
+				<span style="color: #a6e22e">mySwiper</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">slideNext</span><span style="color: #f8f8f2">()</span> <span style="color: #75715e">//return false ;	// ie9 이하 버전에서는 event.returnValue를 false로 해야 한다. </span>
+
+			<span style="color: #f8f8f2">})</span>
+
+			<span style="color: #75715e">// 첫번째활성화</span>
+			<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.pagination li&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">eq</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">_index</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">addClass</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;current&quot;</span><span style="color: #f8f8f2">);</span> <span style="color: #75715e">// activeLoopIndex / activeIndex 일반	</span>
+
+
+			<span style="color: #75715e">// 썸네일  컨트롤</span>
+			<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.pagination-list li&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">on</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;click&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
+				<span style="color: #66d9ef">var</span> <span style="color: #a6e22e">_index</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">this</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">index</span><span style="color: #f8f8f2">();</span>
+		
+				<span style="color: #a6e22e">mySwiper</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">slideTo</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">_index</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">700</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{});</span>
+				<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.pagination-list li&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">removeClass</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;current&quot;</span><span style="color: #f8f8f2">);</span>
+				<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">this</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">addClass</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;current&quot;</span><span style="color: #f8f8f2">);</span>
+				<span style="color: #66d9ef">return</span> <span style="color: #66d9ef">false</span><span style="color: #f8f8f2">;</span>
+			<span style="color: #f8f8f2">})</span>
+
+
+
+			<span style="color: #75715e">// btn-destroy</span>
+			<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.btn-destroy&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">on</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;click&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
+				<span style="color: #a6e22e">mySwiper</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">destroy</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">true</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">true</span><span style="color: #f8f8f2">);</span>
+			<span style="color: #f8f8f2">})</span>
+
+
+			<span style="color: #75715e">// btn-reboot </span>
+			<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.btn-reboot&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">on</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;click&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
+				<span style="color: #a6e22e">mySwiper</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">new</span> <span style="color: #a6e22e">Swiper</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;.gallery_left&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">{</span>
+					<span style="color: #a6e22e">loop</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">false</span><span style="color: #f8f8f2">,</span>
+					<span style="color: #a6e22e">slidesPerView</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">,</span>
+					<span style="color: #a6e22e">threshold</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">30</span><span style="color: #f8f8f2">,</span> <span style="color: #75715e">// 수치보다 작으면 슬라이드를 안한다.</span>
+					<span style="color: #a6e22e">on</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">{</span>
+						<span style="color: #a6e22e">transitionEnd</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(){</span>	
+							<span style="color: #a6e22e">console</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">log</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;this.realIndex : &quot;</span> <span style="color: #f92672">+</span> <span style="color: #66d9ef">this</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">realIndex</span><span style="color: #f8f8f2">)</span>
+							<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.pagination-list li&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">removeClass</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;current&quot;</span><span style="color: #f8f8f2">);</span>
+							<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.pagination-list li&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">eq</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">this</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">realIndex</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">addClass</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;current&quot;</span><span style="color: #f8f8f2">);</span>
+						<span style="color: #f8f8f2">}</span>
+					<span style="color: #f8f8f2">}</span>
+				<span style="color: #f8f8f2">})</span>
+			<span style="color: #f8f8f2">})</span>
+
+
+		<span style="color: #f8f8f2">})</span>
+	<span style="color: #f92672">&lt;/script&gt;</span>
+<span style="color: #f92672">&lt;/head&gt;</span>
+
+<span style="color: #f92672">&lt;body&gt;</span>
+
+<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;gallery_view&quot;</span> <span style="color: #a6e22e">style=</span><span style="color: #e6db74">&quot;&quot;</span><span style="color: #f92672">&gt;</span>
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;gallery_left&quot;</span><span style="color: #f92672">&gt;</span>				
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;swiper-wrapper&quot;</span><span style="color: #f92672">&gt;</span>
+			<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;swiper-slide&quot;</span><span style="color: #f92672">&gt;</span>0<span style="color: #f92672">&lt;img</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/view_01.jpg&quot;</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;400&quot;</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;535&quot;</span>  <span style="color: #a6e22e">alt=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f92672">/&gt;&lt;/div&gt;</span>
+			<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;swiper-slide&quot;</span><span style="color: #f92672">&gt;</span>1<span style="color: #f92672">&lt;img</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/view_01.jpg&quot;</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;400&quot;</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;535&quot;</span>  <span style="color: #a6e22e">alt=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f92672">/&gt;&lt;/div&gt;</span>
+			<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;swiper-slide&quot;</span><span style="color: #f92672">&gt;</span>2<span style="color: #f92672">&lt;img</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/view_01.jpg&quot;</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;400&quot;</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;535&quot;</span>  <span style="color: #a6e22e">alt=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f92672">/&gt;&lt;/div&gt;</span>
+			<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;swiper-slide&quot;</span><span style="color: #f92672">&gt;</span>3<span style="color: #f92672">&lt;img</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/view_01.jpg&quot;</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;400&quot;</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;535&quot;</span>  <span style="color: #a6e22e">alt=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f92672">/&gt;&lt;/div&gt;</span>
+			<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;swiper-slide&quot;</span><span style="color: #f92672">&gt;</span>4<span style="color: #f92672">&lt;img</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/view_01.jpg&quot;</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;400&quot;</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;535&quot;</span>  <span style="color: #a6e22e">alt=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f92672">/&gt;&lt;/div&gt;</span>
+			<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;swiper-slide&quot;</span><span style="color: #f92672">&gt;</span>5<span style="color: #f92672">&lt;img</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/view_01.jpg&quot;</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;400&quot;</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;535&quot;</span>  <span style="color: #a6e22e">alt=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f92672">/&gt;&lt;/div&gt;</span>
+			<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;swiper-slide&quot;</span><span style="color: #f92672">&gt;</span>6<span style="color: #f92672">&lt;img</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/view_01.jpg&quot;</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;400&quot;</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;535&quot;</span>  <span style="color: #a6e22e">alt=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f92672">/&gt;&lt;/div&gt;</span>
+			<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;swiper-slide&quot;</span><span style="color: #f92672">&gt;</span>7<span style="color: #f92672">&lt;img</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/view_01.jpg&quot;</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;400&quot;</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;535&quot;</span>  <span style="color: #a6e22e">alt=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f92672">/&gt;&lt;/div&gt;</span>
+		<span style="color: #f92672">&lt;/div&gt;</span>	
+		<span style="color: #f92672">&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;prev&quot;</span><span style="color: #f92672">&gt;</span>Prev<span style="color: #f92672">&lt;/a&gt;</span>
+		<span style="color: #f92672">&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;next&quot;</span><span style="color: #f92672">&gt;</span>Next<span style="color: #f92672">&lt;/a&gt;</span>	
+	<span style="color: #f92672">&lt;/div&gt;</span>			
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;pagination-right&quot;</span><span style="color: #f92672">&gt;</span>
+	<span style="color: #f92672">&lt;ul</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;pagination-list&quot;</span><span style="color: #f92672">&gt;</span>
+		<span style="color: #f92672">&lt;li&gt;</span>
+			<span style="color: #f92672">&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#&quot;</span><span style="color: #f92672">&gt;</span>
+				<span style="color: #f92672">&lt;img</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;83&quot;</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;111&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/thumbnail_01.jpg&quot;</span> <span style="color: #a6e22e">alt=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f92672">/&gt;</span>
+				<span style="color: #f92672">&lt;span</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;bg_gray&quot;</span><span style="color: #f92672">&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;</span>
+			<span style="color: #f92672">&lt;/a&gt;</span>
+		<span style="color: #f92672">&lt;/li&gt;</span>
+		<span style="color: #f92672">&lt;li&gt;</span>
+			<span style="color: #f92672">&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#&quot;</span><span style="color: #f92672">&gt;</span>
+				<span style="color: #f92672">&lt;img</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;83&quot;</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;111&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/thumbnail_01.jpg&quot;</span> <span style="color: #a6e22e">alt=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f92672">/&gt;</span>
+				<span style="color: #f92672">&lt;span</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;bg_gray&quot;</span><span style="color: #f92672">&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;</span>
+			<span style="color: #f92672">&lt;/a&gt;</span>
+		<span style="color: #f92672">&lt;/li&gt;</span>
+		<span style="color: #f92672">&lt;li&gt;</span>
+			<span style="color: #f92672">&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#&quot;</span><span style="color: #f92672">&gt;</span>
+				<span style="color: #f92672">&lt;img</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;83&quot;</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;111&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/thumbnail_01.jpg&quot;</span> <span style="color: #a6e22e">alt=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f92672">/&gt;</span>
+				<span style="color: #f92672">&lt;span</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;bg_gray&quot;</span><span style="color: #f92672">&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;</span>
+			<span style="color: #f92672">&lt;/a&gt;</span>
+		<span style="color: #f92672">&lt;/li&gt;</span>
+		<span style="color: #f92672">&lt;li&gt;</span>
+			<span style="color: #f92672">&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#&quot;</span><span style="color: #f92672">&gt;</span>
+				<span style="color: #f92672">&lt;img</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;83&quot;</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;111&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/thumbnail_01.jpg&quot;</span> <span style="color: #a6e22e">alt=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f92672">/&gt;</span>
+				<span style="color: #f92672">&lt;span</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;bg_gray&quot;</span><span style="color: #f92672">&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;</span>
+			<span style="color: #f92672">&lt;/a&gt;</span>
+		<span style="color: #f92672">&lt;/li&gt;</span>
+		<span style="color: #f92672">&lt;li&gt;</span>
+			<span style="color: #f92672">&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#&quot;</span><span style="color: #f92672">&gt;</span>
+				<span style="color: #f92672">&lt;img</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;83&quot;</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;111&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/thumbnail_01.jpg&quot;</span> <span style="color: #a6e22e">alt=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f92672">/&gt;</span>
+				<span style="color: #f92672">&lt;span</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;bg_gray&quot;</span><span style="color: #f92672">&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;</span>
+			<span style="color: #f92672">&lt;/a&gt;</span>
+		<span style="color: #f92672">&lt;/li&gt;</span>
+		<span style="color: #f92672">&lt;li&gt;</span>
+			<span style="color: #f92672">&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#&quot;</span><span style="color: #f92672">&gt;</span>
+				<span style="color: #f92672">&lt;img</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;83&quot;</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;111&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/thumbnail_01.jpg&quot;</span> <span style="color: #a6e22e">alt=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f92672">/&gt;</span>
+				<span style="color: #f92672">&lt;span</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;bg_gray&quot;</span><span style="color: #f92672">&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;</span>
+			<span style="color: #f92672">&lt;/a&gt;</span>
+		<span style="color: #f92672">&lt;/li&gt;</span>
+		<span style="color: #f92672">&lt;li&gt;</span>
+			<span style="color: #f92672">&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#&quot;</span><span style="color: #f92672">&gt;</span>
+				<span style="color: #f92672">&lt;img</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;83&quot;</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;111&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/thumbnail_01.jpg&quot;</span> <span style="color: #a6e22e">alt=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f92672">/&gt;</span>
+				<span style="color: #f92672">&lt;span</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;bg_gray&quot;</span><span style="color: #f92672">&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;</span>
+			<span style="color: #f92672">&lt;/a&gt;</span>
+		<span style="color: #f92672">&lt;/li&gt;</span>
+		<span style="color: #f92672">&lt;li&gt;</span>
+			<span style="color: #f92672">&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#&quot;</span><span style="color: #f92672">&gt;</span>
+				<span style="color: #f92672">&lt;img</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;83&quot;</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;111&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/thumbnail_01.jpg&quot;</span> <span style="color: #a6e22e">alt=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f92672">/&gt;</span>
+				<span style="color: #f92672">&lt;span</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;bg_gray&quot;</span><span style="color: #f92672">&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;</span>
+			<span style="color: #f92672">&lt;/a&gt;</span>
+		<span style="color: #f92672">&lt;/li&gt;</span>
+	<span style="color: #f92672">&lt;/ul&gt;</span>
+<span style="color: #f92672">&lt;/div&gt;</span>
+	
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;btn-box&quot;</span><span style="color: #f92672">&gt;</span>
+	    <span style="color: #f92672">&lt;button</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;btn-destroy&quot;</span><span style="color: #f92672">&gt;</span>destroy<span style="color: #f92672">&lt;/button&gt;</span>
+	    <span style="color: #f92672">&lt;button</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;btn-reboot&quot;</span><span style="color: #f92672">&gt;</span>reboot<span style="color: #f92672">&lt;/button&gt;</span>
+	<span style="color: #f92672">&lt;/div&gt;</span>
+<span style="color: #f92672">&lt;/div&gt;</span>
+
+
+<span style="color: #75715e">&lt;!-- // wrap --&gt;</span>
+
+<span style="color: #f92672">&lt;/body&gt;</span>
+<span style="color: #f92672">&lt;/html&gt;</span>
+</pre></td></tr></table></div>
+
+
+
+
+
+					</div><!-- //소스 -->
+                </div>
+			</div>
+		</div>
+		<!-- e: examples 예제 -->
+	</div>
+	<!-- e: 컨텐츠 끝 -->
+</div>
+
+
+
+<script type="text/javascript">
+	$("#header").load("../../../head.html");
+	$("#lnb").load("../../../lnb.html");
+
+	$(".ex-more a").click(function() {
+		$( this ).find("span").toggle();
+		$( this ).parent().siblings(".ex-body").slideToggle();
+		return false;
+	});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+
+body { margin:0 ; padding:0;}
+/*=================================================================================
+* gallery - Css
+=================================================================================*/
+/* ex01 */
+.gallery_view { position:relative; width: 100%; padding: 15px 0 50px;; background: #2a2a2a; }
+.gallery_view .gallery_center { width: 100%; height:535px; position: relative;  text-align:center;}
+.gallery_view .bx-prev {  z-index: 5; font: 0/0 serif; position: absolute; left: 0; top: 250px; width: 40px; display: block; height: 64px; background: url('../images/btn_prev02_off.png') no-repeat left top;}
+.gallery_view .bx-next {  z-index: 5; font: 0/0 serif; position: absolute; right: 0; top: 250px; width: 40px; display: block; height: 64px; background: url('../images/btn_next02_off.png') no-repeat left top;}
+.gallery_view .bx-prev:hover {  z-index: 5; position: absolute; left: 0; top: 250px; width: 40px; display: block; height: 64px; background: url('../images/btn_prev02_on.png') no-repeat left top;}
+.gallery_view .bx-next:hover {  z-index: 5; position: absolute; right: 0; top: 250px; width: 40px; display: block; height: 64px; background: url('../images/btn_next02_on.png') no-repeat left top;}
+.gallery_view .gallery_center div.swiper-slide { text-align: center; width:600px; height: 535px; float:left; cursor:pointer  }
+.gallery_view .gallery_center div.swiper-slide img { vertical-align: middle;}
+.gallery_view .bx-pager {  padding-top: 20px; width: 100%; text-align: center;}
+.gallery_view .bx-pager .bx-pager-item { display: inline-block; }
+.gallery_view .bx-pager .bx-pager-item .bx-pager-link{ display: inline-block; width: 10px; height: 10px; border-radius: 10px; background: #777; margin: 0 5px; cursor: pointer; font-size: 0; line-height: 0; overflow: hidden; text-indent: -99 } 
+.gallery_view .bx-pager .bx-pager-item .bx-pager-link.active{  background: #fff; } 
+
+
+/* ex02 */
+.gallery_view:after { content:""; display:block; clear:both;}
+.gallery_view .gallery_left { float: left; width: 600px; position: relative; background: #1f1f1f; padding: 15px 0; overflow: hidden}
+.gallery_view .gallery_left .bx-prev {  z-index: 5; font: 0/0 serif; position: absolute; left: 0; top: 250px; width: 40px; display: block; height: 64px; background: url('../images/btn_prev02_off.png') no-repeat left top;}
+.gallery_view .gallery_left .bx-next {  z-index: 5; font: 0/0 serif; position: absolute; right: 0; top: 250px; width: 40px; display: block; height: 64px; background: url('../images/btn_next02_off.png') no-repeat left top;}
+.gallery_view .gallery_left .bx-prev:hover {  z-index: 5; position: absolute; left: 0; top: 250px; width: 40px; display: block; height: 64px; background: url('../images/btn_prev02_on.png') no-repeat left top;}
+.gallery_view .gallery_left .bx-next:hover {  z-index: 5; position: absolute; right: 0; top: 250px; width: 40px; display: block; height: 64px; background: url('../images/btn_next02_on.png') no-repeat left top;}
+.gallery_view .gallery_left .bxslider > div { text-align: center; width:600px; height: 535px; float:left; cursor:pointer  } 
+.gallery_view .gallery_left div.swiper-slide img { vertical-align: middle;}
+.gallery_view .gallery_right { float: left; width: 430px;}
+.gallery_view .gallery_right .gallery_article { padding-left: 40px;  width: 360px; float:left}
+.gallery_view .gallery_right .gallery_article dl { margin-bottom: 30px;}
+.gallery_view .gallery_right .gallery_article dl dt { color: #fff; font-weight: bolder; font-size: 30px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; line-height: 40px; width: 100%; margin-bottom: 15px;}
+.gallery_view .gallery_right .gallery_article dl dd { color: #fff; font-size: 13px; line-height: 18px;}
+.gallery_view .gallery_right .gallery_article p { margin-bottom: 50px;}
+
+
+
+.gallery_view .slides_container { width:600px; height: 535px; overflow:hidden; float:left; position:relative; }
+.gallery_view .slides_container a { width: 600px; height:535px; display:block; text-align: center;}
+.gallery_view .pagination { position: absolute; left: 50%; bottom: 20px; margin-left:-200px; width: 400px;}
+.gallery_view .pagination-right { position: absolute; left: 700px; top: 265px; width: 400px;}
+.gallery_view .pagination-list {overflow: hidden;}
+.gallery_view .pagination-list li { float: left; width: 83px; height: 111px; margin-right: 6px; margin-bottom: 6px; list-style-type:none;}
+.gallery_view .pagination-list li.last { margin-right: 0;}
+.gallery_view .pagination-list li a { display: block; width: 83px; height: 111px; position: relative;}
+.gallery_view .pagination-list li a .bg_gray { display: none;}
+.gallery_view .pagination-list li.current a .bg_gray { display: block; border: 3px solid #fff; width: 77px; height: 105px; position: absolute; left: 0; top: 0; z-index: 3;}
+.gallery_view .pagination-list li.current a .bg_gray span { display: block; width: 100%; height: 100%; zoom: 1; filter: alpha(opacity=30); opacity: 0.3; background: #000;}

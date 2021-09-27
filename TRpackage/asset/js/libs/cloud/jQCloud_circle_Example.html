@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!-- saved from url=(0028)http://211.238.131.220/cloud -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>jQCloud Example</title>
+    <link rel="stylesheet" type="text/css" href="./css/jqcloud_circle.css" />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.1/jquery.js"></script>
+    <script type="text/javascript" src="./js/jqcloud_circle.js"></script>
+	<script type="text/javascript">
+
+	    var word_list = [
+			{text: "Lorem", weight: 13},
+			{text: "Ipsum", weight: 10.5},
+			{text: "Dolor", weight: 9},
+			{text: "Sit", weight: 8},
+			{text: "Amet", weight: 6.2},
+			{text: "Consectetur", weight: 5},
+			{text: "Adipiscing", weight: 5},
+			{text: "Elit", weight: 5},
+			{text: "Nam et", weight: 5},
+			{text: "Leo", weight: 4},
+			{text: "Sapien", weight: 4},
+			{text: "Pellentesque", weight: 3},
+			{text: "habitant", weight: 3},
+			{text: "morbi", weight: 3},
+			{text: "tristisque", weight: 3},
+			{text: "senectus", weight: 3},
+			{text: "et netus", weight: 3},
+			{text: "et malesuada", weight: 3},
+			{text: "id vuluptate ut", weight: 1},
+			{text: "mattis", weight: 1},
+			{text: "et nulla", weight: 1},
+			{text: "만두", weight: 10},
+		];
+		$(function() {
+			 $("#my_favorite_latin_words").jQCloudCircle(word_list,{ autoResize: true});
+			 //$("#my_favorite_latin_words").jQCloud(word_list, {shape: "rectangular"});
+		});
+	</script>
+  </head>
+  <body>
+	<h1>jQCloudCircle Example</h1>
+
+
+	<div id="my_favorite_latin_words" style="width: 50%; height: 350px; border: 1px solid #ccc;"></div>
+
+
+
+</body></html>

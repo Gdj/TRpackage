@@ -1,0 +1,370 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+<title>shape | TR package</title>
+<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.js" charset="UTF-8"></script>
+<link rel="stylesheet" type="text/css"  href="../../../../asset/css/trpBase.css" media="all" />  
+<link rel="stylesheet" type="text/css"  href="../../../../asset/css/common.css" media="all" />
+
+  <style>
+    .slash-box span, .backslash-box span{ position: absolute; z-index: 1 }
+  
+    .slash-box{ position: relative; width: 150px; height: 50px;
+      background-color: #ccc;
+      border: 1px solid #ccc;
+    }
+    .slash-box:before { content: ""; position: absolute; bottom: 0; width: 0; height: 0;
+      border-bottom: 49px solid #fff;
+      border-left: 0px solid transparent;
+      border-right: 150px solid transparent;
+    }
+    .slash-box:after { content: ""; position: absolute; right: 0px;  width: 0; height: 0;
+      border-top: 49px solid #fff;
+      border-left: 150px solid transparent;
+      border-right: 0px solid transparent;
+    }  
+
+
+    .backslash-box{ position: relative; width: 150px; height: 50px;
+      background-color: #ccc;
+      border: 1px solid #ccc;
+    }
+    .backslash-box:before { content: ""; position: absolute; width: 0; height: 0;
+      border-top: 49px solid #fff;
+      border-left: 0px solid transparent;
+      border-right: 150px solid transparent;
+    }
+    .backslash-box:after { content: ""; position: absolute; bottom: 0; right: 0px;  width: 0; height: 0;
+      border-bottom: 49px solid #fff;
+      border-left: 150px solid transparent;
+      border-right: 0px solid transparent;
+    }
+
+  </style>
+  
+  <style>
+    .slash, .backslash {  position: relative; width: 150px; height: 50px; 
+      background-color: #ccc;
+      border: 1px solid #ccc;
+    }
+    .slash {
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="100%" x2="100%" y2="0" stroke="rgb(204,204,204)" /></svg>');
+    }
+    .backslash {
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="0" x2="100%" y2="100%" stroke="rgb(204,204,204)" /></svg>');
+    }
+  </style>
+
+
+</head>
+<body>
+  <div id="header" ></div>
+  <div id="container">
+	<div id="lnb" class="gnb"></div>
+	<!-- s: 컨텐츠 시작 -->
+	<div id="contents" class="contents">
+		<!-- s: css 설명
+		<div class="desc_wapper">
+			<h1 class="desc_title">list</h1>
+			<p>목록에 대한 정의입니다.</p>
+		</div>
+		 -->
+		<!-- e: css 설명 -->
+	
+
+		<!-- s: api 설명 -->
+		<div class="api">
+			<h2 class="api-title">slash (css)</h2>
+			<div class="api-body">
+				<dl>
+					<dt>설명</dt>
+					<dd><span class="icon"></span>CSS로 사선 처럼 보이게 할수있다..</dd>					
+				</dl>
+
+
+				<div class="ex_wapper">
+					<h3 class="api-title_h3">VIEW</h3>
+					<p class="ex-more"><a href="javascript:return false;"><span class="d-n">+</span><span style="display: inline;">-</span></a></p>
+					<p class="ex-view"><a href="ex01.html" target="_blank">View Sample</a></p>
+					<div class="ex-body d-n" >
+                    <!-- 소스 -->
+
+                    
+  <div class="slash-box"><span>slash</span></div>
+  <br>
+  <div class="backslash-box"><span>backslash</span></div>             
+                                                             
+
+                    <!-- //소스 -->
+					</div>
+				</div>
+								
+												
+						
+    								
+    																
+<!-- ===CSS=== -->		
+				<div class="ex_wapper">
+					<h3 class="api-title_h3 css">CSS3</h3>
+					<div class="api-body_h3 css">
+                    <!-- 소스 -->
+
+                    
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35</pre></td><td><pre style="margin: 0; line-height: 125%">  <span style="color: #f92672">&lt;style&gt;</span>
+    <span style="color: #a6e22e">.slash-box</span> <span style="color: #f92672">span,</span> <span style="color: #a6e22e">.backslash-box</span> <span style="color: #f92672">span</span><span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">absolute</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">z-index</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">1</span> <span style="color: #f8f8f2">}</span>
+
+    <span style="color: #a6e22e">.slash-box</span><span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">relative</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">150px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">50px</span><span style="color: #f8f8f2">;</span>
+      <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#ccc</span><span style="color: #f8f8f2">;</span>
+      <span style="color: #66d9ef">border</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">1px</span> <span style="color: #66d9ef">solid</span> <span style="color: #ae81ff">#ccc</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #f8f8f2">}</span>
+    <span style="color: #a6e22e">.slash-box:before</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">content</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;&quot;</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">absolute</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">bottom</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+      <span style="color: #66d9ef">border-bottom</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">49px</span> <span style="color: #66d9ef">solid</span> <span style="color: #ae81ff">#fff</span><span style="color: #f8f8f2">;</span>
+      <span style="color: #66d9ef">border-left</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0px</span> <span style="color: #66d9ef">solid</span> <span style="color: #66d9ef">transparent</span><span style="color: #f8f8f2">;</span>
+      <span style="color: #66d9ef">border-right</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">150px</span> <span style="color: #66d9ef">solid</span> <span style="color: #66d9ef">transparent</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #f8f8f2">}</span>
+    <span style="color: #a6e22e">.slash-box:after</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">content</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;&quot;</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">absolute</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">right</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0px</span><span style="color: #f8f8f2">;</span>  <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+      <span style="color: #66d9ef">border-top</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">49px</span> <span style="color: #66d9ef">solid</span> <span style="color: #ae81ff">#fff</span><span style="color: #f8f8f2">;</span>
+      <span style="color: #66d9ef">border-left</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">150px</span> <span style="color: #66d9ef">solid</span> <span style="color: #66d9ef">transparent</span><span style="color: #f8f8f2">;</span>
+      <span style="color: #66d9ef">border-right</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0px</span> <span style="color: #66d9ef">solid</span> <span style="color: #66d9ef">transparent</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #f8f8f2">}</span>  
+
+
+    <span style="color: #a6e22e">.backslash-box</span><span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">relative</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">150px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">50px</span><span style="color: #f8f8f2">;</span>
+      <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#ccc</span><span style="color: #f8f8f2">;</span>
+      <span style="color: #66d9ef">border</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">1px</span> <span style="color: #66d9ef">solid</span> <span style="color: #ae81ff">#ccc</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #f8f8f2">}</span>
+    <span style="color: #a6e22e">.backslash-box:before</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">content</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;&quot;</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">absolute</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+      <span style="color: #66d9ef">border-top</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">49px</span> <span style="color: #66d9ef">solid</span> <span style="color: #ae81ff">#fff</span><span style="color: #f8f8f2">;</span>
+      <span style="color: #66d9ef">border-left</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0px</span> <span style="color: #66d9ef">solid</span> <span style="color: #66d9ef">transparent</span><span style="color: #f8f8f2">;</span>
+      <span style="color: #66d9ef">border-right</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">150px</span> <span style="color: #66d9ef">solid</span> <span style="color: #66d9ef">transparent</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #f8f8f2">}</span>
+    <span style="color: #a6e22e">.backslash-box:after</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">content</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;&quot;</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">absolute</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">bottom</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">right</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0px</span><span style="color: #f8f8f2">;</span>  <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+      <span style="color: #66d9ef">border-bottom</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">49px</span> <span style="color: #66d9ef">solid</span> <span style="color: #ae81ff">#fff</span><span style="color: #f8f8f2">;</span>
+      <span style="color: #66d9ef">border-left</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">150px</span> <span style="color: #66d9ef">solid</span> <span style="color: #66d9ef">transparent</span><span style="color: #f8f8f2">;</span>
+      <span style="color: #66d9ef">border-right</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0px</span> <span style="color: #66d9ef">solid</span> <span style="color: #66d9ef">transparent</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #f8f8f2">}</span>
+
+  <span style="color: #f92672">&lt;/style&gt;</span>
+</pre></td></tr></table></div>
+
+
+                                        
+                                                                                
+                    
+                    <!-- //소스 -->
+					</div>
+				</div>
+
+				
+
+
+<!-- ===HTML=== -->	
+				<div class="ex_wapper">
+				<h3 class="api-title_h3 html">HTML</h3>
+					<div class="api-body_h3 html">
+                    <!-- 소스 -->
+
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;slash-box&quot;</span><span style="color: #f92672">&gt;</span>slash<span style="color: #f92672">&lt;/div&gt;</span>
+<span style="color: #f92672">&lt;br&gt;</span>
+<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;backslash-box&quot;</span><span style="color: #f92672">&gt;</span>backslash<span style="color: #f92672">&lt;/div&gt;</span>
+</pre></td></tr></table></div>
+
+
+
+
+
+
+                    <!-- //소스 -->
+					</div>
+				</div>
+
+
+
+
+
+		
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+		
+		
+		
+		
+		
+		<!-- s: api 설명 -->
+		<div class="api">
+			<h2 class="api-title">slash (svg)</h2>
+			<div class="api-body">
+				<dl>
+					<dt>설명</dt>
+					<dd><span class="icon"></span>SVG로 사선 그리기 edge 이상 에서 적용가능 </dd>					
+				</dl>
+
+
+				<div class="ex_wapper">
+					<h3 class="api-title_h3">VIEW</h3>
+					<p class="ex-more"><a href="javascript:return false;"><span class="d-n">+</span><span style="display: inline;">-</span></a></p>
+					<p class="ex-view"><a href="ex01.html" target="_blank">View Sample</a></p>
+					<div class="ex-body d-n" >
+                    <!-- 소스 -->
+
+                    
+<div class="slash">slash</div>
+<br>
+<div class="backslash">backslash</div>            
+                                                             
+
+                    <!-- //소스 -->
+					</div>
+				</div>
+								
+												
+						
+    								
+    																
+<!-- ===CSS=== -->		
+				<div class="ex_wapper">
+					<h3 class="api-title_h3 css">CSS3(svg)</h3>
+					<div class="api-body_h3 css">
+                    <!-- 소스 -->
+
+                    
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></td><td><pre style="margin: 0; line-height: 125%">  <span style="color: #f92672">&lt;style&gt;</span>
+  <span style="color: #a6e22e">.slash</span><span style="color: #f92672">,</span> <span style="color: #a6e22e">.backslash</span> <span style="color: #f8f8f2">{</span>  <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">relative</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">150px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">50px</span><span style="color: #f8f8f2">;</span> 
+    <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#ccc</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #66d9ef">border</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">1px</span> <span style="color: #66d9ef">solid</span> <span style="color: #ae81ff">#ccc</span><span style="color: #f8f8f2">;</span>
+  <span style="color: #f8f8f2">}</span>
+  <span style="color: #a6e22e">.slash</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #66d9ef">background</span><span style="color: #f92672">:</span> <span style="color: #e6db74">url(&#39;data:image/svg+xml;utf8,&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;&lt;line x1=&quot;0&quot; y1=&quot;100%&quot; x2=&quot;100%&quot; y2=&quot;0&quot; stroke=&quot;rgb(204,204,204)&quot; /&gt;&lt;/svg&gt;&#39;);</span>
+<span style="color: #e6db74">  }</span>
+<span style="color: #e6db74">  .backslash {</span>
+<span style="color: #e6db74">    background: url(&#39;data:image/svg+xml;utf8,&lt;svg xmlns=&quot;</span><span style="color: #f8f8f2">http</span><span style="color: #f92672">://</span><span style="color: #f8f8f2">www</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">w3</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">org</span><span style="color: #f92672">/</span><span style="color: #ae81ff">2000</span><span style="color: #f92672">/</span><span style="color: #f8f8f2">svg</span><span style="color: #e6db74">&quot;&gt;&lt;line x1=&quot;</span><span style="color: #ae81ff">0</span><span style="color: #e6db74">&quot; y1=&quot;</span><span style="color: #ae81ff">0</span><span style="color: #e6db74">&quot; x2=&quot;</span><span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #e6db74">&quot; y2=&quot;</span><span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #e6db74">&quot; stroke=&quot;</span><span style="color: #66d9ef">rgb</span><span style="color: #f8f8f2">(</span><span style="color: #ae81ff">204</span><span style="color: #f92672">,</span><span style="color: #ae81ff">204</span><span style="color: #f92672">,</span><span style="color: #ae81ff">204</span><span style="color: #f8f8f2">)</span><span style="color: #960050; background-color: #1e0010">&quot;</span> <span style="color: #f92672">/&gt;&lt;/</span><span style="color: #f8f8f2">svg</span><span style="color: #f92672">&gt;</span><span style="color: #960050; background-color: #1e0010">&#39;</span><span style="color: #f8f8f2">);</span>
+  <span style="color: #f8f8f2">}</span>
+  <span style="color: #f92672">&lt;/style&gt;</span>
+</pre></td></tr></table></div>
+
+
+
+
+
+                                        
+                                                                                
+                    
+                    <!-- //소스 -->
+					</div>
+				</div>
+
+				
+
+
+<!-- ===HTML=== -->	
+				<div class="ex_wapper">
+				<h3 class="api-title_h3 html">HTML</h3>
+					<div class="api-body_h3 html">
+                    <!-- 소스 -->
+
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3</pre></td><td><pre style="margin: 0; line-height: 125%">  <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;slash&quot;</span><span style="color: #f92672">&gt;</span>slash<span style="color: #f92672">&lt;/div&gt;</span>
+  <span style="color: #f92672">&lt;br&gt;</span>
+  <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;backslash&quot;</span><span style="color: #f92672">&gt;</span>backslash<span style="color: #f92672">&lt;/div&gt;</span>
+</pre></td></tr></table></div>
+
+
+
+
+
+
+
+                    <!-- //소스 -->
+					</div>
+				</div>
+
+
+
+
+
+		
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+		
+	
+		</div>		
+	<!-- e: 컨텐츠 끝 -->
+	<p class="cl-b"></p>
+</div>
+
+
+
+<script type="text/javascript">
+	$("#header").load("../../../head.html");
+	$("#lnb").load("../../../lnb.html");	
+
+
+	$(".ex-more a").click(function() {
+		$( this ).find("span").toggle();
+		$( this ).parent().siblings(".ex-body").slideToggle();
+		return false;
+	});
+
+</script>
+
+</body>
+</html>
+
+
+
+

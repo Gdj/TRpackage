@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>loader</title>
+    <style>
+        
+    .trp_loader {
+        position: relative;
+        width: 150px;height: 150px;
+    }
+    .trp_loader::before {
+        position: absolute;content: '';
+        border-radius: 50%;
+        border: 3px solid transparent;
+        top: 47px;bottom: 47px;left: 47px;right: 47px;
+        border-top-color: #ff1400;
+        border-bottom-color: #ff1400;
+        -webkit-animation: spin 0.7s linear infinite;
+        animation: trp_spin 0.7s linear infinite;       
+    }
+    @-webkit-keyframes trp_spin{
+        0% {-webkit-transform: rotate(0deg);-ms-transform: rotate(0deg);transform: rotate(0deg);}
+        100% {-webkit-transform: rotate(360deg);-ms-transform: rotate(360deg);transform: rotate(360deg);}
+    }
+    @keyframes trp_spin{
+        0% {-webkit-transform: rotate(0deg);-ms-transform: rotate(0deg);transform: rotate(0deg);}  
+        100% {-webkit-transform: rotate(360deg);-ms-transform: rotate(360deg);transform: rotate(360deg);}
+    }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="trp_loader"></div>
+
+</body>
+
+</html>

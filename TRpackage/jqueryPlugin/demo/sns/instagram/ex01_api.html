@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SNS instagram</title>
+  <link rel="stylesheet" href="/TRpackage/asset/css/trpBase.css">
+</head>
+<body >
+  <div class="wrap" style="width: 1000px; margin: 20px auto;">
+
+    <h1 class="trp h1">SNS instagram</h1>
+    <p>URL: <a href="https://instafeedjs.com/" target="_blank">https://instafeedjs.com/</a></p>
+    <br><hr><br>
+  
+    <script type="text/javascript" src="path/to/instafeed.min.js"></script>
+    <div id="instafeed"></div>
+    <button class="trp button type1">
+      sns Instagram
+    </button>
+    <script type="text/javascript">
+      var feed = new Instafeed({
+        accessToken: 'your-token'
+      });
+      feed.run();
+    </script>
+    <script>
+      var userFeed = new Instafeed({
+        // account id : 1436855529
+        get: 'user',
+        userId: 1436855529, // user id는 http://jelled.com/instagram/lookup-user-id 에서 검색하여 입력한다.
+        accessToken: '01234567890.08e67b6.12083fdfc6664f1c9cfcf492827b4da6', // access_token
+        target: 'instagram_list',
+        resolution: 'low_resolution',
+        template : ''+ 
+          '<a href="{{link}}" target="_blank">'+
+              '<img src="{{image}}"/>'+
+              '<i class="fa fa-play-circle-o fa-4x play-icon"></i>'+
+              '<div class="shadow">'+
+                  '<i class="fa fa-heart"></i> {{likes}}개'+
+                  '<span class="space"></span> '+
+                  '<i class="fa fa-comment"></i> {{comments}}개'+
+              '</div>'+
+          '</a>',
+        limit:8,
+        after: function(){
+          // do noting
+        }
+      });
+      window.onload = function(){
+        userFeed.run();
+      }
+  
+    </script>
+  
+    
+    <br><hr><br>
+    <h2 class="trp h2">options</h2>
+    <table class="trp table-data-type1">
+      <colgroup>
+        <col style="width: 20%;">
+        <col style="width: auto;">
+        <col style="width: 20%;">
+        <col style="width: auto;">
+      </colgroup>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Default Value</th>
+          <th>Valid types</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>accessToken</code></td>
+          <td><code>null</code></td>
+          <td>String, Function</td>
+          <td><strong>필수</strong> 
+            Instagram 액세스 토큰 (문자열 또는 문자열을 반환하는 함수)</td>
+        </tr>
+        <tr>
+          <td><code>debug</code></td>
+          <td><code>false</code></td>
+          <td>Boolean</td>
+          <td>디버깅 정보를 표시하려면 <code>true로</code> 설정하십시오.</td>
+        </tr>
+        <tr>
+          <td><code>filter</code></td>
+          <td><code>null</code></td>
+          <td>Function</td>
+          <td>결과에서 이미지를 제외하는 데 사용되는 함수입니다. 함수에는 이미지 데이터가 인수로 주어지며 함수가 부울을 반환 할 것으로 예상합니다.</td>
+        </tr>
+        <tr>
+          <td><code>limit</code></td>
+          <td><code>null</code></td>
+          <td>Number</td>
+          <td>이 많은 게시물의 최대 표시</td>
+        </tr>
+        <tr>
+          <td><code>sort</code></td>
+          <td><code>null</code></td>
+          <td>Function</td>
+          <td>기본 '가장 최근'정렬이 아닌 미디어를 정렬하는 사용자 지정 기능</td>
+        </tr>
+        <tr>
+          <td><code>target</code></td>
+          <td><code>'instafeed'</code></td>
+          <td>String, DOM Element</td>
+          <td>이미지를 추가 할 ID 또는 DOM 요소 자체입니다.</td>
+        </tr>
+        <tr>
+          <td><code>template</code></td>
+          <td><code>
+            '&lt;a href="{{link}}"&gt; <br>
+              &lt;img title="{{caption}}" src="{{image}}" /&gt; <br>
+            &lt;/a&gt;'</code>
+          </td>
+          <td>String</td>
+          <td>문서의 HTML을 생성하는 데 사용되는 중괄호{{}} 템플릿입니다.</td>
+        </tr>
+        <tr>
+          <td><code>transform</code></td>
+          <td><code>null</code></td>
+          <td>Function</td>
+          <td>이미지 데이터를 렌더링하기 전에 변환하는 데 사용되는 함수입니다.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

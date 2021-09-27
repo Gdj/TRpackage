@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+<title>web-reset</title>
+<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.js" charset="UTF-8"></script>
+<link rel="stylesheet" type="text/css"  href="../../../../asset/css/common.css" media="all" />
+<!-- <link rel="stylesheet" type="text/css"  href="../../../../asset/css/trpBase.css" media="all" /> -->
+
+<!-- -->
+<style type="text/css">
+
+* { margin:0; padding:0; border:0; outline:0; vertical-align:top; }
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display:block; }
+ul, ol, dl { list-style:none; }
+img, video { max-width:100%; border:0; vertical-align:top; }
+a { vertical-align:top; text-decoration:none; color:#000; }
+table { border-collapse:collapse; border-spacing:0; }
+input, select { vertical-align:middle; }
+body { font-family: '돋움', dotum, Arial, sans-serif; font-size:100%; line-height:1; }
+label { cursor:pointer; }
+.blind,legend,hr,caption { display:block; overflow:hidden; position:absolute; top:0; left:-1000em; }
+i,em,address { font-style:normal; font-weight:normal; }
+
+</style>
+
+
+</head>
+<body>
+  <div id="header" ></div>
+  <div id="container">
+	<div id="lnb" class="gnb"></div>
+	<!-- s: 컨텐츠 시작 -->
+	<div id="contents" class="contents">
+		<!-- s: css 설명
+		<div class="desc_wapper">
+			<h1 class="desc_title">list</h1>
+			<p>목록에 대한 정의입니다.</p>
+		</div>
+		 -->
+		<!-- e: css 설명 -->
+	
+
+		<!-- s: api 설명 -->
+		<div class="api">
+			<h2 class="api-title">web-reset</h2>
+			<div class="api-body">
+				<dl>
+					<dt>설명</dt>
+					<dd><span class="icon"></span>웹에서의 스타일 초기화 입니다.</dd>					
+				</dl>
+
+				
+<!-- ===CSS=== -->		
+				<div class="ex_wapper">
+					<h3 class="api-title_h3 css">CSS</h3>
+					<div class="api-body_h3 css">
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #f92672">&lt;style </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/css&quot;</span><span style="color: #f92672">&gt;</span>
+
+<span style="color: #f92672">*</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">margin</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">border</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">outline</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">vertical-align</span><span style="color: #f92672">:</span><span style="color: #66d9ef">top</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+<span style="color: #f92672">article,</span> <span style="color: #f92672">aside,</span> <span style="color: #f92672">details,</span> <span style="color: #f92672">figcaption,</span> <span style="color: #f92672">figure,</span> <span style="color: #f92672">footer,</span> <span style="color: #f92672">header,</span> <span style="color: #f92672">hgroup,</span> <span style="color: #f92672">menu,</span> <span style="color: #f92672">nav,</span> <span style="color: #f92672">section</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span><span style="color: #66d9ef">block</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+<span style="color: #f92672">ul,</span> <span style="color: #f92672">ol,</span> <span style="color: #f92672">dl</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">list-style</span><span style="color: #f92672">:</span><span style="color: #66d9ef">none</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+<span style="color: #f92672">img,</span> <span style="color: #f92672">video</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">max-width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">border</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">vertical-align</span><span style="color: #f92672">:</span><span style="color: #66d9ef">top</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+<span style="color: #f92672">a</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">vertical-align</span><span style="color: #f92672">:</span><span style="color: #66d9ef">top</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">text-decoration</span><span style="color: #f92672">:</span><span style="color: #66d9ef">none</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">color</span><span style="color: #f92672">:</span><span style="color: #ae81ff">#000</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+<span style="color: #f92672">table</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">border-collapse</span><span style="color: #f92672">:</span><span style="color: #66d9ef">collapse</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">border-spacing</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+<span style="color: #f92672">input,</span> <span style="color: #f92672">select</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">vertical-align</span><span style="color: #f92672">:</span><span style="color: #66d9ef">middle</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+<span style="color: #f92672">body</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">font-family</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;돋움&#39;</span><span style="color: #f92672">,</span> <span style="color: #f8f8f2">dotum</span><span style="color: #f92672">,</span> <span style="color: #f8f8f2">Arial</span><span style="color: #f92672">,</span> <span style="color: #66d9ef">sans-serif</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span><span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">line-height</span><span style="color: #f92672">:</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+<span style="color: #f92672">label</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">cursor</span><span style="color: #f92672">:</span><span style="color: #66d9ef">pointer</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+<span style="color: #a6e22e">.blind</span><span style="color: #f92672">,legend,hr,caption</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span><span style="color: #66d9ef">block</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">overflow</span><span style="color: #f92672">:</span><span style="color: #66d9ef">hidden</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span><span style="color: #66d9ef">absolute</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">top</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">left</span><span style="color: #f92672">:-</span><span style="color: #ae81ff">1000em</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+<span style="color: #f92672">i,em,address</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">font-style</span><span style="color: #f92672">:</span><span style="color: #66d9ef">normal</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">font-weight</span><span style="color: #f92672">:</span><span style="color: #66d9ef">normal</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+
+<span style="color: #f92672">&lt;/style&gt;</span>
+</pre></td></tr></table></div>
+
+
+
+
+					</div>
+				</div>
+
+
+		
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+		
+	
+		</div>		
+	<!-- e: 컨텐츠 끝 -->
+	<p class="cl-b"></p>
+</div>
+
+
+
+<script type="text/javascript">
+	$("#header").load("../../../head.html");
+	$("#lnb").load("../../../lnb.html");	
+
+
+	$(".ex-more a").click(function() {
+		$( this ).find("span").toggle();
+		$( this ).parent().siblings(".ex-body").slideToggle();
+		return false;
+	});
+
+</script>
+
+</body>
+</html>

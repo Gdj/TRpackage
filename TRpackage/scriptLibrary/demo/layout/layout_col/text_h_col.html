@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>height_col</title>
+	<style>
+		.txt_box-list { max-width: 800px; margin: 0 auto; list-style: none; padding: 0;}
+		.txt_box-list:after {content: ""; clear: both; display: block; }
+		.txt_box-list li { float: left; width: 25%; padding: 0; margin: 0; outline: 1px solid red;  }
+		.txt_box-list li div { padding: 10px; margin: 0; border: 1px solid  blue; box-sizing: border-box; }
+		
+		.output { border: 1px solid green}
+	</style>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.1/jquery.min.js" ></script>
+</head>
+<body>
+		
+		
+		<ul class=txt_box-list>
+			<li><div>네가 없이 웃을 수 있을까 생각만 해도 눈물이나 힘든 시간 날 지켜준 사람 이제는 내가 그댈 지킬 테니</div></li>
+			<li><div>너의 품은 항상 따뜻했어 고단했던 나의 하루에 유일한 휴식처</div></li>
+			<li><div>Wow 나는 너 하나로 충분해 긴 말 안 해도 눈빛으로 다 아니깐 한 송이의 꽃이 피고 지는 모든 날 모든 순간 함께해</div></li>
+			<li><div>햇살처럼 빛나고 있었지 나를 보는 네 눈빛은 꿈이라고 해도 좋을 만큼 그 모든 순간은 눈부셨다</div></li>
+			<li><div>불안했던 나의 고된 삶에 한줄기 빛처럼 다가와 날 웃게 해준 너</div></li>
+			<li><div>Wow 나는 너 하나로 충분해 긴 말 안 해도 눈빛으로 다 아니깐 한 송이의 꽃이 피고 지는 모든 날 모든 순간 함께해 oh yeah</div></li>
+			<li><div>알 수 없는 미래지만 네 품속에 있는 지금 순간 순간이 영원 했으면 해</div></li> 
+			<li><div>Wow 갈게 바람이 좋은 날에 햇살 눈부신 어떤 날에 너에게로 처음 내게 왔던 그날처럼 모든 날 모든 순간 함께해</div></li>		
+			
+			<li><div>네가 없이 웃을 수 있을까 asdfasdfasdfasdf lk;asdl;f생각만 해도 눈물이나 힘든 시간 날 지켜준 사람 이제는 내가 그댈 지킬 테니</div></li>
+			<li><div>너의 품은 항상 따뜻했어 고단했던 나의 하루에 유일한 휴식처</div></li>
+			<li><div>Wow 나는 너 하나로 충분해 긴 말 안 해도 눈빛으로 다 아니깐 한 송이의 꽃이 피고 지는 모든 날 모든 순간 함께해</div></li>
+			<li><div>햇살처럼 빛나고 있었지 나를 보는 네 눈빛은 꿈이라고 해도 좋을 만큼 그 모든 순간은 눈부셨다</div></li>
+			<li><div>불안했던 나의 고된 삶에 한줄기 빛처럼 다가와 날 웃게 해준 너</div></li>
+			<li><div>Wow 나는 너 하나로 충분해 긴 말 안 해도 눈빛으로 다 아니깐 한 송이의 꽃이 피고 지는 모든 날 모든 순간 함께해 oh yeah</div></li>
+			<li><div>Wow 갈게 바람이 좋은 날에 햇살 눈부신 어떤 날에 너al';sdjf ;asa;posdjf;a lsjasd ;flkjasd;flk ;민아ㅓ래 에게로 처음 내게 왔던 그날처럼 모든 날 모든 순간 함께해</div></li>
+			<li><div>알 수 없는 미래지만 네 품속에 있는 지금 순간 순간이 영원 했으면 해</div></li> 
+		</ul>
+		
+		<div class="output js-text1">[]</div>
+		<div class="output js-text2">[]</div>
+		
+		<script>
+			/* ================== 서비스 설정 최소값 설정 ========================== */   
+			var items  = ".txt_box-list > li";
+			var colNum = 3;
+			var _arr_temps = []; 
+			
+			$(window).resize(function(){ height_col(items, colNum); });
+			/*
+			* height_col( $items, $col )
+			* $items : jQuery 아이템 선택자
+			* $col   : 한줄에 나와야하는 겟수
+			*/
+			function height_col( $items  , $col){ 
+				var _arr = [], _arr_temps = [], _arr_col=[];
+				var _items = $($items);
+				_items.css({ "min-height": 0, "width":_col_w });
+				var _col_w = (100 / $col) + "%"; 
+				_items.each( function($i){
+					_arr_temps.push( $(this).height() );
+					if( $i % $col == 0 ){
+						height_max(_arr_col, _arr);
+						_arr = []; _arr_col=[];
+						_arr.push( $(this).height() )
+						_arr_col.push( $(this) )
+				  }else{
+						_arr.push( $(this).height() )
+						_arr_col.push( $(this) )
+					}
+				});
+				
+				$(".js-text1").text(_arr_temps);
+				$(".js-text2").text( _col_w );
+			}
+			
+			function height_max($coltimes, $arr){
+				var _max = Math.max.apply(null, $arr);
+				for( var i=0; i < $coltimes.length ; i++){
+					$coltimes[i].css({ "min-height":  (Math.round(_max)) });
+				}
+			}
+			
+		  height_col(items, colNum);
+			/* ================== //서비스 설정 최소값 설정 ========================== */   
+	  </script>
+</body>
+</html>

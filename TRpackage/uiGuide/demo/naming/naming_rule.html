@@ -1,0 +1,635 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+<title>Naming 가이드  : TR package</title>
+<script type="text/javascript" src="../../../asset/js/libs/jquery-1.11.1.js" charset="UTF-8"></script>
+<link rel="stylesheet" type="text/css"  href="../../../asset/css/common.css" media="all" />
+<link rel="stylesheet" type="text/css"  href="../../../asset/css/trpBase.css" media="all" />
+
+<!--
+<style type="text/css">
+
+</style>
+-->
+
+</head>
+<body>
+  <div id="header" ></div>
+  <div id="container">
+	<div id="lnb" class="gnb"></div>
+	<!-- s: 컨텐츠 시작 -->
+	<div id="contents" class="contents">
+		<!-- s: css 설명  -->
+		<div class="desc_wapper">
+			<h1 class="desc_title">Naming 가이드</h1>
+			<p>class, id, file 이름 정의 규칙입니다.</p>
+		</div>
+		
+		<!-- e: css 설명 -->
+	
+
+		<!-- s: api 설명 -->
+		<div class="api"> 
+			<h2 class="api-title">Naming 규칙</h2>
+			<div class="api-body">
+				<dl>
+					<dt>공통규칙</dt>					
+					<dd><span class="icon"></span>naming의 첫 시작에 숫자, 특수문자, 대문자의 사용은 지양한다.</dd>
+					<dd><span class="icon"></span>(역활_이름)-(영역, 리스트)-(상태, 순번) 순으로 정의</dd>
+					<dd><span class="icon"></span>"역활"과 "이름"은 "_"로 구분</dd>					
+					<dd><span class="icon"></span>(역활_이름), (영역, 리스트), (상태, 순번)는 예외 상황을 제외 하고 (*_*)둘중 한가지씩 만 사용 하는것을 먼저 고려한다.</dd>
+					<dd><span class="icon"></span>조합시 "-" 은 최소로 사용 하는 것 을 지향한다. </dd>
+				</dl>
+				
+		
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+		
+	    <!-- s: api 설명 -->
+		<div class="api"> 
+			<h2 class="api-title">class Naming 규칙</h2>
+			<div class="api-body">
+				<dl>
+					<dt>이름 짓기</dt>					
+					<dd><span class="icon"></span>"역활"과 "이름" : btn, tab, tit, desc, nav, bg, gnb, lnb, snb, pop, popup / 이름 </dd>
+					<dd><span class="icon"></span>"영역"과 "리스트" : wrap, area, inner, box, section, article, aside / list </dd>
+					<dd><span class="icon"></span>"상태"과 "순번" : 카운드 숫자, on, off, over, active </dd>
+				</dl>
+					
+                <table class="table_col" summary="css 네이밍 규칙에 관한 테이블입니다.">
+					<caption>이미지 네이밍 설명 및 축약</caption>
+					<colgroup>
+						<col style="width:30%" />
+						<col style="width:70%" />						
+					</colgroup>
+					<thead>
+                        <tr>
+                            <th scope="col">축약 &amp; 예약</th>
+                            <th scope="col">설명</th>						
+                        </tr>
+					</thead>
+					<tbody>
+                        <tr>
+                            <th colspan="2"><b>layout</b></th>
+                        </tr>
+                        <tr>
+                            <td>#wrap </td>
+                            <td>페이지(#heaer, #container, #footer)전체</td>
+                        </tr>
+                        <tr>
+                            <td>#header</td>
+                            <td>로고를 포함한 상단 영역</td>
+                        </tr>
+                        <tr>
+                            <td>#container</td>
+                            <td>#heaer, #footer를 제외한 영역</td>
+                        </tr>
+                        <tr>
+                            <td>#contents</td>
+                            <td>처음 컨텐츠가 시작하는 영역, "#container" 안에 바로 컨텐츠가 시작되는 구조면 "#contents"가 대신 할 수 있다.  </td>
+                        </tr>
+                        <tr>
+                            <td>#footer</td>
+                            <td>copyright를 포함한 하단 영역</td>
+                        </tr>
+                        <tr>
+                            <td>*-wrap_*</td>
+                            <td>컨텐츠를 감싸고있는 영역(wrapper)</td>
+                        </tr>
+                        <tr>
+                            <td>*-area_*</td>
+                            <td>wrap 보다 작은 역역</td>
+                        </tr>
+                        <tr>
+                            <td>*-box_*</td>
+                            <td>area 보다 작은 역역</td>
+                        </tr>
+                        <tr>
+                            <td>*-head_*</td>
+                            <td>컨텐츠 상단 </td>
+                        </tr>
+                        <tr>
+                            <td>*-body_*</td>
+                            <td>컨텐츠 몸통 </td>
+                        </tr>
+                        <tr>
+                            <td>*-footer_*</td>
+                            <td>컨텐츠 하단</td>
+                        </tr>
+                        <tr>
+                            <td>*-inner_*</td>
+                            <td>*-wrap, *-box 등 안을 감싸는 영역</td>
+                        </tr>
+                        <tr>
+                            <td>*-aside_*</td>
+                            <td>주요 컨텐츠 외 남은 영역</td>
+                        </tr>
+                        <tr>
+                            <td>*-section_*</td>
+                            <td>컨턴츠 분할 영역</td>
+                        </tr>
+                        <tr>
+                            <td>*-article_*</td>
+                            <td>기사 나 </td>
+                        </tr>
+                        <tr>
+                            <td>gnb_*</td>
+                            <td>최상위 공통 네비게이션(Global Navigation Bar)</td>
+                        </tr>
+                        <tr>
+                            <td>lnb_*</td>
+                            <td>현재 서비스 지역(Local Navigation Bar)</td>
+                        </tr>
+                        <tr>
+                            <td>snb_*</td>
+                            <td>gnb, lnb,를 제외한 사이드 메뉴 (Side Navigation Bar)</td>
+                        </tr>                        
+                        
+                        
+                        <tr>
+                            <th colspan="2"><b>컨텐츠 구성요소</b></th>
+                        </tr>
+                        <tr>
+                            <td>util</td>
+                            <td>유용한 메뉴(utility), user_menu, other_menu  </td>
+                        </tr>
+                        <tr>
+                            <td>search</td>
+                            <td>검색 영역</td>
+                        </tr>
+                        <tr>
+                            <td>account</td>
+                            <td>계정, 로그인 영역 </td>
+                        </tr>
+                        <tr>
+                            <td>location</td>
+                            <td>현재 페이지 위치</td>
+                        </tr>                        
+                        <tr>
+                            <td>kv</td>
+                            <td>페이지내에 상단쪽에 위치하는 상징적인 비주얼 요소(Key Visual)</td>
+                        </tr>
+                        <tr>
+                            <td>thumb</td>
+                            <td>페이지내에 상단쪽에 위치하는 상징적인 비주얼 요소(thumbnail)</td>
+                        </tr>                        
+                        <tr>
+                            <td>tit</td>
+                            <td>타이틀 (title)</td>
+                        </tr>
+                        <tr>
+                            <td>desc</td>
+                            <td>내용 서술 (description)</td>
+                        </tr>
+                        <tr>
+                            <td>dfn</td>
+                            <td>용어 설명,정의 (defining)</td>
+                        </tr>
+                        <tr>
+                            <td>list</td>
+                            <td>ul, ol, dl 테그 리스트 임을 명시한다. (.tab_list, item_list) </td>
+                        </tr>
+                        <tr>
+                            <td>quickmenu</td>
+                            <td>바로가기 처럼 자주가는 페이지 접근하는 메뉴</td>
+                        </tr>
+                        <tr>
+                            <td>forms</td>
+                            <td>form 테그 임을 명시한다. (.tab_list, item_list) </td>
+                        </tr>
+                        <tr>
+                            <td>tooltip</td>
+                            <td>팝업형태의 짧은 설명</td>
+                        </tr>
+                        <tr>
+                            <td>qna</td>
+                            <td>질문과 답변 (Question and Answer)</td>
+                        </tr>
+                        <tr>
+                            <td>notice, news</td>
+                            <td>공지사항 , 뉴스</td>
+                        </tr>
+                        <tr>
+                            <td>alert</td>
+                            <td>경고</td>
+                        </tr>
+                        <tr>
+                            <td>banner</td>
+                            <td>사이트 내 광고 </td>
+                        </tr>
+                        <tr>
+                            <td>ad</td>
+                            <td>사이트 외 광고(advertisement)</td>
+                        </tr>
+					</tbody>
+				</table>
+                
+                
+                
+            <h3>예약어 규칙</h3>   
+<table class="table_col">
+    <tbody>
+        <tr>
+            <td rowspan="7">h*_*</td>
+            <td>h_*            </td>
+            <td>불특정 레벨제목</td>
+            <td rowspan="7">제목 태그로 마크업 되는 이미지 요소</td>
+            <td rowspan="7">전경</td>
+        </tr>
+        <tr>
+            <td>h1_*</td>
+            <td>제목 1</td>
+        </tr>
+        <tr>
+            <td>h2_*</td>
+            <td>제목 2</td>
+        </tr>
+        <tr>
+            <td>h3_*</td>
+            <td>제목 3</td>
+        </tr>
+        <tr>
+            <td>h4_*</td>
+            <td>제목 4</td>
+        </tr>
+        <tr>
+            <td>h5_*</td>
+            <td>제목 5</td>
+        </tr>
+        <tr>
+            <td>h6_*</td>
+            <td>제목 6</td>
+        </tr>
+        <tr>
+            <td>p_*</td>
+            <td>p_*</td>
+            <td>문장</td>
+            <td>p요소로마크업 되는 이미지 형태의텍스트</td>
+            <td>전경</td>
+        </tr>
+        <tr>
+            <td>gnb_*</td>
+            <td>gnb_*</td>
+            <td>글로벌</td>
+            <td rowspan=" 3 ">
+                네비게이션 버튼또는 탭</td>
+            <td rowspan="3 ">전경</td>
+        </tr>
+        <tr>
+            <td>lnb_*</td>
+            <td>lnb_*</td>
+            <td>로컬</td>
+        </tr>
+        <tr>
+            <td>snb_*</td>
+            <td>snb_*</td>
+            <td>사이드</td>
+        </tr>
+        <tr>
+            <td>tab_*</td>
+            <td>tab_*</td>
+            <td>탭 </td>
+            <td>gnb, lnb, snb에 포함되지않음. 탭으로 분류되는 버튼 또는 버튼의 배경 </td>
+            <td>전경 </td>
+        </tr>
+        
+        
+        <tr>
+            <td rowspan="33">btn_*</td>
+            <td>btn_list*</td>
+            <td><span>목록</span></td>
+            <td rowspan="33"><span>모든 종류의 버튼</span></td>
+            <td rowspan="33"><span>전경</span></td>
+        </tr>
+        <tr>
+            <td>btn_read*</td>
+            <td>읽기</td>
+        </tr>
+        <tr>
+            <td>btn_write*</td>
+            <td>쓰기</td>
+        </tr>
+        <tr>
+            <td>btn_modify*</td>
+            <td>수정</td>
+        </tr>
+        <tr>
+            <td>btn_delete*</td>
+            <td>삭제</td>
+        </tr>
+        <tr>
+            <td>btn_reply*</td>
+            <td>답변</td>
+        </tr>
+        <tr>
+            <td>btn_cancel*</td>
+            <td>취소</td>
+        </tr>
+        <tr>
+            <td>btn_search*</td>
+            <td>검색</td>
+        </tr>
+        <tr>
+            <td>btn_find*</td>
+            <td>찾기</td>
+        </tr>
+        <tr>
+            <td>btn_registeration*</td>
+            <td>등록</td>
+        </tr>
+        <tr>
+            <td>btn_confirm*</td>
+            <td style="HEIGHT: 24px; "><span>확인</span></td>
+        </tr>
+        <tr>
+            <td>btn_submit*</td>
+            <td>전송</td>
+        </tr>
+        <tr>
+            <td>btn_upload*</td>
+            <td>업로드</td>
+        </tr>
+        <tr>
+            <td>btn_download*</td>
+            <td>다운로드</td>
+        </tr>
+        <tr>
+            <td>btn_install*</td>
+            <td>설치</td>
+        </tr>
+        <tr>
+            <td>btn_file*</td>
+            <td>파일</td>
+        </tr>
+        <tr>
+            <td>btn_stop*</td>
+            <td>정지</td>
+        </tr>
+        <tr>
+            <td>btn_play*</td>
+            <td>실행</td>
+        </tr>
+        <tr>
+            <td>btn_prev*</td>
+            <td>이전</td>
+        </tr>
+        <tr>
+            <td>btn_next*</td>
+            <td>다음</td>
+        </tr>
+        <tr>
+            <td>btn_up*</td>
+            <td>위로</td>
+        </tr>
+        <tr>
+            <td>btn_down*</td>
+            <td>아래로</td>
+        </tr>
+        <tr>
+            <td>btn_zip*</td>
+            <td>우편코드찾기</td>
+        </tr>
+        <tr>
+            <td>btn_go*</td>
+            <td>페이지 이동</td>
+        </tr>
+        <tr>
+            <td>btn_refresh*</td>
+            <td>새로고침</td>
+        </tr>
+        <tr>
+            <td>btn_open*</td>
+            <td>열기</td>
+        </tr>
+        <tr>
+            <td>btn_close*</td>
+            <td>닫기</td>
+        </tr>
+        <tr>
+            <td>btn_zoom*</td>
+            <td>확대</td>
+        </tr>
+        <tr>
+            <td>btn_reduction*</td>
+            <td>축소</td>
+        </tr>
+        <tr>
+            <td>btn_spread*</td>
+            <td>펼치기</td>
+        </tr>
+        <tr>
+            <td>btn_unfold*</td>
+            <td>접기</td>
+        </tr>
+        <tr>
+            <td>btn_lock*</td>
+            <td>잠금</td>
+        </tr>
+        <tr>
+            <td>btn_unlock*</td>
+            <td>해제</td>
+        </tr>
+        <tr>
+            <td rowspan="7"><b>bx</b>_*-</td>
+            <td><strong>bx</strong>_*-top</td>
+            <td>상단</td>
+            <td rowspan="7">상자의선과 모서리표현</td>
+            <td rowspan="7">배경</td>
+        </tr>
+        <tr>
+            <td>bx_*-mid</td>
+            <td>중앙</td>
+        </tr>
+        <tr>
+            <td>bx_*-btm</td>
+            <td>하단</td>
+        </tr>
+        <tr>
+            <td>bx_*-lt</td>
+            <td>좌상단</td>
+        </tr>
+        <tr>
+            <td>bx_*-rt</td>
+            <td>우상단</td>
+        </tr>
+        <tr>
+            <td>bx_*-lb</td>
+            <td>좌하단</td>
+        </tr>
+        <tr>
+            <td>bx_*-rb</td>
+            <td>우하단</td>
+        </tr>
+        <tr>
+            <td rowspan="4">bul_*</td>
+            <td>bul_square</td>
+            <td>사각</td>
+            <td rowspan="4">의미를포함하지않는장식적bullet/icon 표현.</td>
+            <td rowspan="4">배경</td>
+        </tr>
+        <tr>
+            <td>bul_circle</td>
+            <td>원형</td>
+        </tr>
+        <tr>
+            <td>bul_circle</td>
+            <td>화살</td>
+        </tr>
+        <tr>
+            <td>bul_star</td>
+            <td>별</td>
+        </tr>
+        <tr>
+            <td rowspan="6">line_*</td>
+            <td>line_h</td>
+            <td>수평</td>
+            <td rowspan="6">보통 콘텐트를구분하기 위한목적의 실선또는 점선</td>
+            <td rowspan="6">배경</td>
+        </tr>
+        <tr>
+            <td>line_v</td>
+            <td>수직</td>
+        </tr>
+        <tr>
+            <td>line_s</td>
+            <td>슬래시</td>
+        </tr>
+        <tr>
+            <td>line_bs</td>
+            <td>역슬래시</td>
+        </tr>
+        <tr>
+            <td>line_h_dot</td>
+            <td>수평점선</td>
+        </tr>
+        <tr>
+            <td>line_v_dot</td>
+            <td>수직점선</td>
+        </tr>
+        <tr>
+            <td rowspan="6">bg_*</td>
+            <td>bg_body</td>
+            <td>전체</td>
+            <td rowspan="6">블릿, 버튼, 선종류의배경처리 이미지.보통 일러스트</td>
+            <td rowspan="6">배경</td>
+        </tr>
+        <tr>
+            <td>bg_head</td>
+            <td>상단</td>
+        </tr>
+        <tr>
+            <td>bg_container</td>
+            <td>콘테이너</td>
+        </tr>
+        <tr>
+            <td>bg_spot</td>
+            <td>스팟</td>
+        </tr>
+        <tr>
+            <td>bg_footer</td>
+            <td>풋터</td>
+        </tr>
+        <tr>
+            <td>bg_lnb</td>
+            <td>로컬 네비게이션</td>
+        </tr>
+        <tr>
+            <td rowspan="4">*-off
+                <div>*-over</div>
+                <div>*-on</div>
+            </td>
+            <td>tab_*-off</td>
+            <td>비활성</td>
+            <td rowspan="4">비활성/오버/활성상태/순번에 대한 표현</td>
+            <td rowspan="4">전경/배경</td>
+        </tr>
+        <tr>
+            <td>tab_*-over</td>
+            <td>오버, 포커스</td>
+        </tr>
+        <tr>
+            <td>tab_*-on</td>
+            <td>활성</td>
+        </tr>
+        <tr>
+            <td>tab_*-(0~99)</td>
+            <td>순번</td>
+        </tr>
+        <tr>
+            <td rowspan="3">
+                <p>@*</p>
+            </td>
+            <td>
+                <p>@thumb</p>
+            </td>
+            <td>
+                <p>썸네일</p>
+            </td>
+            <td rowspan="3">
+                <p>통상 DB에서</p>
+                <p>불러오게되는</p>
+                <p>임시 이미지 요소</p>
+            </td>
+            <td rowspan="3">
+                <p>전경</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>@photo</p>
+            </td>
+            <td>
+                <p>사진</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>@ad</p>
+            </td>
+            <td>
+                <p>광고</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+                                                                      
+        
+    
+
+            
+            
+            
+		
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+		
+		
+		
+		
+		</div>		
+	<!-- e: 컨텐츠 끝 -->
+	<p class="cl-b"></p>
+</div>
+
+
+
+<script type="text/javascript">
+	$("#header").load("../../head.html");
+	$("#lnb").load("../../lnb.html");	
+
+
+	$(".ex-more a").click(function() {
+		$( this ).find("span").toggle();
+		$( this ).parent().siblings(".ex-body").slideToggle();
+		return false;
+	});
+
+</script>
+
+</body>
+</html>
+
+				

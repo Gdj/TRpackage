@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+
+<head>
+    <title>you tube player</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <script src="../../../../asset/js/libs/jquery-1.12.1.min.js"></script>
+    <script src="../../../../asset/js/libs/slick/slick.js"></script>
+    <link rel="stylesheet" href="../../../../asset/js/libs/slick/slick.css">
+    <style type="text/css">
+        * { margin:0; padding:0;}
+        .gall-list li { border: 1px solid red; height: 50px; }
+        .slick-dots li { float: left; width: 30px; margin:0 5px;  }
+        .slick-dots li.slick-active { background-color: darkorange; }
+    </style>
+</head>
+
+<body>
+
+    <ul class="gall-list">        
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+    </ul>
+    
+    <script>
+        var slicksGall = $('.gall-list').slick({
+          dots: true,
+          infinite: true,
+          slidesToShow: 3,
+          //swipe:false,
+          //touchMove:false,                    // 드래그 안되고 무브
+         // waitForAnimate:false,               // 애니메이션을 적용하는 동안 슬라이드를 앞으로 이동하라는 요청을 무시합니다.     
+          //  verticalSwiping:true,             // 세로스크롤에 부브
+          //  slidesPerRow:0,
+            
+          swipeToSlide: true
+        });
+        
+        slicksGall.slick(  "slickGoTo" , 5 );
+    </script>
+    
+</body>
+</html>

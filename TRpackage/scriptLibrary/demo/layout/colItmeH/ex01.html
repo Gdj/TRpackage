@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" id="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0">
+  <title>trpColItemH</title>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.1.min.js"></script>
+  <script type="text/javascript" src="../../../../asset/js/libs/trpLayout.js"></script>
+  <style>
+    .txt_box-list { position: relative; max-width: 1200px; margin: 0 auto; list-style: none; padding: 0;}
+    .txt_box-list::after { content: ""; display: block; clear: both}
+    .txt_box-list li { float: left; width: 20%; padding: 0; margin: 0; outline: 1px solid red;}
+    .txt_box-list li div { padding: 10px; margin: 0; border: 1px solid  blue; box-sizing: border-box; }
+    .output { border: 1px solid green}
+
+    @media screen and (max-width:1200px) {
+      .txt_box-list li { width: 20% }
+    }
+
+    @media screen and (max-width:1024px) {
+      .txt_box-list li { width: 25% }
+    }
+
+    @media screen and (max-width:720px) {
+      .txt_box-list li { width: 33.3333% }
+    }
+
+    @media screen and (max-width:500px) {
+      .txt_box-list li { width: 50% }
+    }	
+
+    @media screen and (max-width:360px) {
+      .txt_box-list li { width: 100% }
+    }
+
+  </style>
+  <script>
+    $(function() {
+
+      $(window).resize(function() {
+
+        var _change_width = window.innerWidth;
+        if (_change_width <= 360) {
+          console.log(360);
+          colItemH.setCol(1);
+        } else if (_change_width <= 500) {
+          console.log(500);
+          colItemH.setCol(2);
+        } else if (_change_width <= 720) {
+          console.log(720);
+          colItemH.setCol(3);
+        } else if (_change_width <= 1024) {
+          console.log(1024);
+          colItemH.setCol(4);
+        } else if (_change_width <= 1200) {
+          console.log(1200);
+          colItemH.setCol(5);
+        } else {
+          colItemH.setCol(5);
+        }
+        $(".js-text1").text(colItemH.getHeight);
+        $(".js-text2").text(colItemH.getMaxHeight);
+
+      }); // resize;
+      var colItemH = $(".txt_box-list li").trpColItemH(5);
+      $(window).trigger("resize");
+
+    }); //ready
+  </script>
+</head>
+<body class="">
+    
+<!--    <h1>폴킴 : 모든 날, 모든 순간 (Every day, Every Moment)</h1>-->
+  <ul class=txt_box-list>
+    <li><div>네가 없이 웃을 수 있을까 생각만 해도 눈물이나 힘든 시간 날 지켜준 사람 이제는 내가 그댈 지킬 테니</div></li>
+    <li><div>너의 품은 항상 따뜻했어 고단했던 나의 하루에 유일한 휴식처</div></li>
+    <li><div>Wow 나는 너 하나로 충분해 긴 말 안 해도 눈빛으로 다 아니깐 한 송이의 꽃이 피고 지는 모든 날 모든 순간 함께해</div></li>
+    <li><div>햇살처럼 빛나고 있었지 나를 보는 네 눈빛은 꿈이라고 해도 좋을 만큼 그 모든 순간은 눈부셨다</div></li>
+    <li><div>불안했던 나의 고된 삶에 한줄기 빛처럼 다가와 날 웃게 해준 너</div></li>
+    <li><div>Wow 나는 너 하나로 충분해 긴 말 안 해도 눈빛으로 다 아니깐 한 송이의 꽃이 피고 지는 모든 날 모든 순간 함께해 oh yeah</div></li>
+    <li><div>알 수 없는 미래지만 네 품속에 있는 지금 순간 순간이 영원 했으면 해</div></li> 
+    <li><div>Wow 갈게 바람이 좋은 날에 햇살 눈부신 어떤 날에 너에게로 처음 내게 왔던 그날처럼 모든 날 모든 순간 함께해</div></li>		
+
+    <li><div>네가 없이 웃을 수 있을까 </div></li>
+    <li><div>너의 품은 항상 따뜻했어 고단했던 나의 하루에 </div></li>
+    <li><div>Wow 나는 너 하나로 충분해 긴 말 안 해도 눈빛으로 다 아니깐 한 송이의 </div></li>
+    <li><div>햇살처럼 빛나고 있었지 나를 보는 네 눈빛은 꿈이라고 해도 좋을 만큼 그 모든 순간은 눈부셨다</div></li>
+    <li><div>불안했던 나의 고된 삶에 한줄기 빛처럼 </div></li>
+    <li><div>Wow 나는 너 하나로 충분해 긴 말 안 해도 눈빛으로 다 아니깐 </div></li>
+    <li><div>한 송이의 꽃이 피고 지는 모든 날 모든 순간 함께해 oh yeah 그날처럼 모든 날 모든 순간 함께해 </div></li>
+    <li><div>Wow 갈게 바람이 좋은 날에 햇살 눈부신 어떤 날에 너 날 모든 순간 함께해</div></li>
+    <li><div>알 수 없는 미래지만 네 품속에 있는 지금 </div></li> 
+  </ul>
+
+  <div class="output js-text1">[]</div>
+  <div class="output js-text2">[]</div>
+</body>
+</html>
+

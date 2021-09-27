@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>TR package U.I 표준 프레임워크 ver.1.0 </title>
+<script type="text/javascript" src="../../../asset/js/libs/jquery-1.12.1.js" charset="UTF-8"></script>
+<link rel="stylesheet" href="../../../asset/css/common.css" type="text/css" media="all" />
+</head>
+
+<body>
+	<div id="header" class="head" ></div>
+	<div id="container">
+		<div id="lnb" class="gnb"></div>
+		
+		<!-- s:컨텐츠영역 -->
+		<div id="contents"  class="contents id_css">
+
+			<h1 class="h1_tit"><span>CSS 가이드</span></h1>
+			<h2 class="h2_tit">CSS3 새로운 요소</h2>
+			<h3 class="h3_tit">둥근 모서리</h3>
+			<div class="indent_con">
+				- 이미지를 사용하지 않고, 둥근 모서리 또는 테두리와 버튼을 생성할 수 있다.<br />
+				- 둥근 사각형 (Rounded Rectangle): border-radius 속성 값의 비율로 모서리에 곡선 적용
+			</div>
+			<h3 class="h3_tit">그라데이션(Gradients)</h3>
+			<div class="indent_con">
+				- 배경색상을 변경할 때 사용할 수 있다.<br />
+				- linear (선형 gradient) 와 radial(원형 gradient) 두 가지로 나눌 수 있다.<br />
+				- CSS 에서 Gradient 효과가 가능하도록 Webkit 에서 지원한다.
+			</div>
+			<h3 class="h3_tit">투명도</h3>
+			<div class="indent_con">
+				- 다양한 투명도를 줄 수 있다.
+			</div>
+			<h3 class="h3_tit">텍스트 그림자 속성</h3>
+			<div class="indent_con">
+				- 수평 그림자, 수직 그림자, 흐림 효과와 그림자의 색상을 지정할 수 있다.	
+			</div>
+			<h3 class="h3_tit">그림자</h3>
+			<div class="indent_con">
+				상자에 그림자를 추가하여 사용할 수 있다.
+			</div>
+			<h3 class="h3_tit">둥근 모서리</h3>
+			<div class="indent_con">
+				- 대부분의 요소의(element) 프레임에 그림자 효과를 적용한다.<br />
+				- box-shadow: offsetX offsetY blurRadius color
+			</div>
+			<h3 class="h3_tit">벤더(vendor) 별 확장 속성 및 브라우저 엔진</h3>
+			<div class="indent_con">
+				- 대부분의 브라우저 벤더들은 자신들의 브라우저가 현재 지원하는 속성이 표준과 상이하거나 변경 될 수 있다라고 생각하고 벤더확장 속성을 만들었다.<br />
+				- 실제로 속성을 지원하지만 100% 표준스펙이 나온 상태가 아니기 때문에 개선점이나 버그 발생시 피드백을 쉽게 하기 위해 만든 것이다.<br />
+				- 브라우저 /벤더확장 속성/브라우저 엔진 사용예는 아래와 같다.<br />
+				사파리 S5/ -webkit- / webkit<br />
+				크롬 C8/ -webkit- / webkit<br />
+				파이어폭스 F3.6/ -moz-/ Gecko<br />
+				오페라 O11 / -o- / presto	<br />
+				인터넷익스플러우 IE9 / -ms-, filter / Tasman
+			</div>
+		</div>
+		<!-- e:컨텐츠영역 -->
+		
+	</div>
+	
+	
+
+<script type="text/javascript">
+	$("#header").load("../../head.html")	  	
+	$("#lnb").load("../../html_list.html")
+</script>
+
+
+
+</body>
+</html>

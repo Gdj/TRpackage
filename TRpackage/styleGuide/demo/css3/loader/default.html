@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>loader | TR package</title>
+    <script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="../../../../asset/js/libs/trpMenu.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../../asset/css/trpBase.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="../../../../asset/css/common.css" media="all" />
+</head>
+
+<body>
+  <div id="header" ></div>
+  <div id="container">
+	<div id="lnb" class="gnb"></div>
+	<!-- s: 컨텐츠 시작 -->
+	<div id="contents" class="contents">
+		<!-- s: 라이브러리 설명
+		<div class="desc_wapper">
+			<h1 class="desc_title">list</h1>
+			<p>목록에 대한 정의입니다.</p>
+		</div>   -->
+		<!-- e: css 설명 -->
+	
+
+		<!-- s: api 설명 -->
+		<div class="api">
+			<h2 class="api-title">loader</h2>
+			<div class="api-body">
+				<dl>
+					<dt>설명</dt>					
+					<dd><span class="icon"></span> 무한 롤링 모션 </dd>
+				</dl>
+
+<!-- ===VIEW=== -->									
+				<div class="ex_wapper">
+					<h3 class="api-title_h3">VIEW</h3>
+					<p class="ex-more"><a href="javascript:return false;"><span class="d-n">+</span><span style="display: inline;">-</span></a></p>
+					<p class="ex-view"><a href="ex01.html" target="_blank">View Sample</a></p>
+					<div class="ex-body d-n" >
+                    <!-- 소스 -->
+                    
+                        <div class="trp_loader"></div>
+
+                    <!-- //소스 -->
+					</div>
+				</div>
+				
+				
+<!-- ===CSS=== -->	
+				<div class="ex_wapper">
+					<h3 class="api-title_h3 css">CSS</h3>
+					<div class="api-body_h3 css">
+                    <!-- 소스 -->
+
+
+                                   <!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #f92672">&lt;style&gt;</span>
+        
+    <span style="color: #a6e22e">.trp_loader</span> <span style="color: #f8f8f2">{</span>
+        <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">relative</span><span style="color: #f8f8f2">;</span>
+        <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">150px</span><span style="color: #f8f8f2">;</span><span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">150px</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #f8f8f2">}</span>
+    <span style="color: #a6e22e">.trp_loader</span><span style="color: #f92672">:</span><span style="color: #a6e22e">:before</span> <span style="color: #f8f8f2">{</span>
+        <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">absolute</span><span style="color: #f8f8f2">;</span><span style="color: #66d9ef">content</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;&#39;</span><span style="color: #f8f8f2">;</span>
+        <span style="color: #66d9ef">border</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">radius</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">50</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span>
+        <span style="color: #66d9ef">border</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">3px</span> <span style="color: #66d9ef">solid</span> <span style="color: #66d9ef">transparent</span><span style="color: #f8f8f2">;</span>
+        <span style="color: #66d9ef">top</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">47px</span><span style="color: #f8f8f2">;</span><span style="color: #66d9ef">bottom</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">47px</span><span style="color: #f8f8f2">;</span><span style="color: #66d9ef">left</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">47px</span><span style="color: #f8f8f2">;</span><span style="color: #66d9ef">right</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">47px</span><span style="color: #f8f8f2">;</span>
+        <span style="color: #66d9ef">border-top-color</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#ff1400</span><span style="color: #f8f8f2">;</span>
+        <span style="color: #66d9ef">border-bottom-color</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#ff1400</span><span style="color: #f8f8f2">;</span>
+        <span style="color: #f92672">-</span><span style="color: #f8f8f2">webkit</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">animation</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">spin</span> <span style="color: #ae81ff">0.7s</span> <span style="color: #f8f8f2">linear</span> <span style="color: #f8f8f2">infinite;</span>
+        <span style="color: #f8f8f2">animation</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">trp_spin</span> <span style="color: #ae81ff">0.7s</span> <span style="color: #f8f8f2">linear</span> <span style="color: #f8f8f2">infinite;</span>       
+    <span style="color: #f8f8f2">}</span>
+    <span style="color: #66d9ef">@-webkit-keyframes</span> <span style="color: #f92672">trp_spin</span><span style="color: #f8f8f2">{</span>
+        <span style="color: #f92672">0%</span> <span style="color: #f8f8f2">{</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">webkit</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">transform</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">rotate(</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">deg);</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">ms</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">transform</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">rotate(</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">deg);transform</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">rotate(</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">deg);}</span>
+        <span style="color: #f92672">100%</span> <span style="color: #f8f8f2">{</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">webkit</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">transform</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">rotate(</span><span style="color: #ae81ff">360</span><span style="color: #f8f8f2">deg);</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">ms</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">transform</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">rotate(</span><span style="color: #ae81ff">360</span><span style="color: #f8f8f2">deg);transform</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">rotate(</span><span style="color: #ae81ff">360</span><span style="color: #f8f8f2">deg);}</span>
+    <span style="color: #f8f8f2">}</span>
+    <span style="color: #66d9ef">@keyframes</span> <span style="color: #f92672">trp_spin</span><span style="color: #f8f8f2">{</span>
+        <span style="color: #f92672">0%</span> <span style="color: #f8f8f2">{</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">webkit</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">transform</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">rotate(</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">deg);</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">ms</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">transform</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">rotate(</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">deg);transform</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">rotate(</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">deg);}</span>  
+        <span style="color: #f92672">100%</span> <span style="color: #f8f8f2">{</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">webkit</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">transform</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">rotate(</span><span style="color: #ae81ff">360</span><span style="color: #f8f8f2">deg);</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">ms</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">transform</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">rotate(</span><span style="color: #ae81ff">360</span><span style="color: #f8f8f2">deg);transform</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">rotate(</span><span style="color: #ae81ff">360</span><span style="color: #f8f8f2">deg);}</span>
+    <span style="color: #f8f8f2">}</span>
+
+<span style="color: #f92672">&lt;/style&gt;</span>
+</pre></td></tr></table></div>
+                    
+                                    
+                                                                    
+
+                    <!-- //소스 -->
+					</div>
+				</div>
+
+
+<!-- ===HTML=== -->	
+				<div class="ex_wapper">
+				<h3 class="api-title_h3 html">HTML</h3>
+					<div class="api-body_h3 html">
+                    <!-- 소스 -->
+                
+
+  <!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;trp_loader&quot;</span><span style="color: #f92672">&gt;&lt;/div&gt;</span>
+</pre></td></tr></table></div>
+
+                   
+                   
+                    <!-- //소스 -->
+                    </div>
+				</div>
+					
+		
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+		
+	
+		</div>		
+	<!-- e: 컨텐츠 끝 -->
+	<p class="cl-b"></p>
+</div>
+
+
+
+<script type="text/javascript">
+	$("#header").load("../../../head.html");
+	$("#lnb").load("../../../lnb.html");	
+
+	$(".ex-more a").click(function() {
+		$( this ).find("span").toggle();
+		$( this ).parents(".ex_wapper").find(".ex-body").slideToggle();
+		return false;
+	});
+</script>
+
+</body>
+</html>
+

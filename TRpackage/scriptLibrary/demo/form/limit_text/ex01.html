@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+	<title>trpLimitText</title>
+ 
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css"  href="../../../../asset/css/trpBase.css" media="all" />
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.12.1.min.js" ></script>
+	<script type="text/javascript" src="../../../../asset/js/libs/trpForm.js" ></script>
+	
+</head>
+<body>
+    
+    <textarea name="" id="textarea_id" cols="30" rows="10" ></textarea>
+    <div class="reply-limit">
+        <em class="current">0</em> / <em class="total">10</em>
+    </div>
+    
+    <script type="text/javascript">
+        
+        $("#textarea_id").on("keyup", function(){
+            $(this).trpLimitText({ maxByte:10, currentEle:".current", totalEle:".total", 
+               onMaxReturn:function($byte){ alert($byte + "입니다.") } 
+            });
+        });
+      
+    </script>
+
+
+</body>
+</html>

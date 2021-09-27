@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+<title>SVG dot motion | TR package</title>
+<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.js" charset="UTF-8"></script>
+<link rel="stylesheet" type="text/css"  href="../../../../asset/css/common.css" media="all" />
+<link rel="stylesheet" type="text/css"  href="../../../../asset/css/trpBase.css" media="all" />
+
+<style>
+/*
+ .trp_svgbox .dotmotion {      
+      stroke-dasharray : 10,5;
+      animation: motoin_dash 1s linear infinite;
+    }
+  @keyframes motoin_dash {
+    to {stroke-dashoffset: -15;}
+  }
+  */
+
+</style>
+
+
+</head>
+<body>
+  <div id="header" ></div>
+  <div id="container">
+	<div id="lnb" class="gnb"></div>
+	<!-- s: 컨텐츠 시작 -->
+	<div id="contents" class="contents">
+		<!-- s: css 설명	
+		<div class="desc_wapper">
+			<h1 class="desc_title">list</h1>
+			<p>목록에 대한 정의입니다.</p>
+		</div>-->
+		<!-- e: css 설명 -->
+	
+
+		<!-- s: api 설명 -->
+		<div class="api">
+			<h2 class="api-title">SVG dot motion</h2>
+			<div class="api-body">
+				<dl>
+					<dt>motion 설명</dt>
+					<dd><span class="icon"></span>도트 흐름 모션 효과</dd>
+					<dd><span class="icon"></span>.trp_svgbox로 svg를 감싸서 사용 </dd>
+				</dl>
+
+
+<!-- ===VIEW=== -->		
+				<div class="ex_wapper">
+					<h3 class="api-title_h3">VIEW</h3>
+					<p class="ex-more"><a href="javascript:return false;"><span class="d-n">+</span><span style="display: inline;">-</span></a></p>
+					<p class="ex-view"><a href="ex01.html" target="_blank">View Sample</a></p>
+					<div class="ex-body d-n" style="height:400px;" >
+					<!-- 소스 -->
+					
+
+  <div class="trp_svgbox">
+    <svg height="200" width="200">
+      <polyline class="dotmotion" points="0,40 40,40 40,80 80,80 80,120 120,140" style="fill:white;stroke:red;stroke-width:2; " />
+      Sorry, your browser does not support inline SVG.
+    </svg>
+  </div>				
+										
+																				
+
+					<!-- //소스 -->
+					</div>
+				</div>
+				
+				
+<!-- ===CSS=== -->		
+				<div class="ex_wapper">
+					<h3 class="api-title_h3 css">CSS</h3>
+					<div class="api-body_h3 css">
+					<!-- 소스 -->
+
+                            
+                            				
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7
+8
+9</pre></td><td><pre style="margin: 0; line-height: 125%">  <span style="color: #f92672">&lt;style&gt;</span>
+    <span style="color: #a6e22e">.trp_svgbox</span> <span style="color: #a6e22e">.dotmotion</span> <span style="color: #f8f8f2">{</span>      
+      <span style="color: #f8f8f2">stroke</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">dasharray</span> <span style="color: #f92672">:</span> <span style="color: #ae81ff">10</span><span style="color: #f92672">,</span><span style="color: #ae81ff">5</span><span style="color: #f8f8f2">;</span>
+      <span style="color: #f8f8f2">animation</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">motoin_dash</span> <span style="color: #ae81ff">1s</span> <span style="color: #f8f8f2">linear</span> <span style="color: #f8f8f2">infinite;</span>
+    <span style="color: #f8f8f2">}</span>
+    <span style="color: #66d9ef">@keyframes</span> <span style="color: #f92672">motoin_dash</span> <span style="color: #f8f8f2">{</span>
+      <span style="color: #f92672">to</span> <span style="color: #f8f8f2">{stroke</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">dashoffset</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">-15</span><span style="color: #f8f8f2">;}</span>
+    <span style="color: #f8f8f2">}</span>
+  <span style="color: #f92672">&lt;/style&gt;</span>
+</pre></td></tr></table></div>
+
+                            												                            												
+															
+
+					<!-- //소스 -->
+					</div>
+				</div>
+
+
+<!-- ===HTML=== -->		
+				<div class="ex_wapper">
+				<h3 class="api-title_h3 html">HTML</h3>
+					<div class="api-body_h3 html">
+					<!-- 소스 -->
+
+
+                  
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6</pre></td><td><pre style="margin: 0; line-height: 125%">  <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;trp_svgbox&quot;</span><span style="color: #f92672">&gt;</span>
+    <span style="color: #f92672">&lt;svg</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;200&quot;</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;200&quot;</span><span style="color: #f92672">&gt;</span>
+      <span style="color: #f92672">&lt;polyline</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;dotmotion&quot;</span> <span style="color: #a6e22e">points=</span><span style="color: #e6db74">&quot;0,40 40,40 40,80 80,80 80,120 120,140&quot;</span> <span style="color: #a6e22e">style=</span><span style="color: #e6db74">&quot;fill:white;stroke:red;stroke-width:2; &quot;</span> <span style="color: #f92672">/&gt;</span>
+      Sorry, your browser does not support inline SVG.
+    <span style="color: #f92672">&lt;/svg&gt;</span>
+  <span style="color: #f92672">&lt;/div&gt;</span>
+</pre></td></tr></table></div>
+                  
+										
+
+					
+					<!-- //소스 -->
+					</div>
+				</div>
+					
+		
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+		
+	
+		</div>		
+	<!-- e: 컨텐츠 끝 -->
+	<p class="cl-b"></p>
+</div>
+
+
+
+<script type="text/javascript">
+	$("#header").load("../../../head.html");
+	$("#lnb").load("../../../lnb.html");	
+
+
+	$(".ex-more a").click(function() {
+		$( this ).find("span").toggle();
+		$( this ).parent().siblings(".ex-body").slideToggle();
+		return false;
+	});
+
+</script>
+
+</body>
+</html>

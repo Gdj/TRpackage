@@ -1,0 +1,504 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+<title>trpRatioSize | TR package</title>
+<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="../../../../asset/js/libs/trpMenu.js" charset="UTF-8"></script>
+<link rel="stylesheet" href="../../../../asset/css/common.css" type="text/css" media="all" />
+</head>
+<body>
+  <div id="header" ></div>
+  <div id="container">
+	<div id="lnb" class="gnb"></div>
+	<!-- s: 컨텐츠 시작 -->
+	<div id="contents" class="contents">
+		<!-- s: 스크립드 설명 -->
+		<div class="desc_wapper">
+			<h1 class="desc_title">trpRatioSize</h1>
+			<p>
+				trpRatioSize 메소드를 이용해 가로크기 비율에따른 타겟값의 크기(px)를 변경합니다.<br />
+			</p>												
+		</div>
+		<!-- e: 스크립드 설명 -->
+	
+		<!-- s: api 설명 -->
+		<div class="api">
+			<h2 class="api-title">trpRatioSize( {options} )</h2>
+			<div class="api-body">
+				<dl>
+					<dt>설명</dt>	
+					<dd><span class="icon"></span>참고값에 변경하고자 하는 element를 선택해 사용.</dd>
+					<dd><span class="icon"></span>&lt;script type="text/javascript" src="./js/libs/trpUnit.js"&gt;&lt;/script&gt;<br /> </dd>					
+				</dl>
+				
+				<table class="table_col" summary="속성 이름과 설명">
+					<caption>속성 설명</caption>
+					<colgroup>
+						<col width="150">
+						<col width="">		
+					</colgroup>
+					<tbody>
+					<tr>
+						<th scope="col">options 이름</th>
+						<th scope="col">options 설명</th>
+					</tr>
+					
+					<tr>
+						<td>maxTri :</td>
+						<td>기본값은 9999 이며, <br />
+							참조가 되는 width값의 최대 값으로 작아지는 경우에만 사용할경우 참고대상의 width값을 넣는다.
+						</td>		
+					</tr>
+					<tr>
+						<td>minTri :</td>
+						<td>기본값은 1 이며, <br />
+							참조가 되는 width값의 최소 값으로 작아지는 경우에 사용할경우 생략 가능하다.
+						</td>		
+					</tr>			
+					
+					<tr>
+						<td>maxTar :</td>
+						<td>기본값은 9999이며, <br />
+							변화될 타겟 값의 최대 값으로 작아지는 경우에만 사용할경우 타겟값의 최대크기를 넣는다.
+						</td>		
+					</tr>
+					<tr>
+						<td>minTar :</td>
+						<td>기본값으 1이며, <br />
+							변화될 타겟 값의 초소값으로 더이상 줄어들지 않을값을 넣으며 비율대로 줄어들경우 생략 가능하다.
+						</td>		
+					</tr>
+					<tr>
+						<td>property :</td>
+						<td>기본값은 "height"이며, <br />
+							참조되는 값의 width값에 비례하여 타겟이 되는 css속성값을 변경한다. <br />
+							"font-size"를 넣으면 참고되는 값에 비례하여 폰트 크기를 변경할수있다.
+						</td>		
+					</tr>
+						
+					</tbody>
+				</table>
+
+			
+		
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+        
+        
+        
+        <!-- s: examples 예제 -->
+		<div class="ex_wapper">
+			<div class="section">
+				<h2 class="ex-title">예제) 1. font-size </h2>
+				<p class="ex-more" ><a href="javascript:return false;"><span style="display:none" >+</span><span >-</span></a></p>
+				<p class="ex-view" ><a href="ex01.html" target="_blank">View</a></p>
+				<div class="ex-body" style="" >					
+					<div class="source"><!-- 소스 -->
+
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</span>
+<span style="color: #f92672">&lt;html</span> <span style="color: #a6e22e">xmlns=</span><span style="color: #e6db74">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span style="color: #a6e22e">lang=</span><span style="color: #e6db74">&quot;ko&quot;</span> <span style="color: #a6e22e">xml:lang=</span><span style="color: #e6db74">&quot;ko&quot;</span><span style="color: #f92672">&gt;</span>
+<span style="color: #f92672">&lt;head&gt;</span>
+	<span style="color: #f92672">&lt;title&gt;</span>font-resize<span style="color: #f92672">&lt;/title&gt;</span>
+	<span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">http-equiv=</span><span style="color: #e6db74">&quot;Content-Type&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;text/html; charset=utf-8&quot;</span> <span style="color: #f92672">/&gt;</span>
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>	
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/trpUnit.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+	<span style="color: #f92672">&lt;style </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/css&quot;</span><span style="color: #f92672">&gt;</span>
+		<span style="color: #f92672">div</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">border</span><span style="color: #f92672">:</span><span style="color: #ae81ff">1px</span> <span style="color: #66d9ef">dashed</span> <span style="color: #f8f8f2">red;}</span>
+		<span style="color: #a6e22e">.f12w500</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span><span style="color: #ae81ff">12px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">max-width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">500px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>		
+		<span style="color: #a6e22e">.f16w500</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span><span style="color: #ae81ff">16px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">max-width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">500px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>		
+		<span style="color: #a6e22e">.f20w500</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span><span style="color: #ae81ff">20px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">max-width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">500px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>		
+		<span style="color: #a6e22e">.f24w500</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span><span style="color: #ae81ff">24px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">max-width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">500px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>		
+		<span style="color: #a6e22e">.f28w500</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span><span style="color: #ae81ff">28px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">max-width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">500px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>		
+
+		<span style="color: #a6e22e">.f12w800</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span><span style="color: #ae81ff">12px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">max-width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">800px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>		
+		<span style="color: #a6e22e">.f16w800</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span><span style="color: #ae81ff">16px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">max-width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">800px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>		
+		<span style="color: #a6e22e">.f20w800</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span><span style="color: #ae81ff">20px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">max-width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">800px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>		
+		<span style="color: #a6e22e">.f24w800</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span><span style="color: #ae81ff">24px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">max-width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">800px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>		
+		<span style="color: #a6e22e">.f28w800</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span><span style="color: #ae81ff">28px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">max-width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">800px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>		
+
+	<span style="color: #f92672">&lt;/style&gt;</span>
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span><span style="color: #f92672">&gt;</span>
+		<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(document).</span><span style="color: #a6e22e">ready</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(){</span>
+			<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.f12w500&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">trpRatioSize</span><span style="color: #f8f8f2">({</span>
+				<span style="color: #a6e22e">maxTri</span>	<span style="color: #f92672">:</span> <span style="color: #ae81ff">500</span><span style="color: #f8f8f2">,</span> 
+				<span style="color: #a6e22e">maxTar</span>  <span style="color: #f92672">:</span> <span style="color: #ae81ff">12</span><span style="color: #f8f8f2">,</span>
+				<span style="color: #a6e22e">property</span>  <span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;font-size&quot;</span>
+			<span style="color: #f8f8f2">})</span>
+			<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.f16w500&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">trpRatioSize</span><span style="color: #f8f8f2">({</span>
+				<span style="color: #a6e22e">maxTri</span>	<span style="color: #f92672">:</span> <span style="color: #ae81ff">500</span><span style="color: #f8f8f2">,</span> 
+				<span style="color: #a6e22e">maxTar</span>  <span style="color: #f92672">:</span> <span style="color: #ae81ff">16</span><span style="color: #f8f8f2">,</span>
+				<span style="color: #a6e22e">property</span>  <span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;font-size&quot;</span>
+			<span style="color: #f8f8f2">})</span>
+			<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.f20w500&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">trpRatioSize</span><span style="color: #f8f8f2">({</span>
+				<span style="color: #a6e22e">maxTri</span>	<span style="color: #f92672">:</span> <span style="color: #ae81ff">500</span><span style="color: #f8f8f2">,</span> 
+				<span style="color: #a6e22e">maxTar</span>  <span style="color: #f92672">:</span> <span style="color: #ae81ff">20</span><span style="color: #f8f8f2">,</span>
+				<span style="color: #a6e22e">property</span>  <span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;font-size&quot;</span>
+			<span style="color: #f8f8f2">})</span>
+			<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.f24w500&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">trpRatioSize</span><span style="color: #f8f8f2">({</span>
+				<span style="color: #a6e22e">maxTri</span>	<span style="color: #f92672">:</span> <span style="color: #ae81ff">500</span><span style="color: #f8f8f2">,</span> 
+				<span style="color: #a6e22e">maxTar</span>  <span style="color: #f92672">:</span> <span style="color: #ae81ff">24</span><span style="color: #f8f8f2">,</span>
+				<span style="color: #a6e22e">property</span>  <span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;font-size&quot;</span>
+			<span style="color: #f8f8f2">})</span>
+			<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.f28w500&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">trpRatioSize</span><span style="color: #f8f8f2">({</span>
+				<span style="color: #a6e22e">maxTri</span>	<span style="color: #f92672">:</span> <span style="color: #ae81ff">500</span><span style="color: #f8f8f2">,</span> 
+				<span style="color: #a6e22e">maxTar</span>  <span style="color: #f92672">:</span> <span style="color: #ae81ff">28</span><span style="color: #f8f8f2">,</span>
+				<span style="color: #a6e22e">property</span>  <span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;font-size&quot;</span>
+			<span style="color: #f8f8f2">})</span>
+
+
+
+			<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.f12w800&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">trpRatioSize</span><span style="color: #f8f8f2">({</span>
+				<span style="color: #a6e22e">maxTri</span>	<span style="color: #f92672">:</span> <span style="color: #ae81ff">800</span><span style="color: #f8f8f2">,</span> 
+				<span style="color: #a6e22e">maxTar</span>  <span style="color: #f92672">:</span> <span style="color: #ae81ff">12</span><span style="color: #f8f8f2">,</span>
+				<span style="color: #a6e22e">property</span>  <span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;font-size&quot;</span>
+			<span style="color: #f8f8f2">})</span>
+			<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.f16w800&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">trpRatioSize</span><span style="color: #f8f8f2">({</span>
+				<span style="color: #a6e22e">maxTri</span>	<span style="color: #f92672">:</span> <span style="color: #ae81ff">800</span><span style="color: #f8f8f2">,</span> 
+				<span style="color: #a6e22e">maxTar</span>  <span style="color: #f92672">:</span> <span style="color: #ae81ff">16</span><span style="color: #f8f8f2">,</span>
+				<span style="color: #a6e22e">property</span>  <span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;font-size&quot;</span>
+			<span style="color: #f8f8f2">})</span>
+			<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.f20w800&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">trpRatioSize</span><span style="color: #f8f8f2">({</span>
+				<span style="color: #a6e22e">maxTri</span>	<span style="color: #f92672">:</span> <span style="color: #ae81ff">800</span><span style="color: #f8f8f2">,</span> 
+				<span style="color: #a6e22e">maxTar</span>  <span style="color: #f92672">:</span> <span style="color: #ae81ff">20</span><span style="color: #f8f8f2">,</span>
+				<span style="color: #a6e22e">property</span>  <span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;font-size&quot;</span>
+			<span style="color: #f8f8f2">})</span>
+			<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.f24w800&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">trpRatioSize</span><span style="color: #f8f8f2">({</span>
+				<span style="color: #a6e22e">maxTri</span>	<span style="color: #f92672">:</span> <span style="color: #ae81ff">800</span><span style="color: #f8f8f2">,</span> 
+				<span style="color: #a6e22e">maxTar</span>  <span style="color: #f92672">:</span> <span style="color: #ae81ff">24</span><span style="color: #f8f8f2">,</span>
+				<span style="color: #a6e22e">property</span>  <span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;font-size&quot;</span>
+			<span style="color: #f8f8f2">})</span>
+			<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.f28w800&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">trpRatioSize</span><span style="color: #f8f8f2">({</span>
+				<span style="color: #a6e22e">maxTri</span>	<span style="color: #f92672">:</span> <span style="color: #ae81ff">800</span><span style="color: #f8f8f2">,</span> 
+				<span style="color: #a6e22e">maxTar</span>  <span style="color: #f92672">:</span> <span style="color: #ae81ff">28</span><span style="color: #f8f8f2">,</span>
+				<span style="color: #a6e22e">property</span>  <span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;font-size&quot;</span>
+			<span style="color: #f8f8f2">})</span>
+			
+		
+		<span style="color: #f8f8f2">})</span>
+	<span style="color: #f92672">&lt;/script&gt;</span>
+<span style="color: #f92672">&lt;/head&gt;</span>
+<span style="color: #f92672">&lt;body&gt;</span>
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;f12w500&quot;</span><span style="color: #f92672">&gt;</span>폰트 크기 12px : max-width:500<span style="color: #f92672">&lt;/div&gt;</span>
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;f16w500&quot;</span><span style="color: #f92672">&gt;</span>폰트 크기 16px : max-width:500<span style="color: #f92672">&lt;/div&gt;</span>
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;f20w500&quot;</span><span style="color: #f92672">&gt;</span>폰트 크기 20px : max-width:500<span style="color: #f92672">&lt;/div&gt;</span>
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;f24w500&quot;</span><span style="color: #f92672">&gt;</span>폰트 크기 24px : max-width:500<span style="color: #f92672">&lt;/div&gt;</span>
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;f28w500&quot;</span><span style="color: #f92672">&gt;</span>폰트 크기 28px : max-width:500<span style="color: #f92672">&lt;/div&gt;</span>
+	<span style="color: #f92672">&lt;br</span> <span style="color: #f92672">/&gt;</span>
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;f12w800&quot;</span><span style="color: #f92672">&gt;</span>폰트 크기 12px : max-width:800<span style="color: #f92672">&lt;/div&gt;</span>
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;f16w800&quot;</span><span style="color: #f92672">&gt;</span>폰트 크기 16px : max-width:800<span style="color: #f92672">&lt;/div&gt;</span>
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;f20w800&quot;</span><span style="color: #f92672">&gt;</span>폰트 크기 20px : max-width:800<span style="color: #f92672">&lt;/div&gt;</span>
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;f24w800&quot;</span><span style="color: #f92672">&gt;</span>폰트 크기 24px : max-width:800<span style="color: #f92672">&lt;/div&gt;</span>
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;f28w800&quot;</span><span style="color: #f92672">&gt;</span>폰트 크기 28px : max-width:800<span style="color: #f92672">&lt;/div&gt;</span>
+<span style="color: #f92672">&lt;/body&gt;</span>
+<span style="color: #f92672">&lt;/html&gt;</span>
+</pre></td></tr></table></div>
+
+
+
+				
+					</div><!--// 소스 -->
+                </div>
+			</div>			
+		</div>
+		<!-- e: examples 예제 -->
+
+        
+                
+<!-- s: examples 예제 -->
+		<div class="ex_wapper">
+			<div class="section">
+				<h2 class="ex-title">예제) 2. height </h2>
+				<p class="ex-more" ><a href="javascript:return false;"><span style="display:none" >+</span><span >-</span></a></p>
+				<p class="ex-view" ><a href="ex02.html" target="_blank">View</a></p>
+				<div class="ex-body" style="" >					
+					<div class="source"><!-- 소스 -->
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</span>
+<span style="color: #f92672">&lt;html</span> <span style="color: #a6e22e">xmlns=</span><span style="color: #e6db74">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span style="color: #a6e22e">lang=</span><span style="color: #e6db74">&quot;ko&quot;</span> <span style="color: #a6e22e">xml:lang=</span><span style="color: #e6db74">&quot;ko&quot;</span><span style="color: #f92672">&gt;</span>
+<span style="color: #f92672">&lt;head&gt;</span>
+	<span style="color: #f92672">&lt;title&gt;</span>height-resize | TR package<span style="color: #f92672">&lt;/title&gt;</span>
+	<span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">http-equiv=</span><span style="color: #e6db74">&quot;Content-Type&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;text/html; charset=utf-8&quot;</span> <span style="color: #f92672">/&gt;</span>
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>	
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/trpRatioSize.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+	<span style="color: #f92672">&lt;style </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/css&quot;</span><span style="color: #f92672">&gt;</span>
+		<span style="color: #f92672">div</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">border</span><span style="color: #f92672">:</span><span style="color: #ae81ff">1px</span> <span style="color: #66d9ef">dashed</span> <span style="color: #f8f8f2">red;}</span>
+		<span style="color: #a6e22e">.h50w500</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span><span style="color: #ae81ff">16px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">max-width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">500px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>		
+		<span style="color: #a6e22e">.h100w500</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span><span style="color: #ae81ff">16px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">max-width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">500px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>		
+		<span style="color: #a6e22e">.h150w500</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span><span style="color: #ae81ff">16px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">max-width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">500px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>		
+		
+		<span style="color: #a6e22e">.h50w800</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span><span style="color: #ae81ff">16px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">max-width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">800px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>		
+		<span style="color: #a6e22e">.h100w800</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span><span style="color: #ae81ff">16px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">max-width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">800px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>		
+		<span style="color: #a6e22e">.h200w800</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span><span style="color: #ae81ff">16px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">max-width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">800px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>	
+		
+		<span style="color: #a6e22e">.video</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">max-width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">640px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">max-height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">360px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>	
+
+	<span style="color: #f92672">&lt;/style&gt;</span>
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span><span style="color: #f92672">&gt;</span>
+		<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(document).</span><span style="color: #a6e22e">ready</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(){</span>
+
+			<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.h50w500&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">trpRatioSize</span><span style="color: #f8f8f2">({</span>
+				<span style="color: #a6e22e">maxTri</span>	<span style="color: #f92672">:</span> <span style="color: #ae81ff">500</span><span style="color: #f8f8f2">,</span> 
+				<span style="color: #a6e22e">maxTar</span>  <span style="color: #f92672">:</span> <span style="color: #ae81ff">50</span>
+			<span style="color: #f8f8f2">});</span>
+			<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.h100w500&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">trpRatioSize</span><span style="color: #f8f8f2">({</span>
+				<span style="color: #a6e22e">maxTri</span>	<span style="color: #f92672">:</span> <span style="color: #ae81ff">500</span><span style="color: #f8f8f2">,</span> 
+				<span style="color: #a6e22e">maxTar</span>  <span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span>
+			<span style="color: #f8f8f2">});</span>
+			<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.h150w500&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">trpRatioSize</span><span style="color: #f8f8f2">({</span>
+				<span style="color: #a6e22e">maxTri</span>	<span style="color: #f92672">:</span> <span style="color: #ae81ff">500</span><span style="color: #f8f8f2">,</span> 
+				<span style="color: #a6e22e">maxTar</span>  <span style="color: #f92672">:</span> <span style="color: #ae81ff">150</span>
+			<span style="color: #f8f8f2">});</span>
+
+
+			<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.h50w800&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">trpRatioSize</span><span style="color: #f8f8f2">({</span>
+				<span style="color: #a6e22e">maxTri</span>	<span style="color: #f92672">:</span> <span style="color: #ae81ff">800</span><span style="color: #f8f8f2">,</span> 
+				<span style="color: #a6e22e">maxTar</span>  <span style="color: #f92672">:</span> <span style="color: #ae81ff">50</span>
+			<span style="color: #f8f8f2">});</span>
+			<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.h100w800&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">trpRatioSize</span><span style="color: #f8f8f2">({</span>
+				<span style="color: #a6e22e">maxTri</span>	<span style="color: #f92672">:</span> <span style="color: #ae81ff">800</span><span style="color: #f8f8f2">,</span> 
+				<span style="color: #a6e22e">maxTar</span>  <span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span>
+			<span style="color: #f8f8f2">});</span>
+			<span style="color: #66d9ef">var</span> <span style="color: #a6e22e">bbb</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.h200w800&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">trpRatioSize</span><span style="color: #f8f8f2">({</span>
+				<span style="color: #a6e22e">maxTri</span>	<span style="color: #f92672">:</span> <span style="color: #ae81ff">800</span><span style="color: #f8f8f2">,</span> 
+				<span style="color: #a6e22e">maxTar</span>  <span style="color: #f92672">:</span> <span style="color: #ae81ff">200</span>
+			<span style="color: #f8f8f2">});</span>
+			
+			
+			
+			<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.video&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">trpRatioSize</span><span style="color: #f8f8f2">({</span>
+				<span style="color: #a6e22e">maxTri</span>	<span style="color: #f92672">:</span> <span style="color: #ae81ff">640</span><span style="color: #f8f8f2">,</span> 
+				<span style="color: #a6e22e">minTri</span>	<span style="color: #f92672">:</span> <span style="color: #ae81ff">320</span><span style="color: #f8f8f2">,</span> 
+				<span style="color: #a6e22e">maxTar</span>  <span style="color: #f92672">:</span> <span style="color: #ae81ff">360</span><span style="color: #f8f8f2">,</span>
+				<span style="color: #a6e22e">minTar</span>  <span style="color: #f92672">:</span> <span style="color: #ae81ff">180</span>
+			<span style="color: #f8f8f2">});</span>
+			
+		<span style="color: #f8f8f2">})</span>
+	<span style="color: #f92672">&lt;/script&gt;</span>
+<span style="color: #f92672">&lt;/head&gt;</span>
+<span style="color: #f92672">&lt;body&gt;</span>
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;h50w500&quot;</span><span style="color: #f92672">&gt;</span>기본 높이 50px   : max-width:500<span style="color: #f92672">&lt;/div&gt;</span>
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;h100w500&quot;</span><span style="color: #f92672">&gt;</span>기본 높이 100px : max-width:500<span style="color: #f92672">&lt;/div&gt;</span>
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;h150w500&quot;</span><span style="color: #f92672">&gt;</span>기본 높이 150px : max-width:500<span style="color: #f92672">&lt;/div&gt;</span>
+	
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;h50w800&quot;</span><span style="color: #f92672">&gt;</span>기본 높이 50px   : max-width:800<span style="color: #f92672">&lt;/div&gt;</span>
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;h100w800&quot;</span><span style="color: #f92672">&gt;</span>기본 높이 100px : max-width:800<span style="color: #f92672">&lt;/div&gt;</span>
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;h200w800&quot;</span><span style="color: #f92672">&gt;</span>기본 높이 200px : max-width:800<span style="color: #f92672">&lt;/div&gt;</span>
+	
+	<span style="color: #f92672">&lt;br&gt;&lt;br&gt;&lt;br&gt;</span>
+	
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;video&quot;</span><span style="color: #f92672">&gt;</span>max-width:640px; max-height: 360px;<span style="color: #f92672">&lt;/div&gt;</span>
+	
+	
+<span style="color: #f92672">&lt;/body&gt;</span>
+<span style="color: #f92672">&lt;/html&gt;</span>
+</pre></td></tr></table></div>
+
+
+
+
+
+				
+					</div><!--// 소스 -->
+				<div>
+			</div>			
+		</div>
+		<!-- e: examples 예제 -->                                
+        
+        
+
+	</div>
+	<!-- e: 컨텐츠 끝 -->
+</div>
+
+
+
+<script type="text/javascript">
+	$("#header").load("../../../head.html");
+	$("#lnb").load("../../../lnb.html");	
+
+	$(".ex-more a").click(function() {
+		$( this ).find("span").toggle();
+		$( this ).parent().siblings(".ex-body").slideToggle();
+		return false;
+	});
+</script>
+
+</body>
+</html>

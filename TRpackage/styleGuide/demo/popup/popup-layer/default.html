@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+<title>popup-layer | TR package</title>
+<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.js" charset="UTF-8"></script>
+<link rel="stylesheet" type="text/css"  href="../../../../asset/css/common.css" media="all" />
+<link rel="stylesheet" type="text/css"  href="../../../../asset/css/trpBase.css" media="all" />
+
+<!-- 
+<style type="text/css">
+
+/** //popup-wrap **/
+.tr.popup-wrap  { position: absolute;  top: 0; left: 0; z-index: 9999; width: 100%; height: 100%; text-align: center;  } 
+.tr.popup-wrap .popup-dim { position:absolute; top:0; left:0; width:100%; height:100%;  background: #000000; opacity: 0.7;  filter: alpha(opacity=70);  }
+.tr.popup-wrap .popup-layer { display: inline-block; *display:inline; zoom:1; position: relative;   } 
+.tr.popup-wrap .popup-layer.option { top:50px; width:600px; height:300px;  background:#fff ;border:1px solid #999;   }
+.tr.popup-wrap .popup-layer .btn_close { position:absolute; top:15px; right:15px; background:#aaa;}
+
+/** trp_icon **/
+.icon18 {  display:inline-block; line-height:1; width:18px; height:18px; font-size:0; line-height:0; text-shadow:none; color:transparent; vertical-align: middle; background: url('../../../images/icons-18-base.png') -18px -36px no-repeat; }
+.map18_00-03 { background-position:-108px 0; }
+/**  //trp_icon  **/
+
+</style> -->
+
+
+</head>
+<body>
+  <div id="header" ></div>
+  <div id="container">
+	<div id="lnb" class="gnb"></div>
+	<!-- s: 컨텐츠 시작 -->
+	<div id="contents" class="contents">
+		<!-- s: css 설명
+		<div class="desc_wapper">
+			<h1 class="desc_title">list</h1>
+			<p>목록에 대한 정의입니다.</p>
+		</div>
+		 -->
+		<!-- e: css 설명 -->
+	
+
+		<!-- s: api 설명 -->
+		<div class="api">
+			<h2 class="api-title">popup-layer</h2>
+			<div class="api-body">
+				<dl>
+					<dt>popup-layer 설명</dt>
+					<dd><span class="icon"></span>레이어팝업 스타일 입니다.</dd>
+					<dd><span class="icon"></span>.tr.popup-wrap 의 포지션 값을 "fixed"로하면 페이지 전체적으로 적용합니다. </dd>
+					<dd><span class="icon"></span><a href="../../icon/icon18/default.html?dep1=5&dep2=0">icon18 관련 링크</a></dd>
+				</dl>
+
+<!-- ===VIEW=== -->		
+				<div class="ex_wapper">
+					<h3 class="api-title_h3">VIEW</h3>
+					<p class="ex-more"><a href="javascript:return false;"><span class="d-n">+</span><span style="display: inline;">-</span></a></p>
+					<p class="ex-view"><a href="ex01.html" target="_blank">View Sample</a></p>
+					<div class="ex-body d-n" style="height:400px;" >
+
+<div class="trp popup-wrap">
+	<div class="popup-dim"></div>	
+	<div class="popup-layer option">
+		<a class="btn_x" href="#"><span class="icon18 map18_00-03">X</span></a>			
+	</div>
+</div>	
+
+					</div>
+				</div>
+				
+<!-- ===CSS=== -->		
+				<div class="ex_wapper">
+					<h3 class="api-title_h3 css">CSS</h3>
+					<div class="api-body_h3 css">
+
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #f92672">&lt;style </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/css&quot;</span><span style="color: #f92672">&gt;</span>
+
+    <span style="color: #a6e22e">.trp.popup-wrap</span>  <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">absolute</span><span style="color: #f8f8f2">;</span>  <span style="color: #66d9ef">top</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">left</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">z-index</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">9999</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">text-align</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">center</span><span style="color: #f8f8f2">;</span>  <span style="color: #f8f8f2">}</span> 
+    <span style="color: #a6e22e">.trp.popup-wrap</span> <span style="color: #a6e22e">.popup-dim</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span><span style="color: #66d9ef">absolute</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">top</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">left</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span><span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span>  <span style="color: #66d9ef">background</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#000000</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">opacity</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f92672">.</span><span style="color: #ae81ff">7</span><span style="color: #f8f8f2">;</span>  <span style="color: #f8f8f2">filter</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">alpha(</span><span style="color: #66d9ef">opacity</span><span style="color: #f92672">=</span><span style="color: #ae81ff">70</span><span style="color: #f8f8f2">);</span>  <span style="color: #f8f8f2">}</span>
+    <span style="color: #a6e22e">.trp.popup-wrap</span> <span style="color: #a6e22e">.popup-layer</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">inline</span><span style="color: #f92672">-</span><span style="color: #66d9ef">block</span><span style="color: #f8f8f2">;</span> <span style="color: #f92672">*</span><span style="color: #66d9ef">display</span><span style="color: #f92672">:</span><span style="color: #66d9ef">inline</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">zoom</span><span style="color: #f92672">:</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">relative</span><span style="color: #f8f8f2">;</span>   <span style="color: #f8f8f2">}</span> 
+    <span style="color: #a6e22e">.trp.popup-wrap</span> <span style="color: #a6e22e">.popup-layer.option</span> <span style="color: #f8f8f2">{</span>  <span style="color: #66d9ef">top</span><span style="color: #f92672">:</span><span style="color: #ae81ff">50px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">600px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">min-height</span><span style="color: #f92672">:</span><span style="color: #ae81ff">100px</span><span style="color: #f8f8f2">;</span>  <span style="color: #66d9ef">background</span><span style="color: #f92672">:</span><span style="color: #ae81ff">#fff</span> <span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+    <span style="color: #a6e22e">.trp.popup-wrap</span> <span style="color: #a6e22e">.popup-layer</span> <span style="color: #a6e22e">.btn_x</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span><span style="color: #66d9ef">absolute</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">top</span><span style="color: #f92672">:</span><span style="color: #ae81ff">15px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">right</span><span style="color: #f92672">:</span><span style="color: #ae81ff">15px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">18px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span><span style="color: #ae81ff">18px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">background</span><span style="color: #f92672">:</span><span style="color: #ae81ff">#aaa</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+
+    <span style="color: #75715e">/** trp_icon **/</span>
+    <span style="color: #a6e22e">.icon18</span> <span style="color: #f8f8f2">{</span>  <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span><span style="color: #66d9ef">inline</span><span style="color: #f92672">-</span><span style="color: #66d9ef">block</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">zoom</span><span style="color: #f92672">:</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f92672">*</span><span style="color: #66d9ef">display</span><span style="color: #f92672">:</span><span style="color: #66d9ef">inline</span><span style="color: #f8f8f2">;</span>  <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">18px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span><span style="color: #ae81ff">18px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">line-height</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">text-shadow</span><span style="color: #f92672">:</span><span style="color: #66d9ef">none</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">color</span><span style="color: #f92672">:</span><span style="color: #66d9ef">transparent</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">vertical-align</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">middle</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">background</span><span style="color: #f92672">:</span> <span style="color: #e6db74">url(&#39;../../../../asset/css/trp_images/icons-18-base.png&#39;)</span> <span style="color: #ae81ff">-18px</span> <span style="color: #ae81ff">-36px</span> <span style="color: #66d9ef">no-repeat</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span> 
+    <span style="color: #a6e22e">.map18_00-03</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">background-position</span><span style="color: #f92672">:-</span><span style="color: #ae81ff">108px</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+    <span style="color: #75715e">/**  //trp_icon  **/</span>
+
+<span style="color: #f92672">&lt;/style&gt;</span>
+</pre></td></tr></table></div>
+
+
+
+
+
+
+					</div>
+				</div>
+
+
+<!-- ===HTML=== -->		
+				<div class="ex_wapper">
+				<h3 class="api-title_h3 html">HTML</h3>
+					<div class="api-body_h3 html">
+
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;trp popup-wrap&quot;</span><span style="color: #f92672">&gt;</span>
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;popup-dim&quot;</span><span style="color: #f92672">&gt;&lt;/div&gt;</span>	
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;popup-layer option&quot;</span><span style="color: #f92672">&gt;</span>
+		<span style="color: #f92672">&lt;a</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;btn_x&quot;</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#&quot;</span><span style="color: #f92672">&gt;&lt;span</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;icon18 map18_00-03&quot;</span><span style="color: #f92672">&gt;</span>X<span style="color: #f92672">&lt;/span&gt;&lt;/a&gt;</span>			
+	<span style="color: #f92672">&lt;/div&gt;</span>
+<span style="color: #f92672">&lt;/div&gt;</span>	
+</pre></td></tr></table></div>
+
+
+
+					</div>
+				</div>
+					
+		
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+		
+	
+		</div>		
+	<!-- e: 컨텐츠 끝 -->
+	<p class="cl-b"></p>
+</div>
+
+
+
+<script type="text/javascript">
+	$("#header").load("../../../head.html");
+	$("#lnb").load("../../../lnb.html");	
+
+
+	$(".ex-more a").click(function() {
+		$( this ).find("span").toggle();
+		$( this ).parent().siblings(".ex-body").slideToggle();
+		return false;
+	});
+
+</script>
+
+</body>
+</html>

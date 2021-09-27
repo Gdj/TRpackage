@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="kr">
+ <head>
+  <meta charset="UTF-8">
+  <title>sample_guide_jPlayer</title>
+  <link rel="stylesheet" href="./css/base.css" />
+  <style type="text/css">
+		#movie img { position:absolute; }
+		.controler img { width:50px; }
+  </style>
+  <script type="text/javascript" src="./js/library/jquery-1.10.2.min.js"></script>
+  <script type="text/javascript" src="./js/library/jplayer/jquery.jplayer.min.js"></script>
+  <script type="text/javascript">
+	$(document).ready(function(){
+
+
+		$("#movie").jPlayer({
+		ready: function () {
+			$(this).jPlayer("setMedia", {
+				 poster:"./images/sample/video/poster_1.png",
+				 m4v: "./images/sample/video/video_1.mp4"
+				 //ogv: "./images/sample/video/video_1.ogv"
+				 //webmv: "./images/sample/video/video_1.webmv"
+			});
+		},
+		swfPath: "../../dist/jplayer",
+		supplied: "webmv, ogv, m4v",
+		size: {
+			width: "960px",
+			height: "467px",
+			cssClass: "jp-video-360p"
+		},
+		nativeVideoControls: {
+		  ipad: /ipad/,
+		  iphone: /iphone/,
+		  android: /android/,
+		  blackberry: /blackberry/,
+		  iemobile: /iemobile/
+		},
+
+		useStateClassSkin: true,
+		autoBlur: false,
+		smoothPlayBar: true,
+		keyEnabled: true,
+		remainingDuration: true,
+		volume: 0.5,
+		loop: false,
+
+        //cssSelectorAncestor: "#player_wrap",
+		toggleDuration: true,
+		ended: function() {
+			console.log("비디오 끝!");
+			jPlayer_stop();
+		}
+
+		});
+
+
+	});
+
+		function jPlayer_play(){
+			$("#movie").find("img").hide();
+			$('#movie').jPlayer('play');
+		}
+
+		function jPlayer_stop(){
+			$("#movie").find("img").show();
+			$('#movie').jPlayer('stop');
+		}
+
+
+	   function fullWindow_fn(){	      
+	       $('#movie').jPlayer("option", "fullWindow" ,true);
+	   };
+
+       function fullWindowOff_fn(){         
+           $('#movie').jPlayer("option", "fullWindow" ,false);
+       };
+        
+        
+        function fullScreen_fn(){         
+           $('#movie').jPlayer("option", "fullScreen" ,true);
+       };
+
+     
+
+  </script>
+ </head>
+ <body>
+
+
+ 	<div class="wrap">
+		<div id="movie"></div>
+		<div class="controler">
+			<a href="javascript:jPlayer_play();"	><img src="./images/sample/btn_play.png"	alt="play" /></a>
+			<a href="javascript:$('#movie').jPlayer('pause');"	><img src="./images/sample/btn_pause.png"	alt="pause"/></a>
+			<a href="javascript:jPlayer_stop();"	><img src="./images/sample/btn_stop.png"	alt="stop" /></a>
+			<br />
+			
+			<a href="javascript:fullWindow_fn();" >fullWindow </a>
+			<a href="javascript:fullWindowOff_fn();" >fullWindow off </a>
+			<br />
+			<a href="javascript:fullScreen_fn();" >fullScreen </a>
+            
+		</div>
+	</div>
+
+
+ </body>
+</html>

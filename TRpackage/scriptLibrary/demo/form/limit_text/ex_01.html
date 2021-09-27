@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>limit_txext</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.1.min.js" ></script>
+</head>
+<body>
+    
+   <textarea name="" id="" cols="30" rows="10" onkeyup="limitText(this, 9, '.current', '.total' )" ></textarea>
+   <div class="reply-limit">
+       <em class="current">0</em> / <em class="total">9</em>
+   </div>
+    
+    <script type="text/javascript">
+        
+        /*  trpLimitText            : 텍스트 최대글자 
+            @param	$obj			: input, textarea 테그
+            @param	$maxByte		: 최대 텍스트 바이트
+            @param	$currentEle		: 현재 글자 출력 테그
+            @param	$totalEle		: 현재 최대 글자 출력 테그
+        */
+        function trpLimitText($obj, $maxByte, $currentEle, $totalEle) {            
+            var strValue  = $obj.value;             // 문자열값
+            var strLen    = strValue.length;        // 문자열길이
+            var totalByte = 0;                      // max 길이
+            var len       = 0;                      // 문자길이 카운트
+            var oneChar   = "";                     // 국,영 한글자             
+            var str2      = "";                     // 잘라낸 문자열
+            
+            function count_text(){
+                for (var i = 0; i < strLen; i++) {
+                    oneChar = strValue.charAt(i);
+                    if (escape(oneChar).length > 4) {
+                        totalByte += 2;
+                    } else {
+                        totalByte++;
+                    }
+
+                    // 입력한 문자 길이보다 크면 잘라내기 위해 길이저장
+                    if (totalByte <= $maxByte) {
+                        len = i + 1;
+                    }
+                }
+                if($currentEle == undefined || $totalEle == undefined ) { return; }
+                $($currentEle).text(totalByte);
+                $($totalEle).text($maxByte);
+            }
+            count_text();
+            
+            // 넘어가는 글자를 자른다.
+            if (totalByte > $maxByte) {
+                str2 = strValue.substr(0, len);
+                $obj.value = str2;
+                // 자른상태로 다시 보기
+                limitText($obj, $maxByte, $currentEle, $totalEle);
+                alert($maxByte + " 바이트를 초과 입력 할 수 없습니다.");
+            }       
+        }//limitText
+        
+        
+        jQuery.fn.trpLimitText = function( options ){
+            var _this = this;
+            var settings = {
+                strValue  : _this.value,            // 문자열값
+                strLen    : strValue.length,        // 문자열길이
+                len       : 0,                      // 문자길이 카운트
+                oneChar   : "",                     // 국,영 한글자      
+                str2      : "",                     // 잘라낸 문자열
+                totalByte :  0,                     // (필수)max 길이
+                $currentEle: "",                    // (필수)현재 값표시 테그선택자
+                $totalEle:   ""                     // (필수)현재 전체표시 테그선택자
+            };
+            settings = jQuery.extend(settings, options || {});
+            
+            $(_this).on("keyUp", function(){
+                
+            });
+            
+            return {
+
+            }; // return//
+
+        };
+    </script>
+
+
+</body>
+</html>

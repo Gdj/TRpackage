@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+	<title>trpRadio</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css"  href="../../../../asset/css/trpBase.css" media="all" />
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.12.1.min.js" ></script>
+	<script type="text/javascript" src="../../../../asset/js/libs/trpForm.js" ></script>
+</head>
+<!--  
+<style type="text/css">	
+	
+    /*** 이미지 radio ***/
+    .trp.radio-box { position: relative; display: inline-block;}
+    .trp.radio-box:after { display:inline-block; content: ''; width: 20px; height: 20px;  background:url("../../../../asset/css/trp_images/radio.png") 0 0px no-repeat; }
+    .trp.radio-box.on:after { background-position: 0 -20px; }
+    .trp.radio-box input[type="radio"] { position: absolute; top:0; left: 0;  width: 20px; height: 20px; opacity: 0; filter: alpha(opacity=0);  }    
+    /*** radio ***/
+    
+</style>
+-->
+
+<body>
+
+	<span class="trp radio-box">
+		<input type="radio" id="trp-radio1" name="trp-radio" >		
+	</span>
+	<span class="trp radio-box">
+		<input type="radio" id="trp-radio2" name="trp-radio" >		
+	</span>
+	<span class="trp radio-box">
+		<input type="radio" id="trp-radio3" name="trp-radio" >		
+	</span>
+	<span class="trp radio-box">
+		<input type="radio" id="trp-radio4" name="trp-radio" >		
+	</span>
+
+	<br>
+
+	<span class="trp radio-box">
+		<input type="radio" id="trp-radio1" name="trp-radio1" >		
+	</span>
+	<span class="trp radio-box">
+		<input type="radio" id="trp-radio2" name="trp-radio1" >		
+	</span>
+	<span class="trp radio-box">
+		<input type="radio" id="trp-radio3" name="trp-radio1" >		
+	</span>
+	<span class="trp radio-box">
+		<input type="radio" id="trp-radio4" name="trp-radio1" >		
+	</span>
+    
+<!--    
+    <script>
+        $(".trp.radio-box input").change(function() {
+            var _names = $(this).attr("name");
+            if($(".trp.radio-box input[name="+_names+"]").is( ":checked" )){
+                $(".trp.radio-box input[name="+_names+"]").parent().removeClass("on");
+                $(this).closest(".trp.radio-box").addClass("on");
+            }
+        });
+    </script>
+-->
+    
+</body>
+</html>
+   
+   

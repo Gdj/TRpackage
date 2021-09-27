@@ -1,0 +1,76 @@
+
+<script type="text/javascript">
+	
+$(document).ready(function(){
+
+	$(".dep2-more a").click(function() {
+		$( this ).find("span").toggle();								// 버튼
+		$( this ).parent().parent().siblings(".sublist").slideToggle();	// 컨텐츠
+		return false;
+	});
+
+	/* 겟값 받기 */
+	var $_GET = {};
+		location.search.replace(/([^=&?]+)=([^&]+)/gi, function (a, b, c) {
+		 $_GET[decodeURIComponent(b)] = decodeURIComponent(c);
+	});	
+	
+	var _dep1, _dep2;
+	if($_GET.dep1){	_dep1 = $_GET.dep1; 	}else{ 		_dep1 = -1;	 	}
+	if($_GET.dep2){	_dep2 = $_GET.dep2; 	}else{ 		_dep2 = -1;	 	}
+	
+	function lnbActive(){
+		if(_dep1 == "-1"){ return false;}
+		$( ".mn_2depth" ).eq(_dep1).find(".dep2-more a span").toggle();				// 버튼
+		$( ".mn_2depth" ).eq(_dep1).find(".sublist").slideToggle();		// 컨텐츠	
+
+		if(_dep2 == "-1"){ return false;}
+		$(".list .mn_2depth .sublist li").removeClass("on");
+		$(".list .mn_2depth").eq(_dep1).find(".sublist li").eq(_dep2).addClass("on");
+	}
+
+	lnbActive();
+
+});// ready
+
+</script> 
+
+  	<h1 class="nav_h1"><a href="/TRpackage/responsive/index.html"><span>반응형 웹 가이드</span></a></h1>
+  	<ul class="list">
+		<!-- dep1=0 : basic -->
+		<li class="mn_2depth">
+			<h2 class="nav_h2"><span>Base</span><p class="dep2-more" ><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p></h2>
+			<ul class="sublist">
+				<li><a href="/TRpackage/responsive/demo/base/reset/default.html?dep1=0&dep2=0">resetCSS &amp; baseHTML</a></li>
+				<li><a href="/TRpackage/responsive/demo/base/hover/default.html?dep1=0&dep2=1">hover대응</a></li>			
+			</ul>
+		</li>
+
+		<!-- dep1=1 : layout -->
+		<li class="mn_2depth">
+			<h2 class="nav_h2"><span>layout</span><p class="dep2-more" ><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p></h2>
+			<ul class="sublist">
+				<li><a href="/TRpackage/responsive/demo/layout/mediaQueries/default.html?dep1=1&dep2=0"	 >media query</a></li>	
+				<li><a href="/TRpackage/responsive/demo/layout/deviceMediaQueries/default.html?dep1=1&dep2=1"	 >device media query</a></li>				
+				<li><a href="/TRpackage/responsive/demo/layout/gride/default.html?dep1=1&dep2=2"	 >grid system</a></li>
+				<!-- <li>topMenu</li> -->
+			</ul>
+		</li>
+		
+		<!-- dep1=2 : table -->
+    <li class="mn_2depth">
+			<h2 class="nav_h2"><span>table</span><p class="dep2-more" ><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p></h2>
+			<ul class="sublist">
+				<li><a href="/TRpackage/responsive/demo/table/scroll/default.html?dep1=2&dep2=0"	 >scroll-x</a></li>	
+				<li><a href="/TRpackage/responsive/demo/table/list/default.html?dep1=2&dep2=1"	 >lsit 2col</a></li>	
+				<!-- <li>topMenu</li> -->
+			</ul>
+		</li>
+		
+		<!-- dep1=3 :  -->
+	
+
+
+		
+    </ul>
+

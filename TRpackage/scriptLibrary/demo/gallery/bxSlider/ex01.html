@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+	<title>bxSlider (auto play)</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />	
+	<link href="./css/style.css" type="text/css" rel="stylesheet" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="./js/jquery.bxslider.min.js"></script>
+	<script type="text/javascript">
+	
+	$(document).ready(function(){
+		
+		var _bxslider = $('.bxslider').bxSlider({
+//		  pager: false,
+//		  controls : false,
+		  auto: true 
+		});
+		
+
+		// 페이지 버틀누르면 멈춤현상 오토로변경
+		$(".bx-wrapper").bind("click", ".bx-pager-link , .bx-controls-direction a", function(){				
+			_bxslider.startAuto();
+		})
+
+	});
+
+	</script>
+
+</head>
+
+<body>
+
+<!-- wrap -->
+
+<div class="gallery_view" style="">
+	<div class="gallery_center">		
+		<div class="bxslider">
+			<div class=""><img src="./images/view_01.jpg" width="400" height="535"  alt="" /></div>
+			<div class=""><img src="./images/view_01.jpg" width="400" height="535"  alt="" /></div>
+			<div class=""><img src="./images/view_01.jpg" width="400" height="535"  alt="" /></div>
+			<div class=""><img src="./images/view_01.jpg" width="400" height="535"  alt="" /></div>
+			<div class=""><img src="./images/view_01.jpg" width="400" height="535"  alt="" /></div>
+			<div class=""><img src="./images/view_01.jpg" width="400" height="535"  alt="" /></div>
+			<div class=""><img src="./images/view_01.jpg" width="400" height="535"  alt="" /></div>
+			<div class=""><img src="./images/view_01.jpg" width="400" height="535"  alt="" /></div>
+		</div>	
+	</div>	
+</div>
+
+<!-- // wrap -->
+
+  
+
+</body>
+</html>

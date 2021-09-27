@@ -1,0 +1,501 @@
+<%@ page contentType="text/html;charset=euc-kr" language="java" %>
+<%@ page import="java.sql.SQLException"%>
+<%@ page import="java.io.IOException"%>
+<%@ page import="java.util.Calendar" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">	
+
+<%@include file = "/common/db_util.jsp"%>
+<%@include file = "/common/page_util.jsp"%>
+<%@include file = "/include/login_helper.jsp"%>
+<% 	
+	String proId		= "12742";
+	String proSubId		= "1";
+	String applyname	= login_userNm;
+	String table		= "MAEILI.MI_APPLY_PROPERTY";
+
+	PreparedStatement pstmt = null;
+	ResultSet rs			= null;
+	int APPLYCNT 			= 0;		//참여횟수
+
+	try{
+		conn.setAutoCommit(false);
+		
+		String query = "";
+		query = query + " SELECT COUNT(1) CNT FROM "+table;
+		query = query + " WHERE PROMOTION_ID = ? ";
+		query = query + "   AND PROMOTION_SUB_ID = ? ";
+		query = query + "   AND USER_ID = ? ";
+
+		pstmt = conn.prepareStatement(query);	
+		pstmt.setString(1, proId);
+		pstmt.setString(2, proSubId);
+		pstmt.setString(3, login_userId);
+		rs = pstmt.executeQuery();
+		
+		if(rs.next()){
+			APPLYCNT = rs.getInt("CNT");
+		}
+		rs.close();	
+	}catch(Exception e){
+		e.printStackTrace();
+		//out.print(e);
+		System.out.println(e);
+	}finally{
+		 if(rs!=null) try{rs.close();}catch(SQLException sqle){}
+		 if(pstmt!=null) try{pstmt.close();}catch(SQLException sqle){}
+		 //if(conn!=null) try{conn.close();}catch(SQLException sqle){}
+	}
+%>
+
+<%	
+	String name		= "";
+	String hp		= "";
+	String tel		= "";
+	String zip		= "";
+	String addr		= "";
+	String NEWLINE	= System.getProperty("line.separator");
+		
+	PreparedStatement pstmt2 = null;
+	ResultSet rs2			= null;
+
+	try{
+		//conn.setAutoCommit(false);
+
+		StringBuffer cntQuery = new StringBuffer();
+		cntQuery.append("SELECT C.CUSTOMERNAME AS NAME	"						+ NEWLINE);
+		cntQuery.append("	  , nvl(C.CELLNO,'없음') AS HP	"					+ NEWLINE);
+		cntQuery.append("	  , nvl(C.TELEPHONENO,'없음') AS TEL	"			+ NEWLINE);
+		cntQuery.append("	  , (C.ZIPCODEHOME1||'-'||C.ZIPCODEHOME2) AS ZIP"	+ NEWLINE);
+		cntQuery.append("	  , C.ADDRESSHOME1 || C.ADDRESSHOME2 AS ADDR	"	+ NEWLINE);
+		cntQuery.append(" FROM CRM.MEMBER M, CRM.CUSTOMER C 	"				+ NEWLINE);
+		cntQuery.append(" WHERE M.CUSTOMERNO = C.CUSTOMERNO 	"				+ NEWLINE);
+		cntQuery.append(" AND M.STATUS = '1' AND M.USERID = ? 	"		+ NEWLINE);
+
+		pstmt2 = conn.prepareStatement(cntQuery.toString());	
+		pstmt2.setString(1, login_userId);
+		rs2 = pstmt2.executeQuery();
+		
+		if(rs2.next()){
+			name	= rs2.getString("NAME");
+			hp		= rs2.getString("HP");
+			tel		= rs2.getString("TEL");
+			zip		= rs2.getString("ZIP");
+			addr	= rs2.getString("ADDR");
+		}
+		rs2.close();
+	}catch(Exception e){
+		e.printStackTrace();
+		//out.print(e);
+		System.out.println(e);
+	}finally{
+		 if(rs2!=null) try{rs2.close();}catch(SQLException sqle){}
+		 if(pstmt2!=null) try{pstmt2.close();}catch(SQLException sqle){}
+		 if(conn!=null) try{conn.close();}catch(SQLException sqle){}
+	}
+%>  
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<meta http-equiv="content-type" content="text/html; charset=euc-kr" />
+<title>상하치즈 체험단</title>
+<link rel="stylesheet" href="css/style.css" />
+<script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.easing.min.js"></script>
+<script type="text/javascript" src="js/kakao.link.js"></script>
+<script type="text/javascript" src="./js/common.js"></script>
+<script language="JavaScript" type="text/JavaScript">
+	$(function(){
+		var re = new RegExp("[^0-9]","i");     
+		$(".numeric").keyup(function(e) 
+		{
+			var content = $(this).val();
+			//숫자가 아닌게 있을경우 
+			if(content.match(re))
+			{
+			   $(this).val('');
+			}
+		});
+	});
+	
+	function executeKakaoStoryLink()
+	{
+		kakao.link("story").send({   
+			post : "http://zcc.kr/22al0dj0he ",
+			appid : "http://www.sanghacheese.co.kr/t",
+			appver : "1.0",
+			appname : "한입에 쏘~~옥!! 한입에 고다/레몬크림 출시",
+			urlinfo : JSON.stringify({title:"한입에 쏘~~옥!! 한입에 고다/레몬크림 출시되었어요"
+									 , desc:"귀에 쏙쏙 들어오는 한입쏭 듣기평가를 하면 선물이 숑숑숑 날아 갑니다.\n참여해주신 분들을 위한 200만원 여행 상품권, 디지털 카메라 등 천 만원 상당의 푸짐한 선물도 발송 대기 중입니다.\n한입쏭 동영상 친구들에게 소개하고 듣기평가 참여하세요~~"
+									 , imageurl:["http://www.sanghacheese.co.kr/event/2014/06/academi/images/facebook.jpg"], type:"article"})
+		});
+	}
+
+<!--
+	function onlyNumber(object) {
+		var e = window.event;   
+
+		if (e.keyCode >= 48 && e.keyCode <= 57 || e.keyCode >= 96 && e.keyCode <= 105 || e.keyCode == 8 || e.keyCode == 46 )
+		{
+			if (object.value == "") {   
+				return;   
+			} else {     
+				// 반복되는 0 입력은 무시   
+				if (object.value == "0") {   
+					if (e.keyCode == 48 || e.keyCode == 96)     e.returnValue = false;   
+					else                                        return;   
+				}    
+			}   
+		} else {   
+			// 숫자, Delete or BackSpace, -, . 이외의 문자는 모두 무시   
+			e.returnValue = false;   
+		}   
+	}
+
+	function trim(txt){
+		return txt.replace(/(^\s*)|(\s*$)/g, "");
+	}
+
+	function addfacebook(){
+		var u = 'http://www.sanghacheese.co.kr/event/2014/09/gouda/facebook.jsp';
+		var link = encodeURIComponent(u); 
+		var url = "http://www.facebook.com/sharer.php?u=" + link;
+		window.open(url,"fb","width=850, height=600, toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=no");
+	}
+
+	function addtwitter(){
+		var msg = "#상하치즈 한입에 고다/레몬크림 출시이벤트~ 귀에 쏙쏙 들어 오는 한입쏭 듣기평가를 하면 200만원 상당의 여행 상품권, 디지털 카메라가 내손에~~ 지금 동영상을 나누세요";
+		var url	= "http://zcc.kr/22al0dj0he";
+		var href = "http://twitter.com/home?status=" + encodeURIComponent(msg) + " " + encodeURIComponent(url);
+		var a = window.open(href, 'twitter', 'width=600, height=255, toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=no');
+		if ( a ) 
+		{
+			a.focus();
+		}
+	}
+
+	//페이스북버튼
+	function face_call()
+	{
+		addfacebook();
+	}
+	
+	//트위터버튼
+	function twit_call()
+	{
+		addtwitter();
+	}
+	
+	//네이버 블로그
+	function cp_clip() {
+		var IE=(document.all)?true:false;
+		var url = '<iframe width="560" height="315" src="http://www.youtube.com/watch?v=_hibQBKoCaE&feature=youtu.be" frameborder="0" allowfullscreen></iframe>';
+		if (IE) {			
+			window.clipboardData.setData("Text", url);
+			alert("복사되었습니다.");
+		} else {
+			temp = prompt("Ctrl+C를 눌러 클립보드로 복사하세요", url);
+		}
+	}
+
+	/*
+		라디오 선택값 가져오기
+		radio_save_chk(qize2,qize2,"1","N","7",qize_2_text,100,10)
+	*/
+	function radio_get_value(rdobj)
+	{
+		var f= document.frm;
+
+		for(var i=0;i< rdobj.length;i++)
+		{
+			if(rdobj[i].checked == true)
+			{
+				return  rdobj[i].value;
+			}
+		}
+		return 0;	//없다면 0을 리턴
+	}
+
+	function fn_apply(){
+		if(isLogin4(replaceAll( document.location.href, "&", "^" )))
+		{
+			var f = document.po;
+			var s = document.frm;
+			var re = /[\{\}\[\]\/?:|\`\-_@\#$\'\"\\\\=]/gi;
+
+			s.target='_self';
+			s.method = "post";
+			s.action = "proc.jsp";
+			s.submit();
+		}
+	}
+
+	function fn_sns_apply(){
+		if(isLogin4(replaceAll( document.location.href, "&", "^" )))
+		{
+			var f = document.frm;
+			var intput1 = $("#sns_url").val();
+			var re = /[\{\}\[\]\/?:|\`\-_@\#$\'\"\\\\=]/gi;
+
+			if(intput1 == "" ){
+				alert("블로그 주소를 입력해주세요."); 
+				f.sns_url.focus();
+				return;
+			}
+
+			$("#input_text1").val(intput1);
+		
+			f.target = '_self';
+			f.method = "post";		
+			f.action = "snsproc.jsp";		
+			f.submit();
+		}
+	}
+
+	$(document).ready(function(){
+		/* 레이어팝업 */  		
+		
+		 $(".dim").trpBgDim();
+		// v0제품정보
+		$(".popupBtn").on("click",function(){
+			var layerPopup = $(".popupBtn").trpLayerPopup(".closeX");
+			$(".popup").trpAlignCenter();
+			popupTab(true);
+			
+			return false;
+			
+		})
+				
+		$(".cheese1").on("click", function(){
+		 	 popupTab(true);
+		})
+
+		$(".cheese2").on("click", function(){
+		   	 popupTab(false);
+		})
+		
+		function popupTab($b){
+			if($b){
+				$("#popup_warp").find("#popcon").removeClass("popup2");
+				$("#popup_warp").find("#popcon").addClass("popup");
+				
+				$("#popup_warp").find(".detail_view").show(); 
+				$("#popup_warp").find(".detail_view2").hide(); 
+			}else{
+				$("#popup_warp").find("#popcon").removeClass("popup");
+				$("#popup_warp").find("#popcon").addClass("popup2");
+
+				$("#popup_warp").find(".detail_view").hide(); 
+				$("#popup_warp").find(".detail_view2").show(); 
+			}
+		}		
+		
+		// v2 sns_url
+		$(document).on("click", "#popup1_warp .send", function(){ 
+			$("#popup1_warp").hide();
+			$("#popup1_warp .send").trpLayerPopup(".closeX", "#popup4_warp");
+			$("#popup4_warp .content").trpAlignCenter();
+		});
+
+		// v3 sns_url
+		$(".v3 .sns_urlBtn").on("click", function(){
+			$(".v3 .sns_urlBtn").trpLayerPopup(".closeX", "#popup3_warp" );
+			$("#popup3_warp .content").trpAlignCenter();
+		})
+
+		// popup5_warp  1002_1
+		 $("#popup5_warp .content").trpAlignCenter();
+		 $("#popup5_warp .closeX").on("click", function(){
+			 $("#popup5_warp").hide();
+		 }) 
+		 $("#popup5_warp .skip").on("click", function(){
+			 $("#popup5_warp").hide();
+		 })
+		// // 1002_1;
+	});
+
+
+	// v1제품정보
+	function event_open()
+	{	 
+		var chk1 = $('#chk1').val();
+		var chk2 = $('#chk2').val();
+	
+		if(isLogin4(document.location.href))
+		{	
+			if(<%=APPLYCNT%> > 0)
+			{
+				alert("이미 응모 되셨습니다.");
+				return;
+			} else {  
+			
+				if((chk1+chk2) == "20")
+				{		 
+					    $("#apply_btn" ).trpLayerPopup(".closeX", "#popup1_warp");
+						$(".content").trpAlignCenter();
+					
+					//window.open("pop1.html", "PopupWin", "width=380, height=365");
+				}else{	 	
+					    $("#apply_btn").trpLayerPopup(".closeX", "#popup2_warp" );
+						$(".content").trpAlignCenter();
+					
+					//window.open("pop2.html", "PopupWin", "width=380, height=365");
+				}
+			}
+		}
+		
+	}
+	
+	function fn_reload()
+	{
+		location.reload();
+	}
+//-->
+</script>
+</head>
+<body>
+<form name="frm" method="post">
+<input name="proId"		id="proId" type="hidden" value="<%=proId%>">
+<input name="proSubId"	id="proSubId" type="hidden" value="<%=proSubId%>">
+<input name="input_text1" id="input_text1" type="hidden" value="">
+<input name="input_text2" id="input_text2" type="hidden" value="">
+</form>
+
+<div id="wrap">
+	<div id="contents">
+		<!-- start 이벤트 날짜로 시작 -->
+		<div id="event20140924">
+			<div class="v1">
+				<div class="con">
+					<!--<iframe class="youtoub" width="730" height="403" src="//www.youtube.com/embed/JyEVG7vD_XQ" frameborder="0" allowfullscreen></iframe>-->
+					<div  class="youtoub">
+					   <object width="730" height="403">
+						  <param name="movie"
+								 value="https://www.youtube.com/v/_hibQBKoCaE?version=3&autoplay=1"></param>
+						  <param name="allowScriptAccess" value="always"></param>
+						  <embed src="https://www.youtube.com/v/_hibQBKoCaE?version=3&autoplay=1"
+								 type="application/x-shockwave-flash"
+								 allowscriptaccess="always" wmode="opaque" width="640" height="390"></embed>
+						</object>
+					</div>				
+				<a href="#popup_warp" class="btn popupBtn"><img src="./images/v01_btn.png" alt="제품정보" /></a>
+				<a href="#point1" class="btnE1"><img src="./images/v01_btnE1.png" alt="event1 한입쏭 듣기평가" /></a>
+				<a href="#point2" class="btnE2"><img src="./images/v01_btnE2.png" alt="event2 친구에게 추천하기" /></a>
+				</div>
+			</div>
+			<a name="point1"></a>
+			<div class="v2">
+				<div class="con">
+					<p class="text">
+					<input class="numeric" name="chk1" id="chk1" type="text" maxlength="1" /><input class="numeric" name="chk2" id="chk2" type="text" maxlength="1" /></p><a href="javascript:event_open();" class="btn" id="apply_btn"><img src="./images/v02_btn.jpg" alt="응모하기" /></a>
+				</div>			 
+			</div>
+			<a name="point2"></a>
+			   <div class="v3">
+					<div class="con">
+						<span class="text"><input name="sns_url" id="sns_url"type="text" /></span>
+						<a class="btn" href="javascript:fn_sns_apply()"><img  src="./images/v03_btn.jpg" alt="등록하기" /></a>
+						<a href="javascript:void(0);" class="sns_urlBtn"><img src="./images/v03_popBtn.gif" alt="HELP 내가 올린 SNS 소식 URL 어떻게 알 수 있나요?" /></a>
+						<ul class="btn_box">
+							<li><a href="javascript:face_call();"><img src="./images/v03_01.png" alt="페이스북" /></a></li>
+							<li><a href="javascript:twit_call();"><img src="./images/v03_02.png" alt="트위터" /></a></li>
+							<li><a href="javascript:cp_clip();"><img src="./images/v03_03.png" alt="블로그/카페" /></a></li>
+							<li><a href="javascript:executeKakaoStoryLink();"><img src="./images/v03_04.png" alt="카카오스토리" /></a></li>
+						</ul>
+					</div>
+			   </div>
+		</div> 
+		<!-- // end -->
+	</div>
+</div>
+<div id="popup_warp" class="popup_warp">
+    <div class="dim"></div>
+	<div id="popcon" class="popup" > 
+		<a href="javascript:void(0);" class="cheese1"><img src="./images/v01_pop_btnE1.png" alt="한입에 고다" /></a>
+		<a href="javascript:void(0);" class="cheese2"><img src="./images/v01_pop_btnE2.png" alt="한입에 레몬크림" /></a>
+		<a href="#" class="closeX"><img src="./images/layer_close.png" alt="닫기" /></a>	
+		<a href="http://www2.maeil.com/product/product_view.jsp?intPage=1&searchDelivery=&idx=P00222" target="_blank" class="detail_view"><img src="./images/layer_pop_btn.gif" alt="한입에 고다 제품정보자세히보기" /></a>
+		<a href="http://www2.maeil.com/product/product_view.jsp?intPage=1&searchDelivery=&idx=P00223" target="_blank" class="detail_view2"><img src="./images/layer_pop_btn2.gif" alt="한입에 레몬크림 제품정보자세히보기" /></a>
+	</div>
+</div>
+<div id="popup1_warp" class="popup_warp">
+	<div class="dim"></div>
+	<div class="content">
+		<a href="javascript:fn_close()" class="closeX"><img src="./images/popup_close.gif" alt="닫기" /></a>
+		<a href="javascript:void(0);" class="send"><img src="./images/pop1_btn.png" alt="응모하기" /></a>
+	</div>	
+</div>
+<div id="popup2_warp" class="popup_warp">
+	<div class="dim"></div>
+	<div class="content">		
+		<a href="javascript:fn_close()" class="closeX"><img src="./images/popup_close.gif" alt="닫기" /></a>	  			
+	</div>		
+</div>
+<div id="popup4_warp" class="popup_warp">
+	<div class="dim"></div>
+	<div class="content">
+			<a href="javascript:fn_close()" class="closeX"><img src="./images/popup_close.gif" alt="닫기" /></a>	 
+			<a href="javascript:fn_myEdit();" class="btn1"><img src="./images/pop3_btn1.png" alt="개인벙보 수정하기" /></a>
+			<div class="con-data">
+				<input type="text" readonly="readonly" title="이름" value="<%=name%>" />
+				<input type="text" readonly="readonly" title="휴대폰" value="<%=hp%>" />
+				<input type="text" readonly="readonly" title="연락처" value="<%=tel%>"/>
+				<textarea name="주소" readonly="readonly" id="" cols="30" rows="10" title="주소" ><%=zip%><%=addr%>
+				</textarea>
+			</div>
+			<a href="javascript:fn_apply();" class="btn2"><img src="./images/pop3_btn2.png" alt="확인" /></a>
+			<a href="javascript:fn_close();" class="btn3"><img src="./images/pop3_btn3.png" alt="취소" /></a>
+	</div>			
+</div>
+
+<div id="popup3_warp" class="popup_warp">
+	<div class="dim"></div>
+	<div class="content">			
+		<a href="javascript:fn_close()" class="closeX"><img src="./images/popup_close.gif" alt="닫기" /></a>	  			
+	</div>		
+</div>
+<!-- 1002_1 -->
+<div id="popup5_warp" class="popup_warp" style="display:block">
+	<div class="dim"></div>
+	<div class="content">
+		<a href="javascript:fn_close()" class="closeX"><img src="./images/btn_yClose.png" alt="닫기" /></a>
+		<div class="pop_youtube">
+			 <div id="pop_youtube">	_hibQBKoCaE		
+			 </div>
+		</div>
+		<a href="javascript:void(0);" class="skip"><img src="./images/btn_ySkip.png" alt="응모하기" /></a>
+	</div>	
+</div>
+<!-- //1002_1 -->
+
+<script>
+      
+        var params = { allowScriptAccess: "always" , wmode:"opaque"};
+		var atts = { id: "myytplayer" };
+		swfobject.embedSWF("http://www.youtube.com/v/M7lc1UVf-VE?enablejsapi=1&playerapiid=ytplayer&version=3", "ytapiplayer", "425", "356", "8", null, null, params, atts);
+
+		onYouTubePlayerReady("myytplayer");
+		var	player    
+		function onYouTubePlayerReady(playerId) {
+			  player = document.getElementById(playerId);
+		}
+		  
+		  /* 재생 */
+		  function playVideo() {
+			player.playVideo();
+		  }
+
+		  /* 재생정지 */
+		  function stopVideo() {
+			player.seekTo(0, true );
+			player.stopVideo();		
+		  }
+
+		
+
+	  </script>
+</body>
+</html>
+

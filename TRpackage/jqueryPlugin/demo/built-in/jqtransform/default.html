@@ -1,0 +1,485 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+<title>jqtransform | TR package</title>
+<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="../../../../asset/js/libs/trpMenu.js"></script>
+<link rel="stylesheet" href="../../../../asset/css/common.css" type="text/css" media="all" />
+</head>
+<body>
+  <div id="header" ></div>
+  <div id="container">
+	<div id="lnb" class="gnb"></div>
+	<!-- s: 컨텐츠 시작 -->
+	<div id="contents" class="contents">
+		<!-- s: 스크립드 설명 -->
+		<div class="desc_wapper">
+			<h1 class="desc_title">jqtransform</h1>
+			<p>
+				jqtransform 이용하여 form 요소를 변경한다. <br />
+				link : <a href="http://www.dfc-e.com/metiers/multimedia/opensource/jqtransform/" target="_self">jqtransform Plugin(api)</a>
+			</p>												
+		</div>
+		<!-- e: 스크립드 설명 -->
+	
+		<!-- s: api 설명 -->
+		<div class="api">
+			<h2 class="api-title">.jqtransform( { options } )</h2>
+			<div class="api-body">
+				<dl>
+					<dt>설명</dt>
+					<dd><span class="icon"></span>기본 위치값은 CSS 에서 설정해야합니다.</dd>					
+					
+				</dl>
+				<table class="table_col" summary="button속성, 메소드">
+					<caption>options 설명</caption>
+					<colgroup>
+						<col width="150">
+						<col width="">		
+					</colgroup>
+					<tbody>
+					<tr>
+						<th scope="col">options 이름</th>
+						<th scope="col">options 설명</th>
+					</tr>
+					<tr>
+						<td>imgPath</td>
+						<td>스타일 이미지 경로를 문자열로 입력 </td>		
+					</tr>
+					
+
+					</tbody>
+				</table>
+				<!--
+				<h3>preview</h3>
+				<div class="preview">
+					
+					<iframe src="ex1.html" frameborder="0" width="100%"></iframe>
+				</div>
+				-->
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+
+		<!-- s: examples 예제 -->
+		<div class="ex_wapper">
+			<div class="section">
+				<h2 class="ex-title">예제) 1.기본사용법 (px)</h2>
+				<p class="ex-more" ><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p>
+				<p class="ex-view" ><a href="ex01.html" target="_blank">View</a></p>
+				<div class="ex-body" style="display:none" >					
+					<div class="source">
+					<!-- 소스 -->
+	
+	
+	
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot;</span>
+<span style="color: #75715e">&quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</span>
+<span style="color: #f92672">&lt;html</span> <span style="color: #a6e22e">xmlns=</span><span style="color: #e6db74">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span style="color: #a6e22e">xml:lang=</span><span style="color: #e6db74">&quot;fr&quot;</span> <span style="color: #a6e22e">lang=</span><span style="color: #e6db74">&quot;fr&quot;</span><span style="color: #f92672">&gt;</span>
+<span style="color: #f92672">&lt;head&gt;</span>
+	<span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">http-equiv=</span><span style="color: #e6db74">&quot;Content-Type&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;text/html; charset=utf-8&quot;</span> <span style="color: #f92672">/&gt;</span>
+	<span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">http-equiv=</span><span style="color: #e6db74">&quot;Content-Script-Type&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #f92672">/&gt;</span>
+	<span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">http-equiv=</span><span style="color: #e6db74">&quot;Content-Style-Type&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;text/css&quot;</span> <span style="color: #f92672">/&gt;</span>
+	<span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">name=</span><span style="color: #e6db74">&quot;gmapkey&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f92672">/&gt;</span>
+	<span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">name=</span><span style="color: #e6db74">&quot;description&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f92672">/&gt;</span>
+	<span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">name=</span><span style="color: #e6db74">&quot;keywords&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f92672">/&gt;</span>
+	<span style="color: #f92672">&lt;title&gt;</span>jqtransform | TR package<span style="color: #f92672">&lt;/title&gt;</span>
+	<span style="color: #f92672">&lt;link</span> <span style="color: #a6e22e">rel=</span><span style="color: #e6db74">&quot;stylesheet&quot;</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/jqtransform/jqtransform.css&quot;</span> <span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/css&quot;</span> <span style="color: #a6e22e">media=</span><span style="color: #e6db74">&quot;all&quot;</span> <span style="color: #f92672">/&gt;</span>		
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;http://code.jquery.com/jquery-1.12.1.min.js&quot;</span> <span style="color: #f92672">&gt;&lt;/script&gt;</span>\
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/jqtransform/jquery.jqtransform.js&quot;</span> <span style="color: #f92672">&gt;&lt;/script&gt;</span>
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">language=</span><span style="color: #e6db74">&quot;javascript&quot;</span><span style="color: #f92672">&gt;</span>
+		<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(){</span>
+			<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(window).</span><span style="color: #a6e22e">resize</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(){</span>				
+			 <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;form&#39;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">jqTransform</span><span style="color: #f8f8f2">({</span><span style="color: #a6e22e">imgPath</span><span style="color: #f92672">:</span><span style="color: #e6db74">&#39;../../../../asset/js/libs/jqtransformplugin/img/&#39;</span><span style="color: #f8f8f2">});</span>	
+				
+			<span style="color: #f8f8f2">})</span>
+			<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;form&#39;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">jqTransform</span><span style="color: #f8f8f2">({</span><span style="color: #a6e22e">imgPath</span><span style="color: #f92672">:</span><span style="color: #e6db74">&#39;../../../../asset/js/libs/jqtransformplugin/img/&#39;</span><span style="color: #f8f8f2">});</span>
+		<span style="color: #f8f8f2">});</span>
+	<span style="color: #f92672">&lt;/script&gt;</span>
+	<span style="color: #f92672">&lt;style&gt;</span>
+		<span style="color: #75715e">/* input */</span>		
+		<span style="color: #f92672">input[type=text]</span>  <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span>  <span style="color: #f8f8f2">}</span>
+		<span style="color: #f92672">input[type=password]</span>  <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">500px</span><span style="color: #f8f8f2">;</span>  <span style="color: #f8f8f2">}</span>
+		<span style="color: #f92672">div</span><span style="color: #a6e22e">.pertext</span><span style="color: #f92672">,</span>
+		<span style="color: #f92672">input</span><span style="color: #a6e22e">.pertext</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">50</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+		
+		
+		<span style="color: #75715e">/* 텍스트 에어리어 */</span>
+		<span style="color: #f92672">textarea</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">500px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">300px</span><span style="color: #f8f8f2">;</span>  <span style="color: #f8f8f2">}</span>
+		
+		<span style="color: #75715e">/* select box 크기 */</span>
+		<span style="color: #a6e22e">.select</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">relative</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">300px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span> 
+		<span style="color: #a6e22e">.select2</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">relative</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span> 
+		
+		<span style="color: #75715e">/* 버튼크기 */</span>
+		<span style="color: #a6e22e">.rowElem.re</span> <span style="color: #a6e22e">.rere</span> <span style="color: #f8f8f2">{</span>  <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">300px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+		<span style="color: #a6e22e">.per80</span><span style="color: #f8f8f2">{</span>  <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">80</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+	<span style="color: #f92672">&lt;/style&gt;</span>
+	
+<span style="color: #f92672">&lt;/head&gt;</span>
+<span style="color: #f92672">&lt;body&gt;</span>
+
+	<span style="color: #f92672">&lt;form</span> <span style="color: #a6e22e">action=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #a6e22e">method=</span><span style="color: #e6db74">&quot;POST&quot;</span><span style="color: #f92672">&gt;</span>
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;rowElem&quot;</span><span style="color: #f92672">&gt;&lt;label&gt;</span>Input Text:<span style="color: #f92672">&lt;/label&gt;&lt;input</span> <span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text&quot;</span> <span style="color: #a6e22e">name=</span><span style="color: #e6db74">&quot;inputtext&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;pertext&quot;</span> <span style="color: #f92672">/&gt;&lt;/div&gt;</span>
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;rowElem&quot;</span><span style="color: #f92672">&gt;&lt;label&gt;</span>Input Text:<span style="color: #f92672">&lt;/label&gt;&lt;input</span> <span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text&quot;</span> <span style="color: #a6e22e">name=</span><span style="color: #e6db74">&quot;inputtext&quot;</span><span style="color: #f92672">/&gt;&lt;/div&gt;</span>
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;rowElem&quot;</span><span style="color: #f92672">&gt;&lt;label&gt;</span>Input Password:<span style="color: #f92672">&lt;/label&gt;&lt;input</span> <span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;password&quot;</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;pp&quot;</span> <span style="color: #f92672">/&gt;&lt;br&gt;</span>
+		<span style="color: #f92672">&lt;/div&gt;</span>
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;rowElem&quot;</span><span style="color: #f92672">&gt;&lt;label&gt;</span>Checkbox: <span style="color: #f92672">&lt;/label&gt;&lt;input</span> <span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;checkbox&quot;</span> <span style="color: #a6e22e">name=</span><span style="color: #e6db74">&quot;chbox&quot;</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;&quot;</span><span style="color: #f92672">&gt;&lt;/div&gt;</span>
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;rowElem&quot;</span><span style="color: #f92672">&gt;&lt;label&gt;</span>Radio :<span style="color: #f92672">&lt;/label&gt;</span> 
+			<span style="color: #f92672">&lt;input</span> <span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;radio&quot;</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #a6e22e">name=</span><span style="color: #e6db74">&quot;question&quot;</span> <span style="color: #a6e22e">value=</span><span style="color: #e6db74">&quot;oui&quot;</span> <span style="color: #a6e22e">checked</span> <span style="color: #f92672">&gt;&lt;label&gt;</span>oui<span style="color: #f92672">&lt;/label&gt;</span>
+			<span style="color: #f92672">&lt;input</span> <span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;radio&quot;</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #a6e22e">name=</span><span style="color: #e6db74">&quot;question&quot;</span> <span style="color: #a6e22e">value=</span><span style="color: #e6db74">&quot;non&quot;</span> <span style="color: #f92672">&gt;&lt;label&gt;</span>non<span style="color: #f92672">&lt;/label&gt;&lt;/div&gt;</span>
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;rowElem&quot;</span><span style="color: #f92672">&gt;&lt;label&gt;</span>Textarea :<span style="color: #f92672">&lt;/label&gt;</span> <span style="color: #f92672">&lt;textarea</span> <span style="color: #a6e22e">cols=</span><span style="color: #e6db74">&quot;40&quot;</span> <span style="color: #a6e22e">rows=</span><span style="color: #e6db74">&quot;12&quot;</span> <span style="color: #a6e22e">name=</span><span style="color: #e6db74">&quot;mytext&quot;</span><span style="color: #f92672">&gt;&lt;/textarea&gt;&lt;/div&gt;</span>
+
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;rowElem&quot;</span><span style="color: #f92672">&gt;</span>
+			<span style="color: #f92672">&lt;label&gt;</span>Select :<span style="color: #f92672">&lt;/label&gt;</span>
+			<span style="color: #f92672">&lt;select</span> <span style="color: #a6e22e">name=</span><span style="color: #e6db74">&quot;select&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;select&quot;</span> <span style="color: #f92672">&gt;</span>
+				<span style="color: #f92672">&lt;option</span> <span style="color: #a6e22e">value=</span><span style="color: #e6db74">&quot;&quot;</span><span style="color: #f92672">&gt;</span>1<span style="color: #f8f8f2">&amp;nbsp;</span><span style="color: #f92672">&lt;/option&gt;</span>
+				<span style="color: #f92672">&lt;option</span> <span style="color: #a6e22e">value=</span><span style="color: #e6db74">&quot;opt1&quot;</span><span style="color: #f92672">&gt;</span>2<span style="color: #f8f8f2">&amp;nbsp;</span><span style="color: #f92672">&lt;/option&gt;</span>
+			<span style="color: #f92672">&lt;/select&gt;</span>
+		<span style="color: #f92672">&lt;/div&gt;</span>
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;rowElem&quot;</span><span style="color: #f92672">&gt;</span>
+			<span style="color: #f92672">&lt;label&gt;</span>Select Redimentionné :<span style="color: #f92672">&lt;/label&gt;&lt;br&gt;</span>
+			<span style="color: #f92672">&lt;select</span> <span style="color: #a6e22e">name=</span><span style="color: #e6db74">&quot;select2&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;select2&quot;</span> <span style="color: #f92672">&gt;</span>
+				<span style="color: #f92672">&lt;option</span> <span style="color: #a6e22e">value=</span><span style="color: #e6db74">&quot;opt1&quot;</span><span style="color: #f92672">&gt;</span>Big Option test line with more wordssss<span style="color: #f92672">&lt;/option&gt;</span>
+				<span style="color: #f92672">&lt;option</span> <span style="color: #a6e22e">value=</span><span style="color: #e6db74">&quot;opt2&quot;</span><span style="color: #f92672">&gt;</span>Option 2<span style="color: #f92672">&lt;/option&gt;</span>
+				<span style="color: #f92672">&lt;option</span> <span style="color: #a6e22e">value=</span><span style="color: #e6db74">&quot;opt3&quot;</span><span style="color: #f92672">&gt;</span>Option 3<span style="color: #f92672">&lt;/option&gt;</span>
+				<span style="color: #f92672">&lt;option</span> <span style="color: #a6e22e">value=</span><span style="color: #e6db74">&quot;opt4&quot;</span><span style="color: #f92672">&gt;</span>Option 4<span style="color: #f92672">&lt;/option&gt;</span>
+				<span style="color: #f92672">&lt;option</span> <span style="color: #a6e22e">value=</span><span style="color: #e6db74">&quot;opt5&quot;</span><span style="color: #f92672">&gt;</span>Option 5<span style="color: #f92672">&lt;/option&gt;</span>
+				<span style="color: #f92672">&lt;option</span> <span style="color: #a6e22e">value=</span><span style="color: #e6db74">&quot;opt6&quot;</span><span style="color: #f92672">&gt;</span>Option 6<span style="color: #f92672">&lt;/option&gt;</span>
+				<span style="color: #f92672">&lt;option</span> <span style="color: #a6e22e">value=</span><span style="color: #e6db74">&quot;opt7&quot;</span><span style="color: #f92672">&gt;</span>Option 7<span style="color: #f92672">&lt;/option&gt;</span>
+				<span style="color: #f92672">&lt;option</span> <span style="color: #a6e22e">value=</span><span style="color: #e6db74">&quot;opt8&quot;</span><span style="color: #f92672">&gt;</span>Option 8<span style="color: #f92672">&lt;/option&gt;</span>
+			<span style="color: #f92672">&lt;/select&gt;</span>
+		<span style="color: #f92672">&lt;/div&gt;</span>
+		
+		
+		<span style="color: #f92672">&lt;h3&gt;&lt;/h3&gt;</span>
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;rowElem sb&quot;</span><span style="color: #f92672">&gt;&lt;label&gt;</span>Submit button:<span style="color: #f92672">&lt;/label&gt;&lt;input</span> <span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;submit&quot;</span> <span style="color: #a6e22e">value=</span><span style="color: #e6db74">&quot;Envoyer&quot;</span> <span style="color: #f92672">/&gt;&lt;/div&gt;</span>
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;rowElem re&quot;</span><span style="color: #f92672">&gt;&lt;label&gt;</span>Reset button:<span style="color: #f92672">&lt;/label&gt;&lt;input</span>  <span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;reset&quot;</span>  <span style="color: #a6e22e">value=</span><span style="color: #e6db74">&quot;Annuler&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;rere&quot;</span><span style="color: #f92672">/&gt;&lt;/div&gt;</span>
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;rowElem btn&quot;</span><span style="color: #f92672">&gt;&lt;label&gt;</span>Input button:<span style="color: #f92672">&lt;/label&gt;&lt;input</span> <span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;button&quot;</span> <span style="color: #a6e22e">value=</span><span style="color: #e6db74">&quot;boutonbox&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;per80&quot;</span> <span style="color: #f92672">/&gt;&lt;/div&gt;</span>
+				
+	<span style="color: #f92672">&lt;/form&gt;</span>
+
+<span style="color: #f92672">&lt;/body&gt;</span>
+<span style="color: #f92672">&lt;/html&gt;</span>
+</pre></td></tr></table></div>
+
+
+
+
+				    <!--// 소스 -->
+					</div>
+                </div>
+			</div>			
+		</div>
+		<!-- e: examples 예제 -->
+
+
+        <!-- s: examples 예제 -->
+		<div class="ex_wapper">
+			<div class="section">
+				<h2 class="ex-title">예제) 2.기본사용법 (%) </h2>
+				<p class="ex-more" ><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p>
+				<p class="ex-view" ><a href="ex02.html" target="_blank">View</a></p>
+				<div class="ex-body" style="display:none" >					
+					<div class="source">
+					<!-- 소스 -->
+	
+	
+	
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot;</span>
+<span style="color: #75715e">&quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</span>
+<span style="color: #f92672">&lt;html</span> <span style="color: #a6e22e">xmlns=</span><span style="color: #e6db74">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span style="color: #a6e22e">xml:lang=</span><span style="color: #e6db74">&quot;fr&quot;</span> <span style="color: #a6e22e">lang=</span><span style="color: #e6db74">&quot;fr&quot;</span><span style="color: #f92672">&gt;</span>
+<span style="color: #f92672">&lt;head&gt;</span>
+	<span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">http-equiv=</span><span style="color: #e6db74">&quot;Content-Type&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;text/html; charset=utf-8&quot;</span> <span style="color: #f92672">/&gt;</span>
+	<span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">http-equiv=</span><span style="color: #e6db74">&quot;Content-Script-Type&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #f92672">/&gt;</span>
+	<span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">http-equiv=</span><span style="color: #e6db74">&quot;Content-Style-Type&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;text/css&quot;</span> <span style="color: #f92672">/&gt;</span>
+	<span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">name=</span><span style="color: #e6db74">&quot;gmapkey&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f92672">/&gt;</span>
+	<span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">name=</span><span style="color: #e6db74">&quot;description&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f92672">/&gt;</span>
+	<span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">name=</span><span style="color: #e6db74">&quot;keywords&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f92672">/&gt;</span>
+    <span style="color: #f92672">&lt;title&gt;</span>jqtransform | TR package<span style="color: #f92672">&lt;/title&gt;</span>
+	<span style="color: #f92672">&lt;link</span> <span style="color: #a6e22e">rel=</span><span style="color: #e6db74">&quot;stylesheet&quot;</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/jqtransform/jqtransform_per.css&quot;</span> <span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/css&quot;</span> <span style="color: #a6e22e">media=</span><span style="color: #e6db74">&quot;all&quot;</span> <span style="color: #f92672">/&gt;</span>		
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;http://code.jquery.com/jquery-1.12.1.min.js&quot;</span> <span style="color: #f92672">&gt;&lt;/script&gt;</span>
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/jqtransform/jquery.jqtransform_per.js&quot;</span> <span style="color: #f92672">&gt;&lt;/script&gt;</span>
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">language=</span><span style="color: #e6db74">&quot;javascript&quot;</span><span style="color: #f92672">&gt;</span>
+		<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(){</span>
+			<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;form&#39;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">jqTransform</span><span style="color: #f8f8f2">();</span>
+		<span style="color: #f8f8f2">});</span>
+	<span style="color: #f92672">&lt;/script&gt;</span>
+	<span style="color: #f92672">&lt;style&gt;</span>
+		<span style="color: #75715e">/* input */</span>		
+		<span style="color: #a6e22e">.per30</span> <span style="color: #f8f8f2">{</span><span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">30</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+		<span style="color: #a6e22e">.per50</span> <span style="color: #f8f8f2">{</span><span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">50</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+		<span style="color: #a6e22e">.per80</span> <span style="color: #f8f8f2">{</span><span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">80</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+		<span style="color: #a6e22e">.per100</span> <span style="color: #f8f8f2">{</span><span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+		<span style="color: #f92672">input</span><span style="color: #a6e22e">.pertext</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">50</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span><span style="color: #f92672">a</span>
+		
+		
+		<span style="color: #75715e">/* 텍스트 에어리어 */</span>
+		<span style="color: #f92672">textarea</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">500px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">300px</span><span style="color: #f8f8f2">;</span>  <span style="color: #f8f8f2">}</span>
+		
+		<span style="color: #75715e">/* select box 크기 */</span>
+		<span style="color: #a6e22e">.select</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">relative</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">300px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span> 
+		<span style="color: #a6e22e">.select2</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">relative</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span> 
+		
+		<span style="color: #75715e">/* 버튼크기 */</span>
+		<span style="color: #a6e22e">.rowElem.re</span> <span style="color: #a6e22e">.rere</span> <span style="color: #f8f8f2">{</span>  <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">300px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+		<span style="color: #a6e22e">.rowElem.btn</span> <span style="color: #a6e22e">.abb</span> <span style="color: #f8f8f2">{</span>  <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">80</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+	<span style="color: #f92672">&lt;/style&gt;</span>
+	
+<span style="color: #f92672">&lt;/head&gt;</span>
+<span style="color: #f92672">&lt;body&gt;</span>
+
+	<span style="color: #f92672">&lt;form</span> <span style="color: #a6e22e">action=</span><span style="color: #e6db74">&quot;post.php&quot;</span> <span style="color: #a6e22e">method=</span><span style="color: #e6db74">&quot;POST&quot;</span><span style="color: #f92672">&gt;</span>
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;rowElem&quot;</span><span style="color: #f92672">&gt;&lt;label&gt;</span>Input Text:<span style="color: #f92672">&lt;/label&gt;&lt;input</span> <span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text&quot;</span> <span style="color: #a6e22e">name=</span><span style="color: #e6db74">&quot;inputtext&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;pertext&quot;</span> <span style="color: #f92672">/&gt;&lt;/div&gt;</span>
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;rowElem&quot;</span><span style="color: #f92672">&gt;&lt;label&gt;</span>Input Text:<span style="color: #f92672">&lt;/label&gt;&lt;input</span> <span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text&quot;</span> <span style="color: #a6e22e">name=</span><span style="color: #e6db74">&quot;inputtext&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;per100&quot;</span> <span style="color: #f92672">/&gt;&lt;/div&gt;</span>
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;rowElem&quot;</span><span style="color: #f92672">&gt;&lt;label&gt;</span>Input Password:<span style="color: #f92672">&lt;/label&gt;&lt;input</span> <span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;password&quot;</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;pp&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;per80&quot;</span> <span style="color: #f92672">/&gt;&lt;/div&gt;</span>
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;rowElem&quot;</span><span style="color: #f92672">&gt;&lt;label&gt;</span>Checkbox: <span style="color: #f92672">&lt;/label&gt;&lt;input</span> <span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;checkbox&quot;</span> <span style="color: #a6e22e">name=</span><span style="color: #e6db74">&quot;chbox&quot;</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;&quot;</span><span style="color: #f92672">&gt;&lt;/div&gt;</span>
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;rowElem&quot;</span><span style="color: #f92672">&gt;&lt;label&gt;</span>Radio :<span style="color: #f92672">&lt;/label&gt;</span> 
+			<span style="color: #f92672">&lt;input</span> <span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;radio&quot;</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #a6e22e">name=</span><span style="color: #e6db74">&quot;question&quot;</span> <span style="color: #a6e22e">value=</span><span style="color: #e6db74">&quot;oui&quot;</span> <span style="color: #a6e22e">checked</span> <span style="color: #f92672">&gt;&lt;label&gt;</span>oui<span style="color: #f92672">&lt;/label&gt;</span>
+			<span style="color: #f92672">&lt;input</span> <span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;radio&quot;</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #a6e22e">name=</span><span style="color: #e6db74">&quot;question&quot;</span> <span style="color: #a6e22e">value=</span><span style="color: #e6db74">&quot;non&quot;</span> <span style="color: #f92672">&gt;&lt;label&gt;</span>non<span style="color: #f92672">&lt;/label&gt;&lt;/div&gt;</span>
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;rowElem&quot;</span><span style="color: #f92672">&gt;&lt;label&gt;</span>Textarea :<span style="color: #f92672">&lt;/label&gt;</span> 
+			<span style="color: #f92672">&lt;textarea</span> <span style="color: #a6e22e">cols=</span><span style="color: #e6db74">&quot;40&quot;</span> <span style="color: #a6e22e">rows=</span><span style="color: #e6db74">&quot;12&quot;</span> <span style="color: #a6e22e">name=</span><span style="color: #e6db74">&quot;mytext&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;per50&quot;</span><span style="color: #f92672">&gt;&lt;/textarea&gt;</span>
+		<span style="color: #f92672">&lt;/div&gt;</span>
+
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;rowElem&quot;</span><span style="color: #f92672">&gt;</span>
+			<span style="color: #f92672">&lt;label&gt;</span>Select :<span style="color: #f92672">&lt;/label&gt;</span>
+			<span style="color: #f92672">&lt;select</span> <span style="color: #a6e22e">name=</span><span style="color: #e6db74">&quot;select&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;select&quot;</span> <span style="color: #f92672">&gt;</span>
+				<span style="color: #f92672">&lt;option</span> <span style="color: #a6e22e">value=</span><span style="color: #e6db74">&quot;&quot;</span><span style="color: #f92672">&gt;</span>1<span style="color: #f8f8f2">&amp;nbsp;</span><span style="color: #f92672">&lt;/option&gt;</span>
+				<span style="color: #f92672">&lt;option</span> <span style="color: #a6e22e">value=</span><span style="color: #e6db74">&quot;opt1&quot;</span><span style="color: #f92672">&gt;</span>2<span style="color: #f8f8f2">&amp;nbsp;</span><span style="color: #f92672">&lt;/option&gt;</span>
+			<span style="color: #f92672">&lt;/select&gt;</span>
+		<span style="color: #f92672">&lt;/div&gt;</span>
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;rowElem&quot;</span><span style="color: #f92672">&gt;</span>
+			<span style="color: #f92672">&lt;label&gt;</span>Select Redimentionné :<span style="color: #f92672">&lt;/label&gt;&lt;br&gt;</span>
+			<span style="color: #f92672">&lt;select</span> <span style="color: #a6e22e">name=</span><span style="color: #e6db74">&quot;select2&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;select2&quot;</span> <span style="color: #f92672">&gt;</span>
+				<span style="color: #f92672">&lt;option</span> <span style="color: #a6e22e">value=</span><span style="color: #e6db74">&quot;opt1&quot;</span><span style="color: #f92672">&gt;</span>Big Option test line with more wordssss<span style="color: #f92672">&lt;/option&gt;</span>
+				<span style="color: #f92672">&lt;option</span> <span style="color: #a6e22e">value=</span><span style="color: #e6db74">&quot;opt2&quot;</span><span style="color: #f92672">&gt;</span>Option 2<span style="color: #f92672">&lt;/option&gt;</span>
+				<span style="color: #f92672">&lt;option</span> <span style="color: #a6e22e">value=</span><span style="color: #e6db74">&quot;opt3&quot;</span><span style="color: #f92672">&gt;</span>Option 3<span style="color: #f92672">&lt;/option&gt;</span>
+				<span style="color: #f92672">&lt;option</span> <span style="color: #a6e22e">value=</span><span style="color: #e6db74">&quot;opt4&quot;</span><span style="color: #f92672">&gt;</span>Option 4<span style="color: #f92672">&lt;/option&gt;</span>
+				<span style="color: #f92672">&lt;option</span> <span style="color: #a6e22e">value=</span><span style="color: #e6db74">&quot;opt5&quot;</span><span style="color: #f92672">&gt;</span>Option 5<span style="color: #f92672">&lt;/option&gt;</span>
+				<span style="color: #f92672">&lt;option</span> <span style="color: #a6e22e">value=</span><span style="color: #e6db74">&quot;opt6&quot;</span><span style="color: #f92672">&gt;</span>Option 6<span style="color: #f92672">&lt;/option&gt;</span>
+				<span style="color: #f92672">&lt;option</span> <span style="color: #a6e22e">value=</span><span style="color: #e6db74">&quot;opt7&quot;</span><span style="color: #f92672">&gt;</span>Option 7<span style="color: #f92672">&lt;/option&gt;</span>
+				<span style="color: #f92672">&lt;option</span> <span style="color: #a6e22e">value=</span><span style="color: #e6db74">&quot;opt8&quot;</span><span style="color: #f92672">&gt;</span>Option 8<span style="color: #f92672">&lt;/option&gt;</span>
+			<span style="color: #f92672">&lt;/select&gt;</span>
+		<span style="color: #f92672">&lt;/div&gt;</span>
+		
+		
+		<span style="color: #f92672">&lt;h3&gt;&lt;/h3&gt;</span>
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;rowElem sb&quot;</span><span style="color: #f92672">&gt;&lt;label&gt;</span>Submit button:<span style="color: #f92672">&lt;/label&gt;&lt;input</span> <span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;submit&quot;</span> <span style="color: #a6e22e">value=</span><span style="color: #e6db74">&quot;Envoyer&quot;</span> <span style="color: #f92672">/&gt;&lt;/div&gt;</span>
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;rowElem re&quot;</span><span style="color: #f92672">&gt;&lt;label&gt;</span>Reset button:<span style="color: #f92672">&lt;/label&gt;&lt;input</span>  <span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;reset&quot;</span>  <span style="color: #a6e22e">value=</span><span style="color: #e6db74">&quot;Annuler&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;rere&quot;</span><span style="color: #f92672">/&gt;&lt;/div&gt;</span>
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;rowElem btn&quot;</span><span style="color: #f92672">&gt;&lt;label&gt;</span>Input button:<span style="color: #f92672">&lt;/label&gt;&lt;input</span> <span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;button&quot;</span> <span style="color: #a6e22e">value=</span><span style="color: #e6db74">&quot;boutonbox&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;per100&quot;</span> <span style="color: #f92672">/&gt;&lt;/div&gt;</span>
+				
+	<span style="color: #f92672">&lt;/form&gt;</span>
+
+<span style="color: #f92672">&lt;/body&gt;</span>
+<span style="color: #f92672">&lt;/html&gt;</span>
+</pre></td></tr></table></div>
+
+
+
+
+
+				    <!--// 소스 -->
+					</div>
+                </div>
+			</div>			
+		</div>
+		<!-- e: examples 예제 -->
+		
+		
+		
+		
+
+	</div>
+	<!-- e: 컨텐츠 끝 -->
+</div>
+
+
+
+<script type="text/javascript">
+	$("#header").load("../../../head.html");
+	$("#lnb").load("../../../lnb.html");	
+
+	$(".ex-more a").click(function() {
+		$( this ).find("span").toggle();
+		$( this ).parent().siblings(".ex-body").slideToggle();
+		return false;
+	});
+
+
+</script>
+
+</body>
+</html>

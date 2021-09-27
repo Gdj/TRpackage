@@ -1,0 +1,424 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+<title> jqueryUI dialog | TR package</title>
+<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="../../../../asset/js/libs/trpMenu.js"></script>
+<link rel="stylesheet" href="../../../../asset/css/common.css" type="text/css" media="all" />
+
+
+</head>
+<body>
+  <div id="header" ></div>
+  <div id="container">
+	<div id="lnb" class="gnb"></div>
+	<!-- s: 컨텐츠 시작 -->
+	<div id="contents" class="contents">
+		<!-- s: 스크립드 설명 -->
+		<div class="desc_wapper">
+			<h1 class="desc_title">dialog</h1>
+			<p>jQueryUI dialog로 대화창을 레어이로 띄워 줍니다.</p>
+		</div>
+		<!-- e: 스크립드 설명 -->
+	
+		<!-- s: api 설명 -->
+		<div class="api">
+			<h2 class="api-title">.dialog( option )</h2>
+			<div class="api-body">
+				<dl>
+					<dt>설명</dt>
+					<dd><span class="icon"></span>기본 위치값은 CSS 에서 설정해야합니다.</dd>
+					<dd><span class="icon"></span>다이얼로그 옵션 정의</dd>					
+				</dl>
+				<table class="table_col" summary="dialog 속성 설명">
+					<caption>dialog 속성</caption>
+					<colgroup>
+						<col width="150">
+						<col width="">		
+					</colgroup>
+					<tbody>
+					<tr>
+						<th scope="col">매개변수</th>
+						<th scope="col">매개변수 설명</th>
+					</tr>
+					<tr>
+						<td>show: optiong </td>
+						<td>기본값"null"이며, 다이얼로그 보이게 할때 애니메이션 값을 타입에 따라 다르게 표현됩니다. <br />
+							부울 값일때 : (false) 이면 애니메이션사용되지 않음, (true)이면 페이드 인아웃	<br /> 
+							숫자 값일때 : 페이드 되는 시간설정 <br />
+							문자 값일때 : "slideUp", "slideDown"등과 같은 내장 애니메이션		<br /> 
+							객체 값일대 : effect , delay , duration , easing 등과 같은 속성을 설정할수있음		<br />
+						</td>		
+					</tr>
+					<tr>
+						<td>hide: optiong </td>
+						<td>기본값"null"이며, 다이얼로그 숨기게 할때 애니메이션 값을 타입에 따라 다르게 표현됩니다. <br />
+							부울 값일때 : (false) 이면 애니메이션사용되지 않음, (true)이면 페이드 인아웃	<br /> 
+							숫자 값일때 : 페이드 되는 시간설정 <br />
+							문자 값일때 : "slideUp", "slideDown"등과 같은 내장 애니메이션		<br /> 
+							객체 값일대 : effect , delay , duration , easing 등과 같은 속성을 설정할수있음		<br />
+						</td>	
+					</tr>
+					<tr>
+						<td>maxWidth</td>
+						<td>기본값"false"이며, 다이얼로그의 최대 픽셀 너비이값 지정</td>	
+					</tr>
+					<tr>
+						<td>maxHeight</td>
+						<td>기본값"false"이며, 다이얼로그의 최대 픽셀 높이값 지정</td>	
+					</tr>
+					<tr>
+						<td>minWidth</td>
+						<td>기본값(150)이며, 다이얼로그의 최소 픽셀 너비값 지정</td>	
+					</tr>
+					<tr>
+						<td>minHeight</td>
+						<td>기본값(150)이며, 다이얼로그의 최소 픽셀 높이값 지정</td>	
+					</tr>
+					<tr>
+						<td>autoOpen</td>
+						<td>기본값(true)이며, 대화상자가 자동으로 열림, (false)이면 열지지 않음.</td>	
+					</tr>					
+					<tr>
+						<td>closeText</td>
+						<td>기본값"close"이며, 닫기버튼에 title값을 변경합니다. </td>	
+					</tr>
+					<tr>
+						<td>dialogClass</td>
+						<td>기본값""이며, 다이얼로그창에 추가적으로 클래스를 넣어 다른스타일을 적용할수있게 합니다.</td>	
+					</tr>
+					<tr>
+						<td>draggable</td>
+						<td>기본값(true)이며, 제목 표시줄을 드래그할수있게 합니다. (false)이면 드래드되지 않습니다.</td>	
+					</tr>
+					<tr>
+						<td>position</td>
+						<td>기본값:{ my: "center", at: "center", of: window }	<br />
+							my : 중심점을 이동시킬 수있습니다.		<br />
+							at : 중심점을 기준으로 정렬 합니다.	<br />
+							of : 대상을 기준으로 정렬 합니다.
+						</td>
+					</tr>
+					<tr>	
+						<td>resizable</td>
+						<td>기본값(treu)이며 다이얼로그 박스 크기조절 가능하도록 합니다. </td>
+					</tr>
+					<tr>
+						<td>close</td>
+						<td>기본값:(false) 이며, (ture)값이면 다이얼로그창 뒤에 오버레이어를 만들어 다이얼로그창왜에 접근이 되지 않도록 할수있습니다.</td>
+					</tr>
+					<tr>
+						<td>buttons</td>
+						<td>기본값:{} 이며, 다이얼로그창 밑부분에 버튼을 생성합니다.</td>
+					</tr>
+				
+					
+					</tbody>
+				</table>
+		
+
+
+				<table class="table_col" summary="dialog 메서드 설명">
+					<caption>dialog 메서드 설명</caption>
+					<colgroup>
+						<col width="150">
+						<col width="">		
+					</colgroup>
+					<tbody>
+					<tr>
+						<th scope="col">메서드 이름</th>
+						<th scope="col">설명 설명</th>
+					</tr>
+
+					<tr>
+						<td>close</td>
+						<td>다이얼로그 창을 닫습니다.
+						</td>		
+					</tr>
+					<tr>
+						<td>open</td>
+						<td>다이얼로그 창을 엽니다.
+						</td>
+					</tr>
+					<tr>
+						<td>destroy</td>
+						<td>다이얼로그 창기능을 제거합니다.
+						</td>
+					</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				<table class="table_col" summary="dialog events 설명 ">
+					<caption>dialog events</caption>
+					<colgroup>
+						<col width="150">
+						<col width="">		
+					</colgroup>
+					<tbody>
+					<tr>
+						<th scope="col">이벤트 이름</th>
+						<th scope="col">이벤트 설명</th>
+					</tr>
+
+					<tr>
+						<td>open</td>
+						<td>다이얼로그창이 열릴때 호출 	  <br />
+							open : function( event, ui ){} 
+							
+						</td>		
+					</tr>
+					<tr>
+						<td>close</td>
+						<td>다이얼로그창이 닫칠때 호출   <br />
+							close : function( event, ui ){} 
+						</td>
+					</tr>
+					<tr>
+						<td>focus</td>
+						<td>다이얼로그창에 포커스가 왔을때 호출   <br />
+							focus : function( event, ui ){} 
+						</td>
+					</tr>
+					
+					</tbody>
+				</table>
+
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+
+		<!-- s: examples 예제 -->
+		<div class="ex_wapper">
+			<div class="section">
+				<h2 class="ex-title">예제) 1.기본사용법 </h2>
+				<p class="ex-more" ><a href="javascript:return false;"><span>+</span><span style="display:none">-</span></a></p>
+				<p class="ex-view" ><a href="ex01.html" target="_blank">View</a></p>
+				<div class="ex-body" style="display:none">					
+					<div class="source"><!-- 소스 -->
+					
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!doctype html&gt;</span>
+<span style="color: #f92672">&lt;html</span> <span style="color: #a6e22e">lang=</span><span style="color: #e6db74">&quot;en&quot;</span><span style="color: #f92672">&gt;</span>
+<span style="color: #f92672">&lt;head&gt;</span>
+  <span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">charset=</span><span style="color: #e6db74">&quot;utf-8&quot;</span><span style="color: #f92672">&gt;</span>
+  <span style="color: #f92672">&lt;title&gt;</span>jQuery UI Dialog - Default functionality<span style="color: #f92672">&lt;/title&gt;</span>
+	<span style="color: #f92672">&lt;link</span> <span style="color: #a6e22e">rel=</span><span style="color: #e6db74">&quot;stylesheet&quot;</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/jquery-ui-1.10.4.custom/themes/base/jquery.ui.all.css&quot;</span><span style="color: #f92672">&gt;</span>
+	<span style="color: #f92672">&lt;style </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/css&quot;</span><span style="color: #f92672">&gt;</span>
+		<span style="color: #75715e">/* 공통 스타일 */</span>		
+		<span style="color: #f92672">body</span> <span style="color: #f8f8f2">{</span>	<span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">62</span><span style="color: #f92672">.</span><span style="color: #ae81ff">5</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> 	<span style="color: #66d9ef">font-family</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;Trebuchet MS&quot;</span><span style="color: #f92672">,</span> <span style="color: #e6db74">&quot;Arial&quot;</span><span style="color: #f92672">,</span> <span style="color: #e6db74">&quot;Helvetica&quot;</span><span style="color: #f92672">,</span> <span style="color: #e6db74">&quot;Verdana&quot;</span><span style="color: #f92672">,</span> <span style="color: #e6db74">&quot;sans-serif&quot;</span><span style="color: #f8f8f2">;</span> 	<span style="color: #f8f8f2">}</span>
+	<span style="color: #f92672">&lt;/style&gt;</span>
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js&quot;</span> <span style="color: #f92672">&gt;&lt;/script&gt;</span>
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/jquery-ui-1.10.4.custom.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+	<span style="color: #f92672">&lt;script&gt;</span>
+	  <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
+		<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span> <span style="color: #e6db74">&quot;#dialog&quot;</span> <span style="color: #f8f8f2">).</span><span style="color: #a6e22e">dialog</span><span style="color: #f8f8f2">();</span>
+	  <span style="color: #f8f8f2">});</span>
+	<span style="color: #f92672">&lt;/script&gt;</span>
+	 
+<span style="color: #f92672">&lt;/head&gt;</span>
+<span style="color: #f92672">&lt;body&gt;</span>
+ 
+<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;dialog&quot;</span> <span style="color: #a6e22e">title=</span><span style="color: #e6db74">&quot;Basic dialog&quot;</span><span style="color: #f92672">&gt;</span>
+  <span style="color: #f92672">&lt;p&gt;</span>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the &#39;x&#39; icon.<span style="color: #f92672">&lt;/p&gt;</span>
+<span style="color: #f92672">&lt;/div&gt;</span>
+ 
+
+<span style="color: #f92672">&lt;/body&gt;</span>
+<span style="color: #f92672">&lt;/html&gt;</span>
+</pre></td></tr></table></div>
+
+
+				
+					</div><!--// 소스 -->
+				<div>
+			</div>			
+		</div>
+		<!-- e: examples 예제 -->
+
+		<!-- s: examples 예제 -->
+		<div class="ex_wapper">
+			<div class="section">
+				<h2 class="ex-title">예제) 2.옵션 사용법 </h2>
+				<p class="ex-more" ><a href="javascript:return false;"><span>+</span><span style="display:none">-</span></a></p>
+				<p class="ex-view" ><a href="ex02.html" target="_blank">View</a></p>
+				<div class="ex-body" style="display:none">					
+					<div class="source"><!-- 소스 -->
+					
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!doctype html&gt;</span>
+<span style="color: #f92672">&lt;html</span> <span style="color: #a6e22e">lang=</span><span style="color: #e6db74">&quot;en&quot;</span><span style="color: #f92672">&gt;</span>
+<span style="color: #f92672">&lt;head&gt;</span>
+  <span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">charset=</span><span style="color: #e6db74">&quot;utf-8&quot;</span><span style="color: #f92672">&gt;</span>
+  <span style="color: #f92672">&lt;title&gt;</span>jQuery UI Dialog - Default functionality<span style="color: #f92672">&lt;/title&gt;</span>
+	<span style="color: #f92672">&lt;link</span> <span style="color: #a6e22e">rel=</span><span style="color: #e6db74">&quot;stylesheet&quot;</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/jquery-ui-1.10.4.custom/themes/base/jquery.ui.all.css&quot;</span><span style="color: #f92672">&gt;</span>
+	<span style="color: #f92672">&lt;style </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/css&quot;</span><span style="color: #f92672">&gt;</span>
+		<span style="color: #75715e">/* 공통 스타일 */</span>		
+		<span style="color: #f92672">body</span> <span style="color: #f8f8f2">{</span>	<span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">62</span><span style="color: #f92672">.</span><span style="color: #ae81ff">5</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> 	<span style="color: #66d9ef">font-family</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;Trebuchet MS&quot;</span><span style="color: #f92672">,</span> <span style="color: #e6db74">&quot;Arial&quot;</span><span style="color: #f92672">,</span> <span style="color: #e6db74">&quot;Helvetica&quot;</span><span style="color: #f92672">,</span> <span style="color: #e6db74">&quot;Verdana&quot;</span><span style="color: #f92672">,</span> <span style="color: #e6db74">&quot;sans-serif&quot;</span><span style="color: #f8f8f2">;</span> 	<span style="color: #f8f8f2">}</span>
+	<span style="color: #f92672">&lt;/style&gt;</span>
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js&quot;</span> <span style="color: #f92672">&gt;&lt;/script&gt;</span>	
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/jquery-ui-1.10.4.custom.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+	<span style="color: #f92672">&lt;script&gt;</span>
+	<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
+		<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span> <span style="color: #e6db74">&quot;#dialog&quot;</span> <span style="color: #f8f8f2">).</span><span style="color: #a6e22e">dialog</span><span style="color: #f8f8f2">({</span>
+		  <span style="color: #a6e22e">autoOpen</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">false</span><span style="color: #f8f8f2">,</span>
+		  <span style="color: #a6e22e">show</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">{</span>
+			<span style="color: #a6e22e">effect</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;blind&quot;</span><span style="color: #f8f8f2">,</span>
+			<span style="color: #a6e22e">duration</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">1000</span>
+		  <span style="color: #f8f8f2">},</span>
+		  <span style="color: #a6e22e">hide</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">{</span>
+			<span style="color: #a6e22e">effect</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;clip&quot;</span><span style="color: #f8f8f2">,</span>
+			<span style="color: #a6e22e">duration</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">500</span>
+		  <span style="color: #f8f8f2">},</span>
+		  <span style="color: #a6e22e">closeText</span> <span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;닫기&quot;</span><span style="color: #f8f8f2">,</span>
+		  <span style="color: #a6e22e">dialogClass</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;alert&quot;</span><span style="color: #f8f8f2">,</span>
+		  <span style="color: #a6e22e">resizable</span> <span style="color: #f92672">:</span> <span style="color: #66d9ef">false</span><span style="color: #f8f8f2">,</span>
+		  <span style="color: #a6e22e">modal</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">true</span><span style="color: #f8f8f2">,</span>		  
+		  <span style="color: #a6e22e">buttons</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">{</span>		
+			<span style="color: #a6e22e">yes</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
+			  <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span> <span style="color: #66d9ef">this</span> <span style="color: #f8f8f2">).</span><span style="color: #a6e22e">dialog</span><span style="color: #f8f8f2">(</span> <span style="color: #e6db74">&quot;close&quot;</span> <span style="color: #f8f8f2">);</span>
+			<span style="color: #f8f8f2">},</span>
+			<span style="color: #a6e22e">no</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
+			  <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span> <span style="color: #66d9ef">this</span> <span style="color: #f8f8f2">).</span><span style="color: #a6e22e">dialog</span><span style="color: #f8f8f2">(</span> <span style="color: #e6db74">&quot;close&quot;</span> <span style="color: #f8f8f2">);</span>
+			<span style="color: #f8f8f2">}</span>
+		  <span style="color: #f8f8f2">}</span>
+		  		
+		<span style="color: #f8f8f2">});</span>
+	 
+		<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span> <span style="color: #e6db74">&quot;#opener&quot;</span> <span style="color: #f8f8f2">).</span><span style="color: #a6e22e">click</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
+		  <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span> <span style="color: #e6db74">&quot;#dialog&quot;</span> <span style="color: #f8f8f2">).</span><span style="color: #a6e22e">dialog</span><span style="color: #f8f8f2">(</span> <span style="color: #e6db74">&quot;open&quot;</span> <span style="color: #f8f8f2">);</span>
+		<span style="color: #f8f8f2">});</span>
+
+		
+  <span style="color: #f8f8f2">});</span>
+  <span style="color: #f92672">&lt;/script&gt;</span>
+<span style="color: #f92672">&lt;/head&gt;</span>
+<span style="color: #f92672">&lt;body&gt;</span>
+ 
+<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;dialog&quot;</span> <span style="color: #a6e22e">title=</span><span style="color: #e6db74">&quot;Basic dialog&quot;</span><span style="color: #f92672">&gt;</span>
+  <span style="color: #f92672">&lt;p&gt;</span>This is an animated dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the &#39;x&#39; icon.<span style="color: #f92672">&lt;/p&gt;</span>
+<span style="color: #f92672">&lt;/div&gt;</span>
+ 
+<span style="color: #f92672">&lt;button</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;opener&quot;</span><span style="color: #f92672">&gt;</span>Open Dialog<span style="color: #f92672">&lt;/button&gt;</span>
+ 
+ 
+<span style="color: #f92672">&lt;/body&gt;</span>
+<span style="color: #f92672">&lt;/html&gt;</span>
+</pre></td></tr></table></div>
+
+
+				
+					</div><!--// 소스 -->
+				<div>
+			</div>			
+		</div>
+		<!-- e: examples 예제 -->
+
+
+
+	</div>
+	<!-- e: 컨텐츠 끝 -->
+</div>
+
+
+
+<script type="text/javascript">
+	$("#header").load("../../../head.html");
+	$("#lnb").load("../../../lnb.html");	
+
+	$(".ex-more a").click(function() {
+		$( this ).find("span").toggle();
+		$( this ).parent().siblings(".ex-body").slideToggle();
+		return false;
+	});
+
+
+</script>
+
+</body>
+</html>

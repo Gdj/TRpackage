@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="kr">
+ <head>
+  <meta charset="UTF-8">  
+  <title>jsMovie | trPackage</title>  
+  <style type="text/css">		
+		.controler img { width:50px; }
+  </style>
+  <script type="text/javascript" src="../../../../asset/js/libs/jquery-1.9.1.min.js" ></script>
+  <script type="text/javascript" src="../../../../asset/js/libs/jsmovie/jquery.jsmovie.1.4.4.js"></script>
+  <script type="text/javascript">
+	$(document).ready(function(){
+
+
+		var mmm = $('#movie').jsMovie({
+		sequence: 'scene_#####.jpg',
+		from: 1,
+		to: 71,			
+		folder : "./images/sequence/",
+		width:(640),
+		height:(282),
+		fps:30,		
+        playOnLoad : false,         // 로드후 자동 플레이 하지 않음
+		showPreLoader : true,       // 로더 보이게 
+		loader: {path:"../../../../asset/js/libs/jsmovie/loader.png", height:40, width:40, rows:2, columns:4},		 
+		repeat:false
+		});
+	
+		/* 컨트롤 */
+		$(".btn_play").on('click',function(){ $('#movie').jsMovie('play') });
+		$(".btn_pause").on('click',function(){ $('#movie').jsMovie('pause'); });
+		$(".btn_stop").on('click',function(){ $('#movie').jsMovie('stop'); });
+	
+		
+		/* 이벤트 */
+		$('#movie').on('ended', function(v) { 
+			console.log("플레이 끝!");
+			$('#movie').jsMovie('pause');
+			$("#movie").jsMovie("gotoFrame",71); 
+		});
+		$('#movie').on('loaded', function() { 
+			console.log("로드 완료!");			
+		});
+			
+							
+	});// document.ready
+  </script>
+ </head>
+ <body>
+	<div class="wrap">		
+		<div id="movie"></div>
+		<div class="controler">
+			<a href="javascript:void(0);" class="btn_play" ><img src="./images/btn_play.png"	alt="play" /></a>
+			<a href="javascript:void(0);" class="btn_pause" ><img src="./images/btn_pause.png" alt="pause"/></a>
+			<a href="javascript:void(0);" class="btn_stop" ><img src="./images/btn_stop.png"	alt="stop" /></a>
+		</div>
+	</div>
+ </body>  
+</html>

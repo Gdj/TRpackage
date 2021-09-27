@@ -1,0 +1,86 @@
+<!DOCTYPE html >
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>input_file</title>
+<style type="text/css">
+	
+</style>
+<!-- <script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js"></script> -->
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.12.1.min.js"></script>
+
+
+<script type="text/javascript">	 
+	
+
+
+// InternetVersion Check function
+function getInternetVersion(ver) {
+var rv = -1; // Return value assumes failure.
+var ua = navigator.userAgent;
+var re = null;
+if(ver == "MSIE"){
+re = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})");
+}else{
+re = new RegExp(ver+"/([0-9]{1,}[\.0-9]{0,})");
+}
+if (re.exec(ua) != null){
+rv = parseFloat(RegExp.$1);
+}
+return rv;
+}
+
+//브라우저 종류 및 버전확인
+var sUserAgent = navigator.userAgent;
+ var browserVer = "";
+ 
+ if (sUserAgent.indexOf("Chrome")>-1){
+  var re = new RegExp("Chrome[\\/\\s](\\d+\\.\\d+)");
+   re.test(sUserAgent);
+   var version= RegExp["$1"];
+  browserVer = "Chrome_"+version;
+      
+ }else if (sUserAgent.indexOf("Opera")>-1){
+  var re = new RegExp("Opera[\\/\\s](\\d+\\.\\d+)");
+   re.test(sUserAgent);
+   var version= RegExp["$1"];
+  browserVer = "Opera_"+version;
+   
+  }else if (sUserAgent.indexOf("Safari")>-1){
+   var re = new RegExp("Version[\\/\\s](\\d+\\.\\d+)");
+   re.test(sUserAgent);
+   var version= RegExp["$1"];
+  browserVer = "Safari_"+version;
+  
+  }else if (sUserAgent.indexOf("Firefox")>-1){
+   var re = new RegExp("Firefox[\\/\\s](\\d+\\.\\d+)");
+   re.test(sUserAgent);
+   var version= RegExp["$1"];
+  browserVer = "Firefox_"+version;
+  
+  }else if (sUserAgent.indexOf("MSIE")>-1){
+   var re = new RegExp("MSIE[\\/\\s](\\d+\\.\\d+);");
+     re.test(sUserAgent);
+     var version = RegExp["$1"];
+     browserVer = "MSIE_"+version;
+  }else{
+   browserVer = sUserAgent;
+  }
+ 
+alert(browserVer );
+
+
+ 
+</script>
+
+
+ 
+</head>
+<body>	
+	
+	
+</body>
+</html>
+
+
+

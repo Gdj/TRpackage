@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+	<title>layer popup (today)</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<!-- <link rel="stylesheet" type="text/css"  href="../../../../asset/css/trpBase.css" media="all" />  -->
+
+<style type="text/css">
+
+    .trp.popup-wrap  { position: absolute;  top: 0; left: 0; z-index: 9999; width: 100%; height: 100%; text-align: center;  } 
+    .trp.popup-wrap .popup-dim { position:absolute; top:0; left:0; width:100%; height:100%;  background: #000000; opacity: 0.7;  filter: alpha(opacity=70);  }
+    .trp.popup-wrap .popup-layer { display: inline-block; *display:inline; zoom:1; position: relative;   } 
+    .trp.popup-wrap .popup-layer.option {  top:50px; width:600px; min-height:100px;  background:#fff ; }
+    .trp.popup-wrap .popup-layer .btn_x { position:absolute; top:15px; right:15px; width:18px; height:18px; background:#aaa; }
+
+    .trp.popup-wrap .popup-layer .top { position:relative; height: 38px;  padding: 10px 10px 0 10px;   border-bottom: 2px solid #999; } 
+    .trp.popup-wrap .popup-layer .top .title { float: left; margin:0 5px; font-size: 20px; font-weight: bold; } 
+    .trp.popup-wrap .popup-layer .con { position:relative; clear: both; height: 220px; padding:10px; text-align: center; }
+    .trp.popup-wrap .popup-layer .bottom { position:relative; height:25px; padding:5px 10px 0 10px;  line-height:0; text-align:right; vertical-align:top; background: #d2d2d2;  }
+    .trp.popup-wrap .popup-layer .bottom input[type=checkbox] { margin:0; padding:0; width:13px; height:13px; vertical-align:middle;}
+    .trp.popup-wrap .popup-layer .bottom label { display:inline-block;  margin-top:1px; font-family: Dotum,'돋움',Helvetica,AppleSDGothicNeo,sans-serif; font-size:11px; line-height:1; vertical-align:middle;  }
+
+    /** trp_icon   **/
+    .icon18 {  display:inline-block; zoom:1; *display:block;  width:18px; height:18px; font-size:0; line-height:0; text-shadow:none; color:transparent; vertical-align: middle; background: url('../../../../asset/css/trp_images/icons-18-base.png') -18px -36px no-repeat; }
+    .map18_00-03 { background-position:-108px 0; }  
+    /**  //trp_icon  **/
+
+</style>
+
+</head>
+<body>
+
+
+<div class="trp popup-wrap">
+	<div class="popup-dim"></div>	
+	<div class="popup-layer option">
+		<div class="top">
+			<p class="title">제목</p>
+			<a class="btn_x" href="#"><span class="icon18 map18_00-03">X</span></a>			
+		</div>
+		<div class="con">
+			팝업 내용
+		</div>
+		<div class="bottom">
+			<input type="checkbox" id="todayClose">
+			<label for="todayClose">오늘 하루 더 이상 보지 않기</label>
+			<a class="btn_close" href="#"><span class="icon18 map18_00-03">X</span></a>
+		</div>
+	</div>
+</div>		
+
+
+</body>
+</html>

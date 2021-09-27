@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>accordion menu</title>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" ></script>
+  <script type="text/javascript" src="../../../../asset/js/libs/trpMenu.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){     
+      $("#accordion").trpAccordionMenu(".dep1" ,".ac_con" , "on").setBtn(1);
+    })
+  </script>
+  <style type="text/css">
+    #accordion li .ac_con{ display: none;  }
+    #accordion li.on .dep1{ display:inline-block; background-color: #fee;  }
+  </style>
+</head>
+
+<body>
+ 	
+  <div>
+    <ul id="accordion">
+      <li><a href="#" class="dep1">index1</a>
+        <div class="ac_con"> index1 index1 index1 index1 index1 index1
+        </div>
+      </li>
+      <li><a href="#" class="dep1">index2</a>
+        <div class="ac_con">index2 index2 index2 index2 index2 index2
+          <br /> index2 index2 index2 index2 index2 index2
+        </div>
+      </li>
+      <li><a href="#" class="dep1">index3</a>
+        <div class="ac_con">index3 index3 index3 index3 index3 index3
+          <br /> index3 index3 index3 index3 index3 index3
+          <br /> index3 index3 index3 index3 index3 index3
+        </div>
+      </li>
+    </ul>
+  </div>
+
+</body>
+</html>

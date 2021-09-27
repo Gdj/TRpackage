@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript" src="../../../../asset/js/libs/trpMenu.js"></script>
+  <style>
+    .button_box { margin-bottom :20px;}
+    .toggle0 { margin-bottom:5px; }
+    .toggle0 a		{ display:block; height:30px;	background:url("./images/more.png") 45px 0 no-repeat; }
+    .toggle0 a.on	{								background:url("./images/more_on.png") 45px 0 no-repeat; }
+    .con { display:none; width:300px; height:100px; margin-bottom:20px; background-color:#00ff00; }
+  </style> 
+  <script>
+    $(document).ready(function() {
+      var btnControl;
+      btnControl = $(".toggle0 a").trpToggleBtn(
+        function($this) {
+          $($this).addClass("on");
+          $($this).parent().find(".con").slideDown("fast");
+        },
+        function($this) {
+          $($this).removeClass("on");
+          $($this).parent().find(".con").slideUp("fast");
+      });
+
+      $(".btn_off").on("click", function() {
+        btnControl.toggleAllSet(false);
+      });
+      $(".btn_on").on("click", function() {
+        btnControl.toggleAllSet(true);
+      });
+      
+      $(".set_toggle").on("click", function() {
+        btnControl.setToggle(3);
+      });
+      $(".btn_set").on("click", function() {
+        btnControl.setBtn(2);
+      });
+      $(".btn_reset").on("click", function() {
+        btnControl.reSetBtn(2);
+      });
+      $(".btn_oneset").on("click", function() {
+        btnControl.setOneBtn(1);
+      });
+
+    })
+  </script>
+	
+</head>
+<body>
+  <div class="button_box">
+    <button type="button" name="" class="btn_off"> toggleAllSet(false) </button>
+    <button type="button" name="" class="btn_on"> toggleAllSet(true) </button>
+
+    <button type="button" name="" class="set_toggle"> setToggle(3) </button>
+    <button type="button" name="" class="btn_set"> setBtn(2) </button>
+    <button type="button" name="" class="btn_reset"> reSetBtn(2) </button>
+    <button type="button" name="" class="btn_oneset"> setOneBtn(1) </button>
+  </div>
+
+
+  <div class="toggle0">
+    <a href="#">버튼0 </a> 
+    <div class="con">내용~0</div>
+  </div>
+
+	<div class="toggle0">
+    <a href="#">버튼1 </a> 
+    <div class="con">내용~1</div>
+  </div>
+
+	<div class="toggle0">
+    <a href="#">버튼2 </a> 
+    <div class="con">내용~2</div>
+  </div>
+
+	<div class="toggle0">
+    <a href="#">버튼3 </a> 
+    <div class="con">내용~3</div>
+  </div>
+
+	<div class="toggle0">
+    <a href="#">버튼4 </a> 
+    <div class="con">내용~4</div>
+  </div>
+ 
+</body>
+</html>

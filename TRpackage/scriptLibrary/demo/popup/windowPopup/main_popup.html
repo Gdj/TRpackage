@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>공지사항</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+<script language="JavaScript">
+
+<!--
+function notice_setcookie( name, value, expiredays )
+    {
+        var todayDate = new Date();
+        todayDate.setDate( todayDate.getDate() + expiredays );
+        document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() + ";"
+        }
+function notice_closeWin()
+{
+        if ( document.forms[0].Notice.checked )
+                notice_setcookie( "Notice", "done" , 1); // 1=하룻동안 공지창 열지 않음
+        self.close();
+}
+function na_call(str){  eval(str);}
+//-->
+</script>
+</head>
+<body>
+<form name="form1">
+<input type="checkbox" name="Notice"  OnClick="notice_closeWin()">오늘하루 그만보기
+<a href="javascript:notice_closeWin();" >닫기</a>
+</form>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+	<title>swiper 4.5.0(auto play)</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />	
+	<link rel="stylesheet" href="./css/style.css"/>
+	<link rel="stylesheet" href="./css/swiper.min.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="./js/swiper.min.js"></script>
+	
+	<script type="text/javascript">
+	
+	$(document).ready(function(){
+
+		// Swiper 세팅
+		var mySwiper = new Swiper('.gallery_center',{    
+			loop: true, 
+			autoplay: {
+				delay: 5000,
+			},	
+		  pagination: {
+				el: '.pagination',
+				type: 'bullets',
+				clickable: true, // default false
+			},
+			on: {
+				transitionEnd: function(){										// 움직임이 끝나면 실행
+					//console.log("end1 : " + this.realIndex)
+				},
+			}
+			
+		})
+	 
+		// 좌우버튼
+	  $('.prev').on('click', function(e){
+			e.preventDefault();					//이벤트 객체의 preventDefault 메소드를 실행하면 기본 동작이 취소된다	
+			mySwiper.slidePrev();
+	  })
+	  $('.next').on('click', function(e){
+			e.preventDefault();					//이벤트 객체의 preventDefault 메소드를 실행하면 기본 동작이 취소된다	
+			mySwiper.slideNext();
+
+	  })
+		
+      // 컨텐츠에 마우스 올리면 일시정지
+	  $(".gallery_center").hover(function(){
+			mySwiper.autoplay.stop(); 
+	  } ,
+	  function(){
+			mySwiper.autoplay.start(); 
+	  })
+
+	})
+    </script>
+</head>
+
+<body>
+
+<div class="gallery_view" style="">
+	<div class="gallery_center">				
+		<div class="swiper-wrapper">
+			<div class="swiper-slide"><img src="./images/view_01.jpg" width="400" height="535"  alt="" /></div>
+			<div class="swiper-slide"><img src="./images/view_01.jpg" width="400" height="535"  alt="" /></div>
+			<div class="swiper-slide"><img src="./images/view_01.jpg" width="400" height="535"  alt="" /></div>
+			<div class="swiper-slide"><img src="./images/view_01.jpg" width="400" height="535"  alt="" /></div>
+			<div class="swiper-slide"><img src="./images/view_01.jpg" width="400" height="535"  alt="" /></div>
+			<div class="swiper-slide"><img src="./images/view_01.jpg" width="400" height="535"  alt="" /></div>
+			<div class="swiper-slide"><img src="./images/view_01.jpg" width="400" height="535"  alt="" /></div>
+			<div class="swiper-slide"><img src="./images/view_01.jpg" width="400" height="535"  alt="" /></div>
+		</div>	
+		<a href="#" class="prev">Prev</a>
+		<a href="#" class="next">Next</a>	
+	</div>			
+	<div class="pagination"></div>
+</div>
+
+<!-- // wrap -->
+
+</body>
+</html>

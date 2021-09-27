@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>window popup</title>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="../../../../asset/js/libs/trpPopup_all0.82.js"></script>
+<style type="text/css">
+	html body { overflow:hidden; margin:0; padding:0;} 
+	#popup_wrap{
+			width:300px;
+			height:200px;
+			background-color: #f00;
+			text-align: center;
+			padding-top:50px;
+			line-height: 2;	
+			z-index: 10;	
+		}
+
+</style>
+
+</head>
+
+<body>
+<div id="popup_wrap" >
+	<a href="#" class="closeX">X 닫기</a><br />
+	<a href="#" class="closeXX">X 닫기 부모창 링크 </a><br />
+	<a href="#" class="closeXXX">오늘하루 안보기</a>
+</div>	
+
+<script type="text/javascript">		
+	$(document).ready(function(){
+		
+		$("#popup_wrap").trpWindowPopupResize();								// 팝업창 "#popup_wrap" 맞에 리싸이즈
+		$(".closeX").trpWindowClose();										// 팝업닫기
+		$(".closeXX").trpWindowClose().parentLink("http://www.naver.com");	// 부모창으로 링크 열기
+		$(".closeXXX").trpWindowClose().oneDay("oneDay");					// 오늘하루 안열기
+
+	})
+	
+</script>
+</body>
+</html>

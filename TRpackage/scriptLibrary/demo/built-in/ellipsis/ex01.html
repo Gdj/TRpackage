@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>trpEllipsis | TR package</title>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.12.1.min.js"></script>
+<script type="text/javascript" src="../../../../asset/js/libs/trpEllipsis.js"></script>
+<style>
+	html, body { margin:0; padding:0; }	
+    .trpEll     { width: 25%;  overflow: hidden; 
+      line-height: 1.4; 
+      border: 1px solid #ff0000; margin-bottom: 200px; 
+    }
+    .js-trell {height: 65px;}
+  
+    .ellip, .ellip-line {position: relative;overflow: hidden;max-width: 100%;}
+    .ellip {display: block;height: 100%;}
+    .ellip-line {display: inline-block;text-overflow: ellipsis;white-space: nowrap;word-wrap: normal;}
+  }
+  
+</style>
+
+</head>
+<body>	
+
+	<div id="wrap">
+		<div class="js-ell trpEll">
+			프로토타입을 팀원 모두에게 실시간으로 공유하고, 피드백을 빠르게 받을 수 있는 서비스. 가입과 동시에 1개의 프로젝트를 무료로 테스트해볼 수 있다. 월 25달러에 무한대로 업로드 가능.
+ 
+		</div>	
+		<div class="js-trell trpEll">
+			프로토타입을 팀원 모두에게 실시간으로 공유하고, 피드백을 빠르게 받을 수 있는 서비스. 가입과 동시에 1개의 프로젝트를 무료로 테스트해볼 수 있다. 월 25달러에 무한대로 업로드 가능.
+		</div>
+	</div>	
+	
+	
+	<script>
+      $(".js-ell").trpEllipsis( {lines: 1});      
+      $(".js-trell").trpEllipsis({
+        /*lines: 3,*/
+        responsive: true
+      });
+	</script>
+	
+</body>
+</html>
+
+       

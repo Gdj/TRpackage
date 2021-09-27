@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>shape</title>
+    <style>
+        ul { list-style: none; }
+        .shape-list > li { float: left; position: relative; width: 100px; height: 100px; margin:0 10px;}
+        
+        .trp_circle { 
+            width: 100%;
+            height: 100%;
+            background: #941012;
+            -moz-border-radius: 50%;
+            -webkit-border-radius: 50%;
+            border-radius: 50%;
+        }
+
+        
+        .trp_triangle-up{
+        	width: 0;
+            height: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 100px solid #941012;
+        }
+        
+        .trp_triangle-down{
+        	width: 0;
+            height: 0;
+            border-top: 100px solid #941012;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+        }
+        
+        .trp_triangle-down{
+        	width: 0;
+            height: 0;
+            border-top: 100px solid #941012;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+        }
+        
+        .trp_triangle-left{
+            width: 0;
+            height: 0;
+            border-top: 50px solid transparent;
+            border-right: 100px solid #941012;
+            border-bottom: 50px solid transparent;
+        }
+        
+        .trp_triangle-right{
+            width: 0;
+            height: 0;
+            border-top: 50px solid transparent;
+            border-left: 100px solid #941012;
+            border-bottom: 50px solid transparent;
+        }
+        
+        .trp_star-6 {
+            width: 0;
+            height: 0;
+            border-left: 45px solid transparent;
+            border-right: 45px solid transparent;
+            border-bottom: 75px solid #941012;
+            position: relative;
+			margin-left: 5px;
+        }
+        .trp_star-6:after {
+            width: 0;
+            height: 0;
+            border-left: 45px solid transparent;
+            border-right: 45px solid transparent;
+            border-top: 75px solid #941012;
+            position: absolute;
+            content: "";
+            top: 25px;
+            left: -45px;
+        }
+        
+        .trp_star-5 {
+           margin: 35px 0;
+           position: relative;
+           display: block;
+           color: #941012;
+           width: 0px;
+           height: 0px;
+           border-right:  50px solid transparent;
+           border-bottom: 35px  solid #941012;
+           border-left:   50px solid transparent;
+           -moz-transform:    rotate(35deg);
+           -webkit-transform: rotate(35deg);
+           -ms-transform:     rotate(35deg);
+           -o-transform:      rotate(35deg);
+        }
+        .trp_star-5:before {
+           border-bottom: 38px solid #941012;
+           border-left: 15px solid transparent;
+           border-right: 15px solid transparent;
+           position: absolute;
+           height: 0;
+           width: 0;
+           top: -26px;
+           left: -32px;
+           display: block;
+           content: '';
+           -webkit-transform: rotate(-35deg);
+           -moz-transform:    rotate(-35deg);
+           -ms-transform:     rotate(-35deg);
+           -o-transform:      rotate(-35deg);
+        }        
+        .trp_star-5:after {
+           position: absolute;
+           display: block;
+           color: #941012;
+           top: 0px;
+           left: -50px;
+           width: 0px;
+           height: 0px;
+           border-right:  50px solid transparent;
+           border-bottom: 35px solid #941012;
+           border-left:   50px solid transparent;
+           -webkit-transform: rotate(-70deg);
+           -moz-transform:    rotate(-70deg);
+           -ms-transform:     rotate(-70deg);
+           -o-transform:      rotate(-70deg);
+           content: '';
+        }
+                
+    
+        .trp_hexagon {
+            width: 90px;
+            height: 50px;
+            margin: 25px 0 0 5px;			
+            background: #941012;
+            position: relative;
+        }
+        .trp_hexagon:before {
+            content: "";
+            position: absolute;
+            top: -25px;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 45px solid transparent;
+            border-right: 45px solid transparent;
+            border-bottom: 25px solid #941012;
+        }
+        .trp_hexagon:after {
+            content: "";
+            position: absolute;
+            bottom: -25px;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 45px solid transparent;
+            border-right: 45px solid transparent;
+            border-top: 25px solid #941012;
+        }
+		
+		
+		.trp_octagon {
+			position: relative;
+			width: 100px;height: 100px;
+			background: #941012;background-size:100px; 
+		}
+		.trp_octagon:before {
+			content: "";position: absolute;top: 0;left: 0; width: 42px;height: 0;
+			background: #941012;background-size: 100px auto;
+			border-bottom: 29px solid transparent;
+			border-left: 29px solid #fff;
+			border-right: 29px solid #fff;
+		}
+		.trp_octagon:after {
+			content: "";position: absolute;bottom: 0;left: 0; width: 42px;height: 0;
+			background: #941012;background-size: 100px auto;
+			border-top: 29px solid transparent;
+			border-left: 29px solid #fff;
+			border-right: 29px solid #fff;
+		}
+		
+		
+    </style>
+</head>
+<body>
+   
+   
+    <ul class="shape-list">
+        <li><div class="trp_circle"></div></li>
+        <li><div class="trp_triangle-up"></div></li>
+        <li><div class="trp_triangle-down"></div></li>
+        <li><div class="trp_triangle-left"></div></li>
+        <li><div class="trp_triangle-right"></div></li>
+        <li><div class="trp_star-6"></div></li>
+        <li><div class="trp_star-5"></div></li>
+        <li><div class="trp_hexagon"></div></li>
+        <li><div class="trp_octagon"></div></li>
+    </ul>
+      
+    
+</body>
+</html>

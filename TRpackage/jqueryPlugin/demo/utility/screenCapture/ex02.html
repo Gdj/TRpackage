@@ -1,0 +1,265 @@
+
+<!DOCTYPE html>
+<html lang="ko" style="-webkit-text-size-adjust: none;margin: 0;padding: 0;border: 0;font-style: normal;height: 100%;width: 100%;">
+<head>
+    <meta charset="UTF-8">
+    <title>견적서</title>
+    <meta name="viewport" id="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0">
+      
+      
+      
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script> -->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.1.min.js"></script>
+    <script src="../../../../asset/js/libs/html2canvas/html2canvas_custom.js"></script>
+    <script src="http://www.nihilogic.dk/labs/canvas2image/canvas2image.js"></script>
+
+    <script LANGUAGE="JavaScript">
+        $(function() {
+            $("#btnSave").click(function() {
+                html2canvas($("#wrapper"), {
+                    onrendered: function(canvas) {
+                        Canvas2Image.saveAsPNG(canvas);
+                    }
+                });
+            });
+
+            $("#btnSave2").click(function() {
+                html2canvas($("#wrapper"), {
+                    onrendered: function(canvas) {
+                        saveAs(canvas.toDataURL(), 'canvas.png');
+                    }
+                });
+            });
+
+            function saveAs(uri, filename) {
+                var link = document.createElement('a');
+                if (typeof link.download === 'string') {
+                    link.href = uri;
+                    link.download = filename;
+
+                    //Firefox requires the link to be in the body
+                    document.body.appendChild(link);
+
+                    //simulate click
+                    link.click();
+
+                    //remove the link when done
+                    document.body.removeChild(link);
+                } else {
+                    window.open(uri);
+                }
+            }
+        });
+    </script>
+    
+    
+    
+    
+</head>
+<body style="-webkit-text-size-adjust: none;margin: 0;padding: 0;border: 0;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 16px;vertical-align: middle;color: #454545;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;height: 100%;width: 100%;overflow-y: scroll;">
+    <input type="button" id="btnSave"  value="Save PNG" />
+    <input type="button" id="btnSave2" value="Save PNG 2" />
+   
+    <div id="wrapper" class="wrapper" style="margin: 0;padding: 0;border: 0;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 16px;vertical-align: middle;color: #454545;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;height: 100%;width: 100%; background-color: #ffffff">
+        <div class="print-wrap" style="margin: 0 auto;padding: 0;border: 0;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 16px;vertical-align: middle;color: #454545;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;width: 1024px;">
+            <div class="mt30 mb10" style="margin: 0;padding: 0;border: 0;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 16px;vertical-align: middle;color: #454545;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;margin-top: 30px !important;margin-bottom: 10px !important;">
+                <h2 class="h1" style="fonts: ;margin: 0;padding: 0;border: 0;font-style: normal;font-family: &quot;Nanum Square&quot;;font-size: 44px;vertical-align: middle;color: #222222;line-height: 1.25;letter-spacing: 0px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;font-weight: bold;text-align: center;background-color: transparent;">견적서(서버에서 이미지적용)</h2>
+            </div>
+            
+            <!-- [2018-0321] ul => table  -->
+            <table style="margin: 0;padding: 0;border: 0;font-style: normal;border-collapse: collapse;border-spacing: 0;line-height: 1.5;width: 100%;">
+                <colgroup>
+                    <col style="width:50%">
+                    <col style="width:50%">
+                </colgroup>
+                <tbody style="margin: 0;padding: 0;border: 0;font-style: normal;">
+                    <tr style="margin: 0;padding: 0;border: 0;font-style: normal;">
+                        <td style="margin: 0;padding: 0;border: 0;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 16px;vertical-align: middle;color: #454545;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;">
+                            <div class="table-wrap plr0" style="margin: 0;padding: 0;border: 0;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 16px;vertical-align: middle;color: #454545;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;">
+                                <table class="table_print linebold" style="margin: 0;padding: 0;border: 2px solid #555;font-style: normal;border-collapse: collapse;border-spacing: 0;line-height: 1.5;width: 100%;">
+                                    <colgroup>
+                                        <col style="width:20%">
+                                        <col style="width:80%">
+                                    </colgroup>
+                                    <tbody style="margin: 0;padding: 0;border: 0;font-style: normal;">
+                                        <tr style="margin: 0;padding: 0;border: 0;font-style: normal;">
+                                            <th style="margin: 0;padding: 10px 10px;border: 1px solid #e1e1e1;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 14px;vertical-align: middle;color: #222222;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;background: #f7f8f8;text-align: center;">일 자</th>
+                                            <td class="tal" style="margin: 0;padding: 10px 10px;border: 1px solid #e1e1e1;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 14px;vertical-align: middle;color: #222222;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;text-align: left !important;">2018년 01월 09일</td>
+                                        </tr>
+                                        <tr style="margin: 0;padding: 0;border: 0;font-style: normal;">
+                                            <th style="margin: 0;padding: 10px 10px;border: 1px solid #e1e1e1;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 14px;vertical-align: middle;color: #222222;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;background: #f7f8f8;text-align: center;">수신</th>
+                                            <td class="tal" style="margin: 0;padding: 10px 10px;border: 1px solid #e1e1e1;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 14px;vertical-align: middle;color: #222222;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;text-align: left !important;">주식회사 미디어 포스원</td>    
+                                        </tr>
+                                        <tr style="margin: 0;padding: 0;border: 0;font-style: normal;">
+                                            <th style="margin: 0;padding: 10px 10px;border: 1px solid #e1e1e1;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 14px;vertical-align: middle;color: #222222;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;background: #f7f8f8;text-align: center;">참조</th>
+                                            <td class="tal" style="margin: 0;padding: 10px 10px;border: 1px solid #e1e1e1;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 14px;vertical-align: middle;color: #222222;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;text-align: left !important;">홍길동 님</td>   
+                                        </tr>
+                                        <tr style="margin: 0;padding: 0;border: 0;font-style: normal;">
+                                            <th style="margin: 0;padding: 10px 10px;border: 1px solid #e1e1e1;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 14px;vertical-align: middle;color: #222222;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;background: #f7f8f8;text-align: center;">거래내역</th>
+                                            <td class="tal" style="margin: 0;padding: 10px 10px;border: 1px solid #e1e1e1;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 14px;vertical-align: middle;color: #222222;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;text-align: left !important;">모바일 쿠폰 상품</td>
+                                        </tr>
+                                        <tr style="margin: 0;padding: 0;border: 0;font-style: normal;">
+                                            <td colspan="2" class="line2" style="margin: 0;padding: 10px 10px;border: 1px solid #e1e1e1;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 14px;vertical-align: middle;color: #222222;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;text-align: center;height: 78px;">아래와 같이 견적합니다.</td>  
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                        <td style="margin: 0;padding: 0;border: 0;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 16px;vertical-align: middle;color: #454545;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;">
+                            <div class="table-wrap pl10" style="margin: 0;padding: 0;border: 0;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 16px;vertical-align: middle;color: #454545;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;padding-left: 10px !important;">
+                                <table class="table_print linebold" style="margin: 0;padding: 0;border: 2px solid #555;font-style: normal;border-collapse: collapse;border-spacing: 0;line-height: 1.5;width: 100%;">
+                                    <colgroup>
+                                        <col style="width:15%">
+                                        <col style="width:20%">
+                                        <col style="width:23%">
+                                        <col style="width:18%">
+                                        <col style="width:24%">
+                                    </colgroup>
+                                    <tbody style="margin: 0;padding: 0;border: 0;font-style: normal;">
+                                        <tr style="margin: 0;padding: 0;border: 0;font-style: normal;">
+                                            <th rowspan="5" style="margin: 0;padding: 10px 10px;border: 1px solid #e1e1e1;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 14px;vertical-align: middle;color: #222222;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;background: #f7f8f8;text-align: center;">공<br>급<br>자</th>
+                                            <th style="margin: 0;padding: 10px 10px;border: 1px solid #e1e1e1;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 14px;vertical-align: middle;color: #222222;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;background: #f7f8f8;text-align: center;">사업자번호</th>
+                                            <td colspan="3" style="margin: 0;padding: 10px 10px;border: 1px solid #e1e1e1;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 14px;vertical-align: middle;color: #222222;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;text-align: center;">214-81-65071</td>
+                                        </tr>
+                                        <tr style="margin: 0;padding: 0;border: 0;font-style: normal;">
+                                            <th style="margin: 0;padding: 10px 10px;border: 1px solid #e1e1e1;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 14px;vertical-align: middle;color: #222222;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;background: #f7f8f8;text-align: center;">상호</th>
+                                            <td class="tal" style="margin: 0;padding: 10px 10px;border: 1px solid #e1e1e1;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 14px;vertical-align: middle;color: #222222;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;text-align: left !important;">GS엠비즈(주)</td>     
+                                            <th style="margin: 0;padding: 10px 10px;border: 1px solid #e1e1e1;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 14px;vertical-align: middle;color: #222222;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;background: #f7f8f8;text-align: center;">대표자</th>
+                                            <td style="margin: 0;padding: 10px 10px;border: 1px solid #e1e1e1;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 14px;vertical-align: middle;color: #222222;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;text-align: center;">장인영</td>
+                                        </tr>
+                                        <tr style="margin: 0;padding: 0;border: 0;font-style: normal;">
+                                            <th rowspan="2" style="margin: 0;padding: 10px 10px;border: 1px solid #e1e1e1;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 14px;vertical-align: middle;color: #222222;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;background: #f7f8f8;text-align: center;">소재지</th>
+                                            <td colspan="3" class="tal" style="margin: 0;padding: 10px 10px;border: 1px solid #e1e1e1;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 14px;vertical-align: middle;color: #222222;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;text-align: left !important;">서울 금천구 디지털로 130(가산동)</td> 
+                                        </tr>
+                                        <tr style="margin: 0;padding: 0;border: 0;font-style: normal;">
+                                            <td colspan="3" class="tal" style="margin: 0;padding: 10px 10px;border: 1px solid #e1e1e1;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 14px;vertical-align: middle;color: #222222;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;text-align: left !important;">남성프라자11층</td> 
+                                        </tr>
+                                        <tr style="margin: 0;padding: 0;border: 0;font-style: normal;">
+                                            <th style="margin: 0;padding: 10px 10px;border: 1px solid #e1e1e1;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 14px;vertical-align: middle;color: #222222;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;background: #f7f8f8;text-align: center;">업테</th>
+                                            <td style="margin: 0;padding: 10px 10px;border: 1px solid #e1e1e1;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 14px;vertical-align: middle;color: #222222;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;text-align: center;">서비스</td> 
+                                            <th style="margin: 0;padding: 10px 10px;border: 1px solid #e1e1e1;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 14px;vertical-align: middle;color: #222222;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;background: #f7f8f8;text-align: center;">종목</th>
+                                            <td style="margin: 0;padding: 10px 10px;border: 1px solid #e1e1e1;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 14px;vertical-align: middle;color: #222222;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;text-align: center;">전자상거래외</td>                                    
+                                        </tr>
+                                        <tr style="margin: 0;padding: 0;border: 0;font-style: normal;">
+                                            <th colspan="2" class="bdt_b" style="margin: 0;padding: 10px 10px;border: 1px solid #e1e1e1;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 14px;vertical-align: middle;color: #222222;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;background: #f7f8f8;text-align: center;border-top: 2px solid #555555 !important;">총액</th>
+                                            <td colspan="3" class="bdt_b" style="margin: 0;padding: 10px 10px;border: 1px solid #e1e1e1;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 14px;vertical-align: middle;color: #222222;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;text-align: center;border-top: 2px solid #555555 !important;"><strong style="margin: 0;padding: 0;border: 0;font-style: normal;">￦132,000</strong></td>           
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="table-wrap mt30" style="margin: 0;padding: 0;border: 0;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 16px;vertical-align: middle;color: #454545;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;margin-top: 30px !important;">
+                <div class="con_title" style="margin: 0;padding: 0;border: 0;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 16px;vertical-align: middle;color: #454545;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;position: relative;margin-bottom: 15px;">
+                    <div class="h5" style="margin: 0;padding: 0;border: 0;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 18px;vertical-align: middle;color: #222222;line-height: 1.25;letter-spacing: 0px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;font-weight: bold;background-color: transparent;">상세내역</div>  
+                    <div class="ab-r" style="margin: 0;padding: 0;border: 0;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 16px;vertical-align: middle;color: #454545;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;top: 0px;right: 0;position: absolute;bottom: 0;">단위 : 원</div>                
+                </div>
+                <table class="table_print" style="margin: 0;padding: 0;border: 0;font-style: normal;border-collapse: collapse;border-spacing: 0;line-height: 1.5;width: 100%;">
+                    <colgroup>
+                        <col style="5%">
+                        <col style="25%">
+                        <col style="5%">
+                        <col style="13%">
+                        <col style="13%">
+                        <col style="13%">
+                        <col style="13%">
+                        <col style="13%">
+                    </colgroup>
+                    <thead style="margin: 0;padding: 0;border: 0;font-style: normal;">
+                        <tr style="margin: 0;padding: 0;border: 0;font-style: normal;">
+                            <th style="margin: 0;padding: 10px 10px;border: 1px solid #e1e1e1;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 14px;vertical-align: middle;color: #222222;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;background: #f7f8f8;text-align: center;">No</th>
+                            <th style="margin: 0;padding: 10px 10px;border: 1px solid #e1e1e1;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 14px;vertical-align: middle;color: #222222;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;background: #f7f8f8;text-align: center;">상품명</th>
+                            <th style="margin: 0;padding: 10px 10px;border: 1px solid #e1e1e1;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 14px;vertical-align: middle;color: #222222;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;background: #f7f8f8;text-align: center;">형태</th>
+                            <th style="margin: 0;padding: 10px 10px;border: 1px solid #e1e1e1;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 14px;vertical-align: middle;color: #222222;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;background: #f7f8f8;text-align: center;">유효기간</th>
+                            <th style="margin: 0;padding: 10px 10px;border: 1px solid #e1e1e1;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 14px;vertical-align: middle;color: #222222;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;background: #f7f8f8;text-align: center;">소비자가</th>
+                            <th style="margin: 0;padding: 10px 10px;border: 1px solid #e1e1e1;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 14px;vertical-align: middle;color: #222222;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;background: #f7f8f8;text-align: center;">제공가</th>
+                            <th style="margin: 0;padding: 10px 10px;border: 1px solid #e1e1e1;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 14px;vertical-align: middle;color: #222222;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;background: #f7f8f8;text-align: center;">수량</th>
+                            <th style="margin: 0;padding: 10px 10px;border: 1px solid #e1e1e1;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 14px;vertical-align: middle;color: #222222;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;background: #f7f8f8;text-align: center;">합계</th>
+                        </tr>
+                    </thead>
+                    <tbody style="margin: 0;padding: 0;border: 0;font-style: normal;">
+                        <tr style="margin: 0;padding: 0;border: 0;font-style: normal;">
+                            <td style="margin: 0;padding: 10px 10px;border: 1px solid #e1e1e1;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 14px;vertical-align: middle;color: #222222;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;text-align: center;">1</td>
+                            <td style="margin: 0;padding: 10px 10px;border: 1px solid #e1e1e1;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 14px;vertical-align: middle;color: #222222;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;text-align: center;">스타벅스 카페아메리카노 Tall</td>
+                            <td style="margin: 0;padding: 10px 10px;border: 1px solid #e1e1e1;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 14px;vertical-align: middle;color: #222222;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;text-align: center;">MMS</td>
+                            <td style="margin: 0;padding: 10px 10px;border: 1px solid #e1e1e1;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 14px;vertical-align: middle;color: #222222;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;text-align: center;">30일</td>
+                            <td class="tar" style="margin: 0;padding: 10px 10px;border: 1px solid #e1e1e1;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 14px;vertical-align: middle;color: #222222;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;text-align: right !important;">4,100</td>
+                            <td class="tar" style="margin: 0;padding: 10px 10px;border: 1px solid #e1e1e1;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 14px;vertical-align: middle;color: #222222;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;text-align: right !important;">4,100</td>
+                            <td class="tar" style="margin: 0;padding: 10px 10px;border: 1px solid #e1e1e1;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 14px;vertical-align: middle;color: #222222;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;text-align: right !important;">20</td>
+                            <td class="tar" style="margin: 0;padding: 10px 10px;border: 1px solid #e1e1e1;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 14px;vertical-align: middle;color: #222222;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;text-align: right !important;">82,000</td>
+                        </tr>
+                        <tr style="margin: 0;padding: 0;border: 0;font-style: normal;">
+                            <td style="margin: 0;padding: 10px 10px;border: 1px solid #e1e1e1;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 14px;vertical-align: middle;color: #222222;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;text-align: center;">1</td>
+                            <td style="margin: 0;padding: 10px 10px;border: 1px solid #e1e1e1;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 14px;vertical-align: middle;color: #222222;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;text-align: center;">스타벅스 카페아메리카노 Tall</td>
+                            <td style="margin: 0;padding: 10px 10px;border: 1px solid #e1e1e1;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 14px;vertical-align: middle;color: #222222;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;text-align: center;">MMS</td>
+                            <td style="margin: 0;padding: 10px 10px;border: 1px solid #e1e1e1;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 14px;vertical-align: middle;color: #222222;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;text-align: center;">30일</td>
+                            <td class="tar" style="margin: 0;padding: 10px 10px;border: 1px solid #e1e1e1;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 14px;vertical-align: middle;color: #222222;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;text-align: right !important;">4,100</td>
+                            <td class="tar" style="margin: 0;padding: 10px 10px;border: 1px solid #e1e1e1;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 14px;vertical-align: middle;color: #222222;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;text-align: right !important;">4,100</td>
+                            <td class="tar" style="margin: 0;padding: 10px 10px;border: 1px solid #e1e1e1;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 14px;vertical-align: middle;color: #222222;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;text-align: right !important;">20</td>
+                            <td class="tar" style="margin: 0;padding: 10px 10px;border: 1px solid #e1e1e1;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 14px;vertical-align: middle;color: #222222;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;text-align: right !important;">82,000</td>
+                        </tr>
+                        <tr style="margin: 0;padding: 0;border: 0;font-style: normal;">
+                            <th colspan="7" style="margin: 0;padding: 10px 10px;border: 1px solid #e1e1e1;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 14px;vertical-align: middle;color: #222222;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;background: #f7f8f8;text-align: center;">총 합 계</th>
+                            <th class="tar" style="margin: 0;padding: 10px 10px;border: 1px solid #e1e1e1;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 14px;vertical-align: middle;color: #222222;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;text-align: right !important;background: #f7f8f8;"><strong style="margin: 0;padding: 0;border: 0;font-style: normal;">164,000</strong></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="alert-wrap mt30" style="margin: 0;padding: 0;border: 0;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 16px;vertical-align: middle;color: #454545;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;margin-top: 30px !important;">
+                <div class="con_title" style="margin: 0;padding: 0;border: 0;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 16px;vertical-align: middle;color: #454545;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;position: relative;margin-bottom: 15px;">
+                    <div class="h5" style="margin: 0;padding: 0;border: 0;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 18px;vertical-align: middle;color: #222222;line-height: 1.25;letter-spacing: 0px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;font-weight: bold;background-color: transparent;">[유의사항]</div>
+                </div>
+                
+                <!-- [2018-0321] ul => table  -->
+                <table style="margin: 0;padding: 0;border: 0;font-style: normal;border-collapse: collapse;border-spacing: 0;line-height: 1.5;width: 100%;">
+                    <colgroup>
+                        <col style="width:50%">
+                        <col style="width:50%">
+                    </colgroup>
+                    <tbody style="margin: 0;padding: 0;border: 0;font-style: normal;">
+                        <tr style="margin: 0;padding: 0;border: 0;font-style: normal;">
+                            <td style="margin: 0;padding: 0;border: 0;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 16px;vertical-align: middle;color: #454545;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;">
+                                <div class="plr0" style="margin: 0;padding: 0;border: 0;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 16px;vertical-align: middle;color: #454545;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;">
+                                    <ul class="text-list" style="margin: 0;padding: 0;border: 0;font-style: normal;list-style: none;">
+                                        <li style="margin: 0;padding: 0;border: 0;font-style: normal;list-style: none;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 16px;vertical-align: middle;color: #454545;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;padding-left: 15px;text-indent: -15px;">-  쿠폰의 유효기간은 쿠폰 발송일로부터 산정됩니다.</li>
+                                        <li style="margin: 0;padding: 0;border: 0;font-style: normal;list-style: none;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 16px;vertical-align: middle;color: #454545;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;padding-left: 15px;text-indent: -15px;">- 해당 쿠폰은 프로모션 상품으로 유효기간 연장 및 환불 대상이 아닙니다.</li>
+                                        <li style="margin: 0;padding: 0;border: 0;font-style: normal;list-style: none;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 16px;vertical-align: middle;color: #454545;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;padding-left: 15px;text-indent: -15px;">- MMS 발송비 및 유효기간 내 재발송(최대 3회) 무료 지원 합니다.</li>
+                                    </ul>
+                                </div>
+                            </td>
+                            <td style="margin: 0;padding: 0;border: 0;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 16px;vertical-align: middle;color: #454545;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;">
+                                <div class="pll0" style="margin: 0;padding: 0;border: 0;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 16px;vertical-align: middle;color: #454545;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;">
+                                    <ul class="text-list" style="margin: 0;padding: 0;border: 0;font-style: normal;list-style: none;">
+                                        <li style="margin: 0;padding: 0;border: 0;font-style: normal;list-style: none;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 16px;vertical-align: middle;color: #454545;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;padding-left: 15px;text-indent: -15px;">- 해당 쿠폰은 자사 및 브랜드사 사정에 의해  소비자가&제공가 변경 및 상품 공급이 중단 될 수 있습니다.</li>
+                                        <li style="margin: 0;padding: 0;border: 0;font-style: normal;list-style: none;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 16px;vertical-align: middle;color: #454545;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;padding-left: 15px;text-indent: -15px;">- 모바일쿠폰은 비과세 상품으로 세금계산서 발행 대상이 아닙니다.</li>
+                                        <li style="margin: 0;padding: 0;border: 0;font-style: normal;list-style: none;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 16px;vertical-align: middle;color: #454545;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;padding-left: 15px;text-indent: -15px;">
+                                    </li></ul>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+                
+              
+            <footer class="mt30" style="display: block;text-align: center;margin-top: 30px !important;">
+                <div class="img" style="margin: 0;padding: 0;border: 0;font-style: normal;font-family: &quot;Nanum Gothic&quot;, Malgun Gothic, dotum, &quot;돋움&quot;, Arial, AppleGothic, Sans-serif;font-size: 16px;vertical-align: middle;color: #454545;line-height: 1.25;letter-spacing: -0.4px;word-break: keep-all;-webkit-box-sizing: border-box;box-sizing: border-box;display: inline-block;width: 357px;height: 145px;background: url(http://gscoupon_web.m4one.co.kr/resources/pc/images/etc/stamp_logo.png) 0 0 no-repeat;"></div>
+
+           <!--      <div class="img">
+                    <img src="http://gscoupon_web.m4one.co.kr/resources/pc/images/etc/stamp_logo.png" alt="">
+                </div -->
+
+            </footer>
+            
+        </div>
+    </div>
+    
+    
+    
+    <img id="theimage">
+</body>
+</html>

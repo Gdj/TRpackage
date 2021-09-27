@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Basic single-column &middot; jQuery Masonry</title>     
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+  <!-- <link rel="stylesheet" href="./css/style.css" /> -->	   
+  <style type="text/css">
+	* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body { font-family: sans-serif; }
+
+
+.masonry {  display:block; background: #EEE;   max-width: 640px; }
+.masonry:before, .masonry:after { content: " "; display: table; }
+.masonry:after {  clear: both; }
+
+.masonry .item { 
+  width:  60px;
+  height: 60px;
+  float: left;
+  background: #D26;
+  border: 2px solid #333;
+  border-color: hsla(0, 0%, 0%, 0.5);
+  border-radius: 5px;
+}
+
+.masonry .item.gigante {   width: 180px;   height: 180px; }
+
+.item.w2 { width:  120px; }
+.item.w3 { width:  180px; }
+.item.w4 { width:  240px; }
+
+.item.h2 { height: 100px; }
+.item.h3 { height: 130px; }
+.item.h4 { height: 180px; }
+
+button {
+  font-size: 20px;
+  display: inline-block; background: #A2C; border: none; padding: 0.5em 0.8em; color: white; text-shadow: 0  1px hsla(0, 0%, 0%, 0.3); cursor: pointer; border-radius: 7px; 
+}
+
+ </style>
+ 
+<script src="//code.jquery.com/jquery-1.12.1.min.js"></script>
+<script src="../../../../asset/js/libs/masonry-master/masonry.pkgd.js" ></script>
+
+
+<script>
+	// external js:
+// http://masonry.desandro.com/masonry.pkgd.js
+
+// create <div class="item"></div>
+function getItemElement() {
+  var elem = document.createElement('div');
+  var wRand = Math.random();
+  var hRand = Math.random();
+  var widthClass = wRand > 0.92 ? 'w4' : wRand > 0.8 ? 'w3' : wRand > 0.6 ? 'w2' : '';
+  var heightClass = hRand > 0.85 ? 'h4' : hRand > 0.6 ? 'h3' : hRand > 0.35 ? 'h2' : '';
+  elem.className = 'item ' + widthClass + ' ' + heightClass;
+  return elem;
+}
+
+$( function() {	 
+  /* 이벤트 선언  */
+  var $container = $('.masonry').masonry({
+    columnWidth: 60
+  });
+  
+  /*  #addItems-button 추가버튼  */
+   $('#addItems-button').on( 'click', function() {
+		var elems = [ getItemElement(), getItemElement(), getItemElement() ];
+		$container.append(elems).masonry( 'addItems', elems );	
+		$container.masonry();
+  });
+
+  /*  #append-button 추가버튼  */
+  $('#append-button').on( 'click', function() {
+		var elems = [ getItemElement(), getItemElement(), getItemElement() ];
+		$container.append( elems ).masonry( 'appended', elems );
+  });
+
+
+  /*  #prepended-button 추가버튼  */
+  $('#prepended-button').on( 'click', function() {
+		console.log(">><><<<><>")
+		var elems = [ getItemElement(), getItemElement(), getItemElement() ];
+		$container.prepend( elems ).masonry( 'prepended', elems );
+  });
+
+  
+  /* tiem 삭제*/
+   $(document).on( 'click',".item", function(event) {
+	$container.masonry("remove",event.target);     
+    $container.masonry();
+  });
+
+  /* 이벤트 삭제 시호출 */
+  $container.masonry( 'on', 'removeComplete', function( msnryInstance, removedItems ) {	
+	 console.log( 'Removed ' + removedItems.length + ' items' );
+  } )
+
+  /* 이벤트 움직임완료 */
+  $container.masonry( 'on', 'layoutComplete', function( msnryInstance, laidOutItems ) {	
+	  console.log("움직임 완료!!  " + laidOutItems.length + ' items'); 
+  })
+
+
+});
+
+</script>
+
+</head>
+
+<p>
+<button id="addItems-button" class="button">addItems new items</button>
+<button id="append-button" class="button">Append new items</button>	
+<button id="prepended-button" class="button">Toggle prepended</button>
+
+</p>
+<div class="masonry">
+  <div class="item w3"></div>
+  <div class="item h2"></div>
+  <div class="item h4"></div>
+  <div class="item h4"></div>
+  <div class="item w2"></div>
+  <div class="item w2"></div>
+  <div class="item h2"></div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>scroll Y</title>
+  <style>
+  .table {
+    table-layout:fixed;
+    width:100%;
+    text-align:center;
+  }
+  .table th { 
+    background:#ccc;
+  }
+  .table td, .table th {
+    padding:10px 20px;
+    border-top:1px solid #ccc;
+    word-break:break-all
+  }
+  @media screen and (max-width:768px) {
+    /*vertical*/
+    .table-wrap {
+      position:relative;
+      padding-top:42px;
+    }
+    .table-box--vertical {
+      overflow-y:auto;
+      max-height:200px;
+    }
+    .table-box--vertical thead {
+      display:table;
+      position:absolute;
+      top:0;
+      width:100%;
+    }
+  }
+  </style>
+</head>
+<body>
+  <h1>Vertical</h1>
+  <div class="table-wrap">
+    <div class="table-box table-box--vertical">
+      <table class="table table--vertical" cellspacing="0" cellpadding="0">
+        <thead>
+        <tr>
+          <th>1월</th>
+          <th>2월</th>
+          <th>3월</th>
+          <th>4월</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+          <td>4</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>3</td>
+          <td>2</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>3</td>
+          <td>4</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>4</td>
+          <td>1</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+          <td>4</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>3</td>
+          <td>2</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>3</td>
+          <td>4</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>4</td>
+          <td>1</td>
+          <td>2</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+</body>
+</html>

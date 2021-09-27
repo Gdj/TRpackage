@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Basic single-column &middot; jQuery Masonry</title>     
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+  <!-- <link rel="stylesheet" href="./css/style.css" /> -->	   
+  <style type="text/css">
+	html, body, div, span, object, iframe,
+	h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+	abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp,
+	small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li,
+	fieldset, form, label, legend,
+	table, caption, tbody, tfoot, thead, tr, th, td,
+	article, aside, canvas, details, figcaption, figure,
+	footer, header, hgroup, menu, nav, section, summary,
+	time, mark, audio, video {
+	  margin: 0;
+	  padding: 0;
+	  border: 0;
+	  font-size: 100%;
+	  font: inherit;
+	  vertical-align: baseline;
+	}
+	h1, h2 {  font-weight: 100; font-weight:bold;  line-height: 1.2em;   margin-bottom: 0.6em; }
+	ul, li {   list-style: none;   padding-left: 0;   font-size: 12px; }
+	    .item { width: 80px;  margin: 5px; padding: 5px; background: #D8D5D2; font-size: 11px; line-height: 1.4em; float: left; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; }
+		#container { position:relative; margin : 0 auto; }
+	   .stamp { position:absolute; background:orange; border:4px dotted black; }
+	   .stamp1 { left:30%; top:10px; width:20%; height:100px; } 
+	   .stamp2 { right:10%; top:20px; width:70%; height:30px; } 
+ </style>
+ 
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" ></script>
+<script src="../../../../asset/js/libs/masonry-master/masonry.pkgd.js" ></script>
+
+<script type="text/javascript">
+  $(function(){
+    
+    $('#container').masonry({
+		
+      itemSelector: '.item',
+	  stamp : ".stamp" ,
+	  isFitWidth: true
+    });
+
+  });
+</script>
+
+</head>
+
+
+<div id="container">
+  <div class="stamp stamp1"></div>
+  <div class="stamp stamp2"></div>
+  <div class="item ">
+    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+  </div>
+
+  <div class="item ">
+    <p>Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at felis.</p>
+    <p>Sed ac risus. Phasellus lacinia, magna a ullamcorper laoreet, lectus arcu pulvinar risus, vitae facilisis libero dolor a purus. Sed vel lacus. Mauris nibh felis, adipiscing varius, adipiscing in, lacinia vel, tellus. Suspendisse ac urna. Etiam pellentesque mauris ut lectus. Nunc tellus ante, mattis eget, gravida vitae, ultricies ac, leo. Integer leo pede, ornare a, lacinia eu, vulputate vel, nisl.</p>
+  </div>
+
+
+  <div class="item ">
+    <p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. </p>
+  </div>
+
+  <div class="item ">
+    <p>Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula  </p>
+  </div>
+
+  <div class="item ">
+    <h2>Sit amet mi ullamcorper vehicula</h2>
+          <p>Ut convallis, sem sit amet interdum consectetuer, odio augue aliquam leo, nec dapibus tortor nibh sed augue.  Sed vel lacus. Mauris nibh felis, adipiscing varius, adipiscing in, lacinia vel, tellus. Suspendisse ac urna. Etiam pellentesque mauris ut lectus. Nunc tellus ante, mattis eget, gravida vitae, ultricies ac, leo. Integer leo pede, ornare a, lacinia eu, vulputate vel, nisl.</p>
+  </div>
+
+  <div class="item ">
+    <p>adipiscing in, lacinia vel, tellus. Suspendisse ac urna. Etiam pellentesque mauris ut lectus.</p>
+  </div>
+
+  <div class="item ">
+    <p>Sit amet mi ullamcorper vehicula</p>
+  </div>
+
+  <div class="item ">
+    <p>Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
+  </div>
+
+  <div class="item ">
+    <p>Ut condimentum mi vel tellus. Suspendisse laoreet. Fusce ut est sed dolor gravida convallis. Morbi vitae ante. Vivamus ultrices luctus nunc. Suspendisse et dolor. </p>
+    <p>Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
+  </div>
+
+  <div class="item ">
+    <p>Sed ac risus. Phasellus lacinia, magna a ullamcorper laoreet, lectus arcu pulvinar risus, vitae facilisis libero dolor a purus. Sed vel lacus. </p>
+  </div>
+
+  <div class="item ">
+    <p>Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at felis.</p>
+  </div>
+
+  <div class="item ">
+    <p>Vestibulum volutpat, lacus a ultrices sagittis,</p>
+    <p>Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula  </p>
+  </div>
+
+  <div class="item ">
+    <p>Sit amet mi ullamcorper vehicula</p>
+  </div>
+
+  <div class="item ">
+    <p>Morbi purus libero</p>
+  </div>
+
+  <div class="item ">
+    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. </p>
+  </div>
+
+  <div class="item ">
+    <p>Vestibulum volutpat, lacus a ultrices sagittis,</p>
+  </div>
+
+  <div class="item ">
+    <p>Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula  </p>
+  </div>
+
+  <div class="item ">
+    <p>Sit amet mi ullamcorper vehicula</p>
+  </div>
+
+  <div class="item ">
+    <h2>Morbi purus libero</h2>
+  </div>
+
+
+  <div class="item ">
+    <p>Ut condimentum mi vel tellus. Suspendisse laoreet. Fusce ut est sed dolor gravida convallis. Morbi vitae ante. Vivamus ultrices luctus nunc. Suspendisse et dolor. Etiam dignissim. Proin malesuada adipiscing lacus. Donec metus. Curabitur gravida.</p>
+    <p>Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
+  </div>
+
+  <div class="item ">
+    <p>Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula</p>
+  </div>
+
+  <div class="item ">
+    <p>Sed ac risus. Phasellus lacinia, magna a ullamcorper laoreet, </p>
+  </div>
+
+
+  <div class="item ">
+    <p>adipiscing in, lacinia vel, tellus. Suspendisse ac urna. Etiam pellentesque mauris ut lectus.</p>
+  </div>
+
+
+  <div>
+    <div class="item ">
+      <p>Sit amet mi ullamcorper vehicula</p>
+      <h2>Sit amet mi ullamcorper vehicula</h2>
+    </div>
+
+    <div class="item ">
+      <p>Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
+    </div>
+
+    <div class="item ">
+      <h2>Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula  </h2>
+    </div>
+
+    <div class="item ">
+      <p>Ut convallis, sem sit amet interdum consectetuer, odio augue aliquam leo, nec dapibus tortor nibh sed augue.</p>
+      <p>Ut condimentum mi vel tellus. Suspendisse laoreet. Fusce ut est sed dolor gravida convallis. Morbi vitae ante. Vivamus ultrices luctus nunc. Suspendisse et dolor. Etiam dignissim. Proin malesuada adipiscing lacus. Donec metus. Curabitur gravida.</p>
+    </div>
+
+    <div class="item ">
+
+      <ul>
+        <li>Lacus a ultrices sagittis</li>
+        <li>Democratis</li>
+        <li>Plummus</li>
+      </ul>
+    </div>
+
+    <div class="item ">
+      <p>Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula  </p>
+      <p>Morbi interdum mollis sapien. Sed ac risus. Phasellus lacinia, magna a ullamcorper laoreet, lectus arcu pulvinar risus, vitae facilisis libero dolor a purus.</p>
+    </div>
+
+    <div class="item ">
+      <p>adipiscing in, lacinia vel, tellus. Suspendisse ac urna. Etiam pellentesque mauris ut lectus.</p>
+
+    </div>
+  </div>
+
+  <div class="item ">
+    <p>Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
+  </div>
+
+  <div class="item ">
+    <p>Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula</p>
+  </div>
+
+
+
+  <div class="item ">
+    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+  </div>
+
+  <div class="item ">
+    <p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. </p>
+  </div>
+
+  <div class="item ">
+    <p>Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula  </p>
+  </div>
+
+  <div class="item ">
+    <p>Vestibulum volutpat, lacus a ultrices sagittis,</p>
+  </div>
+  <div class="item ">
+    <p>Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula  </p>
+  </div>
+  <div class="item ">
+    
+    <p>Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at felis.</p>
+  </div>
+
+</div> <!-- #container -->
+
+</body>
+</html>

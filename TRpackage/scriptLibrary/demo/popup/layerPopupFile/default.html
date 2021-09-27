@@ -1,0 +1,704 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+<title>layerPopup | TR package</title>
+<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="../../../../asset/js/libs/trpMenu.js"></script>
+<link rel="stylesheet" href="../../../../asset/css/common.css" type="text/css" media="all" />
+
+
+</head>
+<body>
+  <div id="header" ></div>
+  <div id="container">
+	<div id="lnb" class="gnb"></div>
+	<!-- s: 컨텐츠 시작 -->
+	<div id="contents" class="contents">
+		<!-- s: 스크립드 설명 -->
+		<div class="desc_wapper">
+			<h1 class="desc_title">layer Popup File</h1>
+			<p>layer Popup 버튼을 클릭하면 popup파일을 불러와 열림</p>
+		</div>
+		<!-- e: 스크립드 설명 -->
+	
+		<!-- s: api 설명 -->
+		<div class="api">
+			<h2 class="api-title">.trpLayerPopupFile( options )</h2>
+			<div class="api-body">
+				<dl>
+					<dt>설명</dt>
+					<dd><span class="icon"></span>기본 위치값은 CSS 에서 설정해야합니다.</dd>
+					
+				</dl>
+				<table class="table_col" summary="options 종류, 설명 ">
+					<caption>options 설명</caption>
+					<colgroup>
+						<col width="150">
+						<col width="">		
+					</colgroup>
+					<tbody>
+					<tr>
+						<th scope="col">options 이름</th>
+						<th scope="col">options 설명</th>
+					</tr>
+					<tr>
+						<td>popupUrl</td>
+						<td>팝업 URL및 선택자
+						</td>		
+					</tr>
+					<tr>
+						<td>popupTarget</td>
+						<td>팝업 레이어 선택자. <strong>기본값: ".tr_popup"</strong> <br />
+							기본값으로 popupTarget이 중앙정열 됩니다.
+						</td>		
+					</tr>
+					<tr>
+						<td>popupWarp</td>
+						<td>팝업 레이어를 감싸고있는 선택자. <br />
+							팝업을 숨기거나 보이게할 선택자입니다. 
+							이 안에는 bgDim요소와 popupTarget이 들어 올 수 있습니다.  <br />
+							값을 넣지 않으면 a테그 "herf" 타겟값으로 설정됩니다.
+						</td>		
+					</tr>
+					</tbody>
+				</table>
+
+				<table class="table_col" summary="layer Popup 메소드">
+					<caption>layer Popup 설명</caption>
+					<colgroup>
+						<col width="150">
+						<col width="">		
+					</colgroup>
+					<tbody>
+            <tr>
+              <th scope="col">메서드</th>
+              <th scope="col">메서드 설명</th>
+            </tr>
+            <tr>
+              <td>align($top, $left)</td>
+              <td><strong>popupTarget 위치변경</strong> <br /> 							
+                $top  : 정열 상단 위치값,  ("center")로입력하변 중앙 정열됩니다. <br />
+                $left : 정열 왼쪽 위치값,  ("center")로입력하변 중앙 정열됩니다. <br />
+                기본 값은 중앙 정열 이며, "center"라는 값이 있어도 resize 이벤트가 실행됩니다. 
+              </td>		
+            </tr>
+            <tr>
+              <td>bgDim($target, $opacity, $bgColor )</td>
+              <td><strong>팝업 전체 영역에 배경을 넣어 컨텐츠를 가려줍니다.</strong> <br />
+                $target  : 배경을 넣을 타겟 선택자  <br />
+                $opacity : 배경의 투명도 (기본값 "0.7") <br />
+                $bgColor : 배경색	(가본값 "#000")
+              </td>		
+            </tr>
+            <tr>
+              <td>openTday($this , $cookieName)</td>
+              <td><strong>popupWarp 보이게 합니다</strong> <br /> 
+                $this  : 클릭된 버튼을 넘깁니다. (팝업이 닫치게 되면 넘긴 값으로 포커스가 이동합니다.)  <br />
+                $cookieName : 오늘하루 안보기 쿠키 이름을 넣으면 활성화 됩니다.
+              </td>		
+            </tr>			
+            <tr>
+              <td>open($this)</td>
+              <td><strong>popupWarp 보이게 합니다</strong> <br /> 
+                $this  : 클릭된 버튼을 넘깁니다. (팝업이 닫치게 되면 넘긴 값으로 포커스가 이동합니다.)  <br />
+                $cookieName : 오늘하루 안보기 쿠키 이름을 넣으면 활성화 됩니다.
+              </td>		
+            </tr>
+            <tr>
+              <td>close( $cookieName )</td>
+              <td><strong>popupWarp 숨김니다.</strong>	 <br />
+                $cookieName :  오늘하루 안보기 쿠키 이름을 넣으면 비활성화 됩니다.
+              </td>		
+            </tr>
+					
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+
+
+		<!-- s: examples 예제 -->
+		<div class="ex_wapper">
+			<div class="section">
+				<h2 class="ex-title">예제(기본형)ex01.html</h2>
+				<p class="ex-more" ><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p>
+				<p class="ex-view" ><a href="ex01.html" target="_blank">View</a></p>
+				<div class="ex-body" style="display:none" >					
+					<div class="source">
+					<!-- 소스 -->
+
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</span>
+<span style="color: #f92672">&lt;html</span> <span style="color: #a6e22e">xmlns=</span><span style="color: #e6db74">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span style="color: #a6e22e">lang=</span><span style="color: #e6db74">&quot;ko&quot;</span> <span style="color: #a6e22e">xml:lang=</span><span style="color: #e6db74">&quot;ko&quot;</span><span style="color: #f92672">&gt;</span>
+<span style="color: #f92672">&lt;head&gt;</span>
+<span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">http-equiv=</span><span style="color: #e6db74">&quot;Content-Type&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;text/html; charset=utf-8&quot;</span><span style="color: #f92672">&gt;</span>
+<span style="color: #f92672">&lt;title&gt;</span>trpLayerPopupFile<span style="color: #f92672">&lt;/title&gt;</span>
+	<span style="color: #f92672">&lt;style </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/css&quot;</span><span style="color: #f92672">&gt;</span>
+
+	<span style="color: #a6e22e">.trp.popup-wrap</span>  <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span><span style="color: #66d9ef">none</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">absolute</span><span style="color: #f8f8f2">;</span>  <span style="color: #66d9ef">top</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">left</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">z-index</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">9999</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">text-align</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">center</span><span style="color: #f8f8f2">;</span>  <span style="color: #f8f8f2">}</span> 
+	<span style="color: #a6e22e">.trp.popup-wrap</span> <span style="color: #a6e22e">.trp_popup</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">inline</span><span style="color: #f92672">-</span><span style="color: #66d9ef">block</span><span style="color: #f8f8f2">;</span> <span style="color: #f92672">*</span><span style="color: #66d9ef">display</span><span style="color: #f92672">:</span><span style="color: #66d9ef">inline</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">zoom</span><span style="color: #f92672">:</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">relative</span><span style="color: #f8f8f2">;</span>   <span style="color: #f8f8f2">}</span> 
+	<span style="color: #a6e22e">.trp.popup-wrap</span> <span style="color: #a6e22e">.trp_popup.option</span> <span style="color: #f8f8f2">{</span>  <span style="color: #66d9ef">top</span><span style="color: #f92672">:</span><span style="color: #ae81ff">50px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">600px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">background</span><span style="color: #f92672">:</span><span style="color: #ae81ff">#fff</span> <span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+	<span style="color: #a6e22e">.trp.popup-wrap</span> <span style="color: #a6e22e">.trp_popup</span> <span style="color: #a6e22e">.btn_x</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span><span style="color: #66d9ef">absolute</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">top</span><span style="color: #f92672">:</span><span style="color: #ae81ff">15px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">right</span><span style="color: #f92672">:</span><span style="color: #ae81ff">15px</span><span style="color: #f8f8f2">;</span>  <span style="color: #f8f8f2">}</span>
+	<span style="color: #a6e22e">.trp.popup-wrap</span> <span style="color: #a6e22e">.trp_popup</span> <span style="color: #a6e22e">.con</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span><span style="color: #66d9ef">relative</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">clear</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">both</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">220px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span><span style="color: #ae81ff">10px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">text-align</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">center</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>	 
+	<span style="color: #a6e22e">.trp.popup-wrap</span> <span style="color: #a6e22e">.popup-dim</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span><span style="color: #66d9ef">fixed</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">top</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">left</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span><span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span>  <span style="color: #66d9ef">background</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#000000</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">opacity</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f92672">.</span><span style="color: #ae81ff">7</span><span style="color: #f8f8f2">;</span>  <span style="color: #f8f8f2">filter</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">alpha(</span><span style="color: #66d9ef">opacity</span><span style="color: #f92672">=</span><span style="color: #ae81ff">70</span><span style="color: #f8f8f2">);</span>  <span style="color: #f8f8f2">}</span> 
+	
+	<span style="color: #f92672">&lt;/style&gt;</span>
+
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;http://code.jquery.com/jquery-1.12.1.min.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/trpPopup_all0.83.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span><span style="color: #f92672">&gt;</span>
+	<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(document).</span><span style="color: #a6e22e">ready</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(){</span>
+
+		<span style="color: #66d9ef">var</span> <span style="color: #a6e22e">layerPopup</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.popupBtn&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">trpLayerPopupFile</span><span style="color: #f8f8f2">({</span> 
+      <span style="color: #a6e22e">popupUrl</span><span style="color: #f92672">:</span><span style="color: #e6db74">&quot;./ex01_popup.html .popup-wrap&gt;div&quot;</span> <span style="color: #f8f8f2">,</span> 
+      <span style="color: #a6e22e">popupTarget</span> <span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;.trp_popup&quot;</span> <span style="color: #f8f8f2">});</span>
+    
+		<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.popupBtn&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">on</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;click&quot;</span><span style="color: #f8f8f2">,</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(){</span> 	
+      <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">_scrollY</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(document).</span><span style="color: #a6e22e">scrollTop</span><span style="color: #f8f8f2">()</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">100</span><span style="color: #f8f8f2">;</span>
+			<span style="color: #a6e22e">layerPopup</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">align</span><span style="color: #f8f8f2">(</span> <span style="color: #a6e22e">_scrollY</span> <span style="color: #f8f8f2">,</span><span style="color: #e6db74">&quot;center&quot;</span><span style="color: #f8f8f2">);</span>
+			<span style="color: #a6e22e">layerPopup</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">bgDim</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.popup-dim&quot;</span><span style="color: #f8f8f2">);</span>
+			<span style="color: #a6e22e">layerPopup</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">open</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">this</span><span style="color: #f8f8f2">);</span>		
+			<span style="color: #66d9ef">return</span> <span style="color: #66d9ef">false</span><span style="color: #f8f8f2">;</span>
+		<span style="color: #f8f8f2">})</span>
+
+		<span style="color: #75715e">/* 팝업닫기 */</span>
+		<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;#popup-wrap&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">on</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;click&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;.js-popclose&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(){</span> 	  
+			<span style="color: #a6e22e">layerPopup</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">close</span><span style="color: #f8f8f2">();</span>
+			<span style="color: #66d9ef">return</span> <span style="color: #66d9ef">false</span><span style="color: #f8f8f2">;</span>
+		<span style="color: #f8f8f2">})</span>
+
+	<span style="color: #f8f8f2">});</span>
+
+<span style="color: #f92672">&lt;/script&gt;</span>
+
+ 
+<span style="color: #f92672">&lt;/head&gt;</span>
+<span style="color: #f92672">&lt;body&gt;</span>		
+
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;wrap&quot;</span>  <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;wrapper&quot;</span><span style="color: #f92672">&gt;</span>
+		<span style="color: #f92672">&lt;p&gt;&lt;a</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;popupBtn&quot;</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#popup-wrap&quot;</span><span style="color: #f92672">&gt;</span>popup 1<span style="color: #f92672">&lt;/a&gt;&lt;/p&gt;</span>
+		<span style="color: #f92672">&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;</span>
+		<span style="color: #f92672">&lt;p&gt;&lt;a</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;popupBtn&quot;</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#popup-wrap&quot;</span><span style="color: #f92672">&gt;</span>popup 2<span style="color: #f92672">&lt;/a&gt;&lt;/p&gt;</span>
+		<span style="color: #f92672">&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;</span>
+		<span style="color: #f92672">&lt;p&gt;&lt;a</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;popupBtn&quot;</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#popup-wrap&quot;</span><span style="color: #f92672">&gt;</span>popup 3<span style="color: #f92672">&lt;/a&gt;&lt;/p&gt;</span>
+		<span style="color: #f92672">&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;</span>
+		<span style="color: #f92672">&lt;p&gt;&lt;a</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;popupBtn&quot;</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#popup-wrap&quot;</span><span style="color: #f92672">&gt;</span>popup 4<span style="color: #f92672">&lt;/a&gt;&lt;/p&gt;</span>
+		<span style="color: #f92672">&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;</span>
+		<span style="color: #f92672">&lt;p&gt;&lt;a</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;popupBtn&quot;</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#popup-wrap&quot;</span><span style="color: #f92672">&gt;</span>popup 5<span style="color: #f92672">&lt;/a&gt;&lt;/p&gt;</span>
+	<span style="color: #f92672">&lt;/div&gt;</span>	
+
+
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;popup-wrap&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;trp popup-wrap&quot;</span><span style="color: #f92672">&gt;&lt;/div&gt;</span>
+	
+<span style="color: #f92672">&lt;/body&gt;</span>
+<span style="color: #f92672">&lt;/html&gt;</span>
+</pre></td></tr></table></div>
+
+
+
+					<!--// 소스 -->
+					</div>
+				</div>
+			</div>			
+		</div>
+		<!-- e: examples 예제 -->
+		
+		<!-- s: examples 예제 -->
+		<div class="ex_wapper">
+			<div class="section">
+				<h2 class="ex-title">예제(기본형:팝업내용)ex01_popup.html</h2>
+				<p class="ex-more" ><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p>
+				<p class="ex-view" ><a href="ex01_popup.html" target="_blank">View</a></p>
+				<div class="ex-body" style="display:none" >					
+					<div class="source">
+					<!-- 소스 -->
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!DOCTYPE html&gt;</span>
+<span style="color: #f92672">&lt;html</span> <span style="color: #a6e22e">lang=</span><span style="color: #e6db74">&quot;en&quot;</span><span style="color: #f92672">&gt;</span>
+<span style="color: #f92672">&lt;head&gt;</span>
+	<span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">charset=</span><span style="color: #e6db74">&quot;UTF-8&quot;</span><span style="color: #f92672">&gt;</span>
+	<span style="color: #f92672">&lt;title&gt;</span>trpLayerPopupFile<span style="color: #f92672">&lt;/title&gt;</span>
+	<span style="color: #f92672">&lt;style </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/css&quot;</span><span style="color: #f92672">&gt;</span>
+
+	<span style="color: #a6e22e">.trp.popup-wrap</span>  <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span><span style="color: #66d9ef">block</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">absolute</span><span style="color: #f8f8f2">;</span>  <span style="color: #66d9ef">top</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">left</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">z-index</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">9999</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">text-align</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">center</span><span style="color: #f8f8f2">;</span>  <span style="color: #f8f8f2">}</span> 
+	<span style="color: #a6e22e">.trp.popup-wrap</span> <span style="color: #a6e22e">.trp_popup</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">inline</span><span style="color: #f92672">-</span><span style="color: #66d9ef">block</span><span style="color: #f8f8f2">;</span> <span style="color: #f92672">*</span><span style="color: #66d9ef">display</span><span style="color: #f92672">:</span><span style="color: #66d9ef">inline</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">zoom</span><span style="color: #f92672">:</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">relative</span><span style="color: #f8f8f2">;</span>   <span style="color: #f8f8f2">}</span> 
+	<span style="color: #a6e22e">.trp.popup-wrap</span> <span style="color: #a6e22e">.trp_popup.option</span> <span style="color: #f8f8f2">{</span>  <span style="color: #66d9ef">top</span><span style="color: #f92672">:</span><span style="color: #ae81ff">50px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">600px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">background</span><span style="color: #f92672">:</span><span style="color: #ae81ff">#fff</span> <span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+	<span style="color: #a6e22e">.trp.popup-wrap</span> <span style="color: #a6e22e">.trp_popup</span> <span style="color: #a6e22e">.btn_x</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span><span style="color: #66d9ef">absolute</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">top</span><span style="color: #f92672">:</span><span style="color: #ae81ff">15px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">right</span><span style="color: #f92672">:</span><span style="color: #ae81ff">15px</span><span style="color: #f8f8f2">;</span>  <span style="color: #f8f8f2">}</span>
+	<span style="color: #a6e22e">.trp.popup-wrap</span> <span style="color: #a6e22e">.trp_popup</span> <span style="color: #a6e22e">.con</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span><span style="color: #66d9ef">relative</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">clear</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">both</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">220px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span><span style="color: #ae81ff">10px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">text-align</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">center</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>	 
+	<span style="color: #a6e22e">.trp.popup-wrap</span> <span style="color: #a6e22e">.popup-dim</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span><span style="color: #66d9ef">absolute</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">top</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">left</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span><span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span>  <span style="color: #66d9ef">background</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#000000</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">opacity</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f92672">.</span><span style="color: #ae81ff">7</span><span style="color: #f8f8f2">;</span>  <span style="color: #f8f8f2">filter</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">alpha(</span><span style="color: #66d9ef">opacity</span><span style="color: #f92672">=</span><span style="color: #ae81ff">70</span><span style="color: #f8f8f2">);</span>  <span style="color: #f8f8f2">}</span> 
+	
+	<span style="color: #f92672">&lt;/style&gt;</span>
+<span style="color: #f92672">&lt;/head&gt;</span>
+<span style="color: #f92672">&lt;body&gt;</span>
+	
+<span style="color: #f92672">&lt;div</span>  <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;popup-wrap&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;trp popup-wrap&quot;</span><span style="color: #f92672">&gt;</span>
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;popup-dim js-popclose&quot;</span><span style="color: #f92672">&gt;&lt;/div&gt;</span>	
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;trp_popup option&quot;</span><span style="color: #f92672">&gt;</span>
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;con&quot;</span><span style="color: #f92672">&gt;</span>
+			<span style="color: #f92672">&lt;a</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;btn_x js-popclose&quot;</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#&quot;</span><span style="color: #f92672">&gt;</span>X<span style="color: #f92672">&lt;/a&gt;</span>			
+			팝업 내용 load
+		<span style="color: #f92672">&lt;/div&gt;</span>
+	<span style="color: #f92672">&lt;/div&gt;</span>
+<span style="color: #f92672">&lt;/div&gt;</span>			
+
+<span style="color: #f92672">&lt;/body&gt;</span>
+<span style="color: #f92672">&lt;/html&gt;</span>
+</pre></td></tr></table></div>
+
+
+					<!--// 소스 -->
+					</div>
+				</div>
+			</div>			
+		</div>
+		<!-- e: examples 예제 -->
+
+
+
+
+		<!-- s: examples 예제 -->
+		<div class="ex_wapper">
+			<div class="section">
+				<h2 class="ex-title">예제(오늘하루 안보기)ex02.html</h2>
+				<p class="ex-more" ><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p>
+				<p class="ex-view" ><a href="ex02.html" target="_blank">View</a></p>
+				<div class="ex-body" style="display:none" >					
+					<div class="source">
+					<!-- 소스 -->
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</span>
+<span style="color: #f92672">&lt;html</span> <span style="color: #a6e22e">xmlns=</span><span style="color: #e6db74">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span style="color: #a6e22e">lang=</span><span style="color: #e6db74">&quot;ko&quot;</span> <span style="color: #a6e22e">xml:lang=</span><span style="color: #e6db74">&quot;ko&quot;</span><span style="color: #f92672">&gt;</span>
+<span style="color: #f92672">&lt;head&gt;</span>
+<span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">http-equiv=</span><span style="color: #e6db74">&quot;Content-Type&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;text/html; charset=utf-8&quot;</span><span style="color: #f92672">&gt;</span>
+<span style="color: #f92672">&lt;title&gt;</span>trpLayerPopupFile<span style="color: #f92672">&lt;/title&gt;</span>
+<span style="color: #f92672">&lt;style </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/css&quot;</span><span style="color: #f92672">&gt;</span>
+
+
+	<span style="color: #75715e">/* im popup-today */</span>
+	<span style="color: #a6e22e">.trp.popup-wrap</span>  <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">none</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">absolute</span><span style="color: #f8f8f2">;</span>  <span style="color: #66d9ef">top</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">left</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">z-index</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">9999</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">text-align</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">center</span><span style="color: #f8f8f2">;</span>  <span style="color: #f8f8f2">}</span> 
+	<span style="color: #a6e22e">.trp.popup-wrap</span> <span style="color: #a6e22e">.trp_popup</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">inline</span><span style="color: #f92672">-</span><span style="color: #66d9ef">block</span><span style="color: #f8f8f2">;</span> <span style="color: #f92672">*</span><span style="color: #66d9ef">display</span><span style="color: #f92672">:</span><span style="color: #66d9ef">inline</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">zoom</span><span style="color: #f92672">:</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> 
+    <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">relative</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span> 
+	<span style="color: #a6e22e">.trp.popup-wrap</span> <span style="color: #a6e22e">.trp_popup</span> <span style="color: #a6e22e">.btn_x</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span><span style="color: #66d9ef">absolute</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">top</span><span style="color: #f92672">:</span><span style="color: #ae81ff">15px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">right</span><span style="color: #f92672">:</span><span style="color: #ae81ff">15px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">background</span><span style="color: #f92672">:</span><span style="color: #ae81ff">#aaa</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+	<span style="color: #a6e22e">.trp.popup-wrap</span> <span style="color: #a6e22e">.trp_popup.option</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">top</span><span style="color: #f92672">:</span><span style="color: #ae81ff">50px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">600px</span><span style="color: #f8f8f2">;</span>  <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">aliceblue</span>  <span style="color: #f8f8f2">}</span>
+	<span style="color: #a6e22e">.trp.popup-wrap</span> <span style="color: #a6e22e">.trp_popup</span> <span style="color: #a6e22e">.top</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">38px</span><span style="color: #f8f8f2">;</span>  <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">10px</span> <span style="color: #ae81ff">10px</span> <span style="color: #ae81ff">0</span> <span style="color: #ae81ff">10px</span><span style="color: #f8f8f2">;</span>   <span style="color: #66d9ef">border-bottom</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">2px</span> <span style="color: #66d9ef">solid</span> <span style="color: #ae81ff">#999</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span> 
+	<span style="color: #a6e22e">.trp.popup-wrap</span> <span style="color: #a6e22e">.trp_popup</span> <span style="color: #a6e22e">.top</span> <span style="color: #a6e22e">.title</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">float</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">left</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">margin</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span> <span style="color: #ae81ff">5px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">20px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">font-weight</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">bold</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span> 
+	<span style="color: #a6e22e">.trp.popup-wrap</span> <span style="color: #a6e22e">.trp_popup</span> <span style="color: #a6e22e">.con</span> <span style="color: #f8f8f2">{</span>  <span style="color: #66d9ef">clear</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">both</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">220px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span><span style="color: #ae81ff">10px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">text-align</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">center</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+	<span style="color: #a6e22e">.trp.popup-wrap</span> <span style="color: #a6e22e">.trp_popup</span> <span style="color: #a6e22e">.bottom</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span><span style="color: #ae81ff">25px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span><span style="color: #ae81ff">5px</span> <span style="color: #ae81ff">10px</span> <span style="color: #ae81ff">0</span> <span style="color: #ae81ff">10px</span><span style="color: #f8f8f2">;</span>  <span style="color: #66d9ef">line-height</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">text-align</span><span style="color: #f92672">:</span><span style="color: #66d9ef">right</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">vertical-align</span><span style="color: #f92672">:</span><span style="color: #66d9ef">top</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">background</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#d2d2d2</span><span style="color: #f8f8f2">;</span>  <span style="color: #f8f8f2">}</span>
+	<span style="color: #a6e22e">.trp.popup-wrap</span> <span style="color: #a6e22e">.trp_popup</span> <span style="color: #a6e22e">.bottom</span> <span style="color: #f92672">input[type=checkbox]</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">margin</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">vertical-align</span><span style="color: #f92672">:</span><span style="color: #66d9ef">middle</span><span style="color: #f8f8f2">;}</span>
+	<span style="color: #a6e22e">.trp.popup-wrap</span> <span style="color: #a6e22e">.trp_popup</span> <span style="color: #a6e22e">.bottom</span> <span style="color: #f92672">label</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span><span style="color: #66d9ef">inline</span><span style="color: #f92672">-</span><span style="color: #66d9ef">block</span><span style="color: #f8f8f2">;</span>  <span style="color: #66d9ef">margin-top</span><span style="color: #f92672">:</span><span style="color: #ae81ff">1px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">font-family</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">Dotum</span><span style="color: #f92672">,</span><span style="color: #e6db74">&#39;돋움&#39;</span><span style="color: #f92672">,</span><span style="color: #f8f8f2">Helvetica</span><span style="color: #f92672">,</span><span style="color: #f8f8f2">AppleSDGothicNeo</span><span style="color: #f92672">,</span><span style="color: #66d9ef">sans-serif</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span><span style="color: #ae81ff">11px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">line-height</span><span style="color: #f92672">:</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">vertical-align</span><span style="color: #f92672">:</span><span style="color: #66d9ef">middle</span><span style="color: #f8f8f2">;</span>  <span style="color: #f8f8f2">}</span>
+	<span style="color: #a6e22e">.trp.popup-wrap</span> <span style="color: #a6e22e">.trp_popup</span> <span style="color: #a6e22e">.bottom</span> <span style="color: #a6e22e">.btn_close</span> <span style="color: #f8f8f2">{</span> <span style="color: #f8f8f2">}</span>
+
+<span style="color: #f92672">&lt;/style&gt;</span>
+
+<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;http://code.jquery.com/jquery-1.12.1.min.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/trpPopup_all0.83.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+
+<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span><span style="color: #f92672">&gt;</span>
+<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(document).</span><span style="color: #a6e22e">ready</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(){</span>
+
+	<span style="color: #66d9ef">var</span> <span style="color: #a6e22e">layerPopup</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.popupBtn&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">trpLayerPopupFile</span><span style="color: #f8f8f2">({</span> 
+    <span style="color: #a6e22e">popupUrl</span><span style="color: #f92672">:</span><span style="color: #e6db74">&quot;./ex02_popup.html .popup-wrap&gt;div&quot;</span> <span style="color: #f8f8f2">,</span> 
+    <span style="color: #a6e22e">popupWarp</span> <span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;#popup-wrap&quot;</span><span style="color: #f8f8f2">,</span>
+    <span style="color: #a6e22e">popupTarget</span> <span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;.trp_popup&quot;</span> <span style="color: #f8f8f2">});</span>
+  
+	<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.popupBtn&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">on</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;click&quot;</span><span style="color: #f8f8f2">,</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(){</span> 	
+		<span style="color: #a6e22e">layerPopupOpenFn</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">false</span><span style="color: #f8f8f2">);</span>
+		<span style="color: #66d9ef">return</span> <span style="color: #66d9ef">false</span><span style="color: #f8f8f2">;</span>
+	<span style="color: #f8f8f2">})</span>
+	
+	<span style="color: #75715e">/* 팝업닫기 */</span>
+	<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;#popup-wrap&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">on</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;click&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;.js-popclose&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(){</span> 	  
+		<span style="color: #a6e22e">layerPopup</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">close</span><span style="color: #f8f8f2">();</span>
+		<span style="color: #66d9ef">return</span> <span style="color: #66d9ef">false</span><span style="color: #f8f8f2">;</span>
+	<span style="color: #f8f8f2">})</span>
+
+	<span style="color: #75715e">/* 오늘하루 팝업 닫기 */</span>
+	<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;#popup-wrap&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">on</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;click&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;.js-popclose&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(){</span> 
+		<span style="color: #66d9ef">var</span> <span style="color: #a6e22e">_checkedB</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;#todayClose&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">is</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;:checked&quot;</span><span style="color: #f8f8f2">);</span>
+    <span style="color: #a6e22e">console</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">log</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;&gt;&gt;&gt;&quot;</span><span style="color: #f92672">+</span> <span style="color: #a6e22e">_checkedB</span><span style="color: #f8f8f2">)</span>
+		<span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">_checkedB</span><span style="color: #f8f8f2">){</span>
+			<span style="color: #a6e22e">layerPopup</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">close</span><span style="color: #f8f8f2">(</span> <span style="color: #e6db74">&quot;oneDay&quot;</span> <span style="color: #f8f8f2">);</span>
+		<span style="color: #f8f8f2">}</span><span style="color: #66d9ef">else</span><span style="color: #f8f8f2">{</span>
+			<span style="color: #a6e22e">layerPopup</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">close</span><span style="color: #f8f8f2">();</span>
+		<span style="color: #f8f8f2">}</span>		
+		<span style="color: #66d9ef">return</span> <span style="color: #66d9ef">false</span><span style="color: #f8f8f2">;</span>
+	<span style="color: #f8f8f2">})</span>
+	
+	<span style="color: #66d9ef">function</span> <span style="color: #a6e22e">layerPopupOpenFn</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">$returnTarget</span><span style="color: #f8f8f2">){</span>
+		<span style="color: #75715e">//var _scrollY = $(document).scrollTop() + 100;</span>
+		<span style="color: #a6e22e">layerPopup</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">align</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;150px&quot;</span><span style="color: #f8f8f2">,</span><span style="color: #e6db74">&quot;100px&quot;</span><span style="color: #f8f8f2">);</span>
+		<span style="color: #a6e22e">layerPopup</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">bgDim</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.popup-dim&quot;</span><span style="color: #f8f8f2">);</span>
+		<span style="color: #a6e22e">layerPopup</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">openTday</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">$returnTarget</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;oneDay&quot;</span><span style="color: #f8f8f2">);</span>	
+	<span style="color: #f8f8f2">}</span>
+	<span style="color: #a6e22e">layerPopupOpenFn</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">false</span><span style="color: #f8f8f2">);</span>
+<span style="color: #f8f8f2">});</span>
+
+<span style="color: #f92672">&lt;/script&gt;</span>
+
+ 
+<span style="color: #f92672">&lt;/head&gt;</span>
+<span style="color: #f92672">&lt;body&gt;</span>		
+<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;wrap&quot;</span><span style="color: #f92672">&gt;</span>
+	<span style="color: #f92672">&lt;p&gt;&lt;a</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;popupBtn&quot;</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#popup-wrap&quot;</span><span style="color: #f92672">&gt;</span>popup 1<span style="color: #f92672">&lt;/a&gt;&lt;/p&gt;</span>
+	<span style="color: #f92672">&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;</span>
+	
+	<span style="color: #f92672">&lt;p&gt;&lt;a</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;popupBtn&quot;</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#popup-wrap&quot;</span><span style="color: #f92672">&gt;</span>popup 2<span style="color: #f92672">&lt;/a&gt;&lt;/p&gt;</span>
+	<span style="color: #f92672">&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;</span>
+	
+	<span style="color: #f92672">&lt;p&gt;&lt;a</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;popupBtn&quot;</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#popup-wrap&quot;</span><span style="color: #f92672">&gt;</span>popup 3<span style="color: #f92672">&lt;/a&gt;&lt;/p&gt;</span>
+	<span style="color: #f92672">&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;</span>
+	
+	<span style="color: #f92672">&lt;p&gt;&lt;a</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;popupBtn&quot;</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#popup-wrap&quot;</span><span style="color: #f92672">&gt;</span>popup 4<span style="color: #f92672">&lt;/a&gt;&lt;/p&gt;</span>
+	<span style="color: #f92672">&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;</span>
+	
+	<span style="color: #f92672">&lt;p&gt;&lt;a</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;popupBtn&quot;</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#popup-wrap&quot;</span><span style="color: #f92672">&gt;</span>popup 5<span style="color: #f92672">&lt;/a&gt;&lt;/p&gt;</span>
+	
+
+<span style="color: #f92672">&lt;/div&gt;</span>
+
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;popup-wrap&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;trp popup-wrap&quot;</span><span style="color: #f92672">&gt;&lt;/div&gt;</span>	
+	
+<span style="color: #f92672">&lt;/body&gt;</span>
+<span style="color: #f92672">&lt;/html&gt;</span>
+</pre></td></tr></table></div>
+       
+        
+        
+
+        	</div><!--// 소스 -->
+        </div>
+			</div>			
+		</div>
+		<!-- e: examples 예제 -->
+		
+		
+		
+		
+		
+		
+		<!-- s: examples 예제 -->
+		<div class="ex_wapper">
+			<div class="section">
+				<h2 class="ex-title">예제(오늘하루 안보기:팝업내용)ex02_popup.html</h2>
+				<p class="ex-more" ><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p>
+				<p class="ex-view" ><a href="ex02_popup.html" target="_blank">View</a></p>
+				<div class="ex-body" style="display:none" >					
+					<div class="source">
+					<!-- 소스 -->
+
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!DOCTYPE html&gt;</span>
+<span style="color: #f92672">&lt;html</span> <span style="color: #a6e22e">lang=</span><span style="color: #e6db74">&quot;en&quot;</span><span style="color: #f92672">&gt;</span>
+<span style="color: #f92672">&lt;head&gt;</span>
+	<span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">charset=</span><span style="color: #e6db74">&quot;UTF-8&quot;</span><span style="color: #f92672">&gt;</span>
+	<span style="color: #f92672">&lt;title&gt;</span>trpLayerPopupFile<span style="color: #f92672">&lt;/title&gt;</span>
+	<span style="color: #f92672">&lt;style </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/css&quot;</span><span style="color: #f92672">&gt;</span>
+		
+	<span style="color: #75715e">/* trp popup-today */</span>
+	<span style="color: #a6e22e">.trp.popup-wrap</span>  <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">absolute</span><span style="color: #f8f8f2">;</span>  <span style="color: #66d9ef">top</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">left</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">z-index</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">9999</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">text-align</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">center</span><span style="color: #f8f8f2">;</span>  <span style="color: #f8f8f2">}</span> 
+	<span style="color: #a6e22e">.trp.popup-wrap</span> <span style="color: #a6e22e">.trp_popup</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">inline</span><span style="color: #f92672">-</span><span style="color: #66d9ef">block</span><span style="color: #f8f8f2">;</span> <span style="color: #f92672">*</span><span style="color: #66d9ef">display</span><span style="color: #f92672">:</span><span style="color: #66d9ef">inline</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">zoom</span><span style="color: #f92672">:</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">relative</span><span style="color: #f8f8f2">;</span>  <span style="color: #f8f8f2">}</span> 
+	<span style="color: #a6e22e">.trp.popup-wrap</span> <span style="color: #a6e22e">.trp_popup</span> <span style="color: #a6e22e">.btn_x</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span><span style="color: #66d9ef">absolute</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">top</span><span style="color: #f92672">:</span><span style="color: #ae81ff">15px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">right</span><span style="color: #f92672">:</span><span style="color: #ae81ff">15px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">background</span><span style="color: #f92672">:</span><span style="color: #ae81ff">#aaa</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+	<span style="color: #a6e22e">.trp.popup-wrap</span> <span style="color: #a6e22e">.trp_popup.option</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">top</span><span style="color: #f92672">:</span><span style="color: #ae81ff">50px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">600px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">background</span><span style="color: #f92672">:</span><span style="color: #ae81ff">#fff</span> <span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+	<span style="color: #a6e22e">.trp.popup-wrap</span> <span style="color: #a6e22e">.trp_popup</span> <span style="color: #a6e22e">.top</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">38px</span><span style="color: #f8f8f2">;</span>  <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">10px</span> <span style="color: #ae81ff">10px</span> <span style="color: #ae81ff">0</span> <span style="color: #ae81ff">10px</span><span style="color: #f8f8f2">;</span>   <span style="color: #66d9ef">border-bottom</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">2px</span> <span style="color: #66d9ef">solid</span> <span style="color: #ae81ff">#999</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span> 
+	<span style="color: #a6e22e">.trp.popup-wrap</span> <span style="color: #a6e22e">.trp_popup</span> <span style="color: #a6e22e">.top</span> <span style="color: #a6e22e">.title</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">float</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">left</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">margin</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span> <span style="color: #ae81ff">5px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">20px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">font-weight</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">bold</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span> 
+	<span style="color: #a6e22e">.trp.popup-wrap</span> <span style="color: #a6e22e">.trp_popup</span> <span style="color: #a6e22e">.con</span> <span style="color: #f8f8f2">{</span>  <span style="color: #66d9ef">clear</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">both</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">220px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span><span style="color: #ae81ff">10px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">text-align</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">center</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+	<span style="color: #a6e22e">.trp.popup-wrap</span> <span style="color: #a6e22e">.popup-dim</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span><span style="color: #66d9ef">absolute</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">top</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">left</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span><span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span>  <span style="color: #66d9ef">background</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#000000</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">opacity</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f92672">.</span><span style="color: #ae81ff">7</span><span style="color: #f8f8f2">;</span>  <span style="color: #f8f8f2">filter</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">alpha(</span><span style="color: #66d9ef">opacity</span><span style="color: #f92672">=</span><span style="color: #ae81ff">70</span><span style="color: #f8f8f2">);</span>  <span style="color: #f8f8f2">}</span> 
+	<span style="color: #a6e22e">.trp.popup-wrap</span> <span style="color: #a6e22e">.trp_popup</span> <span style="color: #a6e22e">.bottom</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span><span style="color: #ae81ff">25px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span><span style="color: #ae81ff">5px</span> <span style="color: #ae81ff">10px</span> <span style="color: #ae81ff">0</span> <span style="color: #ae81ff">10px</span><span style="color: #f8f8f2">;</span>  <span style="color: #66d9ef">line-height</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">text-align</span><span style="color: #f92672">:</span><span style="color: #66d9ef">right</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">vertical-align</span><span style="color: #f92672">:</span><span style="color: #66d9ef">top</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">background</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#d2d2d2</span><span style="color: #f8f8f2">;</span>  <span style="color: #f8f8f2">}</span>
+	<span style="color: #a6e22e">.trp.popup-wrap</span> <span style="color: #a6e22e">.trp_popup</span> <span style="color: #a6e22e">.bottom</span> <span style="color: #f92672">input[type=checkbox]</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">margin</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">vertical-align</span><span style="color: #f92672">:</span><span style="color: #66d9ef">middle</span><span style="color: #f8f8f2">;}</span>
+	<span style="color: #a6e22e">.trp.popup-wrap</span> <span style="color: #a6e22e">.trp_popup</span> <span style="color: #a6e22e">.bottom</span> <span style="color: #f92672">label</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span><span style="color: #66d9ef">inline</span><span style="color: #f92672">-</span><span style="color: #66d9ef">block</span><span style="color: #f8f8f2">;</span>  <span style="color: #66d9ef">margin-top</span><span style="color: #f92672">:</span><span style="color: #ae81ff">1px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">font-family</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">Dotum</span><span style="color: #f92672">,</span><span style="color: #e6db74">&#39;돋움&#39;</span><span style="color: #f92672">,</span><span style="color: #f8f8f2">Helvetica</span><span style="color: #f92672">,</span><span style="color: #f8f8f2">AppleSDGothicNeo</span><span style="color: #f92672">,</span><span style="color: #66d9ef">sans-serif</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span><span style="color: #ae81ff">11px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">line-height</span><span style="color: #f92672">:</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">vertical-align</span><span style="color: #f92672">:</span><span style="color: #66d9ef">middle</span><span style="color: #f8f8f2">;</span>  <span style="color: #f8f8f2">}</span>
+	<span style="color: #a6e22e">.trp.popup-wrap</span> <span style="color: #a6e22e">.trp_popup</span> <span style="color: #a6e22e">.bottom</span> <span style="color: #a6e22e">.btn_close</span> <span style="color: #f8f8f2">{</span> <span style="color: #f8f8f2">}</span>
+
+	<span style="color: #f92672">&lt;/style&gt;</span>
+<span style="color: #f92672">&lt;/head&gt;</span>
+<span style="color: #f92672">&lt;body&gt;</span>
+	
+	
+<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;trp popup-wrap&quot;</span><span style="color: #f92672">&gt;</span>
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;popup-dim js-popclose&quot;</span><span style="color: #f92672">&gt;&lt;/div&gt;</span>	
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;trp_popup option&quot;</span><span style="color: #f92672">&gt;</span>
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;top&quot;</span><span style="color: #f92672">&gt;</span>
+			<span style="color: #f92672">&lt;p</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;title&quot;</span><span style="color: #f92672">&gt;</span>제목<span style="color: #f92672">&lt;/p&gt;</span>
+			<span style="color: #f92672">&lt;a</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;btn_x js-popclose&quot;</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#&quot;</span><span style="color: #f92672">&gt;</span>X<span style="color: #f92672">&lt;/a&gt;</span>			
+		<span style="color: #f92672">&lt;/div&gt;</span>
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;con&quot;</span><span style="color: #f92672">&gt;</span>
+			팝업 내용 load
+		<span style="color: #f92672">&lt;/div&gt;</span>
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;bottom&quot;</span><span style="color: #f92672">&gt;</span>
+			<span style="color: #f92672">&lt;input</span> <span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;checkbox&quot;</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;todayClose&quot;</span> <span style="color: #f92672">&gt;</span>
+			<span style="color: #f92672">&lt;label</span> <span style="color: #a6e22e">for=</span><span style="color: #e6db74">&quot;todayClose&quot;</span><span style="color: #f92672">&gt;</span>오늘 하루 더 이상 보지 않기<span style="color: #f92672">&lt;/label&gt;</span>
+			<span style="color: #f92672">&lt;a</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;btn_close js-popclose&quot;</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#&quot;</span><span style="color: #f92672">&gt;</span>X<span style="color: #f92672">&lt;/a&gt;</span>
+		<span style="color: #f92672">&lt;/div&gt;</span>
+	<span style="color: #f92672">&lt;/div&gt;</span>
+<span style="color: #f92672">&lt;/div&gt;</span>		
+
+
+<span style="color: #f92672">&lt;/body&gt;</span>
+<span style="color: #f92672">&lt;/html&gt;</span>
+</pre></td></tr></table></div>
+
+
+
+
+				
+					</div><!--// 소스 -->
+				</div>
+			</div>			
+		</div>
+		<!-- e: examples 예제 -->
+
+	</div>
+	<!-- e: 컨텐츠 끝 -->
+</div>
+
+
+
+<script type="text/javascript">
+	$("#header").load("../../../head.html");
+	$("#lnb").load("../../../lnb.html");	
+
+	$(".ex-more a").click(function() {
+		$( this ).find("span").toggle();
+		$( this ).parent().siblings(".ex-body").slideToggle();
+		return false;
+	});
+</script>
+
+</body>
+</html>

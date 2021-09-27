@@ -1,0 +1,320 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+	<title>hover | TR package</title>
+	<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.11.1.js" charset="UTF-8"></script>
+	<link rel="stylesheet" type="text/css"  href="../../../../asset/css/common.css" media="all" />
+  <style>
+    /* css 	&amp; media quer */
+    .pc_hover {  display:block; width:500px; height:100px; 
+      font-size: 30px;  color:#fff; border: 0; background-color:#330000; 
+      text-align: center; vertical-align: middle; line-height: 100px;
+    }    
+    /* hover가 가능할 때만 적용 */
+    @media (hover: hover) {
+      .pc_hover:hover {
+        background-color:#33ff00;
+      }
+    }
+    
+    /* css 	&amp; js */
+    .pchover {  display:block; width:500px; height:100px; 
+      font-size: 30px;  color:#fff; border: 0; background-color:#330000; 
+      text-align: center; vertical-align: middle; line-height: 100px;
+    }    
+    
+    .device_pc .pchover:hover {
+      background-color:#33ff00;
+    }
+  </style>
+  <script>
+    $(window).ready(function(){
+      // 접속 디바이스를 확인합니다(데스크탑:false, 모바일:true) 
+      function isTouchAble(){ 
+        if(navigator.userAgent.indexOf('Mobile') != -1){ 
+          return true; 
+        } else{ 
+          $("body").addClass("device_pc");
+          return false; 
+        } 
+      }
+      isTouchAble();
+    });
+  </script>
+</head>
+<body>
+  <div id="header"></div>
+  <div id="container">
+	<div id="lnb" class="gnb"></div>
+	<!-- s: 컨텐츠 시작 -->
+	<div id="contents" class="contents">
+		<!-- s: css 설명
+		<div class="desc_wapper">
+			<h1 class="desc_title">list</h1>
+			<p>목록에 대한 정의입니다.</p>
+		</div>
+		 -->
+		<!-- e: css 설명 -->
+	
+
+		<!-- s: api 설명 -->
+		<div class="api ">
+			<h2 class="api-title">hover 대응 (css 	&amp; media query)</h2>
+			<div class="api-body">
+				<dl>
+					<dt>1. css 	&amp; media query로 대응</dt>
+					<dd><span class="icon"></span> <a href="https://drafts.csswg.org/mediaqueries/#hover" target="_blank"> CSS Media Queries Level 4 </a>이상 대응</dd>
+					<dd><span class="icon"></span> 미디어쿼리로 hover이벤트가 가능하면 이벤트 실행</dd>
+				</dl>
+
+
+ 				<div class="ex_wapper">
+					<h3 class="api-title_h3">VIEW</h3>
+					<p class="ex-more"><a href="javascript:return false;"><span class="d-n">+</span><span style="display: inline;">-</span></a></p>
+					<p class="ex-view"><a href="ex01.html" target="_blank">View Sample</a></p>
+					<div class="ex-body d-n" >
+				      
+            <a href="#" class="pc_hover"> a : pc_hover</a>
+            <br>
+            <button class="pc_hover"> button : pc_hover</button>
+
+					</div>
+				</div> 
+				
+				
+<!-- ===CSS=== -->	
+				<div class="ex_wapper">
+					<h3 class="api-title_h3 css">CSS</h3>
+					<div class="api-body_h3 css">
+                    <!-- 소스 -->
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></td><td><pre style="margin: 0; line-height: 125%"> <span style="color: #f92672">&lt;style&gt;</span>
+    <span style="color: #a6e22e">.pc_hover</span> <span style="color: #f8f8f2">{</span>  <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span><span style="color: #66d9ef">block</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">500px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span><span style="color: #ae81ff">100px</span><span style="color: #f8f8f2">;</span> 
+      <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">30px</span><span style="color: #f8f8f2">;</span>  <span style="color: #66d9ef">color</span><span style="color: #f92672">:</span><span style="color: #ae81ff">#fff</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">border</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span><span style="color: #ae81ff">#330000</span><span style="color: #f8f8f2">;</span> 
+      <span style="color: #66d9ef">text-align</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">center</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">vertical-align</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">middle</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">line-height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100px</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #f8f8f2">}</span>    
+    <span style="color: #75715e">/* hover가 가능할 때만 적용 */</span>
+    <span style="color: #66d9ef">@media</span> <span style="color: #f92672">(hover:</span> <span style="color: #f92672">hover)</span> <span style="color: #f8f8f2">{</span>
+      <span style="color: #a6e22e">.pc_hover:hover</span> <span style="color: #f8f8f2">{</span>
+        <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span><span style="color: #ae81ff">#33ff00</span><span style="color: #f8f8f2">;</span>
+      <span style="color: #f8f8f2">}</span>
+    <span style="color: #f8f8f2">}</span>
+  <span style="color: #f92672">&lt;/style&gt;</span>
+</pre></td></tr></table></div>
+
+
+
+            <!-- //소스 -->	
+					</div>
+				</div>
+
+
+
+				<div class="ex_wapper">
+				<h3 class="api-title_h3 html">HTML</h3>
+					<div class="api-body_h3 html">
+					<!-- 소스 -->
+						
+						
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5</pre></td><td><pre style="margin: 0; line-height: 125%">  
+  <span style="color: #f92672">&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;pc_hover&quot;</span><span style="color: #f92672">&gt;</span> a : pc_hover<span style="color: #f92672">&lt;/a&gt;</span>
+  <span style="color: #f92672">&lt;br&gt;</span>
+  <span style="color: #f92672">&lt;button</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;pc_hover&quot;</span><span style="color: #f92672">&gt;</span> button : pc_hover<span style="color: #f92672">&lt;/button&gt;</span>
+   
+</pre></td></tr></table></div>
+
+
+
+
+				    <!-- //소스 -->	
+					</div>
+				</div>
+					
+		
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+		
+		
+		
+		
+		<!-- s: api 설명 -->
+		<div class="api">
+			<h2 class="api-title">hover 대응 (css 	&amp; js)</h2>
+			<div class="api-body">
+				<dl>
+					<dt>2. css 	&amp; javascript로 대응</dt>
+					<dd><span class="icon"></span> 모바일 디바이스 체크후 pc일때 body에 "device_pc"클래스 추가 </dd>
+					<dd><span class="icon"></span> "device_pc" 클래스가 있을대만 hover 적용</dd>
+				</dl>
+
+
+ 				<div class="ex_wapper">
+					<h3 class="api-title_h3">VIEW</h3>
+					<p class="ex-more"><a href="javascript:return false;"><span class="d-n">+</span><span style="display: inline;">-</span></a></p>
+					<p class="ex-view"><a href="ex01.html" target="_blank">View Sample</a></p>
+					<div class="ex-body d-n" >
+				    <!-- 소스 -->
+				      
+              <a href="#" class="pchover"> a : device_pc pchover</a>
+              <br>
+              <button class="pchover"> button : device_pc pchover</button>
+
+
+            <!-- // 소스 -->
+					</div>
+				</div> 
+
+<!-- ===JS=== -->	
+				<div class="ex_wapper">
+					<h3 class="api-title_h3 js">JS</h3>
+					<div class="api-body_h3 js">
+            <!-- 소스 -->
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></td><td><pre style="margin: 0; line-height: 125%">  <span style="color: #f92672">&lt;script&gt;</span>
+    <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(window).</span><span style="color: #a6e22e">ready</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(){</span>
+      <span style="color: #75715e">// 접속 디바이스를 확인합니다(데스크탑:false, 모바일:true) </span>
+      <span style="color: #66d9ef">function</span> <span style="color: #a6e22e">isTouchAble</span><span style="color: #f8f8f2">(){</span> 
+        <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">navigator</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">userAgent</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">indexOf</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;Mobile&#39;</span><span style="color: #f8f8f2">)</span> <span style="color: #f92672">!=</span> <span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">){</span> 
+          <span style="color: #a6e22e">alert</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;===mobile===&quot;</span><span style="color: #f8f8f2">)</span>
+          <span style="color: #66d9ef">return</span> <span style="color: #66d9ef">true</span><span style="color: #f8f8f2">;</span> 
+        <span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span><span style="color: #f8f8f2">{</span> 
+          <span style="color: #a6e22e">alert</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;===pc===&quot;</span><span style="color: #f8f8f2">)</span>
+          <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;body&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">addClass</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;device_pc&quot;</span><span style="color: #f8f8f2">);</span>
+          <span style="color: #66d9ef">return</span> <span style="color: #66d9ef">false</span><span style="color: #f8f8f2">;</span> 
+        <span style="color: #f8f8f2">}</span> 
+      <span style="color: #f8f8f2">}</span>
+      <span style="color: #a6e22e">isTouchAble</span><span style="color: #f8f8f2">();</span>
+    <span style="color: #f8f8f2">});</span>
+  <span style="color: #f92672">&lt;/script&gt;</span>
+</pre></td></tr></table></div>
+
+
+
+
+
+            <!-- //소스 -->
+					</div>
+				</div>								
+				
+<!-- ===CSS=== -->	
+				<div class="ex_wapper">
+					<h3 class="api-title_h3 css">CSS</h3>
+					<div class="api-body_h3 css">
+            <!-- 소스 -->
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></td><td><pre style="margin: 0; line-height: 125%">  <span style="color: #f92672">&lt;style&gt;</span>
+    <span style="color: #a6e22e">.pchover</span> <span style="color: #f8f8f2">{</span>  <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span><span style="color: #66d9ef">block</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">500px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span><span style="color: #ae81ff">100px</span><span style="color: #f8f8f2">;</span> 
+      <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">30px</span><span style="color: #f8f8f2">;</span>  <span style="color: #66d9ef">color</span><span style="color: #f92672">:</span><span style="color: #ae81ff">#fff</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">border</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span><span style="color: #ae81ff">#330000</span><span style="color: #f8f8f2">;</span> 
+      <span style="color: #66d9ef">text-align</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">center</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">vertical-align</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">middle</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">line-height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100px</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #f8f8f2">}</span>    
+    
+    <span style="color: #a6e22e">.device_pc</span> <span style="color: #a6e22e">.pchover:hover</span> <span style="color: #f8f8f2">{</span>
+      <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span><span style="color: #ae81ff">#33ff00</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #f8f8f2">}</span>
+  <span style="color: #f92672">&lt;/style&gt;</span>
+</pre></td></tr></table></div>
+
+
+
+            <!-- //소스 -->
+					</div>
+				</div>
+
+
+<!-- ===HTML=== -->	
+				<div class="ex_wapper">
+				<h3 class="api-title_h3 html">HTML</h3>
+					<div class="api-body_h3 html">
+					  <!-- 소스 -->
+						
+					
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5</pre></td><td><pre style="margin: 0; line-height: 125%">  
+  <span style="color: #f92672">&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;pchover&quot;</span><span style="color: #f92672">&gt;</span> a : device_pc pchover<span style="color: #f92672">&lt;/a&gt;</span>
+  <span style="color: #f92672">&lt;br&gt;</span>
+  <span style="color: #f92672">&lt;button</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;pchover&quot;</span><span style="color: #f92672">&gt;</span> button : device_pc pchover<span style="color: #f92672">&lt;/button&gt;</span>
+   
+</pre></td></tr></table></div>
+
+
+
+
+
+
+				    <!-- //소스 -->	
+					</div>
+				</div>
+					
+		
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+		
+	
+		</div>		
+	<!-- e: 컨텐츠 끝 -->
+	<p class="cl-b"></p>
+</div>
+
+
+
+<script type="text/javascript">
+	$("#header").load("../../../head.html");
+	$("#lnb").load("../../../lnb.html");	
+
+
+	$(".ex-more a").click(function() {
+		$( this ).find("span").toggle();
+		$( this ).parent().siblings(".ex-body").slideToggle();
+		return false;
+	});
+
+</script>
+
+</body>
+</html>

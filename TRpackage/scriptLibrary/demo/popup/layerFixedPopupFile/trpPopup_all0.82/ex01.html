@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="kr">
+ <head>
+  <meta charset="UTF-8">  
+  <title>trpLayerFixedPopup</title>  
+    <style type="text/css">
+
+        /** //popup-wrap **/   		
+        .tr.popupfixed-wrap  { position: absolute; display: none; table-layout:fixed; top: 0; left: 0;  width: 100%; height: 100%; min-height:100%; z-index: 9999; } 
+        .tr.popupfixed-wrap .popup-dim{ content: ""; position:fixed; top:0; left:0; right:0; bottom:0; width:100%; height:100%;  background: #000000; opacity: 0.7;  filter: alpha(opacity=70); }
+        .tr.popupfixed-wrap .popup-vertical { display: table-cell; text-align: center; vertical-align: middle;  width: 100%; padding:20px 0; }
+        .tr.popupfixed-wrap .popup-layer { display: inline-block; *display:inline; zoom:1; position: relative;   } 
+        .tr.popupfixed-wrap .popup-layer.option { position:relative; top:0px; width:600px; height:auto; min-height:1300px;  text-align: left; background:#fff ;border:1px solid red;   }
+        .tr.popupfixed-wrap .popup-layer .btn_close { position:absolute; top:15px; right:-15px; background:#aaa;}          
+        
+    </style>    
+	<script src="http://code.jquery.com/jquery-1.12.1.min.js"></script>
+	<script type="text/javascript" src="../../../../asset/js/libs/trpPopup_all0.82.js"></script>
+ </head>
+ <body>
+     <div id="wrap"> <!-- 필수요소 id="wrap"  -->
+        <a href="#popup-wrap">popup</a>
+        <div style="height:200px">a</div>
+        <div style="height:200px">b</div>
+        <div style="height:200px">c</div>
+        <div style="height:200px">d</div>
+        <div style="height:200px">e</div>
+        <div style="height:200px">f</div>
+        <div style="height:200px">g</div>
+        <a href="#popup-wrap">popup</a>
+        <div style="height:200px">h</div>
+    </div>
+    
+    
+   
+   <div id="popup-wrap" class="tr popupfixed-wrap"></div>  
+    
+     
+    <script type="text/javascript">
+         
+        var layerPopup = $("a").trpLayerFixedPopupFile("./ex01_popup.html .tr.popupfixed-wrap>div");  
+               
+        $(layerPopup.getBtn).on("click", function($e){ 
+            $e.preventDefault();         
+            layerPopup.open(this);    // or false
+        });
+    
+        $("#popup-wrap").on("click", ".btn_close, .popup-dim", function($e){
+            $e.preventDefault();       
+            layerPopup.close();
+        });
+        
+		
+    </script>
+
+ </body>  
+</html>

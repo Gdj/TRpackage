@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>scrollTop demo</title>
+  <style>
+  div.demo {
+    background: #ccc none repeat scroll 0 0;
+    border: 3px solid #666;
+    margin: 5px;
+    padding: 5px;
+    position: relative;
+    width: 500px;
+    height: 1000px;
+    overflow: auto;
+  }
+  p {
+    margin: 10px;
+    padding: 5px;
+    border: 2px solid #666;
+    width: 1000px;
+    height: 1000px;
+  }
+  </style>
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+ 
+<div class="demo"><h1>lalala</h1><p>Hello</p></div>
+ 
+<script>
+	 $( "div.demo" ).scrollTop( 200 );
+	
+	 $("html, body").scrollTop(200);
+	 $("html, body").animate({		scrollTop: 200		});
+ 
+
+	//document.body.scrollTop = 200;
+</script>
+ 
+</body>
+</html>

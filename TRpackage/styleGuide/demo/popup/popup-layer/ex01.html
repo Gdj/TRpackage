@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+	<title>popup-layer</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!--<link rel="stylesheet" type="text/css"  href="../../../../asset/css/trpBase.css" media="all" /> -->
+
+<!--  -->
+<style type="text/css">
+
+    .trp.popup-wrap  { position: absolute;  top: 0; left: 0; z-index: 9999; width: 100%; height: 100%; text-align: center;  } 
+    .trp.popup-wrap .popup-dim { position:absolute; top:0; left:0; width:100%; height:100%;  background: #000000; opacity: 0.7;  filter: alpha(opacity=70);  }
+    .trp.popup-wrap .popup-layer { display: inline-block; *display:inline; zoom:1; position: relative;   } 
+    .trp.popup-wrap .popup-layer.option {  top:50px; width:600px; min-height:100px;  background:#fff ; }
+    .trp.popup-wrap .popup-layer .btn_x { position:absolute; top:15px; right:15px; width:18px; height:18px; background:#aaa; }
+
+    /** trp_icon **/
+    .icon18 {  display:inline-block; zoom:1; *display:inline;  width:18px; height:18px; font-size:0; line-height:0; text-shadow:none; color:transparent; vertical-align: middle; background: url('../../../../asset/css/trp_images/icons-18-base.png') -18px -36px no-repeat; } 
+    .map18_00-03 { background-position:-108px 0; }
+    /**  //trp_icon  **/
+
+</style>
+
+</head>
+<body>
+
+
+<div class="trp popup-wrap">
+	<div class="popup-dim"></div>	
+	<div class="popup-layer option">
+		<a class="btn_x" href="#"><span class="icon18 map18_00-03">X</span></a>			
+	</div>
+</div>		
+
+</body>
+</html>

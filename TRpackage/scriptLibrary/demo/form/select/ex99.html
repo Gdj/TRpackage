@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+	<title>select</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css"  href="../../../../asset/css/trpBase.css" media="all" />
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.12.1.min.js" ></script>
+	<!--<script type="text/javascript" src="../../../../asset/js/libs/trpForm.js" ></script>-->
+	<!--[if IE]>
+      <style type="text/css">
+
+        select {
+          filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='path/to/sample_600x600.png', sizingMethod='scale');
+          background:none !important;
+        }
+
+        </style>
+    <![endif]-->
+</head>
+
+<style type="text/css">
+	
+	/*** 이미지 select ***/    
+    .trp.select-box { position: relative; border: 1px solid #e5e5e5; background-color: #fff; z-index: 1 }
+    .trp.select-box .icon { display: block; position: absolute; top: 8px; right: 10px;
+        content: ""; -webkit-box-sizing: inherit; box-sizing: inherit; z-index: 2;
+        width: 20px; height: 20px; background:#fff url(../../../../asset/css/trp_images/select.png) 0 0 no-repeat; pointer-events: none;}    
+    .trp.select-box select { padding: 10px;width: 100%;
+    font-size: 11px;font-weight: 700; -webkit-appearance: none; border: 0; background-color: transparent; }        
+    /*** //select ***/
+	
+</style>
+ 
+<body>
+
+<div class="trp select-box">
+
+    <select name="select" id="trp-select1" class="">
+        <option value="1" selected="selected">02</option>
+        <option value="2">032</option>
+        <option value="3">051</option>
+        <option value="4">053</option>
+        <option value="5">032</option>
+        <option value="6">062</option>
+        <option value="7">042</option>
+        <option value="8">052</option>
+        <option value="9">044</option>
+        <option value="10">033</option>
+        <option value="11">043</option>
+        <option value="12">041</option>
+        <option value="13">063</option>
+        <option value="14">061</option>
+        <option value="15">054</option>
+        <option value="16">055</option>
+        <option value="17">064</option>
+    </select>
+	<i class="icon" data-pointer-events="none"></i>
+</div>
+
+
+</body>
+</html>

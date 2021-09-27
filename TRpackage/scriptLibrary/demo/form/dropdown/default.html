@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+<title>trpDropdown | TR package</title>
+<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="../../../../asset/js/libs/trpMenu.js"></script>
+<link rel="stylesheet" href="../../../../asset/css/common.css" type="text/css" media="all" />
+
+
+</head>
+<body>
+  <div id="header" ></div>
+  <div id="container">
+	<div id="lnb" class="gnb"></div>
+	<!-- s: 컨텐츠 시작 -->
+	<div id="contents" class="contents">
+		<!-- s: 스크립드 설명 -->
+		<div class="desc_wapper">
+			<h1 class="desc_title">trpDropdown</h1>
+			<p>
+				박스크기에 따라 말줄임 표시(...)
+			</p>												
+		</div>
+		<!-- e: 스크립드 설명 -->
+	
+		<!-- s: api 설명 -->
+		<div class="api">
+			<h2 class="api-title">trpDropdown([options])</h2>
+			<div class="api-body">
+				<dl>
+					<dt>설명</dt>
+					<dd><span class="icon"></span>trpFrom.js 불러오면 trpDropdown, 를 사용할수 있습니다.</dd>
+					<dd><span class="icon"></span>&lt;script type="text/javascript" src="./js/libs/trpFrom.js"&gt;&lt;/script&gt;<br /> </dd>					
+				</dl>
+				<table class="table_col" summary="생성되는 class 설명">
+					<caption>class 설명</caption>
+					<colgroup>
+						<col width="150">
+						<col width="">		
+					</colgroup>
+					<tbody>
+					<tr>
+						<th scope="col">options 이름</th>
+						<th scope="col">options 설명</th>
+					</tr>
+					<tr>
+						<td>list</td>
+						<td>보여질 list 영역 선택자 default(".trp-dropdown_list-box") 
+							
+						</td>		
+					</tr>
+					<tr>
+						<td>area</td>
+						<td>dropdown 컨테이너 영역 선택자 default(".trp-dropdown-area")
+						</td>		
+					</tr>
+					
+					</tbody>
+				</table>
+				
+				<table class="table_col" summary="생성되는 class 설명">
+					<caption>class 설명</caption>
+					<colgroup>
+						<col width="150">
+						<col width="">		
+					</colgroup>
+					<tbody>
+					<tr>
+						<th scope="col">method 이름</th>
+						<th scope="col">method 설명</th>
+					</tr>
+					<tr>
+						<td>getOpen()</td>
+						<td>드롭다운 컨텐츠 보임</td> 
+					</tr>
+					<tr>
+						<td>getClose</td>
+						<td>드롭다운 컨텐츠 숨김</td> 
+					</tr>
+					
+					</tbody>
+				</table>
+			
+		
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+
+		<!-- s: examples 예제 -->
+		<div class="ex_wapper">
+			<div class="section">
+				<h2 class="ex-title">예제) 1.기본 사용방법 </h2>
+				<p class="ex-more" ><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p>
+				<p class="ex-view" ><a href="ex01.html" target="_blank">View</a></p>
+				<div class="ex-body" style="display:none" >					
+					<div class="source"><!-- 소스 -->
+					
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</span>
+<span style="color: #f92672">&lt;html</span> <span style="color: #a6e22e">xmlns=</span><span style="color: #e6db74">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span style="color: #a6e22e">lang=</span><span style="color: #e6db74">&quot;ko&quot;</span> <span style="color: #a6e22e">xml:lang=</span><span style="color: #e6db74">&quot;ko&quot;</span><span style="color: #f92672">&gt;</span>
+<span style="color: #f92672">&lt;head&gt;</span>
+<span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">http-equiv=</span><span style="color: #e6db74">&quot;Content-Type&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;text/html; charset=utf-8&quot;</span><span style="color: #f92672">&gt;</span>
+<span style="color: #f92672">&lt;title&gt;</span>trpEllipsis | TR package<span style="color: #f92672">&lt;/title&gt;</span>
+
+<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;http://code.jquery.com/jquery-1.12.1.min.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/trpForm.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+<span style="color: #f92672">&lt;style&gt;</span>
+	<span style="color: #f92672">html,</span> <span style="color: #f92672">body</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">margin</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">min-height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>	
+  <span style="color: #a6e22e">.trp-dropdown-area</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">relative</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">300px</span><span style="color: #f8f8f2">;}</span>
+  <span style="color: #a6e22e">.js-dropdown-btn</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">30px</span><span style="color: #f8f8f2">;}</span>
+  <span style="color: #a6e22e">.js-dropdown-btn.active</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#ff0000</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+  <span style="color: #a6e22e">.trp-dropdown_list-box</span> <span style="color: #f8f8f2">{</span><span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">absolute</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">top</span><span style="color: #f92672">:</span><span style="color: #ae81ff">30px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">left</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">none</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#003300</span><span style="color: #f8f8f2">;}</span>
+<span style="color: #f92672">&lt;/style&gt;</span>
+
+<span style="color: #f92672">&lt;/head&gt;</span>
+<span style="color: #f92672">&lt;body&gt;</span>	
+
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;wrap&quot;</span><span style="color: #f92672">&gt;</span>
+    
+    <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;trp-dropdown-area&quot;</span><span style="color: #f92672">&gt;</span>
+      <span style="color: #f92672">&lt;button</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;js-dropdown-btn&quot;</span><span style="color: #f92672">&gt;</span>드롭다운버튼<span style="color: #f92672">&lt;/button&gt;</span>
+      <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;trp-dropdown_list-box&quot;</span> <span style="color: #a6e22e">data-trp-focusid=</span><span style="color: #e6db74">&quot;js-user_support&quot;</span> <span style="color: #f92672">&gt;</span>
+        <span style="color: #f92672">&lt;ul&gt;</span>
+          <span style="color: #f92672">&lt;li&gt;&lt;a&gt;</span>aaaaaaaaaaaaaa<span style="color: #f92672">&lt;/a&gt;&lt;/li&gt;</span>
+          <span style="color: #f92672">&lt;li&gt;&lt;a&gt;</span>bbbbbbbbbb<span style="color: #f92672">&lt;/a&gt;&lt;/li&gt;</span>
+          <span style="color: #f92672">&lt;li&gt;&lt;a&gt;</span>cccccccccccc<span style="color: #f92672">&lt;/a&gt;&lt;/li&gt;</span>
+        <span style="color: #f92672">&lt;/ul&gt;</span>
+      <span style="color: #f92672">&lt;/div&gt;</span>  
+    <span style="color: #f92672">&lt;/div&gt;</span>
+    <span style="color: #f92672">&lt;script&gt;</span>
+      <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.js-dropdown-btn&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">trpDropdown</span><span style="color: #f8f8f2">({</span> <span style="color: #a6e22e">list</span> <span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;.trp-dropdown_list-box&quot;</span> <span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">area</span><span style="color: #f92672">:</span><span style="color: #e6db74">&quot;.trp-dropdown-area&quot;</span><span style="color: #f8f8f2">});</span>
+    <span style="color: #f92672">&lt;/script&gt;</span>
+      
+  <span style="color: #f92672">&lt;/div&gt;</span>
+	
+<span style="color: #f92672">&lt;/body&gt;</span>
+<span style="color: #f92672">&lt;/html&gt;</span>
+</pre></td></tr></table></div>
+
+
+
+				
+					</div><!--// 소스 -->
+                </div>
+			</div>			
+		</div>
+		<!-- e: examples 예제 -->
+
+				
+
+	</div>
+	<!-- e: 컨텐츠 끝 -->
+</div>
+
+
+
+<script type="text/javascript">
+	$("#header").load("../../../head.html");
+	$("#lnb").load("../../../lnb.html");	
+
+	$(".ex-more a").click(function() {
+		$( this ).find("span").toggle();
+		$( this ).parent().siblings(".ex-body").slideToggle();
+		return false;
+	});
+
+	$(".icon-more a").click(function() {
+		$( this ).find("span").toggle();
+		$( this ).parent().siblings(".ex-body").slideToggle();
+		return false;
+	});
+</script>
+
+</body>
+</html>

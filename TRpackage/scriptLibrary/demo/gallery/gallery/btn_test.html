@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>on demo</title>
+  <style>
+  p {
+    background: yellow;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5px;
+  }
+  p.over {
+    background: #ccc;
+  }
+  span {
+    color: red;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+
+<div class="pagination">
+	<ul>
+	</ul>
+</div>
+
+ 
+<script>
+
+
+$( "body .pagination ul" ).on( "click",".dots a",function($e,$name){				
+	//activeFn( $(this).parent().index() );
+	console.log(">> "+ $(this).parent().index() );
+})
+
+
+
+for(var $i=0 ; $i<10 ; ++$i ){			
+	$(".pagination ul").prepend( "<li class='dots'><a href='#'>클릭</a></li>" );
+}
+</script>
+ 
+</body>
+</html>

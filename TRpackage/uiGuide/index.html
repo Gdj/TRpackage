@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+<title>스타일 가이드</title>
+<link rel="stylesheet" href="../asset/css/common.css" type="text/css" media="all" />
+<script type="text/javascript" src="../asset/js/libs/jquery-1.12.1.min.js" ></script>
+<script type="text/javascript" src="../asset/js/libs/trpMenu.js"></script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-140517578-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'UA-140517578-1');
+	</script>
+</head>
+  <div id="header" ></div>
+  <div id="container">
+	<div id="lnb" class="gnb"></div>
+	<div id="contents" class="contents">
+		<div class="infor_box">
+			<div class="desc_wapper">
+				<h1 class="desc_title">개요</h1>
+				<p>
+                    TRpackage 내에서 새로운 규칙을 재정의 하여 유대감을 높이는데 목적이 있습니다. <br>
+				    규칙 변경은 사용자의 의견을 통해 반영 될 수 있으며, 공표 되기 전까지 기존 규칙을 따릅니다.
+				</p>
+			</div>
+			<p><a href="http://turfrain.tistory.com/entry/TR-package-QA" target="_blank"><strong>TR package Q&amp;A</strong></a>를 통해 보완및 개선 할 점을 알려 주세요.</p>			
+		</div>
+		<div class="infor_box">
+			<h2> 규칙 </h2>		
+			<ul class="list">
+				<li class="blt_con">
+				    margin,padding은 right, bottom을 우선적으로 적용되며, 
+				    border는 top, left가 우선적으로 적용됩니다.
+				</li>			
+			</ul>	
+		</div>
+
+
+
+
+	</div>
+  </div>
+
+
+<script type="text/javascript">
+	$("#header").load("head.html");
+	$("#lnb").load("lnb.html");
+</script>
+
+</html>

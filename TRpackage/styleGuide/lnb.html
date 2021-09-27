@@ -1,0 +1,188 @@
+
+<script type="text/javascript">
+	
+$(document).ready(function(){
+
+	$(".dep2-more a").click(function() {
+		$( this ).find("span").toggle();								// 버튼
+		$( this ).parent().parent().siblings(".sublist").slideToggle();	// 컨텐츠
+		return false;
+	});
+
+	/* 겟값 받기 */
+	var $_GET = {};
+		location.search.replace(/([^=&?]+)=([^&]+)/gi, function (a, b, c) {
+		 $_GET[decodeURIComponent(b)] = decodeURIComponent(c);
+	});	
+	
+	var _dep1, _dep2;
+	if($_GET.dep1){	_dep1 = $_GET.dep1; 	}else{ 		_dep1 = -1;	 	}
+	if($_GET.dep2){	_dep2 = $_GET.dep2; 	}else{ 		_dep2 = -1;	 	}
+	
+	function lnbActive(){
+		if(_dep1 == "-1"){ return false;}
+		$( ".mn_2depth" ).eq(_dep1).find(".dep2-more a span").toggle();				// 버튼
+		$( ".mn_2depth" ).eq(_dep1).find(".sublist").slideToggle();		// 컨텐츠	
+
+		if(_dep2 == "-1"){ return false;}
+		$(".list .mn_2depth .sublist li").removeClass("on");
+		$(".list .mn_2depth").eq(_dep1).find(".sublist li").eq(_dep2).addClass("on");
+	}
+
+	lnbActive();
+
+});// ready
+
+</script> 
+
+  	<h1 class="nav_h1"><a href="/TRpackage/styleGuide/index.html"><span>스타일 가이드</span></a></h1>
+  	<ul class="list">
+		<!-- dep1=0 : reset -->
+		<li class="mn_2depth">
+			<h2 class="nav_h2"><span>resetCSS & baseHTML</span><p class="dep2-more" ><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p></h2>
+			<ul class="sublist">
+				<li><a href="/TRpackage/styleGuide/demo/reset/web-reset/default.html?dep1=0&dep2=0"	 >web-reset *(수정)</a></li>
+				<li><a href="/TRpackage/styleGuide/demo/reset/mobile-reset/default.html?dep1=0&dep2=1">mobil-reset *</a></li>
+				<li><a href="/TRpackage/styleGuide/demo/reset/simple/default.html?dep1=0&dep3=1">import</a></li>
+			</ul>
+		</li>
+
+		<!-- dep1=1 : layout -->
+		<li class="mn_2depth">
+			<h2 class="nav_h2"><span>layout</span><p class="dep2-more" ><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p></h2>
+			<ul class="sublist">
+				<li><a href="/TRpackage/styleGuide/demo/layout/main/default.html?dep1=1&dep2=0"	><img src="/TRpackage/asset/images/icon_triple.png" alt="main" /> main </a></li>
+				<li><a href="/TRpackage/styleGuide/demo/layout/sub/default.html?dep1=1&dep2=1"	><img src="/TRpackage/asset/images/icon_quarter.png" alt="sub" /> sub  </a></li>
+				<li><a href="/TRpackage/styleGuide/demo/layout/list-box/default.html?dep1=1&dep2=2"	>list-box  </a></li>
+				<li><a href="/TRpackage/styleGuide/demo/layout/ratio/default.html?dep1=1&dep2=3"	>ratio(비율적용) </a></li>			
+				<li><a href="/TRpackage/styleGuide/demo/layout/scrollbar/default.html?dep1=1&dep2=4"	>scollber </a></li>
+				<li><a href="/TRpackage/styleGuide/demo/layout/align/default.html?dep1=1&dep2=5"	>align </a></li>
+			</ul>
+		</li>
+		<!-- dep1=2 : navigation -->
+		<li class="mn_2depth">
+			<h2 class="nav_h2"><span>navigation</span><p class="dep2-more" ><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p></h2>
+			<ul class="sublist">
+				<li><a href="/TRpackage/styleGuide/demo/navigation/button/default.html?dep1=2&dep2=0"	>button</a></li>
+				<li><a href="/TRpackage/styleGuide/demo/navigation/toolbar/default.html?dep1=2&dep2=1"	>toolbar</a></li>
+			</ul>
+		</li>
+
+		<!-- dep1=3 : text-->
+		<li class="mn_2depth">
+			<h2 class="nav_h2"><span>text</span><p class="dep2-more" ><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p></h2>
+			<ul class="sublist">
+				<li><a href="/TRpackage/styleGuide/demo/text/heading/default.html?dep1=3&dep2=0"	>heading *</a></li>
+				<li><a href="/TRpackage/styleGuide/demo/text/list-dot/default.html?dep1=3&dep2=1"  >list-dot *</a></li>
+				<li><a href="/TRpackage/styleGuide/demo/text/reduction/default.html?dep1=3&dep2=2" >말줄임 *</a></li>
+				<!--
+				<li><a href="/TRpackage/styleGuide/demo/text/p/default.html?dep1=3&dep2=3"			>p</a></li>
+				<li><a href="/TRpackage/styleGuide/demo/text/label/default.html?dep1=3&dep2=1"		>label</a></li>
+				<li><a href="/TRpackage/styleGuide/demo/text/input/default.html?dep1=3&dep2=2"		>input</a></li>
+				-->
+			</ul>
+		</li>
+
+
+		<!-- dep1=4 : from -->
+		<li class="mn_2depth">
+			<h2 class="nav_h2"><span>form</span><p class="dep2-more" ><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p></h2>
+			<ul class="sublist">
+				<li><a href="/TRpackage/styleGuide/demo/form/text/default.html?dep1=4&dep2=0"	>:text</a></li>
+				<li><a href="/TRpackage/styleGuide/demo/form/select/default.html?dep1=4&dep2=1"	>:select</a></li>
+				<li><a href="/TRpackage/styleGuide/demo/form/radio/default.html?dep1=4&dep2=2"	>:radio</a></li>
+				<li><a href="/TRpackage/styleGuide/demo/form/checkbox/default.html?dep1=4&dep2=3"	>:checkbox</a></li>				
+				<li><a href="/TRpackage/styleGuide/demo/form/textarea/default.html?dep1=4&dep2=4"	>:textarea</a></li>
+				<li><a href="/TRpackage/styleGuide/demo/form/file/default.html?dep1=4&dep2=5"	>:file</a></li>
+				<li><a href="/TRpackage/styleGuide/demo/form/membership_form/default.html?dep1=4&dep2=6">- [ membership_form ]</a></li>
+			</ul>
+		</li>
+		
+		<!-- dep1=5 : table -->
+		<li class="mn_2depth">
+			<h2 class="nav_h2"><span>table</span><p class="dep2-more" ><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p></h2>
+			<ul class="sublist">
+				<li><a href="/TRpackage/styleGuide/demo/table/table-data/default.html?dep1=5&dep2=0"	>data 형*</a></li>
+				<!--
+				<li><a href="/TRpackage/styleGuide/demo/table/table-list/default.html?dep1=5&dep2=1"	>list 형</a></li>	
+				<li><a href="/TRpackage/styleGuide/demo/table/table-caption/default.html?dep1=5&dep2=2" >caption</a></li>
+				<li><a href="/TRpackage/styleGuide/demo/table/thead_tbody/default.html?dep1=5&dep2=3"			>thead/tbody</a></li>
+				-->
+				
+			</ul>
+		</li>
+
+		<!-- dep1=6 : board -->
+		<li class="mn_2depth">
+			<h2 class="nav_h2"><span>board</span><p class="dep2-more" ><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p></h2>
+			<ul class="sublist">
+				<li><a href="/TRpackage/styleGuide/demo/board/board-table/default.html?dep1=6&dep2=0"	>board-table 형*</a></li>
+				<li><a href="/TRpackage/styleGuide/demo/board/board-list/default.html?dep1=6&dep2=1"		>board-list 형*</a></li>
+				<li><a href="/TRpackage/styleGuide/demo/board/board-pagination/default.html?dep1=6&dep2=2"		>board-page *</a></li>
+				<!-- 
+				<li><a href="/TRpackage/styleGuide/demo/board/board-block/default.html?dep1=6&dep2=1"	>board-block 형</a></li> -->
+			</ul>
+		</li>
+
+		<!-- dep1=7 : popup -->
+		<li class="mn_2depth">
+			<h2 class="nav_h2"><span>popup</span><p class="dep2-more" ><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p></h2>
+			<ul class="sublist">
+				<li><a href="/TRpackage/styleGuide/demo/popup/popup-layer/default.html?dep1=7&dep2=0"			>popup-layer *</a></li>
+				<li><a href="/TRpackage/styleGuide/demo/popup/popup-today/default.html?dep1=7&dep2=1"			>popup-today *</a></li>
+			</ul>
+		</li>
+		
+		<!-- dep1=8 : accessibility -->
+		<li class="mn_2depth">
+			<h2 class="nav_h2"><span>accessibility</span><p class="dep2-more" ><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p></h2>
+			<ul class="sublist">
+				<li><a href="/TRpackage/styleGuide/demo/accessibility/skip-menu/default.html?dep1=8&dep2=0"	>skip-menu *</a></li>
+				<li><a href="/TRpackage/styleGuide/demo/accessibility/bg-alt/default.html?dep1=8&dep2=1"	>bg-alt *</a></li>
+				<li><a href="/TRpackage/styleGuide/demo/accessibility/img-alt/default.html?dep1=8&dep2=2"	>img-alt *</a></li>
+			</ul>
+		</li>
+		
+		<!-- dep1=9 : css3-->
+		<li class="mn_2depth">
+			<h2 class="nav_h2"><span>css3</span><p class="dep2-more" ><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p></h2>
+			<ul class="sublist">
+				<li><a href="/TRpackage/styleGuide/demo/css3/shadow/default.html?dep1=9&dep2=0"			>shadow</a></li>
+				<li><a href="/TRpackage/styleGuide/demo/css3/shape/default.html?dep1=9&dep2=1"			>shape</a></li>
+				<li><a href="/TRpackage/styleGuide/demo/css3/loader/default.html?dep1=9&dep2=2"			>loader</a></li>
+				<li><a href="/TRpackage/styleGuide/demo/css3/progress/default.html?dep1=9&dep2=3"		>progress</a></li>
+				<li><a href="/TRpackage/styleGuide/demo/css3/motion/default.html?dep1=9&dep2=4"			>motion</a></li>
+				<li><a href="/TRpackage/styleGuide/demo/css3/flip/default.html?dep1=9&dep2=5"			>flip motion</a></li>
+				<li><a href="/TRpackage/styleGuide/demo/css3/slash/default.html?dep1=9&dep2=6"			>slash</a></li>
+			</ul>
+		</li>
+		
+		<!-- dep1=10 : css3_btn -->
+		<li class="mn_2depth">
+			<h2 class="nav_h2"><span>css3_btn</span><p class="dep2-more" ><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p></h2>
+			<ul class="sublist">
+				<li><a href="/TRpackage/styleGuide/demo/css3_btn/switch/default.html?dep1=10&dep2=0"	>switch</a></li>
+				<li><a href="/TRpackage/styleGuide/demo/css3_btn/material/default.html?dep1=10&dep2=1"	>material</a></li>
+				
+			</ul>
+		</li>
+		
+		<!-- dep1=11 : svg 	-->
+		<li class="mn_2depth">
+			<h2 class="nav_h2"><span>svg</span><p class="dep2-more" ><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p></h2>
+			<ul class="sublist">				
+				<li><a href="/TRpackage/styleGuide/demo/svg/dot-motion/default.html?dep1=11&dep2=1"			>dot motion</a></li>	<li><a href="/TRpackage/styleGuide/demo/svg/hover-motion/default.html?dep1=11&dep2=1"			>hover motion</a></li>
+			</ul>
+		</li>
+
+		<!-- dep1=12 : icon-->
+		<li class="mn_2depth">
+			<h2 class="nav_h2"><span>icon</span><p class="dep2-more" ><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p></h2>
+			<ul class="sublist">
+				<li><a href="/TRpackage/styleGuide/demo/icon/icon18/default.html?dep1=12&dep2=0"			>icon18 *</a></li>
+			</ul>
+		</li>
+
+		
+    </ul>
+

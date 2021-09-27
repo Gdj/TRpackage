@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>    
+  <meta charset="UTF-8">
+  <title>tab_menu</title>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript" src="../../../../asset/js/libs/trpMenu.js"></script>
+  <style type="text/css">		
+    .tabs { display: inline-block; position:relative; margin:0; padding:0; width:800px; }
+    .tabs li { display:inline; width:100%;  list-style:none; }	
+    .tabs li a{ position:absolute; width:80px; height:30px; display:block;
+      text-decoration:none; text-align: center; line-height:2; color:#000; background-color: #ccc  }	
+    .tabs li a.btn0{ top:0; left:0; }
+    .tabs li a.btn1{ top:0; left:80px; }
+    .tabs li a.btn2{ top:0; left:160px; }
+    .tabs li .cons{ width:100%; margin-top:30px; margin-left:0px; left:0px; border: 1px solid #ccc; padding:0 10px}	
+    .tabs li.on a { background-color: #fee; }							/* 활성화 색 */		
+  </style>
+  <script type="text/javascript">
+    $(document).ready(function(){       		
+      $(".tabs").trpTabMenu(".btn",".cons" ,"on");    					// on 이름은 변경 가능.
+      //$(".tabs").trpTabMenu(".btn",".cons" ,"on").setBtn(1);    		// on 이름은 변경 가능.
+    }) // ready 
+  </script>
+</head>
+<body>
+
+  <div class="tabContainer">
+    <ul class="tabs">
+      <li><a href="#first" class="btn btn0">first</a>
+        <div id="first" class="cons" >
+          <h2>First</h2>
+          <p>첫번째 내용 첫번째 내용 첫번째 내용 첫번째 내용 <br />
+            첫번째 내용 첫번째 내용 첫번째 내용 첫번째 내용 <br />
+            첫번째 내용 첫번째 내용 첫번째 내용 첫번째 내용 <br />
+          </p>
+        </div>
+      </li>
+      <li><a href="#secound" class="btn btn1"> secound</a>
+        <div id="secound"  class="cons" >
+          <h2>Secound</h2>
+          <p>두번째 내용 두번째 내용 두번째 내용 두번째 내용 두번째 내용 두번째 <br />
+            두번째 내용 두번째 내용 두번째 내용 두번째 내용 두번째 내용 두번째 <br />
+            두번째 내용 두번째 내용 두번째 내용 두번째 내용 두번째 내용 두번째 <br />
+            두번째 내용 두번째 내용 두번째 내용 두번째 내용 두번째 내용 두번째 <br />
+            두번째 내용 두번째 내용 두번째 내용 두번째 내용 두번째 내용 두번째 <br />
+          </p>
+        </div>
+      </li>
+      <li><a href="#third" class="btn btn2">third</a>
+        <div id="third"  class="cons" >
+          <h2>Third</h2>
+          <p>세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 <br />
+            세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 <br />
+            세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 <br />
+            세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 <br />
+            세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 <br />
+            세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 <br />
+            세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 <br />
+          </p>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div>--------------------------</div>
+</body>
+</html>

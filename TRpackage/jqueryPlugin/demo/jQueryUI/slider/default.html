@@ -1,0 +1,688 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+<title> jqueryUI slider | TR package</title>
+<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="../../../../asset/js/libs/trpMenu.js"></script>
+<link rel="stylesheet" href="../../../../asset/css/common.css" type="text/css" media="all" />
+
+
+</head>
+<body>
+  <div id="header" ></div>
+  <div id="container">
+	<div id="lnb" class="gnb"></div>
+	<!-- s: 컨텐츠 시작 -->
+	<div id="contents" class="contents">
+		<!-- s: 스크립드 설명 -->
+		<div class="desc_wapper">
+			<h1 class="desc_title">slider</h1>
+			<p>jQuery slider로 드래그 가능한 컨트롤러로 만들어 다양한 컨트롤러를 만들수 있습니다.</p>
+		</div>
+		<!-- e: 스크립드 설명 -->
+	
+		<!-- s: api 설명 -->
+		<div class="api">
+			<h2 class="api-title">.slider( option )</h2>
+			<div class="api-body">
+				<dl>
+					<dt>설명</dt>
+					<dd><span class="icon"></span>기본 위치값은 CSS 에서 설정해야합니다.</dd>
+					<dd><span class="icon"></span>슬라이더 옵션 정의</dd>					
+				</dl>
+				<table class="table_col" summary="slider속성, 메소드">
+					<caption>slider 설명</caption>
+					<colgroup>
+						<col width="150">
+						<col width="">		
+					</colgroup>
+					<tbody>
+					<tr>
+						<th scope="col">매개변수</th>
+						<th scope="col">매개변수 설명</th>
+					</tr>
+					<tr>
+						<td>orientation</td>
+						<td>기본값"horizontal"이며 가로로 슬라이더 생성 ,"vertical"이면 세로로 생성  </td>		
+					</tr>
+					<tr>
+						<td>range</td>
+						<td>슬라이더 범위를 나타낼지를 정합니다.<br />
+							기본값"false"이며 최소값 에서부터 선택되며 ,"true"이면 최대값 에서부터 선택된다.  <br />
+							문자열일때는 "min", "max" 최소, 최대 값
+						</td>		
+					</tr>
+					<tr>
+						<td>min</td>
+						<td>기본값 : 0 , 시작 값을 정할수 있습니다. </td>		
+					</tr>
+					<tr>
+						<td>max</td>
+						<td>기본값 : 100 , 최대 값을 정할수 있습니다. </td>			
+					</tr>
+					<tr>
+						<td>value</td>
+						<td>기본값 : 0 이며 , 현제 값을 지정, 알아낼수있습니다. </td>		
+					</tr>
+					<tr>
+						<td>values</td>
+						<td>기본값 : null 이며, 다수의 핸들러가 있을경우 최소 최대값을 배열로 지정할 수있습니다. </td>		
+					</tr>
+					<tr>
+						<td>step</td>
+						<td>증감값을 정의 할수있다.</td>		
+					</tr>
+					
+					</tbody>
+				</table>
+		
+
+				<table class="table_col" summary="slider events">
+					<caption>events 설명</caption>
+					<colgroup>
+						<col width="150">
+						<col width="">		
+					</colgroup>
+					<tbody>
+					<tr>
+						<th scope="col">이벤트 이름</th>
+						<th scope="col">이벤트 설명</th>
+					</tr>
+
+					<tr>
+						<td>slide</td>
+						<td>슬라이드가 일어날때 마다 호출 	  <br />
+							slide : function name <br />
+							function( event, ui )
+						</td>		
+					</tr>
+					<tr>
+						<td>change</td>
+						<td>value값이 변화가 있을때 마다 호출  <br />
+							change : function name <br />
+							function( event, ui )
+						</td>
+					</tr>
+					
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+
+		<!-- s: examples 예제 -->
+		<div class="ex_wapper">
+			<div class="section">
+				<h2 class="ex-title">예제) 1. 기본사용법 </h2>
+				<p class="ex-more" ><a href="javascript:return false;"><span>+</span><span style="display:none">-</span></a></p>
+				<p class="ex-view" ><a href="ex01.html" target="_blank">View</a></p>
+				<div class="ex-body" style="display:none">					
+					<div class="source"><!-- 소스 -->
+					
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</span>
+<span style="color: #f92672">&lt;html</span> <span style="color: #a6e22e">xmlns=</span><span style="color: #e6db74">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span style="color: #a6e22e">lang=</span><span style="color: #e6db74">&quot;ko&quot;</span> <span style="color: #a6e22e">xml:lang=</span><span style="color: #e6db74">&quot;ko&quot;</span><span style="color: #f92672">&gt;</span>
+<span style="color: #f92672">&lt;head&gt;</span>
+<span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">http-equiv=</span><span style="color: #e6db74">&quot;Content-Type&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;text/html;charset=utf-8&quot;</span> <span style="color: #f92672">/&gt;</span> 
+ <span style="color: #f92672">&lt;head&gt;</span>
+  <span style="color: #f92672">&lt;title&gt;</span> jQuery UI Slider <span style="color: #f92672">&lt;/title&gt;</span>
+  <span style="color: #75715e">&lt;!-- </span>
+<span style="color: #75715e">  &lt;link rel=&quot;stylesheet&quot; href=&quot;//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css&quot;&gt;</span>
+<span style="color: #75715e">  &lt;script src=&quot;//code.jquery.com/jquery-1.10.2.js&quot;&gt;&lt;/script&gt;</span>
+<span style="color: #75715e">  &lt;script src=&quot;//code.jquery.com/ui/1.10.4/jquery-ui.js&quot;&gt;&lt;/script&gt;</span>
+<span style="color: #75715e">  --&gt;</span>	
+
+	<span style="color: #f92672">&lt;link</span> <span style="color: #a6e22e">rel=</span><span style="color: #e6db74">&quot;stylesheet&quot;</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/jquery-ui-1.10.4.custom/themes/base/jquery.ui.all.css&quot;</span><span style="color: #f92672">&gt;</span>
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;//code.jquery.com/jquery-1.9.1.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>	
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/jquery-ui-1.10.4.custom/ui/jquery.ui.core.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/jquery-ui-1.10.4.custom/ui/jquery.ui.widget.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/jquery-ui-1.10.4.custom/ui/jquery.ui.mouse.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/jquery-ui-1.10.4.custom/ui/jquery.ui.slider.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+
+	<span style="color: #f92672">&lt;style </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/css&quot;</span><span style="color: #f92672">&gt;</span>
+	<span style="color: #75715e">/* 공통 스타일 */</span>		
+	<span style="color: #f92672">body</span> <span style="color: #f8f8f2">{</span>	<span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">62</span><span style="color: #f92672">.</span><span style="color: #ae81ff">5</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> 	<span style="color: #66d9ef">font-family</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;Trebuchet MS&quot;</span><span style="color: #f92672">,</span> <span style="color: #e6db74">&quot;Arial&quot;</span><span style="color: #f92672">,</span> <span style="color: #e6db74">&quot;Helvetica&quot;</span><span style="color: #f92672">,</span> <span style="color: #e6db74">&quot;Verdana&quot;</span><span style="color: #f92672">,</span> <span style="color: #e6db74">&quot;sans-serif&quot;</span><span style="color: #f8f8f2">;</span> 	<span style="color: #f8f8f2">}</span>
+	<span style="color: #f92672">table</span> <span style="color: #f8f8f2">{</span>	<span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">1em</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+	
+	<span style="color: #75715e">/* 스타일 */</span>
+	
+
+	<span style="color: #f92672">&lt;/style&gt;</span>
+
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span><span style="color: #f92672">&gt;</span>
+	  <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
+		
+		 <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span> <span style="color: #e6db74">&quot;#slider1&quot;</span> <span style="color: #f8f8f2">).</span><span style="color: #a6e22e">slider</span><span style="color: #f8f8f2">();</span>
+
+	  <span style="color: #f8f8f2">});</span>
+	<span style="color: #f92672">&lt;/script&gt;</span>
+
+<span style="color: #f92672">&lt;/head&gt;</span>
+	<span style="color: #f92672">&lt;body&gt;</span>
+ 
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;slider1&quot;</span><span style="color: #f92672">&gt;&lt;/div&gt;</span>
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;slider2&quot;</span><span style="color: #f92672">&gt;&lt;/div&gt;</span>
+
+
+	<span style="color: #f92672">&lt;/body&gt;</span>
+<span style="color: #f92672">&lt;/html&gt;</span>
+</pre></td></tr></table></div>
+
+
+
+				
+					</div><!--// 소스 -->
+				<div>
+			</div>			
+		</div>
+		<!-- e: examples 예제 -->
+
+
+		<!-- s: examples 예제 -->
+		<div class="ex_wapper">
+			<div class="section">
+				<h2 class="ex-title">예제) 2.(css , value  )</h2>
+				<p class="ex-more" ><a href="javascript:return false;"><span>+</span><span style="display:none">-</span></a></p>
+				<p class="ex-view" ><a href="ex02.html" target="_blank">View</a></p>
+				<div class="ex-body" style="display:none">					
+					<div class="source"><!-- 소스 -->
+					
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</span>
+<span style="color: #f92672">&lt;html</span> <span style="color: #a6e22e">xmlns=</span><span style="color: #e6db74">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span style="color: #a6e22e">lang=</span><span style="color: #e6db74">&quot;ko&quot;</span> <span style="color: #a6e22e">xml:lang=</span><span style="color: #e6db74">&quot;ko&quot;</span><span style="color: #f92672">&gt;</span>
+<span style="color: #f92672">&lt;head&gt;</span>
+<span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">http-equiv=</span><span style="color: #e6db74">&quot;Content-Type&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;text/html;charset=utf-8&quot;</span> <span style="color: #f92672">/&gt;</span> 
+ <span style="color: #f92672">&lt;head&gt;</span>
+  <span style="color: #f92672">&lt;title&gt;</span> jQuery UI Slider  <span style="color: #f92672">&lt;/title&gt;</span>
+  <span style="color: #75715e">&lt;!-- </span>
+<span style="color: #75715e">  &lt;link rel=&quot;stylesheet&quot; href=&quot;//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css&quot;&gt;</span>
+<span style="color: #75715e">  &lt;script src=&quot;//code.jquery.com/jquery-1.10.2.js&quot;&gt;&lt;/script&gt;</span>
+<span style="color: #75715e">  &lt;script src=&quot;//code.jquery.com/ui/1.10.4/jquery-ui.js&quot;&gt;&lt;/script&gt;</span>
+<span style="color: #75715e">  --&gt;</span>	
+
+	<span style="color: #f92672">&lt;link</span> <span style="color: #a6e22e">rel=</span><span style="color: #e6db74">&quot;stylesheet&quot;</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/jquery-ui-1.10.4.custom/themes/base/jquery.ui.all.css&quot;</span><span style="color: #f92672">&gt;</span>
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;//code.jquery.com/jquery-1.9.1.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>	
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/jquery-ui-1.10.4.custom/ui/jquery.ui.core.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/jquery-ui-1.10.4.custom/ui/jquery.ui.widget.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/jquery-ui-1.10.4.custom/ui/jquery.ui.mouse.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/jquery-ui-1.10.4.custom/ui/jquery.ui.slider.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+
+	<span style="color: #f92672">&lt;style </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/css&quot;</span><span style="color: #f92672">&gt;</span>
+	<span style="color: #75715e">/* 공통 스타일 */</span>		
+	<span style="color: #f92672">body</span> <span style="color: #f8f8f2">{</span>	<span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">62</span><span style="color: #f92672">.</span><span style="color: #ae81ff">5</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> 	<span style="color: #66d9ef">font-family</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;Trebuchet MS&quot;</span><span style="color: #f92672">,</span> <span style="color: #e6db74">&quot;Arial&quot;</span><span style="color: #f92672">,</span> <span style="color: #e6db74">&quot;Helvetica&quot;</span><span style="color: #f92672">,</span> <span style="color: #e6db74">&quot;Verdana&quot;</span><span style="color: #f92672">,</span> <span style="color: #e6db74">&quot;sans-serif&quot;</span><span style="color: #f8f8f2">;</span> 	<span style="color: #f8f8f2">}</span>
+	<span style="color: #f92672">table</span> <span style="color: #f8f8f2">{</span>	<span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">1em</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+	
+	<span style="color: #75715e">/* 스타일 */</span>
+	<span style="color: #a6e22e">#slider1</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">float</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">left</span><span style="color: #f8f8f2">;</span>  <span style="color: #66d9ef">clear</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">left</span><span style="color: #f8f8f2">;</span>  <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">300px</span><span style="color: #f8f8f2">;</span>  <span style="color: #66d9ef">margin</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">15px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+	<span style="color: #a6e22e">#slider1</span> <span style="color: #a6e22e">.ui-slider-range</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">background</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#ef2929</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+	<span style="color: #a6e22e">#slider1</span> <span style="color: #a6e22e">.ui-slider-handle</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">border-color</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#ef2929</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+	<span style="color: #f92672">&lt;/style&gt;</span>
+
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span><span style="color: #f92672">&gt;</span>
+	  <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
+
+	   <span style="color: #66d9ef">function</span> <span style="color: #a6e22e">refreshSwatch</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">event</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">ui</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+		<span style="color: #66d9ef">var</span> <span style="color: #a6e22e">_value</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span> <span style="color: #e6db74">&quot;#slider1&quot;</span> <span style="color: #f8f8f2">).</span><span style="color: #a6e22e">slider</span><span style="color: #f8f8f2">(</span> <span style="color: #e6db74">&quot;value&quot;</span> <span style="color: #f8f8f2">);</span>			<span style="color: #75715e">// == ui.value</span>
+
+			<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span> <span style="color: #e6db74">&quot;#amount&quot;</span> <span style="color: #f8f8f2">).</span><span style="color: #a6e22e">val</span><span style="color: #f8f8f2">(</span> <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span> <span style="color: #e6db74">&quot;#slider1&quot;</span> <span style="color: #f8f8f2">).</span><span style="color: #a6e22e">slider</span><span style="color: #f8f8f2">(</span> <span style="color: #e6db74">&quot;value&quot;</span> <span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">);</span>
+			<span style="color: #75715e">//console.log(&quot;value : &quot;+ _value)</span>
+			<span style="color: #a6e22e">console</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">log</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">event</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">type</span>  <span style="color: #f92672">+</span><span style="color: #e6db74">&quot; value : &quot;</span><span style="color: #f92672">+</span> <span style="color: #a6e22e">ui</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">value</span><span style="color: #f8f8f2">)</span>
+
+	   <span style="color: #f8f8f2">}</span>
+
+		<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;#slider1&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">slider</span><span style="color: #f8f8f2">({</span>
+		  <span style="color: #a6e22e">orientation</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;horizontal&quot;</span><span style="color: #f8f8f2">,</span>
+		  <span style="color: #a6e22e">range</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;min&quot;</span><span style="color: #f8f8f2">,</span>
+		  <span style="color: #a6e22e">min</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span>
+		  <span style="color: #a6e22e">max</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f8f8f2">,</span>
+		  <span style="color: #a6e22e">value</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">50</span><span style="color: #f8f8f2">,</span>
+		  <span style="color: #a6e22e">step</span><span style="color: #f92672">:</span><span style="color: #ae81ff">5</span><span style="color: #f8f8f2">,</span>
+		  <span style="color: #a6e22e">slide</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">refreshSwatch</span><span style="color: #f8f8f2">,</span>
+		  <span style="color: #a6e22e">change</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">refreshSwatch</span>
+		<span style="color: #f8f8f2">});</span>
+
+		<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span> <span style="color: #e6db74">&quot;#slider1&quot;</span> <span style="color: #f8f8f2">).</span><span style="color: #a6e22e">slider</span><span style="color: #f8f8f2">(</span> <span style="color: #e6db74">&quot;value&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">100</span> <span style="color: #f8f8f2">);</span>
+		
+
+	  <span style="color: #f8f8f2">});</span>
+	<span style="color: #f92672">&lt;/script&gt;</span>
+
+<span style="color: #f92672">&lt;/head&gt;</span>
+	<span style="color: #f92672">&lt;body&gt;</span>
+		<span style="color: #f92672">&lt;p&gt;</span>
+		  <span style="color: #f92672">&lt;label</span> <span style="color: #a6e22e">for=</span><span style="color: #e6db74">&quot;amount&quot;</span><span style="color: #f92672">&gt;</span>값 : <span style="color: #f92672">&lt;/label&gt;</span>
+		  <span style="color: #f92672">&lt;input</span> <span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text&quot;</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;amount&quot;</span> <span style="color: #a6e22e">readonly</span> <span style="color: #a6e22e">style=</span><span style="color: #e6db74">&quot;border:0; color:#f6931f; font-weight:bold;&quot;</span><span style="color: #f92672">&gt;</span>
+		<span style="color: #f92672">&lt;/p&gt;</span>
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;slider1&quot;</span><span style="color: #f92672">&gt;&lt;/div&gt;</span>
+	<span style="color: #f92672">&lt;/body&gt;</span>
+<span style="color: #f92672">&lt;/html&gt;</span>
+</pre></td></tr></table></div>
+
+
+				
+					</div><!--// 소스 -->
+				<div>
+			</div>			
+		</div>
+		<!-- e: examples 예제 -->
+
+
+		<!-- s: examples 예제 -->
+		<div class="ex_wapper">
+			<div class="section">
+				<h2 class="ex-title">예제) 3. 스크롤바</h2>
+				<p class="ex-more" ><a href="javascript:return false;"><span >+</span><span  style="display:none">-</span></a></p>
+				<p class="ex-view" ><a href="ex03.html" target="_blank">View</a></p>
+				<div class="ex-body"  style="display:none">					
+					<div class="source"><!-- 소스 -->
+
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!doctype html&gt;</span>
+<span style="color: #f92672">&lt;html</span> <span style="color: #a6e22e">lang=</span><span style="color: #e6db74">&quot;en&quot;</span><span style="color: #f92672">&gt;</span>
+<span style="color: #f92672">&lt;head&gt;</span>
+	<span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">charset=</span><span style="color: #e6db74">&quot;utf-8&quot;</span><span style="color: #f92672">&gt;</span>
+	<span style="color: #f92672">&lt;title&gt;</span>jQuery UI Slider - Slider scrollbar<span style="color: #f92672">&lt;/title&gt;</span>
+	<span style="color: #f92672">&lt;link</span> <span style="color: #a6e22e">rel=</span><span style="color: #e6db74">&quot;stylesheet&quot;</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/jquery-ui-1.10.4.custom/themes/base/jquery.ui.all.css&quot;</span><span style="color: #f92672">&gt;</span>
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;//code.jquery.com/jquery-1.9.1.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>	
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/jquery-ui-1.10.4.custom/ui/jquery.ui.core.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/jquery-ui-1.10.4.custom/ui/jquery.ui.widget.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/jquery-ui-1.10.4.custom/ui/jquery.ui.mouse.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/jquery-ui-1.10.4.custom/ui/jquery.ui.slider.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+	<span style="color: #f92672">&lt;style&gt;</span>
+	<span style="color: #f92672">body</span> <span style="color: #f8f8f2">{</span>	<span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">62</span><span style="color: #f92672">.</span><span style="color: #ae81ff">5</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> 	<span style="color: #66d9ef">font-family</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;Trebuchet MS&quot;</span><span style="color: #f92672">,</span> <span style="color: #e6db74">&quot;Arial&quot;</span><span style="color: #f92672">,</span> <span style="color: #e6db74">&quot;Helvetica&quot;</span><span style="color: #f92672">,</span> <span style="color: #e6db74">&quot;Verdana&quot;</span><span style="color: #f92672">,</span> <span style="color: #e6db74">&quot;sans-serif&quot;</span><span style="color: #f8f8f2">;</span> 	<span style="color: #f8f8f2">}</span>
+	<span style="color: #a6e22e">.scroll-pane</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">overflow</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">auto</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">99</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">float</span><span style="color: #f92672">:</span><span style="color: #66d9ef">left</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+	<span style="color: #a6e22e">.scroll-content</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">2440px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">float</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">left</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+	<span style="color: #a6e22e">.scroll-content-item</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">float</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">left</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">margin</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">10px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">3em</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">line-height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">96px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">text-align</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">center</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+	<span style="color: #a6e22e">.scroll-bar-wrap</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">clear</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">left</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span> <span style="color: #ae81ff">4px</span> <span style="color: #ae81ff">0</span> <span style="color: #ae81ff">2px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">margin</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span> <span style="color: #ae81ff">-1px</span> <span style="color: #ae81ff">-1px</span> <span style="color: #ae81ff">-1px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+	<span style="color: #a6e22e">.scroll-bar-wrap</span> <span style="color: #a6e22e">.ui-slider</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">background</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">none</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">border</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">2em</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">margin</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span> <span style="color: #66d9ef">auto</span><span style="color: #f8f8f2">;</span>  <span style="color: #f8f8f2">}</span>
+	<span style="color: #a6e22e">.scroll-bar-wrap</span> <span style="color: #a6e22e">.ui-handle-helper-parent</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">relative</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">margin</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span> <span style="color: #66d9ef">auto</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+	<span style="color: #a6e22e">.scroll-bar-wrap</span> <span style="color: #a6e22e">.ui-slider-handle</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">top</span><span style="color: #f92672">:.</span><span style="color: #ae81ff">2em</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">1.5em</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+	<span style="color: #a6e22e">.scroll-bar-wrap</span> <span style="color: #a6e22e">.ui-slider-handle</span> <span style="color: #a6e22e">.ui-icon</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">margin</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">-8px</span> <span style="color: #66d9ef">auto</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">relative</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">top</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">50</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+	<span style="color: #f92672">&lt;/style&gt;</span>
+	<span style="color: #f92672">&lt;script&gt;</span>
+	<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
+		<span style="color: #75715e">//scrollpane parts</span>
+		<span style="color: #66d9ef">var</span> <span style="color: #a6e22e">scrollPane</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span> <span style="color: #e6db74">&quot;.scroll-pane&quot;</span> <span style="color: #f8f8f2">),</span>				<span style="color: #75715e">// 스크롤 컨테이너 (스크롤 Wapper)</span>
+			<span style="color: #a6e22e">scrollContent</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span> <span style="color: #e6db74">&quot;.scroll-content&quot;</span> <span style="color: #f8f8f2">);</span>			<span style="color: #75715e">// 스크롤 컨텐츠</span>
+
+		<span style="color: #75715e">//build slider</span>
+		<span style="color: #66d9ef">var</span> <span style="color: #a6e22e">scrollbar</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span> <span style="color: #e6db74">&quot;.scroll-bar&quot;</span> <span style="color: #f8f8f2">).</span><span style="color: #a6e22e">slider</span><span style="color: #f8f8f2">({</span>			<span style="color: #75715e">// 스크롤 컨트롤러</span>
+			<span style="color: #a6e22e">slide</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(</span> <span style="color: #a6e22e">event</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">ui</span> <span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+				<span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span> <span style="color: #a6e22e">scrollContent</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">width</span><span style="color: #f8f8f2">()</span> <span style="color: #f92672">&gt;</span> <span style="color: #a6e22e">scrollPane</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">width</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>			<span style="color: #75715e">// 컨텐츠가 스크롤 컨테이너보다 클경우 스클롤생김					</span>
+					<span style="color: #a6e22e">scrollContent</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">css</span><span style="color: #f8f8f2">(</span> <span style="color: #e6db74">&quot;margin-left&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">Math.</span><span style="color: #a6e22e">round</span><span style="color: #f8f8f2">(</span>			<span style="color: #75715e">// 드래그되는 퍼센트로 마진값을 -로밀어넣기</span>
+						<span style="color: #a6e22e">ui</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">value</span> <span style="color: #f92672">/</span> <span style="color: #ae81ff">100</span> <span style="color: #f92672">*</span> <span style="color: #f8f8f2">(</span> <span style="color: #a6e22e">scrollPane</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">width</span><span style="color: #f8f8f2">()</span> <span style="color: #f92672">-</span> <span style="color: #a6e22e">scrollContent</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">width</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">)</span>  <span style="color: #75715e">//  스크롤 컨테이너크기 - 컨텐츠 크기 =</span>
+					<span style="color: #f8f8f2">)</span> <span style="color: #f92672">+</span> <span style="color: #e6db74">&quot;px&quot;</span> <span style="color: #f8f8f2">);</span>
+				
+				<span style="color: #f8f8f2">}</span> <span style="color: #66d9ef">else</span> <span style="color: #f8f8f2">{</span>
+					<span style="color: #a6e22e">scrollContent</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">css</span><span style="color: #f8f8f2">(</span> <span style="color: #e6db74">&quot;margin-left&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">0</span> <span style="color: #f8f8f2">);</span>					
+				<span style="color: #f8f8f2">}</span>
+			<span style="color: #f8f8f2">}</span>
+		<span style="color: #f8f8f2">});</span>
+
+		<span style="color: #75715e">// 마우스 이밴트</span>
+		<span style="color: #66d9ef">var</span> <span style="color: #a6e22e">handleHelper</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">scrollbar</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">find</span><span style="color: #f8f8f2">(</span> <span style="color: #e6db74">&quot;.ui-slider-handle&quot;</span> <span style="color: #f8f8f2">)</span>
+		<span style="color: #f8f8f2">.</span><span style="color: #a6e22e">mousedown</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
+			<span style="color: #a6e22e">scrollbar</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">width</span><span style="color: #f8f8f2">(</span> <span style="color: #a6e22e">handleHelper</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">width</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">);</span>						
+		<span style="color: #f8f8f2">})</span>
+		<span style="color: #f8f8f2">.</span><span style="color: #a6e22e">mouseup</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
+			<span style="color: #a6e22e">scrollbar</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">width</span><span style="color: #f8f8f2">(</span> <span style="color: #e6db74">&quot;100%&quot;</span> <span style="color: #f8f8f2">);</span>
+		<span style="color: #f8f8f2">})</span>
+		<span style="color: #f8f8f2">.</span><span style="color: #a6e22e">append</span><span style="color: #f8f8f2">(</span> <span style="color: #e6db74">&quot;&lt;span class=&#39;ui-icon ui-icon-grip-dotted-vertical&#39;&gt;&lt;/span&gt;&quot;</span> <span style="color: #f8f8f2">)</span>
+		<span style="color: #f8f8f2">.</span><span style="color: #a6e22e">wrap</span><span style="color: #f8f8f2">(</span> <span style="color: #e6db74">&quot;&lt;div class=&#39;ui-handle-helper-parent&#39;&gt;&lt;/div&gt;&quot;</span> <span style="color: #f8f8f2">).</span><span style="color: #a6e22e">parent</span><span style="color: #f8f8f2">();</span>		<span style="color: #75715e">// 스크롤바 생성</span>
+
+		<span style="color: #75715e">// 화면 크기에 벗어나면 컨텐츠가 보이지 않게..</span>
+		<span style="color: #a6e22e">scrollPane</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">css</span><span style="color: #f8f8f2">(</span> <span style="color: #e6db74">&quot;overflow&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;hidden&quot;</span> <span style="color: #f8f8f2">);</span>
+
+		<span style="color: #75715e">// 스크롤바 크기 패널크기에 비례하여 변환</span>
+		<span style="color: #66d9ef">function</span> <span style="color: #a6e22e">sizeScrollbar</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
+			<span style="color: #66d9ef">var</span> <span style="color: #a6e22e">remainder</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">scrollContent</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">width</span><span style="color: #f8f8f2">()</span> <span style="color: #f92672">-</span> <span style="color: #a6e22e">scrollPane</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">width</span><span style="color: #f8f8f2">();</span>			<span style="color: #75715e">// 화면크기 - 컨텐츠크기 = 움직일수이는 거리;</span>
+			<span style="color: #66d9ef">var</span> <span style="color: #a6e22e">proportion</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">remainder</span> <span style="color: #f92672">/</span> <span style="color: #a6e22e">scrollContent</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">width</span><span style="color: #f8f8f2">();</span>					<span style="color: #75715e">// 컨텐츠 보이는 크기에 비례해 스크롤 크기값 계산 퍼센트</span>
+			<span style="color: #66d9ef">var</span> <span style="color: #a6e22e">handleSize</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">scrollPane</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">width</span><span style="color: #f8f8f2">()</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">(</span> <span style="color: #a6e22e">proportion</span> <span style="color: #f92672">*</span> <span style="color: #a6e22e">scrollPane</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">width</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">);</span>	<span style="color: #75715e">// 퍼센트를 스크롤바 실제 크기로</span>
+			
+			<span style="color: #a6e22e">scrollbar</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">find</span><span style="color: #f8f8f2">(</span> <span style="color: #e6db74">&quot;.ui-slider-handle&quot;</span> <span style="color: #f8f8f2">).</span><span style="color: #a6e22e">css</span><span style="color: #f8f8f2">({</span>
+				<span style="color: #a6e22e">width</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">handleSize</span><span style="color: #f8f8f2">,</span>
+				<span style="color: #e6db74">&quot;margin-left&quot;</span><span style="color: #f92672">:</span> <span style="color: #f92672">-</span><span style="color: #a6e22e">handleSize</span> <span style="color: #f92672">/</span> <span style="color: #ae81ff">2</span>
+			<span style="color: #f8f8f2">});</span>
+			<span style="color: #a6e22e">handleHelper</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">width</span><span style="color: #f8f8f2">(</span> <span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f8f8f2">).</span><span style="color: #a6e22e">width</span><span style="color: #f8f8f2">(</span> <span style="color: #a6e22e">scrollbar</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">width</span><span style="color: #f8f8f2">()</span> <span style="color: #f92672">-</span> <span style="color: #a6e22e">handleSize</span> <span style="color: #f8f8f2">);</span>	<span style="color: #75715e">// 크기값 재설정</span>
+		<span style="color: #f8f8f2">}</span>
+
+		<span style="color: #75715e">// 컨텐츠 위치에따라 슬라이터 위치계산 퍼센트로 변환</span>
+		<span style="color: #66d9ef">function</span> <span style="color: #a6e22e">resetValue</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
+			<span style="color: #66d9ef">var</span> <span style="color: #a6e22e">remainder</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">scrollPane</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">width</span><span style="color: #f8f8f2">()</span> <span style="color: #f92672">-</span> <span style="color: #a6e22e">scrollContent</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">width</span><span style="color: #f8f8f2">();</span>			<span style="color: #75715e">// 화면크기 - 컨텐츠크기 = 움직익거리;</span>
+			<span style="color: #66d9ef">var</span> <span style="color: #a6e22e">leftVal</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">scrollContent</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">css</span><span style="color: #f8f8f2">(</span> <span style="color: #e6db74">&quot;margin-left&quot;</span> <span style="color: #f8f8f2">)</span> <span style="color: #f92672">===</span> <span style="color: #e6db74">&quot;auto&quot;</span> <span style="color: #f92672">?</span> <span style="color: #ae81ff">0</span> <span style="color: #f92672">:</span>
+				<span style="color: #f8f8f2">parseInt(</span> <span style="color: #a6e22e">scrollContent</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">css</span><span style="color: #f8f8f2">(</span> <span style="color: #e6db74">&quot;margin-left&quot;</span> <span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">);</span>
+			<span style="color: #66d9ef">var</span> <span style="color: #a6e22e">percentage</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">Math.</span><span style="color: #a6e22e">round</span><span style="color: #f8f8f2">(</span> <span style="color: #a6e22e">leftVal</span> <span style="color: #f92672">/</span> <span style="color: #a6e22e">remainder</span> <span style="color: #f92672">*</span> <span style="color: #ae81ff">100</span> <span style="color: #f8f8f2">);</span>			<span style="color: #75715e">// 움직일거리를 백분율로 저장</span>
+			<span style="color: #a6e22e">scrollbar</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">slider</span><span style="color: #f8f8f2">(</span> <span style="color: #e6db74">&quot;value&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">percentage</span> <span style="color: #f8f8f2">);</span>
+		<span style="color: #f8f8f2">}</span>
+
+		<span style="color: #75715e">// 퍼센트에따라 컨텐츠 위치계산</span>
+		<span style="color: #66d9ef">function</span> <span style="color: #a6e22e">reflowContent</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
+				<span style="color: #66d9ef">var</span> <span style="color: #a6e22e">showing</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">scrollContent</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">width</span><span style="color: #f8f8f2">()</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">parseInt(</span> <span style="color: #a6e22e">scrollContent</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">css</span><span style="color: #f8f8f2">(</span> <span style="color: #e6db74">&quot;margin-left&quot;</span> <span style="color: #f8f8f2">),</span> <span style="color: #ae81ff">10</span> <span style="color: #f8f8f2">);</span>	<span style="color: #75715e">// 컨텐츠크기 + 컨텐츠위치 = 나머지 컨텐트 크기	</span>
+				<span style="color: #66d9ef">var</span> <span style="color: #a6e22e">gap</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">scrollPane</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">width</span><span style="color: #f8f8f2">()</span> <span style="color: #f92672">-</span> <span style="color: #a6e22e">showing</span><span style="color: #f8f8f2">;</span>														<span style="color: #75715e">// 화면크기 - 나머지 컨텐트 크기 = 이동할수있는 거리</span>
+				
+				<span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span> <span style="color: #a6e22e">gap</span> <span style="color: #f92672">&gt;</span> <span style="color: #ae81ff">0</span> <span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>  <span style="color: #75715e">// 컨텐츠가 화변보다 작은경우</span>
+					<span style="color: #a6e22e">scrollContent</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">css</span><span style="color: #f8f8f2">(</span> <span style="color: #e6db74">&quot;margin-left&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">parseInt(</span> <span style="color: #a6e22e">scrollContent</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">css</span><span style="color: #f8f8f2">(</span> <span style="color: #e6db74">&quot;margin-left&quot;</span> <span style="color: #f8f8f2">),</span> <span style="color: #ae81ff">10</span> <span style="color: #f8f8f2">)</span> <span style="color: #f92672">+</span> <span style="color: #a6e22e">gap</span> <span style="color: #f8f8f2">);</span>					
+				<span style="color: #f8f8f2">}</span>
+		<span style="color: #f8f8f2">}</span>
+
+		<span style="color: #75715e">//change handle position on window resize</span>
+		<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span> <span style="color: #f8f8f2">window</span> <span style="color: #f8f8f2">).</span><span style="color: #a6e22e">resize</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
+			<span style="color: #a6e22e">resetValue</span><span style="color: #f8f8f2">();</span>			<span style="color: #75715e">// 스크롤 값을 퍼센트로 변경</span>
+			<span style="color: #a6e22e">sizeScrollbar</span><span style="color: #f8f8f2">();</span>		<span style="color: #75715e">// 스크롤 바 리싸이즈</span>
+			<span style="color: #a6e22e">reflowContent</span><span style="color: #f8f8f2">();</span>		<span style="color: #75715e">// 컨텐츠 위치 </span>
+		<span style="color: #f8f8f2">});</span>
+
+		<span style="color: #75715e">//init scrollbar size</span>
+		<span style="color: #a6e22e">setTimeout</span><span style="color: #f8f8f2">(</span> <span style="color: #a6e22e">sizeScrollbar</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">10</span> <span style="color: #f8f8f2">);</span><span style="color: #75715e">//safari wants a timeout</span>
+	<span style="color: #f8f8f2">});</span>
+	<span style="color: #f92672">&lt;/script&gt;</span>
+<span style="color: #f92672">&lt;/head&gt;</span>
+<span style="color: #f92672">&lt;body&gt;</span>
+
+<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;scroll-pane ui-widget ui-widget-header ui-corner-all&quot;</span><span style="color: #f92672">&gt;</span>
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;scroll-content&quot;</span><span style="color: #f92672">&gt;</span>
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;scroll-content-item ui-widget-header&quot;</span><span style="color: #f92672">&gt;</span>1<span style="color: #f92672">&lt;/div&gt;</span>
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;scroll-content-item ui-widget-header&quot;</span><span style="color: #f92672">&gt;</span>2<span style="color: #f92672">&lt;/div&gt;</span>
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;scroll-content-item ui-widget-header&quot;</span><span style="color: #f92672">&gt;</span>3<span style="color: #f92672">&lt;/div&gt;</span>
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;scroll-content-item ui-widget-header&quot;</span><span style="color: #f92672">&gt;</span>4<span style="color: #f92672">&lt;/div&gt;</span>
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;scroll-content-item ui-widget-header&quot;</span><span style="color: #f92672">&gt;</span>5<span style="color: #f92672">&lt;/div&gt;</span>
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;scroll-content-item ui-widget-header&quot;</span><span style="color: #f92672">&gt;</span>6<span style="color: #f92672">&lt;/div&gt;</span>
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;scroll-content-item ui-widget-header&quot;</span><span style="color: #f92672">&gt;</span>7<span style="color: #f92672">&lt;/div&gt;</span>
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;scroll-content-item ui-widget-header&quot;</span><span style="color: #f92672">&gt;</span>8<span style="color: #f92672">&lt;/div&gt;</span>
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;scroll-content-item ui-widget-header&quot;</span><span style="color: #f92672">&gt;</span>9<span style="color: #f92672">&lt;/div&gt;</span>
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;scroll-content-item ui-widget-header&quot;</span><span style="color: #f92672">&gt;</span>10<span style="color: #f92672">&lt;/div&gt;</span>
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;scroll-content-item ui-widget-header&quot;</span><span style="color: #f92672">&gt;</span>11<span style="color: #f92672">&lt;/div&gt;</span>
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;scroll-content-item ui-widget-header&quot;</span><span style="color: #f92672">&gt;</span>12<span style="color: #f92672">&lt;/div&gt;</span>
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;scroll-content-item ui-widget-header&quot;</span><span style="color: #f92672">&gt;</span>13<span style="color: #f92672">&lt;/div&gt;</span>
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;scroll-content-item ui-widget-header&quot;</span><span style="color: #f92672">&gt;</span>14<span style="color: #f92672">&lt;/div&gt;</span>
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;scroll-content-item ui-widget-header&quot;</span><span style="color: #f92672">&gt;</span>15<span style="color: #f92672">&lt;/div&gt;</span>
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;scroll-content-item ui-widget-header&quot;</span><span style="color: #f92672">&gt;</span>16<span style="color: #f92672">&lt;/div&gt;</span>
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;scroll-content-item ui-widget-header&quot;</span><span style="color: #f92672">&gt;</span>17<span style="color: #f92672">&lt;/div&gt;</span>
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;scroll-content-item ui-widget-header&quot;</span><span style="color: #f92672">&gt;</span>18<span style="color: #f92672">&lt;/div&gt;</span>
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;scroll-content-item ui-widget-header&quot;</span><span style="color: #f92672">&gt;</span>19<span style="color: #f92672">&lt;/div&gt;</span>
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;scroll-content-item ui-widget-header&quot;</span><span style="color: #f92672">&gt;</span>20<span style="color: #f92672">&lt;/div&gt;</span>
+	<span style="color: #f92672">&lt;/div&gt;</span>
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;scroll-bar-wrap ui-widget-content ui-corner-bottom&quot;</span><span style="color: #f92672">&gt;</span>
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;scroll-bar&quot;</span><span style="color: #f92672">&gt;&lt;/div&gt;</span>
+	<span style="color: #f92672">&lt;/div&gt;</span>
+<span style="color: #f92672">&lt;/div&gt;</span>
+
+
+<span style="color: #f92672">&lt;/body&gt;</span>
+<span style="color: #f92672">&lt;/html&gt;</span>
+</pre></td></tr></table></div>
+
+
+				
+					</div><!--// 소스 -->
+				<div>
+			</div>			
+		</div>
+		<!-- e: examples 예제 -->
+
+	</div>
+	<!-- e: 컨텐츠 끝 -->
+</div>
+
+
+
+<script type="text/javascript">
+	$("#header").load("../../../head.html");
+	$("#lnb").load("../../../lnb.html");	
+
+	$(".ex-more a").click(function() {
+		$( this ).find("span").toggle();
+		$( this ).parent().siblings(".ex-body").slideToggle();
+		return false;
+	});
+
+</script>
+
+</body>
+</html>

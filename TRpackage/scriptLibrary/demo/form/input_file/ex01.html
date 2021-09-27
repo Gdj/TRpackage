@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>trpFilestyle</title>
+<style type="text/css">
+	
+</style>
+<!-- <script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js"></script> -->
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.12.1.min.js"></script>
+<script type="text/javascript" src="../../../../asset/js/libs/trpForm.js"></script>
+
+<script type="text/javascript">	 
+  
+
+	$(document).ready(function(){  	 
+ 
+		$("input[type=file].imFile").trpFilestyle({
+			buttonImage :	"./images/search.gif",
+			buttonWidth :	"51px",
+			buttonHeight : 	"24px"			
+		});
+
+
+		$("input[type=file].imFile1").trpFilestyle({	
+			buttonText :	"버튼",
+			buttonWidth :	"51px",
+			buttonHeight : 	"24px"				
+		});			
+		
+	});
+ 
+
+</script>
+
+
+ 
+</head>
+<body>	
+	
+	<div class="wapper">
+		 <div class="input_box">
+			<label for="id_1" id="label_1" class="lbl_in">파일이미지 : </label>
+			<input type="file" id="id_1" name="name" value="" class="imFile">
+		 </div>	 
+		 <div class="input_box">
+			<label for="id_1" id="label_1" class="lbl_in">파일텍스트 : </label>
+			<input type="file" id="id_1" name="name" value="" class="imFile1">
+		 </div>	
+	</div>
+	<br />
+	<hr />
+	<br />
+	<div class="wapper">
+		 <div class="input_box">
+			<label for="id_1" id="label_1" class="lbl_in">파일이미지 : </label>
+			<input type="file" id="id_1" name="name" value="" >
+		 </div>	 
+	</div>
+
+</body>
+</html>

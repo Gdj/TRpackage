@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>TR package U.I 표준 프레임워크 </title>
+<script type="text/javascript" src="../../../asset/js/libs/jquery-1.12.1.js" charset="UTF-8"></script>
+<link rel="stylesheet" href="../../../asset/css/common.css" type="text/css" media="all" />
+</head>
+
+<body>
+	<div id="header" class="head" ></div>
+	<div id="container">
+		<div id="lnb" class="gnb"></div>
+		
+		<!-- s:컨텐츠영역 -->
+		<div id="contents"  class="contents html_rule">
+
+			<h1 class="desc_title">HTML 가이드</h1>
+			<h2 class="h2_tit">기본 규칙</h2>
+			<!-- s:con_comm-->
+			<div class="con_comm">
+				<h3 class="h3_tit">DOCTYPE</h3>
+				<table class="table_col" summary="doctype 선언에 관한 테이블입니다.">
+					<caption>doctype 선언</caption>
+					<colgroup>
+						<col width="100" />
+						<col width="100" />
+						<col width="" />
+					</colgroup>
+				  <tr>
+					<th scope="col">HTML 버전</th>
+					<th scope="col">범주</th>
+					<th scope="col">DOCTYPE</th>
+				  </tr>
+				  <tr>
+					<td rowspan="3">HTML4.01</td>
+					<td>strict</td>
+					<td>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01//EN&quot;     &quot;http://www.w3.org/TR/html4/strict.dtd&quot;&gt;</td>
+				  </tr>
+				  <tr>
+					<td>transitional</td>
+					<td>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;     &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt; <br />
+						&lt;html lang="ko"&gt;
+					</td>
+				  </tr>
+				  <tr>
+					<td>frameset</td>
+					<td>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Frameset//EN&quot;     &quot;http://www.w3.org/TR/html4/frameset.dtd&quot;&gt; </td>
+				  </tr>
+				  <tr>
+					<td rowspan="3">XHTML1.0</td>
+					<td>strict</td>
+					<td>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot;     &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;</td>
+				  </tr>
+				  <tr>
+					<td>transitional</td>
+					<td>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot;     &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt; <br />
+					&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko"&gt;
+					</td>
+				  </tr>
+				  <tr>
+					<td>frameset</td>
+					<td>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Frameset//EN&quot;     &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd&quot;&gt;</td>
+				  </tr>
+				  <tr>
+					<td>XHTML 1.1 </td>
+					<td>없음</td>
+					<td>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+						"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"&gt;	 <br />
+						&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang=“ko“&gt;
+						</td>
+				  </tr>
+				  <tr>
+					<td>HTML5</td>
+					<td>없음</td>
+					<td>&lt;!DOCTYPE HTML&gt; <br />
+						&lt;html lang="ko"&gt; 
+					</td>
+				  </tr>
+				</table>
+				<p class="blt_con bold">strict</p>
+				<p class="indent_con">웹 표준을 엄격하게 지킨다는 의미입니다. center, font를 포함한 14가지 엘리먼트를 사용하지 않습니다.</p>
+				<p class="blt_con bold">transitional</p>
+				<p class="indent_con">strict에 비해 범위를 넓게 허락해 줍니다. 그다지 엄격하지 않으며 국내 환경에 적합합니다. frameset, frame만 제외합니다.</p>
+				<p class="blt_con bold">frameset</p>
+				<p class="indent_con">초창기 방식을 그대로 사용한다는 의미입니다. 모든 엘리먼트를 사용할 수 있습니다.</p>
+			</div>
+			<!-- e:con_comm -->
+			<!-- s:con_comm-->
+			<div class="con_comm">
+				<h3 class="h3_tit">인코딩 선언</h3>
+				<p class="blt_con">신규 HTML 문서를 작성할 때 기본 인코딩은 utf-8을 원칙으로 한다.</p>
+				<p class="ex_con">
+					<xmp><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></xmp>
+				</p>
+				<p class="indent_con">[참고] 한글은 utf-8에서 3바이트, euc-kr에서 2바이트를 차지하기 때문에, utf-8이 euc-kr에 비하여
+		DB 저장 용량이나 트래픽이 많을 수 있다.</p>
+			</div>
+			<!-- e:con_comm -->
+			<!-- s:con_comm-->
+			<div class="con_comm">
+				<h3 class="h3_tit">주석</h3>
+				<p class="blt_con">소스코드를 쉽게 이해하고 유지보수를 위해 사용한다.</p>
+				<p class="ex_con">
+					<xmp>문서의 시작과 끝을 표기하는 주석 : <!-- s:주석내용 --><div>..</div><!-- e:주석내용 --></xmp> (O) <br />
+					<xmp>수정시 표기하는 주석 : <!-- 20130303수정내용기입 --></xmp> (O) <br />
+					<xmp>주석태그의 하이픈(_)은 두개만 사용한다. <!------ s:주석내용 -------></xmp> (X) <br />
+					<xmp>주석태그와 주석내용에는 공백을 준다. <!--s:주석내용--></xmp> (X)
+				</p>
+			</div>
+			<!-- e:con_comm -->
+
+		</div>
+		<!-- e:컨텐츠영역 -->
+		
+	</div>
+	
+	
+
+<script type="text/javascript">
+	$("#header").load("../../head.html")	  	
+	$("#lnb").load("../../html_list.html")
+</script>
+
+
+
+</body>
+</html>

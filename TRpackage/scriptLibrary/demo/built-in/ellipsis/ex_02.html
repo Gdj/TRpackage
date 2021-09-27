@@ -1,0 +1,290 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>test | TR package</title>
+	<style type="text/css">
+
+		html, body { margin:0; padding:0; }	
+		.trpFill { overflow: hidden; }
+
+	</style>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.12.1.min.js"></script>
+	<style>
+		 .box {
+		   height: 4.5em;
+		   background: #eee;
+		   border: 1px solid #ccc;
+		   padding: 0.5em 1em;
+		   margin-right: 30px;
+		   margin-bottom: 30px;
+		   overflow: hidden;
+		   float: left;
+		 }
+
+		.bq {
+		   height: 4.5em;
+		   background: #eee;
+		   border: 1px solid #ccc;
+		   padding: 0.5em 1em;
+		   margin-right: 30px;
+		   margin-bottom: 30px;
+		   overflow: hidden;
+		   float: left;
+		 }
+
+		 .box--fixed {width: 130px;}
+
+		 .box--responsive {width: 30%;}
+		 /* necessary plugin styles */
+
+	
+
+		 @media screen and (max-width: 400px) {
+		   .box--responsive {
+			 height: 20px;
+		   }
+		 }
+
+		 @media screen and (min-width: 401px) and (max-width: 500px) {
+		   .box--responsive {
+			 height: 50px;
+		   }
+		 }
+
+		 @media screen and (min-width: 801px) {
+		   .box--responsive {
+			 height: 100px;
+		   }
+		 }
+		
+		
+ 		.ellip {display: block;height: 100%;}
+		.ellip-line {
+		   display: inline-block;
+		   text-overflow: ellipsis;
+		   white-space: nowrap;
+		   word-wrap: normal;
+		}
+		.ellip,
+		.ellip-line {
+		   position: relative;
+		   overflow: hidden;
+		   max-width: 100%;
+		}
+	</style>
+    
+</head>
+<body>	
+    <!--
+      https://codepen.io/jinhwan/pen/WpNJjX
+    -->
+	<div class="box box--fixed overflow">
+	  프로토타입을 팀원 모두에게 실시간으로 공유하고, 피드백을 빠르게 받을 수 있는 서비스. 가입과 동시에 1개의 프로젝트를 무료로 테스트해볼 수 있다. 월 25달러에 무한대로 업로드 가능.
+	</div>
+
+	<div class="box box--fixed one-line">
+	  프로토타입을 팀원 모두에게 실시간으로 공유하고, 피드백을 빠르게 받을 수 있는 서비스. 가입과 동시에 1개의 프로젝트를 무료로 테스트해볼 수 있다. 월 25달러에 무한대로 업로드 가능.
+	</div>
+
+	<div class="bq box--fixed two-lines">
+	 프로토타입을 팀원 모두에게 실시간으로 공유하고, 피드백을 빠르게 받을 수 있는 서비스. 가입과 동시에 1개의 프로젝트를 무료로 테스트해볼 수 있다. 월 25달러에 무한대로 업로드 가능.
+	</div>
+
+	<div class="box box--fixed overflow">
+	프로토타입을 팀원 모두에게 실시간으로 공유하고, 피드백을 빠르게 받을 수 있는 서비스. 가입과 동시에 1개의 프로젝트를 무료로 테스트해볼 수 있다. 월 25달러에 무한대로 업로드 가능.
+	</div>
+
+	<div class="box box--responsive">
+	 프로토타입을 팀원 모두에게 실시간으로 공유하고, 피드백을 빠르게 받을 수 있는 서비스. 가입과 동시에 1개의 프로젝트를 무료로 테스트해볼 수 있다. 월 25달러에 무한대로 업로드 가능.
+	</div>
+	
+	<script>
+		/*!
+		   * text-overflow: ellipsis;
+		 */
+		(function(factory) {
+		  'use strict';
+
+		  if (typeof define === 'function' && define.amd) {
+			define(['jquery'], factory);
+		  } else {
+			factory(jQuery);
+		  }
+		}(function($) {
+		  'use strict';
+
+		  var namespace = 'ellipsis',
+			span = '<span style="white-space: nowrap;">',
+			defaults = {
+			  lines: 'auto',
+			  ellipClass: 'ellip',
+			  responsive: false
+			};
+
+		  /**
+		   * Ellipsis()
+		   * --------------------------------------------------------------------------
+		   * @param {Node} el
+		   * @param {Object} opts
+		   */
+		  function Ellipsis(el, opts) {
+			var base = this,
+			  currLine = 0,
+			  lines = [],
+			  setStartEllipAt,
+			  startEllipAt,
+			  resizeTimer,
+			  currOffset,
+			  lineHeight,
+			  contHeight,
+			  words;
+
+			base.$cont = $(el);
+			base.opts = $.extend({}, defaults, opts);
+
+			function create() {
+			  base.text = base.$cont.text();
+			  base.opts.ellipLineClass = base.opts.ellipClass + '-line';
+
+			  base.$el = $('<span class="' + base.opts.ellipClass + '" />');
+			  base.$el.text(base.text);
+
+			  base.$cont.empty().append(base.$el);
+
+			  init();
+			}
+
+			/**
+			 * init()
+			 */
+			function init() {
+
+			  if (typeof base.opts.lines === 'number' && base.opts.lines < 2) {
+				base.$el.addClass(base.opts.ellipLineClass);
+				return;
+			  }
+
+			  contHeight = base.$cont.height();
+
+			  if (base.opts.lines === 'auto' && base.$el.prop('scrollHeight') <= contHeight) {
+				return;
+			  }
+
+			  if (!setStartEllipAt) {
+				return;
+			  }
+
+			  words = $.trim(base.text).split(/\s+/);
+
+			  base.$el.html(span + words.join('</span> ' + span) + '</span>');
+
+			  base.$el.find('span').each(setStartEllipAt);
+
+			  if (startEllipAt != null) {
+				updateText(startEllipAt);
+			  }
+			}
+
+			function updateText(nth) {
+
+			  words[nth] = '<span class="' + base.opts.ellipLineClass + '">' + words[nth];
+			  words.push('</span>');
+			  base.$el.html(words.join(' '));
+			}
+
+			if (base.opts.lines === 'auto') {
+
+			  var setStartEllipByHeight = function(i, word) {
+				var $word = $(word),
+				  top = $word.position().top;
+
+				lineHeight = lineHeight || $word.height();
+
+				if (top === currOffset) {
+
+				  lines[currLine].push($word);
+				} else {
+
+				  currOffset = top;
+				  currLine += 1;
+				  lines[currLine] = [$word];
+				}
+
+				if (top + lineHeight > contHeight) {
+				  startEllipAt = i - lines[currLine - 1].length;
+				  return false;
+				}
+			  };
+
+			  setStartEllipAt = setStartEllipByHeight;
+			}
+
+			if (typeof base.opts.lines === 'number' && base.opts.lines > 1) {
+
+			  var setStartEllipByLine = function(i, word) {
+				var $word = $(word),
+				  top = $word.position().top;
+
+				if (top !== currOffset) {
+				  currOffset = top;
+				  currLine += 1;
+				}
+
+				if (currLine === base.opts.lines) {
+				  startEllipAt = i;
+				  return false;
+				}
+			  };
+
+			  setStartEllipAt = setStartEllipByLine;
+			}
+
+			if (base.opts.responsive) {
+
+			  var resize = function() {
+				lines = [];
+				currLine = 0;
+				currOffset = null;
+				startEllipAt = null;
+				base.$el.html(base.text);
+
+				clearTimeout(resizeTimer);
+				resizeTimer = setTimeout(init, 100);
+			  }
+
+			  $(window).on('resize.' + namespace, resize);
+			}
+
+			create();
+		  }
+
+		  $.fn[namespace] = function(opts) {
+			return this.each(function() {
+			  try {
+				$(this).data(namespace, (new Ellipsis(this, opts)));
+			  } catch (err) {
+				if (window.console) {
+				  console.error(namespace + ': ' + err);
+				}
+			  }
+			});
+		  };
+
+		}));
+
+		$('.overflow').ellipsis();
+		$('.one-line').ellipsis({
+		  lines: 1
+		});
+		$('.two-lines').ellipsis({
+		  lines: 2
+		});
+		$('.box--responsive').ellipsis({
+		  responsive: true
+		});
+	</script>
+	
+</body>
+</html>
+

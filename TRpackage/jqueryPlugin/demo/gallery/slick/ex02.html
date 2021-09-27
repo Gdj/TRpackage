@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+	<title>swiper thumbnail</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />	
+	<link href="./css/style.css" type="text/css" rel="stylesheet" />
+	<link rel="stylesheet" href="../../../../asset/js/libs/slick/slick.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="../../../../asset/js/libs/slick/slick.js"></script>
+    <style type="text/css">
+        * { margin:0; padding:0;}        
+    </style>
+    <script>
+    $(window).ready(function(){
+        
+        var slicksGall = $('.gall-list').slick({
+          dots: false,
+          infinite: true,       
+          swipeToSlide: true
+          // slidesToShow: 3,              // 보여지는 슬라이트 수          
+          // touchMove:false,              // 드래그 안되고 무브
+          // waitForAnimate:false,         // 애니메이션을 적용하는 동안 슬라이드를 앞으로 이동하라는 요청을 무시합니다.
+          /*responsive: [                  // 반응형 크기 에따른 적용
+            {
+              breakpoint: 1024,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                infinite: true,
+                dots: true
+              }
+            }*/
+        });
+        
+        slicksGall.on('afterChange', function(event, slick, currentSlide, nextSlide){
+            slicksGallIndex
+            $(".pagination-list li").removeClass("current");
+			$(".pagination-list li").eq(currentSlide).addClass("current");        });
+        
+        // 썸네일  컨트롤 
+        var slicksGallIndex;
+        $(".pagination-list li").on('click', function(){							
+            slicksGallIndex = $(this).index();             
+            
+            slicksGall.slick("slickGoTo", slicksGallIndex);        //= $('.gall-list').slick("slickGoTo", slicksGallIndex);
+            $(".pagination-list li").removeClass("current");
+            $(this).addClass("current");	
+            return false;
+        })
+        
+    
+        // btn-reset        
+        $(".btn-reset").on("click", function(){
+            slicksGallIndex = slicksGall.slick("slickCurrentSlide");
+            slicksGall.slick('unslick');
+        })
+
+        // btn-reboot 
+        $(".btn-reboot").on("click", function(){            
+            slicksGall = $('.gall-list').slick({
+               dots: false,
+               slidesToShow: 3, 
+               infinite: true,   
+               initialSlide : slicksGallIndex,
+               swipeToSlide: true
+            })
+        })
+        
+            
+    })
+    </script>
+</head>
+
+<body>
+
+<!-- wrap -->
+
+<div class="gallery_view" style="">
+	<div class="gallery_left">		
+		<div class="gall-list">
+			<div class=""><img src="./images/view_01.jpg" width="400" height="535"  alt="" /></div>
+			<div class=""><img src="./images/view_01.jpg" width="400" height="535"  alt="" /></div>
+			<div class=""><img src="./images/view_01.jpg" width="400" height="535"  alt="" /></div>
+			<div class=""><img src="./images/view_01.jpg" width="400" height="535"  alt="" /></div>
+			<div class=""><img src="./images/view_01.jpg" width="400" height="535"  alt="" /></div>
+			<div class=""><img src="./images/view_01.jpg" width="400" height="535"  alt="" /></div>
+			<div class=""><img src="./images/view_01.jpg" width="400" height="535"  alt="" /></div>
+			<div class=""><img src="./images/view_01.jpg" width="400" height="535"  alt="" /></div>
+		</div>	
+        <div class="prev"></div>
+		<div class="next"></div>		
+	</div>	
+	<div class="pagination-right">
+	    <ul class="pagination-list">
+            <li class="current">
+                <a href="#">
+                    <img width="83" height="111" src="./images/thumbnail_01.jpg" alt="" />
+                    <span class="bg_gray">
+                        <span></span>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img width="83" height="111" src="./images/thumbnail_01.jpg" alt="" />
+                    <span class="bg_gray">
+                        <span></span>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img width="83" height="111" src="./images/thumbnail_01.jpg" alt="" />
+                    <span class="bg_gray">
+                        <span></span>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img width="83" height="111" src="./images/thumbnail_01.jpg" alt="" />
+                    <span class="bg_gray">
+                        <span></span>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img width="83" height="111" src="./images/thumbnail_01.jpg" alt="" />
+                    <span class="bg_gray">
+                        <span></span>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img width="83" height="111" src="./images/thumbnail_01.jpg" alt="" />
+                    <span class="bg_gray">
+                        <span></span>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img width="83" height="111" src="./images/thumbnail_01.jpg" alt="" />
+                    <span class="bg_gray">
+                        <span></span>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img width="83" height="111" src="./images/thumbnail_01.jpg" alt="" />
+                    <span class="bg_gray">
+                        <span></span>
+                    </span>
+                </a>
+            </li>
+        </ul>
+	</div>
+    <div class="btn-box">
+	    <button class="btn-reset">reset</button>
+	    <button class="btn-reboot">reboot</button>
+	</div>
+</div>
+
+
+<!-- // wrap -->
+
+</body>
+</html>

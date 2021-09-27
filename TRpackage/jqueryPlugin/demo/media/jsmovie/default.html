@@ -1,0 +1,427 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+<title>jsMovie | TR package</title>
+<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="../../../../asset/js/libs/trpMenu.js"></script>
+<link rel="stylesheet" href="../../../../asset/css/common.css" type="text/css" media="all" />
+
+
+</head>
+<body>
+  <div id="header" ></div>
+  <div id="container">
+	<div id="lnb" class="gnb"></div>
+	<!-- s: 컨텐츠 시작 -->
+	<div id="contents" class="contents">
+		<!-- s: 스크립드 설명 -->
+		<div class="desc_wapper">
+			<h1 class="desc_title">jsMovie</h1>
+			<p>이미지 시컨스를 연속재생 시켜줍니다. <br />
+				link API : <a href="http://jsmovie.konsultaner.de/#/" target="_blank" >http://jsmovie.konsultaner.de/</a>
+			</p>
+			
+		</div>
+		<!-- e: 스크립드 설명 -->
+	
+		<!-- s: api 설명 -->
+		<div class="api">
+			<h2 class="api-title">.jsMovie({ option } )</h2>
+			<div class="api-body">
+				<dl>
+					<dt>설명</dt>
+					<dd><span class="icon"></span>이미지로된 숫자를 호전하듯이 정열된는 효과.</dd>
+					<dd><span class="icon"></span>관련 css가 선언되어야 합니다. </dd>
+					
+				</dl>
+				<table class="table_col" summary="option속성 설명 ">
+					<caption>option</caption>
+					<colgroup>
+						<col style="width:150px">
+						<col style="width:auto">		
+					</colgroup>
+					<tbody>
+					<tr>
+						<th scope="col">option 이름</th>
+						<th scope="col">option 설명</th>
+					</tr>
+					<tr>
+						<td>images : []</td>
+						<td>배열로 이미지 이름을 넣을 수 있습니다. 단, 이름에 공백이 들어가서는 안됩니다. </td>		
+					</tr>
+					<tr>
+						<td>sequence : ''</td>
+						<td>이미지 시컨스를 자동으로 배열로 만들어 줍니다. <br /> 
+							image####.jpg("#"의 겟수는 카운터 자리수만큼 넣어줍니다.) 
+						</td>		
+					</tr>
+					<tr>
+						<td>from:0</td>
+						<td>시작하는 시컨스 번호.</td>		
+					</tr>
+					<tr>
+						<td>to:1</td>
+						<td>끝나는 시컨스 번호.</td>	
+					</tr>
+					<tr>
+						<td>step:1</td>
+						<td>시컨스의 스텝을 정수로 정의합니다. </td>	
+					</tr> 
+					<tr>
+						<td>folder:"pic/"</td>
+						<td>이미지 홀더 경로를 문자열로 정의합니다. </td>	
+					</tr>
+					<tr>
+						<td>grid:</td>
+						<td>연속이미지 지도의 가이드 <br />
+							{ height:800, width:600, rows:1, columns:1 }
+						</td>	
+					</tr>
+					<tr>
+						<td>showPreLoader:false</td>
+						<td>true 이면 프리로더 표시 </td>	
+					</tr>
+					<tr>
+						<td>loader:</td>
+						<td>로딩 이미지의 가이드정보 <br /> 
+							{ path:"이이지경로", width:연속이미지1개 width, height:연속이미지1개 height, columns:연속이미지 가로겟수 , row:연속이미지 세로겟수  }
+						</td>	
+					</tr>
+					<tr>
+						<td>fps:12</td>
+						<td>초당 이미지 겟수</td>	
+					</tr>
+					<tr>
+						<td>width:640</td>
+						<td>연속 이미지 width 크기 </td>	
+					</tr>
+					<tr>
+						<td>height:480</td>
+						<td>연속 이미지 height 크기 </td>	
+					</tr>
+					<tr>
+						<td>loadParallel:1</td>
+						<td>평행 이미지 양 정수값? </td>	
+					</tr>
+					<tr>
+						<td>repeat:true</td>
+						<td>반복여부 boolean 값</td>	
+					</tr>
+					<tr>
+						<td>playOnLoad:false</td>
+						<td>true 이면 이미지로드되면 자동 플레이된다.</td>	
+					</tr>
+					<tr>
+						<td>performStop:true</td>
+						<td>true 이면 첫프레임으로 돌아가지않고 일시 정지상태로 있는다.</td>	
+					</tr>
+					<tr>
+						<td>playBackwards:false</td>
+						<td>true 이면 거꾸로 재생된다.</td>	
+					</tr>					
+					<tr>
+						<td>verbose:true</td>
+						<td>true 이면 자세한 이밴트를 가져 옵니다.</td>	
+					</tr>
+					<tr>
+						<td>verbose:[]</td>
+						<td>초기화에 전달되는 목록</td>	
+					</tr>
+					
+					
+					</tbody>
+				</table>
+
+				<table class="table_col" summary="메서드 설명 ">
+					<caption>메서드</caption>
+					<colgroup>
+						<col width="150">
+						<col width="">		
+					</colgroup>
+					<tbody>
+					<tr>
+						<th scope="col">메서드 이름</th>
+						<th scope="col">메서드 설명 : $("시컨스컨테이너 선택자").jsMovie("메서드 이름")</th>
+					</tr>
+					<tr>
+						<td>realFps</td>
+						<td>실제 프라우저의 fps를 적용.</td>		
+					</tr>
+					<tr>
+						<td>play</td>
+						<td>재생 합니다.
+						<br />$(".movie").jsMovie("play",(from),(to), (repeat), (performStop) );.</td>		
+					</tr>
+					<tr>
+						<td>pause</td>
+						<td>재생을 일시 정지합니다.</td>		
+					</tr>
+					<tr>
+						<td>stop</td>
+						<td>재생을 정지 합니다.</td>		
+					</tr>
+					<tr>
+						<td>gotoFrame</td>
+						<td>특정 프레임으로 이동합니다.
+							<br />$(".movie").jsMovie("gotoFrame",(프래임 번호));</td>		
+					</tr>
+					<tr>
+						<td>nextFrame</td>
+						<td>다음 프레임 이동.</td>		
+					</tr>
+					<tr>
+						<td>previousFrame</td>
+						<td>이전 프레임 이동.</td>		
+					</tr>
+					<tr>
+						<td>addClip</td>
+						<td>특정위치를 만듭니다. <br />
+						 $(".movie").jsMovie("addClip","클립이름",(from),(to), (지연시간 1/1000) );						
+						</td>		
+					</tr>					
+					<tr>
+						<td>playClip</td>
+						<td>클립 위치에서 실행합니다. <br />
+							 $(".movie").jsMovie("playClip","클립이름"); <br />
+							 $(".movie").jsMovie("playClip",function(){return {start:10,end:20,pause:1000} });<br />
+							 $(".movie").jsMovie("playClip",(클립 인덱스));<br />
+						</td>								
+					</tr>
+					<tr>
+						<td>playClips</td>
+						<td>모든 클립재생.</td>								
+					</tr>
+					<tr>
+						<td>getClip</td>
+						<td>클립 이름으로 글립객체를 가져옵니다.</td>								
+					</tr>
+					<tr>
+						<td>removeClip</td>
+						<td>특정글립을 삭제 합니다.</td>		
+					</tr>
+					<tr>
+						<td>getClipQueue</td>
+						<td>모든 클립오브젝트 반환</td>								
+					</tr>				
+					<tr>
+						<td>destroy</td>
+						<td>jsMovie를 제거하여 초기화함.</td>								
+					</tr>					
+					</tbody>
+				</table>
+				
+				<table class="table_col" summary="EVENT 설명 ">
+					<caption>EVENT</caption>
+					<colgroup>
+						<col width="150">
+						<col width="">		
+					</colgroup>
+					<tbody>
+					<tr>
+						<th scope="col">EVENT 이름</th>
+						<th scope="col">EVENT 설명</th>
+					</tr>
+					<tr>
+						<td>play</td>
+						<td>재생이 시작하면 호출 됩니다.</td>		
+					</tr>
+					<tr>
+						<td>pause</td>
+						<td>일시정지 하면 호출 됩니다.</td>
+					</tr>
+					<tr>
+						<td>stop</td>
+						<td>재생 정지 되면 호출 됩니다.</td>		
+					</tr>
+					<tr>
+						<td>ended</td>
+						<td>마지막 프레임에 도달되면 호출 됩니다.</td>		
+					</tr>
+					<tr>
+						<td>playing</td>
+						<td>재생 중일때 호출 됩니다.</td>		
+					</tr>
+					<tr>
+						<td>loaded</td>
+						<td>이미지가 모두 로드 되면 호출 됩니다.</td>		
+					</tr>
+					<tr>
+						<td>verbose, function(e,output)</td>
+						<td>모든 이벤트 및 텍스트를 포함하여 호출 됩니다. </td>		
+					</tr>
+									
+					</tbody>
+				</table>
+			
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+
+		<!-- s: examples 예제 -->
+		<div class="ex_wapper">
+			<div class="section">
+				<h2 class="ex-title">예제) 1.기본사용법 </h2>
+				<p class="ex-more" ><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p>
+				<p class="ex-view" ><a href="ex01.html" target="_blank">View</a></p>
+				<div class="ex-body" style="display:none" >					
+					<div class="source"><!-- 소스 -->
+
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!doctype html&gt;</span>
+<span style="color: #f92672">&lt;html</span> <span style="color: #a6e22e">lang=</span><span style="color: #e6db74">&quot;kr&quot;</span><span style="color: #f92672">&gt;</span>
+ <span style="color: #f92672">&lt;head&gt;</span>
+  <span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">charset=</span><span style="color: #e6db74">&quot;UTF-8&quot;</span><span style="color: #f92672">&gt;</span>  
+  <span style="color: #f92672">&lt;title&gt;</span>jsMovie | trPackage<span style="color: #f92672">&lt;/title&gt;</span>  
+  <span style="color: #f92672">&lt;style </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/css&quot;</span><span style="color: #f92672">&gt;</span>		
+		<span style="color: #a6e22e">.controler</span> <span style="color: #f92672">img</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">50px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+  <span style="color: #f92672">&lt;/style&gt;</span>
+  <span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/jquery-1.9.1.min.js&quot;</span> <span style="color: #f92672">&gt;&lt;/script&gt;</span>
+  <span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/jsmovie/jquery.jsmovie.1.4.4.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+  <span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span><span style="color: #f92672">&gt;</span>
+	<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(document).</span><span style="color: #a6e22e">ready</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(){</span>
+
+
+		<span style="color: #66d9ef">var</span> <span style="color: #a6e22e">mmm</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;#movie&#39;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">jsMovie</span><span style="color: #f8f8f2">({</span>
+		<span style="color: #a6e22e">sequence</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;scene_#####.jpg&#39;</span><span style="color: #f8f8f2">,</span>	<span style="color: #75715e">// 시퀀스 형식</span>
+		<span style="color: #a6e22e">from</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span>						<span style="color: #75715e">// 시퀀스 첫 프레임</span>
+		<span style="color: #a6e22e">to</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">71</span><span style="color: #f8f8f2">,</span>							<span style="color: #75715e">// 시퀀스 마지막 프레임</span>
+		<span style="color: #a6e22e">folder</span> <span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;./images/sequence/&quot;</span><span style="color: #f8f8f2">,</span> 	<span style="color: #75715e">// 시퀀스 이미지경로</span>
+		<span style="color: #a6e22e">width</span><span style="color: #f92672">:</span><span style="color: #f8f8f2">(</span><span style="color: #ae81ff">640</span><span style="color: #f8f8f2">),</span>				<span style="color: #75715e">// 플레이어 세로크기</span>
+		<span style="color: #a6e22e">height</span><span style="color: #f92672">:</span><span style="color: #f8f8f2">(</span><span style="color: #ae81ff">282</span><span style="color: #f8f8f2">),</span>				<span style="color: #75715e">// 플레이어 세로크기</span>
+		<span style="color: #a6e22e">fps</span><span style="color: #f92672">:</span><span style="color: #ae81ff">30</span><span style="color: #f8f8f2">,</span>						<span style="color: #75715e">// 프레임 속도</span>
+        <span style="color: #a6e22e">playOnLoad</span> <span style="color: #f92672">:</span> <span style="color: #66d9ef">false</span><span style="color: #f8f8f2">,</span>         <span style="color: #75715e">// 로드후 자동 플레이 하지 않음</span>
+		<span style="color: #a6e22e">showPreLoader</span> <span style="color: #f92672">:</span> <span style="color: #66d9ef">true</span><span style="color: #f8f8f2">,</span>       <span style="color: #75715e">// 로더 보이게 </span>
+		<span style="color: #a6e22e">loader</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">{</span><span style="color: #a6e22e">path</span><span style="color: #f92672">:</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/jsmovie/loader.png&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">height</span><span style="color: #f92672">:</span><span style="color: #ae81ff">40</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">40</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">rows</span><span style="color: #f92672">:</span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">columns</span><span style="color: #f92672">:</span><span style="color: #ae81ff">4</span><span style="color: #f8f8f2">},</span> <span style="color: #75715e">// 로딩 이미지 세팅</span>
+		<span style="color: #a6e22e">repeat</span><span style="color: #f92672">:</span><span style="color: #66d9ef">false</span>				<span style="color: #75715e">// 반복하지 않음</span>
+		<span style="color: #f8f8f2">});</span>
+	
+		<span style="color: #75715e">/* 컨트롤 */</span>
+		<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.btn_play&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">on</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;click&#39;</span><span style="color: #f8f8f2">,</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(){</span> <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;#movie&#39;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">jsMovie</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;play&#39;</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">});</span>
+		<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.btn_pause&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">on</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;click&#39;</span><span style="color: #f8f8f2">,</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(){</span> <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;#movie&#39;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">jsMovie</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;pause&#39;</span><span style="color: #f8f8f2">);</span> <span style="color: #f8f8f2">});</span>
+		<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.btn_stop&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">on</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;click&#39;</span><span style="color: #f8f8f2">,</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(){</span> <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;#movie&#39;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">jsMovie</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;stop&#39;</span><span style="color: #f8f8f2">);</span> <span style="color: #f8f8f2">});</span>
+	
+		
+		<span style="color: #75715e">/* 이벤트 */</span>
+		<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;#movie&#39;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">on</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;ended&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">v</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span> 
+			<span style="color: #a6e22e">console</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">log</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;플레이 끝!&quot;</span><span style="color: #f8f8f2">);</span>
+			<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;#movie&#39;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">jsMovie</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;pause&#39;</span><span style="color: #f8f8f2">);</span>
+			<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;#movie&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">jsMovie</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;gotoFrame&quot;</span><span style="color: #f8f8f2">,</span><span style="color: #ae81ff">71</span><span style="color: #f8f8f2">);</span> 
+		<span style="color: #f8f8f2">});</span>
+		<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;#movie&#39;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">on</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;loaded&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span> 
+			<span style="color: #a6e22e">console</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">log</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;로드 완료!&quot;</span><span style="color: #f8f8f2">);</span>			
+		<span style="color: #f8f8f2">});</span>
+			
+							
+	<span style="color: #f8f8f2">});</span><span style="color: #75715e">// document.ready</span>
+  <span style="color: #f92672">&lt;/script&gt;</span>
+ <span style="color: #f92672">&lt;/head&gt;</span>
+ <span style="color: #f92672">&lt;body&gt;</span>
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;wrap&quot;</span><span style="color: #f92672">&gt;</span>		
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;movie&quot;</span><span style="color: #f92672">&gt;&lt;/div&gt;</span>
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;controler&quot;</span><span style="color: #f92672">&gt;</span>
+			<span style="color: #f92672">&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;javascript:void(0);&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;btn_play&quot;</span> <span style="color: #f92672">&gt;&lt;img</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/btn_play.png&quot;</span>	<span style="color: #a6e22e">alt=</span><span style="color: #e6db74">&quot;play&quot;</span> <span style="color: #f92672">/&gt;&lt;/a&gt;</span>
+			<span style="color: #f92672">&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;javascript:void(0);&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;btn_pause&quot;</span> <span style="color: #f92672">&gt;&lt;img</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/btn_pause.png&quot;</span> <span style="color: #a6e22e">alt=</span><span style="color: #e6db74">&quot;pause&quot;</span><span style="color: #f92672">/&gt;&lt;/a&gt;</span>
+			<span style="color: #f92672">&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;javascript:void(0);&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;btn_stop&quot;</span> <span style="color: #f92672">&gt;&lt;img</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/btn_stop.png&quot;</span>	<span style="color: #a6e22e">alt=</span><span style="color: #e6db74">&quot;stop&quot;</span> <span style="color: #f92672">/&gt;&lt;/a&gt;</span>
+		<span style="color: #f92672">&lt;/div&gt;</span>
+	<span style="color: #f92672">&lt;/div&gt;</span>
+ <span style="color: #f92672">&lt;/body&gt;</span>  
+<span style="color: #f92672">&lt;/html&gt;</span>
+</pre></td></tr></table></div>
+				
+				
+
+				
+					</div><!--// 소스 -->
+				</div>
+			</div>			
+		</div>
+		<!-- e: examples 예제 -->
+
+
+
+
+	</div>
+	<!-- e: 컨텐츠 끝 -->
+</div>
+
+
+
+<script type="text/javascript">
+	$("#header").load("../../../head.html");
+	$("#lnb").load("../../../lnb.html");	
+
+	$(".ex-more a").click(function() {
+		$( this ).find("span").toggle();
+		$( this ).parent().siblings(".ex-body").slideToggle();
+		return false;
+	});
+
+	$(".icon-more a").click(function() {
+		$( this ).find("span").toggle();
+		$( this ).parent().siblings(".ex-body").slideToggle();
+		return false;
+	});
+</script>
+
+</body>
+</html>

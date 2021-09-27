@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+<title> input:placeholder | TR package</title>
+<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="../../../../asset/js/libs/trpMenu.js"></script>
+<link rel="stylesheet" href="../../../../asset/css/common.css" type="text/css" media="all" />
+
+
+</head>
+<body>
+  <div id="header" ></div>
+  <div id="container">
+	<div id="lnb" class="gnb"></div>
+	<!-- s: 컨텐츠 시작 -->
+	<div id="contents" class="contents">
+		<!-- s: 스크립드 설명 -->
+		<div class="desc_wapper">
+			<h1 class="desc_title">placeholder 속성 적용</h1>
+			<p>
+				placeholder 속성이 없는 ie7,8,9 버젼에서도 효과를 줄수 있도록 한 스크립트 입니다. <br />
+			</p>												
+		</div>
+		<!-- e: 스크립드 설명 -->
+	
+		<!-- s: api 설명 -->
+		<div class="api">
+			<h2 class="api-title">placeholder</h2>
+			<div class="api-body">
+				<dl>
+					<dt>설명</dt>
+					<dd><span class="icon"></span>trpForm.js 불러오면 placeholder 효과가 적용 됩니다.</dd>
+					<dd><span class="icon"></span>&lt;script type="text/javascript" src="./js/libs/trpForm.js"&gt;&lt;/script&gt;<br /> </dd>					
+				</dl>
+				<table class="table_col" summary="생성되는 class 설명">
+					<caption>class 설명</caption>
+					<colgroup>
+						<col width="150">
+						<col width="">		
+					</colgroup>
+					<tbody>
+					<tr>
+						<th scope="col">클래스 이름</th>
+						<th scope="col">클래스 설명</th>
+					</tr>
+					<tr>
+						<td>trp_inputWarp</td>
+						<td>input 태그를 감싸는 div태그의 class 이름입니다. <br />
+							스타일을 제정의 하려면 "!important" 사용합니다.
+						</td>		
+					</tr>
+					<tr>
+						<td>trp_placeholder</td>
+						<td>input 태그 앞에 span태그의 class 이름입니다. <br />
+							placeholder속성이 지원되지 않은 브라우저에 가상으로 태그를 넣어줍니다.<br />
+							스타일을 제정의 하려면 "!important" 사용합니다.
+						</td>		
+					</tr>
+							
+					</tbody>
+				</table>
+			
+		
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+
+		<!-- s: examples 예제 -->
+		<div class="ex_wapper">
+			<div class="section">
+				<h2 class="ex-title">예제) 1.기본 사용방법 </h2>
+				<p class="ex-more" ><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p>
+				<p class="ex-view" ><a href="ex01.html" target="_blank">View</a></p>
+				<div class="ex-body" style="display:none" >					
+					<div class="source"><!-- 소스 -->
+					
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</span>
+<span style="color: #f92672">&lt;html</span> <span style="color: #a6e22e">xmlns=</span><span style="color: #e6db74">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span style="color: #a6e22e">lang=</span><span style="color: #e6db74">&quot;ko&quot;</span> <span style="color: #a6e22e">xml:lang=</span><span style="color: #e6db74">&quot;ko&quot;</span><span style="color: #f92672">&gt;</span>
+<span style="color: #f92672">&lt;head&gt;</span>
+<span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">http-equiv=</span><span style="color: #e6db74">&quot;Content-Type&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;text/html; charset=utf-8&quot;</span><span style="color: #f92672">&gt;</span>
+<span style="color: #f92672">&lt;title&gt;</span>input_guide<span style="color: #f92672">&lt;/title&gt;</span>
+<span style="color: #f92672">&lt;style </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/css&quot;</span><span style="color: #f92672">&gt;</span>
+	<span style="color: #a6e22e">.trp_inputWarp</span> <span style="color: #f8f8f2">{</span> <span style="color: #f8f8f2">}</span>
+	<span style="color: #a6e22e">.trp_placeholder</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span><span style="color: #ae81ff">16px</span> <span style="color: #f8f8f2">}</span>
+<span style="color: #f92672">&lt;/style&gt;</span>
+<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;http://code.jquery.com/jquery-1.12.1.min.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/trpForm.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+
+<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span><span style="color: #f92672">&gt;</span>	  
+	<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(document).</span><span style="color: #a6e22e">ready</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(){</span>
+		<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;body&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">on</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;click&#39;</span><span style="color: #f8f8f2">,</span><span style="color: #e6db74">&quot;#hide&quot;</span><span style="color: #f8f8f2">,</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(){</span>
+				<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.trp_placeholder&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">hide</span><span style="color: #f8f8f2">();</span>	
+		<span style="color: #f8f8f2">})</span>
+		<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;body&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">on</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;click&#39;</span><span style="color: #f8f8f2">,</span><span style="color: #e6db74">&quot;#show&quot;</span><span style="color: #f8f8f2">,</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(){</span>
+				<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.trp_placeholder&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">show</span><span style="color: #f8f8f2">();</span>	
+		<span style="color: #f8f8f2">})</span>	 
+	<span style="color: #f8f8f2">})</span>
+<span style="color: #f92672">&lt;/script&gt;</span>
+<span style="color: #75715e"></span>
+ 
+<span style="color: #f92672">&lt;/head&gt;</span>
+<span style="color: #f92672">&lt;body&gt;</span>		
+
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;login_wapper&quot;</span><span style="color: #f92672">&gt;</span>
+		 <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;input_box&quot;</span> <span style="color: #a6e22e">style=</span><span style="color: #e6db74">&quot;width:118px&quot;</span><span style="color: #f92672">&gt;</span>
+			<span style="color: #f92672">&lt;label</span> <span style="color: #a6e22e">for=</span><span style="color: #e6db74">&quot;id&quot;</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;label_id&quot;</span> <span style="color: #f92672">&gt;</span>아이디<span style="color: #f92672">&lt;/label&gt;</span>
+			<span style="color: #f92672">&lt;input</span> <span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text&quot;</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;id&quot;</span> <span style="color: #a6e22e">name=</span><span style="color: #e6db74">&quot;id&quot;</span> <span style="color: #a6e22e">value=</span><span style="color: #e6db74">&quot;&quot;</span>  <span style="color: #a6e22e">title=</span><span style="color: #e6db74">&quot;아이디&quot;</span> <span style="color: #a6e22e">placeholder=</span><span style="color: #e6db74">&quot;아이디&quot;</span> <span style="color: #f92672">&gt;</span>
+		 <span style="color: #f92672">&lt;/div&gt;</span>
+		 <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;input_box&quot;</span> <span style="color: #a6e22e">style=</span><span style="color: #e6db74">&quot;width:118px&quot;</span><span style="color: #f92672">&gt;</span>
+			<span style="color: #f92672">&lt;label</span> <span style="color: #a6e22e">for=</span><span style="color: #e6db74">&quot;pw&quot;</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;label_pw&quot;</span> <span style="color: #f92672">&gt;</span>비밀번호<span style="color: #f92672">&lt;/label&gt;</span>
+			<span style="color: #f92672">&lt;input</span> <span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;password&quot;</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;pw&quot;</span> <span style="color: #a6e22e">name=</span><span style="color: #e6db74">&quot;pw&quot;</span> <span style="color: #a6e22e">value=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #a6e22e">title=</span><span style="color: #e6db74">&quot;비밀번호&quot;</span> <span style="color: #a6e22e">placeholder=</span><span style="color: #e6db74">&quot;비밀번호&quot;</span> <span style="color: #f92672">&gt;</span>
+		 <span style="color: #f92672">&lt;/div&gt;</span>
+
+		 <span style="color: #f92672">&lt;p&gt;</span>ie7,8,9 에서 동작	:
+			 <span style="color: #f92672">&lt;input</span> <span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;button&quot;</span> <span style="color: #a6e22e">value=</span><span style="color: #e6db74">&quot;보임&quot;</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;show&quot;</span> <span style="color: #f92672">/&gt;</span>
+			 <span style="color: #f92672">&lt;input</span> <span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;button&quot;</span> <span style="color: #a6e22e">value=</span><span style="color: #e6db74">&quot;지움&quot;</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;hide&quot;</span> <span style="color: #f92672">/&gt;</span>
+		 <span style="color: #f92672">&lt;/p&gt;</span>
+	<span style="color: #f92672">&lt;/div&gt;</span>
+
+<span style="color: #f92672">&lt;/body&gt;</span>
+<span style="color: #f92672">&lt;/html&gt;</span>
+</pre></td></tr></table></div>
+
+
+
+
+
+				
+					</div><!--// 소스 -->
+				<div>
+			</div>			
+		</div>
+		<!-- e: examples 예제 -->
+
+				
+
+	</div>
+	<!-- e: 컨텐츠 끝 -->
+</div>
+
+
+
+<script type="text/javascript">
+	$("#header").load("../../../head.html");
+	$("#lnb").load("../../../lnb.html");	
+
+	$(".ex-more a").click(function() {
+		$( this ).find("span").toggle();
+		$( this ).parent().siblings(".ex-body").slideToggle();
+		return false;
+	});
+
+	$(".icon-more a").click(function() {
+		$( this ).find("span").toggle();
+		$( this ).parent().siblings(".ex-body").slideToggle();
+		return false;
+	});
+</script>
+
+</body>
+</html>

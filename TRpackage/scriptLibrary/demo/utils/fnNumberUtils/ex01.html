@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript" src="../../../../asset/js/libs/trpFnNumberUtils.js"></script>
+  <link rel="stylesheet" href="../../../../asset/css/trpBase.css">
+</head>
+<body>
+  
+  <div class="section-warp">
+    
+    <div class="con-panel">
+      <div class="con-header">
+        <div class="title"> Number($num).toLocaleString('en'): ie11 이상이면 내장함수 사용 소수점 3자리까지</div>
+      </div>
+      <div class="con-body">
+        <ul id="ex01" >
+          <li>$num = 2020.1222</li>
+          <li>return = <em></em></li>
+        </ul>
+      </div>
+      <script>
+        var $num = 2020.1222; 
+        $("#ex01 em").text( Number($num).toLocaleString('en') );
+      </script>
+    </div>
+      
+    
+    
+    <div class="con-panel">
+      <div class="con-header">
+        <div class="title">trpNumCommas($num) : 숫자를 넣으면 3자리수마다 "," 있는 문자열을 리턴</div>
+      </div>
+      <div class="con-body">
+        <ul id="ex02" >
+          <li>$num = 2020.1222</li>
+          <li>return = <em></em></li>
+        </ul>
+      </div>
+      <script>
+        var $num = 2020.1222; 
+        $("#ex02 em").text( trpNumCommas($num) );
+      </script>
+    </div>
+    
+    
+    <div class="con-panel">
+      <div class="con-header">
+        <div class="title">trpNumberFormat($num) : 숫자를 넣으면 3자리수마다 "," 있는 문자열을 리턴</div>
+      </div>
+      <div class="con-body">
+        <ul id="ex03" >
+          <li>$num = 2020.1222</li>
+          <li>return = <em></em></li>
+        </ul>
+      </div>
+      <script>
+        var $num = 2020.1222; 
+        $("#ex03 em").text( trpNumberFormat($num) );
+      </script>
+    </div> 
+    
+    
+    <div class="con-panel">
+      <div class="con-header">
+        <div class="title">trpRangeRatio($rMin, $rMax, $ref, $tMin, $tMax)  : <br>
+        참고값을 비레해 타겟값을 추출  $rMin 값과 $rMax 값의 $rTar 위치를 비율을 $tMin 값과 $tMax 값의 에서 같은 비율로 찾아줍니다.
+        </div>
+      </div>
+      <div class="con-body">
+        <ul id="ex04" >
+          <li>$refMax = 1000</li>
+          <li>$refMin = 0</li>
+          <li>$ref    = 500</li>
+          <li>$tarMax = 100</li>
+          <li>$tarMin = 0</li>
+          <li>return = <em></em></li>
+        </ul>
+      </div>
+      <script>
+        var $refMax = 1000;
+        var $refMin = 0;
+        var $ref    = 500;
+        var $tarMax = 100;
+        var $tarMin = 0;
+        $("#ex04 em").text( trpRangeRatio($refMax, $refMin, $ref, $tarMax, $tarMin) );
+      </script>
+    </div>
+  
+  
+  </div>
+  
+</body>
+</html>

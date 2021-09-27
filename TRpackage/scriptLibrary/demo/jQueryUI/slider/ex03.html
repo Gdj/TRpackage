@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>jQuery UI Slider - Slider scrollbar</title>
+	<link rel="stylesheet" href="../../../../asset/js/libs/jquery-ui-1.10.4.custom/themes/base/jquery.ui.all.css">
+	<script src="//code.jquery.com/jquery-1.9.1.js"></script>	
+	<script src="../../../../asset/js/libs/jquery-ui-1.10.4.custom/ui/jquery.ui.core.js"></script>
+	<script src="../../../../asset/js/libs/jquery-ui-1.10.4.custom/ui/jquery.ui.widget.js"></script>
+	<script src="../../../../asset/js/libs/jquery-ui-1.10.4.custom/ui/jquery.ui.mouse.js"></script>
+	<script src="../../../../asset/js/libs/jquery-ui-1.10.4.custom/ui/jquery.ui.slider.js"></script>
+	<style>
+	body {	font-size: 62.5%; 	font-family: "Trebuchet MS", "Arial", "Helvetica", "Verdana", "sans-serif"; 	}
+	.scroll-pane { overflow: auto; width: 99%; float:left; }
+	.scroll-content { width: 2440px; float: left; }
+	.scroll-content-item { width: 100px; height: 100px; float: left; margin: 10px; font-size: 3em; line-height: 96px; text-align: center; }
+	.scroll-bar-wrap { clear: left; padding: 0 4px 0 2px; margin: 0 -1px -1px -1px; }
+	.scroll-bar-wrap .ui-slider { background: none; border:0; height: 2em; margin: 0 auto;  }
+	.scroll-bar-wrap .ui-handle-helper-parent { position: relative; width: 100%; height: 100%; margin: 0 auto; }
+	.scroll-bar-wrap .ui-slider-handle { top:.2em; height: 1.5em; }
+	.scroll-bar-wrap .ui-slider-handle .ui-icon { margin: -8px auto 0; position: relative; top: 50%; }
+	</style>
+	<script>
+	$(function() {
+		//scrollpane parts
+		var scrollPane = $( ".scroll-pane" ),				// 스크롤 컨테이너 (스크롤 Wapper)
+			scrollContent = $( ".scroll-content" );			// 스크롤 컨텐츠
+
+		//build slider
+		var scrollbar = $( ".scroll-bar" ).slider({			// 스크롤 컨트롤러
+			slide: function( event, ui ) {
+				if ( scrollContent.width() > scrollPane.width() ) {			// 컨텐츠가 스크롤 컨테이너보다 클경우 스클롤생김					
+					scrollContent.css( "margin-left", Math.round(			// 드래그되는 퍼센트로 마진값을 -로밀어넣기
+						ui.value / 100 * ( scrollPane.width() - scrollContent.width() )  //  스크롤 컨테이너크기 - 컨텐츠 크기 =
+					) + "px" );
+				
+				} else {
+					scrollContent.css( "margin-left", 0 );					
+				}
+			}
+		});
+
+		// 마우스 이밴트
+		var handleHelper = scrollbar.find( ".ui-slider-handle" )
+		.mousedown(function() {
+			scrollbar.width( handleHelper.width() );						
+		})
+		.mouseup(function() {
+			scrollbar.width( "100%" );
+		})
+		.append( "<span class='ui-icon ui-icon-grip-dotted-vertical'></span>" )
+		.wrap( "<div class='ui-handle-helper-parent'></div>" ).parent();		// 스크롤바 생성
+
+		// 화면 크기에 벗어나면 컨텐츠가 보이지 않게..
+		scrollPane.css( "overflow", "hidden" );
+
+		// 스크롤바 크기 패널크기에 비례하여 변환
+		function sizeScrollbar() {
+			var remainder = scrollContent.width() - scrollPane.width();			// 화면크기 - 컨텐츠크기 = 움직일수이는 거리;
+			var proportion = remainder / scrollContent.width();					// 컨텐츠 보이는 크기에 비례해 스크롤 크기값 계산 퍼센트
+			var handleSize = scrollPane.width() - ( proportion * scrollPane.width() );	// 퍼센트를 스크롤바 실제 크기로
+			
+			scrollbar.find( ".ui-slider-handle" ).css({
+				width: handleSize,
+				"margin-left": -handleSize / 2
+			});
+			handleHelper.width( "" ).width( scrollbar.width() - handleSize );	// 크기값 재설정
+		}
+
+		// 컨텐츠 위치에따라 슬라이터 위치계산 퍼센트로 변환
+		function resetValue() {
+			var remainder = scrollPane.width() - scrollContent.width();			// 화면크기 - 컨텐츠크기 = 움직익거리;
+			var leftVal = scrollContent.css( "margin-left" ) === "auto" ? 0 :
+				parseInt( scrollContent.css( "margin-left" ) );
+			var percentage = Math.round( leftVal / remainder * 100 );			// 움직일거리를 백분율로 저장
+			scrollbar.slider( "value", percentage );
+		}
+
+		// 퍼센트에따라 컨텐츠 위치계산
+		function reflowContent() {
+				var showing = scrollContent.width() + parseInt( scrollContent.css( "margin-left" ), 10 );	// 컨텐츠크기 + 컨텐츠위치 = 나머지 컨텐트 크기	
+				var gap = scrollPane.width() - showing;														// 화면크기 - 나머지 컨텐트 크기 = 이동할수있는 거리
+				
+				if ( gap > 0 ) {  // 컨텐츠가 화변보다 작은경우
+					scrollContent.css( "margin-left", parseInt( scrollContent.css( "margin-left" ), 10 ) + gap );					
+				}
+		}
+
+		//change handle position on window resize
+		$( window ).resize(function() {
+			resetValue();			// 스크롤 값을 퍼센트로 변경
+			sizeScrollbar();		// 스크롤 바 리싸이즈
+			reflowContent();		// 컨텐츠 위치 
+		});
+
+		//init scrollbar size
+		setTimeout( sizeScrollbar, 10 );//safari wants a timeout
+	});
+	</script>
+</head>
+<body>
+
+<div class="scroll-pane ui-widget ui-widget-header ui-corner-all">
+	<div class="scroll-content">
+		<div class="scroll-content-item ui-widget-header">1</div>
+		<div class="scroll-content-item ui-widget-header">2</div>
+		<div class="scroll-content-item ui-widget-header">3</div>
+		<div class="scroll-content-item ui-widget-header">4</div>
+		<div class="scroll-content-item ui-widget-header">5</div>
+		<div class="scroll-content-item ui-widget-header">6</div>
+		<div class="scroll-content-item ui-widget-header">7</div>
+		<div class="scroll-content-item ui-widget-header">8</div>
+		<div class="scroll-content-item ui-widget-header">9</div>
+		<div class="scroll-content-item ui-widget-header">10</div>
+		<div class="scroll-content-item ui-widget-header">11</div>
+		<div class="scroll-content-item ui-widget-header">12</div>
+		<div class="scroll-content-item ui-widget-header">13</div>
+		<div class="scroll-content-item ui-widget-header">14</div>
+		<div class="scroll-content-item ui-widget-header">15</div>
+		<div class="scroll-content-item ui-widget-header">16</div>
+		<div class="scroll-content-item ui-widget-header">17</div>
+		<div class="scroll-content-item ui-widget-header">18</div>
+		<div class="scroll-content-item ui-widget-header">19</div>
+		<div class="scroll-content-item ui-widget-header">20</div>
+	</div>
+	<div class="scroll-bar-wrap ui-widget-content ui-corner-bottom">
+		<div class="scroll-bar"></div>
+	</div>
+</div>
+
+
+</body>
+</html>

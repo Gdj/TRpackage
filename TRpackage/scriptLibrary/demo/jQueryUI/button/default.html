@@ -1,0 +1,1210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+<title>jQuery UI button | TR package</title>
+<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="../../../../asset/js/libs/trpMenu.js"></script>
+<link rel="stylesheet" href="../../../../asset/css/common.css" type="text/css" media="all" />
+
+
+</head>
+<body>
+  <div id="header" ></div>
+  <div id="container">
+	<div id="lnb" class="gnb"></div>
+	<!-- s: 컨텐츠 시작 -->
+	<div id="contents" class="contents">
+		<!-- s: 스크립드 설명 -->
+		<div class="desc_wapper">
+			<h1 class="desc_title">button</h1>
+			<p> jQuery button style 을 태그와 관계없이 동일한 스타일을 적용시킬수 있습니다. </p>
+		</div>
+		<!-- e: 스크립드 설명 -->
+	
+		<!-- s: api 설명 -->
+		<div class="api">
+			<h2 class="api-title">.button( option ) , .buttonset( option )</h2>
+			<div class="api-body">
+				<dl>
+					<dt>설명</dt>
+					<dd><span class="icon"></span>기본 위치값은 CSS 에서 설정해야합니다.</dd>
+					<dd><span class="icon"></span>버튼 옵션 정의</dd>					
+				</dl>
+				<table class="table_col" summary="button속성, 메소드">
+					<caption>button 설명</caption>
+					<colgroup>
+						<col width="150">
+						<col width="">		
+					</colgroup>
+					<tbody>
+					<tr>
+						<th scope="col">매개변수</th>
+						<th scope="col">매개변수 설명</th>
+					</tr>
+					<tr>
+						<td>disabled</td>
+						<td>기본값"false" 이면 ,"true"이면 버튼을 비활성화시킴  </td>		
+					</tr>
+					<tr>
+						<td>icons : { primary:UI클래스 , secondary:UI클래스 }</td>
+						<td>"primary" 버튼 앞쪽에 넣을 아이콘, secondary 버튼 뒤쪽에 넣을 아이콘</td>		
+					</tr>
+					</tbody>
+				</table>
+				<!-- s: 아이콘 -->
+					<div class="ex_wapper">
+						<div class="section">
+							<h2 class="ex-title">jQuery icon css list</h2>
+							<p class="icon-more" ><a href="javascript:return false;"><span>+</span><span style="display:none">-</span></a></p>
+							<div class="ex-body" style="display:none">					
+								<link rel="stylesheet" href="../../../../asset/js/libs/jquery-ui-1.10.4.custom/themes/base/jquery-ui.css">
+								<style type="text/css">
+									.ui-helper-clearfix { position:relative; }
+									.ui-helper-clearfix li { width: 17em; float: left; padding: 0.5em;  background:none;}
+									.ui-helper-clearfix .ui-icon, .ui-helper-clearfix .text { display: inline-block; vertical-align: middle; }
+								</style>
+								<ul class="ui-helper-clearfix">
+									<li>
+										<span class="ui-icon ui-icon-blank"></span>
+										<span class="text">ui-icon-blank</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-carat-1-n"></span>
+										<span class="text">ui-icon-carat-1-n</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-carat-1-ne"></span>
+										<span class="text">ui-icon-carat-1-ne</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-carat-1-e"></span>
+										<span class="text">ui-icon-carat-1-e</span>
+									</li>
+
+									<li>
+										<span class="ui-icon ui-icon-carat-1-se"></span>
+										<span class="text">ui-icon-carat-1-se</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-carat-1-s"></span>
+										<span class="text">ui-icon-carat-1-s</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-carat-1-sw"></span>
+										<span class="text">ui-icon-carat-1-sw</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-carat-1-w"></span>
+										<span class="text">ui-icon-carat-1-w</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-carat-1-nw"></span>
+										<span class="text">ui-icon-carat-1-nw</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-carat-2-n-s"></span>
+										<span class="text">ui-icon-carat-2-n-s</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-carat-2-e-w"></span>
+										<span class="text">ui-icon-carat-2-e-w</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-triangle-1-n"></span>
+										<span class="text">ui-icon-triangle-1-n</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-triangle-1-ne"></span>
+										<span class="text">ui-icon-triangle-1-ne</span>
+									</li>
+
+									<li>
+										<span class="ui-icon ui-icon-triangle-1-e"></span>
+										<span class="text">ui-icon-triangle-1-e</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-triangle-1-se"></span>
+										<span class="text">ui-icon-triangle-1-se</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-triangle-1-s"></span>
+										<span class="text">ui-icon-triangle-1-s</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-triangle-1-sw"></span>
+										<span class="text">ui-icon-triangle-1-sw</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-triangle-1-w"></span>
+										<span class="text">ui-icon-triangle-1-w</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-triangle-1-nw"></span>
+										<span class="text">ui-icon-triangle-1-nw</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-triangle-2-n-s"></span>
+										<span class="text">ui-icon-triangle-2-n-s</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-triangle-2-e-w"></span>
+										<span class="text">ui-icon-triangle-2-e-w</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-arrow-1-n"></span>
+										<span class="text">ui-icon-arrow-1-n</span>
+									</li>
+
+									<li>
+										<span class="ui-icon ui-icon-arrow-1-ne"></span>
+										<span class="text">ui-icon-arrow-1-ne</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-arrow-1-e"></span>
+										<span class="text">ui-icon-arrow-1-e</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-arrow-1-se"></span>
+										<span class="text">ui-icon-arrow-1-se</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-arrow-1-s"></span>
+										<span class="text">ui-icon-arrow-1-s</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-arrow-1-sw"></span>
+										<span class="text">ui-icon-arrow-1-sw</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-arrow-1-w"></span>
+										<span class="text">ui-icon-arrow-1-w</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-arrow-1-nw"></span>
+										<span class="text">ui-icon-arrow-1-nw</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-arrow-2-n-s"></span>
+										<span class="text">ui-icon-arrow-2-n-s</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-arrow-2-ne-sw"></span>
+										<span class="text">ui-icon-arrow-2-ne-sw</span>
+									</li>
+
+									<li>
+										<span class="ui-icon ui-icon-arrow-2-e-w"></span>
+										<span class="text">ui-icon-arrow-2-e-w</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-arrow-2-se-nw"></span>
+										<span class="text">ui-icon-arrow-2-se-nw</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-arrowstop-1-n"></span>
+										<span class="text">ui-icon-arrowstop-1-n</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-arrowstop-1-e"></span>
+										<span class="text">ui-icon-arrowstop-1-e</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-arrowstop-1-s"></span>
+										<span class="text">ui-icon-arrowstop-1-s</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-arrowstop-1-w"></span>
+										<span class="text">ui-icon-arrowstop-1-w</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-arrowthick-1-n"></span>
+										<span class="text">ui-icon-arrowthick-1-n</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-arrowthick-1-ne"></span>
+										<span class="text">ui-icon-arrowthick-1-ne</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-arrowthick-1-e"></span>
+										<span class="text">ui-icon-arrowthick-1-e</span>
+									</li>
+
+									<li>
+										<span class="ui-icon ui-icon-arrowthick-1-se"></span>
+										<span class="text">ui-icon-arrowthick-1-se</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-arrowthick-1-s"></span>
+										<span class="text">ui-icon-arrowthick-1-s</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-arrowthick-1-sw"></span>
+										<span class="text">ui-icon-arrowthick-1-sw</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-arrowthick-1-w"></span>
+										<span class="text">ui-icon-arrowthick-1-w</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-arrowthick-1-nw"></span>
+										<span class="text">ui-icon-arrowthick-1-nw</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
+										<span class="text">ui-icon-arrowthick-2-n-s</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-arrowthick-2-ne-sw"></span>
+										<span class="text">ui-icon-arrowthick-2-ne-sw</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-arrowthick-2-e-w"></span>
+										<span class="text">ui-icon-arrowthick-2-e-w</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-arrowthick-2-se-nw"></span>
+										<span class="text">ui-icon-arrowthick-2-se-nw</span>
+									</li>
+
+									<li>
+										<span class="ui-icon ui-icon-arrowthickstop-1-n"></span>
+										<span class="text">ui-icon-arrowthickstop-1-n</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-arrowthickstop-1-e"></span>
+										<span class="text">ui-icon-arrowthickstop-1-e</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-arrowthickstop-1-s"></span>
+										<span class="text">ui-icon-arrowthickstop-1-s</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-arrowthickstop-1-w"></span>
+										<span class="text">ui-icon-arrowthickstop-1-w</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-arrowreturnthick-1-w"></span>
+										<span class="text">ui-icon-arrowreturnthick-1-w</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-arrowreturnthick-1-n"></span>
+										<span class="text">ui-icon-arrowreturnthick-1-n</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-arrowreturnthick-1-e"></span>
+										<span class="text">ui-icon-arrowreturnthick-1-e</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-arrowreturnthick-1-s"></span>
+										<span class="text">ui-icon-arrowreturnthick-1-s</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-arrowreturn-1-w"></span>
+										<span class="text">ui-icon-arrowreturn-1-w</span>
+									</li>
+
+									<li>
+										<span class="ui-icon ui-icon-arrowreturn-1-n"></span>
+										<span class="text">ui-icon-arrowreturn-1-n</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-arrowreturn-1-e"></span>
+										<span class="text">ui-icon-arrowreturn-1-e</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-arrowreturn-1-s"></span>
+										<span class="text">ui-icon-arrowreturn-1-s</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-arrowrefresh-1-w"></span>
+										<span class="text">ui-icon-arrowrefresh-1-w</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-arrowrefresh-1-n"></span>
+										<span class="text">ui-icon-arrowrefresh-1-n</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-arrowrefresh-1-e"></span>
+										<span class="text">ui-icon-arrowrefresh-1-e</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-arrowrefresh-1-s"></span>
+										<span class="text">ui-icon-arrowrefresh-1-s</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-arrow-4"></span>
+										<span class="text">ui-icon-arrow-4</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-arrow-4-diag"></span>
+										<span class="text">ui-icon-arrow-4-diag</span>
+									</li>
+
+									<li>
+										<span class="ui-icon ui-icon-extlink"></span>
+										<span class="text">ui-icon-extlink</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-newwin"></span>
+										<span class="text">ui-icon-newwin</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-refresh"></span>
+										<span class="text">ui-icon-refresh</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-shuffle"></span>
+										<span class="text">ui-icon-shuffle</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-transfer-e-w"></span>
+										<span class="text">ui-icon-transfer-e-w</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-transferthick-e-w"></span>
+										<span class="text">ui-icon-transferthick-e-w</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-folder-collapsed"></span>
+										<span class="text">ui-icon-folder-collapsed</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-folder-open"></span>
+										<span class="text">ui-icon-folder-open</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-document"></span>
+										<span class="text">ui-icon-document</span>
+									</li>
+
+									<li>
+										<span class="ui-icon ui-icon-document-b"></span>
+										<span class="text">ui-icon-document-b</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-note"></span>
+										<span class="text">ui-icon-note</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-mail-closed"></span>
+										<span class="text">ui-icon-mail-closed</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-mail-open"></span>
+										<span class="text">ui-icon-mail-open</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-suitcase"></span>
+										<span class="text">ui-icon-suitcase</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-comment"></span>
+										<span class="text">ui-icon-comment</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-person"></span>
+										<span class="text">ui-icon-person</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-print"></span>
+										<span class="text">ui-icon-print</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-trash"></span>
+										<span class="text">ui-icon-trash</span>
+									</li>
+
+									<li>
+										<span class="ui-icon ui-icon-locked"></span>
+										<span class="text">ui-icon-locked</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-unlocked"></span>
+										<span class="text">ui-icon-unlocked</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-bookmark"></span>
+										<span class="text">ui-icon-bookmark</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-tag"></span>
+										<span class="text">ui-icon-tag</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-home"></span>
+										<span class="text">ui-icon-home</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-flag"></span>
+										<span class="text">ui-icon-flag</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-calculator"></span>
+										<span class="text">ui-icon-calculator</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-cart"></span>
+										<span class="text">ui-icon-cart</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-pencil"></span>
+										<span class="text">ui-icon-pencil</span>
+									</li>
+
+									<li>
+										<span class="ui-icon ui-icon-clock"></span>
+										<span class="text">ui-icon-clock</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-disk"></span>
+										<span class="text">ui-icon-disk</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-calendar"></span>
+										<span class="text">ui-icon-calendar</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-zoomin"></span>
+										<span class="text">ui-icon-zoomin</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-zoomout"></span>
+										<span class="text">ui-icon-zoomout</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-search"></span>
+										<span class="text">ui-icon-search</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-wrench"></span>
+										<span class="text">ui-icon-wrench</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-gear"></span>
+										<span class="text">ui-icon-gear</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-heart"></span>
+										<span class="text">ui-icon-heart</span>
+									</li>
+
+									<li>
+										<span class="ui-icon ui-icon-star"></span>
+										<span class="text">ui-icon-star</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-link"></span>
+										<span class="text">ui-icon-link</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-cancel"></span>
+										<span class="text">ui-icon-cancel</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-plus"></span>
+										<span class="text">ui-icon-plus</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-plusthick"></span>
+										<span class="text">ui-icon-plusthick</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-minus"></span>
+										<span class="text">ui-icon-minus</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-minusthick"></span>
+										<span class="text">ui-icon-minusthick</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-close"></span>
+										<span class="text">ui-icon-close</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-closethick"></span>
+										<span class="text">ui-icon-closethick</span>
+									</li>
+
+									<li>
+										<span class="ui-icon ui-icon-key"></span>
+										<span class="text">ui-icon-key</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-lightbulb"></span>
+										<span class="text">ui-icon-lightbulb</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-scissors"></span>
+										<span class="text">ui-icon-scissors</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-clipboard"></span>
+										<span class="text">ui-icon-clipboard</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-copy"></span>
+										<span class="text">ui-icon-copy</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-contact"></span>
+										<span class="text">ui-icon-contact</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-image"></span>
+										<span class="text">ui-icon-image</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-video"></span>
+										<span class="text">ui-icon-video</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-script"></span>
+										<span class="text">ui-icon-script</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-alert"></span>
+										<span class="text">ui-icon-alert</span>
+									</li>
+
+									<li>
+										<span class="ui-icon ui-icon-info"></span>
+										<span class="text">ui-icon-info</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-notice"></span>
+										<span class="text">ui-icon-notice</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-help"></span>
+										<span class="text">ui-icon-help</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-check"></span>
+										<span class="text">ui-icon-check</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-bullet"></span>
+										<span class="text">ui-icon-bullet</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-radio-off"></span>
+										<span class="text">ui-icon-radio-off</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-radio-on"></span>
+										<span class="text">ui-icon-radio-on</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-pin-w"></span>
+										<span class="text">ui-icon-pin-w</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-pin-s"></span>
+										<span class="text">ui-icon-pin-s</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-play"></span>
+										<span class="text">ui-icon-play</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-pause"></span>
+										<span class="text">ui-icon-pause</span>
+									</li>
+
+									<li>
+										<span class="ui-icon ui-icon-seek-next"></span>
+										<span class="text">ui-icon-seek-next</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-seek-prev"></span>
+										<span class="text">ui-icon-seek-prev</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-seek-end"></span>
+										<span class="text">ui-icon-seek-end</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-seek-first"></span>
+										<span class="text">ui-icon-seek-first</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-stop"></span>
+										<span class="text">ui-icon-stop</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-eject"></span>
+										<span class="text">ui-icon-eject</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-volume-off"></span>
+										<span class="text">ui-icon-volume-off</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-volume-on"></span>
+										<span class="text">ui-icon-volume-on</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-power"></span>
+										<span class="text">ui-icon-power</span>
+									</li>
+
+									<li>
+										<span class="ui-icon ui-icon-signal-diag"></span>
+										<span class="text">ui-icon-signal-diag</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-signal"></span>
+										<span class="text">ui-icon-signal</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-battery-0"></span>
+										<span class="text">ui-icon-battery-0</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-battery-1"></span>
+										<span class="text">ui-icon-battery-1</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-battery-2"></span>
+										<span class="text">ui-icon-battery-2</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-battery-3"></span>
+										<span class="text">ui-icon-battery-3</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-circle-plus"></span>
+										<span class="text">ui-icon-circle-plus</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-circle-minus"></span>
+										<span class="text">ui-icon-circle-minus</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-circle-close"></span>
+										<span class="text">ui-icon-circle-close</span>
+									</li>
+
+									<li>
+										<span class="ui-icon ui-icon-circle-triangle-e"></span>
+										<span class="text">ui-icon-circle-triangle-e</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-circle-triangle-s"></span>
+										<span class="text">ui-icon-circle-triangle-s</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-circle-triangle-w"></span>
+										<span class="text">ui-icon-circle-triangle-w</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-circle-triangle-n"></span>
+										<span class="text">ui-icon-circle-triangle-n</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-circle-arrow-e"></span>
+										<span class="text">ui-icon-circle-arrow-e</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-circle-arrow-s"></span>
+										<span class="text">ui-icon-circle-arrow-s</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-circle-arrow-w"></span>
+										<span class="text">ui-icon-circle-arrow-w</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-circle-arrow-n"></span>
+										<span class="text">ui-icon-circle-arrow-n</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-circle-zoomin"></span>
+										<span class="text">ui-icon-circle-zoomin</span>
+									</li>
+
+									<li>
+										<span class="ui-icon ui-icon-circle-zoomout"></span>
+										<span class="text">ui-icon-circle-zoomout</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-circle-check"></span>
+										<span class="text">ui-icon-circle-check</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-circlesmall-plus"></span>
+										<span class="text">ui-icon-circlesmall-plus</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-circlesmall-minus"></span>
+										<span class="text">ui-icon-circlesmall-minus</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-circlesmall-close"></span>
+										<span class="text">ui-icon-circlesmall-close</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-squaresmall-plus"></span>
+										<span class="text">ui-icon-squaresmall-plus</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-squaresmall-minus"></span>
+										<span class="text">ui-icon-squaresmall-minus</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-squaresmall-close"></span>
+										<span class="text">ui-icon-squaresmall-close</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-grip-dotted-vertical"></span>
+										<span class="text">ui-icon-grip-dotted-vertical</span>
+									</li>
+
+									<li>
+										<span class="ui-icon ui-icon-grip-dotted-horizontal"></span>
+										<span class="text">ui-icon-grip-dotted-horizontal</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-grip-solid-vertical"></span>
+										<span class="text">ui-icon-grip-solid-vertical</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-grip-solid-horizontal"></span>
+										<span class="text">ui-icon-grip-solid-horizontal</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-gripsmall-diagonal-se"></span>
+										<span class="text">ui-icon-gripsmall-diagonal-se</span>
+									</li>
+									<li>
+										<span class="ui-icon ui-icon-grip-diagonal-se"></span>
+										<span class="text">ui-icon-grip-diagonal-se</span>
+									</li>
+								</ul>
+							<div>
+						</div>			
+					</div>
+				</div>
+				<!-- e: 아이콘 -->
+
+				<table class="table_col" summary="layer Popup 메소드">
+					<caption>layer Popup 설명</caption>
+					<colgroup>
+						<col width="150">
+						<col width="">		
+					</colgroup>
+					<tbody>
+					<tr>
+						<th scope="col">메서드</th>
+						<th scope="col">메서드 설명</th>
+					</tr>
+					<tr>
+						<td>button</td>
+						<td>단일 버튼</td>		
+					</tr>
+					<tr>
+						<td>buttonset</td>
+						<td>버튼 형태의 여러개일경우</td>		
+					</tr>
+					
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+
+		<!-- s: examples 예제 -->
+		<div class="ex_wapper">
+			<div class="section">
+				<h2 class="ex-title">예제) 1.기본사용법 </h2>
+				<p class="ex-more" ><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p>
+				<p class="ex-view" ><a href="ex01.html" target="_blank">View</a></p>
+				<div class="ex-body" style="display:none" >					
+					<div class="source"><!-- 소스 -->
+					
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</span>
+<span style="color: #f92672">&lt;html</span> <span style="color: #a6e22e">xmlns=</span><span style="color: #e6db74">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span style="color: #a6e22e">lang=</span><span style="color: #e6db74">&quot;ko&quot;</span> <span style="color: #a6e22e">xml:lang=</span><span style="color: #e6db74">&quot;ko&quot;</span><span style="color: #f92672">&gt;</span>
+<span style="color: #f92672">&lt;head&gt;</span>
+<span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">http-equiv=</span><span style="color: #e6db74">&quot;Content-Type&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;text/html;charset=utf-8&quot;</span> <span style="color: #f92672">/&gt;</span> 
+ <span style="color: #f92672">&lt;head&gt;</span>
+  <span style="color: #f92672">&lt;title&gt;</span> jQuery UI button <span style="color: #f92672">&lt;/title&gt;</span>
+  <span style="color: #75715e">&lt;!-- </span>
+<span style="color: #75715e">  &lt;link rel=&quot;stylesheet&quot; href=&quot;//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css&quot;&gt;</span>
+<span style="color: #75715e">  &lt;script src=&quot;//code.jquery.com/jquery-1.10.2.js&quot;&gt;&lt;/script&gt;</span>
+<span style="color: #75715e">  &lt;script src=&quot;//code.jquery.com/ui/1.10.4/jquery-ui.js&quot;&gt;&lt;/script&gt;</span>
+<span style="color: #75715e">  --&gt;</span>	
+
+	<span style="color: #f92672">&lt;link</span> <span style="color: #a6e22e">rel=</span><span style="color: #e6db74">&quot;stylesheet&quot;</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/jquery-ui-1.10.4.custom/themes/base/jquery.ui.all.css&quot;</span><span style="color: #f92672">&gt;</span>
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;//code.jquery.com/jquery-1.9.1.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>	
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/jquery-ui-1.10.4.custom/ui/jquery.ui.core.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/jquery-ui-1.10.4.custom/ui/jquery.ui.widget.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/jquery-ui-1.10.4.custom/ui/jquery.ui.button.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+
+	<span style="color: #f92672">&lt;style </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/css&quot;</span><span style="color: #f92672">&gt;</span>
+	<span style="color: #75715e">/* 공통 스타일 */</span>		
+	<span style="color: #f92672">body</span> <span style="color: #f8f8f2">{</span>	<span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">62</span><span style="color: #f92672">.</span><span style="color: #ae81ff">5</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> 	<span style="color: #66d9ef">font-family</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;Trebuchet MS&quot;</span><span style="color: #f92672">,</span> <span style="color: #e6db74">&quot;Arial&quot;</span><span style="color: #f92672">,</span> <span style="color: #e6db74">&quot;Helvetica&quot;</span><span style="color: #f92672">,</span> <span style="color: #e6db74">&quot;Verdana&quot;</span><span style="color: #f92672">,</span> <span style="color: #e6db74">&quot;sans-serif&quot;</span><span style="color: #f8f8f2">;</span> 	<span style="color: #f8f8f2">}</span>
+	<span style="color: #f92672">table</span> <span style="color: #f8f8f2">{</span>	<span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">1em</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+	<span style="color: #a6e22e">.demo-description</span> <span style="color: #f8f8f2">{</span>	<span style="color: #66d9ef">clear</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">both</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">12px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">1.3em</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">line-height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">1.4em</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+	<span style="color: #a6e22e">.ui-draggable</span><span style="color: #f92672">,</span> <span style="color: #a6e22e">.ui-droppable</span> <span style="color: #f8f8f2">{</span>	<span style="color: #66d9ef">background-position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">top</span><span style="color: #f8f8f2">;</span>	<span style="color: #f8f8f2">}</span>
+	
+	<span style="color: #75715e">/* 페이지 스타일*/</span>
+	<span style="color: #a6e22e">#format</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">margin-top</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">2em</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>	
+	<span style="color: #f92672">&lt;/style&gt;</span>
+
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span><span style="color: #f92672">&gt;</span>
+	  <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
+		<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span> <span style="color: #e6db74">&quot;input[type=submit], a, button&quot;</span> <span style="color: #f8f8f2">)</span>
+		  <span style="color: #f8f8f2">.</span><span style="color: #a6e22e">button</span><span style="color: #f8f8f2">()</span>
+		  <span style="color: #f8f8f2">.</span><span style="color: #a6e22e">click</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(</span> <span style="color: #a6e22e">event</span> <span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+			<span style="color: #a6e22e">event</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">preventDefault</span><span style="color: #f8f8f2">();</span>
+		  <span style="color: #f8f8f2">});</span>
+	  <span style="color: #f8f8f2">});</span>
+	<span style="color: #f92672">&lt;/script&gt;</span>
+
+<span style="color: #f92672">&lt;/head&gt;</span>
+	<span style="color: #f92672">&lt;body&gt;</span>
+ 
+	<span style="color: #f92672">&lt;button&gt;</span>A button element<span style="color: #f92672">&lt;/button&gt;</span>	 
+	<span style="color: #f92672">&lt;input</span> <span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;submit&quot;</span> <span style="color: #a6e22e">value=</span><span style="color: #e6db74">&quot;A submit button&quot;</span><span style="color: #f92672">&gt;</span>	 
+	<span style="color: #f92672">&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#&quot;</span><span style="color: #f92672">&gt;</span>An anchor<span style="color: #f92672">&lt;/a&gt;</span>
+
+	<span style="color: #f92672">&lt;/body&gt;</span>
+<span style="color: #f92672">&lt;/html&gt;</span>
+</pre></td></tr></table></div>
+
+
+
+
+				
+					</div><!--// 소스 -->
+				<div>
+			</div>			
+		</div>
+		<!-- e: examples 예제 -->
+
+
+		<!-- s: examples 예제 -->
+		<div class="ex_wapper">
+			<div class="section">
+				<h2 class="ex-title">예제) 2.(disabled , icons  )</h2>
+				<p class="ex-more" ><a href="javascript:return false;"><span>+</span><span style="display:none">-</span></a></p>
+				<p class="ex-view" ><a href="ex02.html" target="_blank">View</a></p>
+				<div class="ex-body" style="display:none">					
+					<div class="source"><!-- 소스 -->
+					
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</span>
+<span style="color: #f92672">&lt;html</span> <span style="color: #a6e22e">xmlns=</span><span style="color: #e6db74">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span style="color: #a6e22e">lang=</span><span style="color: #e6db74">&quot;ko&quot;</span> <span style="color: #a6e22e">xml:lang=</span><span style="color: #e6db74">&quot;ko&quot;</span><span style="color: #f92672">&gt;</span>
+<span style="color: #f92672">&lt;head&gt;</span>
+<span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">http-equiv=</span><span style="color: #e6db74">&quot;Content-Type&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;text/html;charset=utf-8&quot;</span> <span style="color: #f92672">/&gt;</span> 
+ <span style="color: #f92672">&lt;head&gt;</span>
+  <span style="color: #f92672">&lt;title&gt;</span> jQuery UI button <span style="color: #f92672">&lt;/title&gt;</span>
+  <span style="color: #75715e">&lt;!-- </span>
+<span style="color: #75715e">  &lt;link rel=&quot;stylesheet&quot; href=&quot;//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css&quot;&gt;</span>
+<span style="color: #75715e">  &lt;script src=&quot;//code.jquery.com/jquery-1.10.2.js&quot;&gt;&lt;/script&gt;</span>
+<span style="color: #75715e">  &lt;script src=&quot;//code.jquery.com/ui/1.10.4/jquery-ui.js&quot;&gt;&lt;/script&gt;</span>
+<span style="color: #75715e">  --&gt;</span>	
+
+	<span style="color: #f92672">&lt;link</span> <span style="color: #a6e22e">rel=</span><span style="color: #e6db74">&quot;stylesheet&quot;</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/jquery-ui-1.10.4.custom/themes/base/jquery.ui.all.css&quot;</span><span style="color: #f92672">&gt;</span>
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js&quot;</span> <span style="color: #f92672">&gt;&lt;/script&gt;</span>
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/jquery-ui-1.10.4.custom/ui/jquery.ui.core.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/jquery-ui-1.10.4.custom/ui/jquery.ui.widget.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/jquery-ui-1.10.4.custom/ui/jquery.ui.button.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+
+	<span style="color: #f92672">&lt;style </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/css&quot;</span><span style="color: #f92672">&gt;</span>
+	<span style="color: #75715e">/* 공통 스타일 */</span>		
+	<span style="color: #f92672">body</span> <span style="color: #f8f8f2">{</span>	<span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">62</span><span style="color: #f92672">.</span><span style="color: #ae81ff">5</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> 	<span style="color: #66d9ef">font-family</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;Trebuchet MS&quot;</span><span style="color: #f92672">,</span> <span style="color: #e6db74">&quot;Arial&quot;</span><span style="color: #f92672">,</span> <span style="color: #e6db74">&quot;Helvetica&quot;</span><span style="color: #f92672">,</span> <span style="color: #e6db74">&quot;Verdana&quot;</span><span style="color: #f92672">,</span> <span style="color: #e6db74">&quot;sans-serif&quot;</span><span style="color: #f8f8f2">;</span> 	<span style="color: #f8f8f2">}</span>
+	<span style="color: #f92672">table</span> <span style="color: #f8f8f2">{</span>	<span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">1em</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+	<span style="color: #a6e22e">.demo-description</span> <span style="color: #f8f8f2">{</span>	<span style="color: #66d9ef">clear</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">both</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">12px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">1.3em</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">line-height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">1.4em</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+	<span style="color: #a6e22e">.ui-draggable</span><span style="color: #f92672">,</span> <span style="color: #a6e22e">.ui-droppable</span> <span style="color: #f8f8f2">{</span>	<span style="color: #66d9ef">background-position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">top</span><span style="color: #f8f8f2">;</span>	<span style="color: #f8f8f2">}</span>
+	
+	<span style="color: #75715e">/* 페이지 스타일*/</span>
+	<span style="color: #a6e22e">#format</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">margin-top</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">2em</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>	
+	<span style="color: #f92672">&lt;/style&gt;</span>
+
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span><span style="color: #f92672">&gt;</span>
+	  <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
+		<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span> <span style="color: #e6db74">&quot;#check_1&quot;</span> <span style="color: #f8f8f2">).</span><span style="color: #a6e22e">button</span><span style="color: #f8f8f2">({</span> <span style="color: #a6e22e">disabled</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">true</span> <span style="color: #f8f8f2">});</span>
+
+		<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span> <span style="color: #e6db74">&quot;#check_2&quot;</span> <span style="color: #f8f8f2">).</span><span style="color: #a6e22e">button</span><span style="color: #f8f8f2">({</span> <span style="color: #a6e22e">icons</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">{</span> <span style="color: #a6e22e">primary</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;ui-icon-gear&quot;</span> <span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">secondary</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;ui-icon-triangle-1-s&quot;</span> <span style="color: #f8f8f2">}</span> <span style="color: #f8f8f2">});</span>
+		
+		
+	  <span style="color: #f8f8f2">});</span>
+	<span style="color: #f92672">&lt;/script&gt;</span>
+
+<span style="color: #f92672">&lt;/head&gt;</span>
+<span style="color: #f92672">&lt;body&gt;</span>
+ 
+<span style="color: #f92672">&lt;input</span> <span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;checkbox&quot;</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;check_1&quot;</span><span style="color: #f92672">&gt;&lt;label</span> <span style="color: #a6e22e">for=</span><span style="color: #e6db74">&quot;check_1&quot;</span><span style="color: #f92672">&gt;</span>Toggle<span style="color: #f92672">&lt;/label&gt;</span>
+
+<span style="color: #f92672">&lt;input</span> <span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;checkbox&quot;</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;check_2&quot;</span><span style="color: #f92672">&gt;&lt;label</span> <span style="color: #a6e22e">for=</span><span style="color: #e6db74">&quot;check_2&quot;</span><span style="color: #f92672">&gt;</span>Toggle<span style="color: #f92672">&lt;/label&gt;</span>
+ 
+
+
+ <span style="color: #f92672">&lt;/body&gt;</span>
+<span style="color: #f92672">&lt;/html&gt;</span>
+</pre></td></tr></table></div>
+
+
+				
+					</div><!--// 소스 -->
+				<div>
+			</div>			
+		</div>
+		<!-- e: examples 예제 -->
+
+
+		<!-- s: examples 예제 -->
+		<div class="ex_wapper">
+			<div class="section">
+				<h2 class="ex-title">예제) 3.(checkbox , radio button )</h2>
+				<p class="ex-more" ><a href="javascript:return false;"><span>+</span><span style="display:none">-</span></a></p>
+				<p class="ex-view" ><a href="ex03.html" target="_blank">View</a></p>
+				<div class="ex-body" style="display:none">					
+					<div class="source"><!-- 소스 -->
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</span>
+<span style="color: #f92672">&lt;html</span> <span style="color: #a6e22e">xmlns=</span><span style="color: #e6db74">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span style="color: #a6e22e">lang=</span><span style="color: #e6db74">&quot;ko&quot;</span> <span style="color: #a6e22e">xml:lang=</span><span style="color: #e6db74">&quot;ko&quot;</span><span style="color: #f92672">&gt;</span>
+<span style="color: #f92672">&lt;head&gt;</span>
+<span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">http-equiv=</span><span style="color: #e6db74">&quot;Content-Type&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;text/html;charset=utf-8&quot;</span> <span style="color: #f92672">/&gt;</span> 
+ <span style="color: #f92672">&lt;head&gt;</span>
+  <span style="color: #f92672">&lt;title&gt;</span> jQuery UI button <span style="color: #f92672">&lt;/title&gt;</span>
+  <span style="color: #75715e">&lt;!-- </span>
+<span style="color: #75715e">  &lt;link rel=&quot;stylesheet&quot; href=&quot;//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css&quot;&gt;</span>
+<span style="color: #75715e">  &lt;script src=&quot;//code.jquery.com/jquery-1.10.2.js&quot;&gt;&lt;/script&gt;</span>
+<span style="color: #75715e">  &lt;script src=&quot;//code.jquery.com/ui/1.10.4/jquery-ui.js&quot;&gt;&lt;/script&gt;</span>
+<span style="color: #75715e">  --&gt;</span>	
+
+	<span style="color: #f92672">&lt;link</span> <span style="color: #a6e22e">rel=</span><span style="color: #e6db74">&quot;stylesheet&quot;</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/jquery-ui-1.10.4.custom/themes/base/jquery.ui.all.css&quot;</span><span style="color: #f92672">&gt;</span>
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js&quot;</span> <span style="color: #f92672">&gt;&lt;/script&gt;</span>	
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/jquery-ui-1.10.4.custom/ui/jquery.ui.core.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/jquery-ui-1.10.4.custom/ui/jquery.ui.widget.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/jquery-ui-1.10.4.custom/ui/jquery.ui.button.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+
+	<span style="color: #f92672">&lt;style </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/css&quot;</span><span style="color: #f92672">&gt;</span>
+	<span style="color: #75715e">/* 공통 스타일 */</span>		
+	<span style="color: #f92672">body</span> <span style="color: #f8f8f2">{</span>	<span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">62</span><span style="color: #f92672">.</span><span style="color: #ae81ff">5</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> 	<span style="color: #66d9ef">font-family</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;Trebuchet MS&quot;</span><span style="color: #f92672">,</span> <span style="color: #e6db74">&quot;Arial&quot;</span><span style="color: #f92672">,</span> <span style="color: #e6db74">&quot;Helvetica&quot;</span><span style="color: #f92672">,</span> <span style="color: #e6db74">&quot;Verdana&quot;</span><span style="color: #f92672">,</span> <span style="color: #e6db74">&quot;sans-serif&quot;</span><span style="color: #f8f8f2">;</span> 	<span style="color: #f8f8f2">}</span>
+	<span style="color: #f92672">table</span> <span style="color: #f8f8f2">{</span>	<span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">1em</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+	<span style="color: #a6e22e">.demo-description</span> <span style="color: #f8f8f2">{</span>	<span style="color: #66d9ef">clear</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">both</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">12px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">1.3em</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">line-height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">1.4em</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+	<span style="color: #a6e22e">.ui-draggable</span><span style="color: #f92672">,</span> <span style="color: #a6e22e">.ui-droppable</span> <span style="color: #f8f8f2">{</span>	<span style="color: #66d9ef">background-position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">top</span><span style="color: #f8f8f2">;</span>	<span style="color: #f8f8f2">}</span>
+	
+	<span style="color: #75715e">/* 페이지 스타일*/</span>
+	<span style="color: #a6e22e">#format</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">margin-top</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">2em</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>	
+	<span style="color: #f92672">&lt;/style&gt;</span>
+
+	<span style="color: #f92672">&lt;script&gt;</span>
+	  <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
+		<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span> <span style="color: #e6db74">&quot;#format&quot;</span> <span style="color: #f8f8f2">).</span><span style="color: #a6e22e">buttonset</span><span style="color: #f8f8f2">();</span>
+
+		<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span> <span style="color: #e6db74">&quot;#radio&quot;</span> <span style="color: #f8f8f2">).</span><span style="color: #a6e22e">buttonset</span><span style="color: #f8f8f2">();</span>
+	  <span style="color: #f8f8f2">});</span>
+  <span style="color: #f92672">&lt;/script&gt;</span>
+
+<span style="color: #f92672">&lt;/head&gt;</span>
+<span style="color: #f92672">&lt;body&gt;</span>
+
+<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;format&quot;</span><span style="color: #f92672">&gt;</span>
+  <span style="color: #f92672">&lt;input</span> <span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;checkbox&quot;</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;check1&quot;</span><span style="color: #f92672">&gt;&lt;label</span> <span style="color: #a6e22e">for=</span><span style="color: #e6db74">&quot;check1&quot;</span><span style="color: #f92672">&gt;</span>B<span style="color: #f92672">&lt;/label&gt;</span>
+  <span style="color: #f92672">&lt;input</span> <span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;checkbox&quot;</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;check2&quot;</span><span style="color: #f92672">&gt;&lt;label</span> <span style="color: #a6e22e">for=</span><span style="color: #e6db74">&quot;check2&quot;</span><span style="color: #f92672">&gt;</span>I<span style="color: #f92672">&lt;/label&gt;</span>
+  <span style="color: #f92672">&lt;input</span> <span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;checkbox&quot;</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;check3&quot;</span><span style="color: #f92672">&gt;&lt;label</span> <span style="color: #a6e22e">for=</span><span style="color: #e6db74">&quot;check3&quot;</span><span style="color: #f92672">&gt;</span>U<span style="color: #f92672">&lt;/label&gt;</span>
+<span style="color: #f92672">&lt;/div&gt;</span>
+
+<span style="color: #f92672">&lt;br</span> <span style="color: #f92672">/&gt;</span>
+
+<span style="color: #f92672">&lt;form&gt;</span>
+  <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;radio&quot;</span><span style="color: #f92672">&gt;</span>
+    <span style="color: #f92672">&lt;input</span> <span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;radio&quot;</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;radio1&quot;</span> <span style="color: #a6e22e">name=</span><span style="color: #e6db74">&quot;radio&quot;</span><span style="color: #f92672">&gt;&lt;label</span> <span style="color: #a6e22e">for=</span><span style="color: #e6db74">&quot;radio1&quot;</span><span style="color: #f92672">&gt;</span>Choice 1<span style="color: #f92672">&lt;/label&gt;</span>
+    <span style="color: #f92672">&lt;input</span> <span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;radio&quot;</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;radio2&quot;</span> <span style="color: #a6e22e">name=</span><span style="color: #e6db74">&quot;radio&quot;</span> <span style="color: #a6e22e">checked=</span><span style="color: #e6db74">&quot;checked&quot;</span><span style="color: #f92672">&gt;&lt;label</span> <span style="color: #a6e22e">for=</span><span style="color: #e6db74">&quot;radio2&quot;</span><span style="color: #f92672">&gt;</span>Choice 2<span style="color: #f92672">&lt;/label&gt;</span>
+    <span style="color: #f92672">&lt;input</span> <span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;radio&quot;</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;radio3&quot;</span> <span style="color: #a6e22e">name=</span><span style="color: #e6db74">&quot;radio&quot;</span><span style="color: #f92672">&gt;&lt;label</span> <span style="color: #a6e22e">for=</span><span style="color: #e6db74">&quot;radio3&quot;</span><span style="color: #f92672">&gt;</span>Choice 3<span style="color: #f92672">&lt;/label&gt;</span>
+  <span style="color: #f92672">&lt;/div&gt;</span>
+<span style="color: #f92672">&lt;/form&gt;</span>
+
+ <span style="color: #f92672">&lt;/body&gt;</span>
+<span style="color: #f92672">&lt;/html&gt;</span>
+</pre></td></tr></table></div>
+
+
+				
+					</div><!--// 소스 -->
+				<div>
+			</div>			
+		</div>
+		<!-- e: examples 예제 -->
+
+	</div>
+	<!-- e: 컨텐츠 끝 -->
+</div>
+
+
+
+<script type="text/javascript">
+	$("#header").load("../../../head.html");
+	$("#lnb").load("../../../lnb.html");	
+
+	$(".ex-more a").click(function() {
+		$( this ).find("span").toggle();
+		$( this ).parent().siblings(".ex-body").slideToggle();
+	});
+
+	$(".icon-more a").click(function() {
+		$( this ).find("span").toggle();
+		$( this ).parent().siblings(".ex-body").slideToggle();
+		return false;
+	});
+</script>
+
+</body>
+</html>

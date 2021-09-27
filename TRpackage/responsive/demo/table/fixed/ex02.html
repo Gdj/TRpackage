@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>scroll X</title>
+  <style>
+    .table th { 
+      background:#ccc;
+    }
+    .table td, .table th {
+      padding:10px 20px;
+      border-top:1px solid #ccc;
+      word-break:break-all
+    }
+    .table--min {
+      min-width:700px;
+    }
+    @media screen and (max-width:768px) {
+      /*normal*/
+      .table-box {
+        overflow-x:auto;
+      }
+      /*horizontal*/
+      .table--horizontal tr {
+        position:relative;
+      }
+      .table--horizontal th {
+        position:absolute;
+        width:32px;
+      }  
+    }
+  </style>
+</head>
+<body>
+  <h1>Horizontal</h1>
+  <div class="table-box">
+    <table class="table table--min table--horizontal" cellspacing="0" cellpadding="0">
+      <tr>
+        <th>1월</th>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>4</td>
+        <td>5</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <th>2월</th>
+        <td>8</td>
+        <td>7</td>
+        <td>6</td>
+        <td>5</td>
+        <td>4</td>
+        <td>3</td>
+        <td>2</td>
+        <td>1</td>
+        <td>4</td>
+        <td>2</td>
+        <td>7</td>
+      </tr>
+      <tr>
+        <th>3월</th>
+        <td>5</td>
+        <td>4</td>
+        <td>3</td>
+        <td>2</td>
+        <td>1</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>

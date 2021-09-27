@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>material | TR package</title>
+    <script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="../../../../asset/js/libs/trpMenu.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../../asset/css/trpBase.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="../../../../asset/css/common.css" media="all" />
+<!--    
+    <style>
+
+        /** trp_waves  **/
+        .trp_waves { position: relative;overflow: hidden; 
+            padding: 15px 40px;
+            font-size: 22px;color: white;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, .4);
+            border: none;background: #000;
+            cursor: pointer;
+        }
+        .trp_waves:after {content: '';position: absolute;top: 50%;left: 50%;
+            width: 5px;height: 5px;
+            border-radius: 100%;
+            background: rgba(255, 255, 255, .5);
+            opacity: 0;
+            transform: scale(1, 1) translate(-50%);
+            transform-origin: 50% 50%;
+        }
+        @keyframes trp_ripple {
+            0%   {transform: scale(0, 0);opacity: 1;}
+            20%  {transform: scale(25, 25);opacity: 1;}
+            100% {opacity: 0;transform: scale(40, 40);}
+        }
+        /* event hover */
+        .trp_waves.event_hover:hover::after {animation: trp_ripple 1s ease-out;}
+
+        /* event click */
+        .trp_waves.event_click:focus:not(:active)::after {animation: trp_ripple 1s ease-out;}
+
+    </style>
+-->  
+</head>
+
+<body>
+  <div id="header" ></div>
+  <div id="container">
+	<div id="lnb" class="gnb"></div>
+	<!-- s: 컨텐츠 시작 -->
+	<div id="contents" class="contents">
+		<!-- s: 라이브러리 설명 -->
+		<div class="desc_wapper">
+			<h1 class="desc_title">material</h1>
+			<p>material style 버튼효과 </p>
+		</div>  
+		<!-- e: css 설명 -->
+	
+
+		<!-- s: api 설명 -->
+		<div class="api">
+			<h2 class="api-title">waves 중앙확산 </h2>
+			<div class="api-body">
+				<dl>
+					<dt>설명</dt>					
+					<dd><span class="icon"></span>ie10 이상에서 지원 "transition, keyframes"등 사용 </dd>
+				</dl>
+
+<!-- ===VIEW=== -->									
+				<div class="ex_wapper">
+					<h3 class="api-title_h3">VIEW</h3>
+					<p class="ex-more"><a href="javascript:return false;"><span class="d-n">+</span><span style="display: inline;">-</span></a></p>
+					<p class="ex-view"><a href="ex01.html" target="_blank">View Sample</a></p>
+					<div class="ex-body d-n" >
+                    <!-- 소스 -->
+
+
+<button class="trp_waves event_hover"> HOVER </button>
+<button class="trp_waves event_click"> CLICK </button>                  
+                                    
+
+                    <!-- //소스 -->
+					</div>
+				</div>
+				
+				
+<!-- ===CSS=== -->	
+				<div class="ex_wapper">
+					<h3 class="api-title_h3 css">CSS</h3>
+					<div class="api-body_h3 css">
+                    <!-- 소스 -->
+                
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #f92672">&lt;style&gt;</span>
+
+    <span style="color: #75715e">/** trp_waves  **/</span>
+    <span style="color: #a6e22e">.trp_waves</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">relative</span><span style="color: #f8f8f2">;</span><span style="color: #66d9ef">overflow</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">hidden</span><span style="color: #f8f8f2">;</span> 
+        <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">15px</span> <span style="color: #ae81ff">40px</span><span style="color: #f8f8f2">;</span>
+        <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">22px</span><span style="color: #f8f8f2">;</span><span style="color: #66d9ef">color</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">white;</span>
+        <span style="color: #f8f8f2">box</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">shadow</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">2px</span> <span style="color: #ae81ff">2px</span> <span style="color: #ae81ff">4px</span> <span style="color: #f8f8f2">rgba(</span><span style="color: #ae81ff">0</span><span style="color: #f92672">,</span> <span style="color: #ae81ff">0</span><span style="color: #f92672">,</span> <span style="color: #ae81ff">0</span><span style="color: #f92672">,</span> <span style="color: #f92672">.</span><span style="color: #ae81ff">4</span><span style="color: #f8f8f2">);</span>
+        <span style="color: #66d9ef">border</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">none</span><span style="color: #f8f8f2">;</span><span style="color: #66d9ef">background</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#000</span><span style="color: #f8f8f2">;</span>
+        <span style="color: #66d9ef">cursor</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">pointer</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #f8f8f2">}</span>
+    <span style="color: #a6e22e">.trp_waves:after</span> <span style="color: #f8f8f2">{</span><span style="color: #66d9ef">content</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;&#39;</span><span style="color: #f8f8f2">;</span><span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">absolute</span><span style="color: #f8f8f2">;</span><span style="color: #66d9ef">top</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">50</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span><span style="color: #66d9ef">left</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">50</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span>
+        <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">5px</span><span style="color: #f8f8f2">;</span><span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">5px</span><span style="color: #f8f8f2">;</span>
+        <span style="color: #66d9ef">border</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">radius</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span>
+        <span style="color: #66d9ef">background</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">rgba(</span><span style="color: #ae81ff">255</span><span style="color: #f92672">,</span> <span style="color: #ae81ff">255</span><span style="color: #f92672">,</span> <span style="color: #ae81ff">255</span><span style="color: #f92672">,</span> <span style="color: #f92672">.</span><span style="color: #ae81ff">5</span><span style="color: #f8f8f2">);</span>
+        <span style="color: #66d9ef">opacity</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+        <span style="color: #f8f8f2">transform</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">scale(</span><span style="color: #ae81ff">1</span><span style="color: #f92672">,</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">translate(</span><span style="color: #ae81ff">-50</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">);</span>
+        <span style="color: #f8f8f2">transform</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">origin</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">50</span><span style="color: #f92672">%</span> <span style="color: #ae81ff">50</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #f8f8f2">}</span>
+    <span style="color: #66d9ef">@keyframes</span> <span style="color: #f92672">trp_ripple</span> <span style="color: #f8f8f2">{</span>
+        <span style="color: #f92672">0%</span>   <span style="color: #f8f8f2">{transform</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">scale(</span><span style="color: #ae81ff">0</span><span style="color: #f92672">,</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">);</span><span style="color: #66d9ef">opacity</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;}</span>
+        <span style="color: #f92672">20%</span>  <span style="color: #f8f8f2">{transform</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">scale(</span><span style="color: #ae81ff">25</span><span style="color: #f92672">,</span> <span style="color: #ae81ff">25</span><span style="color: #f8f8f2">);</span><span style="color: #66d9ef">opacity</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;}</span>
+        <span style="color: #f92672">100%</span> <span style="color: #f8f8f2">{</span><span style="color: #66d9ef">opacity</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;transform</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">scale(</span><span style="color: #ae81ff">40</span><span style="color: #f92672">,</span> <span style="color: #ae81ff">40</span><span style="color: #f8f8f2">);}</span>
+    <span style="color: #f8f8f2">}</span>
+    <span style="color: #75715e">/* event hover */</span>
+    <span style="color: #a6e22e">.trp_waves.event_hover:hover</span><span style="color: #f92672">:</span><span style="color: #a6e22e">:after</span> <span style="color: #f8f8f2">{animation</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">trp_ripple</span> <span style="color: #ae81ff">1s</span> <span style="color: #f8f8f2">ease</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">out;}</span>
+
+    <span style="color: #75715e">/* event click */</span>
+    <span style="color: #a6e22e">.trp_waves.event_click:focus:not</span><span style="color: #f92672">(</span><span style="color: #a6e22e">:active</span><span style="color: #f92672">):</span><span style="color: #a6e22e">:after</span> <span style="color: #f8f8f2">{animation</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">trp_ripple</span> <span style="color: #ae81ff">1s</span> <span style="color: #f8f8f2">ease</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">out;}</span>
+
+<span style="color: #f92672">&lt;/style&gt;</span>
+</pre></td></tr></table></div>
+
+
+
+                   
+                   
+                    <!-- //소스 -->
+                    </div>
+				</div>
+				
+				
+				<!-- ===HTML=== -->	
+				<div class="ex_wapper">
+				<h3 class="api-title_h3 html">HTML</h3>
+					<div class="api-body_h3 html">
+                    <!-- 소스 -->
+
+                                
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #f92672">&lt;button</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;trp_waves event_hover&quot;</span><span style="color: #f92672">&gt;</span> HOVER <span style="color: #f92672">&lt;/button&gt;</span>
+<span style="color: #f92672">&lt;button</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;trp_waves event_click&quot;</span><span style="color: #f92672">&gt;</span> CLICK <span style="color: #f92672">&lt;/button&gt;</span>
+</pre></td></tr></table></div>
+
+
+
+                   
+                    <!-- //소스 -->
+                    </div>
+				</div>
+					
+		
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+		
+	
+		</div>		
+	<!-- e: 컨텐츠 끝 -->
+	<p class="cl-b"></p>
+</div>
+
+
+
+<script type="text/javascript">
+	$("#header").load("../../../head.html");
+	$("#lnb").load("../../../lnb.html");	
+
+	$(".ex-more a").click(function() {
+		$( this ).find("span").toggle();
+		$( this ).parents(".ex_wapper").find(".ex-body").slideToggle();
+		return false;
+	});
+</script>
+
+</body>
+</html>
+

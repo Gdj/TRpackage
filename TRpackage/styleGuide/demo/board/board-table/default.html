@@ -1,0 +1,237 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+<title>board-table-type1 | TR package</title>
+<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.js" charset="UTF-8"></script>
+<link rel="stylesheet" type="text/css"  href="../../../../asset/css/common.css" media="all" />
+<link rel="stylesheet" type="text/css"  href="../../../../asset/css/trpBase.css" media="all" />
+
+</head>
+<body>
+  <div id="header" ></div>
+  <div id="container">
+	<div id="lnb" class="gnb"></div>
+	<!-- s: 컨텐츠 시작 -->
+	<div id="contents" class="contents">
+		<!-- s: css 설명
+		<div class="desc_wapper">
+			<h1 class="desc_title">list</h1>
+			<p>목록에 대한 정의입니다.</p>
+		</div>
+		 -->
+		<!-- e: css 설명 -->
+	
+
+		<!-- s: api 설명 -->
+		<div class="api">
+			<h2 class="api-title">테이블 테그를 이용한 게시판</h2>
+			<div class="api-body">
+				<dl>
+					<dt>설명</dt>					
+					<dd><span class="icon"></span>테이블 테그를 이용한 기본형입니다.</dd>
+				</dl>
+				
+
+				<div class="ex_wapper">
+					<h3 class="api-title_h3">VIEW</h3>
+					<p class="ex-more"><a href="javascript:return false;"><span class="d-n">+</span><span style="display: inline;">-</span></a></p>
+					<p class="ex-view"><a href="ex01.html" target="_blank">View Sample</a></p>
+					<div class="ex-body d-n" >
+
+
+<table class="trp board-table-type1" summary="소식 리스트 - 번호, 제목, 첨부파일, 날짜">
+	<caption>소식 리스트</caption>
+	<colgroup>
+		<col width="6.38297%">
+		<col width="*">
+		<col width="9.51062%">
+		<col width="14.89361%">
+	</colgroup>
+	<thead>
+		<tr>
+			<th scope="col">번호</th>
+			<th scope="col">제목</th>
+			<th scope="col">첨부파일</th>
+			<th scope="col">등록일</th>
+		</tr>
+	</thead>
+	<tbody>		
+
+		<tr>
+			<td >2</td>
+			<td class="tit"><a href="#" title="">공지사항 첫번째입니다.</a></td>
+			<td>					
+				<a href="#" title="첨부파일"></a>				
+			</td>
+			<td>2014-07-14</td>
+		</tr>			
+
+		<tr>
+			<td>1</td>
+			<td class="tit"><a href="#" title="">테스트 제목입니다.</a></td>
+			<td>					
+				<a href="#" title="첨부파일"></a>					
+			</td>
+			<td>2014-07-10</td>
+		</tr>
+		
+	</tbody>
+</table>
+
+
+
+					</div>
+				</div>
+				
+
+				<div class="ex_wapper">
+					<h3 class="api-title_h3 css">CSS</h3>
+					<div class="api-body_h3 css">
+
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7
+8</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #f92672">&lt;style </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/css&quot;</span><span style="color: #f92672">&gt;</span>
+   
+    <span style="color: #a6e22e">.trp.board-table-type1</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">border-top</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">2px</span> <span style="color: #66d9ef">solid</span> <span style="color: #ae81ff">#000</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">text-align</span><span style="color: #f92672">:</span><span style="color: #66d9ef">center</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+    <span style="color: #a6e22e">.trp.board-table-type1</span> <span style="color: #f92672">thead</span> <span style="color: #f92672">th</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">38px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">4px</span> <span style="color: #ae81ff">5px</span> <span style="color: #ae81ff">3px</span> <span style="color: #ae81ff">5px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">border-bottom</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">1px</span> <span style="color: #66d9ef">solid</span> <span style="color: #ae81ff">#d9d9d9</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">13px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#f6f6f6</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+    <span style="color: #a6e22e">.trp.board-table-type1</span> <span style="color: #f92672">tbody</span> <span style="color: #f92672">td</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">35px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">4px</span> <span style="color: #ae81ff">5px</span> <span style="color: #ae81ff">3px</span> <span style="color: #ae81ff">5px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">border-bottom</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">1px</span> <span style="color: #66d9ef">solid</span> <span style="color: #ae81ff">#e5e5e5</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">13px</span><span style="color: #f8f8f2">;}</span>
+    <span style="color: #a6e22e">.trp.board-table-type1</span> <span style="color: #f92672">tbody</span> <span style="color: #f92672">td</span><span style="color: #a6e22e">.tit</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">padding-left</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">50px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">text-align</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">left</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+	
+<span style="color: #f92672">&lt;/style&gt;</span>
+</pre></td></tr></table></div>
+                
+
+				
+
+
+					</div>
+				</div>
+
+
+
+				<div class="ex_wapper">
+				<h3 class="api-title_h3 html">HTML</h3>
+					<div class="api-body_h3 html">
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #f92672">&lt;table</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;trp board-table-type1&quot;</span> <span style="color: #a6e22e">summary=</span><span style="color: #e6db74">&quot;소식 리스트 - 번호, 제목, 첨부파일, 날짜&quot;</span><span style="color: #f92672">&gt;</span>
+	<span style="color: #f92672">&lt;caption&gt;</span>소식 리스트<span style="color: #f92672">&lt;/caption&gt;</span>
+	<span style="color: #f92672">&lt;colgroup&gt;</span>
+		<span style="color: #f92672">&lt;col</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;6.38297%&quot;</span><span style="color: #f92672">&gt;</span>
+		<span style="color: #f92672">&lt;col</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;*&quot;</span><span style="color: #f92672">&gt;</span>
+		<span style="color: #f92672">&lt;col</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;9.51062%&quot;</span><span style="color: #f92672">&gt;</span>
+		<span style="color: #f92672">&lt;col</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;14.89361%&quot;</span><span style="color: #f92672">&gt;</span>
+	<span style="color: #f92672">&lt;/colgroup&gt;</span>
+	<span style="color: #f92672">&lt;thead&gt;</span>
+		<span style="color: #f92672">&lt;tr&gt;</span>
+			<span style="color: #f92672">&lt;th</span> <span style="color: #a6e22e">scope=</span><span style="color: #e6db74">&quot;col&quot;</span><span style="color: #f92672">&gt;</span>번호<span style="color: #f92672">&lt;/th&gt;</span>
+			<span style="color: #f92672">&lt;th</span> <span style="color: #a6e22e">scope=</span><span style="color: #e6db74">&quot;col&quot;</span><span style="color: #f92672">&gt;</span>제목<span style="color: #f92672">&lt;/th&gt;</span>
+			<span style="color: #f92672">&lt;th</span> <span style="color: #a6e22e">scope=</span><span style="color: #e6db74">&quot;col&quot;</span><span style="color: #f92672">&gt;</span>첨부파일<span style="color: #f92672">&lt;/th&gt;</span>
+			<span style="color: #f92672">&lt;th</span> <span style="color: #a6e22e">scope=</span><span style="color: #e6db74">&quot;col&quot;</span><span style="color: #f92672">&gt;</span>등록일<span style="color: #f92672">&lt;/th&gt;</span>
+		<span style="color: #f92672">&lt;/tr&gt;</span>
+	<span style="color: #f92672">&lt;/thead&gt;</span>
+	<span style="color: #f92672">&lt;tbody&gt;</span>		
+
+		<span style="color: #f92672">&lt;tr&gt;</span>
+			<span style="color: #f92672">&lt;td</span> <span style="color: #f92672">&gt;</span>2<span style="color: #f92672">&lt;/td&gt;</span>
+			<span style="color: #f92672">&lt;td</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;tit&quot;</span><span style="color: #f92672">&gt;&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#&quot;</span> <span style="color: #a6e22e">title=</span><span style="color: #e6db74">&quot;&quot;</span><span style="color: #f92672">&gt;</span>공지사항 첫번째입니다.<span style="color: #f92672">&lt;/a&gt;&lt;/td&gt;</span>
+			<span style="color: #f92672">&lt;td&gt;</span>					
+				<span style="color: #f92672">&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#&quot;</span> <span style="color: #a6e22e">title=</span><span style="color: #e6db74">&quot;첨부파일&quot;</span><span style="color: #f92672">&gt;&lt;/a&gt;</span>				
+			<span style="color: #f92672">&lt;/td&gt;</span>
+			<span style="color: #f92672">&lt;td&gt;</span>2014-07-14<span style="color: #f92672">&lt;/td&gt;</span>
+		<span style="color: #f92672">&lt;/tr&gt;</span>			
+
+		<span style="color: #f92672">&lt;tr&gt;</span>
+			<span style="color: #f92672">&lt;td&gt;</span>1<span style="color: #f92672">&lt;/td&gt;</span>
+			<span style="color: #f92672">&lt;td</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;tit&quot;</span><span style="color: #f92672">&gt;&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#&quot;</span> <span style="color: #a6e22e">title=</span><span style="color: #e6db74">&quot;&quot;</span><span style="color: #f92672">&gt;</span>테스트 제목입니다.<span style="color: #f92672">&lt;/a&gt;&lt;/td&gt;</span>
+			<span style="color: #f92672">&lt;td&gt;</span>					
+				<span style="color: #f92672">&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#&quot;</span> <span style="color: #a6e22e">title=</span><span style="color: #e6db74">&quot;첨부파일&quot;</span><span style="color: #f92672">&gt;&lt;/a&gt;</span>					
+			<span style="color: #f92672">&lt;/td&gt;</span>
+			<span style="color: #f92672">&lt;td&gt;</span>2014-07-10<span style="color: #f92672">&lt;/td&gt;</span>
+		<span style="color: #f92672">&lt;/tr&gt;</span>
+		
+	<span style="color: #f92672">&lt;/tbody&gt;</span>
+<span style="color: #f92672">&lt;/table&gt;</span>
+</pre></td></tr></table></div>
+
+
+
+		
+
+						
+					</div>
+				</div>
+					
+		
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+		
+	
+		</div>		
+	<!-- e: 컨텐츠 끝 -->
+	<p class="cl-b"></p>
+</div>
+
+
+
+<script type="text/javascript">
+	$("#header").load("../../../head.html");
+	$("#lnb").load("../../../lnb.html");	
+
+
+	$(".ex-more a").click(function() {
+		$( this ).find("span").toggle();
+		$( this ).parent().siblings(".ex-body").slideToggle();
+		return false;
+	});
+
+</script>
+
+</body>
+</html>

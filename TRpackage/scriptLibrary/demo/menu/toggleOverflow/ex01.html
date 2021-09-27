@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript" src="../../../../asset/js/libs/trpMenu.js"></script>
+  <style>
+    .family_site {}
+    .family_site.active .family-list { display: block; }
+    .family-list { display: none; width: 200px;
+      background-color: dimgrey; 
+    }
+  </style> 
+  
+  <script>
+  $(document).ready(function(){
+    
+    var fn_trpToggleOverflow = $("#footer .select-btn").trpToggleOverflow("#footer .family-list");
+    $("#footer .select-btn").on("click", function () {
+      fn_trpToggleOverflow.toggle(
+        function(){
+          $("#footer .family_site").addClass("active");
+        },
+        function(){
+          $("#footer .family_site").removeClass("active");
+        }
+      );
+    });
+    
+  })
+  </script>
+	
+</head>
+<body>
+	
+  <footer id="footer">
+    <div class="family_site">
+      <button class="select-btn">family_site</button>
+      <ul class="family-list">
+        <li><a target="_blank" href="#">family_site link1</a></li>
+        <li><a target="_blank" href="#">family_site link2</a></li>
+        <li><a target="_blank" href="#">family_site link3</a></li>
+        <li><a target="_blank" href="#">family_site link4</a></li>
+      </ul>
+    </div> 
+  </footer>
+ 
+</body>
+</html>

@@ -1,0 +1,150 @@
+
+<script type="text/javascript">
+	
+$(document).ready(function(){
+	
+	/* 전체 메뉴 토글 */
+	var btnControl;
+	btnControl =  $(".dep2-more a").trpToggleBtn( 
+		function( $this){				
+			$( $this ).addClass("on");
+			$( $this ).parent().parent().siblings(".sublist").slideDown("fast");		
+		},function( $this){				
+			$( $this ).removeClass("on");
+			$( $this ).parent().parent().siblings(".sublist").slideUp("fast");
+	});
+	
+	var btnAll = $("a.toggle-all").trpToggleBtn( 
+		function( $this){
+			$( $this ).addClass("on");
+			btnControl.toggleAllSet(true)
+		},function( $this){	
+			$( $this ).removeClass("on");
+			btnControl.toggleAllSet(false);			
+	});
+
+
+	/* 겟값 받기 */
+	var $_GET = {};
+		location.search.replace(/([^=&?]+)=([^&]+)/gi, function (a, b, c) {
+		 $_GET[decodeURIComponent(b)] = decodeURIComponent(c);
+	});	
+	
+	var _dep1, _dep2;
+	if($_GET.dep1){	_dep1 = $_GET.dep1; 	}else{ 		_dep1 = -1;	 	}
+	if($_GET.dep2){	_dep2 = $_GET.dep2; 	}else{ 		_dep2 = -1;	 	}
+	
+	function lnbActive(){
+		if(_dep1 == "-1"){ return false;}
+		$( ".mn_2depth" ).eq(_dep1).find(".dep2-more a").attr("data-active",true);	// 버튼 활성화속성
+		$( ".mn_2depth" ).eq(_dep1).find(".dep2-more a").addClass("on");			// 버튼 활성화
+		$( ".mn_2depth" ).eq(_dep1).find(".sublist").slideDown("fast");				// 컨텐츠 활성화
+		
+		//$( ".mn_2depth" ).eq(_dep1).find(".dep2-more a span").toggle();			// 버튼 활성화
+		//$( ".mn_2depth" ).eq(_dep1).find(".sublist").slideToggle();				// 컨텐츠 활성화
+
+		if(_dep2 == "-1"){ return false;}
+		$(".list .mn_2depth .sublist li").removeClass("on");							// 2뎁스 초기화 
+		$(".list .mn_2depth").eq(_dep1).find(".sublist li").eq(_dep2).addClass("on");	// 2뎁스 활성화
+	}
+
+	lnbActive();
+
+});// ready
+
+</script> 
+  	<h1 class="nav_h1"><a href="/TRpackage/jqueryPlugin/index.html"><span>jQuery Plugin</span></a> 
+		<a href="javascript:return false;" class="toggle-all"><span class="plus">+</span><span class="minus"  >-</span></a>
+	</h1>
+  	<ul class="list">                
+        <li class="mn_2depth"><!--index0-->
+			<h2 class="nav_h2"><span>built-in</span>
+				<p class="dep2-more" ><a href="javascript:return false;" ><span class="plus">+</span><span class="minus"  >-</span></a></p>
+			</h2>
+			<ul class="sublist">				
+				<li><a href="/TRpackage/jqueryPlugin/demo/built-in/ezmark/default.html?dep1=0&dep2=0">아이콘변경(ezmark API)</a></li>
+				<li><a href="/TRpackage/jqueryPlugin/demo/built-in/jqtransform/default.html?dep1=0&dep2=1">jqtransform API</a></li>
+				<li><a href="/TRpackage/jqueryPlugin/demo/built-in/customscrollbar/default.html?dep1=0&dep2=2">customscrollbar</a></li>	
+				<li><a href="/TRpackage/jqueryPlugin/demo/built-in/dotdotdot/default.html?dep1=0&dep2=3">dotdotdot</a></li>	
+				<li><a href="/TRpackage/jqueryPlugin/demo/built-in/tableHeadFixer/default.html?dep1=0&dep2=4">tableHeadFixer</a></li>	
+			</ul>
+		</li>
+         
+  	    <li class="mn_2depth"><!--index1-->
+			<h2 class="nav_h2"><span>Gallery</span>
+				<p class="dep2-more" ><a href="javascript:return false;" ><span class="plus">+</span><span class="minus"  >-</span></a></p>
+			</h2>
+			<ul class="sublist">				
+				<li><a href="/TRpackage/jqueryPlugin/demo/gallery/swiper/default.html?dep1=1&dep2=0">touch slide (Swiper)</a></li>
+				<li><a href="/TRpackage/jqueryPlugin/demo/gallery/bxSlider/default.html?dep1=1&dep2=1">touch slide (bxSlider)</a></li>
+				<li><a href="/TRpackage/jqueryPlugin/demo/gallery/slick/default.html?dep1=1&dep2=2">touch slide (slick)</a></li>
+			</ul>
+		</li>
+                    
+        <li class="mn_2depth"><!--index2-->
+			<h2 class="nav_h2"><span>layout</span>
+				<p class="dep2-more" ><a href="javascript:return false;" ><span class="plus">+</span><span class="minus"  >-</span></a></p>
+			</h2>
+			<ul class="sublist">				
+				<li><a href="/TRpackage/jqueryPlugin/demo/layout/masonry/default.html?dep1=2&dep2=0">레이아웃이동(jQuery Masonry)</a></li>
+			</ul>
+		</li>
+		
+		<li class="mn_2depth"><!--index2-->
+			<h2 class="nav_h2"><span>popup</span>
+				<p class="dep2-more" ><a href="javascript:return false;" ><span class="plus">+</span><span class="minus"  >-</span></a></p>
+			</h2>
+			<ul class="sublist">				
+				<li><a href="/TRpackage/jqueryPlugin/demo/popup/bpopup/default.html?dep1=3&dep2=0">레어팝업(jQuery bPopup)</a></li>
+			</ul>
+		</li>
+                    
+        <li class="mn_2depth"><!--index3-->
+			<h2 class="nav_h2"><span>media</span>
+				<p class="dep2-more" ><a href="javascript:return false;" ><span class="plus">+</span><span class="minus"  >-</span></a></p>
+			</h2>
+			<ul class="sublist">				
+				<li><a href="/TRpackage/jqueryPlugin/demo/media/youtube/default.html?dep1=4&dep2=0">youtube</a></li>		
+				<li><a href="/TRpackage/jqueryPlugin/demo/media/vimeo/default.html?dep1=4&dep2=1">Vimeo</a></li>
+				<li><a href="/TRpackage/jqueryPlugin/demo/media/jsmovie/default.html?dep1=4&dep2=2">jsmovie</a></li>
+				<li><a href="/TRpackage/jqueryPlugin/demo/media/jPlayer/default.html?dep1=4&dep2=3">jPlayer</a></li>	
+			</ul>
+		</li>
+                    
+        <li class="mn_2depth"><!--index4-->
+			<h2 class="nav_h2"><span>typo</span>
+				<p class="dep2-more" ><a href="javascript:return false;" ><span class="plus">+</span><span class="minus"  >-</span></a></p>
+			</h2>
+			<ul class="sublist">				
+				<li><a href="/TRpackage/jqueryPlugin/demo/typo/rollingNumber/default.html?dep1=5&dep2=0">rollingNumber</a></li>	
+				<li><a href="/TRpackage/jqueryPlugin/demo/typo/textillate/default.html?dep1=5&dep2=1">textillate</a></li>
+			</ul>
+		</li>   
+                              
+        <li class="mn_2depth"><!--index5-->
+			<h2 class="nav_h2"><span>utility</span>
+				<p class="dep2-more" ><a href="javascript:return false;" ><span class="plus">+</span><span class="minus"  >-</span></a></p>
+			</h2>
+			<ul class="sublist">				
+				<li><a href="/TRpackage/jqueryPlugin/demo/utility/clipboard/default.html?dep1=6&dep2=0">clipboard</a></li>
+				<li><a href="/TRpackage/jqueryPlugin/demo/utility/imageloader/default.html?dep1=6&dep2=1">이미지로더(jQuery imageloader)</a></li><li><a href="/TRpackage/jqueryPlugin/demo/utility/screenCapture/default.html?dep1=5&dep2=2">screenCapture</a></li>
+			</ul>
+		</li>
+		
+		<li class="mn_2depth">
+			<h2 class="nav_h2"><a href="/TRpackage/jqueryPlugin/demo/jQueryUI/default.html?dep1=6"><span>jQuery UI</span></a>
+				<p class="dep2-more" ><a href="javascript:return false;" ><span class="plus">+</span><span class="minus"  >-</span></a></p>
+			</h2>
+			<ul class="sublist">				
+				<li><a href="/TRpackage/jqueryPlugin/demo/jQueryUI/button/default.html?dep1=7&dep2=0">button</a></li>
+				<li><a href="/TRpackage/jqueryPlugin/demo/jQueryUI/datepicker/default.html?dep1=7&dep2=1">datepicker</a></li>
+				<li><a href="/TRpackage/jqueryPlugin/demo/jQueryUI/slider/default.html?dep1=7&dep2=2">slider</a></li>
+				<li><a href="/TRpackage/jqueryPlugin/demo/jQueryUI/dialog/default.html?dep1=7&dep2=3">dialog</a></li>
+		        <li><a href="/TRpackage/jqueryPlugin/demo/jQueryUI/draggable/default.html?dep1=7&dep2=4">draggable</a></li>
+			</ul>
+		</li>
+
+	
+    </ul>
+
+	

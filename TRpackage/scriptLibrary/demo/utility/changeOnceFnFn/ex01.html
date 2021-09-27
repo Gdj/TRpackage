@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<style>
+
+    .width_check { background-color: blueviolet; height: 50px; text-align: center;  font-size: 30px; font-weight: bold; color:bisque}
+    .width_check.true {  background-color:cornflowerblue;}
+        
+	</style> 
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript" src="../../../../asset/js/libs/trpUtility.js"></script>
+	<script>
+	$(document).ready(function(){
+        
+        var onceFn = $(".width_check").trpUtilityChangeOnceFnFn(
+            function(){ $(".width_check").addClass("true").text("width 768 over : true");     console.log(">> 768 over") }, 
+            function(){ $(".width_check").removeClass("true").text("width 768 under : false"); console.log(">> 768 under") }
+        );
+		$(window).resize(function(){ 
+            var win_width = $(window).width();
+            if( win_width > 768){
+                onceFn.setBoolean(true);
+            }else{
+                onceFn.setBoolean(false);
+            }
+        });
+        $(window).trigger("resize");
+        
+	})
+	</script>
+	
+</head>
+<body>
+	
+  <div class="width_check"></div>
+ 
+</body>
+</html>

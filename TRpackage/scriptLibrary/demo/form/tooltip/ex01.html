@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>trpTip | TR package</title>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.1.min.js"></script>
+  <script type="text/javascript" src="../../../../asset/js/libs/trpForm.js"></script>
+  
+  <style>
+    .mouseon-examples div {
+      background-color: #EEE;
+      text-align: center;      
+      padding: 10px;
+    }
+    .box1 { width: 50%;}
+    .box2 { width: 300px; position: absolute; top:200px; right:50px; }
+    .box3 { width: 30px;  position: absolute; top:400px; left:800px; }
+    .box4 { width: 200px;  position: absolute; top:500px; left:100px; }
+    
+    
+    /* 툴팁 데이터 */
+    .trp-tip_con { display: none; background-color: aquamarine; }
+    .trp-tip-wrap .trp-tip_con { display: block; } 
+    
+    
+    /* 툴팁 스타일 */
+    .trp-tip-wrap { display: none; }
+    .trp-tip-wrap .trp-tip {  position: absolute; margin-top: 10px;
+      padding: 10px; cursor: default; box-sizing: border-box;
+      background-color: #333;
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 0px;
+    }
+    .trp-tip-wrap .trp-dot{ position: absolute; display: block; box-sizing: border-box;
+      border-top: none;
+      border-bottom: 10px solid #333;
+      border-bottom: 10px solid rgba(0, 0, 0, 0.7);
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      bottom: auto;
+      margin-left: -5px;
+    }
+    .trp-tip-wrap.up .trp-tip { margin-top: -10px; }
+    .trp-tip-wrap.up .trp-dot { margin-top: -10px;
+      border-top: 10px solid #333;
+      border-top: 10px solid rgba(0, 0, 0, 0.7);;
+      border-bottom: none;
+    }
+    .trp-tip-wrap  .con { font-size: 12px; color:#fff;
+      word-break: keep-all;
+    }
+  </style>
+  
+</head>
+<body>
+  
+  <div class="mouseon-examples box1" >
+    <div>
+      The PowerTip for this box will appear on the right and you will be able to interact with its content.
+    </div>
+    <div class="trp-tip_con">
+      The PowerTip for this box will appear on the right and you will be able to interact with its content. <br>
+      The PowerTip for this box will appear on the right and you will be able to interact with its content.
+    </div>
+  </div>
+  
+  <div class="mouseon-examples box2" data-tip_dot="trp-center" data-tip ="The PowerTip for this box will appear on the right and you will be able to interact with its content">
+    <div>
+      The PowerTip for this box will appear on the right and you will be able to interact with its content.
+    </div>
+  </div>  
+   
+  <div class="mouseon-examples box3" data-tip_dot="trp-center" data-tip ="The PowerTip for this box will appear on the right and you will be able to interact with its content">
+    <div>
+      hi
+    </div>
+  </div>
+  
+  <div class="mouseon-examples box4" >
+    <div>
+      The PowerTip for this box will appear on the right and you will be able to interact with its content.
+    </div>
+    <div class="trp-tip_con">
+      The PowerTip for this box will appear on the right and you will be able to interact with its content. <br>
+      The PowerTip for 
+    </div>
+  </div>
+  
+  
+  <!-- 툴팁 -->
+  <div class="trp-tip-wrap">
+    <div class="trp-tip">
+      <div class="con"></div>
+    </div>
+    <div class="trp-dot"></div>
+  </div>
+  <script>
+    $(".mouseon-examples").trpTip();
+  </script>
+  
+</body>
+</html>

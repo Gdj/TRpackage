@@ -1,0 +1,226 @@
+
+<script type="text/javascript">
+  $(document).ready(function(){
+	
+	/* 전체 메뉴 토글 */
+	var btnControl;
+	btnControl =  $(".dep2-more a").trpToggleBtn( 
+		function( $this){				
+			$( $this ).addClass("on");
+			$( $this ).parent().parent().siblings(".sublist").slideDown("fast");		
+		},function( $this){				
+			$( $this ).removeClass("on");
+			$( $this ).parent().parent().siblings(".sublist").slideUp("fast");
+	});
+	
+	var btnAll = $("a.toggle-all").trpToggleBtn( 
+		function( $this){
+			$( $this ).addClass("on");
+			btnControl.toggleAllSet(true)
+		},function( $this){	
+			$( $this ).removeClass("on");
+			btnControl.toggleAllSet(false);			
+	});
+
+
+	/* 메뉴 토글 
+	$(".dep2-more a").click(function() {
+		$( this ).find("span").toggle();								// 버튼
+		$( this ).parent().parent().siblings(".sublist").slideToggle();	// 컨텐츠
+		return false;
+	}); */
+
+	/* 겟값 받기 */
+	var $_GET = {};
+		location.search.replace(/([^=&?]+)=([^&]+)/gi, function (a, b, c) {
+		 $_GET[decodeURIComponent(b)] = decodeURIComponent(c);
+	});	
+	
+	var _dep1, _dep2;
+	if($_GET.dep1){	_dep1 = $_GET.dep1; 	}else{ 		_dep1 = -1;	 	}
+	if($_GET.dep2){	_dep2 = $_GET.dep2; 	}else{ 		_dep2 = -1;	 	}
+	
+	function lnbActive(){
+		if(_dep1 == "-1"){ return false;}
+		$( ".mn_2depth" ).eq(_dep1).find(".dep2-more a").attr("data-active",true);	// 버튼 활성화속성
+		$( ".mn_2depth" ).eq(_dep1).find(".dep2-more a").addClass("on");			// 버튼 활성화
+		$( ".mn_2depth" ).eq(_dep1).find(".sublist").slideDown("fast");				// 컨텐츠 활성화
+		
+		//$( ".mn_2depth" ).eq(_dep1).find(".dep2-more a span").toggle();			// 버튼 활성화
+		//$( ".mn_2depth" ).eq(_dep1).find(".sublist").slideToggle();				// 컨텐츠 활성화
+
+		if(_dep2 == "-1"){ return false;}
+		$(".list .mn_2depth .sublist li").removeClass("on");							// 2뎁스 초기화 
+		$(".list .mn_2depth").eq(_dep1).find(".sublist li").eq(_dep2).addClass("on");	// 2뎁스 활성화
+	}
+
+	lnbActive();
+
+});// ready
+</script> 
+  <h1 class="nav_h1"><a href="/TRpackage/scriptLibrary/index.html"><span>스크립트 라이브러리</span></a> 
+      <a href="javascript:return false;" class="toggle-all"><span class="plus">+</span><span class="minus"  >-</span></a>
+  </h1>
+  
+  <ul class="list">
+    <li class="mn_2depth">
+      <!-- dep1=0 -->
+      <h2 class="nav_h2"><span>menu</span>
+        <p class="dep2-more" ><a href="javascript:return false;" ><span class="plus">+</span><span class="minus"  >-</span></a></p>
+      </h2>
+      <ul class="sublist">
+        <li><a href="/TRpackage/scriptLibrary/demo/menu/quick/default.html?dep1=0&dep2=0">quick menu</a></li>
+        <li><a href="/TRpackage/scriptLibrary/demo/menu/tabSimple/default.html?dep1=0&dep2=1">tab trpTabSimple</a></li>
+        <li><a href="/TRpackage/scriptLibrary/demo/menu/tab/default.html?dep1=0&dep2=2">tab menu</a></li>
+        <li><a href="/TRpackage/scriptLibrary/demo/menu/gnb/default.html?dep1=0&dep2=3">GNB</a></li>
+        <li><a href="/TRpackage/scriptLibrary/demo/menu/gnbActive/default.html?dep1=0&dep2=4">GNB active</a></li>
+        <li><a href="/TRpackage/scriptLibrary/demo/menu/accordion/default.html?dep1=0&dep2=5">accordion menu</a></li>
+        <li><a href="/TRpackage/scriptLibrary/demo/menu/accordionOver/default.html?dep1=0&dep2=6">accordionOver menu</a></li>
+        <li><a href="/TRpackage/scriptLibrary/demo/menu/toggle/default.html?dep1=0&dep2=7">toggle btn</a></li>
+        <li><a href="/TRpackage/scriptLibrary/demo/menu/toggleWrap/default.html?dep1=0&dep2=8">toggle wrap btn</a></li>
+        <li><a href="/TRpackage/scriptLibrary/demo/menu/toggleOverflow/default.html?dep1=0&dep2=9">toggleOverflow btn</a></li>
+      </ul>
+    </li>
+
+    <li class="mn_2depth">
+      <!-- dep1=1 -->
+      <h2 class="nav_h2"><span>built-in</span>
+        <p class="dep2-more" ><a href="javascript:return false;" ><span class="plus">+</span><span class="minus"  >-</span></a></p>	
+      </h2>
+      <ul class="sublist">
+        <li><a href="/TRpackage/scriptLibrary/demo/built-in/ellipsis/default.html?dep1=1&dep2=0">trpEllipsis </a></li>
+      </ul>
+    </li>
+
+    <li class="mn_2depth">
+      <!-- dep1=2 -->
+      <h2 class="nav_h2"><span>form</span>
+        <p class="dep2-more" ><a href="javascript:return false;" ><span class="plus">+</span><span class="minus"  >-</span></a></p>	
+      </h2>
+      <ul class="sublist">
+        <li><a href="/TRpackage/scriptLibrary/demo/form/input_placeholder/default.html?dep1=2&dep2=0">input_placeholder </a></li>
+        <li><a href="/TRpackage/scriptLibrary/demo/form/input_file/default.html?
+                  dep1=2&dep2=1">trpFilestyle </a></li>
+        <li><a href="/TRpackage/scriptLibrary/demo/form/input_checkbox/default.html?dep1=2&dep2=2">trpCheckbox </a></li>
+        <li><a href="/TRpackage/scriptLibrary/demo/form/input_radio/default.html?dep1=2&dep2=3">trpRadio </a></li>
+        <li><a href="/TRpackage/scriptLibrary/demo/form/select/default.html?dep1=2&dep2=4">trpSelectbox </a></li>
+        <li><a href="/TRpackage/scriptLibrary/demo/form/limit_text/default.html?dep1=2&dep2=5">trpLimitText </a></li>
+        <li><a href="/TRpackage/scriptLibrary/demo/form/dropdown/default.html?dep1=2&dep2=6">trpDropdown </a></li>
+        <li><a href="/TRpackage/scriptLibrary/demo/form/tooltip/default.html?dep1=2&dep2=7">trpItp </a></li>
+      </ul>
+    </li>
+
+    <li class="mn_2depth">
+      <!-- dep1=3 -->
+      <h2 class="nav_h2"><span>Popup</span>
+        <p class="dep2-more" ><a href="javascript:return false;" ><span class="plus">+</span><span class="minus"  >-</span></a></p>	
+      </h2>
+      <ul class="sublist">
+        <li><a href="/TRpackage/scriptLibrary/demo/popup/windowPopup/default.html?dep1=3&dep2=0">window popup</a></li>
+        <li><a href="/TRpackage/scriptLibrary/demo/popup/layerPopup/default.html?dep1=3&dep2=1">layer popup</a></li>
+        <li><a href="/TRpackage/scriptLibrary/demo/popup/layerPopupFile/default.html?dep1=3&dep2=2">layer popup File</a></li>
+        <li><a href="/TRpackage/scriptLibrary/demo/popup/layerFixedPopup/default.html?dep1=3&dep2=3">layer Fixed Popup </a></li>
+        <li><a href="/TRpackage/scriptLibrary/demo/popup/layerFixedPopupFile/default.html?dep1=3&dep2=4">layer Fixed Popup File</a></li>
+      </ul>
+    </li>
+
+
+    <li class="mn_2depth">
+      <!-- dep1=4 -->
+      <h2 class="nav_h2"><span>fill</span>
+        <p class="dep2-more" ><a href="javascript:return false;" ><span class="plus">+</span><span class="minus"  >-</span></a></p>
+      </h2>
+      <ul class="sublist">
+        <li><a href="/TRpackage/scriptLibrary/demo/fill/fill/default.html?dep1=4&dep2=0">Fill (trpFill)</a></li>
+        <li><a href="/TRpackage/scriptLibrary/demo/fill/fillFn/default.html?dep1=4&dep2=1">Fill (trpFillFn)</a></li>
+        <li><a href="/TRpackage/scriptLibrary/demo/fill/fillLimitedFn/default.html?dep1=4&dep2=2">Fill (trpFillLimitedFn)</a></li>
+      </ul>
+    </li>
+
+
+    <li class="mn_2depth">
+      <!-- dep1=5 -->
+      <h2 class="nav_h2"><span>unit</span>
+        <p class="dep2-more" ><a href="javascript:return false;" ><span class="plus">+</span><span class="minus"  >-</span></a></p>
+      </h2>
+      <ul class="sublist">
+        <li><a href="/TRpackage/scriptLibrary/demo/unit/ratioSize/default.html?dep1=5&dep2=0">trpRatioSize</a></li>
+        <li><a href="/TRpackage/scriptLibrary/demo/unit/newsRolling/default.html?dep1=5&dep2=1">trpNewsRolling</a></li>
+      </ul>
+    </li>
+
+
+    <li class="mn_2depth">
+      <!-- dep1=6 -->
+      <h2 class="nav_h2"><span>Gallery</span>
+        <p class="dep2-more" ><a href="javascript:return false;" ><span class="plus">+</span><span class="minus"  >-</span></a></p>
+      </h2>
+      <ul class="sublist">
+        <li><a href="/TRpackage/scriptLibrary/demo/gallery/gallery/default.html?dep1=6&dep2=0">trpGallery</a></li>
+      </ul>
+    </li>
+
+    <li class="mn_2depth">
+      <!-- dep1=7 -->
+      <h2 class="nav_h2"><span>media</span>
+        <p class="dep2-more" ><a href="javascript:return false;" ><span class="plus">+</span><span class="minus"  >-</span></a></p>
+      </h2>
+      <ul class="sublist">
+        <li><a href="/TRpackage/scriptLibrary/demo/media/video/default.html?dep1=7&dep2=0">video</a></li>
+      </ul>
+    </li>
+
+    <li class="mn_2depth">
+      <!-- dep1=8 -->
+      <h2 class="nav_h2"><span>layout</span>
+        <p class="dep2-more" ><a href="javascript:return false;" ><span class="plus">+</span><span class="minus"  >-</span></a></p>
+      </h2>
+      <ul class="sublist">
+        <li><a href="/TRpackage/scriptLibrary/demo/layout/scrollSync/default.html?dep1=8&dep2=0">trpScrollSync</a></li>
+        <li><a href="/TRpackage/scriptLibrary/demo/layout/scrollPositionClass/default.html?dep1=8&dep2=1">trpScrollPositionClass</a></li>
+        <li><a href="/TRpackage/scriptLibrary/demo/layout/scrollPositionFn/default.html?dep1=8&dep2=2">trpScrollPositionFn</a></li>
+        <li><a href="/TRpackage/scriptLibrary/demo/layout/colItmeH/default.html?dep1=8&dep2=3">trpColItemH</a></li>
+      </ul>
+    </li>
+    
+    <li class="mn_2depth">
+      <!-- dep1=9 -->
+      <h2 class="nav_h2"><span>utitls</span>
+        <p class="dep2-more" ><a href="javascript:return false;" ><span class="plus">+</span><span class="minus"  >-</span></a></p>
+      </h2>
+      <ul class="sublist">
+        <li><a href="/TRpackage/scriptLibrary/demo/utils/fnArrayUtils/default.html?dep1=9&dep2=0">trpFnArrayUtitls</a></li>
+        <li><a href="/TRpackage/scriptLibrary/demo/utils/fnNumberUtils/default.html?dep1=9&dep2=1">trpFnNumberUtitls</a></li>
+      </ul>
+    </li>
+    <li class="mn_2depth">
+      <!-- dep1=10 -->
+      <h2 class="nav_h2"><span>ajax</span>
+        <p class="dep2-more" ><a href="javascript:return false;" ><span class="plus">+</span><span class="minus"  >-</span></a></p>
+      </h2>
+      <ul class="sublist">
+        <li><a href="/TRpackage/scriptLibrary/demo/ajax/readTextFile/default.html">trpReadTextFile</a></li>
+      </ul>
+    </li>
+
+    <li class="mn_2depth">
+      <!-- dep1=11 -->
+      <h2 class="nav_h2"><span>utility</span>
+        <p class="dep2-more" ><a href="javascript:return false;" ><span class="plus">+</span><span class="minus"  >-</span></a></p>
+      </h2>
+      <ul class="sublist">
+        <li><a href="/TRpackage/scriptLibrary/demo/utility/net/default.html?dep1=11&dep2=0">net (trpBrowser)</a></li>
+        <li><a href="/TRpackage/scriptLibrary/demo/utility/changeOnce/default.html?dep1=11&dep2=1">fn (trpUtilityChangeOnce)</a></li>
+        <li><a href="/TRpackage/scriptLibrary/demo/utility/classBubbleCheck/default.html?dep1=11&dep2=2">fn (trpClassBubbleCheck)</a></li>
+        <li><a href="/TRpackage/scriptLibrary/demo/utility/changeOnceFn/default.html?dep1=11&dep2=3">trpUtilityChangeOnceFn</a></li>
+        <li><a href="/TRpackage/scriptLibrary/demo/utility/changeOnceFnFn/default.html?dep1=11&dep2=4">trpUtilityChangeOnceFnFn</a></li>
+        <li><a href="/TRpackage/scriptLibrary/demo/utility/removeClassPrefix/default.html?dep1=11&dep2=5">trpRemoveClassPrefix</a></li>
+        <li><a href="/TRpackage/scriptLibrary/demo/utility/trpScrolltop/default.html?dep1=11&dep2=6">trpScrolltop</a></li>
+      </ul>
+    </li>
+    
+
+    
+  </ul>
+
+	

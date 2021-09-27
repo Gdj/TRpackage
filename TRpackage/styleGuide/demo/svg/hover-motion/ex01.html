@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>svg motion</title>
+  <style>
+
+  .trp_svgbox .box_r2-hover *:before, .box_r2-hover *:after { margin: 0;	padding: 0;
+    -webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}		
+  .trp_svgbox .box_r2-hover { display: inline-block;position: relative;width: 200px;height: 200px; 
+    background: #fff; cursor: pointer; color: RGBA(47, 83, 99, 1);
+    box-shadow: inset 0 0 0 2px RGBA(255, 0, 0, 1);
+    -webkit-transition: background 0.4s 0.5s;
+    transition: background 0.4s 0.5s;	}
+  .trp_svgbox .box_r2-hover svg {position: absolute;}
+  .trp_svgbox .box_r2-hover svg line { stroke-width: 4;stroke: #000;fill: none;
+    -webkit-transition: all .8s ease-in-out;
+    transition: all .8s ease-in-out;	}
+  .trp_svgbox .box_r2-hover svg line.top,.box svg line.bottom {stroke-dasharray: 200 200; }
+  .trp_svgbox .box_r2-hover svg line.left,.box svg line.right {stroke-dasharray: 200 200;}
+  .trp_svgbox .box_r2-hover:hover {background: none;-webkit-transition-delay: 0s;transition-delay: 0s;}
+  .trp_svgbox .box_r2-hover:hover svg line {-webkit-transition-delay: 0.1s;transition-delay: 0.1s;}
+  .trp_svgbox .box_r2-hover:hover svg line.top {-webkit-transform: translateX(-600px);transform: translateX(-600px);}
+  .trp_svgbox .box_r2-hover:hover svg line.bottom {-webkit-transform: translateX(600px);transform: translateX(600px);}
+  .trp_svgbox .box_r2-hover:hover svg line.left {-webkit-transform: translateY(600px);transform: translateY(600px);}
+  .trp_svgbox  .box_r2-hover:hover svg line.right {-webkit-transform: translateY(-600px);transform: translateY(-600px);}
+
+  </style>
+</head>
+<body>
+   
+   
+  <div class="trp_svgbox">		  
+    <div class="box_r2-hover">		  
+      <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+        <line class="top" x1="0" y1="0" x2="600" y2="0" />
+        <line class="left" x1="0" y1="200" x2="0" y2="-600" />
+        <line class="bottom" x1="200" y1="200" x2="-400" y2="200" />
+        <line class="right" x1="200" y1="0" x2="200" y2="600" />
+      </svg>
+      <p style="font-size: 20px; font-weight: bold; padding:10px">Transition <br> :hover dashed</p>
+    </div>
+  </div>
+      
+    
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>trpReadTextFile | TR package</title>
+  <script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js" charset="UTF-8"></script>
+  <script type="text/javascript" src="../../../../asset/js/libs/trpAjax.js"></script>
+</head>
+<body>
+  
+  <div id="json_data"></div>
+  
+  <script>
+    
+    trpReadTextFile("./json_data.json", function(text){
+      var mydata = JSON.parse(text);
+      console.log(mydata.books);
+
+      mydata.books.forEach(function($item, $index){
+        document.getElementById("json_data").innerHTML += $index + ": id    : " + $item.id + "<br>";
+        document.getElementById("json_data").innerHTML += $index + ": name  : " + $item.name + "<br>";
+      });
+    });
+  </script>
+  
+</body>
+</html>

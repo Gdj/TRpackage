@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>trpLayerPopup01</title>	
+  <style type="text/css">
+    html, body { margin: 0; padding: 0}
+    .wrapper { width: 100%; }
+    /** //popup-wrap **/        
+    .popup-dim { position: fixed;top: 0;left: 0;right: 0;bottom: 0;  width: 100%;height: 100%;
+       background: #000000;opacity: 0.5;filter: alpha(opacity=50);z-index: 99999;}
+    .trp.popupfixed-wrap  { display: none;  position: absolute; top: 0;left: 0; width: 100%;  height: 100%; min-height: 100%; z-index: 99999;    
+        -webkit-overflow-scrolling: touch;   } 
+    .trp.popupfixed-wrap .popup-dim { position: fixed; top: 0;left: 0;right: 0;bottom: 0;width: 100%;height: 100%; background-color: transparent; z-index: 0;}
+    .trp.popupfixed-wrap .popup-align    { display: table;*display: block; table-layout: fixed;  width: 100%; height: 100%; text-align: center;   z-index: 1;}
+    .trp.popupfixed-wrap .popup-vertical { display: table-cell;width: 100%;padding: 20px 0;text-align: center;vertical-align: middle;}
+    .trp.popupfixed-wrap .popup-layer    { display: inline-block; *display:inline; zoom:1; position: relative;  z-index: 1;  } 
+
+    .trp.popupfixed-wrap .popup-layer.option {  width:600px; min-height:100px;  background:#fff ; }
+    .trp.popupfixed-wrap .popup-layer.option .pop_top  { padding: 10px; background-color: darkgrey; }
+    .trp.popupfixed-wrap .popup-layer.option .pop_con  { padding: 10px; }
+    .trp.popupfixed-wrap .popup-layer .btn_x { position:absolute; top:15px; right:15px; width:18px; height:18px; background:#aaa; }      
+  </style>  
+  <script src="http://code.jquery.com/jquery-1.12.1.min.js"></script>
+  <script type="text/javascript" src="../../../../asset/js/libs/trpPopup_all0.83.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function(){
+
+      var layerPopup = $(".popupBtn").trpLayerPopup();
+      $(".popupBtn").on("click",function(){ 	
+          var _scrollY = $(document).scrollTop() + 100;
+          layerPopup.align( _scrollY ,"center");
+          layerPopup.bgDim(".popup-dim");
+          layerPopup.open(this);		
+          return false;
+      })
+
+      /* 팝업닫기 */
+      $("#popup-wrap").on("click", ".js-popclose", function(){ 	  
+          layerPopup.close();
+          return false;
+      })
+
+  });
+  </script>
+ 
+</head>
+<body>
+
+  <div id="wrapper" class="wrapper">
+    <p><a class="popupBtn" href="#popup-wrap">popup 1</a></p>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <p><a class="popupBtn" href="#popup-wrap">popup 2</a></p>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <p><a class="popupBtn" href="#popup-wrap">popup 3</a></p>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <p><a class="popupBtn" href="#popup-wrap">popup 4</a></p>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <p><a class="popupBtn" href="#popup-wrap">popup 5</a></p>
+  </div>	
+
+
+  <div id="popup-wrap" class="trp popupfixed-wrap" style="display:none;"> 
+    <div class="popup-dim"></div>   
+    <div class="popup-align">
+      <div class="popup-vertical">
+        <div class="popup-layer option">                   
+            <a class="btn_x js-popclose" href="#">X</a>         
+            <div class="pop_top">title</div>
+            <div class="pop_con">
+
+              <p style="height:40px">contants body</p> <p style="height:40px">contants body</p> <p style="height:40px">contants body</p>
+              <p style="height:40px">contants body</p> <p style="height:40px">contants body</p> <p style="height:40px">contants body</p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>      
+
+
+  <script type="text/javascript">
+    var layerPopup = $(".popupBtn").trpLayerPopup({popupWarp: "#popup-wrap", popupTarget:".popup-layer"});
+    $(".popupBtn").on("click",function(){ 	
+        var _scrollY = $(document).scrollTop() + 100;
+        layerPopup.align( _scrollY ,"center");
+        layerPopup.bgDim(".popup-dim");
+        layerPopup.open(this);		
+        return false;
+    })
+
+    /* 팝업닫기 */
+    $("#popup-wrap").on("click", ".js-popclose", function(){ 	  
+        layerPopup.close();
+        return false;
+    })
+  </script>
+
+</body>
+</html>

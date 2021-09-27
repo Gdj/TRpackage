@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="kr">
+ <head>
+  <meta charset="UTF-8">  
+  <title>trpLayerFixedPopup</title>  
+    <style type="text/css">
+        html, body { margin: 0; padding: 0}
+        .wrapper { width: 100%; }
+        /** //popup-wrap **/        
+        .popup-dim { position: fixed;top: 0;left: 0;right: 0;bottom: 0;  width: 100%;height: 100%;
+           background: #000000;opacity: 0.5;filter: alpha(opacity=50);z-index: 99999;}
+        .trp.popupfixed-wrap  { display: none;  position: absolute; top: 0;left: 0; width: 100%;  height: 100%; min-height: 100%; z-index: 99999;    
+            -webkit-overflow-scrolling: touch;   } 
+        .trp.popupfixed-wrap .popup-dim { position: fixed; top: 0;left: 0;right: 0;bottom: 0;width: 100%;height: 100%; background-color: transparent; z-index: 0;}
+        .trp.popupfixed-wrap .popup-align    { display: table;*display: block; table-layout: fixed;  width: 100%; height: 100%; text-align: center;   z-index: 1;}
+        .trp.popupfixed-wrap .popup-vertical { display: table-cell;width: 100%;padding: 20px 0;text-align: center;vertical-align: middle;}
+        .trp.popupfixed-wrap .popup-layer    { display: inline-block; *display:inline; zoom:1; position: relative;  z-index: 1;  } 
+        
+        .trp.popupfixed-wrap .popup-layer.option {  width:600px; min-height:100px;  background:#fff ; }
+        .trp.popupfixed-wrap .popup-layer.option .pop_top  { padding: 10px; background-color: darkgrey; }
+        .trp.popupfixed-wrap .popup-layer.option .pop_con  { padding: 10px; }
+        .trp.popupfixed-wrap .popup-layer .btn_x { position:absolute; top:15px; right:15px; width:18px; height:18px; background:#aaa; }      
+        
+    </style>    
+	<script src="http://code.jquery.com/jquery-1.12.1.min.js"></script>
+	<script type="text/javascript" src="../../../../asset/js/libs/trpPopup.js"></script>
+ </head>
+ <body>
+     <div id="wrapper" class="wrapper"> <!-- 필수요소 class="wrapper"  -->
+        <a href="#popup-wrap" class="focus1">popup</a>
+        <div style="height:200px">a</div>
+        <div style="height:200px">b</div>
+        <div style="height:200px">c</div> 
+        <div style="height:200px">d</div>
+        <div style="height:200px">e</div>
+        <div style="height:200px">f</div>
+        <div style="height:200px">g</div>
+        <a href="#popup-wrap" class="focus2">popup</a>
+        <div style="height:200px">h</div>
+    </div>
+    
+    
+    <div id="popup-wrap" class="trp popupfixed-wrap" style="display:none;"> 
+        <div class="popup-dim"></div>   
+        <div class="popup-align">
+            <div class="popup-vertical">
+                <div class="popup-layer option">                   
+                    <a class="btn_x" href="#">X</a>         
+                    <div class="pop_top">title</div>
+                    <div class="pop_con">
+                       
+                        <p style="height:40px">contants body</p> <p style="height:40px">contants body</p> <p style="height:40px">contants body</p>
+                        <p style="height:40px">contants body</p> <p style="height:40px">contants body</p> <p style="height:40px">contants body</p>
+                        <p style="height:40px">contants body</p> <p style="height:40px">contants body</p> <p style="height:40px">contants body</p>
+                        <p style="height:40px">contants body</p> <p style="height:40px">contants body</p> <p style="height:40px">contants body</p>
+                        <p style="height:40px">contants body</p> <p style="height:40px">contants body</p> <p style="height:40px">contants body</p>
+                        <p style="height:40px">contants body</p> <p style="height:40px">contants body</p> <p style="height:40px">contants body</p>
+                        <p style="height:40px">contants body</p> <p style="height:40px">contants body</p> <p style="height:40px">contants body</p>
+                        <p style="height:40px">contants body</p> <p style="height:40px">contants body</p> <p style="height:40px">contants body</p>
+                        <p style="height:40px">contants body</p> <p style="height:40px">contants body</p> <p style="height:40px">contants body</p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>      
+     
+     
+    <script type="text/javascript">
+         
+        var layerPopup = $("a").trpLayerFixedPopup();   //   console.log("layerPopup.getBtn" + layerPopup.getBtn )
+               
+        $(layerPopup.getBtn).on("click", function($e){
+            $e.preventDefault();         
+            layerPopup.open(false);    // this or false
+        });
+    
+        $("#popup-wrap").on("click",  ".popup-dim , .btn_x",function($e){
+            $e.preventDefault();       
+            layerPopup.close(
+              function(){ $(".focus2").focus() }
+            );
+        });
+      
+        
+        
+    </script>
+
+ </body>  
+</html>
+
+
+
+
+
+
+

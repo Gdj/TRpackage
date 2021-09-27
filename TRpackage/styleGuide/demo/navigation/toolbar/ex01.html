@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+	<title>toolbar-list</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css"  href="../../../../asset/css/trpBase.css" media="all" />
+</head>
+<style type="text/css">
+    
+    .trp.toolbar-list {overflow: hidden; }    
+    .trp.toolbar-list li {float: left; position: relative; padding-left: 8px;margin-left: 8px;}    
+    .trp.toolbar-list li::after {content: '';position: absolute;top: 50%;left: 0;margin-top: -6px;height: 12px;line-height: 25px;border-left: 1px solid #231f20;}    
+    .trp.toolbar-list li:first-child {padding-left: 0;margin-left: 0;}
+    .trp.toolbar-list li:first-child::after {display: none;}
+    .trp.toolbar-list li>a { display: block; padding:7px 0 0; height: 18px;color: #231f20;font-size: 12px;line-height: 1; }
+    
+</style>
+<body>
+	
+
+	<ul class="trp toolbar-list">
+		<li><a href="#">메뉴0</a></li>
+		<li><a href="#">메뉴1</a></li>
+		<li><a href="#">메뉴2</a></li>
+	</ul>
+
+
+</body>
+</html>

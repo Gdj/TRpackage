@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+	<title>swiper 4.5.0thumbnail </title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />	
+	<link rel="stylesheet" href="./css/style.css"/>
+	<link rel="stylesheet" href="./css/swiper.min.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="./js/swiper.min.js"></script>
+	
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+			// Swiper 세팅
+			var _index = 0;
+			var mySwiper = new Swiper('.gallery_left', {
+				loop: true,
+				threshold: 30, // 수치보다 작으면 슬라이드를 안한다.
+				watchSlidesVisibility : true, 
+			  slidesPerView: 1,  // 보여질 슬라이더수 
+				on: {
+					transitionEnd: function(){	
+						$(".pagination-list li").removeClass("current");
+						$(".pagination-list li").eq(this.realIndex).addClass("current");
+					}
+				}
+			})
+
+			// 좌우버튼
+			$('.prev').on('click', function(e) {
+				e.preventDefault(); // 이벤트 객체의 preventDefault 메소드를 실행하면 기본 동작이 취소된다	
+				mySwiper.slidePrev() // return false ;	// ie9 이하 버전에서는 event.returnValue를 false로 해야 한다. 
+			})
+			$('.next').on('click', function(e) {
+				e.preventDefault(); //이벤트 객체의 preventDefault 메소드를 실행하면 기본 동작이 취소된다	
+				mySwiper.slideNext() //return false ;	// ie9 이하 버전에서는 event.returnValue를 false로 해야 한다. 
+
+			})
+
+			// 첫번째활성화
+			$(".pagination li").eq(_index).addClass("current"); // activeLoopIndex / activeIndex 일반	
+
+
+			// 썸네일  컨트롤
+			$(".pagination-list li").on('click', function() {
+				var _index = $(this).index();
+		
+				mySwiper.slideTo(_index, 700, function() {});
+				$(".pagination-list li").removeClass("current");
+				$(this).addClass("current");
+				return false;
+			})
+
+
+
+			// btn-destroy
+			$(".btn-destroy").on("click", function() {
+				mySwiper.destroy(true, true);
+			})
+
+
+			// btn-reboot 
+			$(".btn-reboot").on("click", function() {
+				mySwiper = new Swiper('.gallery_left', {
+					loop: false,
+					slidesPerView: 2,
+					threshold: 30, // 수치보다 작으면 슬라이드를 안한다.
+					on: {
+						transitionEnd: function(){	
+							console.log("this.realIndex : " + this.realIndex)
+							$(".pagination-list li").removeClass("current");
+							$(".pagination-list li").eq(this.realIndex).addClass("current");
+						}
+					}
+				})
+			})
+
+
+		})
+	</script>
+</head>
+
+<body>
+
+<div class="gallery_view" style="">
+	<div class="gallery_left">				
+		<div class="swiper-wrapper">
+			<div class="swiper-slide">0<img src="./images/view_01.jpg" width="400" height="535"  alt="" /></div>
+			<div class="swiper-slide">1<img src="./images/view_01.jpg" width="400" height="535"  alt="" /></div>
+			<div class="swiper-slide">2<img src="./images/view_01.jpg" width="400" height="535"  alt="" /></div>
+			<div class="swiper-slide">3<img src="./images/view_01.jpg" width="400" height="535"  alt="" /></div>
+			<div class="swiper-slide">4<img src="./images/view_01.jpg" width="400" height="535"  alt="" /></div>
+			<div class="swiper-slide">5<img src="./images/view_01.jpg" width="400" height="535"  alt="" /></div>
+			<div class="swiper-slide">6<img src="./images/view_01.jpg" width="400" height="535"  alt="" /></div>
+			<div class="swiper-slide">7<img src="./images/view_01.jpg" width="400" height="535"  alt="" /></div>
+		</div>	
+		<a href="#" class="prev">Prev</a>
+		<a href="#" class="next">Next</a>	
+	</div>			
+	<div class="pagination-right">
+	<ul class="pagination-list">
+		<li>
+			<a href="#">
+				<img width="83" height="111" src="./images/thumbnail_01.jpg" alt="" />
+				<span class="bg_gray"><span></span></span>
+			</a>
+		</li>
+		<li>
+			<a href="#">
+				<img width="83" height="111" src="./images/thumbnail_01.jpg" alt="" />
+				<span class="bg_gray"><span></span></span>
+			</a>
+		</li>
+		<li>
+			<a href="#">
+				<img width="83" height="111" src="./images/thumbnail_01.jpg" alt="" />
+				<span class="bg_gray"><span></span></span>
+			</a>
+		</li>
+		<li>
+			<a href="#">
+				<img width="83" height="111" src="./images/thumbnail_01.jpg" alt="" />
+				<span class="bg_gray"><span></span></span>
+			</a>
+		</li>
+		<li>
+			<a href="#">
+				<img width="83" height="111" src="./images/thumbnail_01.jpg" alt="" />
+				<span class="bg_gray"><span></span></span>
+			</a>
+		</li>
+		<li>
+			<a href="#">
+				<img width="83" height="111" src="./images/thumbnail_01.jpg" alt="" />
+				<span class="bg_gray"><span></span></span>
+			</a>
+		</li>
+		<li>
+			<a href="#">
+				<img width="83" height="111" src="./images/thumbnail_01.jpg" alt="" />
+				<span class="bg_gray"><span></span></span>
+			</a>
+		</li>
+		<li>
+			<a href="#">
+				<img width="83" height="111" src="./images/thumbnail_01.jpg" alt="" />
+				<span class="bg_gray"><span></span></span>
+			</a>
+		</li>
+	</ul>
+</div>
+	
+	<div class="btn-box">
+	    <button class="btn-destroy">destroy</button>
+	    <button class="btn-reboot">reboot</button>
+	</div>
+</div>
+
+
+<!-- // wrap -->
+
+</body>
+</html>

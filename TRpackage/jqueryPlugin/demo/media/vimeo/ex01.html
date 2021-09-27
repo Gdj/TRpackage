@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vimeo player</title>
+	<script src="https://player.vimeo.com/api/player.js"></script>
+</head>
+<body>
+
+	<!-- video -->
+	<div id="made-in-ny"></div>
+
+	<!-- <iframe id="vimeoVideo" src="https://player.vimeo.com/video/59777392?autoplay=0&color=ffffff&byline=0&portrait=0" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> -->
+	<!-- //video -->
+	
+	<div class="menu">
+		<ul>
+			<li><a href="javascript:void(0)" onclick="playVideo()">재생</a></li>
+			<li><a href="javascript:void(0)" onclick="stopVideo()">정지</a></li>
+			<li><a href="javascript:void(0)" onclick="pauseVideo()">일시정지</a></li>
+			<li><a href="javascript:void(0)" onclick="seekTo(50)">50초뒤로 이동</a></li>
+			<li><a href="javascript:void(0)" onclick="setVolume(0.5)">볼룸 0.5</a></li>			
+		</ul>
+	</div>
+
+	<script>
+		// Create a Player
+		var options = { id: 59777392, width: 640, loop: false, autoplay:true  };
+		var vimeoPlayer = new Vimeo.Player('made-in-ny', options);
+
+
+
+		//var vimeoPlayer =  new Vimeo.Player( $("#vimeoVideo") );   //iframe 
+			
+
+
+	  /* 재생 */
+      function playVideo() {
+		vimeoPlayer.play();
+      }
+
+	  /* 재생정지 */
+      function stopVideo() {
+		vimeoPlayer.setCurrentTime(0);
+		vimeoPlayer.pause();
+      }
+
+	  /* 재생 일시정지*/
+	  function pauseVideo() {
+        vimeoPlayer.pause();
+      }
+
+	  /* seekTo */
+	  function seekTo($seconds ) {
+		vimeoPlayer.setCurrentTime($seconds);
+      }
+		
+
+	   /* 볼륨 조절 : 볼륨을 설정합니다. 0에서 1 사이의 수를 허용합니다. */
+      function setVolume($volume) {
+        vimeoPlayer.setVolume($volume);
+      }
+	  
+
+      /* event */
+	  vimeoPlayer.on('ended', function(data) {
+			console.log( "재생끝 " +  data.duration, data.percent, data.seconds);
+	  });
+
+
+	</script>
+</body>
+</html>

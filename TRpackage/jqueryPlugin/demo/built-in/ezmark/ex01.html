@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+ <head>
+  <title>ezMark jQuery Plugin</title>
+    
+    <link rel="stylesheet" href="../../../../asset/js/libs/ezMark-master/css/ezmark.css" media="all">
+    <script src="//code.jquery.com/jquery-1.12.1.min.js"></script>
+    <script src="../../../../asset/js/libs/ezMark-master/js/jquery.ezmark.js" ></script>
+
+    <style type="text/css">
+    /* 공통 스타일 */        
+    body {  font-size: 62.5%;   font-family: "Trebuchet MS", "Arial", "Helvetica", "Verdana", "sans-serif";     }
+    form {  font-size: 1.2em; }
+    
+    /* 스타일 */
+    .ez-checkbox-chrome {
+        background: transparent url('../../../../asset/js/libs/ezMark-master/images/checkbox-chrome.png') 0 2px no-repeat;
+        display: inline-block;
+    }
+    .ez-checked-chrome {
+        background-position: 0 -17px;
+    }
+    </style>
+
+    <script type="text/javascript">
+    $(function() {
+        $('.defaultP input').ezMark();
+        $('.customP input[type="checkbox"]').ezMark({checkboxCls: 'ez-checkbox-chrome', checkedCls: 'ez-checked-chrome'})
+    }); 
+    </script>
+
+</head>
+    <body>
+    <h2>Example</h2>
+    <div class="example">
+        <form id="testForm" action="#" method="post">
+            <p class="defaultP">
+                Single Checkbox : <br />
+                <input type="checkbox" name="soccer_like" value="1" id="soccer_like"><label for="soccer_like">I like Soccer</label> 
+            </p>    
+            <p class="defaultP">
+                Multiple Checkbox : <br />
+                <input type="checkbox" name="item[]" id="banana" value="banana" /> <label for="banana">Banana</label> <br />
+                <input type="checkbox" name="item[]" id="apple" value="apple" /> <label for="apple">Apple</label> <br />
+                <input type="checkbox" name="item[]" id="coke" value="coke" /> <label for="coke">Coke</label> <br />
+                <input type="checkbox" name="item[]" id="pineapple" value="pineapple" /> <label for="pineapple">Pineapple</label> <br />
+            </p>
+
+            <p class="defaultP">
+                Radio button : <br />
+                <input type="radio" name="month" value="6" id="month6" /> <label for="month6">6 month Contract</label> <br />
+                <input type="radio" name="month" value="3" id="month3" /> <label for="month3">3 month Contract</label> <br />   
+                <input type="radio" name="month" value="12" id="month12" /> <label for="month12">12 month Contract</label> <br />
+            </p>
+
+            <p class="customP">
+                Custom Checkbox: <br />
+                <input type="checkbox" name="jquery_like" id="jquery_like" value="1" /><label for="jquery_like">크롬 체크박스 이미지형태 </label>
+            </p>    
+
+            <input type="submit" name="Submit" value="Submit me!" />
+
+        </form>
+    </div>
+
+        
+    </body>
+</html>

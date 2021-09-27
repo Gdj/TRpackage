@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="kr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>sample_guide_jPlayer</title>
+    <style type="text/css">
+        #movie img {
+            position: absolute;
+        }
+        
+        .controler img {
+            width: 50px;
+        }
+    </style>
+    <script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="../../../../asset/js/libs/jplayer/jquery.jplayer.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+
+            $("#movie").jPlayer({
+                ready: function() {
+                    $(this).jPlayer("setMedia", {
+                        poster: "../../../../asset/media/REDPLANET_meanie.jpg",
+                        m4v: "../../../../asset/media/REDPLANET_meanie.mp4"
+                            //ogv: "./images/sample/video/video_1.ogv"
+                            //webmv: "./images/sample/video/video_1.webmv"
+                    });
+                },
+                swfPath: "../../../../asset/js/libs/jplayer/",
+                supplied: "webmv, ogv, m4v",
+                size: {
+                    width: "640px",
+                    height: "360px",
+                    cssClass: "jp-video-360p"
+                },
+                nativeVideoControls: {
+                    ipad: /ipad/,
+                    iphone: /iphone/,
+                    android: /android/,
+                    blackberry: /blackberry/,
+                    iemobile: /iemobile/
+                },
+
+                useStateClassSkin: true,
+                autoBlur: false,
+                smoothPlayBar: true,
+                keyEnabled: true,
+                remainingDuration: true,
+                volume: 0.5,
+                loop: false,
+
+                //cssSelectorAncestor: "#player_wrap",
+                toggleDuration: true,
+                ended: function() {
+                    console.log("비디오 끝!");
+                    jPlayer_stop();
+                }
+
+            });
+
+
+        });
+
+
+
+
+        function jPlayer_play() {
+            $("#movie").find("img").hide();
+            $('#movie').jPlayer('play');
+        }
+
+        function jPlayer_pause() {
+            $("#movie").find("img").hide();
+            $('#movie').jPlayer('pause');
+        }
+
+        function jPlayer_stop() {
+            $("#movie").find("img").show();
+            $('#movie').jPlayer('stop');
+        }
+
+        function jPlayer_playPause() {
+            if ($('#movie').data().jPlayer.status.paused) {
+                jPlayer_play();
+            } else {
+                jPlayer_pause();
+            }
+        }
+
+
+        function fullWindow_fn() {
+            $('#movie').jPlayer("option", "fullWindow", true);
+        };
+
+        function fullWindowOff_fn() {
+            $('#movie').jPlayer("option", "fullWindow", false);
+        };
+
+
+        function fullScreen_fn() {
+            $('#movie').jPlayer("option", "fullScreen", true);
+        };
+    </script>
+</head>
+
+<body>
+
+
+    <div class="wrap">
+        <div id="movie"></div>
+        
+        <br>
+        
+        <div class="controler">
+            <a href="javascript:jPlayer_play();"><img src="../../../../asset/images/btn_play.png" alt="play" /></a>
+            <a href="javascript:jPlayer_pause();"><img src="../../../../asset/images/btn_pause.png" alt="pause" /></a>
+            <a href="javascript:jPlayer_stop();"><img src="../../../../asset/images/btn_stop.png" alt="stop" /></a>
+            <button onclick="jPlayer_playPause()">Play/Pause</button>
+            <br />
+
+            <button onclick='$("#movie").jPlayer("volume", 0.20)'>volume20</button>
+            <button onclick='$("#movie").jPlayer("volume", 1)'>volume100</button>
+            <br>
+            <button onclick="fullWindow_fn()">fullWindow</button>
+            <button onclick="fullWindowOff_fn()">fullWindow off</button>
+            <button onclick="fullScreen_fn()">fullScreen</button>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

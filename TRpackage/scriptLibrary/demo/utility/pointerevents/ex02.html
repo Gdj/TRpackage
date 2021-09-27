@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>pointer-events 과 같은 효과~ js버젼</title>
+	<style>
+		.overlay {
+			position: absolute;
+			width: 200px;
+			height: 100%;
+			top: 0;
+			background-color: red;
+			opacity: 0.5;
+		}
+
+		.box {
+			width: 100px;
+			height: 100px;
+			margin-left: 150px;
+			background: indigo;
+		}
+
+		.active {
+			background: cyan;
+		}
+	</style>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.1/jquery.min.js" ></script>
+</head>
+<body>
+	<div class="overlay">overlay ie11 이상</div>
+	<div class="box">box</div>
+	
+
+	<script>
+		$.fn.passThrough = function(target) {
+			var $target = $(target);
+			return this.each(function() {
+				var style = this.style;
+				if ('pointerEvents' in style) {
+					style.pointerEvents = style.userSelect = style.touchCallout = 'none';
+				} else {
+					$(this).on('click mousedown mouseup mouseenter mouseleave mousemove touchstart touchend touchcancel touchmove', function(e) {
+						var touch = /touch/.test(e.type) ? e.originalEvent.touches[0] || e.originalEvent.changedTouches[0] : e;
+						$target.each(function() {
+							var rect = this.getBoundingClientRect();
+							if (e.pageX > rect.left && e.pageX < rect.right &&
+								e.pageY > rect.top && e.pageY < rect.bottom)
+								$(this).trigger(e.type);
+						});
+					});
+				}
+			});
+		};
+
+		$('.overlay').passThrough('.box');
+		$('.box').hover(function() {
+			$(this).toggleClass('active');
+		});
+	</script>
+	
+</body>
+</html>

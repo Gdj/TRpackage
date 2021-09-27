@@ -1,0 +1,462 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+<title>layerPopup | TR package</title>
+<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="../../../../asset/js/libs/trpMenu.js"></script>
+<link rel="stylesheet" href="../../../../asset/css/common.css" type="text/css" media="all" />
+
+
+</head>
+<body>
+
+<div id="header" ></div>
+<div id="container">
+	<div id="lnb" class="gnb"></div>
+	<!-- s: 컨텐츠 시작 -->
+	<div id="contents" class="contents">
+		<!-- s: 스크립드 설명 -->
+		<div class="desc_wapper">
+			<h1 class="desc_title">window Popup</h1>
+			<p> window Popup 버튼을 클릭하면 window Popup 열리고 닫기 버튼으로 팝업을 닫고 링크를 관리할 수 있다.  <br>
+			
+		&lt;a href="이미지경로" onclick="window.open(this.href, '_blank','width=1280px, height=720px, toolbars=no, scrollbars=yes'); return false;"&gt; &lt;/a&gt;
+				
+				
+			</p>
+		</div>
+		<!-- e: 스크립드 설명 -->
+	
+		<!-- s: api 설명 -->
+		<div class="api">
+			<h2 class="api-title">.trpWindowPopup( url , width, height, top, left )</h2>
+			<div class="api-body">
+				<dl>
+					<dt>설명</dt>
+					<dd><span class="icon"></span>팝업창 여는 부모 </dd>
+					<dd><span class="icon"></span>기본 위치값은 CSS 에서 설정해야합니다.</dd>
+					
+				</dl>
+				<table class="table_col" summary="window Popup 속성, 메소드">
+					<caption>window Popup 설명</caption>
+					<colgroup>
+						<col width="150">
+						<col width="">		
+					</colgroup>
+					<tbody>
+					<tr>
+						<th scope="col">매개변수</th>
+						<th scope="col">매개변수 설명</th>
+					</tr>
+					<tr>
+						<td>url</td>
+						<td>팝업 창열릴 주소 <strong>(필수)</strong></td>		
+					</tr>				
+					<tr>
+						<td>width</td>
+						<td>팝업 창 가로 크기 <strong>(필수)</strong></td>		
+					</tr>
+					<tr>
+						<td>height</td>
+						<td>팝업 창 세로 크기 <strong>(필수)</strong></td>		
+					</tr>
+					<tr>
+						<td>top</td>
+						<td>팝업 창열릴 세로위치 </td>		
+					</tr>
+					<tr>
+						<td>left</td>
+						<td>팝업 창열릴 가로위치 </td>		
+					</tr>
+					</tbody>
+				</table>
+				<table class="table_col" summary="window Popup 속성, 메소드">
+					<caption>window Popup 설명</caption>
+					<colgroup>
+						<col width="150">
+						<col width="">		
+					</colgroup>
+					<tbody>
+					<tr>
+						<th scope="col">메서드</th>
+						<th scope="col">메서드 설명</th>
+					</tr>
+					<tr>
+						<td>oneDay(cookieName)</td>
+						<td>오늘하루 팝업열지않기에 따라 팝업 제어, <br />
+							cookieName(설정할 쿠키이름),  <br />
+							팝업창에서 설정한 쿠키이름과 같아야합니다. (필수)</td>		
+					</tr>
+					
+					</tbody>
+				</table>
+
+				<table class="table_col" summary="윈도우팝업 직접 사용">
+					<caption>윈도우팝업</caption>
+					<colgroup>
+						<col width="150">
+						<col width="">		
+					</colgroup>
+					<tbody>
+					<tr>
+						<th scope="col">설명</th>
+						<th scope="col">직접 사용 코드</th>
+					</tr>
+					<tr>
+						<td>열기</td>
+						<td>onClick="popWin = window.open('http://www.naver.com','windows','width=800,height=900,scrollbars=no'); popWin.focus(); return false;"
+						</td>		
+					</tr>
+					<tr>
+						<td>닫기</td>
+						<td>self.close(); <br />
+							window.close();
+						</td>
+					</tr>
+					</tbody>
+				</table>
+
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+
+		<!-- s: api 설명 -->
+		<div class="api">
+			<h2 class="api-title">.trpWindowClose()</h2>
+			<div class="api-body">
+				<dl>
+					<dt>설명</dt>
+					<dd>팝업창 닫을때 사용하며 링크에 대한 옵션을 선택할수 있습니다.</dd>
+					<dd>기본 위치값은 CSS 에서 설정해야 합니다.</dd>
+					
+				</dl>
+				<table class="table_col" summary="window Close 속성, 메소드">
+					<caption>window Close 설명</caption>
+					<colgroup>
+						<col width="150">
+						<col width="">		
+					</colgroup>
+					<tbody>
+					<tr>
+						<th scope="col">메서드 </th>
+						<th scope="col">메서드 설명</th>
+					</tr>
+					<tr>
+						<td>parentLink(url)</td>
+						<td>부모창에서 'url'링크주소로 열기고 현제창을 닫침니다.</td>		
+					</tr>
+					<tr>
+						<td>selfLink(url)</td>
+						<td>현제창에서 'url'링크가 열리기 때문에 창은 닫치지 않습니다.</td>		
+					</tr>
+					<tr>
+						<td>blankLink(url)</td>
+						<td>새창으로 'url'링크주소로 열기고 현제창을 닫침니다.</td>		
+					</tr>
+					<tr>
+						<td>oneDay(cookieName)</td>
+						<td>오늘하루 팝업열지않기에 따라 팝업 제어, <br />
+							cookieName(설정할 쿠키이름),  <br />
+							부모창에서의 쿠키이름과 같아야합니다. (필수)</td>		
+					</tr>
+					</tbody>
+				</table>
+
+			
+				
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+
+		<!-- s: api 설명 -->
+		<div class="api">
+			<h2 class="api-title">.trpWindowPopupResize()</h2>
+			<div class="api-body">
+				<dl>
+					<dt>설명</dt>
+					<dd>팝업창을 특정 선택자 크기에 맞게 열리도록 합니다.</dd>
+					<dd>기본 위치값은 CSS 에서 설정해야 합니다.</dd>
+					
+				</dl>				
+
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+
+		<!-- s: examples 예제 -->
+		<div class="ex_wapper">
+			<div class="section">
+				<h2 class="ex-title">예제 (팝업창 여는 부모) </h2>
+				<p class="ex-more" ><a href="javascript:return false;"><span>+</span><span  style="display:none" >-</span></a></p>
+				<p class="ex-view" ><a href="parent.html" target="_blank">View</a></p>
+				<div class="ex-body"  style="display:none" >					
+					<div class="source"><!-- 소스 -->
+
+	<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+	 2
+	 3
+	 4
+	 5
+	 6
+	 7
+	 8
+	 9
+	10
+	11
+	12
+	13
+	14
+	15
+	16
+	17
+	18
+	19
+	20
+	21
+	22
+	23
+	24
+	25
+	26
+	27
+	28
+	29
+	30
+	31
+	32</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</span>
+	<span style="color: #f92672">&lt;html</span> <span style="color: #a6e22e">xmlns=</span><span style="color: #e6db74">&quot;http://www.w3.org/1999/xhtml&quot;</span><span style="color: #f92672">&gt;</span>
+	<span style="color: #f92672">&lt;head&gt;</span>
+	<span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">http-equiv=</span><span style="color: #e6db74">&quot;Content-Type&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;text/html; charset=utf-8&quot;</span> <span style="color: #f92672">/&gt;</span>
+	<span style="color: #f92672">&lt;title&gt;</span>window popup Parent<span style="color: #f92672">&lt;/title&gt;</span>
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;http://code.jquery.com/jquery-1.9.1.min.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/trpPopup_all0.82.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+	<span style="color: #f92672">&lt;style </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/css&quot;</span><span style="color: #f92672">&gt;</span>
+
+	<span style="color: #f92672">&lt;/style&gt;</span>
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span><span style="color: #f92672">&gt;</span>	
+			<span style="color: #75715e">/* 팝업창 열기 */</span>
+			<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(document).</span><span style="color: #a6e22e">ready</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(){</span>			
+				<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.window_popup&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">trpWindowPopup</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;popup.html&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">300</span><span style="color: #f8f8f2">,</span><span style="color: #ae81ff">200</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">oneDay</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;oneDay&quot;</span><span style="color: #f8f8f2">);</span>
+				<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.window_popup&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">trpWindowPopup</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;popup_2.html&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">500</span><span style="color: #f8f8f2">,</span><span style="color: #ae81ff">300</span><span style="color: #f8f8f2">,</span><span style="color: #ae81ff">100</span><span style="color: #f8f8f2">,</span><span style="color: #ae81ff">100</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">oneDay</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;oneDay2&quot;</span><span style="color: #f8f8f2">);</span>
+			<span style="color: #f8f8f2">});</span>
+	<span style="color: #f92672">&lt;/script&gt;</span>
+
+	<span style="color: #f92672">&lt;/head&gt;</span>
+
+	<span style="color: #f92672">&lt;body&gt;</span>
+	<span style="color: #f92672">&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;window_popup&quot;</span> <span style="color: #f92672">&gt;</span>window_popup<span style="color: #f92672">&lt;/a&gt;</span>
+	<span style="color: #f92672">&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;window_popup&quot;</span> <span style="color: #f92672">&gt;</span>window_popup<span style="color: #f92672">&lt;/a&gt;</span>
+	<span style="color: #f92672">&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;window_popup&quot;</span> <span style="color: #f92672">&gt;</span>window_popup<span style="color: #f92672">&lt;/a&gt;</span>
+	<span style="color: #f92672">&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;window_popup&quot;</span> <span style="color: #f92672">&gt;</span>window_popup<span style="color: #f92672">&lt;/a&gt;</span>
+	<span style="color: #f92672">&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;window_popup&quot;</span> <span style="color: #f92672">&gt;</span>window_popup<span style="color: #f92672">&lt;/a&gt;</span>
+	<span style="color: #f92672">&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;window_popup&quot;</span> <span style="color: #f92672">&gt;</span>window_popup<span style="color: #f92672">&lt;/a&gt;</span>
+
+
+
+	<span style="color: #f92672">&lt;/body&gt;</span>
+	<span style="color: #f92672">&lt;/html&gt;</span>
+	</pre></td></tr></table></div>
+
+
+				
+					</div><!--// 소스 -->
+				</div>
+			</div>
+		</div>
+		<!-- e: examples 예제 -->
+		
+
+		<!-- s: examples 예제 -->
+		<div class="ex_wapper">
+			<div class="section">
+				<h2 class="ex-title">예제 (팝업창)</h2>
+				<p class="ex-more" ><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p>
+				<p class="ex-view" ><a href="popup.html" target="_blank">View</a></p>
+				<div class="ex-body"  style="display:none" >					
+					<div class="source"><!-- 소스 -->
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</span>
+<span style="color: #f92672">&lt;html</span> <span style="color: #a6e22e">xmlns=</span><span style="color: #e6db74">&quot;http://www.w3.org/1999/xhtml&quot;</span><span style="color: #f92672">&gt;</span>
+<span style="color: #f92672">&lt;head&gt;</span>
+<span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">http-equiv=</span><span style="color: #e6db74">&quot;Content-Type&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;text/html; charset=utf-8&quot;</span> <span style="color: #f92672">/&gt;</span>
+<span style="color: #f92672">&lt;title&gt;</span>window popup<span style="color: #f92672">&lt;/title&gt;</span>
+<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/trpPopup.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+<span style="color: #f92672">&lt;style </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/css&quot;</span><span style="color: #f92672">&gt;</span>
+	<span style="color: #f92672">html</span> <span style="color: #f92672">body</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">overflow</span><span style="color: #f92672">:</span><span style="color: #66d9ef">hidden</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">margin</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;}</span> 
+	<span style="color: #a6e22e">#popup_wrap</span><span style="color: #f8f8f2">{</span>
+			<span style="color: #66d9ef">width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">300px</span><span style="color: #f8f8f2">;</span>
+			<span style="color: #66d9ef">height</span><span style="color: #f92672">:</span><span style="color: #ae81ff">200px</span><span style="color: #f8f8f2">;</span>
+			<span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#f00</span><span style="color: #f8f8f2">;</span>
+			<span style="color: #66d9ef">text-align</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">center</span><span style="color: #f8f8f2">;</span>
+			<span style="color: #66d9ef">padding-top</span><span style="color: #f92672">:</span><span style="color: #ae81ff">50px</span><span style="color: #f8f8f2">;</span>
+			<span style="color: #66d9ef">line-height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">;</span>	
+			<span style="color: #66d9ef">z-index</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">10</span><span style="color: #f8f8f2">;</span>	
+		<span style="color: #f8f8f2">}</span>
+
+<span style="color: #f92672">&lt;/style&gt;</span>
+
+<span style="color: #f92672">&lt;/head&gt;</span>
+
+<span style="color: #f92672">&lt;body&gt;</span>
+<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;popup_wrap&quot;</span> <span style="color: #f92672">&gt;</span>
+	<span style="color: #f92672">&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;closeX&quot;</span><span style="color: #f92672">&gt;</span>X 닫기<span style="color: #f92672">&lt;/a&gt;&lt;br</span> <span style="color: #f92672">/&gt;</span>
+	<span style="color: #f92672">&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;closeXX&quot;</span><span style="color: #f92672">&gt;</span>X 닫기 부모창 링크 <span style="color: #f92672">&lt;/a&gt;&lt;br</span> <span style="color: #f92672">/&gt;</span>
+	<span style="color: #f92672">&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;closeXXX&quot;</span><span style="color: #f92672">&gt;</span>오늘하루 안보기<span style="color: #f92672">&lt;/a&gt;</span>
+<span style="color: #f92672">&lt;/div&gt;</span>	
+
+<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span><span style="color: #f92672">&gt;</span>		
+	<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(document).</span><span style="color: #a6e22e">ready</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(){</span>
+		
+		<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;#popup_wrap&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">trpWindowPopupResize</span><span style="color: #f8f8f2">();</span>								<span style="color: #75715e">// 팝업창 &quot;#popup_wrap&quot; 맞에 리싸이즈</span>
+		<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.closeX&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">trpWindowClose</span><span style="color: #f8f8f2">();</span>										<span style="color: #75715e">// 팝업닫기</span>
+		<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.closeXX&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">trpWindowClose</span><span style="color: #f8f8f2">().</span><span style="color: #a6e22e">parentLink</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;http://www.naver.com&quot;</span><span style="color: #f8f8f2">);</span>	<span style="color: #75715e">// 부모창으로 링크 열기</span>
+		<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.closeXXX&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">trpWindowClose</span><span style="color: #f8f8f2">().</span><span style="color: #a6e22e">oneDay</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;oneDay&quot;</span><span style="color: #f8f8f2">);</span>					<span style="color: #75715e">// 오늘하루 안열기</span>
+
+	<span style="color: #f8f8f2">})</span>
+	
+<span style="color: #f92672">&lt;/script&gt;</span>
+<span style="color: #f92672">&lt;/body&gt;</span>
+<span style="color: #f92672">&lt;/html&gt;</span>
+</pre></td></tr></table></div>
+
+
+
+				
+					</div><!--// 소스 -->
+				<div>
+			</div>			
+		</div>
+		<!-- e: examples 예제 -->
+
+
+<!-- s: examples 예제 -->
+		<div class="ex_wapper">
+			<div class="section">
+				<h2 class="ex-title">예제 (팝업창2)</h2>
+				<p class="ex-more" ><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p>
+				<p class="ex-view" ><a href="popup.html" target="_blank">View</a></p>
+				<div class="ex-body"  style="display:none" >					
+					<div class="source"><!-- 소스 -->
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</span>
+<span style="color: #f92672">&lt;html</span> <span style="color: #a6e22e">xmlns=</span><span style="color: #e6db74">&quot;http://www.w3.org/1999/xhtml&quot;</span><span style="color: #f92672">&gt;</span>
+<span style="color: #f92672">&lt;head&gt;</span>
+<span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">http-equiv=</span><span style="color: #e6db74">&quot;Content-Type&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;text/html; charset=utf-8&quot;</span> <span style="color: #f92672">/&gt;</span>
+<span style="color: #f92672">&lt;title&gt;</span>window popup<span style="color: #f92672">&lt;/title&gt;</span>
+<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/trpPopup.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+<span style="color: #f92672">&lt;style </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/css&quot;</span><span style="color: #f92672">&gt;</span>
+	<span style="color: #f92672">html</span> <span style="color: #f92672">body</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">overflow</span><span style="color: #f92672">:</span><span style="color: #66d9ef">hidden</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">margin</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;}</span> 
+	<span style="color: #a6e22e">#popup_wrap</span><span style="color: #f8f8f2">{</span>
+			<span style="color: #66d9ef">width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">300px</span><span style="color: #f8f8f2">;</span>
+			<span style="color: #66d9ef">height</span><span style="color: #f92672">:</span><span style="color: #ae81ff">200px</span><span style="color: #f8f8f2">;</span>
+			<span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#f00</span><span style="color: #f8f8f2">;</span>
+			<span style="color: #66d9ef">text-align</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">center</span><span style="color: #f8f8f2">;</span>
+			<span style="color: #66d9ef">padding-top</span><span style="color: #f92672">:</span><span style="color: #ae81ff">50px</span><span style="color: #f8f8f2">;</span>
+			<span style="color: #66d9ef">line-height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">;</span>	
+			<span style="color: #66d9ef">z-index</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">10</span><span style="color: #f8f8f2">;</span>	
+		<span style="color: #f8f8f2">}</span>
+
+<span style="color: #f92672">&lt;/style&gt;</span>
+
+<span style="color: #f92672">&lt;/head&gt;</span>
+
+<span style="color: #f92672">&lt;body&gt;</span>
+<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;popup_wrap&quot;</span> <span style="color: #f92672">&gt;</span>
+	<span style="color: #f92672">&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;closeX&quot;</span><span style="color: #f92672">&gt;</span>X 닫기1<span style="color: #f92672">&lt;/a&gt;&lt;br</span> <span style="color: #f92672">/&gt;</span>
+	<span style="color: #f92672">&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;closeXX&quot;</span><span style="color: #f92672">&gt;</span>X 닫기 부모창 링크1 <span style="color: #f92672">&lt;/a&gt;&lt;br</span> <span style="color: #f92672">/&gt;</span>
+	<span style="color: #f92672">&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;closeXXX&quot;</span><span style="color: #f92672">&gt;</span>오늘하루 안보기1<span style="color: #f92672">&lt;/a&gt;</span>
+<span style="color: #f92672">&lt;/div&gt;</span>	
+
+<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span><span style="color: #f92672">&gt;</span>		
+	<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(document).</span><span style="color: #a6e22e">ready</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(){</span>
+		
+		<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;#popup_wrap&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">trpWindowPopupResize</span><span style="color: #f8f8f2">();</span>								<span style="color: #75715e">// 팝업창 &quot;#popup_wrap&quot; 맞에 리싸이즈</span>
+		<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.closeX&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">trpWindowClose</span><span style="color: #f8f8f2">();</span>										<span style="color: #75715e">// 팝업닫기</span>
+		<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.closeXX&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">trpWindowClose</span><span style="color: #f8f8f2">().</span><span style="color: #a6e22e">parentLink</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;http://www.naver.com&quot;</span><span style="color: #f8f8f2">);</span>	<span style="color: #75715e">// 부모창으로 링크 열기</span>
+		<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.closeXXX&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">trpWindowClose</span><span style="color: #f8f8f2">().</span><span style="color: #a6e22e">oneDay</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;oneDay2&quot;</span><span style="color: #f8f8f2">);</span>					<span style="color: #75715e">// 오늘하루 안열기</span>
+
+	<span style="color: #f8f8f2">})</span>
+	
+<span style="color: #f92672">&lt;/script&gt;</span>
+<span style="color: #f92672">&lt;/body&gt;</span>
+<span style="color: #f92672">&lt;/html&gt;</span>
+</pre></div>
+
+
+		
+
+
+				
+					</div><!--// 소스 -->
+				</div>
+			</div>			
+		</div>
+		<!-- e: examples 예제 -->
+
+
+	</div>
+	<!-- e: 컨텐츠 끝 -->
+</div>
+
+	</div>			
+</div>
+
+<script type="text/javascript">
+	$("#header").load("../../../head.html");
+	$("#lnb").load("../../../lnb.html");	
+
+	$(".ex-more a").click(function() {
+		$( this ).find("span").toggle();
+		$( this ).parent().siblings(".ex-body").slideToggle();
+		return false;
+	});
+</script>
+
+</body>
+</html>

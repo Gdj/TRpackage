@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>align</title>
+  <style>
+    section {  margin: 30px 0; }  
+    section>.inner { position: relative; border: 1px solid #aaa; width: 100%; max-width:800px; height: 300px;  }  
+    
+    .item { width: 50px; min-height: 50px; margin: 0 auto; color:#555; font-size: 12px; line-height: 1.2;
+      background-color: aliceblue; box-sizing: border-box; border: 1px solid #ccc;}
+    
+    .trp-align_1 {}
+    .layout_t{ display: table; table-layout: fixed; border-collapse: collapse; width: 100%; height: 100%;}
+    .layout_t .layout_r{ display: table-row;}
+    .layout_t .layout_c{ display: table-cell; vertical-align: middle; text-align: center;}
+        
+    .trp-align_2 { height: 100%; text-align: center; font-size: 0; line-height: 0;}
+    .trp-align_2::before { content: ""; display: inline-block;
+    width: 1px; height: 100%;
+    margin-right: 0; vertical-align: middle;}
+    .trp-align_2 .layout_cy{ display: inline-block; vertical-align: middle;} 
+    
+    .trp-align_3 {display : flex; flex-wrap: wrap; flex-direction: column;
+      width: 100%; height: 100%;  justify-content: center; align-items : center;  align-content: center;}
+    .trp-align_3 .item{  }
+       
+    .trp-align_4 { height: 100%;}
+    .trp-align_4 .floater{ float:left; height:50%; margin-bottom:-25px; }
+    .trp-align_4 .item   { position:relative; clear:both; height: 50px; }
+
+    
+    .trp-align_5 {
+      position:absolute; 
+      top:50%; left:50%;
+      margin-top:-25px; margin-left:-25px; 
+    }
+    .trp-align_6 {
+      position:absolute; 
+      top:50%; left:50%;
+      transform: translate(-50%, -50%);
+    }   
+    
+    .trp-align_7 .item { position:absolute; margin: 10% auto;
+      top:0; left:0; bottom:0; right:0; vertical-align: middle}
+ 
+  </style>
+</head>
+<body>
+  
+  <h3># 크기 유동적 (1~3)</h3>
+  <section>
+    <h4>1. display : table // display : table-cell // vertical-align : middle</h4>
+    <div class="inner">
+     
+      <div class="trp-align_1 layout_t">
+        <div class="layout_r">
+          <div class="layout_c">
+            <div class="item">item1</div>
+            <div class="item">item2</div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </section> 
+  
+  <section>
+    <h4>2. :before로 가상 콘텐츠 인라인블럭 속성으로 만들어서 중앙정열  (vertical-align: middle)</h4>
+    <div class="inner">
+     
+      <div class="trp-align_2">
+        <div class="layout_cy">
+          <div class="item">item1</div>
+          <div class="item">item1</div>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+  
+  <section>
+    <h4>3. display : flex / display : inline-flex / align-items : center / justify-content : center (IE 11)</h4>
+    <div class="inner">
+
+      <div class="trp-align_3">
+        <div class="item">item1</div>
+        <div class="item">item1</div>
+      </div>
+
+    </div>
+  </section>
+
+  <h3># 크기 고정 (5~7)</h3>
+  <section>
+    <h4>4. float 속성을 이용 : 크기 고정</h4>
+    <div class="inner">
+     
+      <div class="trp-align_4">
+        <div class="floater"></div>
+        <div class="item">item1</div>
+      </div>
+      
+    </div>
+  </section>
+  
+   
+
+  <section>
+    <h4>5. position: absolute; 50%로 밀고 px로 당기기. (item 크기고정)</h4>
+    <div class="inner">
+     
+      <div class="trp-align_5">
+        <div class="item">item1</div>
+      </div>
+      
+    </div>
+  </section>
+     
+  <section>
+    <h4>6. position: absolute; 50%로 밀고 translate으로 당기기. (IE 9 : -ms-)</h4>
+    <div class="inner">
+     
+      <div class="trp-align_6">
+        <div class="item">item1</div>
+      </div>
+      
+    </div>
+  </section>  
+   
+  <section>
+    <h4>7. position: absolute; 모든방향에서 당기기 (높이값 자동 마진값만큼 떨어지)</h4>
+    <div class="inner">
+     
+      <div class="trp-align_7">
+        <div class="item">item1</div>
+      </div>
+      
+    </div>
+  </section>
+
+  
+</body>
+</html>
+

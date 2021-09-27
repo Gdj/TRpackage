@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Basic single-column &middot; jQuery Masonry</title>     
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+  <!-- <link rel="stylesheet" href="./css/style.css" /> -->	   
+  <style type="text/css">
+	html, body, div, span, object, iframe,
+	h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+	abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp,
+	small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li,
+	fieldset, form, label, legend,
+	table, caption, tbody, tfoot, thead, tr, th, td,
+	article, aside, canvas, details, figcaption, figure,
+	footer, header, hgroup, menu, nav, section, summary,
+	time, mark, audio, video {
+	  margin: 0;
+	  padding: 0;
+	  border: 0;
+	  font-size: 100%;
+	  font: inherit;
+	  vertical-align: baseline;
+	}
+	h1, h2 {  font-weight: 100; font-weight:bold;  line-height: 1.2em;   margin-bottom: 0.6em; }
+	ul, li {   list-style: none;   padding-left: 0;   font-size: 12px; }	
+	   .item { margin: 10px 1%; padding:10px; background: #D8D5D2; font-size: 11px; line-height: 1.4em; float: left; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; }
+	   .item.w1 { width:22.5% }
+	   .item.w2 { width:46.9%; }
+	   .item.w3 { width:69.4% }
+	   .item.w4 { width:95.5% }
+		#container { position:relative; margin : 0 auto;  border:1px solid #cfcfcf; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px;}
+
+ </style>
+ 
+<script src="//code.jquery.com/jquery-1.12.1.min.js"></script>
+<script src="../../../../asset/js/libs/masonry-master/masonry.pkgd.js" ></script>
+
+<script>
+  $(function(){
+    
+    $('#container').masonry({	 
+      itemSelector: '.item',  
+	  isFitWidth: true
+    });
+
+  });
+</script>
+
+</head>
+
+
+<div id="container" class="clearfix">  
+  <div class="item w3"></div>
+  <div class="item w1"></div>
+  <div class="item w4"></div>
+  <div class="item w2"></div>
+  <div class="item w2"></div>	
+</div> <!-- #container -->
+
+</body>
+</html>

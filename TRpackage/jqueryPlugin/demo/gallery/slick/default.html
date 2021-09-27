@@ -1,0 +1,771 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+<title>slick | TR package</title>
+<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="../../../../asset/js/libs/trpMenu.js"></script>
+<link rel="stylesheet" type="text/css"  href="../../../../asset/css/common.css" media="all" />
+
+
+
+</head>
+<body>
+  <div id="header" ></div>
+  <div id="container">
+	<div id="lnb" class="gnb"></div>
+	<!-- s: 컨텐츠 시작 -->
+	<div id="contents" class="contents">
+		<!-- s: 스크립드 설명 -->
+		<div class="desc_wapper">
+			<h1 class="desc_title">slick </h1>
+			<p>플리킹 스라이딩 플러그인 (접근성, 반응형) <a href="http://kenwheeler.github.io/slick/" target="_blank">slick</a> </p>
+		</div>
+		<!-- e: 스크립드 설명 -->
+	
+
+		<!-- s: api 설명 -->
+		<div class="api">
+			<h2 class="api-title">$(element).slick(options)</h2>
+			<div class="api-body">
+				<dl>
+					<dt>설명</dt>
+					<dd><span class="icon"></span>기본 위치값은 CSS 에서 설정해야합니다. <br /></dd>
+				</dl>				
+				
+				<table class="table_col" summary="slick options 속성 설명">
+					<caption>slick options 설명</caption>
+					<colgroup>
+						<col width="150">
+						<col width="">		
+					</colgroup>
+					<tbody>
+					<tr>
+						<th scope="col">options 속성</th>
+						<th scope="col">options 속성 설명</th>
+					</tr>
+					<tr>
+						<td>accessibility</td>
+						<td>접근성 여부 기본값은 true </td>
+					</tr>
+					<tr>
+						<td>autoplay</td>
+						<td>자동재생 여부 기본값은 false</td>		
+					</tr>
+					<tr>
+						<td>autoplaySpeed</td>
+						<td>자동재생 간격 기본값은 3000(ms) </td>		
+					</tr>
+					<tr>
+						<td>arrows</td>
+						<td>좌우 화살표 생성 여부 기본 값은 true</td>		
+					</tr>
+					<tr>
+						<td>appendArrows</td>
+						<td>좌우 화살표 변경, 선택자 or $(element)</td>		
+					</tr>
+					<tr>
+						<td>prevArrow</td>
+						<td>좌  화살표 변경, 선택자 or  HTML</td>		
+					</tr>
+					<tr>
+						<td>nextArrow</td>
+						<td>우 화살표 변경, 선택자 or HTML</td>		
+					</tr>	
+					<tr>
+						<td>appendDots</td>
+						<td>도트 네비 변경, 선택자 or $(element)</td>		
+					</tr>	
+					<tr>
+						<td>dots</td>
+						<td>도트 네비 생성여부 기본값은 false</td>		
+					</tr>	
+					<tr>
+						<td>dotsClass</td>
+						<td>도트 네비 클래스 변경 기본값은 'slick-dots' </td>		
+					</tr>	
+					<tr>
+						<td>customPagin</td>
+						<td>사용자지정 페이징, 함수형태로 정의</td>		
+					</tr>						
+					<tr>
+						<td>initialSlide</td>
+						<td>첨음 보여질 슬라이드 기본값은 0</td>		
+					</tr>											
+					<tr>
+						<td>responsive</td>
+						<td>반응형 크기에 따른 재설정이 가능하도록 합니다. 오브젝트 형태로 선언</td>		
+					</tr>											
+					<tr>
+						<td>slidesToShow</td>
+						<td>보여질 슬라이드 수 기본값은 1</td>		
+					</tr>											
+					<tr>
+						<td>slidesToScroll</td>
+						<td>슬라이드 되어질 슬라이드수 기본값은 1</td>		
+					</tr>											
+					<tr>
+						<td>slidesPerRow</td>
+						<td>행수를 정의함 기본값은 1</td>		
+					</tr>
+					<tr>
+						<td>centerMode</td>
+						<td>중앙 보기 기본값은 false </td>		
+					</tr>
+					<tr>
+						<td>centerPadding</td>
+						<td>중앙 보기 에서 padding 값으로 위치 조절 기본값은 "50px" </td>		
+					</tr>						
+					<tr>
+						<td>fade</td>
+						<td>모션 사용어부 기본값은 false (slide) </td>		
+					</tr>						
+					<tr>
+						<td>infinite</td>
+						<td>무한 루브 설정여부 기본값은 true</td>		
+					</tr>			
+					<tr>
+						<td>speed</td>
+						<td>모션 시간을 정의 합니다. 기본값은 3000</td>		
+					</tr>			
+					<tr>
+						<td>waitForAnimate</td>
+						<td>애니메이션중 동작을 제한합니다. 기본값은 treu </td>		
+					</tr>
+					<tr>
+						<td>asNavFor</td>
+						<td>다른 슬라이더를 참조 함 (class or id)</td>		
+					</tr>
+					</tbody>
+				</table>
+
+				<table class="table_col" summary="slick methods 종류와 설명">
+					<caption>slick methods 설명</caption>
+					<colgroup>
+						<col width="150">
+						<col width="">		
+					</colgroup>
+					<tbody>
+					<tr>
+						<th scope="col">slick 메서드</th>
+						<th scope="col">slick 메서드 설명</th>
+					</tr>
+					<tr>
+						<td>.slickCurrentSlide()</td>
+						<td>현제 진행중인 인덱스 값을 리턴합다.</td>
+					</tr> 	
+					<tr>
+						<td>.slickGoTo(index)</td>
+						<td>진행 시킬 슬라라이더의 인덱스로 이동합니다. </td>
+					</tr>
+					<tr>
+						<td>.slickNext()</td>
+						<td>다음 슬라이드로 이동합니다. </td>
+					</tr>
+					<tr>
+						<td>.slickPrev()</td>
+						<td>이전 슬라이드로 진행합니다.</td>
+					</tr>
+					<tr>
+						<td>.slickPause()</td>
+						<td>autoplay 모드일때 진행을 정지 합니다 </td>
+					</tr>					
+					<tr>
+						<td>.slickPlay()</td>
+						<td>autoplay 를 재기 합니다.</td>
+					</tr>
+					<tr>
+						<td>.slickAdd(HTML or DOM object, index, addBefore)</td>
+						<td>슬라이드 추가. </td>
+					</tr>
+					<tr>
+						<td>.slickRemove(index, removeBefore)</td>
+						<td>슬라이드 삭제. </td>
+					</tr>
+					<tr>
+						<td>.slickGetOption(option : string)</td>
+						<td>옵션 값을 가져옵니다. </td>
+					</tr>
+					<tr>
+						<td>.slickFilter(Selector or Function)</td>
+						<td>필터를 적용해서 보여줌. </td>
+					</tr>
+					<tr>
+						<td>.slickUnfilter(index)</td>
+						<td>적용된 필터링제거. </td>
+					</tr>
+					<tr>
+						<td>.unslick()</td>
+						<td>slick를 제거 합니다. </td>
+					</tr>
+					</tbody>
+				</table>
+
+				<table class="table_col" summary="slick event 종류와 설명">
+					<caption>slick event 설명</caption>
+					<colgroup>
+						<col width="150">
+						<col width="">		
+					</colgroup>
+					<tbody>
+					<tr>
+						<th scope="col">slick 이벤트</th>
+						<th scope="col">slick 이벤트 설명</th>
+					</tr>		
+					<tr>
+						<td>init(slick)</td>
+						<td>슬라이더 초기화 후 호출</td>
+					</tr>		
+					<tr>
+						<td>reInit(slick)</td>
+						<td>슬라이더 재초기화 할때마다 호출</td>
+					</tr>		
+					<tr>
+						<td>afterChange(slick, currentSlide)</td>
+						<td>슬라이드 후 호출</td>
+					</tr>		
+					<tr>
+						<td>beforeChange(slick, currentSlide)</td>
+						<td>슬라이드 전 호출</td>
+					</tr>		
+					<tr>
+						<td>breakpoint(event, slick, breakpoint)</td>
+						<td>반응형 브레이크 포인트에 접근되면 호출</td>
+					</tr>		
+					<tr>
+						<td>swipe(slick, direction)</td>
+						<td>드래그, 모션 중일때 호출</td>
+					</tr>		
+					<tr>
+						<td>lazyLoaded(event, slick, image, imageSource)</td>
+						<td>이미지가 로드되면 호출</td>
+					</tr>
+					
+
+					</tbody>
+				</table>
+
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+
+		<!-- s: examples 예제 -->
+		<div class="ex_wapper">
+			<div class="section">
+				<h2 class="ex-title">예제1 (basic , auto play)</h2>				
+				<p class="ex-more" ><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p>
+				<p class="ex-view" ><a href="ex01.html" target="_blank">View</a></p>
+				<div class="ex-body" style="display:none">
+					<div class="source">
+				    <!-- 소스 -->		
+
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</span>
+<span style="color: #f92672">&lt;html</span> <span style="color: #a6e22e">xmlns=</span><span style="color: #e6db74">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span style="color: #a6e22e">lang=</span><span style="color: #e6db74">&quot;ko&quot;</span> <span style="color: #a6e22e">xml:lang=</span><span style="color: #e6db74">&quot;ko&quot;</span><span style="color: #f92672">&gt;</span>
+<span style="color: #f92672">&lt;head&gt;</span>
+	<span style="color: #f92672">&lt;title&gt;</span>slick (auto play)<span style="color: #f92672">&lt;/title&gt;</span>
+	<span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">http-equiv=</span><span style="color: #e6db74">&quot;Content-Type&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;text/html;charset=utf-8&quot;</span> <span style="color: #f92672">/&gt;</span>
+	<span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">http-equiv=</span><span style="color: #e6db74">&quot;X-UA-Compatible&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;IE=edge&quot;</span> <span style="color: #f92672">/&gt;</span>	
+	<span style="color: #f92672">&lt;link</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;./css/style.css&quot;</span> <span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/css&quot;</span> <span style="color: #a6e22e">rel=</span><span style="color: #e6db74">&quot;stylesheet&quot;</span> <span style="color: #f92672">/&gt;</span>
+	<span style="color: #f92672">&lt;link</span> <span style="color: #a6e22e">rel=</span><span style="color: #e6db74">&quot;stylesheet&quot;</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/slick/slick.css&quot;</span><span style="color: #f92672">&gt;</span>
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/slick/slick.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+    <span style="color: #f92672">&lt;style </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/css&quot;</span><span style="color: #f92672">&gt;</span>
+        <span style="color: #f92672">*</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">margin</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;}</span>        
+    <span style="color: #f92672">&lt;/style&gt;</span>
+    <span style="color: #f92672">&lt;script&gt;</span>
+    <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(window).</span><span style="color: #a6e22e">ready</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(){</span>
+        
+        <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">slicksGall</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;.gall-list&#39;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">slick</span><span style="color: #f8f8f2">({</span>
+          <span style="color: #a6e22e">dots</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">true</span><span style="color: #f8f8f2">,</span>
+          <span style="color: #a6e22e">infinite</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">true</span><span style="color: #f8f8f2">,</span>
+          <span style="color: #a6e22e">autoplay</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">true</span><span style="color: #f8f8f2">,</span>
+          <span style="color: #a6e22e">swipeToSlide</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">true</span>
+        <span style="color: #f8f8f2">});</span>
+        
+        <span style="color: #75715e">//slicksGall.slick(  &quot;slickGoTo&quot; , 5 );</span>
+            
+    <span style="color: #f8f8f2">})</span>
+    <span style="color: #f92672">&lt;/script&gt;</span>
+<span style="color: #f92672">&lt;/head&gt;</span>
+
+<span style="color: #f92672">&lt;body&gt;</span>
+
+<span style="color: #75715e">&lt;!-- wrap --&gt;</span>
+
+<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;gallery_view&quot;</span> <span style="color: #a6e22e">style=</span><span style="color: #e6db74">&quot;&quot;</span><span style="color: #f92672">&gt;</span>
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;gallery_center&quot;</span><span style="color: #f92672">&gt;</span>		
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;gall-list&quot;</span><span style="color: #f92672">&gt;</span>
+			<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;&quot;</span><span style="color: #f92672">&gt;&lt;img</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/view_01.jpg&quot;</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;400&quot;</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;535&quot;</span>  <span style="color: #a6e22e">alt=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f92672">/&gt;&lt;/div&gt;</span>
+			<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;&quot;</span><span style="color: #f92672">&gt;&lt;img</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/view_01.jpg&quot;</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;400&quot;</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;535&quot;</span>  <span style="color: #a6e22e">alt=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f92672">/&gt;&lt;/div&gt;</span>
+			<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;&quot;</span><span style="color: #f92672">&gt;&lt;img</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/view_01.jpg&quot;</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;400&quot;</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;535&quot;</span>  <span style="color: #a6e22e">alt=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f92672">/&gt;&lt;/div&gt;</span>
+			<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;&quot;</span><span style="color: #f92672">&gt;&lt;img</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/view_01.jpg&quot;</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;400&quot;</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;535&quot;</span>  <span style="color: #a6e22e">alt=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f92672">/&gt;&lt;/div&gt;</span>
+			<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;&quot;</span><span style="color: #f92672">&gt;&lt;img</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/view_01.jpg&quot;</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;400&quot;</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;535&quot;</span>  <span style="color: #a6e22e">alt=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f92672">/&gt;&lt;/div&gt;</span>
+			<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;&quot;</span><span style="color: #f92672">&gt;&lt;img</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/view_01.jpg&quot;</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;400&quot;</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;535&quot;</span>  <span style="color: #a6e22e">alt=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f92672">/&gt;&lt;/div&gt;</span>
+			<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;&quot;</span><span style="color: #f92672">&gt;&lt;img</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/view_01.jpg&quot;</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;400&quot;</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;535&quot;</span>  <span style="color: #a6e22e">alt=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f92672">/&gt;&lt;/div&gt;</span>
+			<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;&quot;</span><span style="color: #f92672">&gt;&lt;img</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/view_01.jpg&quot;</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;400&quot;</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;535&quot;</span>  <span style="color: #a6e22e">alt=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f92672">/&gt;&lt;/div&gt;</span>
+		<span style="color: #f92672">&lt;/div&gt;</span>	
+	<span style="color: #f92672">&lt;/div&gt;</span>	
+<span style="color: #f92672">&lt;/div&gt;</span>
+
+<span style="color: #75715e">&lt;!-- // wrap --&gt;</span>
+
+  
+
+<span style="color: #f92672">&lt;/body&gt;</span>
+<span style="color: #f92672">&lt;/html&gt;</span>
+</pre></td></tr></table></div>
+
+
+
+
+
+                    <!-- //소스 -->
+					</div>
+                </div>
+			</div>
+		</div>
+		<!-- e: examples 예제 -->
+
+		<!-- s: examples 예제 -->
+		<div class="ex_wapper">
+			<div class="section">
+				<h2 class="ex-title">예제2. customer</h2>				
+				<p class="ex-more" ><a href="javascript:return false;"><span>+</span><span style="display:none">-</span></a></p>
+				<p class="ex-view" ><a href="ex02.html" target="_blank">View</a></p>
+				<div class="ex-body" style="display:none">
+					<div class="source">
+                    <!-- 소스 -->
+
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</span>
+<span style="color: #f92672">&lt;html</span> <span style="color: #a6e22e">xmlns=</span><span style="color: #e6db74">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span style="color: #a6e22e">lang=</span><span style="color: #e6db74">&quot;ko&quot;</span> <span style="color: #a6e22e">xml:lang=</span><span style="color: #e6db74">&quot;ko&quot;</span><span style="color: #f92672">&gt;</span>
+<span style="color: #f92672">&lt;head&gt;</span>
+	<span style="color: #f92672">&lt;title&gt;</span>slick (auto play)<span style="color: #f92672">&lt;/title&gt;</span>
+	<span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">http-equiv=</span><span style="color: #e6db74">&quot;Content-Type&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;text/html;charset=utf-8&quot;</span> <span style="color: #f92672">/&gt;</span>
+	<span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">http-equiv=</span><span style="color: #e6db74">&quot;X-UA-Compatible&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;IE=edge&quot;</span> <span style="color: #f92672">/&gt;</span>	
+	<span style="color: #f92672">&lt;link</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;./css/style.css&quot;</span> <span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/css&quot;</span> <span style="color: #a6e22e">rel=</span><span style="color: #e6db74">&quot;stylesheet&quot;</span> <span style="color: #f92672">/&gt;</span>
+	<span style="color: #f92672">&lt;link</span> <span style="color: #a6e22e">rel=</span><span style="color: #e6db74">&quot;stylesheet&quot;</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/slick/slick.css&quot;</span><span style="color: #f92672">&gt;</span>
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/slick/slick.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+    <span style="color: #f92672">&lt;style </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/css&quot;</span><span style="color: #f92672">&gt;</span>
+        <span style="color: #f92672">*</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">margin</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;}</span>        
+    <span style="color: #f92672">&lt;/style&gt;</span>
+    <span style="color: #f92672">&lt;script&gt;</span>
+    <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(window).</span><span style="color: #a6e22e">ready</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(){</span>
+        
+        <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">slicksGall</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;.gall-list&#39;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">slick</span><span style="color: #f8f8f2">({</span>
+          <span style="color: #a6e22e">dots</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">false</span><span style="color: #f8f8f2">,</span>
+          <span style="color: #a6e22e">infinite</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">true</span><span style="color: #f8f8f2">,</span>       
+          <span style="color: #a6e22e">swipeToSlide</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">true</span>
+          <span style="color: #75715e">// slidesToShow: 3,              // 보여지는 슬라이트 수          </span>
+          <span style="color: #75715e">// touchMove:false,              // 드래그 안되고 무브</span>
+          <span style="color: #75715e">// waitForAnimate:false,         // 애니메이션을 적용하는 동안 슬라이드를 앞으로 이동하라는 요청을 무시합니다.</span>
+          <span style="color: #75715e">/*responsive: [                  // 반응형 크기 에따른 적용</span>
+<span style="color: #75715e">            {</span>
+<span style="color: #75715e">              breakpoint: 1024,</span>
+<span style="color: #75715e">              settings: {</span>
+<span style="color: #75715e">                slidesToShow: 3,</span>
+<span style="color: #75715e">                slidesToScroll: 3,</span>
+<span style="color: #75715e">                infinite: true,</span>
+<span style="color: #75715e">                dots: true</span>
+<span style="color: #75715e">              }</span>
+<span style="color: #75715e">            }*/</span>
+        <span style="color: #f8f8f2">});</span>
+        
+        <span style="color: #a6e22e">slicksGall</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">on</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;afterChange&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">event</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">slick</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">currentSlide</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">nextSlide</span><span style="color: #f8f8f2">){</span>
+            <span style="color: #a6e22e">slicksGallIndex</span>
+            <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.pagination-list li&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">removeClass</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;current&quot;</span><span style="color: #f8f8f2">);</span>
+			<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.pagination-list li&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">eq</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">currentSlide</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">addClass</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;current&quot;</span><span style="color: #f8f8f2">);</span>        <span style="color: #f8f8f2">});</span>
+        
+        <span style="color: #75715e">// 썸네일  컨트롤 </span>
+        <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">slicksGallIndex</span><span style="color: #f8f8f2">;</span>
+        <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.pagination-list li&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">on</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;click&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(){</span>							
+            <span style="color: #a6e22e">slicksGallIndex</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">this</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">index</span><span style="color: #f8f8f2">();</span> 
+            <span style="color: #75715e">//console.log( &quot;click : &quot;+ _index)</span>
+            
+            <span style="color: #a6e22e">slicksGall</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">slick</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;slickGoTo&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">_index</span><span style="color: #f8f8f2">);</span>        <span style="color: #75715e">//= $(&#39;.gall-list&#39;).slick(&quot;slickGoTo&quot;, _index);</span>
+            <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.pagination-list li&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">removeClass</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;current&quot;</span><span style="color: #f8f8f2">);</span>
+            <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">this</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">addClass</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;current&quot;</span><span style="color: #f8f8f2">);</span>	
+            <span style="color: #66d9ef">return</span> <span style="color: #66d9ef">false</span><span style="color: #f8f8f2">;</span>
+        <span style="color: #f8f8f2">})</span>
+        
+    
+        <span style="color: #75715e">// btn-reset        </span>
+        <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.btn-reset&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">on</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;click&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(){</span>
+            <span style="color: #a6e22e">slicksGallIndex</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">slicksGall</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">slick</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;slickCurrentSlide&quot;</span><span style="color: #f8f8f2">);</span>
+            <span style="color: #a6e22e">slicksGall</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">slick</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;unslick&#39;</span><span style="color: #f8f8f2">);</span>
+        <span style="color: #f8f8f2">})</span>
+
+        <span style="color: #75715e">// btn-reboot </span>
+        <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.btn-reboot&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">on</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;click&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(){</span>            
+            <span style="color: #a6e22e">slicksGall</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;.gall-list&#39;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">slick</span><span style="color: #f8f8f2">({</span>
+               <span style="color: #a6e22e">dots</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">false</span><span style="color: #f8f8f2">,</span>
+               <span style="color: #a6e22e">slidesToShow</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">3</span><span style="color: #f8f8f2">,</span> 
+               <span style="color: #a6e22e">infinite</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">true</span><span style="color: #f8f8f2">,</span>   
+               <span style="color: #a6e22e">initialSlide</span> <span style="color: #f92672">:</span> <span style="color: #a6e22e">slicksGallIndex</span><span style="color: #f8f8f2">,</span>
+               <span style="color: #a6e22e">swipeToSlide</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">true</span>
+            <span style="color: #f8f8f2">})</span>
+        <span style="color: #f8f8f2">})</span>
+        
+            
+    <span style="color: #f8f8f2">})</span>
+    <span style="color: #f92672">&lt;/script&gt;</span>
+<span style="color: #f92672">&lt;/head&gt;</span>
+
+<span style="color: #f92672">&lt;body&gt;</span>
+
+<span style="color: #75715e">&lt;!-- wrap --&gt;</span>
+
+<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;gallery_view&quot;</span> <span style="color: #a6e22e">style=</span><span style="color: #e6db74">&quot;&quot;</span><span style="color: #f92672">&gt;</span>
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;gallery_left&quot;</span><span style="color: #f92672">&gt;</span>		
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;gall-list&quot;</span><span style="color: #f92672">&gt;</span>
+			<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;&quot;</span><span style="color: #f92672">&gt;&lt;img</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/view_01.jpg&quot;</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;400&quot;</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;535&quot;</span>  <span style="color: #a6e22e">alt=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f92672">/&gt;&lt;/div&gt;</span>
+			<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;&quot;</span><span style="color: #f92672">&gt;&lt;img</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/view_01.jpg&quot;</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;400&quot;</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;535&quot;</span>  <span style="color: #a6e22e">alt=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f92672">/&gt;&lt;/div&gt;</span>
+			<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;&quot;</span><span style="color: #f92672">&gt;&lt;img</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/view_01.jpg&quot;</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;400&quot;</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;535&quot;</span>  <span style="color: #a6e22e">alt=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f92672">/&gt;&lt;/div&gt;</span>
+			<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;&quot;</span><span style="color: #f92672">&gt;&lt;img</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/view_01.jpg&quot;</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;400&quot;</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;535&quot;</span>  <span style="color: #a6e22e">alt=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f92672">/&gt;&lt;/div&gt;</span>
+			<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;&quot;</span><span style="color: #f92672">&gt;&lt;img</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/view_01.jpg&quot;</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;400&quot;</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;535&quot;</span>  <span style="color: #a6e22e">alt=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f92672">/&gt;&lt;/div&gt;</span>
+			<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;&quot;</span><span style="color: #f92672">&gt;&lt;img</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/view_01.jpg&quot;</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;400&quot;</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;535&quot;</span>  <span style="color: #a6e22e">alt=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f92672">/&gt;&lt;/div&gt;</span>
+			<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;&quot;</span><span style="color: #f92672">&gt;&lt;img</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/view_01.jpg&quot;</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;400&quot;</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;535&quot;</span>  <span style="color: #a6e22e">alt=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f92672">/&gt;&lt;/div&gt;</span>
+			<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;&quot;</span><span style="color: #f92672">&gt;&lt;img</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/view_01.jpg&quot;</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;400&quot;</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;535&quot;</span>  <span style="color: #a6e22e">alt=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f92672">/&gt;&lt;/div&gt;</span>
+		<span style="color: #f92672">&lt;/div&gt;</span>	
+        <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;prev&quot;</span><span style="color: #f92672">&gt;&lt;/div&gt;</span>
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;next&quot;</span><span style="color: #f92672">&gt;&lt;/div&gt;</span>		
+	<span style="color: #f92672">&lt;/div&gt;</span>	
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;pagination-right&quot;</span><span style="color: #f92672">&gt;</span>
+	    <span style="color: #f92672">&lt;ul</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;pagination-list&quot;</span><span style="color: #f92672">&gt;</span>
+            <span style="color: #f92672">&lt;li</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;current&quot;</span><span style="color: #f92672">&gt;</span>
+                <span style="color: #f92672">&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#&quot;</span><span style="color: #f92672">&gt;</span>
+                    <span style="color: #f92672">&lt;img</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;83&quot;</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;111&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/thumbnail_01.jpg&quot;</span> <span style="color: #a6e22e">alt=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f92672">/&gt;</span>
+                    <span style="color: #f92672">&lt;span</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;bg_gray&quot;</span><span style="color: #f92672">&gt;</span>
+                        <span style="color: #f92672">&lt;span&gt;&lt;/span&gt;</span>
+                    <span style="color: #f92672">&lt;/span&gt;</span>
+                <span style="color: #f92672">&lt;/a&gt;</span>
+            <span style="color: #f92672">&lt;/li&gt;</span>
+            <span style="color: #f92672">&lt;li&gt;</span>
+                <span style="color: #f92672">&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#&quot;</span><span style="color: #f92672">&gt;</span>
+                    <span style="color: #f92672">&lt;img</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;83&quot;</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;111&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/thumbnail_01.jpg&quot;</span> <span style="color: #a6e22e">alt=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f92672">/&gt;</span>
+                    <span style="color: #f92672">&lt;span</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;bg_gray&quot;</span><span style="color: #f92672">&gt;</span>
+                        <span style="color: #f92672">&lt;span&gt;&lt;/span&gt;</span>
+                    <span style="color: #f92672">&lt;/span&gt;</span>
+                <span style="color: #f92672">&lt;/a&gt;</span>
+            <span style="color: #f92672">&lt;/li&gt;</span>
+            <span style="color: #f92672">&lt;li&gt;</span>
+                <span style="color: #f92672">&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#&quot;</span><span style="color: #f92672">&gt;</span>
+                    <span style="color: #f92672">&lt;img</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;83&quot;</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;111&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/thumbnail_01.jpg&quot;</span> <span style="color: #a6e22e">alt=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f92672">/&gt;</span>
+                    <span style="color: #f92672">&lt;span</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;bg_gray&quot;</span><span style="color: #f92672">&gt;</span>
+                        <span style="color: #f92672">&lt;span&gt;&lt;/span&gt;</span>
+                    <span style="color: #f92672">&lt;/span&gt;</span>
+                <span style="color: #f92672">&lt;/a&gt;</span>
+            <span style="color: #f92672">&lt;/li&gt;</span>
+            <span style="color: #f92672">&lt;li&gt;</span>
+                <span style="color: #f92672">&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#&quot;</span><span style="color: #f92672">&gt;</span>
+                    <span style="color: #f92672">&lt;img</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;83&quot;</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;111&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/thumbnail_01.jpg&quot;</span> <span style="color: #a6e22e">alt=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f92672">/&gt;</span>
+                    <span style="color: #f92672">&lt;span</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;bg_gray&quot;</span><span style="color: #f92672">&gt;</span>
+                        <span style="color: #f92672">&lt;span&gt;&lt;/span&gt;</span>
+                    <span style="color: #f92672">&lt;/span&gt;</span>
+                <span style="color: #f92672">&lt;/a&gt;</span>
+            <span style="color: #f92672">&lt;/li&gt;</span>
+            <span style="color: #f92672">&lt;li&gt;</span>
+                <span style="color: #f92672">&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#&quot;</span><span style="color: #f92672">&gt;</span>
+                    <span style="color: #f92672">&lt;img</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;83&quot;</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;111&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/thumbnail_01.jpg&quot;</span> <span style="color: #a6e22e">alt=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f92672">/&gt;</span>
+                    <span style="color: #f92672">&lt;span</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;bg_gray&quot;</span><span style="color: #f92672">&gt;</span>
+                        <span style="color: #f92672">&lt;span&gt;&lt;/span&gt;</span>
+                    <span style="color: #f92672">&lt;/span&gt;</span>
+                <span style="color: #f92672">&lt;/a&gt;</span>
+            <span style="color: #f92672">&lt;/li&gt;</span>
+            <span style="color: #f92672">&lt;li&gt;</span>
+                <span style="color: #f92672">&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#&quot;</span><span style="color: #f92672">&gt;</span>
+                    <span style="color: #f92672">&lt;img</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;83&quot;</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;111&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/thumbnail_01.jpg&quot;</span> <span style="color: #a6e22e">alt=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f92672">/&gt;</span>
+                    <span style="color: #f92672">&lt;span</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;bg_gray&quot;</span><span style="color: #f92672">&gt;</span>
+                        <span style="color: #f92672">&lt;span&gt;&lt;/span&gt;</span>
+                    <span style="color: #f92672">&lt;/span&gt;</span>
+                <span style="color: #f92672">&lt;/a&gt;</span>
+            <span style="color: #f92672">&lt;/li&gt;</span>
+            <span style="color: #f92672">&lt;li&gt;</span>
+                <span style="color: #f92672">&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#&quot;</span><span style="color: #f92672">&gt;</span>
+                    <span style="color: #f92672">&lt;img</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;83&quot;</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;111&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/thumbnail_01.jpg&quot;</span> <span style="color: #a6e22e">alt=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f92672">/&gt;</span>
+                    <span style="color: #f92672">&lt;span</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;bg_gray&quot;</span><span style="color: #f92672">&gt;</span>
+                        <span style="color: #f92672">&lt;span&gt;&lt;/span&gt;</span>
+                    <span style="color: #f92672">&lt;/span&gt;</span>
+                <span style="color: #f92672">&lt;/a&gt;</span>
+            <span style="color: #f92672">&lt;/li&gt;</span>
+            <span style="color: #f92672">&lt;li&gt;</span>
+                <span style="color: #f92672">&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#&quot;</span><span style="color: #f92672">&gt;</span>
+                    <span style="color: #f92672">&lt;img</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;83&quot;</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;111&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/thumbnail_01.jpg&quot;</span> <span style="color: #a6e22e">alt=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f92672">/&gt;</span>
+                    <span style="color: #f92672">&lt;span</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;bg_gray&quot;</span><span style="color: #f92672">&gt;</span>
+                        <span style="color: #f92672">&lt;span&gt;&lt;/span&gt;</span>
+                    <span style="color: #f92672">&lt;/span&gt;</span>
+                <span style="color: #f92672">&lt;/a&gt;</span>
+            <span style="color: #f92672">&lt;/li&gt;</span>
+        <span style="color: #f92672">&lt;/ul&gt;</span>
+	<span style="color: #f92672">&lt;/div&gt;</span>
+    <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;btn-box&quot;</span><span style="color: #f92672">&gt;</span>
+	    <span style="color: #f92672">&lt;button</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;btn-reset&quot;</span><span style="color: #f92672">&gt;</span>reset<span style="color: #f92672">&lt;/button&gt;</span>
+	    <span style="color: #f92672">&lt;button</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;btn-reboot&quot;</span><span style="color: #f92672">&gt;</span>reboot<span style="color: #f92672">&lt;/button&gt;</span>
+	<span style="color: #f92672">&lt;/div&gt;</span>
+<span style="color: #f92672">&lt;/div&gt;</span>
+
+
+<span style="color: #75715e">&lt;!-- // wrap --&gt;</span>
+
+<span style="color: #f92672">&lt;/body&gt;</span>
+<span style="color: #f92672">&lt;/html&gt;</span>
+</pre></td></tr></table></div>
+
+
+
+
+
+                    <!-- //소스 -->
+					</div>
+                </div>
+			</div>
+		</div>
+		<!-- e: examples 예제 -->
+	</div>
+	<!-- e: 컨텐츠 끝 -->
+</div>
+
+
+
+<script type="text/javascript">
+	$("#header").load("../../../head.html");
+	$("#lnb").load("../../../lnb.html");	
+
+	$(".ex-more a").click(function() {
+		$( this ).find("span").toggle();
+		$( this ).parent().siblings(".ex-body").slideToggle();
+		return false;
+	});
+</script>
+
+</body>
+</html>

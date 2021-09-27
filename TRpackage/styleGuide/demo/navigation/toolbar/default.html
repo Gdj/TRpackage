@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+<title>button</title>
+<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.js" charset="UTF-8"></script>
+<link rel="stylesheet" type="text/css"  href="../../../../asset/css/common.css" media="all" />
+<link rel="stylesheet" type="text/css"  href="../../../../asset/css/trpBase.css" media="all" />
+
+<!--
+<style type="text/css">
+
+
+</style>
+-->
+
+</head>
+<body>
+  <div id="header" ></div>
+  <div id="container">
+	<div id="lnb" class="gnb"></div>
+	<!-- s: 컨텐츠 시작 -->
+	<div id="contents" class="contents">
+		<!-- s: css 설명
+		<div class="desc_wapper">
+			<h1 class="desc_title">list</h1>
+			<p>목록에 대한 정의입니다.</p>
+		</div>
+		 -->
+		<!-- e: css 설명 -->
+	
+
+		<!-- s: api 설명 -->
+		<div class="api">
+			<h2 class="api-title">toolbar</h2>
+			<div class="api-body">
+				<dl>
+					<dt>설명</dt>					
+					<dd><span class="icon"></span>아이템 구분이 | 형태로 구분된메뉴. </dd>
+				</dl>
+				
+<!-- ===VIEW=== -->	
+				<div class="ex_wapper">
+					<h3 class="api-title_h3">VIEW</h3>
+					<p class="ex-more"><a href="javascript:return false;"><span class="d-n">+</span><span style="display: inline;">-</span></a></p>
+					<p class="ex-view"><a href="ex01.html" target="_blank">View Sample</a></p>
+					<div class="ex-body d-n" >
+                    <!-- 소스 -->
+
+
+<ul class="trp toolbar-list">
+	<li><a href="#">메뉴0</a></li>
+	<li><a href="#">메뉴1</a></li>
+	<li><a href="#">메뉴2</a></li>
+</ul>
+
+                    <!-- //소스 -->
+					</div>
+				</div>
+				
+<!-- ===CSS=== -->	
+				<div class="ex_wapper">
+					<h3 class="api-title_h3 css">CSS</h3>
+					<div class="api-body_h3 css">
+                    <!-- 소스 -->
+                    
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #f92672">&lt;style </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/css&quot;</span><span style="color: #f92672">&gt;</span>
+    
+    <span style="color: #a6e22e">.trp.toolbar-list</span> <span style="color: #f8f8f2">{</span><span style="color: #66d9ef">overflow</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">hidden</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>    
+    <span style="color: #a6e22e">.trp.toolbar-list</span> <span style="color: #f92672">li</span> <span style="color: #f8f8f2">{</span><span style="color: #66d9ef">float</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">left</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">relative</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">padding-left</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">8px</span><span style="color: #f8f8f2">;</span><span style="color: #66d9ef">margin-left</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">8px</span><span style="color: #f8f8f2">;}</span>    
+    <span style="color: #a6e22e">.trp.toolbar-list</span> <span style="color: #f92672">li:</span><span style="color: #a6e22e">:after</span> <span style="color: #f8f8f2">{</span><span style="color: #66d9ef">content</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;&#39;</span><span style="color: #f8f8f2">;</span><span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">absolute</span><span style="color: #f8f8f2">;</span><span style="color: #66d9ef">top</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">50</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span><span style="color: #66d9ef">left</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span><span style="color: #66d9ef">margin-top</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">-6px</span><span style="color: #f8f8f2">;</span><span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">12px</span><span style="color: #f8f8f2">;</span><span style="color: #66d9ef">line-height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">25px</span><span style="color: #f8f8f2">;</span><span style="color: #66d9ef">border-left</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">1px</span> <span style="color: #66d9ef">solid</span> <span style="color: #ae81ff">#231f20</span><span style="color: #f8f8f2">;}</span>    
+    <span style="color: #a6e22e">.trp.toolbar-list</span> <span style="color: #f92672">li</span><span style="color: #a6e22e">:first-child</span> <span style="color: #f8f8f2">{</span><span style="color: #66d9ef">padding-left</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span><span style="color: #66d9ef">margin-left</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;}</span>
+    <span style="color: #a6e22e">.trp.toolbar-list</span> <span style="color: #f92672">li</span><span style="color: #a6e22e">:first-child</span><span style="color: #f92672">:</span><span style="color: #a6e22e">:after</span> <span style="color: #f8f8f2">{</span><span style="color: #66d9ef">display</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">none</span><span style="color: #f8f8f2">;}</span>
+    <span style="color: #a6e22e">.trp.toolbar-list</span> <span style="color: #f92672">li&gt;a</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">block</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span><span style="color: #ae81ff">7px</span> <span style="color: #ae81ff">0</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">18px</span><span style="color: #f8f8f2">;</span><span style="color: #66d9ef">color</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#231f20</span><span style="color: #f8f8f2">;</span><span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">12px</span><span style="color: #f8f8f2">;</span><span style="color: #66d9ef">line-height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+    
+<span style="color: #f92672">&lt;/style&gt;</span>
+</pre></td></tr></table></div>
+
+
+
+
+
+                    <!-- //소스 -->
+					</div>
+				</div>
+
+
+<!-- ===HTML=== -->	
+				<div class="ex_wapper">
+				<h3 class="api-title_h3 html">HTML</h3>
+					<div class="api-body_h3 html">
+                    <!-- 소스 -->
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5</pre></td><td><pre style="margin: 0; line-height: 125%">	<span style="color: #f92672">&lt;ul</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;trp toolbar-list&quot;</span><span style="color: #f92672">&gt;</span>
+		<span style="color: #f92672">&lt;li&gt;&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#&quot;</span><span style="color: #f92672">&gt;</span>메뉴0<span style="color: #f92672">&lt;/a&gt;&lt;/li&gt;</span>
+		<span style="color: #f92672">&lt;li&gt;&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#&quot;</span><span style="color: #f92672">&gt;</span>메뉴1<span style="color: #f92672">&lt;/a&gt;&lt;/li&gt;</span>
+		<span style="color: #f92672">&lt;li&gt;&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#&quot;</span><span style="color: #f92672">&gt;</span>메뉴2<span style="color: #f92672">&lt;/a&gt;&lt;/li&gt;</span>
+	<span style="color: #f92672">&lt;/ul&gt;</span>
+</pre></td></tr></table></div>
+
+
+                    <!-- //소스 -->
+					</div>
+				</div>
+					
+		
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+		
+	
+		</div>		
+	<!-- e: 컨텐츠 끝 -->
+	<p class="cl-b"></p>
+</div>
+
+
+
+<script type="text/javascript">
+	$("#header").load("../../../head.html");
+	$("#lnb").load("../../../lnb.html");	
+
+
+	$(".ex-more a").click(function() {
+		$( this ).find("span").toggle();
+		$( this ).parent().siblings(".ex-body").slideToggle();
+		return false;
+	});
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+    <title>imageloader jQuery Plugin</title>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" ></script>
+    <script src="../../../../asset/js/libs/jquery.imageloader/jquery.imageloader.js" ></script>
+
+    <style type="text/css">
+      /* 공통 스타일 */        
+      body {  font-size: 62.5%;   font-family: "Trebuchet MS", "Arial", "Helvetica", "Verdana", "sans-serif";     }
+      form {  font-size: 1.2em; }
+    </style>
+
+    <script type="text/javascript">
+      $(function() {
+        $("#load_btn").on("click", function() {
+          $('.example').imageloader({
+            each: function(elm) {
+              console.log(elm);
+            },
+          });
+        });
+      });
+    </script>
+
+  </head>
+  <body>
+
+    <h2>imageloader</h2>
+    <button id="load_btn">load image</button>
+    <div class="example">
+       <img class="lazy-img" src="./images/default.png" data-src="http://cfile1.uf.tistory.com/image/19272E2F4C67E49AB98D32" width="144" height="144">
+       <img class="lazy-img" src="./images/default.png" data-src="http://cfs14.tistory.com/image/10/tistory/2009/07/24/13/25/4a6937bc5c3c2" width="144" height="144">
+       <img class="lazy-img" src="./images/default.png"  data-src="http://datools.kr/zeroboard/data/photo/lala1217_88.jpg" width="144" height="144">
+   </div>
+
+  </body>
+</html>

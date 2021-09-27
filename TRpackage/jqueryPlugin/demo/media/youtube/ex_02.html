@@ -1,0 +1,104 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+ <head>
+  <title>youtube api</title>	
+
+	<script src="//code.jquery.com/jquery-1.11.1.js"></script>
+	<!-- <script src="https://www.youtube.com/iframe_api"></script> -->
+	<script src="swfobject.js"></script>
+	<!-- <script src="as3_demo_function.js"></script>-->
+	<style type="text/css">
+	/* 공통 스타일 */		
+	body {	font-size: 62.5%; 	font-family: "Trebuchet MS", "Arial", "Helvetica", "Verdana", "sans-serif"; 	}
+	ul li {	font-size: 1.2em; }
+	
+	/* 스타일 */
+	</style>
+
+	
+
+</head>
+	<body>
+
+		<!-- https://developers.google.com/youtube/iframe_api_reference#Loading_a_Video_Player -->
+		  <div id="ytapiplayer">
+			You need Flash player 8+ and JavaScript enabled to view this video.
+		  </div>
+
+		<div class="menu">
+		<ul>
+			<li><a href="javascript:void(0)" onclick="playVideo()">재생</a></li>
+			<li><a href="javascript:void(0)" onclick="stopVideo()">정지</a></li>
+			<li><a href="javascript:void(0)" onclick="pauseVideo()">일시정지</a></li>
+			<li><a href="javascript:void(0)" onclick="seekTo(150,true)">150초뒤로 이동</a></li>
+			<li><a href="javascript:void(0)" onclick="unMute()">음소거 해지</a></li>
+			<li><a href="javascript:void(0)" onclick="mute()">음소거</a></li>
+			<li><a href="javascript:void(0)" onclick="setVolume(50)">볼룸 50</a></li>
+			<li><a href="javascript:void(0)" onclick="setPlaybackRate(2.5)">재생속도 x2.5</a>  |  <a href="javascript:void(0)" onclick="setPlaybackRate(1)">정상속도 x1</a></li>
+		</ul>
+		</div>
+
+		<script>
+      
+        var params = { allowScriptAccess: "always" , wmode:"opaque"};
+		var atts = { id: "myytplayer" };
+		swfobject.embedSWF("http://www.youtube.com/v/M7lc1UVf-VE?enablejsapi=1&playerapiid=ytplayer&version=3", "ytapiplayer", "425", "356", "8", null, null, params, atts);
+		 
+		function onYouTubePlayerReady(playerId) {
+		  ytplayer = document.getElementById("myytplayer");
+			
+		}
+
+		/* 재생 */
+		  function playVideo() {
+			ytplayer.playVideo();
+		  }
+
+		  /* 재생정지 */
+		  function stopVideo() {
+			ytplayer.seekTo(0, true );
+			ytplayer.stopVideo();		
+		  }
+
+		   /* 재생 일시정지*/
+		  function pauseVideo() {
+			ytplayer.pauseVideo();
+		  }
+
+		  /* seekTo */
+		  function seekTo($seconds, $allowSeekAhead ) {
+			ytplayer.seekTo($seconds, $allowSeekAhead );
+		  }
+
+
+		  /* 음소거 해지 => player.isMuted() : 플레이어가 음소거 상태인 경우 true를 반환하고 음소가 상태가 아닌 경우 false를 반환합니다.*/	
+		  function unMute() {
+			ytplayer.unMute();
+		  }
+
+		  /* 음소거 */	
+		  function mute() {
+			ytplayer.mute();
+		  }	
+		  
+		  /* 볼륨 조절 : 볼륨을 설정합니다. 0에서 100 사이의 정수를 허용합니다. */
+		  function setVolume($volume) {
+			ytplayer.setVolume($volume);
+			// player.getVolume()  볼륨 반환
+		  }
+
+
+		  /* 재생속도 변경 ( x1=1 , x22=2.5 )*/
+		  function setPlaybackRate($suggestedRate) {
+			ytplayer.setPlaybackRate($suggestedRate);
+			// player.getPlaybackRate():Number 이 함수는 현재 재생 중인 동영상의 재생 속도를 가져옵니다.  
+		  }
+
+	  </script>
+
+	
+	</body>
+</html>

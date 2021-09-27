@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+
+<head>
+    <title>trpCheckbox</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../asset/css/trpBase.css" media="all" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.1.min.js"></script>
+    <script type="text/javascript" src="../../../../asset/js/libs/trpForm.js"></script>
+    
+</head>
+<!-- 
+<style type="text/css">
+    
+	/*** 이미지 checkbox ***/
+    .trp.checkbox-box { position: relative; display: inline-block;}
+    .trp.checkbox-box label { display: inline-block; vertical-align: middle;  }
+    .trp.checkbox-box input[type="checkbox"] { position: absolute; bottom:0; left: 0;  width:100%; height: 20px; margin: 0; padding: 0;  opacity: 0; filter: alpha(opacity=0);  }    
+    .trp.checkbox-box input[type="checkbox"] + i { display: inline-block; vertical-align: middle;  }
+    .trp.checkbox-box input[type="checkbox"] + i:after { display: block; content: ''; width: 20px; height: 20px;  background:url("../../../../asset/css/trp_images/checkbox.png") 0 0 no-repeat; }
+    .trp.checkbox-box input[type="checkbox"]:checked + i:after { background-position: 0 -20px; }
+    /*** checkbox ***/
+    
+</style>
+-->
+
+<body>
+    
+    <span class="trp checkbox-box">
+        <input type="checkbox" id="trp-checkbox1" name="trp-checkbox" checked >
+        <i></i>
+        <label for="trp-checkbox1">label_1</label>
+    </span>
+    <span class="trp checkbox-box">
+        <input type="checkbox" id="trp-checkbox2" name="trp-checkbox">
+        <i></i>
+        <label for="trp-checkbox2">label_2</label>
+    </span>
+    <span class="trp checkbox-box">
+        <input type="checkbox" id="trp-checkbox3" name="trp-checkbox">
+        <i></i>
+        <label for="trp-checkbox3">label_3</label>
+    </span>
+
+    <br><br>
+
+    <div class="js_all-1">
+        <span class="trp checkbox-box">
+            <input type="checkbox" id="trp-checkbox1" class="js_all" name="trp-checkbox" >
+            <i></i>
+            <label for="trp-checkbox1">전체선택</label>
+        </span>
+        <span class="trp checkbox-box">
+            <input type="checkbox" id="trp-checkbox2" class="js_item" name="trp-checkbox">
+            <i></i>
+            <label for="trp-checkbox2">label_1</label>
+        </span>
+        <span class="trp checkbox-box">
+            <input type="checkbox" id="trp-checkbox3" class="js_item" name="trp-checkbox">
+            <i></i>
+            <label for="trp-checkbox3">label_2</label>
+        </span>
+    </div>
+
+    <script>
+    
+        // 전체클릭
+        $(".js_all-1").trpCheckBoxAllsImg(".js_all", ".js_item");
+
+    </script>
+
+
+</body>
+
+</html>

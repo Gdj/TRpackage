@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+	<title>swiper (auto play)</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />	
+	<link rel="stylesheet" href="./css/style.css"/>
+	<link rel="stylesheet" href="./css/swiper.min.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="./js/swiper.min.js"></script>
+	
+	<script type="text/javascript">
+	
+	$(document).ready(function(){
+
+		// Swiper 세팅
+		var mySwiper = new Swiper('.gallery_center',{    
+			autoplay : 3000,			
+			loop: true, 
+			pagination: '.pagination',
+			paginationClickable: true,
+		
+			onSlideChangeEnd: function(swiper){										// 움직임이 끝나면 실행
+				$(".pagination li").removeClass("current");
+				$(".pagination li").eq(swiper.activeLoopIndex).addClass("current");
+			}
+		})
+	 
+		// 좌우버튼
+	  $('.prev').on('click', function(e){
+		e.preventDefault();					//이벤트 객체의 preventDefault 메소드를 실행하면 기본 동작이 취소된다	
+		mySwiper.slidePrev()
+		///return false ;					// ie9 이하 버전에서는 event.returnValue를 false로 해야 한다. 
+	  })
+	  $('.next').on('click', function(e){
+		e.preventDefault();					//이벤트 객체의 preventDefault 메소드를 실행하면 기본 동작이 취소된다	
+		mySwiper.slideNext()
+		//return false ;					// ie9 이하 버전에서는 event.returnValue를 false로 해야 한다. 
+
+	  })
+		
+      // 컨텐츠에 마우스 올리면 일시정지
+	  $(".gallery_center").hover(function(){
+		mySwiper.stopAutoplay(); 
+	  } ,
+	  function(){
+		mySwiper.startAutoplay(); 
+	  })
+
+	})
+    </script>
+</head>
+
+<body>
+
+<div class="gallery_view" style="">
+	<div class="gallery_center">				
+		<div class="swiper-wrapper">
+			<div class="swiper-slide"><img src="./images/view_01.jpg" width="400" height="535"  alt="" /></div>
+			<div class="swiper-slide"><img src="./images/view_01.jpg" width="400" height="535"  alt="" /></div>
+			<div class="swiper-slide"><img src="./images/view_01.jpg" width="400" height="535"  alt="" /></div>
+			<div class="swiper-slide"><img src="./images/view_01.jpg" width="400" height="535"  alt="" /></div>
+			<div class="swiper-slide"><img src="./images/view_01.jpg" width="400" height="535"  alt="" /></div>
+			<div class="swiper-slide"><img src="./images/view_01.jpg" width="400" height="535"  alt="" /></div>
+			<div class="swiper-slide"><img src="./images/view_01.jpg" width="400" height="535"  alt="" /></div>
+			<div class="swiper-slide"><img src="./images/view_01.jpg" width="400" height="535"  alt="" /></div>
+		</div>	
+		<a href="#" class="prev">Prev</a>
+		<a href="#" class="next">Next</a>	
+	</div>			
+	<div class="pagination"></div>
+</div>
+
+<!-- // wrap -->
+
+</body>
+</html>

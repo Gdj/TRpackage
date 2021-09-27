@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript" src="../../../../asset/js/libs/trpUtility.js"></script>
+  <script>
+    
+  </script>
+  <style>
+    body { margin: 0}
+    nav { position: fixed; width: 100%; background-color: rgba(200, 85, 150, 0.5)  }
+    nav a{ display: inline-block; color:#fff; }
+    section { padding: 50px; height: 100vh}
+    #section1 { background-color: antiquewhite}
+    #section2 { background-color: aquamarine}
+    #section3 { background-color: burlywood}
+    #section4 { background-color: darkseagreen}
+    #section5 { background-color: darksalmon}
+  </style>
+</head>
+<body>	
+  <nav>
+    <a href="#section1">section1</a>
+    <a href="#section2">section2</a>
+    <a href="#section3">section3</a>
+    <a href="#section4">section4</a>
+    <a href="#section5">section5</a>
+  </nav>
+  <section id="section1">section1</section>
+  <section id="section2">section2</section>
+  <section id="section3">section3</section>
+  <section id="section4">section4</section>
+  <section id="section5">section5</section>
+  <script>
+    $("a").on("click", function($e){
+      $e.preventDefault();      
+      var goTar = $(this).attr("href");      
+      trpScrollTop(goTar);
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,476 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+<title>align | TRpackage</title>
+<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.js" charset="UTF-8"></script>
+<link rel="stylesheet" type="text/css"  href="../../../../asset/css/common.css" media="all" />
+<link rel="stylesheet" type="text/css"  href="../../../../asset/css/trpBase.css" media="all" />
+  <style>
+    
+    section {  margin: 30px 0; }  
+    section>.inner { position: relative; border: 1px solid #aaa; width: 100%; max-width:800px; height: 300px;  }  
+    
+    .item { width: 50px; min-height: 50px; margin: 0 auto; color:#555; font-size: 12px; line-height: 1.2;
+      background-color: aliceblue; box-sizing: border-box; border: 1px solid #ccc;}
+    
+  </style>
+
+</head>
+<body>
+  <div id="header" ></div>
+  <div id="container">
+	<div id="lnb" class="gnb"></div>
+	<!-- s: 컨텐츠 시작 -->
+	<div id="contents" class="contents">
+		<!-- s: css 설명
+		<div class="desc_wapper">
+			<h1 class="desc_title">list</h1>
+			<p>목록에 대한 정의입니다.</p>
+		</div>
+		 -->
+		<!-- e: css 설명 -->
+	
+
+		<!-- s: api 설명 -->
+		<div class="api">
+			<h2 class="api-title">align</h2>
+			<div class="api-body">
+				<dl>
+					<dt>설명</dt>					
+					<dd><span class="icon"></span>가운데 정열 방법 </dd>
+				</dl>
+				
+
+
+<!-- ===VIEW=== -->	            
+				<div class="ex_wapper">
+					<h3 class="api-title_h3">VIEW</h3>
+					<p class="ex-more"><a href="javascript:return false;"><span class="d-n">+</span><span style="display: inline;">-</span></a></p>
+					<p class="ex-view"><a href="ex01.html" target="_blank">View Sample</a></p>
+					<div class="ex-body d-n" >
+                    <!-- 소스 -->
+                
+
+
+  <h3># 크기 유동적 (1~3)</h3>
+  <section>
+    <h4>1. display : table // display : table-cell // vertical-align : middle</h4>
+    <div class="inner">
+     
+      <div class="trp-align_1 layout_t">
+        <div class="layout_r">
+          <div class="layout_c">
+            <div class="item">item1</div>
+            <div class="item">item2</div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </section> 
+  
+  <section>
+    <h4>2. :before로 가상 콘텐츠 인라인블럭 속성으로 만들어서 중앙정열  (vertical-align: middle)</h4>
+    <div class="inner">
+     
+      <div class="trp-align_2">
+        <div class="layout_cy">
+          <div class="item">item1</div>
+          <div class="item">item1</div>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+  
+  <section>
+    <h4>3. display : flex / display : inline-flex / align-items : center / justify-content : center (IE 11)</h4>
+    <div class="inner">
+
+      <div class="trp-align_3">
+        <div class="item">item1</div>
+        <div class="item">item1</div>
+      </div>
+
+    </div>
+  </section>
+
+  <h3># 크기 고정 (5~7)</h3>
+  <section>
+    <h4>4. float 속성을 이용 : 크기 고정</h4>
+    <div class="inner">
+     
+      <div class="trp-align_4">
+        <div class="floater"></div>
+        <div class="item">item1</div>
+      </div>
+      
+    </div>
+  </section>
+  
+   
+
+  <section>
+    <h4>5. position: absolute; 50%로 밀고 px로 당기기. (item 크기고정)</h4>
+    <div class="inner">
+     
+      <div class="trp-align_5">
+        <div class="item">item1</div>
+      </div>
+      
+    </div>
+  </section>
+     
+  <section>
+    <h4>6. position: absolute; 50%로 밀고 translate으로 당기기. (IE 9 : -ms-)</h4>
+    <div class="inner">
+     
+      <div class="trp-align_6">
+        <div class="item">item1</div>
+      </div>
+      
+    </div>
+  </section>  
+   
+  <section>
+    <h4>7. position: absolute; 모든방향에서 당기기 (높이값 자동 마진값만큼 떨어지)</h4>
+    <div class="inner">
+     
+      <div class="trp-align_7">
+        <div class="item">item1</div>
+      </div>
+      
+    </div>
+  </section>
+
+	
+                    
+                    <!-- //소스 -->        
+					</div>
+				</div>
+				
+
+<!-- ===CSS=== -->	
+				<div class="ex_wapper">
+					<h3 class="api-title_h3 css">CSS</h3>
+					<div class="api-body_h3 css">
+                    <!-- 소스 -->
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42</pre></td><td><pre style="margin: 0; line-height: 125%">  <span style="color: #f92672">&lt;style&gt;</span>
+    <span style="color: #f92672">section</span> <span style="color: #f8f8f2">{</span>  <span style="color: #66d9ef">margin</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">30px</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>  
+    <span style="color: #f92672">section&gt;</span><span style="color: #a6e22e">.inner</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">relative</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">border</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">1px</span> <span style="color: #66d9ef">solid</span> <span style="color: #ae81ff">#aaa</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">max-width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">800px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">300px</span><span style="color: #f8f8f2">;</span>  <span style="color: #f8f8f2">}</span>  
+    
+    <span style="color: #a6e22e">.item</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">50px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">min-height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">50px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">margin</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span> <span style="color: #66d9ef">auto</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">color</span><span style="color: #f92672">:</span><span style="color: #ae81ff">#555</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">12px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">line-height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">1</span><span style="color: #f92672">.</span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2">;</span>
+      <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">aliceblue;</span> <span style="color: #f8f8f2">box</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">sizing</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">border</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">box;</span> <span style="color: #66d9ef">border</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">1px</span> <span style="color: #66d9ef">solid</span> <span style="color: #ae81ff">#ccc</span><span style="color: #f8f8f2">;}</span>
+    
+    <span style="color: #a6e22e">.trp-align_1</span> <span style="color: #f8f8f2">{}</span>
+    <span style="color: #a6e22e">.layout_t</span><span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">table;</span> <span style="color: #66d9ef">table-layout</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">fixed</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">border-collapse</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">collapse</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;}</span>
+    <span style="color: #a6e22e">.layout_t</span> <span style="color: #a6e22e">.layout_r</span><span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">table-row</span><span style="color: #f8f8f2">;}</span>
+    <span style="color: #a6e22e">.layout_t</span> <span style="color: #a6e22e">.layout_c</span><span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">table-cell</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">vertical-align</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">middle</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">text-align</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">center</span><span style="color: #f8f8f2">;}</span>
+        
+    <span style="color: #a6e22e">.trp-align_2</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">text-align</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">center</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">line-height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;}</span>
+    <span style="color: #a6e22e">.trp-align_2</span><span style="color: #f92672">:</span><span style="color: #a6e22e">:before</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">content</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;&quot;</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">inline</span><span style="color: #f92672">-</span><span style="color: #66d9ef">block</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">1px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #66d9ef">margin-right</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">vertical-align</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">middle</span><span style="color: #f8f8f2">;}</span>
+    <span style="color: #a6e22e">.trp-align_2</span> <span style="color: #a6e22e">.layout_cy</span><span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">inline</span><span style="color: #f92672">-</span><span style="color: #66d9ef">block</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">vertical-align</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">middle</span><span style="color: #f8f8f2">;}</span> 
+    
+    <span style="color: #a6e22e">.trp-align_3</span> <span style="color: #f8f8f2">{</span><span style="color: #66d9ef">display</span> <span style="color: #f92672">:</span> <span style="color: #f8f8f2">flex;</span> <span style="color: #f8f8f2">flex</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">wrap</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">wrap;</span> <span style="color: #f8f8f2">flex</span><span style="color: #f92672">-</span><span style="color: #66d9ef">direction</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">column;</span>
+      <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span>  <span style="color: #66d9ef">justify</span><span style="color: #f92672">-</span><span style="color: #66d9ef">content</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">center</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">align</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">items</span> <span style="color: #f92672">:</span> <span style="color: #66d9ef">center</span><span style="color: #f8f8f2">;</span>  <span style="color: #f8f8f2">align</span><span style="color: #f92672">-</span><span style="color: #66d9ef">content</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">center</span><span style="color: #f8f8f2">;}</span>
+    <span style="color: #a6e22e">.trp-align_3</span> <span style="color: #a6e22e">.item</span><span style="color: #f8f8f2">{</span>  <span style="color: #f8f8f2">}</span>
+       
+    <span style="color: #a6e22e">.trp-align_4</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;}</span>
+    <span style="color: #a6e22e">.trp-align_4</span> <span style="color: #a6e22e">.floater</span><span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">float</span><span style="color: #f92672">:</span><span style="color: #66d9ef">left</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span><span style="color: #ae81ff">50</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">margin-bottom</span><span style="color: #f92672">:-</span><span style="color: #ae81ff">25px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+    <span style="color: #a6e22e">.trp-align_4</span> <span style="color: #a6e22e">.item</span>   <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span><span style="color: #66d9ef">relative</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">clear</span><span style="color: #f92672">:</span><span style="color: #66d9ef">both</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">50px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+
+    
+    <span style="color: #a6e22e">.trp-align_5</span> <span style="color: #f8f8f2">{</span>
+      <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span><span style="color: #66d9ef">absolute</span><span style="color: #f8f8f2">;</span> 
+      <span style="color: #66d9ef">top</span><span style="color: #f92672">:</span><span style="color: #ae81ff">50</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">left</span><span style="color: #f92672">:</span><span style="color: #ae81ff">50</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span>
+      <span style="color: #66d9ef">margin-top</span><span style="color: #f92672">:-</span><span style="color: #ae81ff">25px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">margin-left</span><span style="color: #f92672">:-</span><span style="color: #ae81ff">25px</span><span style="color: #f8f8f2">;</span> 
+    <span style="color: #f8f8f2">}</span>
+    <span style="color: #a6e22e">.trp-align_6</span> <span style="color: #f8f8f2">{</span>
+      <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span><span style="color: #66d9ef">absolute</span><span style="color: #f8f8f2">;</span> 
+      <span style="color: #66d9ef">top</span><span style="color: #f92672">:</span><span style="color: #ae81ff">50</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">left</span><span style="color: #f92672">:</span><span style="color: #ae81ff">50</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span>
+      <span style="color: #f8f8f2">transform</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">translate(</span><span style="color: #ae81ff">-50</span><span style="color: #f92672">%,</span> <span style="color: #ae81ff">-50</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">);</span>
+    <span style="color: #f8f8f2">}</span>   
+    
+    <span style="color: #a6e22e">.trp-align_7</span> <span style="color: #a6e22e">.item</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span><span style="color: #66d9ef">absolute</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">margin</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">10</span><span style="color: #f92672">%</span> <span style="color: #66d9ef">auto</span><span style="color: #f8f8f2">;</span>
+      <span style="color: #66d9ef">top</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">left</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">bottom</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">right</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">vertical-align</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">middle</span><span style="color: #f8f8f2">}</span>
+ 
+  <span style="color: #f92672">&lt;/style&gt;</span>
+</pre></td></tr></table></div>
+                
+                                          
+
+                    <!-- //소스 -->
+					</div>
+				</div>
+
+
+<!-- ===HTML=== -->	
+				<div class="ex_wapper">
+				<h3 class="api-title_h3 html">HTML</h3>
+					<div class="api-body_h3 html">
+                    <!-- 소스 -->
+
+
+                                    
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #f92672">&lt;h3&gt;</span># 크기 유동적 (1~3)<span style="color: #f92672">&lt;/h3&gt;</span>
+  <span style="color: #f92672">&lt;section&gt;</span>
+    <span style="color: #f92672">&lt;h4&gt;</span>1. display : table // display : table-cell // vertical-align : middle<span style="color: #f92672">&lt;/h4&gt;</span>
+    <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;inner&quot;</span><span style="color: #f92672">&gt;</span>
+     
+      <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;trp-align_1 layout_t&quot;</span><span style="color: #f92672">&gt;</span>
+        <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;layout_r&quot;</span><span style="color: #f92672">&gt;</span>
+          <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;layout_c&quot;</span><span style="color: #f92672">&gt;</span>
+            <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;item&quot;</span><span style="color: #f92672">&gt;</span>item1<span style="color: #f92672">&lt;/div&gt;</span>
+            <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;item&quot;</span><span style="color: #f92672">&gt;</span>item2<span style="color: #f92672">&lt;/div&gt;</span>
+          <span style="color: #f92672">&lt;/div&gt;</span>
+        <span style="color: #f92672">&lt;/div&gt;</span>
+      <span style="color: #f92672">&lt;/div&gt;</span>
+      
+    <span style="color: #f92672">&lt;/div&gt;</span>
+  <span style="color: #f92672">&lt;/section&gt;</span> 
+  
+  <span style="color: #f92672">&lt;section&gt;</span>
+    <span style="color: #f92672">&lt;h4&gt;</span>2. :before로 가상 콘텐츠 인라인블럭 속성으로 만들어서 중앙정열  (vertical-align: middle)<span style="color: #f92672">&lt;/h4&gt;</span>
+    <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;inner&quot;</span><span style="color: #f92672">&gt;</span>
+     
+      <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;trp-align_2&quot;</span><span style="color: #f92672">&gt;</span>
+        <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;layout_cy&quot;</span><span style="color: #f92672">&gt;</span>
+          <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;item&quot;</span><span style="color: #f92672">&gt;</span>item1<span style="color: #f92672">&lt;/div&gt;</span>
+          <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;item&quot;</span><span style="color: #f92672">&gt;</span>item1<span style="color: #f92672">&lt;/div&gt;</span>
+        <span style="color: #f92672">&lt;/div&gt;</span>
+      <span style="color: #f92672">&lt;/div&gt;</span>
+      
+    <span style="color: #f92672">&lt;/div&gt;</span>
+  <span style="color: #f92672">&lt;/section&gt;</span>
+  
+  <span style="color: #f92672">&lt;section&gt;</span>
+    <span style="color: #f92672">&lt;h4&gt;</span>3. display : flex / display : inline-flex / align-items : center / justify-content : center (IE 11)<span style="color: #f92672">&lt;/h4&gt;</span>
+    <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;inner&quot;</span><span style="color: #f92672">&gt;</span>
+
+      <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;trp-align_3&quot;</span><span style="color: #f92672">&gt;</span>
+        <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;item&quot;</span><span style="color: #f92672">&gt;</span>item1<span style="color: #f92672">&lt;/div&gt;</span>
+        <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;item&quot;</span><span style="color: #f92672">&gt;</span>item1<span style="color: #f92672">&lt;/div&gt;</span>
+      <span style="color: #f92672">&lt;/div&gt;</span>
+
+    <span style="color: #f92672">&lt;/div&gt;</span>
+  <span style="color: #f92672">&lt;/section&gt;</span>
+
+  <span style="color: #f92672">&lt;h3&gt;</span># 크기 고정 (5~7)<span style="color: #f92672">&lt;/h3&gt;</span>
+  <span style="color: #f92672">&lt;section&gt;</span>
+    <span style="color: #f92672">&lt;h4&gt;</span>4. float 속성을 이용 : 크기 고정<span style="color: #f92672">&lt;/h4&gt;</span>
+    <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;inner&quot;</span><span style="color: #f92672">&gt;</span>
+     
+      <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;trp-align_4&quot;</span><span style="color: #f92672">&gt;</span>
+        <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;floater&quot;</span><span style="color: #f92672">&gt;&lt;/div&gt;</span>
+        <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;item&quot;</span><span style="color: #f92672">&gt;</span>item1<span style="color: #f92672">&lt;/div&gt;</span>
+      <span style="color: #f92672">&lt;/div&gt;</span>
+      
+    <span style="color: #f92672">&lt;/div&gt;</span>
+  <span style="color: #f92672">&lt;/section&gt;</span>
+  
+   
+
+  <span style="color: #f92672">&lt;section&gt;</span>
+    <span style="color: #f92672">&lt;h4&gt;</span>5. position: absolute; 50%로 밀고 px로 당기기. (item 크기고정)<span style="color: #f92672">&lt;/h4&gt;</span>
+    <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;inner&quot;</span><span style="color: #f92672">&gt;</span>
+     
+      <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;trp-align_5&quot;</span><span style="color: #f92672">&gt;</span>
+        <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;item&quot;</span><span style="color: #f92672">&gt;</span>item1<span style="color: #f92672">&lt;/div&gt;</span>
+      <span style="color: #f92672">&lt;/div&gt;</span>
+      
+    <span style="color: #f92672">&lt;/div&gt;</span>
+  <span style="color: #f92672">&lt;/section&gt;</span>
+     
+  <span style="color: #f92672">&lt;section&gt;</span>
+    <span style="color: #f92672">&lt;h4&gt;</span>6. position: absolute; 50%로 밀고 translate으로 당기기. (IE 9 : -ms-)<span style="color: #f92672">&lt;/h4&gt;</span>
+    <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;inner&quot;</span><span style="color: #f92672">&gt;</span>
+     
+      <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;trp-align_6&quot;</span><span style="color: #f92672">&gt;</span>
+        <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;item&quot;</span><span style="color: #f92672">&gt;</span>item1<span style="color: #f92672">&lt;/div&gt;</span>
+      <span style="color: #f92672">&lt;/div&gt;</span>
+      
+    <span style="color: #f92672">&lt;/div&gt;</span>
+  <span style="color: #f92672">&lt;/section&gt;</span>  
+   
+  <span style="color: #f92672">&lt;section&gt;</span>
+    <span style="color: #f92672">&lt;h4&gt;</span>7. position: absolute; 모든방향에서 당기기 (높이값 자동 마진값만큼 떨어지)<span style="color: #f92672">&lt;/h4&gt;</span>
+    <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;inner&quot;</span><span style="color: #f92672">&gt;</span>
+     
+      <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;trp-align_7&quot;</span><span style="color: #f92672">&gt;</span>
+        <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;item&quot;</span><span style="color: #f92672">&gt;</span>item1<span style="color: #f92672">&lt;/div&gt;</span>
+      <span style="color: #f92672">&lt;/div&gt;</span>
+      
+    <span style="color: #f92672">&lt;/div&gt;</span>
+  <span style="color: #f92672">&lt;/section&gt;</span>
+</pre></td></tr></table></div>
+                                                                    
+                                                                                                            
+                                                                                                                                                                                    
+                    
+                    <!-- //소스 -->
+					</div>
+				</div>
+					
+		
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+		
+	
+		</div>		
+	<!-- e: 컨텐츠 끝 -->
+	<p class="cl-b"></p>
+</div>
+
+
+
+<script type="text/javascript">
+	$("#header").load("../../../head.html");
+	$("#lnb").load("../../../lnb.html");	
+
+
+	$(".ex-more a").click(function() {
+		$( this ).find("span").toggle();
+		$( this ).parent().siblings(".ex-body").slideToggle();
+		return false;
+	});
+
+</script>
+
+</body>
+</html>

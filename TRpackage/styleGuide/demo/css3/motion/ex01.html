@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>motion circle</title>
+    
+<style>
+
+    .trp_circle-m { width:100px; height:100px; margin-top:180px; transform-origin:200% center; position:relative; animation:rotate 3s linear infinite; }
+    .trp_circle-m:before { content:''; position:absolute; height:100%; width:100%; background-color:blue; animation:rotate 3s linear reverse infinite; }
+    @keyframes rotate { 100% { transform:rotate(-360deg); } }
+
+</style>
+</head>
+<body>
+   
+   <div class="trp_circle-m" ></div>
+    
+</body>
+</html>

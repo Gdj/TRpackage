@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+	<title>문서이름</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+	<table border="2" bgcolor="wheat">				  
+		<tr>
+			<td> 아이디 </td>
+			<td><input type="text"/>
+				<input type="button" value="중복확인"/>
+			</td>
+		</tr>
+	  
+		<tr>
+			<td> 이름 </td>
+			<td><input type="text"/></td>
+		</tr>
+		<tr>
+			<td> 성별 </td>
+			<td><input type="radio" name="gender"/ checked>남
+				<input type="radio" name="gender"/>여
+			</td>
+		</tr>
+		<tr>
+		<td> 암호 </td>
+		<td><input type="password"/></td>
+		</tr>
+		<tr>
+		<td> 암호확인 </td>
+		<td><input type="password"/>&nbsp;*같은 암호를 입력하세요</td>
+		</tr>
+		<tr>
+			<td> 이메일 </td>
+			<td><input type="text"/> @ <input type="text" />&nbsp;&nbsp;
+			<select>
+				<option> naver.com </option>
+				<option> daum.net </option>
+				<option> gmail.com </option>
+				<option> nate.com </option>
+			</select>
+		</td>
+		</tr>
+		<tr>
+			<td> 주소 </td>
+			<td><input type="text"/>
+			<input type="button" value="주소찾기"/></td>
+		</tr>
+		<tr>
+			<th scope="row" class="bd-l">
+				<p class="tr list-dot">
+					<span class="red space15"> </span><label for="phone-number">자택전화번호</label>
+				</p>
+			</th>
+			<td class="bd-r">
+				<select name="tel_no1" id="tel_no1" class="p-num" title="자택번호 식별번호">
+					<option value="">-이메일 선택-</option>
+					<option value="direct">직접입력</option>
+					<option value="naver.com">naver.com</option>
+					<option value="daum.net">daum.net</option>
+					<option value="nate.com">nate.com</option>
+					<option value="hotmail.com">hotmail.com</option>
+					<option value="yahoo.com">yahoo.com</option>
+					<option value="hanmail.net">hanmail.net</option>
+					<option value="empas.com">empas.com</option>
+					<option value="korea.com">korea.com</option>
+					<option value="dreamwiz.com">dreamwiz.com</option>
+					<option value="gmail.com">gmail.com</option>								
+					
+					</select>
+				<span>-</span>
+				<label for="tel_no2">
+						<input id="tel_no2" name="tel_no2" type="tel" class="input_ty1" style="width:48px" maxlength="4" title="자택전화 가운데번호" value="">
+				</label>
+				<span>-</span>
+				<label for="tel_no3">
+						<input id="tel_no3" name="tel_no3" type="tel" class="input_ty1" style="width:48px" maxlength="4" title="자택전화 뒷번호" value="">
+				</label>
+			</td>
+		</tr>
+		<tr>
+			<td> 휴대폰 </td>
+			<td>
+				<input type="radio" name="phone"/>SKT
+				<input type="radio" name="phone"/>KT
+				<input type="radio" name="phone"/>LGU+
+				<br/>
+				<select id="mobile_no1" name="mobile_no1" class="p-num" title="휴대폰 식별번호">
+					<option value="010">010</option>
+					<option value="011">011</option>
+					<option value="016">016</option>
+					<option value="017">017</option>
+					<option value="018">018</option>
+					<option value="019">019</option>
+				</select>
+				- <input type="text" size="6"/> - <input type="text" size="6"/>
+			</td>
+		</tr>
+		<tr>
+			<th scope="row" class="bd-l">
+				<span class="red space15"> </span><label for="e-mail">이메일</label>
+			</th>
+			<td class="bd-r">
+				<p class="tr mb5">
+					<input type="text" id="email_id" name="email_id" class="e-mail" title="이메일 앞자리"><span class="fw-b"> @ </span> 
+					<input type="text" id="email_acc" name="email_acc" class="e-mail" title="이메일 뒷자리" style="display:none;">
+				</p>						
+				<p class="tr mb5">
+					<select name="selEmail" id="selEmail" title="이메일 도메인 선택" class="sel-email" onchange="jsSelEmail()">
+					<option value="">-이메일 선택-</option>
+					<option value="direct">직접입력</option>
+					<option value="naver.com">naver.com</option>
+					<option value="daum.net">daum.net</option>
+					<option value="nate.com">nate.com</option>
+					<option value="hotmail.com">hotmail.com</option>
+					<option value="yahoo.com">yahoo.com</option>
+					<option value="hanmail.net">hanmail.net</option>
+					<option value="empas.com">empas.com</option>
+					<option value="korea.com">korea.com</option>
+					<option value="dreamwiz.com">dreamwiz.com</option>
+					<option value="gmail.com">gmail.com</option>								
+					
+					</select>
+				</p>
+			</td>
+		</tr>
+		<tr>
+			<td> 관심 </td>
+			<td><input type="checkbox"/>쇼핑
+				<input type="checkbox"/>게임
+				<input type="checkbox"/>여행
+				<input type="checkbox"/>기타
+			</td>
+		</tr>
+		<tr>
+			<td> 자기소개 </td>
+			<td><textarea cols="60" rows="10"></textarea></td>
+		</tr>	
+	</table>
+	   <input type="submit" value="확인"/>
+	   <input type="reset" value="다시입력"/>
+</body>
+</html>

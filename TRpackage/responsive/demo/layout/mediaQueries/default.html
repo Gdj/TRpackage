@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+<title>media query | TR package </title>
+<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.11.1.js" charset="UTF-8"></script>
+<link rel="stylesheet" type="text/css"  href="../../../../asset/css/common.css" media="all" />
+
+
+</head>
+<body>
+  <div id="header"></div>
+  <div id="container">
+	<div id="lnb" class="gnb"></div>
+	<!-- s: 컨텐츠 시작 -->
+	<div id="contents" class="contents">
+		<!-- s: css 설명
+		<div class="desc_wapper">
+			<h1 class="desc_title">list</h1>
+			<p>목록에 대한 정의입니다.</p>
+		</div>
+		 -->
+		<!-- e: css 설명 -->
+	
+
+		<!-- s: api 설명 -->
+		<div class="api">
+			<h2 class="api-title">media query</h2>
+			<div class="api-body">
+				<dl>
+					<dt>설명</dt>					
+					<dd><span class="icon"></span>미디어 쿼리 사용과 css로드 방법</dd>
+				</dl>
+
+
+<!-- 				<div class="ex_wapper">
+					<h3 class="api-title_h3">VIEW</h3>
+					<p class="ex-more"><a href="javascript:return false;"><span class="d-n">+</span><span style="display: inline;">-</span></a></p>
+					<p class="ex-view"><a href="ex01.html" target="_blank">View Sample</a></p>
+					<div class="ex-body d-n" >
+				
+					</div>
+				</div> -->
+				
+
+				<div class="ex_wapper">
+					<h3 class="api-title_h3 css">CSS</h3>
+					<div class="api-body_h3 css">
+
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #f92672">&lt;style </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/css&quot;</span><span style="color: #f92672">&gt;</span>
+	
+	<span style="color: #66d9ef">@media</span> <span style="color: #f92672">screen</span> <span style="color: #f92672">and</span> <span style="color: #f92672">(max-width</span><span style="color: #a6e22e">:1280px</span><span style="color: #f92672">)</span> <span style="color: #f8f8f2">{</span>
+		
+	<span style="color: #f8f8f2">}</span>
+
+	<span style="color: #66d9ef">@media</span> <span style="color: #f92672">screen</span> <span style="color: #f92672">and</span> <span style="color: #f92672">(max-width</span><span style="color: #a6e22e">:1024px</span><span style="color: #f92672">)</span> <span style="color: #f8f8f2">{</span>
+
+	<span style="color: #f8f8f2">}</span>
+
+	<span style="color: #66d9ef">@media</span> <span style="color: #f92672">screen</span> <span style="color: #f92672">and</span> <span style="color: #f92672">(max-width</span><span style="color: #a6e22e">:768px</span><span style="color: #f92672">)</span> <span style="color: #f8f8f2">{</span>
+
+	<span style="color: #f8f8f2">}</span>
+
+	<span style="color: #66d9ef">@media</span> <span style="color: #f92672">screen</span> <span style="color: #f92672">and</span> <span style="color: #f92672">(max-width</span><span style="color: #a6e22e">:480px</span><span style="color: #f92672">)</span> <span style="color: #f8f8f2">{</span>
+
+	<span style="color: #f8f8f2">}</span>
+	
+<span style="color: #f92672">&lt;/style&gt;</span>
+</pre></td></tr></table></div>
+
+
+
+
+
+					</div>
+				</div>
+
+
+
+				<div class="ex_wapper">
+				<h3 class="api-title_h3 html">HTML</h3>
+					<div class="api-body_h3 html">
+						
+					
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #f92672">&lt;link</span> <span style="color: #a6e22e">rel=</span><span style="color: #e6db74">&quot;stylesheet&quot;</span> <span style="color: #a6e22e">media=</span><span style="color: #e6db74">&quot;(max-width:1280px)&quot;</span>	<span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;max-1280px.css&quot;</span><span style="color: #f92672">&gt;</span>
+<span style="color: #f92672">&lt;link</span> <span style="color: #a6e22e">rel=</span><span style="color: #e6db74">&quot;stylesheet&quot;</span> <span style="color: #a6e22e">media=</span><span style="color: #e6db74">&quot;(max-width:1024px)&quot;</span>	<span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;max-1024px.css&quot;</span><span style="color: #f92672">&gt;</span>
+<span style="color: #f92672">&lt;link</span> <span style="color: #a6e22e">rel=</span><span style="color: #e6db74">&quot;stylesheet&quot;</span> <span style="color: #a6e22e">media=</span><span style="color: #e6db74">&quot;(max-width:768px)&quot;</span>	<span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;max-768px.css&quot;</span><span style="color: #f92672">&gt;</span>
+<span style="color: #f92672">&lt;link</span> <span style="color: #a6e22e">rel=</span><span style="color: #e6db74">&quot;stylesheet&quot;</span> <span style="color: #a6e22e">media=</span><span style="color: #e6db74">&quot;(max-width:480px)&quot;</span>	<span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;max-480px.css&quot;</span><span style="color: #f92672">&gt;</span>
+</pre></td></tr></table></div>
+
+							
+					</div>
+				</div>
+					
+		
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+		
+	
+  </div>		
+	<!-- e: 컨텐츠 끝 -->
+	<p class="cl-b"></p>
+</div>
+
+
+
+<script type="text/javascript">
+	$("#header").load("../../../head.html");
+	$("#lnb").load("../../../lnb.html");	
+
+
+	$(".ex-more a").click(function() {
+		$( this ).find("span").toggle();
+		$( this ).parent().siblings(".ex-body").slideToggle();
+		return false;
+	});
+
+</script>
+
+</body>
+</html>

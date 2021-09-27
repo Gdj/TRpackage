@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+<title>list | TR package</title>
+<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.js" charset="UTF-8"></script>
+<link rel="stylesheet" type="text/css"  href="../../../../asset/css/common.css" media="all" />
+<link rel="stylesheet" type="text/css"  href="../../../../asset/css/trpBase.css" media="all" />
+
+<!--
+<style type="text/css">
+
+/** list **/
+.tr.list-dot li, .list-dot dd { text-indent: -11px; vertical-align:bottom; }
+.tr.list-dot .icon18 { width:18px; margin-left:-7px; *margin-left:-18px; text-indent: 7px; *text-indent: -0px; text-align:center;  }
+/** //list **/
+
+
+/** trp_icon **/
+.icon18 { display:inline-block; line-height:1; width:18px; height:18px; text-indent: -9999px; vertical-align: middle; background: url('../../../images/icons-18-base.png') -18px -36px no-repeat; }}
+.map18_01-01 { background-position:0	 -36px; }
+.map18_01-02 { background-position:-36px -36px; }
+.map18_01-03 { background-position:-72px -36px; }
+/**  //trp_icon  **/
+
+</style>
+-->
+
+</head>
+<body>
+  <div id="header" ></div>
+  <div id="container">
+	<div id="lnb" class="gnb"></div>
+	<!-- s: 컨텐츠 시작 -->
+	<div id="contents" class="contents">
+		<!-- s: css 설명
+		<div class="desc_wapper">
+			<h1 class="desc_title">list</h1>
+			<p>목록에 대한 정의입니다.</p>
+		</div>
+		 -->
+		<!-- e: css 설명 -->
+	
+
+		<!-- s: api 설명 -->
+		<div class="api">
+			<h2 class="api-title">list-dot</h2>
+			<div class="api-body">
+				<dl>
+					<dt>list-dot 설명</dt>					
+					<dd><span class="icon"></span>리스트 형태의 도트 표현 스타일 입니다.</dd>
+					<dd><span class="icon"></span><a href="../../icon/icon18/default.html?dep1=5&dep2=0">icon18 관련 링크</a></dd>
+				</dl>
+				</dl>
+
+
+				<div class="ex_wapper">
+					<h3 class="api-title_h3">VIEW</h3>
+					<p class="ex-more"><a href="javascript:return false;"><span class="d-n">+</span><span style="display: inline;">-</span></a></p>
+					<p class="ex-view"><a href="ex01.html" target="_blank">View Sample</a></p>
+					<div class="ex-body d-n" >
+
+<ul class="tr list-dot">
+	<li><span class="icon18">*</span>trp-icon18 => trp-icon18 들어가는 간격만큼 띄움 </li>
+	<li><span class="icon18">*</span>trp-icon18 => trp-icon18 들어가는 간격만큼 띄움 <br />
+	con con con con</li>						
+</ul>
+<br />
+<ul class="tr list-dot">
+	<li><span class="icon18 map18_01-00"></span>map18_01-00 => map18 : 18px * 18px크기 , 02-01 : 세로번째 - 가로전째 </li>
+	<li><span class="icon18 map18_01-00"></span>map18_01-00 => map18 : 18px * 18px크기 , 02-01 : 세로번째 - 가로전째 <br />
+	con con con con</li>						
+</ul>
+<br />
+<ul class="tr list-dot">
+	<li><span class="icon18 map18_01-01"></span>map18_01-01 => map18 : 18px * 18px크기 , 01-01 : 세로번째 - 가로전째 </li>
+	<li><span class="icon18 map18_01-01"></span>map18_01-01 => map18 : 18px * 18px크기 , 01-01 : 세로번째 - 가로전째  <br />
+	con con con con</li>						
+</ul>
+<br />
+<ul class="tr list-dot">
+	<li><span class="icon18 map18_01-02"></span>map18_01-02 => map18 : 18px * 18px크기 , 02-01 : 세로번째 - 가로전째 </li>
+	<li><span class="icon18 map18_01-02"></span>map18_01-02 => map18 : 18px * 18px크기 , 02-01 : 세로번째 - 가로전째 <br />
+	con con con con</li>						
+</ul>
+
+
+					</div>
+				</div>
+				
+
+				<div class="ex_wapper">
+					<h3 class="api-title_h3 css">CSS</h3>
+					<div class="api-body_h3 css">
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #f92672">&lt;style </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/css&quot;</span><span style="color: #f92672">&gt;</span>
+
+<span style="color: #75715e">/** list **/</span>
+<span style="color: #a6e22e">.tr.list-dot</span> <span style="color: #f92672">li,</span> <span style="color: #a6e22e">.list-dot</span> <span style="color: #f92672">dd</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">text-indent</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">-11px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">vertical-align</span><span style="color: #f92672">:</span><span style="color: #66d9ef">bottom</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+<span style="color: #a6e22e">.tr.list-dot</span> <span style="color: #a6e22e">.icon18</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">18px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">margin-left</span><span style="color: #f92672">:-</span><span style="color: #ae81ff">7px</span><span style="color: #f8f8f2">;</span> <span style="color: #f92672">*</span><span style="color: #66d9ef">margin-left</span><span style="color: #f92672">:-</span><span style="color: #ae81ff">18px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">text-indent</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">7px</span><span style="color: #f8f8f2">;</span> <span style="color: #f92672">*</span><span style="color: #66d9ef">text-indent</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">-0px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">text-align</span><span style="color: #f92672">:</span><span style="color: #66d9ef">center</span><span style="color: #f8f8f2">;</span>  <span style="color: #f8f8f2">}</span>
+<span style="color: #75715e">/** //list **/</span>
+
+
+<span style="color: #75715e">/** trp_icon **/</span>
+<span style="color: #a6e22e">.icon18</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span><span style="color: #66d9ef">inline</span><span style="color: #f92672">-</span><span style="color: #66d9ef">block</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">line-height</span><span style="color: #f92672">:</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">18px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span><span style="color: #ae81ff">1.1em</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">background</span><span style="color: #f92672">:</span> <span style="color: #e6db74">url(&#39;../images/icons-18-base.png&#39;)</span> <span style="color: #ae81ff">-18px</span> <span style="color: #ae81ff">-36px</span> <span style="color: #66d9ef">no-repeat</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+<span style="color: #a6e22e">.map18_01-01</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">background-position</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span>	 <span style="color: #ae81ff">-36px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+<span style="color: #a6e22e">.map18_01-02</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">background-position</span><span style="color: #f92672">:-</span><span style="color: #ae81ff">36px</span> <span style="color: #ae81ff">-36px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+<span style="color: #a6e22e">.map18_01-03</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">background-position</span><span style="color: #f92672">:-</span><span style="color: #ae81ff">72px</span> <span style="color: #ae81ff">-36px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+<span style="color: #75715e">/**  //trp_icon  **/</span>
+
+<span style="color: #f92672">&lt;/style&gt;</span>
+</pre></div>
+
+
+					</div>
+				</div>
+
+
+
+				<div class="ex_wapper">
+				<h3 class="api-title_h3 html">HTML</h3>
+					<div class="api-body_h3 html">
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #f92672">&lt;ul</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;im list-dot&quot;</span><span style="color: #f92672">&gt;</span>
+	<span style="color: #f92672">&lt;li&gt;&lt;span</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;icon18&quot;</span><span style="color: #f92672">&gt;</span>*<span style="color: #f92672">&lt;/span&gt;</span>trp-icon18 =&gt; trp-icon18 들어가는 간격만큼 띄움 <span style="color: #f92672">&lt;/li&gt;</span>
+	<span style="color: #f92672">&lt;li&gt;&lt;span</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;icon18&quot;</span><span style="color: #f92672">&gt;</span>*<span style="color: #f92672">&lt;/span&gt;</span>trp-icon18 =&gt; trp-icon18 들어가는 간격만큼 띄움 <span style="color: #f92672">&lt;br</span> <span style="color: #f92672">/&gt;</span>
+	con con con con<span style="color: #f92672">&lt;/li&gt;</span>						
+<span style="color: #f92672">&lt;/ul&gt;</span>
+<span style="color: #f92672">&lt;br</span> <span style="color: #f92672">/&gt;</span>
+<span style="color: #f92672">&lt;ul</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;im list-dot&quot;</span><span style="color: #f92672">&gt;</span>
+	<span style="color: #f92672">&lt;li&gt;&lt;span</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;icon18 map18_01-01&quot;</span><span style="color: #f92672">&gt;&lt;/span&gt;</span>map18_01-01 =&gt; map18 : 18px * 18px크기 , 01-01 : 세로번째 - 가로전째 <span style="color: #f92672">&lt;/li&gt;</span>
+	<span style="color: #f92672">&lt;li&gt;&lt;span</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;icon18 map18_01-01&quot;</span><span style="color: #f92672">&gt;&lt;/span&gt;</span>map18_01-01 =&gt; map18 : 18px * 18px크기 , 01-01 : 세로번째 - 가로전째  <span style="color: #f92672">&lt;br</span> <span style="color: #f92672">/&gt;</span>
+	con con con con<span style="color: #f92672">&lt;/li&gt;</span>						
+<span style="color: #f92672">&lt;/ul&gt;</span>
+<span style="color: #f92672">&lt;br</span> <span style="color: #f92672">/&gt;</span>
+<span style="color: #f92672">&lt;ul</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;im list-dot&quot;</span><span style="color: #f92672">&gt;</span>
+	<span style="color: #f92672">&lt;li&gt;&lt;span</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;icon18 map18_01-02&quot;</span><span style="color: #f92672">&gt;&lt;/span&gt;</span>map18_01-02 =&gt; map18 : 18px * 18px크기 , 02-01 : 세로번째 - 가로전째 <span style="color: #f92672">&lt;/li&gt;</span>
+	<span style="color: #f92672">&lt;li&gt;&lt;span</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;icon18 map18_01-02&quot;</span><span style="color: #f92672">&gt;&lt;/span&gt;</span>map18_01-02 =&gt; map18 : 18px * 18px크기 , 02-01 : 세로번째 - 가로전째 <span style="color: #f92672">&lt;br</span> <span style="color: #f92672">/&gt;</span>
+	con con con con<span style="color: #f92672">&lt;/li&gt;</span>						
+<span style="color: #f92672">&lt;/ul&gt;</span>
+<span style="color: #f92672">&lt;br</span> <span style="color: #f92672">/&gt;</span>
+<span style="color: #f92672">&lt;ul</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;im list-dot&quot;</span><span style="color: #f92672">&gt;</span>
+	<span style="color: #f92672">&lt;li&gt;&lt;span</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;icon18 map18_01-03&quot;</span><span style="color: #f92672">&gt;&lt;/span&gt;</span>map18_01-02 =&gt; map18 : 18px * 18px크기 , 02-01 : 세로번째 - 가로전째 <span style="color: #f92672">&lt;/li&gt;</span>
+	<span style="color: #f92672">&lt;li&gt;&lt;span</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;icon18 map18_01-03&quot;</span><span style="color: #f92672">&gt;&lt;/span&gt;</span>map18_01-02 =&gt; map18 : 18px * 18px크기 , 02-01 : 세로번째 - 가로전째 <span style="color: #f92672">&lt;br</span> <span style="color: #f92672">/&gt;</span>
+	con con con con<span style="color: #f92672">&lt;/li&gt;</span>						
+<span style="color: #f92672">&lt;/ul&gt;</span>
+</pre></div>
+
+					</div>
+				</div>
+					
+		
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+		
+	
+		</div>		
+	<!-- e: 컨텐츠 끝 -->
+	<p class="cl-b"></p>
+</div>
+
+
+
+<script type="text/javascript">
+	$("#header").load("../../../head.html");
+	$("#lnb").load("../../../lnb.html");	
+
+
+	$(".ex-more a").click(function() {
+		$( this ).find("span").toggle();
+		$( this ).parent().siblings(".ex-body").slideToggle();
+		return false;
+	});
+
+</script>
+
+</body>
+</html>

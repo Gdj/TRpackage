@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>accordion menu</title>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" ></script>
+<script type="text/javascript" src="../../../../asset/js/libs/trpMenu.js"></script>
+  <style>
+    #accordion .acc .ac_con{ display: none;  }
+    .acc { margin-bottom:5px; }
+    .acc a		{ display:block; height:30px;	background:url("./images/more.png") 45px 0 no-repeat; }
+    .acc a.on	{								background:url("./images/more_on.png") 45px 0 no-repeat; }
+    .con { display:none; width:300px; height:100px; margin-bottom:20px; background-color:#00ff00; }
+  </style> 
+
+  <script>	
+    $(document).ready(function(){
+
+      $("#accordion").trpAccordionMenu(".acc a" ,".ac_con" , "on" , activeFn).setBtn(1);
+      function activeFn($index){
+        if( $("#accordion").find(".acc a").eq($index).hasClass("on") ){ 
+            $("#accordion").find(".acc a").eq($index).removeClass("on");
+            $("#accordion").find(".ac_con").eq($index).slideUp();
+            return ;
+        } // 활성화되어있으면 닫는다
+
+        $("#accordion").find(".acc a").removeClass("on");
+        $("#accordion").find(".acc a").eq($index).addClass("on");
+
+        $("#accordion").find(".ac_con").slideUp();
+        $("#accordion").find(".ac_con").eq($index).slideDown();
+          return false;
+      }
+
+    })
+  </script>
+	
+</head>
+<body>
+
+  <ul id ="accordion">
+    <li class="acc">
+      <a href="#">버튼1 </a> 
+      <div class="ac_con">내용~1</div>
+    </li>	
+    <li class="acc">
+      <a href="#">버튼2 </a> 
+      <div class="ac_con">내용~2</div>
+    </li>
+    <li class="acc">
+      <a href="#">버튼3 </a> 
+      <div class="ac_con">내용~3</div>
+    </li>
+    <li class="acc">
+      <a href="#">버튼4 </a> 
+      <div class="ac_con">내용~4</div>
+    </li>
+    <li class="acc">
+      <a href="#">버튼5 </a> 
+      <div class="ac_con">내용~5</div>
+    </li>
+  </ul>
+ 
+</body>
+</html>

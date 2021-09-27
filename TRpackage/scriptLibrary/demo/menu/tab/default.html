@@ -1,0 +1,456 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+<title>tab menu | TR package</title>
+<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="../../../../asset/js/libs/trpMenu.js"></script>
+<link rel="stylesheet" href="../../../../asset/css/common.css" type="text/css" media="all" />
+
+
+</head>
+<body>
+  <div id="header" ></div>
+  <div id="container">
+	<div id="lnb" class="gnb"></div>
+	<!-- s: 컨텐츠 시작 -->
+	<div id="contents" class="contents">
+		<!-- s: 스크립드 설명 -->
+		<div class="desc_wapper">
+			<h1 class="desc_title">tab menu</h1>
+			<p> tab 버튼을 클릭하면 해당내용의 컨텐츠가 보이는 형태의 메뉴 </p>
+		</div>
+		<!-- e: 스크립드 설명 -->
+	
+		<!-- s: api 설명 -->
+		<div class="api">
+			<h2 class="api-title">.trpTabMenu( button, contant [, activeClass] )</h2>
+			<div class="api-body">
+				<dl>
+					<dt>설명</dt>
+					<dd><span class="icon"></span>기본 위치값은 CSS 에서 설정해야합니다.</dd>
+					<dd><span class="icon"></span>ul li 구조의 텝메뉴 형태여야 합니다.</dd>
+				</dl>
+				<table class="table_col" summary="quick menu 속성, 메소드">
+					<caption>tab menu 설명</caption>
+					<colgroup>
+						<col width="150">
+						<col width="">		
+					</colgroup>
+					<tbody>
+					<tr>
+						<th scope="col">매개변수</th>
+						<th scope="col">매개변수 설명</th>
+					</tr>
+					<tr>
+						<td>button</td>
+						<td>텝메뉴의 버튼 선택자 </td>		
+					</tr>
+					<tr>
+						<td>contant</td>
+						<td>텝메뉴의 컨텐츠 선택자</td>		
+					</tr>
+					<tr>
+						<td>activeClass</td>
+						<td>메뉴의 활성화 클래스 이름 <br />
+							(기본값 "on" 클래스)
+						</td>		
+					</tr>
+					
+					</tbody>
+				</table>
+
+				<table class="table_col" summary="tab menu 메소드">
+					<caption>tab menu 설명</caption>
+					<colgroup>
+						<col width="150">
+						<col width="">		
+					</colgroup>
+					<tbody>
+					<tr>
+						<th scope="col">메서드</th>
+						<th scope="col">메서드 설명</th>
+					</tr>
+					<tr>
+						<td>setBtn(index | array)</td>
+						<td>인덱스번호로 텝메뉴를 활성화 합니다. <br />
+							중첩텝의 경우 배열 형태로 활성화 값을 줄수있습니다. 
+						</td>		
+					</tr>		
+					
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+
+		<!-- s: examples 예제 -->
+		<div class="ex_wapper">
+			<div class="section">
+				<h2 class="ex-title">예제 (basic)</h2>
+				<p class="ex-more" ><a href="javascript:return false;"><span>+</span><span  style="display:none">-</span></a></p>
+				<p class="ex-view" ><a href="ex01.html" target="_blank">View</a></p>
+				<div class="ex-body"  style="display:none">					
+					<div class="source"><!-- 소스 -->
+
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</span>
+<span style="color: #f92672">&lt;html</span> <span style="color: #a6e22e">xmlns=</span><span style="color: #e6db74">&quot;http://www.w3.org/1999/xhtml&quot;</span><span style="color: #f92672">&gt;</span>
+<span style="color: #f92672">&lt;head&gt;</span>    
+  <span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">charset=</span><span style="color: #e6db74">&quot;UTF-8&quot;</span><span style="color: #f92672">&gt;</span>
+  <span style="color: #f92672">&lt;title&gt;</span>tab_menu<span style="color: #f92672">&lt;/title&gt;</span>
+  <span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+  <span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/trpMenu.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+  <span style="color: #f92672">&lt;style </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/css&quot;</span><span style="color: #f92672">&gt;</span>		
+    <span style="color: #a6e22e">.tabs</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">inline</span><span style="color: #f92672">-</span><span style="color: #66d9ef">block</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span><span style="color: #66d9ef">relative</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">margin</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">800px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+    <span style="color: #a6e22e">.tabs</span> <span style="color: #f92672">li</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span><span style="color: #66d9ef">inline</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span>  <span style="color: #66d9ef">list-style</span><span style="color: #f92672">:</span><span style="color: #66d9ef">none</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>	
+    <span style="color: #a6e22e">.tabs</span> <span style="color: #f92672">li</span> <span style="color: #f92672">a</span><span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span><span style="color: #66d9ef">absolute</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">80px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span><span style="color: #ae81ff">30px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span><span style="color: #66d9ef">block</span><span style="color: #f8f8f2">;</span>
+      <span style="color: #66d9ef">text-decoration</span><span style="color: #f92672">:</span><span style="color: #66d9ef">none</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">text-align</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">center</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">line-height</span><span style="color: #f92672">:</span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">color</span><span style="color: #f92672">:</span><span style="color: #ae81ff">#000</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#ccc</span>  <span style="color: #f8f8f2">}</span>	
+    <span style="color: #a6e22e">.tabs</span> <span style="color: #f92672">li</span> <span style="color: #f92672">a</span><span style="color: #a6e22e">.btn0</span><span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">top</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">left</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+    <span style="color: #a6e22e">.tabs</span> <span style="color: #f92672">li</span> <span style="color: #f92672">a</span><span style="color: #a6e22e">.btn1</span><span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">top</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">left</span><span style="color: #f92672">:</span><span style="color: #ae81ff">80px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+    <span style="color: #a6e22e">.tabs</span> <span style="color: #f92672">li</span> <span style="color: #f92672">a</span><span style="color: #a6e22e">.btn2</span><span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">top</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">left</span><span style="color: #f92672">:</span><span style="color: #ae81ff">160px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+    <span style="color: #a6e22e">.tabs</span> <span style="color: #f92672">li</span> <span style="color: #a6e22e">.cons</span><span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">margin-top</span><span style="color: #f92672">:</span><span style="color: #ae81ff">30px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">margin-left</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">left</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">border</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">1px</span> <span style="color: #66d9ef">solid</span> <span style="color: #ae81ff">#ccc</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span> <span style="color: #ae81ff">10px</span><span style="color: #f8f8f2">}</span>	
+    <span style="color: #a6e22e">.tabs</span> <span style="color: #f92672">li</span><span style="color: #a6e22e">.on</span> <span style="color: #f92672">a</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#fee</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>							<span style="color: #75715e">/* 활성화 색 */</span>		
+  <span style="color: #f92672">&lt;/style&gt;</span>
+  <span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span><span style="color: #f92672">&gt;</span>
+    <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(document).</span><span style="color: #a6e22e">ready</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(){</span>       		
+      <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.tabs&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">trpTabMenu</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.btn&quot;</span><span style="color: #f8f8f2">,</span><span style="color: #e6db74">&quot;.cons&quot;</span> <span style="color: #f8f8f2">,</span><span style="color: #e6db74">&quot;on&quot;</span><span style="color: #f8f8f2">);</span>    					<span style="color: #75715e">// on 이름은 변경 가능.</span>
+      <span style="color: #75715e">//$(&quot;.tabs&quot;).trpTabMenu(&quot;.btn&quot;,&quot;.cons&quot; ,&quot;on&quot;).setBtn(1);    		// on 이름은 변경 가능.</span>
+    <span style="color: #f8f8f2">})</span> <span style="color: #75715e">// ready </span>
+  <span style="color: #f92672">&lt;/script&gt;</span>
+<span style="color: #f92672">&lt;/head&gt;</span>
+<span style="color: #f92672">&lt;body&gt;</span>
+
+  <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;tabContainer&quot;</span><span style="color: #f92672">&gt;</span>
+    <span style="color: #f92672">&lt;ul</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;tabs&quot;</span><span style="color: #f92672">&gt;</span>
+      <span style="color: #f92672">&lt;li&gt;&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#first&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;btn btn0&quot;</span><span style="color: #f92672">&gt;</span>first<span style="color: #f92672">&lt;/a&gt;</span>
+        <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;first&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;cons&quot;</span> <span style="color: #f92672">&gt;</span>
+          <span style="color: #f92672">&lt;h2&gt;</span>First<span style="color: #f92672">&lt;/h2&gt;</span>
+          <span style="color: #f92672">&lt;p&gt;</span>첫번째 내용 첫번째 내용 첫번째 내용 첫번째 내용 <span style="color: #f92672">&lt;br</span> <span style="color: #f92672">/&gt;</span>
+            첫번째 내용 첫번째 내용 첫번째 내용 첫번째 내용 <span style="color: #f92672">&lt;br</span> <span style="color: #f92672">/&gt;</span>
+            첫번째 내용 첫번째 내용 첫번째 내용 첫번째 내용 <span style="color: #f92672">&lt;br</span> <span style="color: #f92672">/&gt;</span>
+          <span style="color: #f92672">&lt;/p&gt;</span>
+        <span style="color: #f92672">&lt;/div&gt;</span>
+      <span style="color: #f92672">&lt;/li&gt;</span>
+      <span style="color: #f92672">&lt;li&gt;&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#secound&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;btn btn1&quot;</span><span style="color: #f92672">&gt;</span> secound<span style="color: #f92672">&lt;/a&gt;</span>
+        <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;secound&quot;</span>  <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;cons&quot;</span> <span style="color: #f92672">&gt;</span>
+          <span style="color: #f92672">&lt;h2&gt;</span>Secound<span style="color: #f92672">&lt;/h2&gt;</span>
+          <span style="color: #f92672">&lt;p&gt;</span>두번째 내용 두번째 내용 두번째 내용 두번째 내용 두번째 내용 두번째 <span style="color: #f92672">&lt;br</span> <span style="color: #f92672">/&gt;</span>
+            두번째 내용 두번째 내용 두번째 내용 두번째 내용 두번째 내용 두번째 <span style="color: #f92672">&lt;br</span> <span style="color: #f92672">/&gt;</span>
+            두번째 내용 두번째 내용 두번째 내용 두번째 내용 두번째 내용 두번째 <span style="color: #f92672">&lt;br</span> <span style="color: #f92672">/&gt;</span>
+            두번째 내용 두번째 내용 두번째 내용 두번째 내용 두번째 내용 두번째 <span style="color: #f92672">&lt;br</span> <span style="color: #f92672">/&gt;</span>
+            두번째 내용 두번째 내용 두번째 내용 두번째 내용 두번째 내용 두번째 <span style="color: #f92672">&lt;br</span> <span style="color: #f92672">/&gt;</span>
+          <span style="color: #f92672">&lt;/p&gt;</span>
+        <span style="color: #f92672">&lt;/div&gt;</span>
+      <span style="color: #f92672">&lt;/li&gt;</span>
+      <span style="color: #f92672">&lt;li&gt;&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#third&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;btn btn2&quot;</span><span style="color: #f92672">&gt;</span>third<span style="color: #f92672">&lt;/a&gt;</span>
+        <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;third&quot;</span>  <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;cons&quot;</span> <span style="color: #f92672">&gt;</span>
+          <span style="color: #f92672">&lt;h2&gt;</span>Third<span style="color: #f92672">&lt;/h2&gt;</span>
+          <span style="color: #f92672">&lt;p&gt;</span>세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 <span style="color: #f92672">&lt;br</span> <span style="color: #f92672">/&gt;</span>
+            세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 <span style="color: #f92672">&lt;br</span> <span style="color: #f92672">/&gt;</span>
+            세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 <span style="color: #f92672">&lt;br</span> <span style="color: #f92672">/&gt;</span>
+            세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 <span style="color: #f92672">&lt;br</span> <span style="color: #f92672">/&gt;</span>
+            세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 <span style="color: #f92672">&lt;br</span> <span style="color: #f92672">/&gt;</span>
+            세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 <span style="color: #f92672">&lt;br</span> <span style="color: #f92672">/&gt;</span>
+            세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 <span style="color: #f92672">&lt;br</span> <span style="color: #f92672">/&gt;</span>
+          <span style="color: #f92672">&lt;/p&gt;</span>
+        <span style="color: #f92672">&lt;/div&gt;</span>
+      <span style="color: #f92672">&lt;/li&gt;</span>
+    <span style="color: #f92672">&lt;/ul&gt;</span>
+  <span style="color: #f92672">&lt;/div&gt;</span>
+
+  <span style="color: #f92672">&lt;div&gt;</span>--------------------------<span style="color: #f92672">&lt;/div&gt;</span>
+<span style="color: #f92672">&lt;/body&gt;</span>
+<span style="color: #f92672">&lt;/html&gt;</span>
+</pre></td></tr></table></div>
+                    
+          
+          
+          
+
+					</div><!-- //소스 -->
+                </div>
+			</div>			
+		</div>
+		<!-- e: examples 예제 -->
+
+		<!-- s: examples 예제 -->
+		<div class="ex_wapper">
+			<div class="section">
+				<h2 class="ex-title">예제 (중첩텝)</h2>
+				<p class="ex-more" ><a href="javascript:return false;"><span>+</span><span style="display:none">-</span></a></p>
+				<p class="ex-view" ><a href="ex02.html" target="_blank">View</a></p>
+				<div class="ex-body" style="display:none">					
+					<div class="source"><!-- 소스 -->
+
+      
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</span>
+<span style="color: #f92672">&lt;html</span> <span style="color: #a6e22e">xmlns=</span><span style="color: #e6db74">&quot;http://www.w3.org/1999/xhtml&quot;</span><span style="color: #f92672">&gt;</span>
+<span style="color: #f92672">&lt;head&gt;</span>    
+  <span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">charset=</span><span style="color: #e6db74">&quot;UTF-8&quot;</span><span style="color: #f92672">&gt;</span>
+  <span style="color: #f92672">&lt;title&gt;</span>tab_menu<span style="color: #f92672">&lt;/title&gt;</span>
+  <span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+  <span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/trpMenu.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+  <span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span><span style="color: #f92672">&gt;</span>
+    <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(document).</span><span style="color: #a6e22e">ready</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(){</span>       		
+      <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">tabMenu</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.tabs1&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">trpTabMenu</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.btn&quot;</span><span style="color: #f8f8f2">,</span><span style="color: #e6db74">&quot;.cons&quot;</span> <span style="color: #f8f8f2">,</span><span style="color: #e6db74">&quot;on&quot;</span><span style="color: #f8f8f2">);</span>    		<span style="color: #75715e">// on 이름은 변경 가능.</span>
+      <span style="color: #a6e22e">tabMenu</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">setBtn</span><span style="color: #f8f8f2">([</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]);</span>													<span style="color: #75715e">// 활성화 체크</span>
+    <span style="color: #f8f8f2">})</span> <span style="color: #75715e">// ready </span>
+  <span style="color: #f92672">&lt;/script&gt;</span>
+  <span style="color: #f92672">&lt;style </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/css&quot;</span><span style="color: #f92672">&gt;</span>	
+    <span style="color: #f92672">ol,</span> <span style="color: #f92672">ul,</span> <span style="color: #f92672">li</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">list-style</span><span style="color: #f92672">:</span><span style="color: #66d9ef">none</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">margin</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+    <span style="color: #a6e22e">.tabContainer</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span><span style="color: #66d9ef">relative</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">800px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+    <span style="color: #a6e22e">.tabs</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">inline</span><span style="color: #f92672">-</span><span style="color: #66d9ef">block</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;}</span>
+    <span style="color: #a6e22e">.tabs</span> <span style="color: #f92672">h2</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">margin-top</span><span style="color: #f92672">:</span><span style="color: #ae81ff">50px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+    <span style="color: #a6e22e">.tabs</span> <span style="color: #f92672">li</span> <span style="color: #f8f8f2">{</span>  <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span><span style="color: #66d9ef">inline</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">left</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+    <span style="color: #a6e22e">.tabs</span> <span style="color: #f92672">li</span> <span style="color: #f92672">a</span><span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span><span style="color: #66d9ef">absolute</span><span style="color: #f8f8f2">;</span><span style="color: #66d9ef">width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">80px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span><span style="color: #ae81ff">30px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span><span style="color: #66d9ef">block</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">text-decoration</span><span style="color: #f92672">:</span><span style="color: #66d9ef">none</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">text-align</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">center</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">line-height</span><span style="color: #f92672">:</span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">color</span><span style="color: #f92672">:</span><span style="color: #ae81ff">#000</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#ccc</span>  <span style="color: #f8f8f2">}</span>
+    <span style="color: #a6e22e">.tabs</span> <span style="color: #f92672">li</span> <span style="color: #f92672">a</span><span style="color: #a6e22e">.btn0</span><span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">top</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">left</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+    <span style="color: #a6e22e">.tabs</span> <span style="color: #f92672">li</span> <span style="color: #f92672">a</span><span style="color: #a6e22e">.btn1</span><span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">top</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">left</span><span style="color: #f92672">:</span><span style="color: #ae81ff">80px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+    <span style="color: #a6e22e">.tabs</span> <span style="color: #f92672">li</span> <span style="color: #f92672">a</span><span style="color: #a6e22e">.btn2</span><span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">top</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">left</span><span style="color: #f92672">:</span><span style="color: #ae81ff">160px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+    <span style="color: #a6e22e">.tabs</span> <span style="color: #f92672">li</span> <span style="color: #a6e22e">.cons</span><span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span><span style="color: #66d9ef">relative</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">top</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">left</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">margin</span><span style="color: #f92672">:</span><span style="color: #ae81ff">30px</span> <span style="color: #ae81ff">0</span> <span style="color: #ae81ff">0</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span> <span style="color: #ae81ff">10px</span><span style="color: #f8f8f2">;</span>  <span style="color: #66d9ef">border</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">1px</span> <span style="color: #66d9ef">solid</span> <span style="color: #ae81ff">#ccc</span><span style="color: #f8f8f2">;}</span>			
+    <span style="color: #a6e22e">.tabs</span> <span style="color: #f92672">li</span><span style="color: #a6e22e">.on</span> <span style="color: #f92672">&gt;</span> <span style="color: #f92672">a</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#fee</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>							<span style="color: #75715e">/* 활성화 색 */</span>		
+  <span style="color: #f92672">&lt;/style&gt;</span>	
+<span style="color: #f92672">&lt;/head&gt;</span>
+<span style="color: #f92672">&lt;body&gt;</span>	
+ 
+  <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;tabContainer&quot;</span><span style="color: #f92672">&gt;</span>		
+    <span style="color: #f92672">&lt;ul</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;tabs tabs1&quot;</span><span style="color: #f92672">&gt;</span>
+      <span style="color: #f92672">&lt;li&gt;&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#first&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;btn btn0&quot;</span><span style="color: #f92672">&gt;</span>first<span style="color: #f92672">&lt;/a&gt;</span>				
+        <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;first&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;cons&quot;</span> <span style="color: #f92672">&gt;</span>		
+          <span style="color: #f92672">&lt;h2&gt;</span>First<span style="color: #f92672">&lt;/h2&gt;</span>
+          <span style="color: #f92672">&lt;ul</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;tabs2&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;tabs tabs2&quot;</span><span style="color: #f92672">&gt;</span>
+            <span style="color: #f92672">&lt;li&gt;&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#1-1&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;btn btn0&quot;</span><span style="color: #f92672">&gt;</span>1-1<span style="color: #f92672">&lt;/a&gt;</span>
+              <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;1-1&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;cons&quot;</span> <span style="color: #f92672">&gt;</span>								
+                1-1contans
+                1-1contans
+                1-1contans
+              <span style="color: #f92672">&lt;/div&gt;</span>
+            <span style="color: #f92672">&lt;/li&gt;</span>
+            <span style="color: #f92672">&lt;li&gt;&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#1-2&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;btn btn1&quot;</span><span style="color: #f92672">&gt;</span>1-2<span style="color: #f92672">&lt;/a&gt;</span>
+              <span style="color: #f92672">&lt;div</span>  <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;1-2&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;cons&quot;</span> <span style="color: #f92672">&gt;</span>
+                1-2contans
+                1-2contans
+                1-2contans
+              <span style="color: #f92672">&lt;/div&gt;</span>
+            <span style="color: #f92672">&lt;/li&gt;</span>
+          <span style="color: #f92672">&lt;/ul&gt;</span>
+        <span style="color: #f92672">&lt;/div&gt;</span>
+      <span style="color: #f92672">&lt;/li&gt;</span>
+      <span style="color: #f92672">&lt;li&gt;&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#secound&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;btn btn1&quot;</span><span style="color: #f92672">&gt;</span>secound<span style="color: #f92672">&lt;/a&gt;</span>
+        <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;secound&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;cons&quot;</span> <span style="color: #f92672">&gt;</span>
+          <span style="color: #f92672">&lt;h2&gt;</span>secound<span style="color: #f92672">&lt;/h2&gt;</span>
+          <span style="color: #f92672">&lt;ul</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;tabs tabs2&quot;</span><span style="color: #f92672">&gt;</span>
+            <span style="color: #f92672">&lt;li&gt;&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#1-1&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;btn btn0&quot;</span><span style="color: #f92672">&gt;</span>2-1<span style="color: #f92672">&lt;/a&gt;</span>
+              <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;1-1&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;cons&quot;</span> <span style="color: #f92672">&gt;</span>								
+                2-1contans
+                2-1contans
+                2-1contans
+              <span style="color: #f92672">&lt;/div&gt;</span>
+            <span style="color: #f92672">&lt;/li&gt;</span>
+            <span style="color: #f92672">&lt;li&gt;&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#1-2&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;btn btn1&quot;</span><span style="color: #f92672">&gt;</span>2-2<span style="color: #f92672">&lt;/a&gt;</span>
+              <span style="color: #f92672">&lt;div</span>  <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;1-2&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;cons&quot;</span> <span style="color: #f92672">&gt;</span>
+                2-2contans
+                2-2contans
+                2-2contans
+              <span style="color: #f92672">&lt;/div&gt;</span>
+            <span style="color: #f92672">&lt;/li&gt;</span>
+          <span style="color: #f92672">&lt;/ul&gt;</span>
+        <span style="color: #f92672">&lt;/div&gt;</span>
+      <span style="color: #f92672">&lt;/li&gt;</span>
+      <span style="color: #f92672">&lt;li&gt;&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#third&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;btn btn2&quot;</span><span style="color: #f92672">&gt;</span>third<span style="color: #f92672">&lt;/a&gt;</span>
+        <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;third&quot;</span>  <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;cons&quot;</span> <span style="color: #f92672">&gt;</span>
+          <span style="color: #f92672">&lt;h2&gt;</span>Third<span style="color: #f92672">&lt;/h2&gt;</span>
+          <span style="color: #f92672">&lt;p&gt;</span>	세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 
+          <span style="color: #f92672">&lt;/p&gt;</span>
+        <span style="color: #f92672">&lt;/div&gt;</span>
+      <span style="color: #f92672">&lt;/li&gt;</span>
+    <span style="color: #f92672">&lt;/ul&gt;</span>
+  <span style="color: #f92672">&lt;/div&gt;</span>
+
+  <span style="color: #f92672">&lt;div&gt;</span>--------------------------<span style="color: #f92672">&lt;/div&gt;</span>
+  
+<span style="color: #f92672">&lt;/body&gt;</span>
+<span style="color: #f92672">&lt;/html&gt;</span>
+</pre></td></tr></table></div>
+      
+      
+				
+					</div><!--// 소스 -->
+                </div>
+			</div>			
+		</div>
+		<!-- e: examples 예제 -->
+
+	</div>
+	<!-- e: 컨텐츠 끝 -->
+</div>
+
+
+
+<script type="text/javascript">
+	$("#header").load("../../../head.html");
+	$("#lnb").load("../../../lnb.html");	
+
+	$(".ex-more a").click(function() {
+		$( this ).find("span").toggle();
+		$( this ).parent().siblings(".ex-body").slideToggle();
+		return false;
+	});
+</script>
+
+</body>
+</html>

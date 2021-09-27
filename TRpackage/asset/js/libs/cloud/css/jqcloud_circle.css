@@ -1,0 +1,48 @@
+/* fonts */
+
+div.jqcloud_circle { display: inline-block; width: 100%; height: 100%;
+  font-family: "Helvetica", "Arial", sans-serif;
+  font-size: 10px;
+  line-height: normal;
+}
+
+div.jqcloud_circle a {
+  font-size: inherit;
+  text-decoration: none;
+}
+
+div.jqcloud_circle span.w10 { font-size: 550%; }
+div.jqcloud_circle span.w9 {  font-size: 500%; }
+div.jqcloud_circle span.w8 {  font-size: 450%; }
+div.jqcloud_circle span.w7 {  font-size: 400%; }
+div.jqcloud_circle span.w6 {  font-size: 350%; }
+div.jqcloud_circle span.w5 {  font-size: 300%; }
+div.jqcloud_circle span.w4 {  font-size: 250%; }
+div.jqcloud_circle span.w3 {  font-size: 200%; }
+div.jqcloud_circle span.w2 {  font-size: 150%; }
+div.jqcloud_circle span.w1 {  font-size: 100%; }
+border-radius: 50%;
+/* colors */
+
+div.jqcloud_circle { color: #09f; }
+div.jqcloud_circle a { color: inherit; }
+div.jqcloud_circle span.w10 {  background-color:rgba(51,146,210, 1.0)  }
+div.jqcloud_circle span.w9  {  background-color:rgba(51,146,210, 0.95) }
+div.jqcloud_circle span.w8  {  background-color:rgba(51,146,210, 0.90) }
+div.jqcloud_circle span.w7  {  background-color:rgba(51,146,210, 0.85) }
+div.jqcloud_circle span.w6  {  background-color:rgba(51,146,210, 0.80) }
+div.jqcloud_circle span.w5  {  background-color:rgba(51,146,210, 0.75) }
+div.jqcloud_circle span.w4  {  background-color:rgba(51,146,210, 0.70) }
+div.jqcloud_circle span.w3  {  background-color:rgba(51,146,210, 0.65) }
+div.jqcloud_circle span.w2  {  background-color:rgba(51,146,210, 0.60) }
+div.jqcloud_circle span.w1  {  background-color:rgba(51,146,210, 0.55) }
+
+/* layout */
+
+div.jqcloud_circle {
+  overflow: hidden;
+  position: relative;
+}
+
+div.jqcloud_circle span { padding: 10px; color: #fff; text-align: center; line-height: 3;
+    display: inline-block;  border-radius: 50%; overflow: hidden; }

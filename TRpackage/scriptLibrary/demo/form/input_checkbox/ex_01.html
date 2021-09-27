@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+	<title>trpCheckbox</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css"  href="../../../../asset/css/trpBase.css" media="all" />
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.12.1.min.js" ></script>
+	<script type="text/javascript" src="../../../../asset/js/libs/trpForm.js" ></script>
+</head>
+<!--
+<style type="text/css">
+    
+	/*** 이미지 checkbox ***/
+    .trp.checkbox-box { position: relative; display: inline-block;}
+    .trp.checkbox-box:after { display:inline-block; content: ''; width: 20px; height: 20px;  background:url("../../../../asset/css/trp_images/checkbox.png") 0 0 no-repeat; }
+    .trp.checkbox-box.on:after { background-position: 0 -20px; }
+    .trp.checkbox-box input[type="checkbox"] { position: absolute; top:0; left: 0;  width: 20px; height: 20px; opacity: 0; filter: alpha(opacity=0);  }    
+    /*** checkbox ***/
+    
+</style>
+-->
+<body>
+
+	<span class="trp checkbox-box">
+		<input type="checkbox" id="trp-checkbox1" name="trp-checkbox" >		
+	</span>
+    <span class="trp checkbox-box">
+		<input type="checkbox" id="trp-checkbox1" name="trp-checkbox" >		
+	</span>
+    <span class="trp checkbox-box">
+		<input type="checkbox" id="trp-checkbox1" name="trp-checkbox" >		
+	</span>
+
+<!--
+    <script>
+        $(".trp.checkbox-box input:checkbox").change(function() {
+            if($(this).is( ":checked" )){
+                $(this).parent().addClass("on");
+            }else{
+                $(this).parent().removeClass("on");
+            }
+        })
+    </script>
+-->
+
+</body>
+</html>

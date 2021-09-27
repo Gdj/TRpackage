@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="kr">
+ <head>
+  <meta charset="UTF-8">  
+  <title>sample_masonry</title>
+	<link rel="stylesheet" href="../../../../asset/js/libs/mCustomScrollbar/jquery.mCustomScrollbar.min.css" />    	
+
+	<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.9.1.min.js" ></script>
+	<script type="text/javascript" src="../../../../asset/js/libs/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <style type="text/css">
+                 
+    #container {  position:relative;  width:500px; height:500px; margin : 50px auto;  padding-bottom: 10px;  overflow: auto; }
+    .item {  width:100%; min-height:100px; }    
+	.item:nth-child(odd) { background-color: darkred}
+	.item:nth-child(even) { background-color: darkblue}         
+  </style>
+  <script type="text/javascript">
+    $(document).ready(function(){
+		// mCustomScrollbar 클래스 이름으로 자동 생성
+    });
+  </script>
+ </head>
+ <body>
+    <div id="wrap">
+        
+        <!-- container -->
+        <div id="container" class="mCustomScrollbar">
+        	<div class="item"></div>
+        	<div class="item"></div>
+        	<div class="item"></div>
+        	<div class="item"></div>
+        	<div class="item"></div>
+        	<div class="item"></div>
+        	<div class="item"></div>
+        	<div class="item"></div>
+        	<div class="item"></div>
+        	<div class="item"></div>
+        	<div class="item"></div>
+        	<div class="item"></div>
+        	<div class="item"></div>
+        	<div class="item"></div>        	
+        </div>
+        <!-- //container -->        
+        
+    </div> 
+ </body>  
+</html>
+
+

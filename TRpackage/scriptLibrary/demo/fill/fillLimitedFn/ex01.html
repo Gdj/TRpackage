@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>trpFillLimitedFn</title>
+<style type="text/css">
+	
+	html, body { margin:0; padding:0; }	
+	.trpFill{ overflow: hidden; }
+	
+</style>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.12.1.min.js"></script>
+<script type="text/javascript" src="../../../../asset/js/libs/trpFill.js"></script>
+
+</head>
+<body>	
+
+	<div id="wrap">
+		<div class="trpFill"><img src="../images/video_720.jpg" alt=""></div>	
+	</div>	
+	
+	<script>
+		
+		function resize(){				
+            trpFillLimitedFn(".trpFill", ".trpFill img", 1280 , 720,  window.innerWidth,  window.innerHeight, 50, 150 );
+		}	
+		$(window).resize(resize);
+		resize();
+
+	</script>
+	
+</body>
+</html>
+

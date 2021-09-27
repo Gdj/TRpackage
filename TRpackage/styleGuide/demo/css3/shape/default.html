@@ -1,0 +1,698 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+<title>shape | TR package</title>
+<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.js" charset="UTF-8"></script>
+<link rel="stylesheet" type="text/css"  href="../../../../asset/css/trpBase.css" media="all" />  
+<link rel="stylesheet" type="text/css"  href="../../../../asset/css/common.css" media="all" />
+
+    <style>
+        ul { list-style: none; }
+        .shape-list > li { float: left; position: relative; width: 100px; height: 100px; margin:0 10px;}
+    </style>
+       
+<!--
+    <style>
+        
+        .trp_circle { 
+            width: 100%;
+            height: 100%;
+            background: #941012;
+            -moz-border-radius: 50%;
+            -webkit-border-radius: 50%;
+            border-radius: 50%;
+        }
+
+        
+        .trp_triangle-up{
+        	width: 0;
+            height: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 100px solid #941012;
+        }
+        
+        .trp_triangle-down{
+        	width: 0;
+            height: 0;
+            border-top: 100px solid #941012;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+        }
+        
+        .trp_triangle-down{
+        	width: 0;
+            height: 0;
+            border-top: 100px solid #941012;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+        }
+        
+        .trp_triangle-left{
+            width: 0;
+            height: 0;
+            border-top: 50px solid transparent;
+            border-right: 100px solid #941012;
+            border-bottom: 50px solid transparent;
+        }
+        
+        .trp_triangle-right{
+            width: 0;
+            height: 0;
+            border-top: 50px solid transparent;
+            border-left: 100px solid #941012;
+            border-bottom: 50px solid transparent;
+        }
+        
+        .trp_star-6 {
+            width: 0;
+            height: 0;
+            border-left: 45px solid transparent;
+            border-right: 45px solid transparent;
+            border-bottom: 75px solid #941012;
+            position: relative;
+			margin-left: 5px;
+        }
+        .trp_star-6:after {
+            width: 0;
+            height: 0;
+            border-left: 45px solid transparent;
+            border-right: 45px solid transparent;
+            border-top: 75px solid #941012;
+            position: absolute;
+            content: "";
+            top: 25px;
+            left: -45px;
+        }
+        
+        .trp_star-5 {
+           margin: 35px 0;
+           position: relative;
+           display: block;
+           color: #941012;
+           width: 0px;
+           height: 0px;
+           border-right:  50px solid transparent;
+           border-bottom: 35px  solid #941012;
+           border-left:   50px solid transparent;
+           -moz-transform:    rotate(35deg);
+           -webkit-transform: rotate(35deg);
+           -ms-transform:     rotate(35deg);
+           -o-transform:      rotate(35deg);
+        }
+        .trp_star-5:before {
+           border-bottom: 38px solid #941012;
+           border-left: 15px solid transparent;
+           border-right: 15px solid transparent;
+           position: absolute;
+           height: 0;
+           width: 0;
+           top: -26px;
+           left: -32px;
+           display: block;
+           content: '';
+           -webkit-transform: rotate(-35deg);
+           -moz-transform:    rotate(-35deg);
+           -ms-transform:     rotate(-35deg);
+           -o-transform:      rotate(-35deg);
+        }        
+        .trp_star-5:after {
+           position: absolute;
+           display: block;
+           color: #941012;
+           top: 0px;
+           left: -50px;
+           width: 0px;
+           height: 0px;
+           border-right:  50px solid transparent;
+           border-bottom: 35px solid #941012;
+           border-left:   50px solid transparent;
+           -webkit-transform: rotate(-70deg);
+           -moz-transform:    rotate(-70deg);
+           -ms-transform:     rotate(-70deg);
+           -o-transform:      rotate(-70deg);
+           content: '';
+        }
+                
+    
+        .trp_hexagon {
+            width: 90px;
+            height: 50px;
+            margin: 25px 0 0 5px;			
+            background: #941012;
+            position: relative;
+        }
+        .trp_hexagon:before {
+            content: "";
+            position: absolute;
+            top: -25px;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 45px solid transparent;
+            border-right: 45px solid transparent;
+            border-bottom: 25px solid #941012;
+        }
+        .trp_hexagon:after {
+            content: "";
+            position: absolute;
+            bottom: -25px;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 45px solid transparent;
+            border-right: 45px solid transparent;
+            border-top: 25px solid #941012;
+        }
+		
+		
+		.trp_octagon {
+			position: relative;
+			width: 100px;height: 100px;
+			background: #941012;background-size:100px; 
+		}
+		.trp_octagon:before {
+			content: "";position: absolute;top: 0;left: 0; width: 42px;height: 0;
+			background: #941012;background-size: 100px auto;
+			border-bottom: 29px solid transparent;
+			border-left: 29px solid #fff;
+			border-right: 29px solid #fff;
+		}
+		.trp_octagon:after {
+			content: "";position: absolute;bottom: 0;left: 0; width: 42px;height: 0;
+			background: #941012;background-size: 100px auto;
+			border-top: 29px solid transparent;
+			border-left: 29px solid #fff;
+			border-right: 29px solid #fff;
+		}
+		
+		
+    </style>
+-->
+
+</head>
+<body>
+  <div id="header" ></div>
+  <div id="container">
+	<div id="lnb" class="gnb"></div>
+	<!-- s: 컨텐츠 시작 -->
+	<div id="contents" class="contents">
+		<!-- s: css 설명
+		<div class="desc_wapper">
+			<h1 class="desc_title">list</h1>
+			<p>목록에 대한 정의입니다.</p>
+		</div>
+		 -->
+		<!-- e: css 설명 -->
+	
+
+		<!-- s: api 설명 -->
+		<div class="api">
+			<h2 class="api-title">shape</h2>
+			<div class="api-body">
+				<dl>
+					<dt>설명</dt>
+					<dd><span class="icon"></span>CSS3 로 그릴 수 있는 모양 셈플.</dd>					
+				</dl>
+
+
+				<div class="ex_wapper">
+					<h3 class="api-title_h3">VIEW</h3>
+					<p class="ex-more"><a href="javascript:return false;"><span class="d-n">+</span><span style="display: inline;">-</span></a></p>
+					<p class="ex-view"><a href="ex01.html" target="_blank">View Sample</a></p>
+					<div class="ex-body d-n" >
+                    <!-- 소스 -->
+
+                    
+<ul class="shape-list">
+    <li><div class="trp_circle"></div></li>
+    <li><div class="trp_triangle-up"></div></li>
+    <li><div class="trp_triangle-down"></div></li>
+    <li><div class="trp_triangle-left"></div></li>
+    <li><div class="trp_triangle-right"></div></li>
+    <li><div class="trp_star-6"></div></li>
+    <li><div class="trp_star-5"></div></li>
+    <li><div class="trp_hexagon"></div></li>
+    <li><div class="trp_octagon"></div></li>    
+</ul>                   
+                                                             
+
+                    <!-- //소스 -->
+					</div>
+				</div>
+								
+												
+						
+    								
+    																
+<!-- ===CSS=== -->		
+				<div class="ex_wapper">
+					<h3 class="api-title_h3 css">CSS3</h3>
+					<div class="api-body_h3 css">
+                    <!-- 소스 -->
+
+                    
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178</pre></td><td><pre style="margin: 0; line-height: 125%">    <span style="color: #f92672">&lt;style&gt;</span>
+        <span style="color: #f92672">ul</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">list-style</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">none</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+        <span style="color: #a6e22e">.shape-list</span> <span style="color: #f92672">&gt;</span> <span style="color: #f92672">li</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">float</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">left</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">relative</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">margin</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span> <span style="color: #ae81ff">10px</span><span style="color: #f8f8f2">;}</span>
+        
+        <span style="color: #a6e22e">.trp_circle</span> <span style="color: #f8f8f2">{</span> 
+            <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">background</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#941012</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #f92672">-</span><span style="color: #f8f8f2">moz</span><span style="color: #f92672">-</span><span style="color: #66d9ef">border</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">radius</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">50</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #f92672">-</span><span style="color: #f8f8f2">webkit</span><span style="color: #f92672">-</span><span style="color: #66d9ef">border</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">radius</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">50</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">border</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">radius</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">50</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span>
+        <span style="color: #f8f8f2">}</span>
+
+        
+        <span style="color: #a6e22e">.trp_triangle-up</span><span style="color: #f8f8f2">{</span>
+        	<span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">border-left</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">50px</span> <span style="color: #66d9ef">solid</span> <span style="color: #66d9ef">transparent</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">border-right</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">50px</span> <span style="color: #66d9ef">solid</span> <span style="color: #66d9ef">transparent</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">border-bottom</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100px</span> <span style="color: #66d9ef">solid</span> <span style="color: #ae81ff">#941012</span><span style="color: #f8f8f2">;</span>
+        <span style="color: #f8f8f2">}</span>
+        
+        <span style="color: #a6e22e">.trp_triangle-down</span><span style="color: #f8f8f2">{</span>
+        	<span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">border-top</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100px</span> <span style="color: #66d9ef">solid</span> <span style="color: #ae81ff">#941012</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">border-left</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">50px</span> <span style="color: #66d9ef">solid</span> <span style="color: #66d9ef">transparent</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">border-right</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">50px</span> <span style="color: #66d9ef">solid</span> <span style="color: #66d9ef">transparent</span><span style="color: #f8f8f2">;</span>
+        <span style="color: #f8f8f2">}</span>
+        
+        <span style="color: #a6e22e">.trp_triangle-down</span><span style="color: #f8f8f2">{</span>
+        	<span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">border-top</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100px</span> <span style="color: #66d9ef">solid</span> <span style="color: #ae81ff">#941012</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">border-left</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">50px</span> <span style="color: #66d9ef">solid</span> <span style="color: #66d9ef">transparent</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">border-right</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">50px</span> <span style="color: #66d9ef">solid</span> <span style="color: #66d9ef">transparent</span><span style="color: #f8f8f2">;</span>
+        <span style="color: #f8f8f2">}</span>
+        
+        <span style="color: #a6e22e">.trp_triangle-left</span><span style="color: #f8f8f2">{</span>
+            <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">border-top</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">50px</span> <span style="color: #66d9ef">solid</span> <span style="color: #66d9ef">transparent</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">border-right</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100px</span> <span style="color: #66d9ef">solid</span> <span style="color: #ae81ff">#941012</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">border-bottom</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">50px</span> <span style="color: #66d9ef">solid</span> <span style="color: #66d9ef">transparent</span><span style="color: #f8f8f2">;</span>
+        <span style="color: #f8f8f2">}</span>
+        
+        <span style="color: #a6e22e">.trp_triangle-right</span><span style="color: #f8f8f2">{</span>
+            <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">border-top</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">50px</span> <span style="color: #66d9ef">solid</span> <span style="color: #66d9ef">transparent</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">border-left</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100px</span> <span style="color: #66d9ef">solid</span> <span style="color: #ae81ff">#941012</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">border-bottom</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">50px</span> <span style="color: #66d9ef">solid</span> <span style="color: #66d9ef">transparent</span><span style="color: #f8f8f2">;</span>
+        <span style="color: #f8f8f2">}</span>
+        
+        <span style="color: #a6e22e">.trp_star-6</span> <span style="color: #f8f8f2">{</span>
+            <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">border-left</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">45px</span> <span style="color: #66d9ef">solid</span> <span style="color: #66d9ef">transparent</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">border-right</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">45px</span> <span style="color: #66d9ef">solid</span> <span style="color: #66d9ef">transparent</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">border-bottom</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">75px</span> <span style="color: #66d9ef">solid</span> <span style="color: #ae81ff">#941012</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">relative</span><span style="color: #f8f8f2">;</span>
+			<span style="color: #66d9ef">margin-left</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">5px</span><span style="color: #f8f8f2">;</span>
+        <span style="color: #f8f8f2">}</span>
+        <span style="color: #a6e22e">.trp_star-6:after</span> <span style="color: #f8f8f2">{</span>
+            <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">border-left</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">45px</span> <span style="color: #66d9ef">solid</span> <span style="color: #66d9ef">transparent</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">border-right</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">45px</span> <span style="color: #66d9ef">solid</span> <span style="color: #66d9ef">transparent</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">border-top</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">75px</span> <span style="color: #66d9ef">solid</span> <span style="color: #ae81ff">#941012</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">absolute</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">content</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;&quot;</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">top</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">25px</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">left</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">-45px</span><span style="color: #f8f8f2">;</span>
+        <span style="color: #f8f8f2">}</span>
+        
+        <span style="color: #a6e22e">.trp_star-5</span> <span style="color: #f8f8f2">{</span>
+           <span style="color: #66d9ef">margin</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">35px</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+           <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">relative</span><span style="color: #f8f8f2">;</span>
+           <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">block</span><span style="color: #f8f8f2">;</span>
+           <span style="color: #66d9ef">color</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#941012</span><span style="color: #f8f8f2">;</span>
+           <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0px</span><span style="color: #f8f8f2">;</span>
+           <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0px</span><span style="color: #f8f8f2">;</span>
+           <span style="color: #66d9ef">border-right</span><span style="color: #f92672">:</span>  <span style="color: #ae81ff">50px</span> <span style="color: #66d9ef">solid</span> <span style="color: #66d9ef">transparent</span><span style="color: #f8f8f2">;</span>
+           <span style="color: #66d9ef">border-bottom</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">35px</span>  <span style="color: #66d9ef">solid</span> <span style="color: #ae81ff">#941012</span><span style="color: #f8f8f2">;</span>
+           <span style="color: #66d9ef">border-left</span><span style="color: #f92672">:</span>   <span style="color: #ae81ff">50px</span> <span style="color: #66d9ef">solid</span> <span style="color: #66d9ef">transparent</span><span style="color: #f8f8f2">;</span>
+           <span style="color: #f92672">-</span><span style="color: #f8f8f2">moz</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">transform</span><span style="color: #f92672">:</span>    <span style="color: #f8f8f2">rotate(</span><span style="color: #ae81ff">35</span><span style="color: #f8f8f2">deg);</span>
+           <span style="color: #f92672">-</span><span style="color: #f8f8f2">webkit</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">transform</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">rotate(</span><span style="color: #ae81ff">35</span><span style="color: #f8f8f2">deg);</span>
+           <span style="color: #f92672">-</span><span style="color: #f8f8f2">ms</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">transform</span><span style="color: #f92672">:</span>     <span style="color: #f8f8f2">rotate(</span><span style="color: #ae81ff">35</span><span style="color: #f8f8f2">deg);</span>
+           <span style="color: #f92672">-</span><span style="color: #f8f8f2">o</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">transform</span><span style="color: #f92672">:</span>      <span style="color: #f8f8f2">rotate(</span><span style="color: #ae81ff">35</span><span style="color: #f8f8f2">deg);</span>
+        <span style="color: #f8f8f2">}</span>
+        <span style="color: #a6e22e">.trp_star-5:before</span> <span style="color: #f8f8f2">{</span>
+           <span style="color: #66d9ef">border-bottom</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">38px</span> <span style="color: #66d9ef">solid</span> <span style="color: #ae81ff">#941012</span><span style="color: #f8f8f2">;</span>
+           <span style="color: #66d9ef">border-left</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">15px</span> <span style="color: #66d9ef">solid</span> <span style="color: #66d9ef">transparent</span><span style="color: #f8f8f2">;</span>
+           <span style="color: #66d9ef">border-right</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">15px</span> <span style="color: #66d9ef">solid</span> <span style="color: #66d9ef">transparent</span><span style="color: #f8f8f2">;</span>
+           <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">absolute</span><span style="color: #f8f8f2">;</span>
+           <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+           <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+           <span style="color: #66d9ef">top</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">-26px</span><span style="color: #f8f8f2">;</span>
+           <span style="color: #66d9ef">left</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">-32px</span><span style="color: #f8f8f2">;</span>
+           <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">block</span><span style="color: #f8f8f2">;</span>
+           <span style="color: #66d9ef">content</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;&#39;</span><span style="color: #f8f8f2">;</span>
+           <span style="color: #f92672">-</span><span style="color: #f8f8f2">webkit</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">transform</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">rotate(</span><span style="color: #ae81ff">-35</span><span style="color: #f8f8f2">deg);</span>
+           <span style="color: #f92672">-</span><span style="color: #f8f8f2">moz</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">transform</span><span style="color: #f92672">:</span>    <span style="color: #f8f8f2">rotate(</span><span style="color: #ae81ff">-35</span><span style="color: #f8f8f2">deg);</span>
+           <span style="color: #f92672">-</span><span style="color: #f8f8f2">ms</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">transform</span><span style="color: #f92672">:</span>     <span style="color: #f8f8f2">rotate(</span><span style="color: #ae81ff">-35</span><span style="color: #f8f8f2">deg);</span>
+           <span style="color: #f92672">-</span><span style="color: #f8f8f2">o</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">transform</span><span style="color: #f92672">:</span>      <span style="color: #f8f8f2">rotate(</span><span style="color: #ae81ff">-35</span><span style="color: #f8f8f2">deg);</span>
+        <span style="color: #f8f8f2">}</span>        
+        <span style="color: #a6e22e">.trp_star-5:after</span> <span style="color: #f8f8f2">{</span>
+           <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">absolute</span><span style="color: #f8f8f2">;</span>
+           <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">block</span><span style="color: #f8f8f2">;</span>
+           <span style="color: #66d9ef">color</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#941012</span><span style="color: #f8f8f2">;</span>
+           <span style="color: #66d9ef">top</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0px</span><span style="color: #f8f8f2">;</span>
+           <span style="color: #66d9ef">left</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">-50px</span><span style="color: #f8f8f2">;</span>
+           <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0px</span><span style="color: #f8f8f2">;</span>
+           <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0px</span><span style="color: #f8f8f2">;</span>
+           <span style="color: #66d9ef">border-right</span><span style="color: #f92672">:</span>  <span style="color: #ae81ff">50px</span> <span style="color: #66d9ef">solid</span> <span style="color: #66d9ef">transparent</span><span style="color: #f8f8f2">;</span>
+           <span style="color: #66d9ef">border-bottom</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">35px</span> <span style="color: #66d9ef">solid</span> <span style="color: #ae81ff">#941012</span><span style="color: #f8f8f2">;</span>
+           <span style="color: #66d9ef">border-left</span><span style="color: #f92672">:</span>   <span style="color: #ae81ff">50px</span> <span style="color: #66d9ef">solid</span> <span style="color: #66d9ef">transparent</span><span style="color: #f8f8f2">;</span>
+           <span style="color: #f92672">-</span><span style="color: #f8f8f2">webkit</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">transform</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">rotate(</span><span style="color: #ae81ff">-70</span><span style="color: #f8f8f2">deg);</span>
+           <span style="color: #f92672">-</span><span style="color: #f8f8f2">moz</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">transform</span><span style="color: #f92672">:</span>    <span style="color: #f8f8f2">rotate(</span><span style="color: #ae81ff">-70</span><span style="color: #f8f8f2">deg);</span>
+           <span style="color: #f92672">-</span><span style="color: #f8f8f2">ms</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">transform</span><span style="color: #f92672">:</span>     <span style="color: #f8f8f2">rotate(</span><span style="color: #ae81ff">-70</span><span style="color: #f8f8f2">deg);</span>
+           <span style="color: #f92672">-</span><span style="color: #f8f8f2">o</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">transform</span><span style="color: #f92672">:</span>      <span style="color: #f8f8f2">rotate(</span><span style="color: #ae81ff">-70</span><span style="color: #f8f8f2">deg);</span>
+           <span style="color: #66d9ef">content</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;&#39;</span><span style="color: #f8f8f2">;</span>
+        <span style="color: #f8f8f2">}</span>
+                
+    
+        <span style="color: #a6e22e">.trp_hexagon</span> <span style="color: #f8f8f2">{</span>
+            <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">90px</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">50px</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">margin</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">25px</span> <span style="color: #ae81ff">0</span> <span style="color: #ae81ff">0</span> <span style="color: #ae81ff">5px</span><span style="color: #f8f8f2">;</span>			
+            <span style="color: #66d9ef">background</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#941012</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">relative</span><span style="color: #f8f8f2">;</span>
+        <span style="color: #f8f8f2">}</span>
+        <span style="color: #a6e22e">.trp_hexagon:before</span> <span style="color: #f8f8f2">{</span>
+            <span style="color: #66d9ef">content</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;&quot;</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">absolute</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">top</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">-25px</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">left</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">border-left</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">45px</span> <span style="color: #66d9ef">solid</span> <span style="color: #66d9ef">transparent</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">border-right</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">45px</span> <span style="color: #66d9ef">solid</span> <span style="color: #66d9ef">transparent</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">border-bottom</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">25px</span> <span style="color: #66d9ef">solid</span> <span style="color: #ae81ff">#941012</span><span style="color: #f8f8f2">;</span>
+        <span style="color: #f8f8f2">}</span>
+        <span style="color: #a6e22e">.trp_hexagon:after</span> <span style="color: #f8f8f2">{</span>
+            <span style="color: #66d9ef">content</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;&quot;</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">absolute</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">bottom</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">-25px</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">left</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">border-left</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">45px</span> <span style="color: #66d9ef">solid</span> <span style="color: #66d9ef">transparent</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">border-right</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">45px</span> <span style="color: #66d9ef">solid</span> <span style="color: #66d9ef">transparent</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #66d9ef">border-top</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">25px</span> <span style="color: #66d9ef">solid</span> <span style="color: #ae81ff">#941012</span><span style="color: #f8f8f2">;</span>
+        <span style="color: #f8f8f2">}</span>
+		
+		
+		<span style="color: #a6e22e">.trp_octagon</span> <span style="color: #f8f8f2">{</span>
+			<span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">relative</span><span style="color: #f8f8f2">;</span>
+			<span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100px</span><span style="color: #f8f8f2">;</span><span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100px</span><span style="color: #f8f8f2">;</span>
+			<span style="color: #66d9ef">background</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#941012</span><span style="color: #f8f8f2">;</span><span style="color: #66d9ef">background</span><span style="color: #f92672">-</span><span style="color: #66d9ef">size</span><span style="color: #f92672">:</span><span style="color: #ae81ff">100px</span><span style="color: #f8f8f2">;</span> 
+		<span style="color: #f8f8f2">}</span>
+		<span style="color: #a6e22e">.trp_octagon:before</span> <span style="color: #f8f8f2">{</span>
+			<span style="color: #66d9ef">content</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;&quot;</span><span style="color: #f8f8f2">;</span><span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">absolute</span><span style="color: #f8f8f2">;</span><span style="color: #66d9ef">top</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span><span style="color: #66d9ef">left</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">42px</span><span style="color: #f8f8f2">;</span><span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+			<span style="color: #66d9ef">background</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#941012</span><span style="color: #f8f8f2">;</span><span style="color: #66d9ef">background</span><span style="color: #f92672">-</span><span style="color: #66d9ef">size</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100px</span> <span style="color: #66d9ef">auto</span><span style="color: #f8f8f2">;</span>
+			<span style="color: #66d9ef">border-bottom</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">29px</span> <span style="color: #66d9ef">solid</span> <span style="color: #66d9ef">transparent</span><span style="color: #f8f8f2">;</span>
+			<span style="color: #66d9ef">border-left</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">29px</span> <span style="color: #66d9ef">solid</span> <span style="color: #ae81ff">#fff</span><span style="color: #f8f8f2">;</span>
+			<span style="color: #66d9ef">border-right</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">29px</span> <span style="color: #66d9ef">solid</span> <span style="color: #ae81ff">#fff</span><span style="color: #f8f8f2">;</span>
+		<span style="color: #f8f8f2">}</span>
+		<span style="color: #a6e22e">.trp_octagon:after</span> <span style="color: #f8f8f2">{</span>
+			<span style="color: #66d9ef">content</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;&quot;</span><span style="color: #f8f8f2">;</span><span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">absolute</span><span style="color: #f8f8f2">;</span><span style="color: #66d9ef">bottom</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span><span style="color: #66d9ef">left</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">42px</span><span style="color: #f8f8f2">;</span><span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+			<span style="color: #66d9ef">background</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#941012</span><span style="color: #f8f8f2">;</span><span style="color: #66d9ef">background</span><span style="color: #f92672">-</span><span style="color: #66d9ef">size</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100px</span> <span style="color: #66d9ef">auto</span><span style="color: #f8f8f2">;</span>
+			<span style="color: #66d9ef">border-top</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">29px</span> <span style="color: #66d9ef">solid</span> <span style="color: #66d9ef">transparent</span><span style="color: #f8f8f2">;</span>
+			<span style="color: #66d9ef">border-left</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">29px</span> <span style="color: #66d9ef">solid</span> <span style="color: #ae81ff">#fff</span><span style="color: #f8f8f2">;</span>
+			<span style="color: #66d9ef">border-right</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">29px</span> <span style="color: #66d9ef">solid</span> <span style="color: #ae81ff">#fff</span><span style="color: #f8f8f2">;</span>
+		<span style="color: #f8f8f2">}</span>
+		
+		
+    <span style="color: #f92672">&lt;/style&gt;</span>
+</pre></td></tr></table></div>
+
+
+                                        
+                                                                                
+                    
+                    <!-- //소스 -->
+					</div>
+				</div>
+
+				
+
+
+<!-- ===HTML=== -->	
+				<div class="ex_wapper">
+				<h3 class="api-title_h3 html">HTML</h3>
+					<div class="api-body_h3 html">
+                    <!-- 소스 -->
+
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></td><td><pre style="margin: 0; line-height: 125%">    <span style="color: #f92672">&lt;ul</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;shape-list&quot;</span><span style="color: #f92672">&gt;</span>
+        <span style="color: #f92672">&lt;li&gt;&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;trp_circle&quot;</span><span style="color: #f92672">&gt;&lt;/div&gt;&lt;/li&gt;</span>
+        <span style="color: #f92672">&lt;li&gt;&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;trp_triangle-up&quot;</span><span style="color: #f92672">&gt;&lt;/div&gt;&lt;/li&gt;</span>
+        <span style="color: #f92672">&lt;li&gt;&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;trp_triangle-down&quot;</span><span style="color: #f92672">&gt;&lt;/div&gt;&lt;/li&gt;</span>
+        <span style="color: #f92672">&lt;li&gt;&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;trp_triangle-left&quot;</span><span style="color: #f92672">&gt;&lt;/div&gt;&lt;/li&gt;</span>
+        <span style="color: #f92672">&lt;li&gt;&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;trp_triangle-right&quot;</span><span style="color: #f92672">&gt;&lt;/div&gt;&lt;/li&gt;</span>
+        <span style="color: #f92672">&lt;li&gt;&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;trp_star-6&quot;</span><span style="color: #f92672">&gt;&lt;/div&gt;&lt;/li&gt;</span>
+        <span style="color: #f92672">&lt;li&gt;&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;trp_star-5&quot;</span><span style="color: #f92672">&gt;&lt;/div&gt;&lt;/li&gt;</span>
+        <span style="color: #f92672">&lt;li&gt;&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;trp_hexagon&quot;</span><span style="color: #f92672">&gt;&lt;/div&gt;&lt;/li&gt;</span>
+        <span style="color: #f92672">&lt;li&gt;&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;trp_octagon&quot;</span><span style="color: #f92672">&gt;&lt;/div&gt;&lt;/li&gt;</span>
+    <span style="color: #f92672">&lt;/ul&gt;</span>
+</pre></td></tr></table></div>
+
+
+
+
+
+                    <!-- //소스 -->
+					</div>
+				</div>
+
+
+
+
+
+		
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+		
+	
+		</div>		
+	<!-- e: 컨텐츠 끝 -->
+	<p class="cl-b"></p>
+</div>
+
+
+
+<script type="text/javascript">
+	$("#header").load("../../../head.html");
+	$("#lnb").load("../../../lnb.html");	
+
+
+	$(".ex-more a").click(function() {
+		$( this ).find("span").toggle();
+		$( this ).parent().siblings(".ex-body").slideToggle();
+		return false;
+	});
+
+</script>
+
+</body>
+</html>
+
+
+
+

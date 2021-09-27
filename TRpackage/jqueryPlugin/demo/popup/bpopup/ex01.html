@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>bPopup1</title>	
+  <style type="text/css">
+    .popup-wrap  { display:none; } 
+    .popup-wrap .trp_popup { position: relative; display: inline-block; *display:inline; zoom:1;    } 
+    .popup-wrap .trp_popup.option { /*top:50px;*/ width:600px; background:#fff; }
+    .popup-wrap .trp_popup .btn_x { position:absolute; top:15px; right:15px;  }
+    .popup-wrap .trp_popup .con { position:relative; clear: both; height: 220px; padding:10px; text-align: center; }	 
+    
+    </style>
+  <script src="http://code.jquery.com/jquery-1.12.1.min.js"></script>
+  <script type="text/javascript" src="../../../../asset/js/libs/bpopup/jquery.bpopup.min.js"></script>
+</head>
+<body>
+ 
+  <div id="wrapper" class="wrapper">
+    <p><a class="popupBtn" href="#">popup 1</a></p>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <p><a class="popupBtn" href="#">popup 2</a></p>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <p><a class="popupBtn" href="#">popup 3</a></p>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <p><a class="popupBtn" href="#">popup 4</a></p>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <p><a class="popupBtn" href="#">popup 5</a></p>
+  </div>	
+
+  <div id="popup-wrap_01" class="popup-wrap">
+    <div class="trp_popup option">
+      <div class="con">
+        <a class="btn_x js-popclose" href="#">X</a>			
+        팝업 내용
+      </div>
+    </div>
+  </div>	
+  <script type="text/javascript">
+  $(document).ready(function(){
+    
+    /* 팝업 열기 */
+    $('.popupBtn').on('click', function($e) {
+      $e.preventDefault();
+      $('#popup-wrap_01').bPopup();
+      setTimeout(function(){
+        console.log("변신")
+        $('#popup-wrap_01 .trp_popup.option').height(300);
+        $('#popup-wrap_01').bPopup().reposition( 1500);
+      },1500)
+    });  
+
+    /* 팝업 닫기 */
+    $('.js-popclose').on('click', function($e) {
+      $e.preventDefault();
+      $('#popup-wrap_01').bPopup().close();
+    });
+    
+    /* */
+    
+
+
+  });
+  </script>
+
+</body>
+</html>

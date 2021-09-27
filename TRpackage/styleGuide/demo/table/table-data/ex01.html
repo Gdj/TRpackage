@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+	<title>table-data-type1</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css"  href="../../../../asset/css/trpBase.css" media="all" />
+</head>
+
+<!-- 
+  <style type="text/css">
+
+    .trp.table-data-type1 { width:100%; border-top: 2px solid #000; text-align:center; table-layout: fixed; border-collapse: collapse;  }
+    .trp.table-data-type1 thead th, 
+    .trp.table-data-type1 tbody th, 
+    .trp.table-data-type1 tfoot th { height: 38px; padding: 4px 5px 3px 5px; border-bottom: 1px solid #d9d9d9; border-right: 1px solid #efefef; font-size: 13px; background-color: #cfcfcf  }
+    .trp.table-data-type1 thead th:last-child, 
+    .trp.table-data-type1 tbody th:last-child,
+    .trp.table-data-type1 tfoot th:last-child { border-right: 0; }
+    .trp.table-data-type1 tbody td { height: 35px; padding: 4px 5px 3px 5px; border-right: 1px solid #d5d5d5; border-bottom: 1px solid #d5d5d5; font-size: 13px; 
+      overflow: hidden;text-overflow: ellipsis;white-space: nowrap;word-wrap: normal;
+    }
+    .trp.table-data-type1 tbody td:first-child { text-align: left; }
+    .trp.table-data-type1 tbody td:last-child { border-right: 0;}
+    .trp.table-data-type1 tbody tr:nth-child(odd) td { background-color: #eee;}
+    .trp.table-data-type1 tbody td.tit { padding-left: 50px; text-align: left; }
+    .trp.table-data-type1 tbody td .txt-box { text-align: left; margin-left: 5px }
+    .trp.table-data-type1 tbody td .radio-box { text-align: left; margin-left: 5px }
+    .trp.table-data-type1 tbody td .txt-box { text-align: left; margin-right: 5px }
+    .trp.table-data-type1 .bd-r { border-right: 1px solid #d5d5d5; }
+    .trp.table-data-type1 .bd-l { border-left: 1px solid #d5d5d5; }
+    .trp.table-data-type1 .bd-t { border-top: 1px solid #d5d5d5; }
+    .trp.table-data-type1 .bd-b { border-bottom: 1px solid #d5d5d5; }
+    .trp.table-data-type1 .bd-rn { border-right: none; }
+    .trp.table-data-type1 .bd-ln { border-left: none; }
+    .trp.table-data-type1 .bd-tn { border-top: none; }
+    .trp.table-data-type1 .bd-bn { border-bottom: none; }
+
+  </style>
+-->
+
+<body>
+
+<table class="trp table-data-type1" cellpadding="0" cellspacing="0" summary="분기별 매출액 현황을 알려드립니다.">
+  <colgroup>
+    <col style="width:20%;">
+    <col style="width:20%;">
+    <col style="width:20%;">
+    <col style="width:20%;">
+    <col style="width:20%;">
+  </colgroup>
+  <thead>
+    <tr>
+      <th scope="col">구분</th>
+      <th scope="col">1/4분기</th>
+      <th scope="col">2/4분기</th>
+      <th scope="col">3/4분기</th>
+      <th scope="col" class="bd-rn">4/4분기</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">매출액</th>
+      <td>49,280</td>
+      <td>52,638</td>
+      <td>49,707</td>
+      <td class="bd-rn">-</td>
+    </tr>
+    <tr>
+      <th scope="row">매출액 누계</th>
+      <td>49,280</td>
+      <td>101,918</td>
+      <td>151,625</td>
+      <td class="bd-rn">-</td>
+    </tr>
+    <tr>
+      <th scope="row">2015년 매출액</th>
+      <td colspan="4" class="bd-rn">151,625</td>
+    </tr>
+  </tbody>
+</table>
+
+</body>
+</html>

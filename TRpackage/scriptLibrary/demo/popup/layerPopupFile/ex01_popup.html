@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>trpLayerPopupFile</title>
+	<style type="text/css">
+
+	.trp.popup-wrap  { display:block; position: absolute;  top: 0; left: 0; z-index: 9999; width: 100%; height: 100%; text-align: center;  } 
+	.trp.popup-wrap .trp_popup { display: inline-block; *display:inline; zoom:1; position: relative;   } 
+	.trp.popup-wrap .trp_popup.option {  top:50px; width:600px; background:#fff ; }
+	.trp.popup-wrap .trp_popup .btn_x { position:absolute; top:15px; right:15px;  }
+	.trp.popup-wrap .trp_popup .con { position:relative; clear: both; height: 220px; padding:10px; text-align: center; }	 
+	.trp.popup-wrap .popup-dim { position:absolute; top:0; left:0; width:100%; height:100%;  background: #000000; opacity: 0.7;  filter: alpha(opacity=70);  } 
+	
+	</style>
+</head>
+<body>
+	
+<div id="popup-wrap" class="trp popup-wrap">
+	<div class="popup-dim js-popclose"></div>	
+	<div class="trp_popup option">
+		<div class="con">
+			<a class="btn_x js-popclose" href="#">X</a>			
+			팝업 내용 load
+		</div>
+	</div>
+</div>			
+
+</body>
+</html>

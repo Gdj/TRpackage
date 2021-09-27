@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+	<title>trpGallery (auto play)</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />	
+	<link rel="stylesheet" href="./css/style.css"/>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+	<script src="../../../../asset/js/libs/trpGallery.js"></script>
+</head>
+
+<body>
+
+<div class="gallery_view" style="">
+	<div class="gallery_center">				
+		<div class="imgallery-wrapper">
+			<div class="item"><img src="./images/view_01.jpg" width="400" height="535"  alt="" /></div>
+			<div class="item"><img src="./images/view_01.jpg" width="400" height="535"  alt="" /></div>
+			<div class="item"><img src="./images/view_01.jpg" width="400" height="535"  alt="" /></div>
+			<div class="item"><img src="./images/view_01.jpg" width="400" height="535"  alt="" /></div>
+			<div class="item"><img src="./images/view_01.jpg" width="400" height="535"  alt="" /></div>
+			<div class="item"><img src="./images/view_01.jpg" width="400" height="535"  alt="" /></div>
+			<div class="item"><img src="./images/view_01.jpg" width="400" height="535"  alt="" /></div>
+			<div class="item"><img src="./images/view_01.jpg" width="400" height="535"  alt="" /></div>
+		</div>					
+	</div>	
+	<a href="#" class="prev">Prev</a>
+	<a href="#" class="next">Next</a>	
+	<div class="pagination">
+		<ul></ul>
+	</div>
+</div>
+
+<script type="text/javascript">
+	
+	
+		$(document).ready(function(){			
+			/*================  갤러리 생성 =================== #thumbNailView >  */					
+			var galeryMain 	= new trpGallery(".imgallery-wrapper"		,".imgallery-wrapper .item");
+			var _total= $(".imgallery-wrapper .item").length  ;			// 리스트 겟수
+			var _widthAll = _total*400;
+			var _aotoPlay = true;
+			$(".imgallery-wrapper").css({ width:_widthAll });
+			
+
+			for(var $i=0 ; $i<_total ; ++$i ){			
+				$(".pagination ul").prepend( "<li class='dots'><a href='#'></a></li>" );
+			}
+			$(".pagination ul li.dots").eq(0).addClass("on");
+			
+			/*================  화살 버튼  =================== */
+			$(".gallery_view .prev").on("click", function(){ 				
+				timerStart();
+				activeFn( (galeryMain.index -1)  );
+			})	
+			$(".gallery_view .next").on("click", function(){
+				timerStart();
+				activeFn( (galeryMain.index +1) );					
+			})
+
+			/*================  PlayPluse control 버튼  ===================
+			$("#paging .control a").click(function(){
+				if( _aotoPlay ){
+					$("#paging ul li.control").addClass("on");
+					timerStop();
+					_aotoPlay = false;
+				}else{			
+					$("#paging ul li.control").removeClass("on");
+					timerStart();
+					loofFn();
+					_aotoPlay = true;				
+				}
+			})	 */ 
+			/*================  dot 버튼  =================== */ 		
+			$( ".pagination ul" ).on( "click","a",function($e,$name){				
+				activeFn( $(this).parent().index() );				
+			})
+			
+			/*================  겔러리실행  =================== */ 
+			function activeFn($index){				
+				//galeryMain.motionLoop( $index );
+				galeryMain.motionEnd($index)
+				
+				$(".pagination ul li.dots").removeClass("on");
+				$(".pagination ul li.dots").eq(galeryMain.index).addClass("on");
+
+				_aotoPlay = true;				
+			}
+
+			/*================  타이머   =================== */
+			
+			var _count=0; 			// 인덱스
+			var _timerB=true;		// 타이머 체크
+			var _timer;				// 타이머		
+			
+			function timerStart(){					
+				if(!_timerB)return;
+				timerStop();
+				if(!_timer) _timer = setInterval( loofFn ,5000);
+			}
+			function timerStop(){
+				if(_timer){
+					clearInterval(_timer);
+					_timer = null;
+				}
+			}
+			function loofFn(){					
+				activeFn(galeryMain.index +1);
+			}
+
+			timerStart(); //타이머 시작
+				
+		}) // ready
+		
+	
+
+    </script>
+
+
+<!-- // wrap -->
+
+  
+
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>trpLayerPopup</title>
+<style type="text/css">
+		.popup{
+			width:300px;
+			height:200px;
+			background-color: #f00;
+			text-align: center;
+			line-height: 200px;	
+			z-index: 10;	
+		}
+
+		#popup_warp { position:absolute; top:0; left:0; display:none; width:100%; height:100% }
+	</style>
+<script src="http://code.jquery.com/jquery-1.12.1.min.js"></script>
+<!-- <script type="text/javascript" src="../../../../asset/js/libs/trpPopup.js"></script> -->
+<script type="text/javascript">
+/* =============== 아래 부터는 레이어 팝업 관련 ===============  */
+/**
+ * trpLayerPopup			: 레이어 팝업띄움
+ * @param $closeBtn		: 닫기버튼
+ * @param $popuptarget	: 레이어 팝업 타겟
+ * @method  alignCenter : 팝업 컨텐츠 중앙정열
+ * @method  bgDim		: 배경 어둡데 하기
+ */
+
+jQuery.fn.trpLayerPopup = function( $closeBtn, $popuptarget ){
+	var _this			= this;				// 팝업열기		버튼
+	var _closeBtn		= $closeBtn			// 팝업닫기		버튼
+	var _popuptarget	= $popuptarget;		// 팝업타겟		팝업
+	
+
+	var _alignCenterB = false;			// 중앙정열 옵션 여부
+	var _alignCenterD;
+	var _bgDimB		= false;			// 배경딘드 여부
+	var _bgDimD;						
+	if(!_popuptarget){
+		//console.log("not _popuptarget")
+		_popuptarget =  $(_this).attr('href');
+	} // 타겟값이 없다면 a태그로 인식해서 href적용
+
+	// 팝업 열기
+	$(_this).on('click',function(){		//console.log(">>>  : " + _popuptarget);
+		
+		var $self = this;
+		$(_popuptarget).show();
+
+		if(_alignCenterB){				// 중앙정렬			
+			$(_popuptarget).find(_alignCenterD.target).trpAlignCenter(_alignCenterD.width,_alignCenterD.height );
+			$(_popuptarget).find(_alignCenterD.target).attr('tabindex', '0').focus();		// 포커스 이동
+		}else{
+			$(_popuptarget).attr('tabindex', '0').focus();
+		}
+		if(_bgDimB)		 {				// 배경 딘드
+			$(window).on("resize",function(){
+				$(_bgDimD.target).trpBgDim(_bgDimD.opacity,_bgDimD.bgColor ) 				
+			})
+			$(_bgDimD.target).trpBgDim(_bgDimD.opacity,_bgDimD.bgColor ) 
+		}
+			//console.log("클릭")
+		
+		// 팝업 닫기
+		if( _closeBtn){
+			$(_popuptarget + " "+ _closeBtn).one('click',function(){
+				$(_popuptarget).hide();
+				$($self).focus();
+				return false;
+			});
+		}// 팝업 닫기/
+		
+
+		return false;
+		
+	})// 팝업 열기/ 
+
+	return { alignCenter: function($target, $width, $height){  
+			_alignCenterB = true;			
+			_alignCenterD ={ target:$target , width:$width, height:$height};			
+		},bgDim:function($target, $opacity, $bgColor){
+			_bgDimB = true;
+			_bgDimD ={ target:$target , opacity:$opacity, bgColor:$bgColor}
+		},getPopup:function(){
+			return _popuptarget; 
+		}
+	}; // return//
+	
+}// trpLayerPopup/
+
+
+/**
+ * trpAlignCenter	: 팝업중앙 띄우기
+ * @param $width	: 팝업창 가로크기
+ * @param $height	: 팝업창 세로크기
+ */
+jQuery.fn.trpAlignCenter = function($width, $height){
+	var _width,_height ,_x , _y;
+	_width  = ($width)?  $width  : $(this).outerWidth() ; 
+	_height = ($height)? $height : $(this).outerHeight();
+	$(this).css({'position':'absolute'});
+	_x = (( $( window ).width() - _width) /2 ) + $(window).scrollLeft();
+	_y = (( $( window ).height() - _height) /2 ) + $(window).scrollTop();
+
+	if (_x <=0 ) { _x=0 };
+	if (_y <=0 ) { _y=0 };
+	$(this).css("left", _x  );
+	$(this).css("top", _y  );	
+	//console.log(_x+" : "+_y);
+	return false;
+}
+
+/**
+ * trpBgDim			: 딤드 전체 영역, 투명도, 색상
+ * @param $opacity  : 투명도(0.3)
+ * @param $bgColor  : 배경색
+ */
+jQuery.fn.trpBgDim = function($opacity,$bgColor){
+	//console.log("re size")
+	var _docW,_docH, _opacityO , _opacityE, _bgColor;
+	_docW=$(document).width(); 		// dim 크기
+	_docH=$(document).height();		// dim 크기
+	_opacityO = ($opacity)? $opacity : 0.3 ;	// 투명도
+	_opacityE = _opacityO *100;					// ie 투명도
+	_bgColor  = ($bgColor)?  $bgColor : "#000000" ; // 색상
+	$(this).css({ "position":"absolute", top:0, left:0 ,"width":_docW, "height":_docH , opacity:_opacityO, "background-color": _bgColor ,
+		"-ms-filter":"progid:DXImageTransform.Microsoft.Alpha(Opacity="+ _opacityE +") !important", "filter": "alpha(opacity="+ _opacityE +") !important"
+	});	
+}
+
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+
+	var layerPopup = $(".popupBtn").trpLayerPopup(".closeX");
+	layerPopup.alignCenter(".popup");
+	layerPopup.bgDim(".dim");
+});
+
+</script>
+
+ 
+</head>
+<body>		
+		<p><a class="popupBtn" href="#popup_warp">popup 1</a></p>
+		<p><a class="popupBtn" href="#popup_warp">popup 2</a></p>
+		<p><a class="popupBtn" href="#popup_warp">popup 3</a></p>
+		<p><a class="popupBtn" href="#popup_warp">popup 4</a></p>
+		<p><a class="popupBtn" href="#popup_warp">popup 5</a></p>
+				
+		<div id="popup_warp">
+			<div class="dim"></div>
+			<div class="popup" ><a href="#" class="closeX">X 닫기</a></div>			
+		</div>
+
+</body>
+</html>

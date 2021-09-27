@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+	<title> zclip | TR package</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" ></script>
+	<script type="text/javascript" src="./js/jquery.zclip.js"></script>
+	<script type="text/javascript" src="./js/jquery.snippet.min.js"></script>
+</head>
+
+<body>
+
+	<textarea id="text-to-copy" cols="50" >./copy.html 파일내용이 클리보드에 저장됩니다. </textarea>
+	<br />
+	<button id="copy-button"  title="복사하기">복사하기</button> <br /><br />
+	
+	<textarea id="" cols="50" rows="30"  onfocus="this.value='';" ></textarea> 
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+
+
+	
+	// 클립보드 
+	function copyURL($btn, $url){ 
+		
+		var request = $.ajax({
+		  url: $url,
+		  method: "GET",			
+		  dataType: "html"
+		});
+		request.done(function( msg ) {			 
+		  var _data = msg ;
+		  $($btn).attr("data-clipboard-text", _data );
+			// 클립보드 선언
+
+
+				$("#copy-button").zclip({
+					path: "js/ZeroClipboard.swf",
+					copy: $( "#text-to-copy" ).attr("data-clipboard-text") ,
+					afterCopy:function(){ alert("복사 되었습니다.") }
+
+				});
+
+
+
+		});
+
+		// 실패했을경우
+		request.fail(function( jqXHR, textStatus ) {
+		  alert( jqXHR + ": Request failed: " + textStatus );
+		});		
+
+	}
+
+		
+	copyURL( "#text-to-copy" ,"./copy.html");	
+
+
+});
+</script>
+
+
+</body>
+</html>

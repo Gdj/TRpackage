@@ -1,0 +1,357 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+<title>trpTip | TR package</title>
+<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="../../../../asset/js/libs/trpMenu.js"></script>
+<link rel="stylesheet" href="../../../../asset/css/common.css" type="text/css" media="all" />
+
+
+</head>
+<body>
+  <div id="header" ></div>
+  <div id="container">
+	<div id="lnb" class="gnb"></div>
+	<!-- s: 컨텐츠 시작 -->
+	<div id="contents" class="contents">
+		<!-- s: 스크립드 설명 -->
+		<div class="desc_wapper">
+			<h1 class="desc_title">trpTip</h1>
+			<p>
+				툴팁 생성 : <br>
+				기본적으로 target의 중앙 하단에 생성되며, (좌,우) 가 넘어가면 각각 (좌,우)정렬 됨. <br>
+				하단영역이 없으면 target 상단에 생성.
+			</p>												
+		</div>
+		<!-- e: 스크립드 설명 -->
+	
+		<!-- s: api 설명 -->
+		<div class="api">
+			<h2 class="api-title">trpTip([options])</h2>
+			<div class="api-body">
+				<dl>
+					<dt>설명</dt>
+					<dd><span class="icon"></span>trpFrom.js 불러오면 trpTip, 를 사용할수 있습니다.</dd>
+					<dd><span class="icon"></span>&lt;script type="text/javascript" src="./js/libs/trpFrom.js"&gt;&lt;/script&gt;<br /> </dd>					
+				</dl>
+				<table class="table_col" summary="생성되는 options 설명">
+                  <caption>options 설명</caption>
+                  <colgroup>
+                      <col width="150">
+                      <col width="">		
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                        <th scope="col">options 이름</th>
+                        <th scope="col">options 설명</th>
+                    </tr>
+                    <tr>
+                        <td>tipArea</td>
+                        <td>툴팁 최상단 컨테이너</td>		
+                    </tr>
+                    <tr>
+                        <td>tipWrap</td>
+                        <td>툴팁 pop 선택자</td> 
+                    </tr>
+                  </tbody>
+				</table>				
+				
+                <table class="table_col" summary="생성되는 method 설명">
+                  <caption>method 설명</caption>
+                  <colgroup>
+                    <col width="150">
+                      <col width="">
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="col">method 이름</th>
+                      <th scope="col">method 설명</th>
+                    </tr>
+                    <tr>
+                      <td>open(this)</td>
+                      <td>
+                        툴팁이 열립니다. <br>
+                        this : 툴팁 대상
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>close()</td>
+                      <td>
+                        툴팁이 닫침니다. 
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>position(this)</td>
+                      <td>tooltip의 위치를 갱신합니다.
+                        <br> this : 툴팁 대상
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>resetEvent(this)</td>
+                      <td>
+                        mouseover, mouseout 이벤트를 삭제 합니다. br
+                        <br> this : 툴팁 대상
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+			
+		
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+
+		<!-- s: examples 예제 -->
+		<div class="ex_wapper">
+			<div class="section">
+				<h2 class="ex-title">예제) 1.기본 사용방법 </h2>
+				<p class="ex-more" ><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p>
+				<p class="ex-view" ><a href="ex01.html" target="_blank">View</a></p>
+				<div class="ex-body" style="display:none" >					
+					<div class="source"><!-- 소스 -->
+					
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!DOCTYPE html&gt;</span>
+<span style="color: #f92672">&lt;html</span> <span style="color: #a6e22e">lang=</span><span style="color: #e6db74">&quot;en&quot;</span><span style="color: #f92672">&gt;</span>
+<span style="color: #f92672">&lt;head&gt;</span>
+  <span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">charset=</span><span style="color: #e6db74">&quot;UTF-8&quot;</span><span style="color: #f92672">&gt;</span>
+  <span style="color: #f92672">&lt;title&gt;</span>trpTip | TR package<span style="color: #f92672">&lt;/title&gt;</span>
+  <span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;http://code.jquery.com/jquery-1.12.1.min.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+  <span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/trpFrom.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+  
+  <span style="color: #f92672">&lt;style&gt;</span>
+    <span style="color: #a6e22e">.mouseon-examples</span> <span style="color: #f92672">div</span> <span style="color: #f8f8f2">{</span>
+      <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#EEE</span><span style="color: #f8f8f2">;</span>
+      <span style="color: #66d9ef">text-align</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">center</span><span style="color: #f8f8f2">;</span>      
+      <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">10px</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #f8f8f2">}</span>
+    <span style="color: #a6e22e">.box1</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">50</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;}</span>
+    <span style="color: #a6e22e">.box2</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">300px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">absolute</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">top</span><span style="color: #f92672">:</span><span style="color: #ae81ff">200px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">right</span><span style="color: #f92672">:</span><span style="color: #ae81ff">50px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+    <span style="color: #a6e22e">.box3</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">30px</span><span style="color: #f8f8f2">;</span>  <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">absolute</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">top</span><span style="color: #f92672">:</span><span style="color: #ae81ff">400px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">left</span><span style="color: #f92672">:</span><span style="color: #ae81ff">800px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+    <span style="color: #a6e22e">.box4</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">200px</span><span style="color: #f8f8f2">;</span>  <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">absolute</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">top</span><span style="color: #f92672">:</span><span style="color: #ae81ff">500px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">left</span><span style="color: #f92672">:</span><span style="color: #ae81ff">100px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+    
+    
+    <span style="color: #75715e">/* 툴팁 데이터 */</span>
+    <span style="color: #a6e22e">.trp-tip_con</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">none</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">aquamarine;</span> <span style="color: #f8f8f2">}</span>
+    <span style="color: #a6e22e">.trp-tip-wrap</span> <span style="color: #a6e22e">.trp-tip_con</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">block</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span> 
+    
+    
+    <span style="color: #75715e">/* 툴팁 스타일 */</span>
+    <span style="color: #a6e22e">.trp-tip-wrap</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">none</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+    <span style="color: #a6e22e">.trp-tip-wrap</span> <span style="color: #a6e22e">.trp-tip</span> <span style="color: #f8f8f2">{</span>  <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">absolute</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">margin-top</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">10px</span><span style="color: #f8f8f2">;</span>
+      <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">10px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">cursor</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">default</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">box</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">sizing</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">border</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">box;</span>
+      <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#333</span><span style="color: #f8f8f2">;</span>
+      <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">rgba(</span><span style="color: #ae81ff">0</span><span style="color: #f92672">,</span> <span style="color: #ae81ff">0</span><span style="color: #f92672">,</span> <span style="color: #ae81ff">0</span><span style="color: #f92672">,</span> <span style="color: #ae81ff">0</span><span style="color: #f92672">.</span><span style="color: #ae81ff">7</span><span style="color: #f8f8f2">);</span>
+      <span style="color: #66d9ef">border</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">radius</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0px</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #f8f8f2">}</span>
+    <span style="color: #a6e22e">.trp-tip-wrap</span> <span style="color: #a6e22e">.trp-dot</span><span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">absolute</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">block</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">box</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">sizing</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">border</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">box;</span>
+      <span style="color: #66d9ef">border-top</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">none</span><span style="color: #f8f8f2">;</span>
+      <span style="color: #66d9ef">border-bottom</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">10px</span> <span style="color: #66d9ef">solid</span> <span style="color: #ae81ff">#333</span><span style="color: #f8f8f2">;</span>
+      <span style="color: #66d9ef">border-bottom</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">10px</span> <span style="color: #66d9ef">solid</span> <span style="color: #f8f8f2">rgba(</span><span style="color: #ae81ff">0</span><span style="color: #f92672">,</span> <span style="color: #ae81ff">0</span><span style="color: #f92672">,</span> <span style="color: #ae81ff">0</span><span style="color: #f92672">,</span> <span style="color: #ae81ff">0</span><span style="color: #f92672">.</span><span style="color: #ae81ff">7</span><span style="color: #f8f8f2">);</span>
+      <span style="color: #66d9ef">border-left</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">5px</span> <span style="color: #66d9ef">solid</span> <span style="color: #66d9ef">transparent</span><span style="color: #f8f8f2">;</span>
+      <span style="color: #66d9ef">border-right</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">5px</span> <span style="color: #66d9ef">solid</span> <span style="color: #66d9ef">transparent</span><span style="color: #f8f8f2">;</span>
+      <span style="color: #66d9ef">bottom</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">auto</span><span style="color: #f8f8f2">;</span>
+      <span style="color: #66d9ef">margin-left</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">-5px</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #f8f8f2">}</span>
+    <span style="color: #a6e22e">.trp-tip-wrap.up</span> <span style="color: #a6e22e">.trp-tip</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">margin-top</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">-10px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+    <span style="color: #a6e22e">.trp-tip-wrap.up</span> <span style="color: #a6e22e">.trp-dot</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">margin-top</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">-10px</span><span style="color: #f8f8f2">;</span>
+      <span style="color: #66d9ef">border-top</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">10px</span> <span style="color: #66d9ef">solid</span> <span style="color: #ae81ff">#333</span><span style="color: #f8f8f2">;</span>
+      <span style="color: #66d9ef">border-top</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">10px</span> <span style="color: #66d9ef">solid</span> <span style="color: #f8f8f2">rgba(</span><span style="color: #ae81ff">0</span><span style="color: #f92672">,</span> <span style="color: #ae81ff">0</span><span style="color: #f92672">,</span> <span style="color: #ae81ff">0</span><span style="color: #f92672">,</span> <span style="color: #ae81ff">0</span><span style="color: #f92672">.</span><span style="color: #ae81ff">7</span><span style="color: #f8f8f2">);;</span>
+      <span style="color: #66d9ef">border-bottom</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">none</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #f8f8f2">}</span>
+    <span style="color: #a6e22e">.trp-tip-wrap</span>  <span style="color: #a6e22e">.con</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">12px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">color</span><span style="color: #f92672">:</span><span style="color: #ae81ff">#fff</span><span style="color: #f8f8f2">;</span>
+      <span style="color: #f8f8f2">word</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">break</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">keep</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">all;</span>
+    <span style="color: #f8f8f2">}</span>
+  <span style="color: #f92672">&lt;/style&gt;</span>
+  
+<span style="color: #f92672">&lt;/head&gt;</span>
+<span style="color: #f92672">&lt;body&gt;</span>
+  
+  <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;mouseon-examples box1&quot;</span> <span style="color: #f92672">&gt;</span>
+    <span style="color: #f92672">&lt;div&gt;</span>
+      The PowerTip for this box will appear on the right and you will be able to interact with its content.
+    <span style="color: #f92672">&lt;/div&gt;</span>
+    <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;trp-tip_con&quot;</span><span style="color: #f92672">&gt;</span>
+      The PowerTip for this box will appear on the right and you will be able to interact with its content. <span style="color: #f92672">&lt;br&gt;</span>
+      The PowerTip for this box will appear on the right and you will be able to interact with its content.
+    <span style="color: #f92672">&lt;/div&gt;</span>
+  <span style="color: #f92672">&lt;/div&gt;</span>
+  
+  <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;mouseon-examples box2&quot;</span> <span style="color: #a6e22e">data-tip_dot=</span><span style="color: #e6db74">&quot;trp-center&quot;</span> <span style="color: #a6e22e">data-tip =</span><span style="color: #e6db74">&quot;The PowerTip for this box will appear on the right and you will be able to interact with its content&quot;</span><span style="color: #f92672">&gt;</span>
+    <span style="color: #f92672">&lt;div&gt;</span>
+      The PowerTip for this box will appear on the right and you will be able to interact with its content.
+    <span style="color: #f92672">&lt;/div&gt;</span>
+  <span style="color: #f92672">&lt;/div&gt;</span>  
+   
+  <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;mouseon-examples box3&quot;</span> <span style="color: #a6e22e">data-tip_dot=</span><span style="color: #e6db74">&quot;trp-center&quot;</span> <span style="color: #a6e22e">data-tip =</span><span style="color: #e6db74">&quot;The PowerTip for this box will appear on the right and you will be able to interact with its content&quot;</span><span style="color: #f92672">&gt;</span>
+    <span style="color: #f92672">&lt;div&gt;</span>
+      hi
+    <span style="color: #f92672">&lt;/div&gt;</span>
+  <span style="color: #f92672">&lt;/div&gt;</span>
+  
+  <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;mouseon-examples box4&quot;</span> <span style="color: #f92672">&gt;</span>
+    <span style="color: #f92672">&lt;div&gt;</span>
+      The PowerTip for this box will appear on the right and you will be able to interact with its content.
+    <span style="color: #f92672">&lt;/div&gt;</span>
+    <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;trp-tip_con&quot;</span><span style="color: #f92672">&gt;</span>
+      The PowerTip for this box will appear on the right and you will be able to interact with its content. <span style="color: #f92672">&lt;br&gt;</span>
+      The PowerTip for 
+    <span style="color: #f92672">&lt;/div&gt;</span>
+  <span style="color: #f92672">&lt;/div&gt;</span>
+  
+   
+  <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;trp-tip-wrap&quot;</span><span style="color: #f92672">&gt;</span>
+    <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;trp-tip&quot;</span><span style="color: #f92672">&gt;</span>
+      <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;con&quot;</span><span style="color: #f92672">&gt;&lt;/div&gt;</span>
+    <span style="color: #f92672">&lt;/div&gt;</span>
+    <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;trp-dot&quot;</span><span style="color: #f92672">&gt;&lt;/div&gt;</span>
+  <span style="color: #f92672">&lt;/div&gt;</span>
+  
+  <span style="color: #f92672">&lt;script&gt;</span>
+    <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.mouseon-examples&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">trpTip</span><span style="color: #f8f8f2">();</span>
+  <span style="color: #f92672">&lt;/script&gt;</span>
+  
+<span style="color: #f92672">&lt;/body&gt;</span>
+<span style="color: #f92672">&lt;/html&gt;</span>
+</pre></td></tr></table></div>
+        
+        
+        
+
+				
+					</div><!--// 소스 -->
+                </div>
+			</div>			
+		</div>
+		<!-- e: examples 예제 -->
+
+				
+
+	</div>
+	<!-- e: 컨텐츠 끝 -->
+</div>
+
+
+
+<script type="text/javascript">
+	$("#header").load("../../../head.html");
+	$("#lnb").load("../../../lnb.html");	
+
+	$(".ex-more a").click(function() {
+		$( this ).find("span").toggle();
+		$( this ).parent().siblings(".ex-body").slideToggle();
+		return false;
+	});
+
+	$(".icon-more a").click(function() {
+		$( this ).find("span").toggle();
+		$( this ).parent().siblings(".ex-body").slideToggle();
+		return false;
+	});
+</script>
+
+</body>
+</html>

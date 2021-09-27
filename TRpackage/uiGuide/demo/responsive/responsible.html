@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>TR package U.I 표준 프레임워크 ver.1.0 </title>
+<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.js" charset="UTF-8"></script>
+<link rel="stylesheet" href="../../../asset/css/common.css" type="text/css" media="all" />
+</head>
+
+<body>
+	<div id="header" class="head" ></div>
+	<div id="container">
+		<div id="lnb" class="gnb"></div>
+		
+		<!-- s:컨텐츠영역 -->
+		<div id="contents"  class="contents id_css">
+			<h1>반응형웹</h1>
+			<ul class="list">
+				<li>	
+				모바일 기기의 다양한 스크린 크기에 맞춰서 출력하도록 설정 하는 것이며 다양한 크기의 웹사이트 지원을 위해 유동적인 CSS 적용 및 media query를 사용한다
+				1. 가변그리드 
+				- 폰트 가변 공식  	: target(픽셀크기) / context(상대적인 크기px) = result(em)
+				- 레이아웃 가변공식 : target(픽셀크기) / context(상대적인 크기px) = result * 100 (%) 	
+				2. 가변 이미지
+				- 이미지 가변 : max-width:100%; (img,embed,object,video 컨테이넓이에 벗어나지 않음)
+				- max-width:100% ie6 이하버전 대응 css : img.full{ width:100% }
+				3. 미디어 쿼리
+				- ie8 이하 브라우저 대응
+				가벼운js(max-width,min-width) => respond.js https://github.com/scottjehl/Respond	
+
+				<미디어쿼리 적용방법>	
+				- css 문서 포함
+				(가로크기가 768px 보다 작을때)
+				@media screen and (max-width:768px){
+					/*  가로크기가  768px 보다 작을때  */
+				}
+				- css 파일 로드 
+				(가로크기가 768px 보다 클때)
+
+				media="screen and (min-width : 768px)
+				- css 임포트  
+				(가로크기가 768px 보다 클때)
+				@import url(“style.css”) screen and (min-width:768px);
+
+
+				4. 뷰포트 설정			
+				meta name="viewport" content="width=device-width; initial-scale=1.0"
+
+				</li>
+		</div>
+	<!-- e:컨텐츠영역 -->
+		
+	</div>
+	
+	
+
+<script type="text/javascript">
+	$("#header").load("../../head.html")	  	
+	$("#lnb").load("../../html_list.html")
+</script>
+
+
+
+</body>
+</html>

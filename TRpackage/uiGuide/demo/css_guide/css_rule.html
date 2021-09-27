@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>TR package U.I 표준 프레임워크 ver.1.0 </title>
+<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.js" charset="UTF-8"></script>
+<link rel="stylesheet" href="../../../asset/css/common.css" type="text/css" media="all" />
+</head>
+
+<body>
+	<div id="header" class="head" ></div>
+	<div id="container">
+		<div id="lnb" class="gnb"></div>
+		
+		<!-- s:컨텐츠영역 -->
+		<div id="contents"  class="contents id_css">
+			<h1 class="h1_tit"><span>CSS 가이드</span></h1>
+			<div class="con_comm">
+				<h2 class="h2_tit">기본 규칙</h2>
+				<p class="con_list">css 데이터를 로딩할 경우 @import 방식은 사용하지 않는다. (일부 브라우저에서 이미지 로딩 후 적용되기 때문에)</p>
+				<p class="con_list">external 방식에서는 charset을 표기한다.</p>
+				<p class="ex_list"><xmp>@charset "utf-8"</xmp></p>
+			</div>
+			<div class="con_comm">
+				<h3 class="h3_tit">속성 선언 순서</h3>
+				<table class="table_col" summary="css 속성 선언 순서를 정의합니다.">
+					<caption>css 속성 선언 순서</caption>
+					<colgroup>
+						<col width="40" />
+						<col width="80" />
+						<col width="140" />
+						<col width="" />
+					</colgroup>
+					<thead>
+						<tr>
+							<th scope="col">순서</th>
+							<th scope="col">의미</th>
+							<th scope="col">대표되는 속성</th>
+							<th scope="col">관련 속성</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="txtc">1</td>
+							<td class="txtc">흐름</td>
+							<td>float</td>
+							<td>float, clear</td>
+						</tr>
+						<tr>
+							<td class="txtc">2</td>
+							<td class="txtc">표시</td>
+							<td>display</td>
+							<td>visibility, (width, height, margin, padding)</td>
+						</tr>
+						<tr>
+							<td class="txtc">3</td>
+							<td class="txtc">위치</td>
+							<td>position</td>
+							<td>position, (top &amp; bottom), (left &amp; right)</td>
+						</tr>
+						<tr>
+							<td class="txtc">4</td>
+							<td class="txtc">내용</td>
+							<td>font</td>
+							<td>line-height, vertical-align, text-align, text-indent, font-weight, font-size, color, letter-spacing, text-decoration, white-space 등</td>
+						</tr>
+						<tr>
+							<td class="txtc">5</td>
+							<td class="txtc">넘침</td>
+							<td>overflow</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td class="txtc">6</td>
+							<td class="txtc">배경</td>
+							<td>background</td>
+							<td>-</td>
+						</tr>
+						<tr>
+							<td class="txtc">7</td>
+							<td class="txtc">테두리</td>
+							<td>border</td>
+							<td>-</td>
+						</tr>	
+						<tr>
+							<td class="txtc">8</td>
+							<td class="txtc">기타</td>
+							<td>-</td>
+							<td>z-index, *zoom</td>
+						</tr>
+					</tbody>
+				</table>
+				<p class="blt_con">순서 { 흐름; 표시; 크기; 간격; 위치; 내용; 넘침; 배경; 테두리; 기타; } </p>
+				<p class="blt_con">예제
+				<xmp> { float:left; display:block; width:500px; height:50px; margin:0; padding:0; line-height:0px; </xmp><br />
+				<xmp> text-align:center; text-indent:0px; font-weight:bold; font-size:12px; color:#ddd; letter-spacing:-1px;  overflow:hidden; </xmp><br />
+				<xmp> white-space:nowrap; background:url('../images/icon.gif') no-repeat center top; border:1px solid #eee; </xmp><br />
+				<xmp> position:absolute; top:0; left:0; border-top:1px solid #ccc; z-index:10; *zoom:1; } </xmp></p>
+			</div>
+		</div>
+	<!-- e:컨텐츠영역 -->
+		
+	</div>
+	
+	
+
+<script type="text/javascript">
+	$("#header").load("../../head.html")	  	
+	$("#lnb").load("../../html_list.html")
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>homepage</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+<script language="JavaScript">
+<!--
+function notice_getcookie( name ){
+    var nameOfcookie = name + "=";
+    var x = 0;
+    while ( x <= document.cookie.length )
+    {
+            var y = (x+nameOfcookie.length);
+            if ( document.cookie.substring( x, y ) == nameOfcookie ) {
+                    if ( (endOfcookie=document.cookie.indexOf( ";", y )) == -1 )
+                            endOfcookie = document.cookie.length;
+                    return unescape( document.cookie.substring( y, endOfcookie ) );
+            }
+            x = document.cookie.indexOf( " ", x ) + 1;
+            if ( x == 0 )
+                    break;
+    }
+    return "";
+}
+if ( notice_getcookie( "Notice" ) != "done" )
+{
+        window.open('main_popup.html','','width=500,height=300,top=30,left=100'); // 팝업윈도우의 경로와 크기
+}
+// -->
+</script>
+</head>
+<body>
+</body>
+</html>

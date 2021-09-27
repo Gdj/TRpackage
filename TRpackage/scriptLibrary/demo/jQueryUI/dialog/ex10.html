@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>position demo</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+  <style>
+  #targetElement { border:1px solid red;}
+  .positionDiv {
+    position: absolute;
+    width: 75px;
+    height: 75px;
+    background: green;
+  }
+  </style>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" ></script>
+  <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+</head>
+<body>
+ 
+<div id="targetElement">
+  <div class="positionDiv" id="position1">1</div>
+  <div class="positionDiv" id="position2">2</div>
+  <div class="positionDiv" id="position3">3</div>
+  <div class="positionDiv" id="position4">4</div>
+</div>
+ 
+<script>
+$( "#position1" ).position({
+  my: "center",
+  at: "center",
+  of: "#targetElement"
+});
+ 
+$( "#position2" ).position({
+  my: "left top",
+  at: "left top",
+  of: "#targetElement"
+});
+ 
+$( "#position3" ).position({
+  my: "right center",
+  at: "right bottom",
+  of: "#targetElement"
+});
+ 
+$( document ).mousemove(function( event ) {
+  $( "#position4" ).position({
+    my: "left+3 bottom-3",
+    of: event,
+    collision: "fit"
+  });
+});
+</script>
+ 
+</body>
+</html>

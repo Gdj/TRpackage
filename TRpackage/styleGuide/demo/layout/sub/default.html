@@ -1,0 +1,239 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+<title>sub layout</title>
+<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.js" charset="UTF-8"></script>
+<link rel="stylesheet" type="text/css"  href="../../../../asset/css/trpBase.css" media="all" />
+<link rel="stylesheet" type="text/css"  href="../../../../asset/css/common.css" media="all" />
+
+<!--
+<style type="text/css">
+
+#wrap { width:100%;}
+#wrap #header { padding:0px; }
+#wrap #container { padding:0px;  overflow:auto; }
+#wrap .section-warp #nav { width:180px; margin-right:20px; float:left; }
+#wrap .section-warp #content  { float:left; width:800px; }
+#wrap #footer {  clear:both; padding:0px; }
+.section-warp { width:1000px; margin:0 auto; }
+
+</style>
+-->
+
+</head>
+<body>
+  <div id="header" ></div>
+  <div id="container">
+	<div id="lnb" class="gnb"></div>
+	<!-- s: 컨텐츠 시작 -->
+	<div id="contents" class="contents">
+		<!-- s: css 설명
+		<div class="desc_wapper">
+			<h1 class="desc_title">list</h1>
+			<p>목록에 대한 정의입니다.</p>
+		</div>
+		 -->
+		<!-- e: css 설명 -->
+	
+
+		<!-- s: api 설명 -->
+		<div class="api">
+			<h2 class="api-title">sub layout</h2>
+			<div class="api-body">
+				<dl>
+					<dt>설명</dt>					
+					<dd><span class="icon"></span>서브 레이아웃을 잡을 때 기본골격 코딩 가이드</dd>
+					<dd><span class="icon"></span>메인 가이드에서 컨텐츠 부분을 lnb 영역과 컨텐츠부분 으로 분리</dd>
+				</dl>
+				
+
+
+				<div class="ex_wapper">
+					<h3 class="api-title_h3">VIEW</h3>
+					<p class="ex-more"><a href="javascript:return false;"><span class="d-n">+</span><span style="display: inline;">-</span></a></p>
+					<p class="ex-view"><a href="ex01.html" target="_blank">View Sample</a></p>
+					<div class="ex-body d-n" >
+
+
+
+	<div id="wrap">
+
+		<div id="header" style="  ">
+			<div class="section-warp" style="background:#ff6600; text-align:center;">
+				<h1>Gnb</h1>
+			</div>
+		</div>
+		
+		<div id="container" class="section-warp" >
+			<div id="nav" class="" style="background:#ffcc33">
+				lnb <br /> lnb <br />
+			</div>
+
+			<div id="content" >
+				컨텐츠 <br />
+				컨텐츠 <br />
+				컨텐츠 <br />
+				컨텐츠 <br />
+				컨텐츠 <br />
+				컨텐츠 <br />
+				컨텐츠 <br />
+				컨텐츠 <br />
+			</div>
+		</div>
+
+		<div id="footer" style="">
+			<div class="section-warp" style="background:#999999; text-align:center;" >
+			Copyright © trPackage
+			</div>
+		</div>
+
+	</div>
+
+
+
+
+					</div>
+				</div>
+				
+
+				<div class="ex_wapper">
+					<h3 class="api-title_h3 css">CSS</h3>
+					<div class="api-body_h3 css">
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #f92672">&lt;style </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/css&quot;</span><span style="color: #f92672">&gt;</span>
+
+<span style="color: #a6e22e">#wrap</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;}</span>
+<span style="color: #a6e22e">#wrap</span> <span style="color: #a6e22e">#header</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+<span style="color: #a6e22e">#wrap</span> <span style="color: #a6e22e">#container</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0px</span><span style="color: #f8f8f2">;</span>  <span style="color: #66d9ef">overflow</span><span style="color: #f92672">:</span><span style="color: #66d9ef">auto</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+<span style="color: #a6e22e">#wrap</span> <span style="color: #a6e22e">.section-warp</span> <span style="color: #a6e22e">#nav</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">180px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">margin-right</span><span style="color: #f92672">:</span><span style="color: #ae81ff">20px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">float</span><span style="color: #f92672">:</span><span style="color: #66d9ef">left</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+<span style="color: #a6e22e">#wrap</span> <span style="color: #a6e22e">.section-warp</span> <span style="color: #a6e22e">#content</span>  <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">float</span><span style="color: #f92672">:</span><span style="color: #66d9ef">left</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">800px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+<span style="color: #a6e22e">#wrap</span> <span style="color: #a6e22e">#footer</span> <span style="color: #f8f8f2">{</span>  <span style="color: #66d9ef">clear</span><span style="color: #f92672">:</span><span style="color: #66d9ef">both</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+<span style="color: #a6e22e">.section-warp</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">1000px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">margin</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span> <span style="color: #66d9ef">auto</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+
+<span style="color: #f92672">&lt;/style&gt;</span>
+</pre></td></tr></table></div>
+
+
+
+					</div>
+				</div>
+
+
+
+				<div class="ex_wapper">
+				<h3 class="api-title_h3 html">HTML</h3>
+					<div class="api-body_h3 html">
+
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;wrap&quot;</span><span style="color: #f92672">&gt;</span>
+
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;header&quot;</span> <span style="color: #a6e22e">style=</span><span style="color: #e6db74">&quot;  &quot;</span><span style="color: #f92672">&gt;</span>
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;section-warp&quot;</span> <span style="color: #a6e22e">style=</span><span style="color: #e6db74">&quot;background:#ff6600; text-align:center;&quot;</span><span style="color: #f92672">&gt;</span>
+			<span style="color: #f92672">&lt;h1&gt;</span>Gnb<span style="color: #f92672">&lt;/h1&gt;</span>
+		<span style="color: #f92672">&lt;/div&gt;</span>
+	<span style="color: #f92672">&lt;/div&gt;</span>
+	
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;container&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;section-warp&quot;</span> <span style="color: #f92672">&gt;</span>
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;nav&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #a6e22e">style=</span><span style="color: #e6db74">&quot;background:#ffcc33&quot;</span><span style="color: #f92672">&gt;</span>
+			lnb <span style="color: #f92672">&lt;br</span> <span style="color: #f92672">/&gt;</span> lnb <span style="color: #f92672">&lt;br</span> <span style="color: #f92672">/&gt;</span>
+		<span style="color: #f92672">&lt;/div&gt;</span>
+
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;content&quot;</span> <span style="color: #f92672">&gt;</span>
+			컨텐츠 <span style="color: #f92672">&lt;br</span> <span style="color: #f92672">/&gt;</span>
+			컨텐츠 <span style="color: #f92672">&lt;br</span> <span style="color: #f92672">/&gt;</span>
+			컨텐츠 <span style="color: #f92672">&lt;br</span> <span style="color: #f92672">/&gt;</span>
+			컨텐츠 <span style="color: #f92672">&lt;br</span> <span style="color: #f92672">/&gt;</span>
+			컨텐츠 <span style="color: #f92672">&lt;br</span> <span style="color: #f92672">/&gt;</span>
+			컨텐츠 <span style="color: #f92672">&lt;br</span> <span style="color: #f92672">/&gt;</span>
+			컨텐츠 <span style="color: #f92672">&lt;br</span> <span style="color: #f92672">/&gt;</span>
+			컨텐츠 <span style="color: #f92672">&lt;br</span> <span style="color: #f92672">/&gt;</span>
+		<span style="color: #f92672">&lt;/div&gt;</span>
+	<span style="color: #f92672">&lt;/div&gt;</span>
+
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;footer&quot;</span> <span style="color: #a6e22e">style=</span><span style="color: #e6db74">&quot;&quot;</span><span style="color: #f92672">&gt;</span>
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;section-warp&quot;</span> <span style="color: #a6e22e">style=</span><span style="color: #e6db74">&quot;background:#999999; text-align:center;&quot;</span> <span style="color: #f92672">&gt;</span>
+		Copyright © trPackage
+		<span style="color: #f92672">&lt;/div&gt;</span>
+	<span style="color: #f92672">&lt;/div&gt;</span>
+
+<span style="color: #f92672">&lt;/div&gt;</span>
+</pre></td></tr></table></div>
+
+
+
+
+					</div>
+				</div>
+					
+		
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+		
+	
+		</div>		
+	<!-- e: 컨텐츠 끝 -->
+	<p class="cl-b"></p>
+</div>
+
+
+
+<script type="text/javascript">
+	$("#header").load("../../../head.html");
+	$("#lnb").load("../../../lnb.html");	
+
+
+	$(".ex-more a").click(function() {
+		$( this ).find("span").toggle();
+		$( this ).parent().siblings(".ex-body").slideToggle();
+		return false;
+	});
+
+</script>
+
+</body>
+</html>

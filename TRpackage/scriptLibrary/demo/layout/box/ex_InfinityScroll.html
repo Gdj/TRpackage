@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" id="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0">
+  <title>무한 스크롤</title>
+  <style type="text/css">
+	button {  font-size: 20px; display: inline-block; background: #A2C; border: none; padding: 0.5em 0.8em; color: white; text-shadow: 0 1px  hsla(0, 0%, 0%, 0.3); cursor: pointer; border-radius: 7px; }
+	
+	.list_wrap li { height:30px; padding-top:15px;  font-size:20px;  border-bottom:1px solid #ccc; }
+
+  </style>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" ></script>
+	<script type="text/javascript">
+			$(document).ready(function(){
+					
+					// 스크롤 이벤트
+					$(window).on("scroll",function(){
+							var scrollHeight = $(window).scrollTop() + $(window).height();
+							var documentHeight = $(document).height();
+							if(scrollHeight == documentHeight ){
+									removeItem();			// 지우기
+									addItems();				// 생성하기			
+							}			
+					
+					})		
+					
+					addItems();addItems();addItems();addItems();addItems();
+
+
+			})
+
+					// 추가 하기
+					var _total = 0 //$(".list_wrap li").length;
+					var _listNum = 0;
+					function addItems (){				//console.log("add")
+							var temp =  _listNum;
+							for(var i=1 ; i <= 10; i++){
+								_listNum = i+temp;
+								$(".list_wrap").append("<li>list "+ ( _listNum )  +"</li> ");								
+							}
+
+								var scrollHeight = $(window).scrollTop();				
+								var target_top = scrollHeight-5 ;								
+								$("html, body").animate({  scrollTop :	 target_top  } , { duration: 0} );								
+					}
+
+					// 삭제 하기
+					function removeItem(){			
+							_total = $(".list_wrap li").length;
+							if(_total > 100)	{				//console.log("remove")
+								for(var i=0 ; i < 10; i++){
+									 $(".list_wrap li").eq(0).remove();								
+								}
+								
+							}
+					}
+	</script>
+ </head>
+ <body>
+	<button id="addItems-button" class="button" onclick="addItems();">addItems 10</button>
+	<ul class="list_wrap">
+
+	</ul>
+  
+ </body>
+</html>

@@ -1,0 +1,51 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+ <head>
+  <title> jQuery UI button </title>
+  <!-- 
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+  -->	
+
+	<link rel="stylesheet" href="../../../../asset/js/libs/jquery-ui-1.10.4.custom/themes/base/jquery.ui.all.css">
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" ></script>
+	<script src="../../../../asset/js/libs/jquery-ui-1.10.4.custom/ui/jquery.ui.core.js"></script>
+	<script src="../../../../asset/js/libs/jquery-ui-1.10.4.custom/ui/jquery.ui.widget.js"></script>
+	<script src="../../../../asset/js/libs/jquery-ui-1.10.4.custom/ui/jquery.ui.button.js"></script>
+
+	<style type="text/css">
+	/* 공통 스타일 */		
+	body {	font-size: 62.5%; 	font-family: "Trebuchet MS", "Arial", "Helvetica", "Verdana", "sans-serif"; 	}
+	table {	font-size: 1em; }
+	.demo-description {	clear: both; padding: 12px; font-size: 1.3em; line-height: 1.4em; }
+	.ui-draggable, .ui-droppable {	background-position: top;	}
+	
+	/* 페이지 스타일*/
+	#format { margin-top: 2em; }	
+	</style>
+
+	<script type="text/javascript">
+	  $(function() {
+		$( "#check_1" ).button({ disabled: true });
+
+		$( "#check_2" ).button({ icons: { primary: "ui-icon-gear" , secondary: "ui-icon-triangle-1-s" } });
+		
+		
+	  });
+	</script>
+
+</head>
+<body>
+ 
+<input type="checkbox" id="check_1"><label for="check_1">Toggle</label>
+
+<input type="checkbox" id="check_2"><label for="check_2">Toggle</label>
+ 
+
+
+ </body>
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+<title>ezMark jQuery Plugin | TR package</title>
+<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="../../../../asset/js/libs/trpMenu.js"></script>
+<link rel="stylesheet" href="../../../../asset/css/common.css" type="text/css" media="all" />
+</head>
+<body>
+  <div id="header" ></div>
+  <div id="container">
+	<div id="lnb" class="gnb"></div>
+	<!-- s: 컨텐츠 시작 -->
+	<div id="contents" class="contents">
+		<!-- s: 스크립드 설명 -->
+		<div class="desc_wapper">
+			<h1 class="desc_title">ezMark</h1>
+			<p>
+				ezMark을 이용하여 체크박스, 라디오버튼을 이미지로 변경할수있다. <br />
+				link : <a href="https://github.com/itsalif/ezMark" target="_self">ezMark jQuery Plugin(GitHub)</a>
+			</p>												
+		</div>
+		<!-- e: 스크립드 설명 -->
+	
+		<!-- s: api 설명 -->
+		<div class="api">
+			<h2 class="api-title">.ezMark( { option } )</h2>
+			<div class="api-body">
+				<dl>
+					<dt>설명</dt>
+					<dd><span class="icon"></span>기본 위치값은 CSS 에서 설정해야합니다.</dd>
+					<dd><span class="icon"></span>버튼 옵션 정의</dd>					
+					<dd><span class="icon"></span>image : <a href="../../../../asset/js/libs/ezMark-master/images/checkbox-chrome.png" target="_blank">아이콘다운로드</a></dd>	
+					<dd><span class="icon"></span>js : <a href="../../../../asset/js/libs/ezMark-master/js/jquery.ezmark.js" target="_blank">jquery.ezmark.js 다운로드</a></dd>			
+					
+				</dl>
+				<table class="table_col" summary="button속성, 메소드">
+					<caption>button 설명</caption>
+					<colgroup>
+						<col width="150">
+						<col width="">		
+					</colgroup>
+					<tbody>
+					<tr>
+						<th scope="col">매개변수</th>
+						<th scope="col">매개변수 설명</th>
+					</tr>
+					<tr>
+						<td>checkboxCls</td>
+						<td>체크박스 기본 스타일</td>		
+					</tr>
+					<tr>
+						<td>checkedCls</td>
+						<td>체크박스 활성화 스타일</td>		
+					</tr>
+					<tr>
+						<td>radioCls</td>
+						<td>라디오버튼 기본 스타일</td>		
+					</tr>
+					<tr>
+						<td>selectedCls</td>
+						<td>라디오버튼 활성화 스타일</td>		
+					</tr>
+
+					</tbody>
+				</table>
+				<!--
+				<h3>preview</h3>
+				<div class="preview">
+					
+					<iframe src="ex1.html" frameborder="0" width="100%"></iframe>
+				</div>
+				-->
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+
+		<!-- s: examples 예제 -->
+		<div class="ex_wapper">
+			<div class="section">
+				<h2 class="ex-title">예제) 1.기본사용법 </h2>
+				<p class="ex-more" ><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p>
+				<p class="ex-view" ><a href="ex01.html" target="_blank">View</a></p>
+				<div class="ex-body" style="display:none" >					
+					<div class="source"><!-- 소스 -->
+					
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</span>
+<span style="color: #f92672">&lt;html</span> <span style="color: #a6e22e">xmlns=</span><span style="color: #e6db74">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span style="color: #a6e22e">lang=</span><span style="color: #e6db74">&quot;ko&quot;</span> <span style="color: #a6e22e">xml:lang=</span><span style="color: #e6db74">&quot;ko&quot;</span><span style="color: #f92672">&gt;</span>
+<span style="color: #f92672">&lt;head&gt;</span>
+<span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">http-equiv=</span><span style="color: #e6db74">&quot;Content-Type&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;text/html;charset=utf-8&quot;</span> <span style="color: #f92672">/&gt;</span> 
+ <span style="color: #f92672">&lt;head&gt;</span>
+  <span style="color: #f92672">&lt;title&gt;</span>ezMark jQuery Plugin<span style="color: #f92672">&lt;/title&gt;</span>
+    
+    <span style="color: #f92672">&lt;link</span> <span style="color: #a6e22e">rel=</span><span style="color: #e6db74">&quot;stylesheet&quot;</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/ezMark-master/css/ezmark.css&quot;</span> <span style="color: #a6e22e">media=</span><span style="color: #e6db74">&quot;all&quot;</span><span style="color: #f92672">&gt;</span>
+    <span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;//code.jquery.com/jquery-1.12.1.min.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+    <span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/ezMark-master/js/jquery.ezmark.js&quot;</span> <span style="color: #f92672">&gt;&lt;/script&gt;</span>
+
+    <span style="color: #f92672">&lt;style </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/css&quot;</span><span style="color: #f92672">&gt;</span>
+    <span style="color: #75715e">/* 공통 스타일 */</span>        
+    <span style="color: #f92672">body</span> <span style="color: #f8f8f2">{</span>  <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">62</span><span style="color: #f92672">.</span><span style="color: #ae81ff">5</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span>   <span style="color: #66d9ef">font-family</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;Trebuchet MS&quot;</span><span style="color: #f92672">,</span> <span style="color: #e6db74">&quot;Arial&quot;</span><span style="color: #f92672">,</span> <span style="color: #e6db74">&quot;Helvetica&quot;</span><span style="color: #f92672">,</span> <span style="color: #e6db74">&quot;Verdana&quot;</span><span style="color: #f92672">,</span> <span style="color: #e6db74">&quot;sans-serif&quot;</span><span style="color: #f8f8f2">;</span>     <span style="color: #f8f8f2">}</span>
+    <span style="color: #f92672">form</span> <span style="color: #f8f8f2">{</span>  <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">1.2em</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+    
+    <span style="color: #75715e">/* 스타일 */</span>
+    <span style="color: #a6e22e">.ez-checkbox-chrome</span> <span style="color: #f8f8f2">{</span>
+        <span style="color: #66d9ef">background</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">transparent</span> <span style="color: #e6db74">url(&#39;../../../../asset/js/libs/ezMark-master/images/checkbox-chrome.png&#39;)</span> <span style="color: #ae81ff">0</span> <span style="color: #ae81ff">2px</span> <span style="color: #66d9ef">no-repeat</span><span style="color: #f8f8f2">;</span>
+        <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">inline</span><span style="color: #f92672">-</span><span style="color: #66d9ef">block</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #f8f8f2">}</span>
+    <span style="color: #a6e22e">.ez-checked-chrome</span> <span style="color: #f8f8f2">{</span>
+        <span style="color: #66d9ef">background-position</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span> <span style="color: #ae81ff">-17px</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #f8f8f2">}</span>
+    <span style="color: #f92672">&lt;/style&gt;</span>
+
+    <span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span><span style="color: #f92672">&gt;</span>
+    <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
+        <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;.defaultP input&#39;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">ezMark</span><span style="color: #f8f8f2">();</span>
+        <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;.customP input[type=&quot;checkbox&quot;]&#39;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">ezMark</span><span style="color: #f8f8f2">({</span><span style="color: #a6e22e">checkboxCls</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;ez-checkbox-chrome&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">checkedCls</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;ez-checked-chrome&#39;</span><span style="color: #f8f8f2">})</span>
+    <span style="color: #f8f8f2">});</span> 
+    <span style="color: #f92672">&lt;/script&gt;</span>
+
+<span style="color: #f92672">&lt;/head&gt;</span>
+    <span style="color: #f92672">&lt;body&gt;</span>
+    <span style="color: #f92672">&lt;h2&gt;</span>Example<span style="color: #f92672">&lt;/h2&gt;</span>
+    <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;example&quot;</span><span style="color: #f92672">&gt;</span>
+        <span style="color: #f92672">&lt;form</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;testForm&quot;</span> <span style="color: #a6e22e">action=</span><span style="color: #e6db74">&quot;#&quot;</span> <span style="color: #a6e22e">method=</span><span style="color: #e6db74">&quot;post&quot;</span><span style="color: #f92672">&gt;</span>
+            <span style="color: #f92672">&lt;p</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;defaultP&quot;</span><span style="color: #f92672">&gt;</span>
+                Single Checkbox : <span style="color: #f92672">&lt;br</span> <span style="color: #f92672">/&gt;</span>
+                <span style="color: #f92672">&lt;input</span> <span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;checkbox&quot;</span> <span style="color: #a6e22e">name=</span><span style="color: #e6db74">&quot;soccer_like&quot;</span> <span style="color: #a6e22e">value=</span><span style="color: #e6db74">&quot;1&quot;</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;soccer_like&quot;</span><span style="color: #f92672">&gt;&lt;label</span> <span style="color: #a6e22e">for=</span><span style="color: #e6db74">&quot;soccer_like&quot;</span><span style="color: #f92672">&gt;</span>I like Soccer<span style="color: #f92672">&lt;/label&gt;</span> 
+            <span style="color: #f92672">&lt;/p&gt;</span>    
+            <span style="color: #f92672">&lt;p</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;defaultP&quot;</span><span style="color: #f92672">&gt;</span>
+                Multiple Checkbox : <span style="color: #f92672">&lt;br</span> <span style="color: #f92672">/&gt;</span>
+                <span style="color: #f92672">&lt;input</span> <span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;checkbox&quot;</span> <span style="color: #a6e22e">name=</span><span style="color: #e6db74">&quot;item[]&quot;</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;banana&quot;</span> <span style="color: #a6e22e">value=</span><span style="color: #e6db74">&quot;banana&quot;</span> <span style="color: #f92672">/&gt;</span> <span style="color: #f92672">&lt;label</span> <span style="color: #a6e22e">for=</span><span style="color: #e6db74">&quot;banana&quot;</span><span style="color: #f92672">&gt;</span>Banana<span style="color: #f92672">&lt;/label&gt;</span> <span style="color: #f92672">&lt;br</span> <span style="color: #f92672">/&gt;</span>
+                <span style="color: #f92672">&lt;input</span> <span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;checkbox&quot;</span> <span style="color: #a6e22e">name=</span><span style="color: #e6db74">&quot;item[]&quot;</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;apple&quot;</span> <span style="color: #a6e22e">value=</span><span style="color: #e6db74">&quot;apple&quot;</span> <span style="color: #f92672">/&gt;</span> <span style="color: #f92672">&lt;label</span> <span style="color: #a6e22e">for=</span><span style="color: #e6db74">&quot;apple&quot;</span><span style="color: #f92672">&gt;</span>Apple<span style="color: #f92672">&lt;/label&gt;</span> <span style="color: #f92672">&lt;br</span> <span style="color: #f92672">/&gt;</span>
+                <span style="color: #f92672">&lt;input</span> <span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;checkbox&quot;</span> <span style="color: #a6e22e">name=</span><span style="color: #e6db74">&quot;item[]&quot;</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;coke&quot;</span> <span style="color: #a6e22e">value=</span><span style="color: #e6db74">&quot;coke&quot;</span> <span style="color: #f92672">/&gt;</span> <span style="color: #f92672">&lt;label</span> <span style="color: #a6e22e">for=</span><span style="color: #e6db74">&quot;coke&quot;</span><span style="color: #f92672">&gt;</span>Coke<span style="color: #f92672">&lt;/label&gt;</span> <span style="color: #f92672">&lt;br</span> <span style="color: #f92672">/&gt;</span>
+                <span style="color: #f92672">&lt;input</span> <span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;checkbox&quot;</span> <span style="color: #a6e22e">name=</span><span style="color: #e6db74">&quot;item[]&quot;</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;pineapple&quot;</span> <span style="color: #a6e22e">value=</span><span style="color: #e6db74">&quot;pineapple&quot;</span> <span style="color: #f92672">/&gt;</span> <span style="color: #f92672">&lt;label</span> <span style="color: #a6e22e">for=</span><span style="color: #e6db74">&quot;pineapple&quot;</span><span style="color: #f92672">&gt;</span>Pineapple<span style="color: #f92672">&lt;/label&gt;</span> <span style="color: #f92672">&lt;br</span> <span style="color: #f92672">/&gt;</span>
+            <span style="color: #f92672">&lt;/p&gt;</span>
+
+            <span style="color: #f92672">&lt;p</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;defaultP&quot;</span><span style="color: #f92672">&gt;</span>
+                Radio button : <span style="color: #f92672">&lt;br</span> <span style="color: #f92672">/&gt;</span>
+                <span style="color: #f92672">&lt;input</span> <span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;radio&quot;</span> <span style="color: #a6e22e">name=</span><span style="color: #e6db74">&quot;month&quot;</span> <span style="color: #a6e22e">value=</span><span style="color: #e6db74">&quot;6&quot;</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;month6&quot;</span> <span style="color: #f92672">/&gt;</span> <span style="color: #f92672">&lt;label</span> <span style="color: #a6e22e">for=</span><span style="color: #e6db74">&quot;month6&quot;</span><span style="color: #f92672">&gt;</span>6 month Contract<span style="color: #f92672">&lt;/label&gt;</span> <span style="color: #f92672">&lt;br</span> <span style="color: #f92672">/&gt;</span>
+                <span style="color: #f92672">&lt;input</span> <span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;radio&quot;</span> <span style="color: #a6e22e">name=</span><span style="color: #e6db74">&quot;month&quot;</span> <span style="color: #a6e22e">value=</span><span style="color: #e6db74">&quot;3&quot;</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;month3&quot;</span> <span style="color: #f92672">/&gt;</span> <span style="color: #f92672">&lt;label</span> <span style="color: #a6e22e">for=</span><span style="color: #e6db74">&quot;month3&quot;</span><span style="color: #f92672">&gt;</span>3 month Contract<span style="color: #f92672">&lt;/label&gt;</span> <span style="color: #f92672">&lt;br</span> <span style="color: #f92672">/&gt;</span>   
+                <span style="color: #f92672">&lt;input</span> <span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;radio&quot;</span> <span style="color: #a6e22e">name=</span><span style="color: #e6db74">&quot;month&quot;</span> <span style="color: #a6e22e">value=</span><span style="color: #e6db74">&quot;12&quot;</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;month12&quot;</span> <span style="color: #f92672">/&gt;</span> <span style="color: #f92672">&lt;label</span> <span style="color: #a6e22e">for=</span><span style="color: #e6db74">&quot;month12&quot;</span><span style="color: #f92672">&gt;</span>12 month Contract<span style="color: #f92672">&lt;/label&gt;</span> <span style="color: #f92672">&lt;br</span> <span style="color: #f92672">/&gt;</span>
+            <span style="color: #f92672">&lt;/p&gt;</span>
+
+            <span style="color: #f92672">&lt;p</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;customP&quot;</span><span style="color: #f92672">&gt;</span>
+                Custom Checkbox: <span style="color: #f92672">&lt;br</span> <span style="color: #f92672">/&gt;</span>
+                <span style="color: #f92672">&lt;input</span> <span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;checkbox&quot;</span> <span style="color: #a6e22e">name=</span><span style="color: #e6db74">&quot;jquery_like&quot;</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;jquery_like&quot;</span> <span style="color: #a6e22e">value=</span><span style="color: #e6db74">&quot;1&quot;</span> <span style="color: #f92672">/&gt;&lt;label</span> <span style="color: #a6e22e">for=</span><span style="color: #e6db74">&quot;jquery_like&quot;</span><span style="color: #f92672">&gt;</span>크롬 체크박스 이미지형태 <span style="color: #f92672">&lt;/label&gt;</span>
+            <span style="color: #f92672">&lt;/p&gt;</span>    
+
+            <span style="color: #f92672">&lt;input</span> <span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;submit&quot;</span> <span style="color: #a6e22e">name=</span><span style="color: #e6db74">&quot;Submit&quot;</span> <span style="color: #a6e22e">value=</span><span style="color: #e6db74">&quot;Submit me!&quot;</span> <span style="color: #f92672">/&gt;</span>
+
+        <span style="color: #f92672">&lt;/form&gt;</span>
+    <span style="color: #f92672">&lt;/div&gt;</span>
+
+        
+    <span style="color: #f92672">&lt;/body&gt;</span>
+<span style="color: #f92672">&lt;/html&gt;</span>
+</pre></td></tr></table></div>
+
+
+				
+					</div><!--// 소스 -->
+				<div>
+			</div>			
+		</div>
+		<!-- e: examples 예제 -->
+
+
+
+
+	</div>
+	<!-- e: 컨텐츠 끝 -->
+</div>
+
+
+
+<script type="text/javascript">
+	$("#header").load("../../../head.html");
+	$("#lnb").load("../../../lnb.html");	
+
+	$(".ex-more a").click(function() {
+		$( this ).find("span").toggle();
+		$( this ).parent().siblings(".ex-body").slideToggle();
+		return false;
+	});
+
+
+</script>
+
+</body>
+</html>

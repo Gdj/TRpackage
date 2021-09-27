@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>trpEllipsis | TR package</title>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.12.1.min.js"></script>
+<script type="text/javascript" src="../../../../asset/js/libs/trpUnit.js"></script>
+<style>
+  a, body, button, div, html, ol, ul, li{padding:0; margin:0;}
+  ol, ul, li{ list-style:none;}
+  a{ text-decoration:none; color:#333;} 
+  a:hover{ color:#000;}
+  body { padding: 30px}
+
+  .news-wrap, .news-wrap2{  position:relative; width:250px; height:30px;  
+    border:1px solid #ccc;  overflow:hidden; }
+  .news-wrap:after{ display:block; clear:both; content:"";}
+  .news-list{ position:absolute; left:0; top:0;}
+  .news-list li{ height:30px; line-height:30px;}
+  .news-list li a{ display:block; padding: 0 10px}
+
+  .btnControl, .btnControl2{ margin-top:10px; margin-left: 300px}
+  .btnControl button, .btnControl2 button{ 
+   display:inline-block; height:32px;   padding:0 10px; 
+    margin-right:3px; 
+    border:1px solid #ccc; cursor:pointer;
+  }
+  .btnControl button.on, .btnControl2 button.on, 
+  .btnControl button:hover, .btnControl2 button:hover{ color:#fc0303;}
+
+  .news-wrap2{ margin-top: 200px; }
+</style>
+
+</head>
+<body>	
+
+	
+<div class="news-wrap">
+  <ul class="news-list trp-news-list">
+    <li class="news_item"><a href="#">0. 뉴스0</a></li>
+    <li class="news_item"><a href="#">1. 뉴스1</a></li>
+    <li class="news_item"><a href="#">2. 뉴스2</a></li>
+    <li class="news_item"><a href="#">3. 뉴스3</a></li>
+    <li class="news_item"><a href="#">4. 뉴스4</a></li>
+    <li class="news_item"><a href="#">5. 뉴스5</a></li>
+  </ul>
+</div>
+<div class="btnControl">
+  <button type="button" class="prev">이전 뉴스 보기</button>
+  <button type="button" class="next">다음 뉴스 보기</button>
+  <button type="button" class="play">재생하기</button>
+  <button type="button" class="stop">정지하기</button>
+</div>
+ 
+ 
+<div class="news-wrap2">
+  <ul class="news-list trp-news-list">
+    <li class="news_item"><a href="#">0. 뉴스0</a></li>
+    <li class="news_item"><a href="#">1. 뉴스1</a></li>
+    <li class="news_item"><a href="#">2. 뉴스2</a></li>
+    <li class="news_item"><a href="#">3. 뉴스3</a></li>
+    <li class="news_item"><a href="#">4. 뉴스4</a></li>
+    <li class="news_item"><a href="#">5. 뉴스5</a></li>
+  </ul>
+</div>
+<div class="btnControl2">
+  <button type="button" class="prev">이전 뉴스 보기</button>
+  <button type="button" class="next">다음 뉴스 보기</button>
+  <button type="button" class="play">재생하기</button>
+  <button type="button" class="stop">정지하기</button>
+</div>
+
+<script>
+
+  
+  var newsRolling = $(".news-wrap").trpNewsRolling();
+  $(".btnControl .play").on("click",function(){
+   newsRolling.play();
+  });
+  $(".btnControl .stop").on("click",function(){
+    newsRolling.stop();
+  });  
+  $(".btnControl .next").on("click",function(){
+   newsRolling.next();
+  });
+  $(".btnControl .prev").on("click",function(){
+    newsRolling.prev();
+  });
+  
+  
+  var newsRolling2 = $(".news-wrap2").newsRolling();
+  $(".btnControl2 .play").on("click",function(){
+   newsRolling2.play();
+  });
+  $(".btnControl2 .stop").on("click",function(){
+    newsRolling2.stop();
+  });  
+  $(".btnControl2 .next").on("click",function(){
+   newsRolling2.next();
+  });
+  $(".btnControl2 .prev").on("click",function(){
+    newsRolling2.prev();
+  });
+</script>
+
+	
+</body>
+</html>
+

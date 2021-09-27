@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>waves</title>
+    <style>
+
+        /** trp_waves  **/
+        .trp_waves { position: relative;overflow: hidden; 
+            padding: 15px 40px;
+            font-size: 22px;color: white;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, .4);
+            border: none;background: #000;
+            cursor: pointer;
+        }
+        .trp_waves:after {content: '';position: absolute;top: 50%;left: 50%;
+            width: 5px;height: 5px;
+            border-radius: 100%;
+            background: rgba(255, 255, 255, .5);
+            opacity: 0;
+            transform: scale(1, 1) translate(-50%);
+            transform-origin: 50% 50%;
+        }
+        @keyframes trp_ripple {
+            0%   {transform: scale(0, 0);opacity: 1;}
+            20%  {transform: scale(25, 25);opacity: 1;}
+            100% {opacity: 0;transform: scale(40, 40);}
+        }
+        /* event hover */
+        .trp_waves.event_hover:hover::after {animation: trp_ripple 1s ease-out;}
+
+        /* event click */
+        .trp_waves.event_click:focus:not(:active)::after {animation: trp_ripple 1s ease-out;}
+
+    </style>
+</head>
+<body>
+      
+    <button class="trp_waves event_hover"> HOVER </button>
+    <button class="trp_waves event_click"> CLICK </button>
+   
+</body>
+</html>

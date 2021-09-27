@@ -1,0 +1,72 @@
+@charset "utf-8";
+/* WebStyle Publish Team Woo Seok, Shin 2014-06-16 */
+/* CSS 적용순서 : 아이디 > 태그와 클래스 > 클래스 > 태그
+/* CSS 선택자 선언순서 : Type Selector, Layout Selector, Class Selector, Etc */
+/* CSS 속성 선언순서 : display, position, float/clear, overflow, width/height, margin/padding, border, background, color/font, align, etc */
+/* Base CSS */
+
+* {margin:0px; padding:0px; *font-weight:normal;}
+
+html {height:100%;}
+
+body {	 
+	scrollbar-3dlight-color:#b4b4b4;
+	scrollbar-arrow-color:#333333;
+	scrollbar-base-color:#eeeeee;
+	scrollbar-darkshadow-color:#efefef;
+	scrollbar-face-color:#efefef;
+	scrollbar-highlight-color:#ffffff;
+	scrollbar-shadow-color:#b4b4b4;
+	height:100%;
+	font-family:"Malgun Gothic", "맑은고딕";
+	font-weight:normal;
+	font-size:13px;
+	line-height:normal;
+	color:#333333;
+	-webkit-font-smoothing:antialiased;
+}
+
+address, article, aside, canvas, figure, footer, header, hgroup, menu, nav, section {display:block;}
+hr {display:none;}
+caption,figcaption  {font-size:0px; text-indent:-99999px;}
+h1, h2, h3, h4, h5, h6 ,h7 {font-weight:normal;}
+img {border:none; vertical-align:top;}
+ol, ul, li, dl, dt, dd {list-style:none;}
+table {width:100%; border:0px; border-spacing:0px; border-collapse:collapse;}
+th {color:#333; box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box;}
+th, td {border:0px; word-break:break-all; box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box;}
+fieldset {width:100%; border:0px;}
+legend {position:absolute; left:-99999px; width:1px; height:1px; margin:0; padding:0; background:none; font-size:0px; line-height:0; text-indent:-99999px;} 
+frameset {border:0px;}
+iframe {width:100%; border:0px;}
+em, address {font-style:normal;}
+small {display:block; font-size:9px; line-height:0px;}
+
+button {overflow:visible; line-height:normal !important; cursor:pointer; background:transparent; border:0px;}
+button, a, select, input, label {vertical-align:middle;}
+
+a {color:#333333; text-decoration:none; vertical-align:middle;}
+a:active, visited, link {color:#000; text-decoration:none;}
+a:hover {color:#000; text-decoration:none;}
+
+/* font */
+@font-face { 
+    font-family:"Malgun Gothic"; 
+    src:url('/Common/Font/malgun.eot');        
+	src:local('※'), 
+		url('/Common/Font/malgun.eot?#iefix') format('embedded-opentype'),
+	    url('/Common/Font/malgun.woff') format('woff');	     
+	font-style:normal;		 
+    font-weight:normal;
+}
+
+/* font */
+@font-face { 
+    font-family:"Malgun Gothic Bold"; 
+    src:url('/Common/Font/malgunbd.eot');        
+	src:local('※'), 
+		url('/Common/Font/malgunbd.eot?#iefix') format('embedded-opentype'),
+	    url('/Common/Font/malgunbd.woff') format('woff');	     
+	font-style:normal;		 
+    font-weight:normal;
+}

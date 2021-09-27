@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+	<title>text</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css"  href="../../../../asset/css/trpBase.css" media="all" />
+</head>
+<!-- -->
+<style type="text/css">
+.tr.table-signup1 { width:800px; text-align:left; margin:0 auto; }
+.tr.table-signup1 thead th { height: 30px; padding: 4px 15px 3px 15px; font-size: 13px; font-weight:bold;
+							border-bottom: 1px solid #d9d9d9; border-right: 1px solid #d9d9d9;  background-color: #f6f6f6; }
+.tr.table-signup1 tbody th { height: 30px; padding: 4px 15px 3px 15px; font-size: 13px; ont-weight:bold;
+							border-bottom: 1px solid #d9d9d9; border-right: 1px solid #d9d9d9;  background-color: #f6f6f6; }
+.tr.table-signup1 tbody th.tit { text-align: center; }
+.tr.table-signup1 tbody td { height: 30px; padding: 4px 15px 3px 15px; font-size: 13px; 
+							border-bottom: 1px solid #d9d9d9; border-right: 1px solid #d9d9d9; }
+.tr.table-signup1 tbody td > div { margin: 5px 0; }
+.tr.table-signup1 .bd-r { border-right: 1px solid #e5e5e5; }
+.tr.table-signup1 .bd-l { border-left: 1px solid #e5e5e5; }
+.tr.table-signup1 .bd-t { border-top: 1px solid #e5e5e5; }
+.tr.table-signup1 .bd-b { border-bottom: 1px solid #e5e5e5; }
+.tr.table-signup1 .bd-rn { border-right: none; }
+.tr.table-signup1 .bd-ln { border-left: none; }
+.tr.table-signup1 .bd-tn { border-top: none; }
+.tr.table-signup1 .bd-bn { border-bottom: none; }
+
+.tr.table-signup1 input[type="text"], .tr.table-signup1 input[type="password"] { height:18px; margin:0; padding:2px }
+.tr.table-signup1 input.full, .tr.table-signup1 textarea.full { width:98% }
+.tr.table-signup1 input.helf { width:44% }
+.tr.table-signup1 input.quarter { width:22% }
+.tr.table-signup1 input.short { width: 50px; text-align:center; }
+.tr.table-signup1 select { height:26px; }
+</style>
+
+<body>
+
+<table class="tr table-signup1" cellpadding="0" cellspacing="0" summary="2015년 1에서 4분기까지의 매출액 현황을 알려드립니다.">
+	<caption>매출액 테이블</caption>
+	<colgroup>
+		<col width="12%">
+		<col width="15%">
+		<col />
+	</colgroup>	
+	<tbody>
+		<tr>
+			<th scope="row" rowspan="8" class="tit bd-t bd-l">단체<br />/실무자<br />정보</th>
+			<th scope="row"><label for="s_groupName">단체명 *</label></th>			
+			<td class="bd-r"><input type="text"id="s_groupName" /></td>
+		</tr>
+		<tr>			
+			<th scope="row"><label for="s_applicant">신청자 *</label></th>			
+			<td class="bd-r"><input type="text" id="s_applicant" /></td>
+		</tr>
+		<tr>			
+			<th scope="row"><label for="s_pass">비밀번호 *</label></th>			
+			<td class="bd-r"><input type="password" id="s_pass" /></td>
+		</tr>
+		<tr>			
+			<th scope="row"><label for="s_email">이메일 *</label></th>			
+			<td class="bd-r"><input type="text" id="s_email" class="helf" /></td>
+		</tr>
+		<tr>			
+			<th scope="row"><label for="s_tel">유선전화 *</label></th>			
+			<td class="bd-r"><input type="text" id="s_tel" class="short" title="국번" /> - <input type="text" class="short" title="전화번호 앞자리" /> - <input type="text" id="s_tel" class="short" title="전화번호뒷자리" /></td>
+		</tr>
+		<tr>			
+			<th scope="row"><label for="s_ext">내선번호 *</label></th>			
+			<td class="bd-r"><input type="text" id="s_ext"  class="short" /></td>
+		</tr>
+		<tr>			
+			<th scope="row"><label for="s_phone">휴대폰 *</label></th>			
+			<td class="bd-r"><input type="text" id="s_phone" class="short" title="휴대폰 식별번호" /> - <input type="text" class="short" title="전화번호 앞자리" /> - <input type="text" id="s_tel" class="short" title="전화번호뒷자리" /></td>
+		</tr>
+		<tr>			
+			<th scope="row"><label for="s_area">지역 *</label></th>			
+			<td class="bd-r">
+				<select name="" id="s_area" class="short">
+					<option value="">지역선택</option>
+					<option value="서울">서울</option>
+					<option value="인천">인천</option>
+					<option value="경기">경기</option>
+					<option value="강원">강원</option>
+					<option value="대전">대전</option>
+					<option value="충청">충청</option>
+					<option value="광주">광주</option>
+					<option value="전라">전라</option>
+					<option value="대구">대구</option>
+					<option value="경상">경상</option>
+					<option value="부산">부산</option>
+					<option value="울산">울산</option>
+					<option value="제주">제주</option>					
+				</select>
+			</td>
+		</tr>
+		
+		<tr>			
+			<th scope="row" rowspan="6" class="bd-l" >강의 정보</th>						
+			<th scope="row"><label for="s_addr">주소 *</label></th>			
+			<td class="bd-r">
+				<div>
+					<input type="text" class="short" id="s_addr" title="우편번호 앞자리" /> - 
+					<input type="text" class="short"  title="우편번호 뒷자리" />
+					<button class="button type1"> 주소 찾기 </button>
+				</div>
+				<div>
+					<input type="text" id="s_addr" class="full" />
+				</div>
+				<div>
+					<input type="text" id="s_addr" class="full" />
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<th scope="row"><label for="s_date">강의일자 *</label></th>			
+			<td class="bd-r"><input type="text" id="s_date" /></td>
+		</tr>		
+		<tr>
+			<th scope="row"><label for="s_date">강의 시간 *</label></th>			
+			<td class="bd-r">
+				<select name="" id="s_date" title="시작 시간">
+					<option value="">시</option>
+					<option value="08">08</option>
+				</select>
+				<select name="" id="s_date" title="시작 분">
+					<option value="">시</option>
+					<option value="08">08</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<th scope="row"><label for="s_date">강의 프로그램 *</label></th>			
+			<td class="bd-r"><input type="text" id="s_date" /></td>
+		</tr>
+		<tr>
+			<th scope="row"><label for="s_date">민원 *</label></th>			
+			<td class="bd-r"><input type="text" id="s_date" /></td>
+		</tr>
+		<tr>
+			<th scope="row"><label for="s_date">기타 희망사항</label></th>			
+			<td class=""><input type="text" id="s_date" /></td>
+		</tr>
+
+	</tbody>
+</table>
+
+</body>
+</html>

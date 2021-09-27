@@ -1,0 +1,97 @@
+
+<script type="text/javascript">
+	
+$(document).ready(function(){
+
+	$(".dep2-more a").click(function() {
+		$( this ).find("span").toggle();								// 버튼
+		$( this ).parent().parent().siblings(".sublist").slideToggle();	// 컨텐츠
+		return false;
+	});
+
+	/* 겟값 받기 */
+	var $_GET = {};
+		location.search.replace(/([^=&?]+)=([^&]+)/gi, function (a, b, c) {
+		 $_GET[decodeURIComponent(b)] = decodeURIComponent(c);
+	});	
+	
+	var _dep1, _dep2;
+	if($_GET.dep1){	_dep1 = $_GET.dep1; 	}else{ 		_dep1 = -1;	 	}
+	if($_GET.dep2){	_dep2 = $_GET.dep2; 	}else{ 		_dep2 = -1;	 	}
+	
+	function lnbActive(){
+		if(_dep1 == "-1"){ return false;}
+		$( ".mn_2depth" ).eq(_dep1).find(".dep2-more a span").toggle();				// 버튼
+		$( ".mn_2depth" ).eq(_dep1).find(".sublist").slideToggle();		// 컨텐츠	
+
+		if(_dep2 == "-1"){ return false;}
+		$(".list .mn_2depth .sublist li").removeClass("on");
+		$(".list .mn_2depth").eq(_dep1).find(".sublist li").eq(_dep2).addClass("on");
+	}
+
+	lnbActive();
+
+});// ready
+
+</script> 
+
+  	<h1 class="nav_h1"><a href="/TRpackage/uiGuide/index.html"><span>UI 가이드</span></a></h1>
+
+    <ul class="list">
+		<!--<li class="mn_2depth">			
+			<h2 class="nav_h2"><span>HTML 가이드</span><p class="dep2-more" ><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p></h2>
+			<ul class="sublist">
+				<li><a href="/TRpackage/uiGuide/demo/html_guide/html_rule.html" >기본 규칙</a></li>
+				<li><a href="/TRpackage/uiGuide/demo/html_guide/html5_element.html" >HTML5의 요소</a></li>
+			</ul>
+		</li>
+		<li class="mn_2depth">
+			<h2 class="nav_h2"><span>CSS 가이드</span><p class="dep2-more" ><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p></h2>
+			<ul class="sublist">
+				<li><a href="/TRpackage/uiGuide/demo/css_guide/css_rule.html" >기본 규칙</a></li>
+				<li><a href="/TRpackage/uiGuide/demo/css_guide/css3_element.html" >css3의 요소</a></li>
+			</ul>
+		</li>-->
+    	<li class="mn_2depth">
+			<h2 class="nav_h2"><span>html 가이드</span><p class="dep2-more" ><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p></h2>
+			<ul class="sublist">
+				<li><a href="/TRpackage/uiGuide/demo/html_guide/html_meta.html?dep1=0&dep2=0">meta 정보가이드</a></li>
+				<li><a href="/TRpackage/uiGuide/demo/html_guide/html_favicon.html?dep1=0&dep2=1">fiavicon 정보가이드</a></li>
+			</ul>
+		</li>
+		<li class="mn_2depth">
+			<h2 class="nav_h2"><span>Naming 가이드</span><p class="dep2-more" ><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p></h2>
+			<ul class="sublist">
+				<li><a href="/TRpackage/uiGuide/demo/naming/naming_rule.html?dep1=1&dep2=0" >Naming 규칙</a></li>
+				<!--<li><a href="/TRpackage/uiGuide/demo/naming/id_css.html?dep1=0&dep2=1" >id/css 규칙</a></li>
+				<li><a href="/TRpackage/uiGuide/demo/naming/image.html?dep1=0&dep2=2" >image 규칙</a></li>
+				<li><a href="/TRpackage/uiGuide/demo/naming/folder.html?dep1=0&dep2=3" >파일/폴더/디렉토리 규칙</a></li>-->
+			</ul>
+		</li>
+		<!--
+		<li class="mn_2depth">
+			<h2 class="nav_h2"><span>Markup 가이드</span><p class="dep2-more" ><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p></h2>
+			<ul class="sublist">
+				<li><a href="/TRpackage/uiGuide/demo/markup/markup.html?#button" >button</a></li>
+				<li><a href="/TRpackage/uiGuide/demo/markup/markup.html?#label" >label</a></li>
+				<li><a href="/TRpackage/uiGuide/demo/markup/markup.html?#tab" >tab</a></li>
+				<li><a href="/TRpackage/uiGuide/demo/markup/markup.html?#form" >form</a></li>
+				<li><a href="/TRpackage/uiGuide/demo/markup/markup.html?#table" >table</a></li>
+			</ul>
+		</li>
+		 li class="mn_2depth">
+			<h2 class="nav_h2"><span>웹 접근성</span><p class="dep2-more" ><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p></h2>
+			<ul class="sublist">
+				<li><a href="/TRpackage/uiGuide/demo/accessibility/new_element.html" >웹접근성 지침</a></li>
+				<li><a href="/TRpackage/uiGuide/demo/accessibility/new_element.html" >검사 도구</a></li>
+			</ul>
+		</li -->
+		<!-- li class="mn_2depth">
+			<h2 class="nav_h2"><span>사용자 화면 구성 지원 API</span><p class="dep2-more" ><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p></h2>
+			<ul class="sublist">
+				<li><a href="/TRpackage/uiGuide/demo/api/navi.html" >Navi</a></li>
+			</ul>
+		</li -->		
+    </ul>
+
+  	

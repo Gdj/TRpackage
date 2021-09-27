@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>gnb</title>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript" src="../../../../asset/js/libs/trpMenu.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function(){       	
+
+    $("#gnb").trpGNB("on" ,function($index,e){	
+
+      $("#gnb > ul > li > ul").hide();							// 1뎁스 활성화
+      if(e.type =="mouseenter" || e.type =="focusin"  ){			// 마우스 오버시 실행!
+        $("#gnb > ul > li").eq($index).find("> ul").show();
+      }
+
+      var _left = $("#gnb > ul li").eq($index).left;		
+      $("#dot").stop().animate({left: 90*$index }, 'fast');		// 인덱스를 이용한 도트무비 움직임
+
+    }).setBtn(1);
+
+  }) // ready 
+  </script>
+
+  <style type="text/css">
+    ul, li {list-style: none; margin: 0px; padding: 0px;}
+    #gnb .dep1 { float: left; margin: 0px; padding: 0px; position: relative; }
+    #gnb .dep1 a { background-color: #EFEFEF; color: #000; display: block; width:70px;  margin: 0px; padding: 10px; text-decoration: none; }
+    #gnb .dep1 ul { position: absolute; display: none; }
+    #gnb .dep1 li { clear: left; position: relative; }
+    #gnb .dep1 .dep2 a { text-decoration: none; width: 120px; }
+    #gnb .dep1 .dep2 a:hover {  background-color: #fee; }
+    #gnb .dep1 .dep2 ul { clear: left; display: none; left: 140px; _left: 120px; position: absolute; top: 0px; }
+    #gnb ul li.on > a{ background-color: #fee; }
+    #gnb ul li.ac > a{ background-color: #fe3; }
+    #dot { position: absolute; top:30px; width:5px; height:5px; z-index:10; background-color: #f00;}
+  </style>
+</head>
+
+<body>
+ 
+  <p id="dot"></p>
+  <div id="gnb">
+    <ul>
+      <li class="dep1"><a href="#">index1</a></li>
+      <li class="dep1"><a href="#">index2</a>
+        <ul>
+          <li class="dep2"><a href="#">index2-1</a></li>
+          <li class="dep2"><a href="#">index2-2</a></li>
+          <li class="dep2"><a href="#">index2-3</a></li>
+        </ul>
+      </li>
+      <li class="dep1"><a href="#">index3</a>
+        <ul>
+          <li class="dep2"><a href="#">index3-1</a></li>
+          <li class="dep2"><a href="#">index3-2</a></li>
+          <li class="dep2"><a href="#">index3-3</a></li>
+        </ul>
+      </li>
+      <li class="dep1"><a href="#">index4</a></li>
+      <li class="dep1"><a href="#">index5</a></li>
+    </ul>
+  </div>	
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>ezMark jQuery Plugin - Stylize Checkbox and Radio Button Easily</title>
+	<link rel="stylesheet" href="../../../../asset/js/libs/ezMark-master/css/ezmark.css" media="all">
+	<script src="//code.jquery.com/jquery-1.12.1.min.js"></script>
+	<script src="../../../../asset/js/libs/ezMark-master/js/jquery.ezmark.js" ></script>
+<style type="text/css">
+/** basic styles **/
+body {
+    font-size: 62.5%;
+    font-family: Verdana, Arial, Helvetica;    
+    padding: 0; margin: 10px;
+    line-height: 200%;
+}
+
+
+</style>
+
+</head>
+<body>
+	<div class="body-wrap">
+		<h2>Example</h2>
+		<div class="example">
+		
+			<form id="testForm" action="#" method="post">
+			<p class="defaultP">
+				Single Checkbox Demo: <br />
+				<input type="checkbox" name="soccer_like" value="1" id="soccer_like"><label for="soccer_like">I like Soccer</label>	
+			</p>	
+			<p class="defaultP">
+				Shopping Items (Multiple Checkbox): <br />
+				<input type="checkbox" name="item[]" id="banana" value="banana" /> <label for="banana">Banana</label> <br />
+				<input type="checkbox" name="item[]" id="apple" value="apple" /> <label for="apple">Apple</label> <br />
+				<input type="checkbox" name="item[]" id="coke" value="coke" /> <label for="coke">Coke</label> <br />
+				<input type="checkbox" name="item[]" id="pineapple" value="pineapple" /> <label for="pineapple">Pineapple</label> <br />
+			</p>
+
+			<p class="defaultP">
+				House contract (Grouped Radio button): <br />
+				<input type="radio" name="month" value="6" id="month6" /> <label for="month6">6 month Contract</label> <br />
+				<input type="radio" name="month" value="3" id="month3" /> <label for="month3">3 month Contract</label> <br />	
+				<input type="radio" name="month" value="12" id="month12" /> <label for="month12">12 month Contract</label> <br />
+			</p>
+
+			<p class="customP">
+				Custom Checkbox: <br />
+				<input type="checkbox" name="jquery_like" id="jquery_like" value="1" /><label for="jquery_like">I Like jQuery</label>
+			</p>	
+
+			<input type="submit" name="Submit" value="Submit me!" />
+
+			</form>
+		</div>
+		
+	</div>
+
+
+<script type="text/javascript">
+$(function() {
+	$('.defaultP input').ezMark();
+	$('.customP input[type="checkbox"]').ezMark({checkboxCls: 'ez-checkbox-green', checkedCls: 'ez-checked-green'})
+});	
+</script>	
+</body>
+</html>

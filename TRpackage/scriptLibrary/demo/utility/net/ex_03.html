@@ -1,0 +1,77 @@
+<!DOCTYPE html >
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>input_file</title>
+<style type="text/css">
+	
+</style>
+<!-- <script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js"></script> -->
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.12.1.min.js"></script>
+<!-- <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.1.1.min.js"></script> -->
+
+<script type="text/javascript">	 
+	
+
+
+// InternetVersion Check function
+function getInternetVersion(ver) {
+	var rv = -1; // Return value assumes failure.
+	var ua = navigator.userAgent;
+	var re = null;
+	if(ver == "MSIE"){
+		console.log("ie")
+		re = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})");
+	}else{
+		console.log("other")
+		re = new RegExp(ver+"/([0-9]{1,}[\.0-9]{0,})");
+	}
+
+	if (re.exec(ua) != null){
+		rv = parseFloat(RegExp.$1);
+	}
+	return rv;
+}
+
+//브라우저 종류 및 버전확인
+function browserCheck(){
+	console.log("클릭: "+ navigator.appName.charAt(0))
+	var ver = 0; // 브라우저  버전정보
+	if(navigator.appName.charAt(0) == "N"){
+
+		if(navigator.userAgent.indexOf("Chrome") != -1){
+			ver = getInternetVersion("Chrome");
+			alert("Chrome_"+ver+"입니다.");
+			console.log("Chrome_"+ver+"입니다.");
+		}else if(navigator.userAgent.indexOf("Firefox") != -1){
+			ver = getInternetVersion("Firefox");
+			alert("Firefox_"+ver+"입니다.");
+			console.log("Firefox_"+ver+"입니다.");
+		}else if(navigator.userAgent.indexOf("Safari") != -1){
+			ver = getInternetVersion("Safari");
+			alert("Safari_"+ver+"입니다.");
+			console.log("Safari_"+ver+"입니다.");
+		}
+
+	}else if(navigator.appName.charAt(0) == "M"){
+		   ver = getInternetVersion("MSIE");
+		   alert("MSIE_"+ver+"입니다.");
+    }
+
+
+}
+
+ 
+</script>
+
+
+ 
+</head>
+<body>	
+	<input onclick="browserCheck();" type="button" value="브라우저판별" />  
+	
+</body>
+</html>
+
+
+

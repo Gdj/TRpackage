@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>input_file</title>
+<style type="text/css">
+	
+</style>
+<!-- <script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js"></script> -->
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.12.1.min.js"></script>
+<!-- <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.1.1.min.js"></script> -->
+
+<script type="text/javascript">	 
+	
+
+	/*
+		date : 20141105
+	*/ 
+	var trpBrowser = (function() {
+		var s = navigator.userAgent.toLowerCase();
+		var match
+			match =	  /(webkit)[ \/](\w.]+)/.exec(s) ||					// 웹킷
+					  /(opr)[ \/]([\w.]+)/.exec(s) || 					// *오페라
+					  /(chrome)[ \/]([\w.]+)/.exec(s) || 				// 크롬
+					  /(version)[ \/]([\w.]+)/.exec(s) ||				// 사파리
+					  /(safari)(rv:([\w.]+))?/.exec(s) ||				// 사파리
+					  /(opera)(?:.*version)?[ \/](\w.]+)/.exec(s) ||	// 오페라
+					  /(msie) ([\w.]+)/.exec(s) ||						// ie  
+					  /(appleWebKit)[ \/](\w.]+)/.exec(s) ||			// 웹킷
+					  /(mozilla)(?:.*? rv:([\w.]+))?/.exec(s) ||		// 모질라(파이어폭스)
+					 [];
+		// *ie11버젼 	"msie" 없어짐.
+		if(navigator.msManipulationViewsEnabled) {     match[1]= "msie"; };
+		// *사파리
+		if(match[1]= "version") {     match[1]= "safari"; };
+
+	  return { name: match[1] || "", version: match[2] || "0" };
+	}());
+
+	console.log(trpBrowser.name , trpBrowser.version  )
+	console.log(navigator )
+
+	
+
+ 
+
+</script>
+
+
+ 
+</head>
+<body>	
+	
+	
+</body>
+</html>
+

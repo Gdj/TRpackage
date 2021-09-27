@@ -1,0 +1,221 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+<title>trpFillLimitedFn | TR package</title>
+<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="../../../../asset/js/libs/trpMenu.js"></script>
+<link rel="stylesheet" href="../../../../asset/css/common.css" type="text/css" media="all" />
+
+
+</head>
+<body>
+  <div id="header" ></div>
+  <div id="container">
+	<div id="lnb" class="gnb"></div>
+	<!-- s: 컨텐츠 시작 -->
+	<div id="contents" class="contents">
+		<!-- s: 스크립드 설명 -->
+		<div class="desc_wapper">
+			<h1 class="desc_title">trpFillLimitedFn</h1>
+			<p>
+               브라우져, 트리거 타겟 크기로 화면을 채움. 
+			</p>												
+		</div>
+		<!-- e: 스크립드 설명 -->
+	
+		<!-- s: api 설명 -->
+		<div class="api">
+			<h2 class="api-title">trpFillLimitedFn(parameter)</h2>
+			<div class="api-body">
+				<dl>
+					<dt>설명</dt>
+					<dd><span class="icon"></span>trpFill.js 불러오면 trpFillLimitedFn, 를 사용할수 있습니다.</dd>
+					<dd><span class="icon"></span>&lt;script type="text/javascript" src="./js/libs/trpFill.js"&gt;&lt;/script&gt;<br /> </dd>					
+					<dd><span class="icon"></span>가로세로중 작은 크기에 비례하여 채워집니다. </dd>		
+					<dd><span class="icon"></span>windows resize 이벤트를 생성해서 사용합니다.</dd>			
+					<dd><span class="icon"></span>최소 값을 설정할수 있습니다. </dd>			
+				</dl>
+
+				<table class="table_col" summary="생성되는 class 설명">
+					<caption>class 설명</caption>
+					<colgroup>
+						<col width="150">
+						<col width="">		
+					</colgroup>
+					<tbody>
+					<tr>
+						<th scope="col">parameter 구분</th>
+						<th scope="col">parameter 설명</th>
+					</tr>
+					<tr>
+						<td>$container</td>
+						<td>타겟 컨테이너 (필수) <br>
+							
+						</td>		
+					</tr>
+					<tr>
+						<td>$image</td>
+						<td>타겟 컨텐츠 (필수) <br>
+							
+						</td>		
+					</tr>
+					<tr>
+						<td>$targetWidth</td>
+						<td>타겟 가로 크기 (필수) <br>
+						</td>		
+					</tr>
+					<tr>
+						<td>$targetHeight</td>
+						<td>타겟 세로 크기 (필수) <br>
+						</td>		
+					</tr>
+					<tr>
+						<td>$triggerWidth</td>
+						<td>width가 참조될  (필수)
+						</td>		
+					</tr>
+					<tr>
+						<td>$triggerHeight</td>
+						<td>height가 참조될  (필수)
+						</td>		
+					</tr>
+					<tr>
+						<td>$hearderHeight</td>
+						<td>상단 마진값  (필수)
+						</td>		
+					</tr>
+					<tr>
+						<td>$footerHeight</td>
+						<td>하단 마진값 (필수)
+						</td>		
+					</tr>
+					
+					</tbody>
+				</table>
+			
+		
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+
+		<!-- s: examples 예제 -->
+		<div class="ex_wapper">
+			<div class="section">
+				<h2 class="ex-title">예제) 1.기본 사용방법 </h2>
+				<p class="ex-more" ><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p>
+				<p class="ex-view" ><a href="ex01.html" target="_blank">View</a></p>
+				<div class="ex-body" style="display:none" >					
+					<div class="source"><!-- 소스 -->
+					
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</span>
+<span style="color: #f92672">&lt;html</span> <span style="color: #a6e22e">xmlns=</span><span style="color: #e6db74">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span style="color: #a6e22e">lang=</span><span style="color: #e6db74">&quot;ko&quot;</span> <span style="color: #a6e22e">xml:lang=</span><span style="color: #e6db74">&quot;ko&quot;</span><span style="color: #f92672">&gt;</span>
+<span style="color: #f92672">&lt;head&gt;</span>
+<span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">http-equiv=</span><span style="color: #e6db74">&quot;Content-Type&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;text/html; charset=utf-8&quot;</span><span style="color: #f92672">&gt;</span>
+<span style="color: #f92672">&lt;title&gt;</span>trpFillLimitedFn<span style="color: #f92672">&lt;/title&gt;</span>
+<span style="color: #f92672">&lt;style </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/css&quot;</span><span style="color: #f92672">&gt;</span>
+	
+	<span style="color: #f92672">html,</span> <span style="color: #f92672">body</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">margin</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>	
+	<span style="color: #a6e22e">.trpFill</span><span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">overflow</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">hidden</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+	
+<span style="color: #f92672">&lt;/style&gt;</span>
+
+<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;http://code.jquery.com/jquery-1.12.1.min.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/trpFill.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+
+<span style="color: #f92672">&lt;/head&gt;</span>
+<span style="color: #f92672">&lt;body&gt;</span>	
+
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;wrap&quot;</span><span style="color: #f92672">&gt;</span>
+		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;trpFill&quot;</span><span style="color: #f92672">&gt;&lt;img</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../images/video_720.jpg&quot;</span> <span style="color: #a6e22e">alt=</span><span style="color: #e6db74">&quot;&quot;</span><span style="color: #f92672">&gt;&lt;/div&gt;</span>	
+	<span style="color: #f92672">&lt;/div&gt;</span>	
+	
+	<span style="color: #f92672">&lt;script&gt;</span>
+		
+		<span style="color: #66d9ef">function</span> <span style="color: #a6e22e">resize</span><span style="color: #f8f8f2">(){</span>				
+            <span style="color: #a6e22e">trpFillLimitedFn</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.trpFill&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;.trpFill img&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">1280</span> <span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">720</span><span style="color: #f8f8f2">,</span>  <span style="color: #f8f8f2">window.</span><span style="color: #a6e22e">innerWidth</span><span style="color: #f8f8f2">,</span>  <span style="color: #f8f8f2">window.</span><span style="color: #a6e22e">innerHeight</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">50</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">150</span> <span style="color: #f8f8f2">);</span>
+		<span style="color: #f8f8f2">}</span>	
+		<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(window).</span><span style="color: #a6e22e">resize</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">resize</span><span style="color: #f8f8f2">);</span>
+		<span style="color: #a6e22e">resize</span><span style="color: #f8f8f2">();</span>
+
+	<span style="color: #f92672">&lt;/script&gt;</span>
+	
+<span style="color: #f92672">&lt;/body&gt;</span>
+<span style="color: #f92672">&lt;/html&gt;</span>
+</pre></td></tr></table></div>
+
+
+
+
+
+				
+					</div><!--// 소스 -->
+                </div>
+			</div>			
+		</div>
+		<!-- e: examples 예제 -->
+
+						
+								
+												
+
+	</div>
+	<!-- e: 컨텐츠 끝 -->
+</div>
+
+
+
+<script type="text/javascript">
+	$("#header").load("../../../head.html");
+	$("#lnb").load("../../../lnb.html");	
+
+	$(".ex-more a").click(function() {
+		$( this ).find("span").toggle();
+		$( this ).parent().siblings(".ex-body").slideToggle();
+		return false;
+	});
+
+	$(".icon-more a").click(function() {
+		$( this ).find("span").toggle();
+		$( this ).parent().siblings(".ex-body").slideToggle();
+		return false;
+	});
+</script>
+
+</body>
+</html>

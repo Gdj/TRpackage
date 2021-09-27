@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+<title>web-reset</title>
+<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.js" charset="UTF-8"></script>
+<link rel="stylesheet" type="text/css"  href="../../../../asset/css/common.css" media="all" />
+<!-- <link rel="stylesheet" type="text/css"  href="../../../../asset/css/trpBase.css" media="all" />  -->
+
+<style type="text/css">
+
+	@charset "utf-8";
+	
+	html, body { -webkit-text-size-adjust:none; } /*글자자동조절방지*/
+	html, body, div, form, input, select, button, textarea, legend, fieldset, h1, h2, h3, h4, h5, h6, 
+	ul, li, ol, dl,  dt, dd, blockquote, address, p, table, th, td, caption { margin:0; padding:0; font:normal 12px/1.5 Malgun Gothic, dotum,"돋움",Arial,AppleGothic,Sans-serif; color:#333; line-height:1.5 }
+	ul, li, ol { list-style:none;  }
+	img, fieldset , video{ border:0;  vertical-align:top; }
+	input, textarea, select { vertical-align:middle; resize:none; position:relative;  /* -webkit-appearance:none; */ -webkit-border-radius:0;}	
+	button { border:0 none; background:transparent; cursor:pointer; }		
+	caption legend, .hide  { position:absolute; top:0; left:0; width:0; height:0; font-size:0; line-height:0; overflow:hidden; text-indent:-9999px; }
+	table { border-collapse:collapse; border-spacing:0; line-height:1.5}
+	table caption.tit { width:100%; height:auto; margin:20px 0; font-size:20px; font-weight:bold; text-indent:0; visibility:visible}
+	a:link, a:visited  { text-decoration:none; color:#333; }
+	a:active, a:hover, a:focus { text-decoration:underline; }		
+	/* HTML5 display-role reset for older browsers   */	
+	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display:block; }
+	blockquote, q { quotes:none; }
+	blockquote:before, blockquote:after, q:before, q:after { content:''; content:none; }
+
+</style>
+
+</head>
+<body>
+  <div id="header" ></div>
+  <div id="container">
+	<div id="lnb" class="gnb"></div>
+	<!-- s: 컨텐츠 시작 -->
+	<div id="contents" class="contents">
+		<!-- s: css 설명
+		<div class="desc_wapper">
+			<h1 class="desc_title">list</h1>
+			<p>목록에 대한 정의입니다.</p>
+		</div>
+		 -->
+		<!-- e: css 설명 -->
+	
+
+		<!-- s: api 설명 -->
+		<div class="api">
+			<h2 class="api-title">web-reset</h2>
+			<div class="api-body">
+				<dl>
+					<dt>설명</dt>
+					<dd><span class="icon"></span>웹에서의 스타일 초기화 입니다.</dd>					
+				</dl>
+
+				
+<!-- ===CSS=== -->		
+				<div class="ex_wapper">
+					<h3 class="api-title_h3 css">CSS</h3>
+					<div class="api-body_h3 css">
+
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #f92672">&lt;style </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/css&quot;</span><span style="color: #f92672">&gt;</span>
+
+	<span style="color: #66d9ef">@charset</span> <span style="color: #e6db74">&quot;utf-8&quot;</span><span style="color: #f8f8f2">;</span>
+	
+	<span style="color: #f92672">html,</span> <span style="color: #f92672">body</span> <span style="color: #f8f8f2">{</span> <span style="color: #f92672">-</span><span style="color: #f8f8f2">webkit</span><span style="color: #f92672">-</span><span style="color: #66d9ef">text</span><span style="color: #f92672">-</span><span style="color: #66d9ef">size</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">adjust</span><span style="color: #f92672">:</span><span style="color: #66d9ef">none</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span> <span style="color: #75715e">/*글자자동조절방지*/</span>
+	<span style="color: #f92672">html,</span> <span style="color: #f92672">body,</span> <span style="color: #f92672">div,</span> <span style="color: #f92672">form,</span> <span style="color: #f92672">input,</span> <span style="color: #f92672">select,</span> <span style="color: #f92672">button,</span> <span style="color: #f92672">textarea,</span> <span style="color: #f92672">legend,</span> <span style="color: #f92672">fieldset,</span> <span style="color: #f92672">h1,</span> <span style="color: #f92672">h2,</span> <span style="color: #f92672">h3,</span> <span style="color: #f92672">h4,</span> <span style="color: #f92672">h5,</span> <span style="color: #f92672">h6,</span> 
+	<span style="color: #f92672">ul,</span> <span style="color: #f92672">li,</span> <span style="color: #f92672">ol,</span> <span style="color: #f92672">dl,</span>  <span style="color: #f92672">dt,</span> <span style="color: #f92672">dd,</span> <span style="color: #f92672">blockquote,</span> <span style="color: #f92672">address,</span> <span style="color: #f92672">p,</span> <span style="color: #f92672">table,</span> <span style="color: #f92672">th,</span> <span style="color: #f92672">td,</span> <span style="color: #f92672">caption</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">margin</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">font</span><span style="color: #f92672">:</span><span style="color: #66d9ef">normal</span> <span style="color: #ae81ff">12px</span><span style="color: #f92672">/</span><span style="color: #ae81ff">1</span><span style="color: #f92672">.</span><span style="color: #ae81ff">5</span> <span style="color: #f8f8f2">Malgun</span> <span style="color: #f8f8f2">Gothic</span><span style="color: #f92672">,</span> <span style="color: #f8f8f2">dotum</span><span style="color: #f92672">,</span><span style="color: #e6db74">&quot;돋움&quot;</span><span style="color: #f92672">,</span><span style="color: #f8f8f2">Arial</span><span style="color: #f92672">,</span><span style="color: #f8f8f2">AppleGothic</span><span style="color: #f92672">,</span><span style="color: #f8f8f2">Sans</span><span style="color: #f92672">-</span><span style="color: #66d9ef">serif</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">color</span><span style="color: #f92672">:</span><span style="color: #ae81ff">#333</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">line-height</span><span style="color: #f92672">:</span><span style="color: #ae81ff">1</span><span style="color: #f92672">.</span><span style="color: #ae81ff">5</span> <span style="color: #f8f8f2">}</span>
+	<span style="color: #f92672">ul,</span> <span style="color: #f92672">li,</span> <span style="color: #f92672">ol</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">list-style</span><span style="color: #f92672">:</span><span style="color: #66d9ef">none</span><span style="color: #f8f8f2">;</span>  <span style="color: #f8f8f2">}</span>
+	<span style="color: #f92672">img,</span> <span style="color: #f92672">fieldset</span> <span style="color: #f92672">,</span> <span style="color: #f92672">video</span><span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">border</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>  <span style="color: #66d9ef">vertical-align</span><span style="color: #f92672">:</span><span style="color: #66d9ef">top</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+	<span style="color: #f92672">input,</span> <span style="color: #f92672">textarea,</span> <span style="color: #f92672">select</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">vertical-align</span><span style="color: #f92672">:</span><span style="color: #66d9ef">middle</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">resize</span><span style="color: #f92672">:</span><span style="color: #66d9ef">none</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span><span style="color: #66d9ef">relative</span><span style="color: #f8f8f2">;</span>  <span style="color: #75715e">/* -webkit-appearance:none; */</span> <span style="color: #f92672">-</span><span style="color: #f8f8f2">webkit</span><span style="color: #f92672">-</span><span style="color: #66d9ef">border</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">radius</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;}</span>	
+	<span style="color: #f92672">button</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">border</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span> <span style="color: #66d9ef">none</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">background</span><span style="color: #f92672">:</span><span style="color: #66d9ef">transparent</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">cursor</span><span style="color: #f92672">:</span><span style="color: #66d9ef">pointer</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>		
+	<span style="color: #f92672">caption</span> <span style="color: #f92672">legend,</span> <span style="color: #a6e22e">.hide</span>  <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span><span style="color: #66d9ef">absolute</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">top</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">left</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">line-height</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">overflow</span><span style="color: #f92672">:</span><span style="color: #66d9ef">hidden</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">text-indent</span><span style="color: #f92672">:-</span><span style="color: #ae81ff">9999px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+	<span style="color: #f92672">table</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">border-collapse</span><span style="color: #f92672">:</span><span style="color: #66d9ef">collapse</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">border-spacing</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">line-height</span><span style="color: #f92672">:</span><span style="color: #ae81ff">1</span><span style="color: #f92672">.</span><span style="color: #ae81ff">5</span><span style="color: #f8f8f2">}</span>
+	<span style="color: #f92672">table</span> <span style="color: #f92672">caption</span><span style="color: #a6e22e">.tit</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span><span style="color: #66d9ef">auto</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">margin</span><span style="color: #f92672">:</span><span style="color: #ae81ff">20px</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span><span style="color: #ae81ff">20px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">font-weight</span><span style="color: #f92672">:</span><span style="color: #66d9ef">bold</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">text-indent</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">visibility</span><span style="color: #f92672">:</span><span style="color: #66d9ef">visible</span><span style="color: #f8f8f2">}</span>
+	<span style="color: #f92672">a</span><span style="color: #a6e22e">:link</span><span style="color: #f92672">,</span> <span style="color: #f92672">a</span><span style="color: #a6e22e">:visited</span>  <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">text-decoration</span><span style="color: #f92672">:</span><span style="color: #66d9ef">none</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">color</span><span style="color: #f92672">:</span><span style="color: #ae81ff">#333</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+	<span style="color: #f92672">a</span><span style="color: #a6e22e">:active</span><span style="color: #f92672">,</span> <span style="color: #f92672">a</span><span style="color: #a6e22e">:hover</span><span style="color: #f92672">,</span> <span style="color: #f92672">a</span><span style="color: #a6e22e">:focus</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">text-decoration</span><span style="color: #f92672">:</span><span style="color: #66d9ef">underline</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>		
+	<span style="color: #75715e">/* HTML5 display-role reset for older browsers   */</span>	
+	<span style="color: #f92672">article,</span> <span style="color: #f92672">aside,</span> <span style="color: #f92672">details,</span> <span style="color: #f92672">figcaption,</span> <span style="color: #f92672">figure,</span> <span style="color: #f92672">footer,</span> <span style="color: #f92672">header,</span> <span style="color: #f92672">hgroup,</span> <span style="color: #f92672">menu,</span> <span style="color: #f92672">nav,</span> <span style="color: #f92672">section</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span><span style="color: #66d9ef">block</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+	<span style="color: #f92672">blockquote,</span> <span style="color: #f92672">q</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">quotes</span><span style="color: #f92672">:</span><span style="color: #66d9ef">none</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+	<span style="color: #f92672">blockquote</span><span style="color: #a6e22e">:before</span><span style="color: #f92672">,</span> <span style="color: #f92672">blockquote</span><span style="color: #a6e22e">:after</span><span style="color: #f92672">,</span> <span style="color: #f92672">q</span><span style="color: #a6e22e">:before</span><span style="color: #f92672">,</span> <span style="color: #f92672">q</span><span style="color: #a6e22e">:after</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">content</span><span style="color: #f92672">:</span><span style="color: #e6db74">&#39;&#39;</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">content</span><span style="color: #f92672">:</span><span style="color: #66d9ef">none</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+
+<span style="color: #f92672">&lt;/style&gt;</span>
+</pre></td></tr></table></div>
+
+
+
+
+
+					</div>
+				</div>
+
+				
+
+
+
+				<div class="ex_wapper">
+				<h3 class="api-title_h3 html">HTML</h3>
+					<div class="api-body_h3 html">
+
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</span>
+<span style="color: #f92672">&lt;html</span> <span style="color: #a6e22e">xmlns=</span><span style="color: #e6db74">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span style="color: #a6e22e">lang=</span><span style="color: #e6db74">&quot;ko&quot;</span> <span style="color: #a6e22e">xml:lang=</span><span style="color: #e6db74">&quot;ko&quot;</span><span style="color: #f92672">&gt;</span>
+<span style="color: #f92672">&lt;head&gt;</span>
+	<span style="color: #f92672">&lt;title&gt;</span>문서이름<span style="color: #f92672">&lt;/title&gt;</span>
+	<span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">http-equiv=</span><span style="color: #e6db74">&quot;Content-Type&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;text/html; charset=utf-8&quot;</span> <span style="color: #f92672">/&gt;</span>
+	<span style="color: #f92672">&lt;link</span> <span style="color: #a6e22e">rel=</span><span style="color: #e6db74">&quot;stylesheet&quot;</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;./css/style.css&quot;</span> <span style="color: #f92672">/&gt;</span>
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;http://code.jquery.com/jquery-1.12.1.min.js&quot;</span> <span style="color: #f92672">&gt;&lt;/script&gt;</span>
+<span style="color: #f92672">&lt;/head&gt;</span>
+<span style="color: #f92672">&lt;body&gt;</span>
+	본문
+<span style="color: #f92672">&lt;/body&gt;</span>
+<span style="color: #f92672">&lt;/html&gt;</span>
+</pre></td></tr></table></div>
+
+
+
+					</div>
+				</div>
+
+
+
+
+
+		
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+		
+	
+		</div>		
+	<!-- e: 컨텐츠 끝 -->
+	<p class="cl-b"></p>
+</div>
+
+
+
+<script type="text/javascript">
+	$("#header").load("../../../head.html");
+	$("#lnb").load("../../../lnb.html");	
+
+
+	$(".ex-more a").click(function() {
+		$( this ).find("span").toggle();
+		$( this ).parent().siblings(".ex-body").slideToggle();
+		return false;
+	});
+
+</script>
+
+</body>
+</html>
+
+
+
+

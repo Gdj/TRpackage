@@ -1,0 +1,488 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+  <title>beatak jquery-imageloader jQuery Plugin | TR package</title>
+  <script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js" charset="UTF-8"></script>
+  <script type="text/javascript" src="../../../../asset/js/libs/trpMenu.js"></script>
+  <link rel="stylesheet" href="../../../../asset/css/common.css" type="text/css" media="all" />
+</head>
+<body>
+  <div id="header" ></div>
+  <div id="container">
+	<div id="lnb" class="gnb"></div>
+	<!-- s: 컨텐츠 시작 -->
+	<div id="contents" class="contents">
+		<!-- s: 스크립드 설명 -->
+		<div class="desc_wapper">
+			<h1 class="desc_title">imageloader</h1>
+			<p>
+				beatak jquery-imageloader을 이용하여 이미지로드 합니다. <br />
+				GitHub API : <a href="http://beatak.github.io/jquery-imageloader/" target="_blank">beatak imageloader jquery Plugin(GitHub API)</a>
+				GitHub Download : <a href="https://github.com/beatak/jquery-imageloader/" target="_blank">beatak imageloader jquery Plugin(GitHub)</a> <br>
+				
+			</p>												
+		</div>
+		<!-- e: 스크립드 설명 -->
+	
+		<!-- s: api 설명 -->
+		<div class="api">
+			<h2 class="api-title">.imageloader( { option } )</h2>
+			<div class="api-body">
+				<dl>
+					<dt>설명</dt>
+					<dd><span class="icon"></span>기본 위치값은 CSS 에서 설정해야합니다.</dd>
+					<dd><span class="icon"></span>아이템의 속성값으로 "data-src"만들어 실제 이미지 경로를 넣어줍니다. </dd>					
+				</dl>
+				<table class="table_col" summary="imageloader속성 설명">
+					<caption>imageloader </caption>
+					<colgroup>
+						<col width="150">
+						<col width="">		
+					</colgroup>
+					<tbody>
+					<tr>
+						<th scope="col">옵션</th>
+						<th scope="col">옵션 설명</th>
+					</tr>
+					<tr>
+						<td>selector</td>
+						<td>컨테이너 안에 선택할때 사용</td>		
+					</tr>
+					<tr>
+						<td>dataattr</td>
+						<td>기본값"src" = "data-src" 이미지경로 </td>		
+					</tr>
+					<tr>
+						<td>background</td>
+						<td>기본값은 false 값이고, true로 설정하면 배경으로 이미지를 로드할수 있습니다. </td>		
+					</tr>
+							
+					</tbody>
+				</table>
+
+				<table class="table_col" summary="imageloader이벤트 설명">
+					<caption>imageloader이벤트 </caption>
+					<colgroup>
+						<col width="150">
+						<col width="">		
+					</colgroup>
+					<tbody>
+					<tr>
+						<th scope="col">옵션 함수</th>
+						<th scope="col">옵션 함수 설명</th>
+					</tr>
+					<tr>
+						<td>each</td>
+						<td>여러개의 이미지를 불러올경우 각각의 아이템이 첫번째 인수로 넘어옵니다.</td>		
+					</tr>
+					<tr>
+						<td>callback</td>
+						<td>
+                          모두 로드되면 컨테이너를 콜백함수로 첫번째인수가 this로 전달됩니다.
+						</td>		
+					</tr>
+				
+				
+
+					</tbody>
+				</table>
+				<!--
+				<h3>preview</h3>
+				<div class="preview">
+					
+					<iframe src="ex1.html" frameborder="0" width="100%"></iframe>
+				</div>
+				-->
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+
+		<!-- s: examples 예제 -->
+		<div class="ex_wapper">
+			<div class="section">
+				<h2 class="ex-title">예제) 1.기본사용법 </h2>
+				<p class="ex-more" ><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p>
+				<p class="ex-view" ><a href="ex01.html" target="_blank">View</a></p>
+				<div class="ex-body" style="display:none" >					
+					<div class="source"><!-- 소스 -->
+					
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</span>
+<span style="color: #f92672">&lt;html</span> <span style="color: #a6e22e">xmlns=</span><span style="color: #e6db74">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span style="color: #a6e22e">lang=</span><span style="color: #e6db74">&quot;ko&quot;</span> <span style="color: #a6e22e">xml:lang=</span><span style="color: #e6db74">&quot;ko&quot;</span><span style="color: #f92672">&gt;</span>
+  <span style="color: #f92672">&lt;head&gt;</span>
+    <span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">http-equiv=</span><span style="color: #e6db74">&quot;Content-Type&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;text/html;charset=utf-8&quot;</span> <span style="color: #f92672">/&gt;</span> 
+    <span style="color: #f92672">&lt;title&gt;</span>imageloader jQuery Plugin<span style="color: #f92672">&lt;/title&gt;</span>
+
+    <span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js&quot;</span> <span style="color: #f92672">&gt;&lt;/script&gt;</span>
+    <span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/jquery.imageloader/jquery.imageloader.js&quot;</span> <span style="color: #f92672">&gt;&lt;/script&gt;</span>
+
+    <span style="color: #f92672">&lt;style </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/css&quot;</span><span style="color: #f92672">&gt;</span>
+      <span style="color: #75715e">/* 공통 스타일 */</span>        
+      <span style="color: #f92672">body</span> <span style="color: #f8f8f2">{</span>  <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">62</span><span style="color: #f92672">.</span><span style="color: #ae81ff">5</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span>   <span style="color: #66d9ef">font-family</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;Trebuchet MS&quot;</span><span style="color: #f92672">,</span> <span style="color: #e6db74">&quot;Arial&quot;</span><span style="color: #f92672">,</span> <span style="color: #e6db74">&quot;Helvetica&quot;</span><span style="color: #f92672">,</span> <span style="color: #e6db74">&quot;Verdana&quot;</span><span style="color: #f92672">,</span> <span style="color: #e6db74">&quot;sans-serif&quot;</span><span style="color: #f8f8f2">;</span>     <span style="color: #f8f8f2">}</span>
+      <span style="color: #f92672">form</span> <span style="color: #f8f8f2">{</span>  <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">1.2em</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+    <span style="color: #f92672">&lt;/style&gt;</span>
+
+    <span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span><span style="color: #f92672">&gt;</span>
+      <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
+        <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;#load_btn&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">on</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;click&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
+          <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;.example&#39;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">imageloader</span><span style="color: #f8f8f2">({</span>
+            <span style="color: #a6e22e">each</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">elm</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+              <span style="color: #a6e22e">console</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">log</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">elm</span><span style="color: #f8f8f2">);</span>
+            <span style="color: #f8f8f2">},</span>
+          <span style="color: #f8f8f2">});</span>
+        <span style="color: #f8f8f2">});</span>
+      <span style="color: #f8f8f2">});</span>
+    <span style="color: #f92672">&lt;/script&gt;</span>
+
+  <span style="color: #f92672">&lt;/head&gt;</span>
+  <span style="color: #f92672">&lt;body&gt;</span>
+
+    <span style="color: #f92672">&lt;h2&gt;</span>imageloader<span style="color: #f92672">&lt;/h2&gt;</span>
+    <span style="color: #f92672">&lt;button</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;load_btn&quot;</span><span style="color: #f92672">&gt;</span>load image<span style="color: #f92672">&lt;/button&gt;</span>
+    <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;example&quot;</span><span style="color: #f92672">&gt;</span>
+       <span style="color: #f92672">&lt;img</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;lazy-img&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/default.png&quot;</span> <span style="color: #a6e22e">data-src=</span><span style="color: #e6db74">&quot;http://cfile1.uf.tistory.com/image/19272E2F4C67E49AB98D32&quot;</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;144&quot;</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;144&quot;</span><span style="color: #f92672">&gt;</span>
+       <span style="color: #f92672">&lt;img</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;lazy-img&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/default.png&quot;</span> <span style="color: #a6e22e">data-src=</span><span style="color: #e6db74">&quot;http://cfs14.tistory.com/image/10/tistory/2009/07/24/13/25/4a6937bc5c3c2&quot;</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;144&quot;</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;144&quot;</span><span style="color: #f92672">&gt;</span>
+       <span style="color: #f92672">&lt;img</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;lazy-img&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/default.png&quot;</span>  <span style="color: #a6e22e">data-src=</span><span style="color: #e6db74">&quot;http://datools.kr/zeroboard/data/photo/lala1217_88.jpg&quot;</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;144&quot;</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;144&quot;</span><span style="color: #f92672">&gt;</span>
+   <span style="color: #f92672">&lt;/div&gt;</span>
+
+  <span style="color: #f92672">&lt;/body&gt;</span>
+<span style="color: #f92672">&lt;/html&gt;</span>
+</pre></td></tr></table></div>
+
+
+
+				
+					</div><!--// 소스 -->
+                </div>
+			</div>			
+		</div>
+		<!-- e: examples 예제 -->
+
+		<!-- s: examples 예제 -->
+		<div class="ex_wapper">
+			<div class="section">
+				<h2 class="ex-title">예제) 2.기본사용법(background) </h2>
+				<p class="ex-more" ><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p>
+				<p class="ex-view" ><a href="ex02.html" target="_blank">View</a></p>
+				<div class="ex-body" style="display:none" >					
+					<div class="source"><!-- 소스 -->
+
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</span>
+<span style="color: #f92672">&lt;html</span> <span style="color: #a6e22e">xmlns=</span><span style="color: #e6db74">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span style="color: #a6e22e">lang=</span><span style="color: #e6db74">&quot;ko&quot;</span> <span style="color: #a6e22e">xml:lang=</span><span style="color: #e6db74">&quot;ko&quot;</span><span style="color: #f92672">&gt;</span>
+<span style="color: #f92672">&lt;head&gt;</span>
+<span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">http-equiv=</span><span style="color: #e6db74">&quot;Content-Type&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;text/html;charset=utf-8&quot;</span> <span style="color: #f92672">/&gt;</span> 
+  <span style="color: #f92672">&lt;title&gt;</span>imageloader jQuery Plugin<span style="color: #f92672">&lt;/title&gt;</span>
+  <span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js&quot;</span> <span style="color: #f92672">&gt;&lt;/script&gt;</span>
+  <span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/jquery.imageloader/jquery.imageloader.js&quot;</span> <span style="color: #f92672">&gt;&lt;/script&gt;</span>
+
+  <span style="color: #f92672">&lt;style </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/css&quot;</span><span style="color: #f92672">&gt;</span>
+    <span style="color: #75715e">/* 공통 스타일 */</span>        
+    <span style="color: #f92672">body</span> <span style="color: #f8f8f2">{</span>  <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">62</span><span style="color: #f92672">.</span><span style="color: #ae81ff">5</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span>   <span style="color: #66d9ef">font-family</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;Trebuchet MS&quot;</span><span style="color: #f92672">,</span> <span style="color: #e6db74">&quot;Arial&quot;</span><span style="color: #f92672">,</span> <span style="color: #e6db74">&quot;Helvetica&quot;</span><span style="color: #f92672">,</span> <span style="color: #e6db74">&quot;Verdana&quot;</span><span style="color: #f92672">,</span> <span style="color: #e6db74">&quot;sans-serif&quot;</span><span style="color: #f8f8f2">;</span>     <span style="color: #f8f8f2">}</span>
+    <span style="color: #f92672">form</span> <span style="color: #f8f8f2">{</span>  <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">1.2em</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+    <span style="color: #a6e22e">.example</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span><span style="color: #66d9ef">none</span> <span style="color: #f8f8f2">}</span>
+    <span style="color: #a6e22e">.lazy-img</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">250px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">250px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">float</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">left</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">background</span><span style="color: #f92672">-</span><span style="color: #66d9ef">size</span><span style="color: #f92672">:</span><span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;}</span>
+    <span style="color: #a6e22e">.end</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">clear</span><span style="color: #f92672">:</span><span style="color: #66d9ef">both</span> <span style="color: #f8f8f2">}</span>
+  <span style="color: #f92672">&lt;/style&gt;</span>
+
+  <span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span><span style="color: #f92672">&gt;</span>
+    <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
+
+      <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;#load_btn&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">on</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;click&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
+        <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">num_total</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.lazy-img&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">length</span><span style="color: #f8f8f2">;</span>
+        <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">num_cound</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+        <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;.example&#39;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">imageloader</span><span style="color: #f8f8f2">({</span>
+          <span style="color: #a6e22e">background</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">true</span><span style="color: #f8f8f2">,</span>
+          <span style="color: #a6e22e">each</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">elm</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+            <span style="color: #75715e">//console.log(elm);</span>
+            <span style="color: #a6e22e">num_cound</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">num_cound</span><span style="color: #f92672">+</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
+            <span style="color: #a6e22e">console</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">log</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">num_total</span> <span style="color: #f92672">+</span> <span style="color: #e6db74">&quot; : &quot;</span><span style="color: #f92672">+</span> <span style="color: #a6e22e">num_cound</span> <span style="color: #f92672">+</span><span style="color: #e6db74">&quot;:&quot;</span><span style="color: #f92672">+</span> <span style="color: #a6e22e">elm</span> <span style="color: #f8f8f2">)</span> 						
+          <span style="color: #f8f8f2">},</span>
+          <span style="color: #a6e22e">callback</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">elm</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+            <span style="color: #a6e22e">console</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">log</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">elm</span><span style="color: #f8f8f2">);</span>
+            <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">elm</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">fadeIn</span><span style="color: #f8f8f2">();</span>
+          <span style="color: #f8f8f2">}</span>
+        <span style="color: #f8f8f2">});</span> <span style="color: #75715e">// imageloader</span>
+      <span style="color: #f8f8f2">});</span> <span style="color: #75715e">// click	</span>
+
+    <span style="color: #f8f8f2">});</span>
+  <span style="color: #f92672">&lt;/script&gt;</span>
+
+<span style="color: #f92672">&lt;/head&gt;</span>
+<span style="color: #f92672">&lt;body&gt;</span>
+
+  <span style="color: #f92672">&lt;h2&gt;</span>imageloader (background)<span style="color: #f92672">&lt;/h2&gt;</span>
+  <span style="color: #f92672">&lt;button</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;load_btn&quot;</span><span style="color: #f92672">&gt;</span>load image<span style="color: #f92672">&lt;/button&gt;</span>
+  <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;example&quot;</span><span style="color: #f92672">&gt;</span>
+     <span style="color: #f92672">&lt;img</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;lazy-img&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/default.png&quot;</span> <span style="color: #a6e22e">data-src=</span><span style="color: #e6db74">&quot;http://cfile1.uf.tistory.com/image/19272E2F4C67E49AB98D32&quot;</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;144&quot;</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;144&quot;</span><span style="color: #f92672">&gt;</span>
+     <span style="color: #f92672">&lt;img</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;lazy-img&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/default.png&quot;</span> <span style="color: #a6e22e">data-src=</span><span style="color: #e6db74">&quot;http://cfs14.tistory.com/image/10/tistory/2009/07/24/13/25/4a6937bc5c3c2&quot;</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;144&quot;</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;144&quot;</span><span style="color: #f92672">&gt;</span>
+     <span style="color: #f92672">&lt;img</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;lazy-img&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/default.png&quot;</span> <span style="color: #a6e22e">data-src=</span><span style="color: #e6db74">&quot;http://datools.kr/zeroboard/data/photo/lala1217_88.jpg&quot;</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;144&quot;</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;144&quot;</span><span style="color: #f92672">&gt;</span>
+  <span style="color: #f92672">&lt;/div&gt;</span>
+  <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;end&quot;</span><span style="color: #f92672">&gt;</span>end<span style="color: #f92672">&lt;/div&gt;</span>
+
+<span style="color: #f92672">&lt;/body&gt;</span>
+<span style="color: #f92672">&lt;/html&gt;</span>
+</pre></td></tr></table></div>
+
+        
+
+				
+					</div><!--// 소스 -->
+                </div>
+			</div>			
+		</div>
+		<!-- e: examples 예제 -->
+
+		
+		<!-- s: examples 예제 -->
+		<div class="ex_wapper">
+			<div class="section">
+				<h2 class="ex-title">예제) 3.기본사용법(height) </h2>
+				<p class="ex-more" ><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p>
+				<p class="ex-view" ><a href="ex03.html" target="_blank">View</a></p>
+				<div class="ex-body" style="display:none" >					
+					<div class="source"><!-- 소스 -->
+
+
+       
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</span>
+<span style="color: #f92672">&lt;html</span> <span style="color: #a6e22e">xmlns=</span><span style="color: #e6db74">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span style="color: #a6e22e">lang=</span><span style="color: #e6db74">&quot;ko&quot;</span> <span style="color: #a6e22e">xml:lang=</span><span style="color: #e6db74">&quot;ko&quot;</span><span style="color: #f92672">&gt;</span>
+  <span style="color: #f92672">&lt;head&gt;</span>
+    <span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">http-equiv=</span><span style="color: #e6db74">&quot;Content-Type&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;text/html;charset=utf-8&quot;</span> <span style="color: #f92672">/&gt;</span> 
+    <span style="color: #f92672">&lt;title&gt;</span>imageloader jQuery Plugin<span style="color: #f92672">&lt;/title&gt;</span>
+
+    <span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js&quot;</span> <span style="color: #f92672">&gt;&lt;/script&gt;</span>
+    <span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/jquery.imageloader/jquery.imageloader.js&quot;</span> <span style="color: #f92672">&gt;&lt;/script&gt;</span>
+
+    <span style="color: #f92672">&lt;style </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/css&quot;</span><span style="color: #f92672">&gt;</span>
+      <span style="color: #75715e">/* 공통 스타일 */</span>        
+      <span style="color: #f92672">body</span> <span style="color: #f8f8f2">{</span>  <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">62</span><span style="color: #f92672">.</span><span style="color: #ae81ff">5</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span>   <span style="color: #66d9ef">font-family</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;Trebuchet MS&quot;</span><span style="color: #f92672">,</span> <span style="color: #e6db74">&quot;Arial&quot;</span><span style="color: #f92672">,</span> <span style="color: #e6db74">&quot;Helvetica&quot;</span><span style="color: #f92672">,</span> <span style="color: #e6db74">&quot;Verdana&quot;</span><span style="color: #f92672">,</span> <span style="color: #e6db74">&quot;sans-serif&quot;</span><span style="color: #f8f8f2">;</span>     <span style="color: #f8f8f2">}</span>
+      <span style="color: #f92672">form</span> <span style="color: #f8f8f2">{</span>  <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">1.2em</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+      <span style="color: #a6e22e">.example</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span><span style="color: #66d9ef">none</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">clear</span><span style="color: #f92672">:</span><span style="color: #66d9ef">both</span><span style="color: #f8f8f2">;}</span>
+      <span style="color: #a6e22e">.lazy-img</span> <span style="color: #f8f8f2">{</span>  <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">150px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">150px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">float</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">left</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+    <span style="color: #f92672">&lt;/style&gt;</span>
+
+    <span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span><span style="color: #f92672">&gt;</span>
+      <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
+
+        <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;#load_btn&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">on</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;click&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
+          <span style="color: #a6e22e">console</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">log</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;start : &quot;</span> <span style="color: #f92672">+</span> <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.lazy-img&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">height</span><span style="color: #f8f8f2">());</span>
+          <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;.example&#39;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">imageloader</span><span style="color: #f8f8f2">({</span>
+            <span style="color: #a6e22e">selector</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;.lazy-img&#39;</span><span style="color: #f8f8f2">,</span>
+            <span style="color: #a6e22e">each</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">elm</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+              <span style="color: #a6e22e">console</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">log</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">elm</span> <span style="color: #f92672">+</span> <span style="color: #e6db74">&quot;each : &quot;</span> <span style="color: #f92672">+</span> <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">elm</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">height</span><span style="color: #f8f8f2">());</span>
+            <span style="color: #f8f8f2">},</span>
+            <span style="color: #a6e22e">callback</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">elm</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+              <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">elm</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">slideDown</span><span style="color: #f8f8f2">();</span>
+              <span style="color: #a6e22e">console</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">log</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;end : &quot;</span> <span style="color: #f92672">+</span> <span style="color: #a6e22e">elm</span> <span style="color: #f92672">+</span> <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">elm</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">height</span><span style="color: #f8f8f2">())</span>
+            <span style="color: #f8f8f2">}</span>
+          <span style="color: #f8f8f2">});</span> <span style="color: #75715e">// imageloader</span>
+          <span style="color: #a6e22e">console</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">log</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;clickend : &quot;</span> <span style="color: #f92672">+</span> <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.lazy-img&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">height</span><span style="color: #f8f8f2">());</span>
+        <span style="color: #f8f8f2">});</span> <span style="color: #75715e">// click	</span>
+
+      <span style="color: #f8f8f2">});</span>
+  <span style="color: #f92672">&lt;/script&gt;</span>
+
+  <span style="color: #f92672">&lt;/head&gt;</span>
+  <span style="color: #f92672">&lt;body&gt;</span>
+   
+    <span style="color: #f92672">&lt;h2&gt;</span>imageloader (height)<span style="color: #f92672">&lt;/h2&gt;</span>
+    <span style="color: #f92672">&lt;button</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;load_btn&quot;</span><span style="color: #f92672">&gt;</span>load image<span style="color: #f92672">&lt;/button&gt;</span>
+
+    <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;example&quot;</span><span style="color: #f92672">&gt;</span>
+      <span style="color: #f92672">&lt;img</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;lazy-img&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/space.png&quot;</span> <span style="color: #a6e22e">data-src=</span><span style="color: #e6db74">&quot;./images/default.png&quot;</span> <span style="color: #f92672">/&gt;</span>
+      <span style="color: #f92672">&lt;img</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;lazy-img&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/space.png&quot;</span> <span style="color: #a6e22e">data-src=</span><span style="color: #e6db74">&quot;./images/default.png&quot;</span> <span style="color: #f92672">/&gt;</span>
+      <span style="color: #f92672">&lt;img</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;lazy-img&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/space.png&quot;</span> <span style="color: #a6e22e">data-src=</span><span style="color: #e6db74">&quot;./images/default.png&quot;</span> <span style="color: #f92672">/&gt;</span>
+    <span style="color: #f92672">&lt;/div&gt;</span>
+    <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;example&quot;</span><span style="color: #f92672">&gt;</span>
+      <span style="color: #f92672">&lt;img</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;lazy-img&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/space.png&quot;</span> <span style="color: #a6e22e">data-src=</span><span style="color: #e6db74">&quot;http://cfile1.uf.tistory.com/image/19272E2F4C67E49AB98D32&quot;</span> <span style="color: #f92672">/&gt;</span>
+      <span style="color: #f92672">&lt;img</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;lazy-img&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/space.png&quot;</span> <span style="color: #a6e22e">data-src=</span><span style="color: #e6db74">&quot;http://cfs14.tistory.com/image/10/tistory/2009/07/24/13/25/4a6937bc5c3c2&quot;</span> <span style="color: #f92672">/&gt;</span>
+      <span style="color: #f92672">&lt;img</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;lazy-img&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;./images/space.png&quot;</span> <span style="color: #a6e22e">data-src=</span><span style="color: #e6db74">&quot;http://datools.kr/zeroboard/data/photo/lala1217_88.jpg&quot;</span> <span style="color: #f92672">/&gt;</span>
+    <span style="color: #f92672">&lt;/div&gt;</span>
+    
+  <span style="color: #f92672">&lt;/body&gt;</span>
+  
+<span style="color: #f92672">&lt;/html&gt;</span>
+</pre></td></tr></table></div>
+               
+        
+
+				
+					</div><!--// 소스 -->
+                </div>
+			</div>			
+		</div>
+		<!-- e: examples 예제 -->
+
+	</div>
+	<!-- e: 컨텐츠 끝 -->
+</div>
+
+
+
+    <script type="text/javascript">
+      $("#header").load("../../../head.html");
+      $("#lnb").load("../../../lnb.html");	
+
+      $(".ex-more a").click(function() {
+          $( this ).find("span").toggle();
+          $( this ).parent().siblings(".ex-body").slideToggle();
+          return false;
+      });
+
+    </script>
+
+</body>
+</html>

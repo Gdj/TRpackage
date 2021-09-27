@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>table 02</title>
+  <style type="text/css">
+
+    .trp.table-data-type1 {  border-collapse: collapse; border-spacing: 0; width:100%; max-width: 100%; border-top: 2px solid #000; text-align:center;  box-sizing: border-box; }
+    .trp.table-data-type1 thead th { height: 38px; padding: 4px 5px 3px 5px; 
+      border-bottom: 1px solid #d9d9d9;      border-right: 1px solid #efefef;
+      font-size: 13px; background-color: #f6f6f6; }
+    .trp.table-data-type1 tbody th { height: 38px; padding: 4px 5px 3px 5px; 
+      border-right: 1px solid #efefef;      
+      border-bottom: 1px solid #e5e5e5; 
+      font-size: 13px; background-color: #f6f6f6; }
+    .trp.table-data-type1 td { height: 35px; padding: 4px 5px 3px 5px; border-right: 1px solid #efefef; border-bottom: 1px solid #e5e5e5; font-size: 13px; 
+        overflow: hidden;text-overflow: ellipsis;white-space: nowrap;word-wrap: normal;
+    }
+    .trp.table-data-type1 thead th:last-child,  
+    .trp.table-data-type1 tbody th:last-child,
+    .trp.table-data-type1 tbody td:last-child { border-right: 0px} 
+    .trp.table-data-type1 tbody td { height: 35px; padding: 4px 5px 3px 5px; border-right: 1px solid #efefef; border-bottom: 1px solid #e5e5e5; font-size: 13px; 
+        overflow: hidden;text-overflow: ellipsis;white-space: nowrap;word-wrap: normal;
+    }
+
+    .trp.table-data-type1 tbody td.tit { padding-left: 50px; text-align: left; }
+    .trp.table-data-type1 tbody td .txt-box { text-align: left; margin-left: 5px }
+    .trp.table-data-type1 tbody td .radio-box { text-align: left; margin-left: 5px }
+    .trp.table-data-type1 tbody td .txt-box { text-align: left; margin-right: 5px }
+    .trp.table-data-type1 .bd-r { border-right: 1px solid #e5e5e5; }
+    .trp.table-data-type1 .bd-l { border-left: 1px solid #e5e5e5; }
+    .trp.table-data-type1 .bd-t { border-top: 1px solid #e5e5e5; }
+    .trp.table-data-type1 .bd-b { border-bottom: 1px solid #e5e5e5; }
+    .trp.table-data-type1 .bd-rn { border-right: none; }
+    .trp.table-data-type1 .bd-ln { border-left: none; }
+    .trp.table-data-type1 .bd-tn { border-top: none; }
+    .trp.table-data-type1 .bd-bn { border-bottom: none; }
+
+    /* 반응형 */
+    @media screen and (max-width: 767px){
+      .table-responsive_2col .trp.table-data-type1 { border-top: 0; }
+      .table-responsive_2col .trp.table-data-type1 thead { display: none; }
+      .table-responsive_2col .trp.table-data-type1 td.mb-none { display: none; }
+      .table-responsive_2col .trp.table-data-type1 td.topbr {  border-top: 2px solid #000; }
+      .table-responsive_2col .trp.table-data-type1 td { position: relative; display: block; padding: 8px 5px 8px 5px;  /* padding-left:  105px; */ text-align: left; box-sizing: border-box; border-right: 0; }
+      .table-responsive_2col .trp.table-data-type1 td:before { content: attr(data-th) "";    
+          /*  display: block;  position: absolute; top:0; left: 0;  padding: 6px 5px 8px 5px; height: 35px; box-sizing: border-box;  background-color: #f6f6f6; */
+          font-weight: bold; width:100px; display: inline-block; text-align: left;
+          overflow: hidden;text-overflow: ellipsis;white-space: nowrap;word-wrap: normal;
+        }
+    }
+
+  </style>
+</head>
+<body>
+  
+  <div class="container">
+    <h2>반응형 테이블 (리스트 2컬럼)</h2>  
+    
+    <div class="table-responsive_2col">
+      <table class="trp table-data-type1">
+        <thead>
+          <tr>
+            <th>Num</th>
+            <th>Table heading1</th>
+            <th>Table heading2</th>
+            <th>Table heading3</th>
+            <th>Table heading4</th>
+            <th>Table heading5</th>
+            <th>Table heading6</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="mb-none">1</td>
+            <td class="topbr" data-th="heading1">Table cell</td>
+            <td data-th="heading2">Table cell</td>
+            <td data-th="heading3">Table cell</td>
+            <td data-th="heading4">Table cell</td>
+            <td data-th="heading5">Table cell</td>
+            <td data-th="heading6">Table cell</td>
+          </tr>
+          <tr>
+            <td class="mb-none">2</td>
+            <td class="topbr" data-th="heading1">Table cell</td>
+            <td data-th="heading2">Table cell</td>
+            <td data-th="heading3">Table cell</td>
+            <td data-th="heading4">Table cell</td>
+            <td data-th="heading5">Table cell</td>
+            <td data-th="heading6">Table cell</td>
+          </tr>
+          <tr>
+            <td class="mb-none">3</td>
+            <td class="topbr" data-th="heading1">Table cell</td>
+            <td data-th="heading2">Table cell</td>
+            <td data-th="heading3">Table cell</td>
+            <td data-th="heading4">Table cell</td>
+            <td data-th="heading5">Table cell</td>
+            <td data-th="heading6">Table cell</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+  </div>
+
+
+</body>
+</html>

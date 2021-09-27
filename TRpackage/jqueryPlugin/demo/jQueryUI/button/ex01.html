@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+ <head>
+  <title> jQuery UI button </title>
+  <!-- 
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+  -->	
+
+	<link rel="stylesheet" href="../../../../asset/js/libs/jquery-ui-1.10.4.custom/themes/base/jquery.ui.all.css">
+	<script src="//code.jquery.com/jquery-1.9.1.js"></script>	
+	<script src="../../../../asset/js/libs/jquery-ui-1.10.4.custom/ui/jquery.ui.core.js"></script>
+	<script src="../../../../asset/js/libs/jquery-ui-1.10.4.custom/ui/jquery.ui.widget.js"></script>
+	<script src="../../../../asset/js/libs/jquery-ui-1.10.4.custom/ui/jquery.ui.button.js"></script>
+
+	<style type="text/css">
+	/* 공통 스타일 */		
+	body {	font-size: 62.5%; 	font-family: "Trebuchet MS", "Arial", "Helvetica", "Verdana", "sans-serif"; 	}
+	table {	font-size: 1em; }
+	.demo-description {	clear: both; padding: 12px; font-size: 1.3em; line-height: 1.4em; }
+	.ui-draggable, .ui-droppable {	background-position: top;	}
+	
+	/* 페이지 스타일*/
+	#format { margin-top: 2em; }	
+	</style>
+
+	<script type="text/javascript">
+	  $(function() {
+		$( "input[type=submit], a, button" )
+		  .button()
+		  .click(function( event ) {
+			event.preventDefault();
+		  });
+	  });
+	</script>
+
+</head>
+	<body>
+ 
+	<button>A button element</button>	 
+	<input type="submit" value="A submit button">	 
+	<a href="#">An anchor</a>
+
+	</body>
+</html>

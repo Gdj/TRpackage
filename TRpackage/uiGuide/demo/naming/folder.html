@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>TR package U.I 표준 프레임워크 ver.1.0 </title>
+<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.js" charset="UTF-8"></script>
+<link rel="stylesheet" href="../../../asset/css/common.css" type="text/css" media="all" />
+</head>
+
+<body>
+	<div id="header" class="head" ></div>
+	<div id="container">
+		<div id="lnb" class="gnb"></div>
+		
+		<!-- s:컨텐츠영역 -->
+		<div id="contents"  class="contents id_css">
+
+			<h1 class="h1_tit">Naming 가이드</h1>
+			<!-- s:파일규칙 -->
+			<div class="con_comm">
+				<h2 class="h2_tit">파일 규칙</h2>
+				<table class="table_col" summary="파일 네이밍 규칙에 관한 테이블입니다.">
+					<caption>파일 및 폴더 네이밍 규칙</caption>
+					<colgroup>
+						<col width="100" />
+						<col width="150" />
+						<col width="" />
+					</colgroup>
+					<tr>
+						<th rowspan="3">html</th>
+						<td>메뉴명_상태</td>
+						<td>notice_list.html</td>
+					</tr>
+					<tr>
+						<td>팝업</td>
+						<td> pop_OO.html</td>
+					</tr>
+					<tr>
+						<td>iframe</td>
+						<td> ifr_OO.html</td>
+					</tr>
+					<tr>
+						<th rowspan="3">css</th>
+						<td>공통요소 css</td>
+						<td>common.css</td>
+					</tr>
+					<tr>
+						<td>대분류 css</td>
+						<td>event.css</td>
+					</tr>
+				</table>
+			</div>
+			<!-- e:파일규칙 -->
+			<!-- s:폴더규칙 -->
+			<div class="con_comm">
+				<h2 class="h2_tit">폴더 규칙</h2>
+				<table class="table_col" summary="폴더 네이밍 규칙에 관한 테이블입니다.">
+					<caption>폴더 네이밍 규칙</caption>
+					<colgroup>
+						<col width="100" />
+						<col width="150" />
+						<col width="" />
+					</colgroup>
+					<tr>
+						<th rowspan="5">folder</th>
+						<td>컨텐츠</td>
+						<td>대분류명</td>
+					</tr>
+					<tr>
+						<td>팝업</td>
+						<td>popup</td>
+					</tr>
+					<tr>
+						<td>이미지</td>
+						<td>images</td>
+					</tr>
+					<tr>
+						<td>css</td>
+						<td>css</td>
+					</tr>
+					<tr>
+						<td>js</td>
+						<td>js</td>
+					</tr>
+				</table>
+			</div>
+			<!-- e:폴더규칙 -->
+			<!-- s:디렉토리규칙 -->
+			<div class="con_comm">
+			  <h2 class="h2_tit">디렉토리 규칙</h2>
+				<p class="blt_con">images, css, js 폴더는 1depth에 위치한다.</p>
+				<p class="blt_con">images 폴더 루트에는 공통 이미지가 위치하고 하위에 대분류명의 이미지 폴더를 생성한다.</p>
+				<table class="table_col" summary="디렉토리 네이밍 규칙에 관한 테이블입니다.">
+					<caption>디렉토리 네이밍 규칙</caption>
+					<colgroup>
+						<col width="100" />
+						<col width="150" />
+						<col width="" />
+					</colgroup>
+					<tr>
+						<th rowspan="10">directory</th>
+						<th>1depth</th>
+						<th>2depth</th>
+						<th>3depth</th>
+					</tr>
+					<tr>
+					  <td>대분류명1폴더</td>
+					  <td>company.html</td>
+					  <td>&nbsp;</td>
+				  </tr>
+					<tr>
+					  <td>대분류명2폴더</td>
+					  <td>event_list.html</td>
+					  <td>&nbsp;</td>
+				  </tr>
+					<tr>
+						<td>popup 폴더 </td>
+						<td>pop_oo.html</td>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td rowspan="3">images 폴더</td>
+						<td>대분류명1폴더<br /></td>
+						<td>company.gif</td>
+					</tr>
+					<tr>
+					  <td>대분류명2폴더<br /></td>
+					  <td>business.gif</td>
+				  </tr>
+					<tr>
+					  <td>공통이미지.gif</td>
+					  <td>&nbsp;</td>
+				  </tr>
+					<tr>
+						<td>css 폴더</td>
+						<td>common.css<br />
+						  대분류명1.css</td>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+					  <td>js 폴더</td>
+					  <td>common.js</td>
+					  <td>&nbsp;</td>
+				  </tr>
+					<tr>
+					  <td>index.html</td>
+					  <td>&nbsp;</td>
+					  <td>&nbsp;</td>
+				  </tr>
+				</table>
+			</div>
+			<!-- e:폴더규칙 -->
+		</div>
+		<!-- e:컨텐츠영역 -->
+		
+	</div>
+	
+	
+
+<script type="text/javascript">
+	$("#header").load("../../head.html")	  	
+	$("#lnb").load("../../html_list.html")
+</script>
+
+
+
+</body>
+</html>

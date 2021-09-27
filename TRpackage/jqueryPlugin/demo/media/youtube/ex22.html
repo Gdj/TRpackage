@@ -1,0 +1,66 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+ <head>
+  <title>youtube api</title>	
+
+	<script src="//code.jquery.com/jquery-1.11.1.js"></script>
+	<!-- <script src="https://www.youtube.com/iframe_api"></script> -->
+	<script src="swfobject.js"></script>
+	<!-- <script src="as3_demo_function.js"></script>-->
+	<style type="text/css">
+	/* 공통 스타일 */		
+	body {	font-size: 62.5%; 	font-family: "Trebuchet MS", "Arial", "Helvetica", "Verdana", "sans-serif"; 	}
+	ul li {	font-size: 1.2em; }
+	
+	/* 스타일 */
+	</style>
+
+	
+
+</head>
+	<body>
+
+		<!-- https://developers.google.com/youtube/iframe_api_reference#Loading_a_Video_Player -->
+		  <div id="ytapiplayer">
+			You need Flash player 8+ and JavaScript enabled to view this video.
+		  </div>
+
+		  	<ul>
+			<li><a href="javascript:void(0)" onclick="playVideo()">재생</a></li>
+			<li><a href="javascript:void(0)" onclick="stopVideo()">정지</a></li>			
+			</ul>
+  <script type="text/javascript">
+
+    var params = { allowScriptAccess: "always" };
+    var atts = { id: "myytplayer_ID" };
+    swfobject.embedSWF("http://www.youtube.com/v/M7lc1UVf-VE?enablejsapi=1&playerapiid=ytplayer&version=3", "ytapiplayer", "425", "356", "8", null, null, params, atts);
+     
+	function onYouTubePlayerReady(playerapiid) {
+		console.log(">> : "+ playerapiid )
+      ytplayer = document.getElementById("myytplayer_ID");
+	  playVideo();
+    }
+
+	/* 재생 */
+		  function playVideo() {
+			  if (ytplayer) {
+				ytplayer.playVideo();
+			  }
+			}
+
+
+		  /* 재생정지 */
+		  function stopVideo() {
+			ytplayer.seekTo(0, true );
+			ytplayer.stopVideo();		
+		  }
+
+  </script>
+
+
+	
+	</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>trpLayerPopupFile</title>
+	<style type="text/css">
+
+	.tr.popup-wrap  { display:none; position: absolute;  top: 0; left: 0; z-index: 9999; width: 100%; height: 100%; text-align: center;  } 
+	.tr.popup-wrap .tr_popup { display: inline-block; *display:inline; zoom:1; position: relative;   } 
+	.tr.popup-wrap .tr_popup.option {  top:50px; width:600px; background:#fff ; }
+	.tr.popup-wrap .tr_popup .btn_x { position:absolute; top:15px; right:15px;  }
+	.tr.popup-wrap .tr_popup .con { position:relative; clear: both; height: 220px; padding:10px; text-align: center; }	 
+	.tr.popup-wrap .popup-dim { position:absolute; top:0; left:0; width:100%; height:100%;  background: #000000; opacity: 0.7;  filter: alpha(opacity=70);  } 
+	
+	</style>
+
+	<script src="http://code.jquery.com/jquery-1.12.1.min.js"></script>
+	<script type="text/javascript" src="../../../../asset/js/libs/trpUtility.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+
+        $("#wrap .del_class").trpRemoveClassPrefix('@@');  
+
+	});
+
+</script>
+</head>
+
+<body>		
+
+	<div id="wrap">
+		<p class="del_class @@01">del_class @@01 골뱅이 클래스 삭제</p>
+		<p class="del_class @@02">del_class @@02 골뱅이 클래스 삭제</p>
+		<p class="del_class @@03">del_class @@03 골뱅이 클래스 삭제</p>
+		<p class="del_class @@04">del_class @@04 골뱅이 클래스 삭제</p>
+		<p class="del_class @@05">del_class @@05 골뱅이 클래스 삭제</p>
+		<p class="del_class @@06">del_class @@06 골뱅이 클래스 삭제</p>
+	</div>	
+
+
+	<div  id="popup_warp" class="tr popup-wrap"></div>
+	
+</body>
+</html>

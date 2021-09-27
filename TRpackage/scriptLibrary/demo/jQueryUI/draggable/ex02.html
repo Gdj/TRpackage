@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+ <head>
+  <title> jQuery UI button </title>
+  <!-- 
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+  -->	
+	<link rel="stylesheet" href="../../../../asset/js/libs/jquery-ui-1.10.4.custom/themes/base/jquery.ui.all.css">
+	<script src="//code.jquery.com/jquery-1.9.1.js"></script>	
+	<script src="../../../../asset/js/libs/jquery-ui-1.10.4.custom.js"></script> 
+
+  <style>
+  #draggable1,  #draggable2 { width: 100px; height: 50px; padding: 0.5em; border:1px solid blue; }
+  </style>
+  <script>
+  $(function() {
+    $( "#draggable1" ).draggable({ 
+		scrollSensitivity: 100 ,
+		scrollSpeed : 50
+		});
+
+		$( "#draggable2" ).draggable({ 
+			containment: "#draggable2_box" , 
+			cursor: "move", 
+			cursorAt: { bottom: -5, right: -5 } 
+		});
+
+  });
+  </script>
+</head>
+<body>
+
+ <div style="height:1000px ; background-color:#dfdfdf">
+	<div id="draggable1" >
+	  <p>draggable1</p>
+	</div>
+	
+	<div id="draggable2_box" style="width:500px; height:300px ; border:1px solid red ">
+		<div id="draggable2" >
+		  <p>draggable2</p>
+		</div>
+	</div>
+ </div>
+
+
+ 
+</body>
+</html>

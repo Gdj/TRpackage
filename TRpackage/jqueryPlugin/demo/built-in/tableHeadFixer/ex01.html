@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+	<title>table-data-type1</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css"  href="../../../../asset/css/trpBase.css" media="all" />
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.12.1.min.js" ></script>
+	<script src="/TRpackage/asset/js/libs/tableHeadFixer/tableHeadFixer.js"></script>
+</head>
+
+<style>
+    
+    .scroll_x-warp { 
+        position: relative;width: 100%;overflow-x: scroll;
+    }
+    .scroll_x-warp table.scroll_listTable{ width: 2000px; table-layout: fixed; }
+    .scroll_listTable { 
+        border-collapse: collapse;table-layout: fixed;border-spacing: 0;border: 0px;
+        width: 100%; text-align: center; margin-bottom:15px; table-layout: fixed;}
+    .scroll_listTable th,
+    .scroll_listTable td { padding:10px; border-bottom:1px solid #d9d9d9;}
+    .scroll_listTable td.thold { border-bottom:1px solid transparent;}
+    .scroll_listTable td.thold:after, .scroll_listTable th.thold:after { content: "";  display: block; z-index: 1;
+            position: absolute; bottom: -1px; width: 100%; border-bottom:1px solid #d9d9d9; box-sizing: border-box;}
+    .scroll_listTable th { color:#fff; background:#494949; }
+
+</style>
+
+<body>
+
+
+<div class="scroll_x-warp">
+<table class="scroll_listTable" summary="2015년 1에서 4분기까지의 매출액 현황을 알려드립니다.">	
+	<colgroup>
+		<col style="width:20%;">
+		<col style="width:20%;">
+		<col style="width:20%;">
+		<col style="width:20%;">
+		<col style="width:20%;">
+	</colgroup>
+	<thead>
+		<tr>
+			<th scope="col">구분</th>
+			<th scope="col">1/4분기</th>
+			<th scope="col">2/4분기</th>
+			<th scope="col">3/4분기</th>
+			<th scope="col" class="bd-rn">4/4분기</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th scope="row">매출액</th>
+			<td>49,280</td>
+			<td>52,638</td>
+			<td>49,707</td>
+			<td class="bd-rn">-</td>
+		</tr>
+		<tr>
+			<th scope="row">매출액 누계</th>
+			<td>49,280</td>
+			<td>101,918</td>
+			<td>151,625</td>
+			<td class="bd-rn">-</td>
+		</tr>
+		<tr>
+			<th scope="row">2015년 매출액</th>	
+			<td colspan="4" class="bd-rn">151,625</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $(".scroll_listTable").tableHeadFixer({
+            "head": false,
+            "left": 1
+        });
+    });
+</script>
+
+</body>
+</html>

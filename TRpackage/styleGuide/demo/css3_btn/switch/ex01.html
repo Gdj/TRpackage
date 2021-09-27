@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>switch</title>
+    <style>
+        
+        .trp_switch label {cursor: pointer;}
+        .trp_switch label input[type=checkbox] {opacity: 0;width: 0;height: 0; margin:0; padding:0;}
+        .trp_switch label .lever { content: "";display: inline-block;width: 40px;height: 20px;
+            position: relative; margin: 0 ;
+            background-color: #fff ;border-radius: 10px;
+            border: 1px solid #dfdfdf ;
+            transition: background 0.3s ease;
+            vertical-align: middle;
+        }
+        .trp_switch label .lever:after { content: "";
+            position: absolute; left: -5px;top: -1px;
+            display: inline-block;width: 20px;height: 20px;
+            background-color: #fff; border-radius: 20px;
+            border:1px solid #dfdfdf;
+            transition: left 0.3s ease, background .3s ease, box-shadow 0.1s ease;
+        }
+        .trp_switch label input[type=checkbox]:checked+.lever {background-color: #84c7c1; border:1px solid #84c7c1;}
+        .trp_switch label input[type=checkbox]:checked+.lever:after {background-color: #fff;left: 24px; border:1px solid #84c7c1;}
+        
+    </style>
+</head>
+<body>
+      
+    <div class="trp_switch">        
+        <label>
+            Off 
+            <input checked="checked" type="checkbox">                 
+            <span class="lever"></span> 
+            On 
+        </label>        
+    </div>
+   
+</body>
+</html>

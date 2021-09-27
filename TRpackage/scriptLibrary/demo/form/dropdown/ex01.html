@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>trpEllipsis | TR package</title>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.12.1.min.js"></script>
+<script type="text/javascript" src="../../../../asset/js/libs/trpForm.js"></script>
+<style>
+	html, body { margin:0; padding:0; min-height: 100%; height: 100%; }	
+  .trp-dropdown-area { position: relative; width: 300px;}
+  .js-dropdown-btn { height: 30px;}
+  .js-dropdown-btn.active { background-color: #ff0000; }
+  .trp-dropdown_list-box {position: absolute; top:30px; left: 0; width: 100%; display: none; background-color: #003300;}
+</style>
+
+</head>
+<body>	
+
+	<div id="wrap">
+    
+    <div class="trp-dropdown-area">
+      <button class="js-dropdown-btn"><span>드롭다운버튼</span></button>
+      <div class="trp-dropdown_list-box" data-trp-focusid="js-user_support" >
+        <ul>
+          <li><a href="#">aaaaaaaaaaaaaa</a></li>
+          <li><a href="#">bbbbbbbbbb</a></li>
+          <li><a href="#">cccccccccccc</a></li>
+        </ul>
+      </div>  
+    </div>
+    <script>
+      var dropdown = $(".js-dropdown-btn").trpDropdown({ list : ".trp-dropdown_list-box" , area:".trp-dropdown-area"});
+      $(".trp-dropdown-area .trp-dropdown_list-box a").on("click", function(){
+        var _this = $(this);
+        _this.closest(".trp-dropdown-area").find( ".js-dropdown-btn span" ).text( _this.text() );
+        dropdown.getClose();
+      });
+    </script>
+      
+  </div>
+	
+</body>
+</html>
+

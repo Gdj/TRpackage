@@ -1,0 +1,336 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+<title>web-reset</title>
+<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.js" charset="UTF-8"></script>
+<link rel="stylesheet" type="text/css"  href="../../../../asset/css/common.css" media="all" />
+<!-- <link rel="stylesheet" type="text/css"  href="../../../../asset/css/trpBase.css" media="all" /> -->
+<!--
+
+<style>
+    
+    @charset "utf-8";
+    /* 모바일 &amp; 반응형   */
+    html, body { text-size-adjust:none; } /*글자자동조절방지*/
+    html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td {margin:0;padding:0;border:0;  }
+    ul, li, ol { list-style:none;  }
+    img, fieldset , video{ border:0;  vertical-align:top; }
+    input, textarea, select { vertical-align:middle; resize:none; position:relative; border-radius:0; }	
+    button { border:0 none; background:transparent; cursor:pointer; }		
+    caption, legend, .hide  { position:absolute; top:0; left:0; width:0; height:0; font-size:0; line-height:0; overflow:hidden; text-indent:-9999px; }
+    table { border-collapse:collapse; border-spacing:0; line-height:1.5}
+    table caption.tit { width:100%; height:auto; margin:20px 0; font-size:20px; font-weight:bold; text-indent:0; visibility:visible}
+    a:link, a:visited  { text-decoration:none; color:#333; }
+    a:active, a:hover, a:focus { text-decoration:none; }		
+    ins{text-decoration:none}
+    del{text-decoration:line-through}    
+    blockquote, q { quotes:none; }
+    blockquote:before, blockquote:after, q:before, q:after { content:''; content:none; }
+    body, a, li, dt, dd, td, th, span, div, input, textarea,  button, option, 
+    h1, h2, h3, h4, h5, h6, legend, figcaption {
+        font-family: Apple SD Gothic Neo, Malgun Gothic, '맑은 고딕', '나눔 고딕','droid sans fallback','AppleGothic', dotum, "돋움", sans-serif;
+        font-size:13px; vertical-align:middle; color: #202020; line-height: 1.4; word-break: keep-all; 
+        box-sizing: border-box; }
+    h1{font-size: 30px} h2{font-size: 27px} h3{font-size: 23px} h4 {font-size:20px } h5{font-size: 17px } h6{ font-size: 13px} 
+    em { text-decoration: none;  font-style: normal; color: inherit; }
+
+    /* 클리어 */
+    .clearfix:after {display:block;visibility:hidden;clear:both;height:0;content:'.'}
+    .bg-alt, .img-alt { position:absolute; width:1px; height:1px; margin: 0; padding: 0; overflow:hidden; font-size:0; line-height:0; }
+    .blind {overflow: hidden;position: absolute;clip: rect(0 0 0 0);width: 0;height: 0;margin: -1px;padding: 0;font-size: 1px;line-height: 0;color: transparent;}
+    .fixed {position: fixed !important;}
+    .bn { background:none !important}
+    .cb { clear:both; overflow:hidden}
+    .cl { clear:left; overflow:hidden}
+    .cr { clear:right; overflow:hidden}
+
+    /* 플로트 */
+    .fl{float:left}.fr{float:right}.fn{float:none !important}
+
+    /* 포지션 */
+    .pr{position:relative}.pa{position:absolute}.pf{position:fixed}
+
+    /* 텍스트 정렬 */
+    .tal{text-align:left !important}.tac{text-align:center !important}.tar{text-align:right !important}
+
+</style>
+
+-->
+</head>
+<body>
+  <div id="header" ></div>
+  <div id="container">
+	<div id="lnb" class="gnb"></div>
+	<!-- s: 컨텐츠 시작 -->
+	<div id="contents" class="contents">
+		<!-- s: css 설명
+		<div class="desc_wapper">
+			<h1 class="desc_title">list</h1>
+			<p>목록에 대한 정의입니다.</p>
+		</div>
+		 -->  
+
+		<!-- s: api 설명 -->
+		<div class="api">
+			<h2 class="api-title">web-reset</h2>
+			<div class="api-body">
+				<dl>
+					<dt>설명</dt>
+					<dd><span class="icon"></span>웹에서의 스타일 초기화 입니다.</dd>					
+				</dl>
+
+				
+<!-- ===CSS=== -->		
+				<div class="ex_wapper">
+					<h3 class="api-title_h3 css">CSS</h3>
+					<div class="api-body_h3 css">
+                    <!-- 소스 -->
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #f92672">&lt;style&gt;</span>
+    
+    <span style="color: #66d9ef">@charset</span> <span style="color: #e6db74">&quot;utf-8&quot;</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #75715e">/* 모바일 &amp; 반응형 */</span>
+    <span style="color: #f92672">html,</span> <span style="color: #f92672">body</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">text</span><span style="color: #f92672">-</span><span style="color: #66d9ef">size</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">adjust</span><span style="color: #f92672">:</span><span style="color: #66d9ef">none</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span> <span style="color: #75715e">/*글자자동조절방지*/</span>
+    <span style="color: #f92672">html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td</span> <span style="color: #f8f8f2">{</span><span style="color: #66d9ef">margin</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span><span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span><span style="color: #66d9ef">border</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>  <span style="color: #f8f8f2">}</span>
+    <span style="color: #f92672">ul,</span> <span style="color: #f92672">li,</span> <span style="color: #f92672">ol</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">list-style</span><span style="color: #f92672">:</span><span style="color: #66d9ef">none</span><span style="color: #f8f8f2">;</span>  <span style="color: #f8f8f2">}</span>
+    <span style="color: #f92672">img,</span> <span style="color: #f92672">fieldset</span> <span style="color: #f92672">,</span> <span style="color: #f92672">video</span><span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">border</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>  <span style="color: #66d9ef">vertical-align</span><span style="color: #f92672">:</span><span style="color: #66d9ef">top</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+    <span style="color: #f92672">input,</span> <span style="color: #f92672">textarea,</span> <span style="color: #f92672">select</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">vertical-align</span><span style="color: #f92672">:</span><span style="color: #66d9ef">middle</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">resize</span><span style="color: #f92672">:</span><span style="color: #66d9ef">none</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span><span style="color: #66d9ef">relative</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">border</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">radius</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>	
+    <span style="color: #f92672">button</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">border</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span> <span style="color: #66d9ef">none</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">background</span><span style="color: #f92672">:</span><span style="color: #66d9ef">transparent</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">cursor</span><span style="color: #f92672">:</span><span style="color: #66d9ef">pointer</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>		
+    <span style="color: #f92672">caption,</span> <span style="color: #f92672">legend,</span> <span style="color: #a6e22e">.hide</span>  <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span><span style="color: #66d9ef">absolute</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">top</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">left</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">line-height</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">overflow</span><span style="color: #f92672">:</span><span style="color: #66d9ef">hidden</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">text-indent</span><span style="color: #f92672">:-</span><span style="color: #ae81ff">9999px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+    <span style="color: #f92672">table</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">border-collapse</span><span style="color: #f92672">:</span><span style="color: #66d9ef">collapse</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">border-spacing</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">line-height</span><span style="color: #f92672">:</span><span style="color: #ae81ff">1</span><span style="color: #f92672">.</span><span style="color: #ae81ff">5</span><span style="color: #f8f8f2">}</span>
+    <span style="color: #f92672">table</span> <span style="color: #f92672">caption</span><span style="color: #a6e22e">.tit</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span><span style="color: #66d9ef">auto</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">margin</span><span style="color: #f92672">:</span><span style="color: #ae81ff">20px</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span><span style="color: #ae81ff">20px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">font-weight</span><span style="color: #f92672">:</span><span style="color: #66d9ef">bold</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">text-indent</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">visibility</span><span style="color: #f92672">:</span><span style="color: #66d9ef">visible</span><span style="color: #f8f8f2">}</span>
+    <span style="color: #f92672">a</span><span style="color: #a6e22e">:link</span><span style="color: #f92672">,</span> <span style="color: #f92672">a</span><span style="color: #a6e22e">:visited</span>  <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">text-decoration</span><span style="color: #f92672">:</span><span style="color: #66d9ef">none</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">color</span><span style="color: #f92672">:</span><span style="color: #ae81ff">#333</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+    <span style="color: #f92672">a</span><span style="color: #a6e22e">:active</span><span style="color: #f92672">,</span> <span style="color: #f92672">a</span><span style="color: #a6e22e">:hover</span><span style="color: #f92672">,</span> <span style="color: #f92672">a</span><span style="color: #a6e22e">:focus</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">text-decoration</span><span style="color: #f92672">:</span><span style="color: #66d9ef">none</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>		
+    <span style="color: #f92672">ins</span><span style="color: #f8f8f2">{</span><span style="color: #66d9ef">text-decoration</span><span style="color: #f92672">:</span><span style="color: #66d9ef">none</span><span style="color: #f8f8f2">}</span>
+    <span style="color: #f92672">del</span><span style="color: #f8f8f2">{</span><span style="color: #66d9ef">text-decoration</span><span style="color: #f92672">:</span><span style="color: #66d9ef">line-through</span><span style="color: #f8f8f2">}</span>    
+    <span style="color: #f92672">blockquote,</span> <span style="color: #f92672">q</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">quotes</span><span style="color: #f92672">:</span><span style="color: #66d9ef">none</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+    <span style="color: #f92672">blockquote</span><span style="color: #a6e22e">:before</span><span style="color: #f92672">,</span> <span style="color: #f92672">blockquote</span><span style="color: #a6e22e">:after</span><span style="color: #f92672">,</span> <span style="color: #f92672">q</span><span style="color: #a6e22e">:before</span><span style="color: #f92672">,</span> <span style="color: #f92672">q</span><span style="color: #a6e22e">:after</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">content</span><span style="color: #f92672">:</span><span style="color: #e6db74">&#39;&#39;</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">content</span><span style="color: #f92672">:</span><span style="color: #66d9ef">none</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+    <span style="color: #f92672">body,</span> <span style="color: #f92672">a,</span> <span style="color: #f92672">li,</span> <span style="color: #f92672">dt,</span> <span style="color: #f92672">dd,</span> <span style="color: #f92672">td,</span> <span style="color: #f92672">th,</span> <span style="color: #f92672">span,</span> <span style="color: #f92672">div,</span> <span style="color: #f92672">input,</span> <span style="color: #f92672">textarea,</span>  <span style="color: #f92672">button,</span> <span style="color: #f92672">option,</span> 
+    <span style="color: #f92672">h1,</span> <span style="color: #f92672">h2,</span> <span style="color: #f92672">h3,</span> <span style="color: #f92672">h4,</span> <span style="color: #f92672">h5,</span> <span style="color: #f92672">h6,</span> <span style="color: #f92672">legend,</span> <span style="color: #f92672">figcaption</span> <span style="color: #f8f8f2">{</span>
+        <span style="color: #66d9ef">font-family</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">Apple</span> <span style="color: #f8f8f2">SD</span> <span style="color: #f8f8f2">Gothic</span> <span style="color: #f8f8f2">Neo</span><span style="color: #f92672">,</span> <span style="color: #f8f8f2">Malgun</span> <span style="color: #f8f8f2">Gothic</span><span style="color: #f92672">,</span> <span style="color: #e6db74">&#39;맑은 고딕&#39;</span><span style="color: #f92672">,</span> <span style="color: #e6db74">&#39;나눔 고딕&#39;</span><span style="color: #f92672">,</span><span style="color: #e6db74">&#39;droid sans fallback&#39;</span><span style="color: #f92672">,</span><span style="color: #e6db74">&#39;AppleGothic&#39;</span><span style="color: #f92672">,</span> <span style="color: #f8f8f2">dotum</span><span style="color: #f92672">,</span> <span style="color: #e6db74">&quot;돋움&quot;</span><span style="color: #f92672">,</span> <span style="color: #66d9ef">sans-serif</span><span style="color: #f8f8f2">;</span>
+        <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span><span style="color: #ae81ff">13px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">vertical-align</span><span style="color: #f92672">:</span><span style="color: #66d9ef">middle</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">color</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#202020</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">line-height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">1</span><span style="color: #f92672">.</span><span style="color: #ae81ff">4</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">word</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">break</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">keep</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">all;</span> 
+        <span style="color: #f8f8f2">box</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">sizing</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">border</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">box;</span> <span style="color: #f8f8f2">}</span>
+    <span style="color: #f92672">h1</span><span style="color: #f8f8f2">{</span><span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">30px</span><span style="color: #f8f8f2">}</span> <span style="color: #f92672">h2</span><span style="color: #f8f8f2">{</span><span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">27px</span><span style="color: #f8f8f2">}</span> <span style="color: #f92672">h3</span><span style="color: #f8f8f2">{</span><span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">23px</span><span style="color: #f8f8f2">}</span> <span style="color: #f92672">h4</span> <span style="color: #f8f8f2">{</span><span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span><span style="color: #ae81ff">20px</span> <span style="color: #f8f8f2">}</span> <span style="color: #f92672">h5</span><span style="color: #f8f8f2">{</span><span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">17px</span> <span style="color: #f8f8f2">}</span> <span style="color: #f92672">h6</span><span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">13px</span><span style="color: #f8f8f2">}</span> 
+    <span style="color: #f92672">em</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">text-decoration</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">none</span><span style="color: #f8f8f2">;</span>  <span style="color: #66d9ef">font-style</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">normal</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">color</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">inherit</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+
+    <span style="color: #75715e">/* 클리어 */</span>
+    <span style="color: #a6e22e">.clearfix:after</span> <span style="color: #f8f8f2">{</span><span style="color: #66d9ef">display</span><span style="color: #f92672">:</span><span style="color: #66d9ef">block</span><span style="color: #f8f8f2">;</span><span style="color: #66d9ef">visibility</span><span style="color: #f92672">:</span><span style="color: #66d9ef">hidden</span><span style="color: #f8f8f2">;</span><span style="color: #66d9ef">clear</span><span style="color: #f92672">:</span><span style="color: #66d9ef">both</span><span style="color: #f8f8f2">;</span><span style="color: #66d9ef">height</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span><span style="color: #66d9ef">content</span><span style="color: #f92672">:</span><span style="color: #e6db74">&#39;.&#39;</span><span style="color: #f8f8f2">}</span>
+    <span style="color: #a6e22e">.bg-alt</span><span style="color: #f92672">,</span> <span style="color: #a6e22e">.img-alt</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span><span style="color: #66d9ef">absolute</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">1px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span><span style="color: #ae81ff">1px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">margin</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">overflow</span><span style="color: #f92672">:</span><span style="color: #66d9ef">hidden</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">line-height</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+    <span style="color: #a6e22e">.blind</span> <span style="color: #f8f8f2">{</span><span style="color: #66d9ef">overflow</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">hidden</span><span style="color: #f8f8f2">;</span><span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">absolute</span><span style="color: #f8f8f2">;</span><span style="color: #66d9ef">clip</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">rect(</span><span style="color: #ae81ff">0</span> <span style="color: #ae81ff">0</span> <span style="color: #ae81ff">0</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">);</span><span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span><span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span><span style="color: #66d9ef">margin</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">-1px</span><span style="color: #f8f8f2">;</span><span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span><span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">1px</span><span style="color: #f8f8f2">;</span><span style="color: #66d9ef">line-height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span><span style="color: #66d9ef">color</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">transparent</span><span style="color: #f8f8f2">;}</span>
+    <span style="color: #a6e22e">.fixed</span> <span style="color: #f8f8f2">{</span><span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">fixed</span> <span style="color: #75715e">!important</span><span style="color: #f8f8f2">;}</span>
+    <span style="color: #a6e22e">.bn</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">background</span><span style="color: #f92672">:</span><span style="color: #66d9ef">none</span> <span style="color: #75715e">!important</span><span style="color: #f8f8f2">}</span>
+    <span style="color: #a6e22e">.cb</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">clear</span><span style="color: #f92672">:</span><span style="color: #66d9ef">both</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">overflow</span><span style="color: #f92672">:</span><span style="color: #66d9ef">hidden</span><span style="color: #f8f8f2">}</span>
+    <span style="color: #a6e22e">.cl</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">clear</span><span style="color: #f92672">:</span><span style="color: #66d9ef">left</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">overflow</span><span style="color: #f92672">:</span><span style="color: #66d9ef">hidden</span><span style="color: #f8f8f2">}</span>
+    <span style="color: #a6e22e">.cr</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">clear</span><span style="color: #f92672">:</span><span style="color: #66d9ef">right</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">overflow</span><span style="color: #f92672">:</span><span style="color: #66d9ef">hidden</span><span style="color: #f8f8f2">}</span>
+
+    <span style="color: #75715e">/* 플로트 */</span>
+    <span style="color: #a6e22e">.fl</span><span style="color: #f8f8f2">{</span><span style="color: #66d9ef">float</span><span style="color: #f92672">:</span><span style="color: #66d9ef">left</span><span style="color: #f8f8f2">}</span><span style="color: #a6e22e">.fr</span><span style="color: #f8f8f2">{</span><span style="color: #66d9ef">float</span><span style="color: #f92672">:</span><span style="color: #66d9ef">right</span><span style="color: #f8f8f2">}</span><span style="color: #a6e22e">.fn</span><span style="color: #f8f8f2">{</span><span style="color: #66d9ef">float</span><span style="color: #f92672">:</span><span style="color: #66d9ef">none</span> <span style="color: #75715e">!important</span><span style="color: #f8f8f2">}</span>
+
+    <span style="color: #75715e">/* 포지션 */</span>
+    <span style="color: #a6e22e">.pr</span><span style="color: #f8f8f2">{</span><span style="color: #66d9ef">position</span><span style="color: #f92672">:</span><span style="color: #66d9ef">relative</span><span style="color: #f8f8f2">}</span><span style="color: #a6e22e">.pa</span><span style="color: #f8f8f2">{</span><span style="color: #66d9ef">position</span><span style="color: #f92672">:</span><span style="color: #66d9ef">absolute</span><span style="color: #f8f8f2">}</span><span style="color: #a6e22e">.pf</span><span style="color: #f8f8f2">{</span><span style="color: #66d9ef">position</span><span style="color: #f92672">:</span><span style="color: #66d9ef">fixed</span><span style="color: #f8f8f2">}</span>
+
+    <span style="color: #75715e">/* 텍스트 정렬 */</span>
+    <span style="color: #a6e22e">.tal</span><span style="color: #f8f8f2">{</span><span style="color: #66d9ef">text-align</span><span style="color: #f92672">:</span><span style="color: #66d9ef">left</span> <span style="color: #75715e">!important</span><span style="color: #f8f8f2">}</span><span style="color: #a6e22e">.tac</span><span style="color: #f8f8f2">{</span><span style="color: #66d9ef">text-align</span><span style="color: #f92672">:</span><span style="color: #66d9ef">center</span> <span style="color: #75715e">!important</span><span style="color: #f8f8f2">}</span><span style="color: #a6e22e">.tar</span><span style="color: #f8f8f2">{</span><span style="color: #66d9ef">text-align</span><span style="color: #f92672">:</span><span style="color: #66d9ef">right</span> <span style="color: #75715e">!important</span><span style="color: #f8f8f2">}</span>
+
+<span style="color: #f92672">&lt;/style&gt;</span>
+</pre></td></tr></table></div>
+
+
+
+
+
+					</div>
+				</div>
+               
+               
+               
+                <div class="ex_wapper">
+                    <h3 class="api-title_h3 html">HTML %코딩 모바일 </h3>
+                    <div class="api-body_h3 html">
+                    <!-- 소스 -->
+
+                       
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!DOCTYPE&gt;</span>
+<span style="color: #f92672">&lt;html</span> <span style="color: #a6e22e">lang=</span><span style="color: #e6db74">&quot;ko&quot;</span> <span style="color: #a6e22e">xml:lang=</span><span style="color: #e6db74">&quot;ko&quot;</span><span style="color: #f92672">&gt;</span>
+<span style="color: #f92672">&lt;head&gt;</span>
+	<span style="color: #f92672">&lt;title&gt;</span>문서이름<span style="color: #f92672">&lt;/title&gt;</span>
+	<span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">http-equiv=</span><span style="color: #e6db74">&quot;Content-Type&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;text/html; charset=utf-8&quot;</span> <span style="color: #f92672">/&gt;</span>
+	<span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">name=</span><span style="color: #e6db74">&quot;viewport&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no&quot;</span><span style="color: #f92672">&gt;</span>
+	<span style="color: #f92672">&lt;link</span> <span style="color: #a6e22e">rel=</span><span style="color: #e6db74">&quot;stylesheet&quot;</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;./css/style.css&quot;</span> <span style="color: #f92672">/&gt;</span>
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;http://code.jquery.com/jquery-1.12.1.min.js&quot;</span> <span style="color: #f92672">&gt;&lt;/script&gt;</span>
+<span style="color: #f92672">&lt;/head&gt;</span>
+<span style="color: #f92672">&lt;body&gt;</span>
+    <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;wrap&quot;</span><span style="color: #f92672">&gt;</span>
+        <span style="color: #f92672">&lt;header</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;header&quot;</span><span style="color: #f92672">&gt;&lt;/header&gt;</span>
+        <span style="color: #f92672">&lt;header</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;contaniner&quot;</span><span style="color: #f92672">&gt;</span>
+            <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;contents&quot;</span><span style="color: #f92672">&gt;</span>
+                본문
+            <span style="color: #f92672">&lt;/div&gt;</span>
+        <span style="color: #f92672">&lt;/header&gt;</span>
+        <span style="color: #f92672">&lt;footer</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;footer&quot;</span><span style="color: #f92672">&gt;&lt;/footer&gt;</span>
+    <span style="color: #f92672">&lt;/div&gt;</span>
+<span style="color: #f92672">&lt;/body&gt;</span>
+<span style="color: #f92672">&lt;/html&gt;</span>
+</pre></td></tr></table></div>
+
+                       
+                       
+                    <!-- //소스 -->
+                    </div>
+                </div>                
+
+                <div class="ex_wapper">
+                    <h3 class="api-title_h3 html">HTML 고정픽셀 모바일 </h3>
+                    <div class="api-body_h3 html">
+                    <!-- 소스 -->
+                    
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!DOCTYPE&gt;</span>
+<span style="color: #f92672">&lt;html</span> <span style="color: #a6e22e">lang=</span><span style="color: #e6db74">&quot;ko&quot;</span> <span style="color: #a6e22e">xml:lang=</span><span style="color: #e6db74">&quot;ko&quot;</span><span style="color: #f92672">&gt;</span>
+<span style="color: #f92672">&lt;head&gt;</span>
+	<span style="color: #f92672">&lt;title&gt;</span>문서이름<span style="color: #f92672">&lt;/title&gt;</span>
+	<span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">http-equiv=</span><span style="color: #e6db74">&quot;Content-Type&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;text/html; charset=utf-8&quot;</span> <span style="color: #f92672">/&gt;</span>
+	<span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">name=</span><span style="color: #e6db74">&quot;viewport&quot;</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;viewport&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;width=640, user-scalable=0, target-densitydpi=device-dpi&quot;</span><span style="color: #f92672">&gt;</span>
+	<span style="color: #f92672">&lt;link</span> <span style="color: #a6e22e">rel=</span><span style="color: #e6db74">&quot;stylesheet&quot;</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;./css/style.css&quot;</span> <span style="color: #f92672">/&gt;</span>
+	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;http://code.jquery.com/jquery-1.12.1.min.js&quot;</span> <span style="color: #f92672">&gt;&lt;/script&gt;</span>
+<span style="color: #f92672">&lt;/head&gt;</span>
+<span style="color: #f92672">&lt;body&gt;</span>
+    <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;wrap&quot;</span><span style="color: #f92672">&gt;</span>
+        <span style="color: #f92672">&lt;header</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;header&quot;</span><span style="color: #f92672">&gt;&lt;/header&gt;</span>
+        <span style="color: #f92672">&lt;header</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;contaniner&quot;</span><span style="color: #f92672">&gt;</span>
+            <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;contents&quot;</span><span style="color: #f92672">&gt;</span>
+                본문
+            <span style="color: #f92672">&lt;/div&gt;</span>
+        <span style="color: #f92672">&lt;/header&gt;</span>
+        <span style="color: #f92672">&lt;footer</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;footer&quot;</span><span style="color: #f92672">&gt;&lt;/footer&gt;</span>
+    <span style="color: #f92672">&lt;/div&gt;</span>
+<span style="color: #f92672">&lt;/body&gt;</span>
+<span style="color: #f92672">&lt;/html&gt;</span>
+</pre></td></tr></table></div>
+
+
+
+
+                    <!-- //소스 -->
+                    </div>
+                </div>                       
+            
+            
+						
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+		
+	
+		</div>		
+	<!-- e: 컨텐츠 끝 -->
+	<p class="cl-b"></p>
+</div>
+
+
+
+<script type="text/javascript">
+	$("#header").load("../../../head.html");
+	$("#lnb").load("../../../lnb.html");	
+
+
+	$(".ex-more a").click(function() {
+		$( this ).find("span").toggle();
+		$( this ).parent().siblings(".ex-body").slideToggle();
+		return false;
+	});
+
+</script>
+
+</body>
+</html>

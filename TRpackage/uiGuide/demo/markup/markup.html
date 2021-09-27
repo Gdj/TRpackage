@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>TR package U.I 표준 프레임워크 ver.1.0 </title>
+<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.js" charset="UTF-8"></script>
+<link rel="stylesheet" href="../../../asset/css/common.css" type="text/css" media="all" />
+</head>
+
+<body>
+	<div id="header" class="head" ></div>
+	<div id="container">
+		<div id="lnb" class="gnb"></div>
+		
+		<!-- s:컨텐츠영역 -->
+		<div id="contents"  class="contents html_rule">
+			<h1 class="h1_tit"><span>Markup 가이드</span></h1>	
+			<!-- s:con_comm-->
+			<div class="con_comm" id="button">
+				<h2 class="h2_tit">button<span> : 요소 내에 텍스트나 이미지와 같은 내용을 넣을 수 있다는 것이 < input > 버튼과의 차이점이다.</span></h2>
+				<p class="blt_con">
+					<xmp><button type="button" class="btn btn_gray">OK</button></xmp>
+				</p>
+			</div>
+			<!-- e:con_comm -->
+			<!-- s:con_comm-->
+			<div class="con_comm" id="label">
+				<h2 class="h2_tit">label<span> : 텍스트만 눌러도 폼 요소가 선택되는 효과를 줄 수 있다.</span></h2>
+				<p class="blt_con">
+					<xmp><label for="srch_input">검색어를 입력하세요</label><input type="text" name="" id="srch_input"></xmp>
+				</p>
+			</div>
+			<!-- e:con_comm -->
+			<!-- s:con_comm-->
+			<div class="con_comm" id="tab">
+				<h2 class="h2_tit">tab 버튼</h2>
+				<p class="blt_con">
+		<xmp><div class="tab_con">
+		 <ul>
+		   <li>
+			 <a href="#"><img src="tab1_on.gif" alt="탭버튼1" /></a>
+			 <div class="con1">
+				내용1
+			 </div>
+		   </li>
+		   <li>
+			 <a href="#"><img src="tab2_off.gif" alt="탭버튼2" /></a>
+			 <div class="con2">
+				내용2
+			 </div>
+			</li>
+		 </ul>
+		</div></xmp>
+				</p>
+			</div>
+			<!-- e:con_comm -->
+			<!-- s:con_comm-->
+			<div class="con_comm" id="form">
+				<h2 class="h2_tit">form</h2>
+				<p class="blt_con">
+					<xmp><form class="srch" method="get" action="">내용</form></xmp>
+				</p>
+			</div>
+			<!-- e:con_comm -->
+			<!-- s:con_comm-->
+			<div class="con_comm" id="table">
+				<h2 class="h2_tit">table</h2>
+				<p class="blt_con">
+		<xmp><table summary="App 홍보문의 내용을 입력합니다">
+		 <caption>App 홍보문의 등록</caption>
+		 <colgroup>
+		  <col width="165" />
+		  <col width="" />
+		 </colgroup>
+		 <tbody>
+		  <tr>
+		   <th class="line" scope="row"><label for="frm_subject">* 제목</label></th>
+		   <td class="line"><input type="text" id="frm_subject" name="" class="basic" style="width:430px;" /></td>
+		  </tr>
+		  <tr>
+		   <th scope="row"><label for="frm_name">* 이 름</label></th>
+		   <td><input type="text" id="frm_name" name="" class="basic" style="width:240px" /></td>
+		  </tr>
+		 </tbody>
+		</table></xmp>
+				</p>
+			</div>
+			<!-- e:con_comm -->
+		</div>
+		<!-- e:컨텐츠영역 -->
+		
+	</div>
+	
+	
+
+<script type="text/javascript">
+	$("#header").load("../../head.html")	  	
+	$("#lnb").load("../../html_list.html")
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+	<title>회원가입폼</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css"  href="../../../../asset/css/trpBase.css" media="all" />
+</head>
+<!-- 
+<style type="text/css">
+
+    /** table **/
+    .trp.table-data-type1 { width:100%; border-top: 2px solid #000; text-align:center; }
+    .trp.table-data-type1 thead th { height: 38px; padding: 4px 5px 3px 5px; border-bottom: 1px solid #d9d9d9; font-size: 13px; background-color: #f6f6f6; }
+    .trp.table-data-type1 tbody th { height: 38px; padding: 4px 5px 3px 5px; border-right: 1px solid #efefef; border-bottom: 1px solid #e5e5e5; font-size: 13px; background-color: #f6f6f6; }
+    .trp.table-data-type1 tbody td { height: 35px; padding: 4px 5px 3px 5px; border-right: 1px solid #efefef; border-bottom: 1px solid #e5e5e5; font-size: 13px;}
+    .trp.table-data-type1 tbody td.tit { padding-left: 50px; text-align: left; }
+    .trp.table-data-type1 tbody td .txt-box { text-align: left; margin-left: 5px }
+    .trp.table-data-type1 tbody td .radio-box { text-align: left; margin-left: 5px }
+    .trp.table-data-type1 tbody td .txt-box { text-align: left; margin-right: 5px }
+    .trp.table-data-type1 .bd-r { border-right: 1px solid #e5e5e5; }
+    .trp.table-data-type1 .bd-l { border-left: 1px solid #e5e5e5; }
+    .trp.table-data-type1 .bd-t { border-top: 1px solid #e5e5e5; }
+    .trp.table-data-type1 .bd-b { border-bottom: 1px solid #e5e5e5; }
+    .trp.table-data-type1 .bd-rn { border-right: none; }
+    .trp.table-data-type1 .bd-ln { border-left: none; }
+    .trp.table-data-type1 .bd-tn { border-top: none; }
+    .trp.table-data-type1 .bd-bn { border-bottom: none; }
+    /** //table **/
+	
+	/** input **/
+    .trp.input-wrap label { margin: 4px 2px 2px 0; padding: 0;  vertical-align: middle; }
+    .trp.input-wrap input[type=radio]{  margin: 4px 2px 2px 0; padding: 0;  vertical-align: middle; }
+    .trp.input-box { clear:both; }
+    label.screen-reader-text { position:absolute; margin:-1px; padding:0; height:1px; width:1px; overflow:hidden; clip:rect(0,0,0,0); border:0; }
+    #trp-text { width:150px; height:24px; }
+    #trp-password { width:150px; height:24px; }
+    #trp-search { width:150px; height:24px; vertical-align:top; }
+
+        /*** text ***/
+        .trp.input-box label { vertical-align:middle; }
+        .trp.input-box .search-box label { font-size:0; width:0; }
+        /*** //text ***/
+
+        /*** textarea ***/
+        .trp.textarea-box { width:560px; height:200px; margin-top:25px; border:1px solid #e5e5e5; }
+        .trp.textarea-box textarea { width:560px; height:200px; overflow-y:scroll; resize:none; }
+        /*** //textarea ***/
+
+
+        /*** select ***/
+        .trp.input-box .select-box { overflow:hidden; float:left; margin-left:5px; }
+        .trp.input-box .select-box .trp-select { height:28px; padding:0 5px; }
+        .trp.input-box .select-txt-box { float:left; }
+        .trp.input-box .select-txt-box input { height:24px; margin:0 5px; }
+        /*** //select ***/
+
+
+        /*** file ***/
+        .trp.input-box .file-box { float:left; margin-right:10px; }
+        .trp.input-box .file-box .trp-Filetext { width:300px; height:22px; vertical-align:middle; }
+        .trp.input-box .file-box .trp-Filebutton { height:28px; padding:0 10px; color:#555; background:#f7f7f7; border:1px solid #ccc; border-radius:3px; cursor:pointer; }
+        .trp.input-box .file-box .trp-Filehidden { width:70px; margin-left:-75px; opacity:0; cursor:pointer; }
+        /*** //file ***/
+
+        /*** radio ***/
+        .trp.input-box .radio-box { float:left; margin-right:10px; }
+        .trp.input-box .radio-box label { vertical-align:top; }
+        /*** radio ***/
+
+        /*** checkbox ***/
+        .trp.input-box .checkbox-box { float:left; margin-right:10px; }
+        .trp.input-box .checkbox-box label { vertical-align:top; }
+        /*** checkbox ***/
+    /** //input **/
+	
+</style>
+-->
+<body>
+
+<table class="trp table-data-type1" cellpadding="0" cellspacing="0" summary="회원가입 폼입니다.">
+	<caption>회원가입 폼</caption>
+	<colgroup>
+		<col width="20%">
+		<col width="80%">
+	</colgroup>
+	<thead>
+	</thead>
+	<tbody>
+		<tr>
+			<th scope="row">아이디</th>
+			<td>
+				<div class="txt-box">
+					<label for="trp-text" class="screen-reader-text">아이디</label> <input type="text" id="trp-text" placeholder="아이디">
+				</div>				
+			</td>
+		</tr>
+		<tr>
+			<th scope="row">비밀번호</th>
+			<td>
+				<div class="txt-box">
+					<label for="trp-text" class="screen-reader-text">아이디</label> <input type="password" id="trp-text" placeholder="비밀번호">
+				</div>				
+			</td>
+		</tr>
+		<tr>
+			<th scope="row">비밀번호 재확인</th>
+			<td>
+				<div class="txt-box">
+					<label for="trp-text" class="screen-reader-text">비밀번호 재확인</label> <input type="password" id="trp-text" placeholder="비밀번호 재확인">
+				</div>				
+			</td>
+		</tr>
+		<tr>
+			<th scope="row">이름</th>
+			<td>
+				<div class="txt-box">
+					<label for="trp-text" class="screen-reader-text">이름</label> <input type="text" id="trp-text" placeholder="이름">
+				</div>				
+			</td>
+		</tr>
+		<tr>
+			<th scope="row">성별</th>
+			<td>
+				<div class="trp input-box">
+					<div class="radio-box">
+						<input type="radio" id="trp-radio1" name="radio_open">
+						<label for="trp-radio1">남자</label>				
+					</div>
+					<div class="radio-box">
+						<input type="radio" id="trp-radio2" name="radio_open">
+						<label for="trp-radio2">여자</label>				
+					</div>	
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<th scope="row">생년</th>
+			<td>
+				<div class="trp input-box">
+					<div class="select-box">
+						<label for="trp-select1" class="screen-reader-text">월</label>
+						<select name="select" id="trp-select1" class="trp-select">
+							<option value="" selected="selected">월</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+						</select> -
+					</div>					
+					<div class="select-box">
+						<label for="trp-select2" class="screen-reader-text">일</label>
+						<select name="select" id="trp-select2" class="trp-select">
+							<option value="" selected="selected">일</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="13">13</option>
+							<option value="14">14</option>
+							<option value="15">15</option>
+							<option value="16">16</option>
+							<option value="17">17</option>
+							<option value="18">18</option>
+							<option value="19">19</option>
+							<option value="20">20</option>
+							<option value="21">21</option>
+							<option value="22">22</option>
+							<option value="23">23</option>
+							<option value="24">24</option>
+							<option value="25">25</option>
+							<option value="26">26</option>
+							<option value="27">27</option>
+							<option value="28">28</option>
+							<option value="29">29</option>
+							<option value="30">30</option>
+							<option value="31">31</option>
+						</select>
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<th scope="row">이메일</th>
+			<td>
+				<div class="trp input-box">
+					<div class="select-txt-box">
+						<label for="select-txt" class="screen-reader-text">이메일</label>
+						<input type="text" size="19"> @
+					</div>
+					<div class="select-box">
+						<label for="trp-select3" class="screen-reader-text">이메일</label>
+						<select name="select" id="trp-select3" class="trp-select">
+							<option value="1" selected="selected">naver.com</option>
+							<option value="2">duam.net</option>
+							<option value="3">gmail.com</option>
+							<option value="4">nate.com</option>
+							<option value="5">korea.com</option>
+							<option value="6">yahoo.com</option>
+							<option value="7">hotmail.com</option>
+							<option value="8">chol.com</option>
+							<option value="9">netian.com</option>
+						</select>
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<th scope="row">휴대폰</th>
+			<td>
+				<div class="trp input-box">
+					<div class="select-box">
+						<label for="trp-select2" class="screen-reader-text">휴대폰</label>
+						<select name="select" id="trp-select2" class="trp-select">
+							<option value="1" selected="selected">010</option>
+							<option value="2">011</option>
+							<option value="3">016</option>
+							<option value="4">017</option>
+							<option value="5">018</option>
+							<option value="6">019</option>
+						</select> -
+					</div>
+					<div class="select-txt-box">
+						<label for="select-txt" class="screen-reader-text">휴대폰</label>
+						<input type="text" size="10"> - 
+						<label for="select-txt" class="screen-reader-text">휴대폰</label>
+						<input type="text" size="10">
+					</div>
+				</div>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+</body>
+</html>

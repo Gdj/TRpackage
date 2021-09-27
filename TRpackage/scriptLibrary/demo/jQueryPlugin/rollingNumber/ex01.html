@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">  
+	<title>RollingNumber</title>
+	
+	<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.9.1.min.js" ></script>
+	<script type="text/javascript" src="../../../../asset/js/libs/rolling_number/rolling_number.js"></script>
+	<style type="text/css">
+		#rollingNum { width:200px; height:200px;  background:#222 ;}
+		.hidden { position:absolute; width:1px; height:1px; margin: 0; padding: 0; overflow:hidden; font-size:0; line-height:0; }
+		
+		.rate_area_no { height: 60px; }
+		.ml_rate {  display: block; float: left; width: 33px; height: 57px; margin-left: 0px; background:  url("./images/no_rate_light.png") no-repeat;		}	
+		.ml_rate.comma { width: 10px; 	background: url("./images/no_rate_light_comma.png") 0 7px no-repeat;}	
+		.ml_rate.dot { width: 10px; margin-bottom: -9px; background: url("./images/no_rate_light_dot.png") no-repeat; }
+		.ml_rate.min { width: 15px; margin-bottom: -9px; background: url("./images/no_rate_light_-.png") no-repeat right center; }
+		.ml_rate.per { width: 33px; margin-bottom: -9px; background: url("./images/no_rate_light_per.png") no-repeat right center; }
+	  
+	</style>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		
+		var rollingIntro1;
+		function showRecent($numString,$auto){	
+				 $("#rollingNum .recent_rate_area").empty();
+				rollingIntro1 = new RollingNumber({
+				container:'#rollingNum .recent_rate_area',
+				type:'ml_rate',   
+				unitHeight:76,
+				value:$numString,
+				autoPlay:$auto
+			});
+		}
+		function showRecent1($numString){          
+            var rollingIntro = new RollingNumber({
+                container:'#rollingNum .recent_rate_area2',
+                type:'ml_rate',   
+				unitHeight:76,
+                value:$numString,
+                autoPlay:true
+            });
+        }
+        function showRecent2($numString){            
+            var rollingIntro = new RollingNumber({
+                container:'#rollingNum .recent_rate_area3',				
+                type:'ml_rate',   
+				unitHeight:76,
+                value:$numString,
+                autoPlay:true
+            });
+        }
+
+		showRecent("20,000", false);
+		showRecent1("-15");
+		showRecent2("0.9%");
+		
+		setTimeout(rollingIntro1.settingMotion, 2000);		
+		setTimeout(showRecent, 4000, "95,645", true);
+		
+	})
+	</script>
+</head>
+<body>
+	<div id="rollingNum">
+		<div class="recent_rate_area"></div>
+		<div class="recent_rate_area2"></div>
+		<div class="recent_rate_area3"></div>
+	</div>  
+</body>  
+</html>
