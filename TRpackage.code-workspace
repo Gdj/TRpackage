@@ -1,11 +1,12 @@
 {
 	"folders": [
 		{
-			"name": "TRpackage",
-			"path": "."
+			"name": "TRpackage-git",
+			"path": "./"
 		}
 	],
 	"settings": {
 		"editor.tabSize": 2
 	}
 }
+
