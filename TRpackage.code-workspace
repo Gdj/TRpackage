@@ -2,7 +2,7 @@
 	"folders": [
 		{
 			"name": "TRpackage",
-			"path": "."
+			"path": "../"
 		}
 	],
 	"settings": {
