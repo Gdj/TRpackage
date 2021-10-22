@@ -63,13 +63,13 @@ var trpBrowser = (function() {
 function trpClassBubbleCheck( $className, $activeFn){     
    
 	$(document).on("click", function ($e) {
-			var _true_false = false;
-			if($($e.target).closest($className).length){
-					_true_false = true;
-			}else{
-					_true_false = false;
-			}
-			$activeFn(_true_false);
+        var _true_false = false;
+        if($($e.target).closest($className).length){
+                _true_false = true;
+        }else{
+                _true_false = false;
+        }
+        $activeFn(_true_false);
 	});   
 }
 
@@ -88,7 +88,35 @@ function trpUtilityChangeOnceFN($value, $activeFn){
     if(trpUtilityChangeOnce_newVal == trpUtilityChangeOnce_oldVal){ return;}
     $activeFn(trpUtilityChangeOnce_newVal);
     trpUtilityChangeOnce_oldVal = trpUtilityChangeOnce_newVal;
-  }// end fn
+}// end fn
+
+
+
+/** 
+ * trpScrollActive	        : 스크롤에따라 컨텐츠 도달하면 (ms_active)클래스 추가
+ * @param	$motion_items   : 모션 들어갈 아이템 선택자
+ * @param	$add_clase      : 추가 삭제될 클래스 
+ * @param	$show_per       : 시작위치  (0: 보일때, .2: 20% 올라왔을때)
+*/
+function trpScrollActiveFn($motion_items, $add_clase,  $show_per) { 
+    var _wH = window.innerHeight; 
+    var _wS = $(window).scrollTop();
+    var _wHS = (_wH + _wS);
+    $($motion_items).each(function () { 			
+        var _t = $(this).offset().top + (_wH * $show_per); 
+        var _th = $(this).offset().top + $(this).innerHeight(); 
+        if (_wS > _th) { 
+            $(this).removeClass($add_clase);     // pass 
+        } else if (_wHS > _t) { 
+            $(this).addClass($add_clase);        // over
+        } else {
+            $(this).removeClass($add_clase);     // under
+        } 	
+    }); 
+}
+//$(window).on('scroll resize', scroll_motionActive);
+//$(window).trigger('scroll resize');
+
 
 
 
