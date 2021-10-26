@@ -20,13 +20,13 @@
       - flex-start    : 시작점에서 부터 정열
       - flex-end      : 끝나는점에서 부터 정열
       - space-around  : 중심으로부터 아이템에 같은 여백을 줘서 정열
-      - space-evenly  : 아이템 간격이 동일하게 정열
+      - space-evenly  : 아이템 간격이 동일하게 정열 (justify-content)
       - space-between : 중심 약끝으로 부터 정열
-      - stretch       : 컨테이너 크기만큼 여백없이 정열  
+      - stretch       : 컨테이너 크기만큼 여백없이 정열 (align-content) 
     
     */
-    align-content: space-around;     
-    justify-content: space-around;
+    align-content: normal;     
+    justify-content: flex-start;
     align-items: normal
   }
   /* 아이템 width는 최소값으로 반영된다고 보면 됩니다. */
