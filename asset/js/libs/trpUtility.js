@@ -130,11 +130,10 @@ function trpScrollActiveFn($motion_items, $add_clase,  $show_per) {
 jQuery.fn.trpUtilityChangeOnceFn = function($functionChange) {
 	var _oldChang = undefined;
 	var _change   = "";
-  function onceFn($change) { 
+    function onceFn($change) { 
 		$functionChange();   // console.log("true" , $change);
 		_oldChang = $change;
 	}
-
 	return {
 		/*  setChange 
 			* @param	$change	 
