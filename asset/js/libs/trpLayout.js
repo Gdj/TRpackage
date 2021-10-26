@@ -11,8 +11,8 @@
 
 
 
-/*
-trpScrollSync             : 스크롤 움직임에 따라 타겟 높이 값을 변경하여 따라다니게 한다.
+/**
+* trpScrollSync             : 스크롤 움직임에 따라 타겟 높이 값을 변경하여 따라다니게 한다.
 * @option	maxWidth   		  : 컨테이너 넓이                (기본값 : 윈도우 넓이)
 * @option	positionTar		  : 적용할 타겟 선택자            (기본값 : this)
 * @option	widthTar			  : 적용할 타켓 넓이값            (기본값 : this.width)
@@ -81,13 +81,12 @@ jQuery.fn.trpScrollSync = function( options ){
 
 
 
-
-/*
-trpScrollPositionClass          : 스크롤타겟위치에서 타겟클래스변경
-* @param	$scrollTar			: 기준 타겟 위치 선택자
-* @param	$scrollTarModi		: 기준 타겟 위치 가감 수치
-* @param	$addTar				: 적용 타겟 선택자
-* @param	$addTarClass		: 적용 타겟 class 이름
+/**
+* trpScrollPositionClass     : 스크롤타겟위치에서 타겟클래스변경
+* @param	$scrollTar			 : 기준 타겟 위치 선택자
+* @param	$scrollTarModi	 : 기준 타겟 위치 가감 수치
+* @param	$addTar				   : 적용 타겟 선택자
+* @param	$addTarClass	   : 적용 타겟 class 이름
 */
 jQuery.fn.trpScrollPositionClass = function($scrollTar, $scrollTarModi, $addTar, $addTarClass) {
     var _scrolTar = $(this);
@@ -105,26 +104,129 @@ jQuery.fn.trpScrollPositionClass = function($scrollTar, $scrollTarModi, $addTar,
         scrollResizeClassWatch()
     });
     function scrollResizeClassWatch(){
-        _scrolWin = _scrolTar.scrollTop();
-        if (_scrolWin >= _scrolTag) {
-            if (_only != "over") { $($addTar).addClass($addTarClass); }
-            _only = "over";
-        } else {
-            if (_only != "under") { $($addTar).removeClass($addTarClass); }
-            _only = "under";
-        }
+      _scrolWin = _scrolTar.scrollTop();
+      if (_scrolWin >= _scrolTag) {
+          if (_only != "over") { $($addTar).addClass($addTarClass); }
+          _only = "over";
+      } else {
+          if (_only != "under") { $($addTar).removeClass($addTarClass); }
+          _only = "under";
+      }
     }
     scrollResizeClassWatch();
-    
+};
+
+/**
+* trpScrollPositionWindowClass    : 스크롤타겟위치에서 윈도우높이 절반 타겟클래스변경
+* @param	$scrollTar			        : 기준 타겟 위치 선택자
+* @param	$scrollTarModi		      : 기준 타겟 위치 가감 수치
+* @param	$addTar				          : 적용 타겟 선택자
+* @param	$addTarClass		        : 적용 타겟 class 이름
+*/
+jQuery.fn.trpScrollPositionWindowClass = function($scrollTar, $scrollTarModi, $addTar, $addTarClass) {
+  var _scrolWin = $(window).scrollTop();
+  var _scrolTag = 0;
+  var _only = "defaul"; // over, under
+  
+  // 선텍자 체크
+  if( $scrollTar != "" && $($scrollTar).length > 0  ){ _scrolTag = $($scrollTar).offset().top;  }  
+  
+  // 숫자 체크
+  if( isNaN($scrollTarModi) == false)    { 
+      _scrolTag = _scrolTag + ( $(window).height() / 2 ) + ($scrollTarModi); 
+  }  
+  
+  $(window).on("scroll resize", function($e){
+      scrollResizeClassWatch()
+  });
+  function scrollResizeClassWatch(){
+      _scrolWin = $(window).scrollTop();
+      if (_scrolWin >= _scrolTag) {
+          if (_only != "over") { $($addTar).addClass($addTarClass); }
+          _only = "over";
+      } else {
+          if (_only != "under") { $($addTar).removeClass($addTarClass); }
+          _only = "under";
+      }
+  }
+  scrollResizeClassWatch();
+  
 };
 
 
+/** 
+ * @param	$motion_items      : 모션 들어갈 아이템 선택자
+ * @param	$add_class         : 추가 삭제될 클래스 
+ * @param	$show_per          : 시작위치  (0: 보일때, .2: 20% 올라왔을때)
+ * @method setTarModi($tarModi) : 가감수치 변경
+ */
+jQuery.fn.trpScrollActive = function( $add_class, $show_per ){
+  var _tarGet   = this
+  var _addClass = $add_class;
+  var _show_per = $show_per;
+  var _scrollTarModi = 0;
+  function trpScrollActiveFn() { 
+    var _wH  = window.innerHeight; 
+    var _wS  = $(window).scrollTop();
+    var _wHS = (_wH + _wS);
+    $(_tarGet).each(function($i) { 			
+      var _t  = ($(this).offset().top + _scrollTarModi) +  (_wH * _show_per); 
+      var _th = ($(this).offset().top + _scrollTarModi) + $(this).innerHeight(); 
+      if (_wS > _th) { 
+          $(this).removeClass(_addClass);     // pass 
+      } else if (_wHS > _t) { 
+          $(this).addClass(_addClass);        // over
+      } else {
+          $(this).removeClass(_addClass);     // under
+      } 	
+    }); 
+  }
+  $(window).on('scroll resize', trpScrollActiveFn);
+  $(window).trigger('scroll resize');
 
-/*
-trpScrollPositionFn         : 스크롤타겟위치에서 타겟클래스변경
-* @param	$scrollTar		: 기준 타겟 위치 선택자
-* @param	$scrollTarModi	: 기준 타겟 위치 가감 수치
-* @param	$function( over:true | under:false )	: 함수
+
+  return {
+    /* 기준 타겟 위치 가감 수치 변경 */
+    setTarModi($tarModi){
+      _scrollTarModi = $tarModi;
+    }
+  }
+}
+
+
+
+/**  trpScrollActiveFn	       : 스크롤에따라 컨텐츠 도달하면 (ms_active)클래스 추가 */
+function trpScrollActiveFn() { 
+  var _wH  = window.innerHeight; 
+  var _wS  = $(window).scrollTop();
+  var _wHS = (_wH + _wS);
+  $('.js-msitem').each(function($i) { 			
+    var _t  = $(this).offset().top +  (_wH * .2); 
+    var _th = $(this).offset().top + $(this).innerHeight(); 
+    if (_wS > _th) { 
+        $(this).removeClass("ms_active");     // pass 
+    } else if (_wHS > _t) { 
+        $(this).addClass("ms_active");        // over
+    } else {
+        $(this).removeClass("ms_active");     // under
+    } 	
+  }); 
+}
+//$(window).on('scroll resize', scroll_motionActive);
+//$(window).trigger('scroll resize');
+
+
+
+
+
+
+
+/**
+* trpScrollPositionFn            : 스크롤타겟위치에서 타겟클래스변경
+* @param	$scrollTar	           : 기준 타겟 위치 선택자
+* @param	$scrollTarModi	       : 기준 타겟 위치 가감 수치
+* @param	$function              : ( over:true | under:false )	: 함수
+* @method setTarModi(가감수치)   : 타겟 가감 수치 변경
 */
 jQuery.fn.trpScrollPositionFn = function($scrollTar, $scrollTarModi, $functionChange) {
   var _scrolTar = $(this);
@@ -165,51 +267,12 @@ jQuery.fn.trpScrollPositionFn = function($scrollTar, $scrollTarModi, $functionCh
 };
 
 
-/*
-trpScrollPositionWindowClass    : 스크롤타겟위치에서 윈도우높이 절반 타겟클래스변경
-* @param	$scrollTar			: 기준 타겟 위치 선택자
-* @param	$scrollTarModi		: 기준 타겟 위치 가감 수치
-* @param	$addTar				: 적용 타겟 선택자
-* @param	$addTarClass		: 적용 타겟 class 이름
-*/
-jQuery.fn.trpScrollPositionWindowClass = function($scrollTar, $scrollTarModi, $addTar, $addTarClass) {
-
-    var _scrolWin = $(window).scrollTop();
-    var _scrolTag = 0;
-    var _only = "defaul"; // over, under
-    
-    // 선텍자 체크
-    if( $scrollTar != "" && $($scrollTar).length > 0  ){ _scrolTag = $($scrollTar).offset().top;  }  
-    
-    // 숫자 체크
-    if( isNaN($scrollTarModi) == false)    { 
-        _scrolTag = _scrolTag + ( $(window).height() / 2 ) + ($scrollTarModi); 
-    }  
-    
-    $(window).on("scroll resize", function($e){
-        scrollResizeClassWatch()
-    });
-    function scrollResizeClassWatch(){
-        _scrolWin = $(window).scrollTop();
-        if (_scrolWin >= _scrolTag) {
-            if (_only != "over") { $($addTar).addClass($addTarClass); }
-            _only = "over";
-        } else {
-            if (_only != "under") { $($addTar).removeClass($addTarClass); }
-            _only = "under";
-        }
-    }
-    scrollResizeClassWatch();
-    
-};
-
-
 
 
 
 
 /*
-* trpColH             : 같은 col 아이템 높이를 같게
+* trpColH         : 같은 col 아이템 높이를 같게
 * @param	$col	  : col 아이템 겟수
 */
 jQuery.fn.trpColH = function( $col ){
@@ -271,9 +334,8 @@ jQuery.fn.trpColH = function( $col ){
   
 };
 
-
 /*
-* trpColItemH             : 같은 col 아이템 높이를 같게
+* trpColItemH       : 같은 col 아이템 높이를 같게
 * @param	$col		  : col 아이템 겟수
 * @param	$tra		  : col 최소크기 참조      _trackings
 * @param	$tar		  : col 최소크기가 적용타겟 _targets
@@ -347,12 +409,9 @@ jQuery.fn.trpColItemH = function( $col , $tra, $tar ){
   
 };
 
-
-
-
 /*
-* trpColTimeHW            : 같은 col 아이템 높이를 같게 및 컬럼 Width % 조정
-* @param	$col			      : col 아이템 겟수
+* trpColTimeHW       : 같은 col 아이템 높이를 같게 및 컬럼 Width % 조정
+* @param	$col       : col 아이템 겟수
 */
 jQuery.fn.trpColItemHW = function( $col ){
 	var _arr = [], _arr_temps = [], _arr_col=[], _col_w="";
