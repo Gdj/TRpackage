@@ -1,15 +1,22 @@
-/*
+/**
  * Base			: jQuery JavaScript Library v1.12.1
  * trPackage	:
  * trpPopup	    : v0.74
  * release date : 2020.05.18
  * author		: http://turfrain.tistory.com/
  * Copyright 2020. turfrain all rights reserved.
- *
  */
 
 
 'use strict';
+
+
+
+
+/* ie브라우저 검사 */
+jQuery.browser={};(function(){jQuery.browser.msie=false;jQuery.browser.version=0;if(navigator.userAgent.match(/MSIE ([0-9]+)\./)){jQuery.browser.msie=true;jQuery.browser.version=RegExp.$1;}})();
+
+
 
 /**
  * trpScrollTop		: 
@@ -24,17 +31,12 @@ function trpScrollTop($selector, $add){
 };
 
 
-
-/* ie브라우저 검사 */
-jQuery.browser={};(function(){jQuery.browser.msie=false;jQuery.browser.version=0;if(navigator.userAgent.match(/MSIE ([0-9]+)\./)){jQuery.browser.msie=true;jQuery.browser.version=RegExp.$1;}})();
-
-/* 
+/**
  * date : 20141105
  * trpBrowser		: 브라우저 정보를 리턴함.
  * @method name		: 브라우저 이름
  * @method version	: 브라우저 버젼
 */ 
-
 var trpBrowser = (function() {
 	var s = navigator.userAgent.toLowerCase();
 	var match
@@ -76,7 +78,7 @@ function trpClassBubbleCheck( $className, $activeFn){
 
 
 /** 
- * trpUtilityChangeOnceFN	: 값이 달라질때 1번만 실행함수
+ * trpUtilityChangeOnceFN	: 값이 달라질때 1번만 실행함수   ===> jQuery.fn.trpUtilityChangeOnceFn
  * @param	$value			: 변동되는 값		
  * @param	$activeFn		: 실행할 함수
 */
@@ -92,38 +94,13 @@ function trpUtilityChangeOnceFN($value, $activeFn){
 
 
 
-/** 
- * trpScrollActive	        : 스크롤에따라 컨텐츠 도달하면 (ms_active)클래스 추가
- * @param	$motion_items   : 모션 들어갈 아이템 선택자
- * @param	$add_clase      : 추가 삭제될 클래스 
- * @param	$show_per       : 시작위치  (0: 보일때, .2: 20% 올라왔을때)
-*/
-function trpScrollActiveFn($motion_items, $add_clase,  $show_per) { 
-    var _wH = window.innerHeight; 
-    var _wS = $(window).scrollTop();
-    var _wHS = (_wH + _wS);
-    $($motion_items).each(function () { 			
-        var _t = $(this).offset().top + (_wH * $show_per); 
-        var _th = $(this).offset().top + $(this).innerHeight(); 
-        if (_wS > _th) { 
-            $(this).removeClass($add_clase);     // pass 
-        } else if (_wHS > _t) { 
-            $(this).addClass($add_clase);        // over
-        } else {
-            $(this).removeClass($add_clase);     // under
-        } 	
-    }); 
-}
-//$(window).on('scroll resize', scroll_motionActive);
-//$(window).trigger('scroll resize');
 
 
-
-
-/*
-  trpUtilityChangeOnceFn  	    : 함수 한번만 실행
+/**
+*  trpUtilityChangeOnceFn  	    : 함수 한번만 실행
 * @param	$functionTrue	    : 실행되는 함수
 * @method   setChange(boolean)	: true, false 값넘기기
+* ex)
 * var onceFn = $("body").trpUtilityChangeOnceFn(function(){console.log("aaa")}, function(){ console.log("bbb")})
 * onceFn.setChange(true);
 */
@@ -146,11 +123,12 @@ jQuery.fn.trpUtilityChangeOnceFn = function($functionChange) {
 
 
 
-/*
-  trpUtilityChangeOnceFnFn	    : 함수 한번만 실행
+/**
+*  trpUtilityChangeOnceFnFn	    : 함수 한번만 실행
 * @param	$functionTrue	    : true 일때 실행되는 함수
 * @param	$functionFalse	    : false 일대 실행되는 함수
 * @method   setBoolean(boolean)	: true, false 값넘기기
+* ex)
 * var onceFn = $("body").trpUtilityChangeOnceFn(function(){console.log("aaa")}, function(){ console.log("bbb")})
 * onceFn.setBoolean(true);
 */
