@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>trpTimeCounter | TR package</title>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.12.1.min.js"></script>
+<script type="text/javascript" src="../../../../asset/js/libs/trpUnit.js"></script>
+<style>
+  dl dt { display: inline-block; width: 100px;}
+  dl dd { display: inline-block; margin-left: 20px; }
+</style>
+
+</head>
+<body>	
+	
+  <div class="timeCounter">
+    <dl class="total">
+      <dt>Total : </dt> <dd>-</dd>
+    </dl>
+    <dl class="count">
+      <dt>IndexCount : </dt> <dd>-</dd>
+    </dl>
+    <div class="btnbox">
+      <button class="js-prev" >prev</button>
+      <button class="js-next" >next</button>
+      <button class="js-setindex" >set(3)</button>
+    </div>
+    <br />
+    <dl class="fraction">
+      <dt>분율 : </dt> <dd>-</dd>
+    </dl>
+
+    <div class="btnbox">
+      <button class="js-play" >play</button>
+      <button class="js-pause" >pause</button>
+      <button class="js-stop" >stop</button>
+    </div>
+  </div>
+  
+  <script>
+    var _trpCounter =  $(".timeCounter").trpCounter(5, function($index){
+      console.log( " : ", $index);
+      $(".count dd").text($index);
+    });
+    $(".js-prev").on("click", function(){ 
+      _trpCounter.prev() 
+      _trpTimeCounter.stop();
+      _trpTimeCounter.play();
+    });
+    $(".js-next").on("click", function(){ 
+      _trpCounter.next() 
+      _trpTimeCounter.stop();
+      _trpTimeCounter.play();
+    });
+    $(".js-setindex").on("click", function(){ 
+      _trpCounter.setIndex(3);
+      _trpTimeCounter.stop();
+      _trpTimeCounter.play();
+    });
+
+    $(".total dd").text(_trpCounter.getTC().total);
+    $(".count dd").text(_trpCounter.getTC().index);
+  </script>
+
+  <script>
+    var _trpTimeCounter = $(".timeCounter").trpTimeProgress({setInterval : 5000, setCall: 100}, fraction);
+    function fraction($frac){
+      $(".fraction dd").text($frac);
+    }
+    $(".timeCounter").on("event_trpTimer_end", function(event) {
+      console.log("========= >><< end Call");
+      _trpCounter.next();
+      _trpTimeCounter.play();
+    });
+    $(".js-play").on("click", function(){ _trpTimeCounter.play(); });
+    $(".js-pause").on("click", function(){ _trpTimeCounter.pause(); });
+    $(".js-stop").on("click", function(){ _trpTimeCounter.stop(); });
+  </script>
+
+</body>
+</html>
+
