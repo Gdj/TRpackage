@@ -3,7 +3,7 @@
 <head>
 	<title>you tube player</title>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.1/jquery.min.js" ></script>
+	<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js" charset="UTF-8"></script>
 	<style type="text/css">
 		.menu { padding: 10px 0;}
 		.menu-list {  padding: 0;	}
@@ -14,24 +14,24 @@
 	<!-- https://developers.google.com/youtube/iframe_api_reference#Loading_a_Video_Player -->
 	
     <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
-	<div id="player"></div>
-	<div class="menu">
-		<button  data-urlid= "P94SfHo2Gts" class="js-song_play">폴킴 - 모든 날, 모든 순간</button>
-		<button  data-urlid= "YBzJ0jmHv-4" class="js-song_play">폴킴 - 너를 만나</button>
-		<button  data-urlid= "9jFZdu0zTEA" class="js-song_play">폴킴 - 비</button>
-	</div>
-	<div class="menu">
-		<ul class="menu-list">
-			<li><a href="javascript:void(0)" onclick="playVideo()">재생</a></li>
-			<li><a href="javascript:void(0)" onclick="stopVideo()">정지</a></li>
-			<li><a href="javascript:void(0)" onclick="pauseVideo()">일시정지</a></li>
-			<li><a href="javascript:void(0)" onclick="seekTo(150,true)">150초뒤로 이동</a></li>
-			<li><a href="javascript:void(0)" onclick="unMute()">음소거 해지</a></li>
-			<li><a href="javascript:void(0)" onclick="mute()">음소거</a></li>
-			<li><a href="javascript:void(0)" onclick="setVolume(50)">볼룸 50</a></li>
-			<li><a href="javascript:void(0)" onclick="setPlaybackRate(2.5)">재생속도 x2.5</a>  |  <a href="javascript:void(0)" onclick="setPlaybackRate(1)">정상속도 x1</a></li>
-		</ul>
-	</div>
+		<div id="player"></div>
+		<div class="menu">
+			<button  data-urlid= "P94SfHo2Gts" class="js-song_play">폴킴 - 모든 날, 모든 순간</button>
+			<button  data-urlid= "YBzJ0jmHv-4" class="js-song_play">폴킴 - 너를 만나</button>
+			<button  data-urlid= "9jFZdu0zTEA" class="js-song_play">폴킴 - 비</button>
+		</div>
+		<div class="menu">
+			<ul class="menu-list">
+				<li><a href="javascript:void(0)" onclick="playVideo()">재생</a></li>
+				<li><a href="javascript:void(0)" onclick="stopVideo()">정지</a></li>
+				<li><a href="javascript:void(0)" onclick="pauseVideo()">일시정지</a></li>
+				<li><a href="javascript:void(0)" onclick="seekTo(150,true)">150초뒤로 이동</a></li>
+				<li><a href="javascript:void(0)" onclick="unMute()">음소거 해지</a></li>
+				<li><a href="javascript:void(0)" onclick="mute()">음소거</a></li>
+				<li><a href="javascript:void(0)" onclick="setVolume(50)">볼룸 50</a></li>
+				<li><a href="javascript:void(0)" onclick="setPlaybackRate(2.5)">재생속도 x2.5</a>  |  <a href="javascript:void(0)" onclick="setPlaybackRate(1)">정상속도 x1</a></li>
+			</ul>
+		</div>
 
 
     <script>
