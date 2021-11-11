@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
-<title> input:placeholder | TR package</title>
+<title> trpBrowser | TR package</title>
 <script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js" charset="UTF-8"></script>
 <script type="text/javascript" src="../../../../asset/js/libs/trpMenu.js"></script>
 <link rel="stylesheet" href="../../../../asset/css/common.css" type="text/css" media="all" />
@@ -17,7 +17,7 @@
 	<div id="contents" class="contents">
 		<!-- s: 스크립드 설명 -->
 		<div class="desc_wapper">
-			<h1 class="desc_title">trpBrowser 속성 적용</h1>
+			<h1 class="desc_title">trpBrowser, trpDevice</h1>
 			<p>
 				브라우저 이름과 버젼을 확인 할수 있습니다.
 			</p>												
@@ -33,8 +33,8 @@
 					<dd><span class="icon"></span>trpUtility.js 불러오면 trpBrowser를 사용할수 있습니다.</dd>
 					<dd><span class="icon"></span>&lt;script type="text/javascript" src="./js/libs/trpUtility.js"&gt;&lt;/script&gt;<br /> </dd>					
 				</dl>
-				<table class="table_col" summary="생성되는 class 설명">
-					<caption>class 설명</caption>
+				<table class="table_col" summary="생성되는 method 설명">
+					<caption>method 설명</caption>
 					<colgroup>
 						<col width="150">
 						<col width="">		
@@ -64,6 +64,42 @@
 		</div>
 		<!-- e: api 설명 -->
 
+
+		
+		<!-- s: api 설명 -->
+		<div class="api">
+			<h2 class="api-title">trpDevice</h2>
+			<div class="api-body">
+				<dl>
+					<dt>설명</dt>
+					<dd><span class="icon"></span>trpUtility.js 불러오면 trpBrowser를 사용할수 있습니다.</dd>
+					<dd><span class="icon"></span>&lt;script type="text/javascript" src="./js/libs/trpUtility.js"&gt;&lt;/script&gt;<br /> </dd>					
+				</dl>
+				<table class="table_col" summary="생성되는 method 설명">
+					<caption>method 설명</caption>
+					<colgroup>
+						<col width="150">
+						<col width="">		
+					</colgroup>
+					<tbody>
+					<tr>
+						<th scope="col">메서드 이름</th>
+						<th scope="col">메서드 설명</th>
+					</tr>
+					<tr>
+						<td>device</td>
+						<td>디바이스 출력 [ipad, tablet, android, iphone, pc ]
+						</td>		
+					</tr>
+					</tbody>
+				</table>
+		
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+
+
+
 		<!-- s: examples 예제 -->
 		<div class="ex_wapper">
 			<div class="section">
@@ -73,7 +109,10 @@
 				<div class="ex-body" style="display:none" >					
 					<div class="source"><!-- 소스 -->
 					
-<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+
+
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
  2
  3
  4
@@ -113,47 +152,87 @@
 38
 39
 40
-41</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</span>
-<span style="color: #f92672">&lt;html</span> <span style="color: #a6e22e">xmlns=</span><span style="color: #e6db74">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span style="color: #a6e22e">lang=</span><span style="color: #e6db74">&quot;ko&quot;</span> <span style="color: #a6e22e">xml:lang=</span><span style="color: #e6db74">&quot;ko&quot;</span><span style="color: #f92672">&gt;</span>
-<span style="color: #f92672">&lt;head&gt;</span>
-<span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">http-equiv=</span><span style="color: #e6db74">&quot;Content-Type&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;text/html; charset=utf-8&quot;</span><span style="color: #f92672">&gt;</span>
-<span style="color: #f92672">&lt;title&gt;</span>trpBrowser | TR package<span style="color: #f92672">&lt;/title&gt;</span>
-<span style="color: #f92672">&lt;style </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/css&quot;</span><span style="color: #f92672">&gt;</span>
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #333333">&lt;</span><span style="color: #FF0000; background-color: #FFAAAA">!</span>DOCTYPE html PUBLIC <span style="background-color: #fff0f0">&quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot;</span> <span style="background-color: #fff0f0">&quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;</span><span style="color: #333333">&gt;</span>
+<span style="color: #333333">&lt;</span>html xmlns<span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot;http://www.w3.org/1999/xhtml&quot;</span> lang<span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot;ko&quot;</span> xml:lang<span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot;ko&quot;</span><span style="color: #333333">&gt;</span>
+<span style="color: #333333">&lt;</span>head<span style="color: #333333">&gt;</span>
+<span style="color: #333333">&lt;</span>meta http<span style="color: #333333">-</span>equiv<span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot;Content-Type&quot;</span> content<span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot;text/html; charset=utf-8&quot;</span><span style="color: #333333">&gt;</span>
+<span style="color: #333333">&lt;</span>title<span style="color: #333333">&gt;</span>trpBrowser<span style="color: #333333">&lt;/</span>title<span style="color: #333333">&gt;</span>
+<span style="color: #333333">&lt;</span>style <span style="color: #007020">type</span><span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot;text/css&quot;</span><span style="color: #333333">&gt;</span>
 	
-<span style="color: #f92672">&lt;/style&gt;</span>
-<span style="color: #75715e">&lt;!-- &lt;script type=&quot;text/javascript&quot; src=&quot;../../../../asset/js/libs/jquery-1.12.1.min.js&quot;&gt;&lt;/script&gt; --&gt;</span>
-<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;http://code.jquery.com/jquery-1.12.1.min.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
-<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/trpUtility.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span> 
-<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span><span style="color: #f92672">&gt;</span>	 
-	<span style="color: #75715e"></span>
+<span style="color: #333333">&lt;/</span>style<span style="color: #333333">&gt;</span>
+<span style="color: #333333">&lt;</span><span style="color: #FF0000; background-color: #FFAAAA">!</span><span style="color: #333333">--</span> <span style="color: #333333">&lt;</span>script <span style="color: #007020">type</span><span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot;text/javascript&quot;</span> src<span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot;../../../../asset/js/libs/jquery-1.12.1.min.js&quot;</span><span style="color: #333333">&gt;&lt;/</span>script<span style="color: #333333">&gt;</span> <span style="color: #333333">--&gt;</span>
+<span style="color: #333333">&lt;</span>script <span style="color: #007020">type</span><span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot;text/javascript&quot;</span> src<span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot;http://code.jquery.com/jquery-1.12.1.min.js&quot;</span><span style="color: #333333">&gt;&lt;/</span>script<span style="color: #333333">&gt;</span>
+<span style="color: #333333">&lt;</span>script <span style="color: #007020">type</span><span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot;text/javascript&quot;</span> src<span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot;../../../../asset/js/libs/trpUtility.js&quot;</span><span style="color: #333333">&gt;&lt;/</span>script<span style="color: #333333">&gt;</span> 
 
-	<span style="color: #a6e22e">console</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">log</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">trpBrowser</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">name</span> <span style="color: #f92672">+</span> <span style="color: #e6db74">&quot; : &quot;</span> <span style="color: #f92672">+</span> <span style="color: #a6e22e">trpBrowser</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">version</span> <span style="color: #f8f8f2">);</span>
+<span style="color: #333333">&lt;/</span>head<span style="color: #333333">&gt;</span>
+<span style="color: #333333">&lt;</span>body<span style="color: #333333">&gt;</span>	
 
- 	<span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">trpBrowser</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">name</span> <span style="color: #f92672">==</span> <span style="color: #e6db74">&quot;msie&quot;</span><span style="color: #f8f8f2">)</span>
-	<span style="color: #f8f8f2">{</span>
-		<span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">trpBrowser</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">version</span> <span style="color: #f92672">&lt;=</span> <span style="color: #ae81ff">7</span><span style="color: #f8f8f2">){</span>
-			<span style="color: #a6e22e">alert</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot; 브라우저 버젼은 ie7 이하입니다. &quot;</span><span style="color: #f8f8f2">);</span>
-		<span style="color: #f8f8f2">}</span><span style="color: #66d9ef">else</span> <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">trpBrowser</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">version</span> <span style="color: #f92672">&lt;=</span> <span style="color: #ae81ff">8</span><span style="color: #f8f8f2">){</span>
-			<span style="color: #a6e22e">alert</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot; 브라우저 버젼은 ie8 이하입니다. &quot;</span><span style="color: #f8f8f2">);</span>
-		<span style="color: #f8f8f2">}</span><span style="color: #66d9ef">else</span> <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">trpBrowser</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">version</span> <span style="color: #f92672">&lt;=</span> <span style="color: #ae81ff">9</span><span style="color: #f8f8f2">){</span>
-			<span style="color: #a6e22e">alert</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot; 브라우저 버젼은 ie9 이하입니다. &quot;</span><span style="color: #f8f8f2">);</span>
-		<span style="color: #f8f8f2">}</span><span style="color: #66d9ef">else</span> <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">trpBrowser</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">version</span> <span style="color: #f92672">&lt;=</span> <span style="color: #ae81ff">10</span><span style="color: #f8f8f2">){</span>
-			<span style="color: #a6e22e">alert</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot; 브라우저 버젼은 ie10 이하입니다. &quot;</span><span style="color: #f8f8f2">);</span>
-		<span style="color: #f8f8f2">}</span><span style="color: #66d9ef">else</span> <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">trpBrowser</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">version</span> <span style="color: #f92672">&lt;=</span> <span style="color: #ae81ff">11</span><span style="color: #f8f8f2">){</span>
-			<span style="color: #a6e22e">alert</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot; 브라우저 버젼은 ie11 이하입니다. &quot;</span><span style="color: #f8f8f2">);</span>
-		<span style="color: #f8f8f2">}</span>
-	<span style="color: #f8f8f2">}</span><span style="color: #66d9ef">else</span><span style="color: #f8f8f2">{</span>
-		<span style="color: #a6e22e">alert</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot; ie브라우저가 아닙니다. &quot;</span><span style="color: #f8f8f2">);</span>
-	<span style="color: #f8f8f2">}</span>
+	<span style="color: #333333">&lt;</span>section<span style="color: #333333">&gt;</span>
+		<span style="color: #333333">&lt;</span>h1<span style="color: #333333">&gt;</span> <span style="color: #FF0000; background-color: #FFAAAA">브라우저</span> <span style="color: #FF0000; background-color: #FFAAAA">체크</span> trpBrowser <span style="color: #333333">&lt;/</span>h1<span style="color: #333333">&gt;</span>	
+		<span style="color: #333333">&lt;</span>ul<span style="color: #333333">&gt;</span>
+			<span style="color: #333333">&lt;</span>li<span style="color: #333333">&gt;&lt;</span>h4<span style="color: #333333">&gt;</span>name : <span style="color: #333333">&lt;</span>span class<span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot;js-name&quot;</span><span style="color: #333333">&gt;-&lt;/</span>span<span style="color: #333333">&gt;&lt;/</span>h4<span style="color: #333333">&gt;&lt;/</span>li<span style="color: #333333">&gt;</span>
+			<span style="color: #333333">&lt;</span>li<span style="color: #333333">&gt;&lt;</span>h4<span style="color: #333333">&gt;</span>version : <span style="color: #333333">&lt;</span>span class<span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot;js-ver&quot;</span><span style="color: #333333">&gt;-&lt;/</span>span<span style="color: #333333">&gt;&lt;/</span>h4<span style="color: #333333">&gt;&lt;/</span>li<span style="color: #333333">&gt;</span>
+		<span style="color: #333333">&lt;/</span>ul<span style="color: #333333">&gt;</span>
 
-<span style="color: #f92672">&lt;/script&gt;</span>
- 
-<span style="color: #f92672">&lt;/head&gt;</span>
-<span style="color: #f92672">&lt;body&gt;</span>	
-	 <span style="color: #f92672">&lt;h1&gt;</span> 브라우저 체크 trpBrowser <span style="color: #f92672">&lt;/h1&gt;</span>
+		<span style="color: #333333">&lt;</span>script <span style="color: #007020">type</span><span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot;text/javascript&quot;</span><span style="color: #333333">&gt;</span>	 
+		
+			<span style="color: #008800; font-weight: bold">if</span>(trpBrowser<span style="color: #333333">.</span>name <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;msie&quot;</span>){
+			<span style="color: #008800; font-weight: bold">if</span>(trpBrowser<span style="color: #333333">.</span>version <span style="color: #333333">&lt;=</span> <span style="color: #0000DD; font-weight: bold">7</span>){
+				console<span style="color: #333333">.</span>log(<span style="background-color: #fff0f0">&quot; 브라우저 버젼은 ie7 이하입니다. &quot;</span>);
+			}<span style="color: #008800; font-weight: bold">else</span> <span style="color: #008800; font-weight: bold">if</span>(trpBrowser<span style="color: #333333">.</span>version <span style="color: #333333">&lt;=</span> <span style="color: #0000DD; font-weight: bold">8</span>){
+				console<span style="color: #333333">.</span>log(<span style="background-color: #fff0f0">&quot; 브라우저 버젼은 ie8 이하입니다. &quot;</span>);
+			}<span style="color: #008800; font-weight: bold">else</span> <span style="color: #008800; font-weight: bold">if</span>(trpBrowser<span style="color: #333333">.</span>version <span style="color: #333333">&lt;=</span> <span style="color: #0000DD; font-weight: bold">9</span>){
+				console<span style="color: #333333">.</span>log(<span style="background-color: #fff0f0">&quot; 브라우저 버젼은 ie9 이하입니다. &quot;</span>);
+			}<span style="color: #008800; font-weight: bold">else</span> <span style="color: #008800; font-weight: bold">if</span>(trpBrowser<span style="color: #333333">.</span>version <span style="color: #333333">&lt;=</span> <span style="color: #0000DD; font-weight: bold">10</span>){
+				console<span style="color: #333333">.</span>log(<span style="background-color: #fff0f0">&quot; 브라우저 버젼은 ie10 이하입니다. &quot;</span>);
+			}<span style="color: #008800; font-weight: bold">else</span> <span style="color: #008800; font-weight: bold">if</span>(trpBrowser<span style="color: #333333">.</span>version <span style="color: #333333">&lt;=</span> <span style="color: #0000DD; font-weight: bold">11</span>){
+				console<span style="color: #333333">.</span>log(<span style="background-color: #fff0f0">&quot; 브라우저 버젼은 ie11 이하입니다. &quot;</span>);
+			}
+		}<span style="color: #008800; font-weight: bold">else</span>{
+			console<span style="color: #333333">.</span>log(<span style="background-color: #fff0f0">&quot; ie브라우저가 아닙니다. &quot;</span>);
+		}
 	
-<span style="color: #f92672">&lt;/body&gt;</span>
-<span style="color: #f92672">&lt;/html&gt;</span>
+		document<span style="color: #333333">.</span>getElementsByClassName(<span style="background-color: #fff0f0">&quot;js-name&quot;</span>)[<span style="color: #0000DD; font-weight: bold">0</span>]<span style="color: #333333">.</span>innerText <span style="color: #333333">=</span> trpBrowser<span style="color: #333333">.</span>name;
+		document<span style="color: #333333">.</span>getElementsByClassName(<span style="background-color: #fff0f0">&quot;js-ver&quot;</span>)[<span style="color: #0000DD; font-weight: bold">0</span>]<span style="color: #333333">.</span>innerText  <span style="color: #333333">=</span> trpBrowser<span style="color: #333333">.</span>version;
+	
+	<span style="color: #333333">&lt;/</span>script<span style="color: #333333">&gt;</span>
+<span style="color: #333333">&lt;/</span>section<span style="color: #333333">&gt;</span>
+
+<span style="color: #333333">&lt;</span>br<span style="color: #333333">&gt;</span> <span style="color: #333333">&lt;</span>br<span style="color: #333333">&gt;</span> <span style="color: #333333">&lt;</span>br<span style="color: #333333">&gt;</span> <span style="color: #333333">&lt;</span>br<span style="color: #333333">&gt;</span>
+
+<span style="color: #333333">&lt;</span>section<span style="color: #333333">&gt;</span>
+	<span style="color: #333333">&lt;</span>h1<span style="color: #333333">&gt;</span> <span style="color: #FF0000; background-color: #FFAAAA">디바이스</span> <span style="color: #FF0000; background-color: #FFAAAA">체크</span> trpDevice <span style="color: #333333">&lt;/</span>h1<span style="color: #333333">&gt;</span>
+	<span style="color: #333333">&lt;</span>h3<span style="color: #333333">&gt;</span> [ipad, tablet, android, iphone, pc ] <span style="color: #333333">&lt;/</span>h3<span style="color: #333333">&gt;</span>	
+	<span style="color: #333333">&lt;</span>ul<span style="color: #333333">&gt;</span>
+		<span style="color: #333333">&lt;</span>li<span style="color: #333333">&gt;&lt;</span>h4<span style="color: #333333">&gt;</span>device : <span style="color: #333333">&lt;</span>span class<span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot;js-deviceName&quot;</span><span style="color: #333333">&gt;-&lt;/</span>span<span style="color: #333333">&gt;&lt;/</span>h4<span style="color: #333333">&gt;&lt;/</span>li<span style="color: #333333">&gt;</span>
+	<span style="color: #333333">&lt;/</span>ul<span style="color: #333333">&gt;</span>
+	<span style="color: #333333">&lt;</span>script <span style="color: #007020">type</span><span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot;text/javascript&quot;</span><span style="color: #333333">&gt;</span>	 
+		document<span style="color: #333333">.</span>getElementsByClassName(<span style="background-color: #fff0f0">&quot;js-deviceName&quot;</span>)[<span style="color: #0000DD; font-weight: bold">0</span>]<span style="color: #333333">.</span>innerText <span style="color: #333333">=</span> trpDevice<span style="color: #333333">.</span>device;
+	<span style="color: #333333">&lt;/</span>script<span style="color: #333333">&gt;</span>
+<span style="color: #333333">&lt;/</span>section<span style="color: #333333">&gt;</span>
+	
+<span style="color: #333333">&lt;/</span>body<span style="color: #333333">&gt;</span>
+<span style="color: #333333">&lt;/</span>html<span style="color: #333333">&gt;</span>
 </pre></td></tr></table></div>
 
 

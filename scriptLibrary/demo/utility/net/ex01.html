@@ -7,35 +7,56 @@
 	
 </style>
 <!-- <script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js"></script> -->
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.12.1.min.js"></script>
+<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js" charset="UTF-8"></script>
 <script type="text/javascript" src="../../../../asset/js/libs/trpUtility.js"></script> 
 
-<script type="text/javascript">	 
-	
-	console.log(trpBrowser.name + " : " + trpBrowser.version );
-
- 	if(trpBrowser.name == "msie")
-	{
-		if(trpBrowser.version <= 7){
-			alert(" 브라우저 버젼은 ie7 이하입니다. ");
-		}else if(trpBrowser.version <= 8){
-			alert(" 브라우저 버젼은 ie8 이하입니다. ");
-		}else if(trpBrowser.version <= 9){
-			alert(" 브라우저 버젼은 ie9 이하입니다. ");
-		}else if(trpBrowser.version <= 10){
-			alert(" 브라우저 버젼은 ie10 이하입니다. ");
-		}else if(trpBrowser.version <= 11){
-			alert(" 브라우저 버젼은 ie11 이하입니다. ");
-		}
-	}else{
-		alert(" ie브라우저가 아닙니다. ");
-	}
-
-</script>
- 
 </head>
 <body>	
-	<h1> 브라우저 체크 trpBrowser </h1>	
+
+	<section>
+		<h1> 브라우저 체크 trpBrowser </h1>	
+		<ul>
+			<li><h4>name : <span class="js-name">-</span></h4></li>
+			<li><h4>version : <span class="js-ver">-</span></h4></li>
+		</ul>
+
+		<script type="text/javascript">	 
+		
+			if(trpBrowser.name == "msie"){
+			if(trpBrowser.version <= 7){
+				console.log(" 브라우저 버젼은 ie7 이하입니다. ");
+			}else if(trpBrowser.version <= 8){
+				console.log(" 브라우저 버젼은 ie8 이하입니다. ");
+			}else if(trpBrowser.version <= 9){
+				console.log(" 브라우저 버젼은 ie9 이하입니다. ");
+			}else if(trpBrowser.version <= 10){
+				console.log(" 브라우저 버젼은 ie10 이하입니다. ");
+			}else if(trpBrowser.version <= 11){
+				console.log(" 브라우저 버젼은 ie11 이하입니다. ");
+			}
+		}else{
+			console.log(" ie브라우저가 아닙니다. ");
+		}
+	
+		document.getElementsByClassName("js-name")[0].innerText = trpBrowser.name;
+		document.getElementsByClassName("js-ver")[0].innerText  = trpBrowser.version;
+	
+	</script>
+</section>
+
+<br> <br> <br> <br>
+
+<section>
+	<h1> 디바이스 체크 trpDevice </h1>
+	<h3> [ipad, tablet, android, iphone, pc ] </h3>	
+	<ul>
+		<li><h4>device : <span class="js-deviceName">-</span></h4></li>
+	</ul>
+	<script type="text/javascript">	 
+		document.getElementsByClassName("js-deviceName")[0].innerText = trpDevice.device;
+	</script>
+</section>
+	
 </body>
 </html>
 

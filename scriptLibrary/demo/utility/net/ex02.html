@@ -2,32 +2,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>input_file</title>
+<title>trpDevice</title>
 <style type="text/css">
 	
 </style>
 <!-- <script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js"></script> -->
 <script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js" charset="UTF-8"></script>
-<script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="../../../../asset/js/libs/trpUtility.js"></script> 
 
-<script type="text/javascript">	 
-	
-	
-	
-	$(function(){
-	  if($.browser.msie==true) {
-		alert('버전은 '+$.browser.version+'입니다.');
-	  } else {
-		alert('마이크로 소프트의 브라우저가 아닙니다.');
-	  }
-	});
- 
-
-</script>
- 
 </head>
 <body>	
-	
+	<h1> 디바이스 체크 trpDevice </h1>	
+	<ul>
+		<li><h2>device : <span class="js-name">-</span></h2></li>
+	</ul>
+
+	<script type="text/javascript">	 
+ 
+	 document.getElementsByClassName("js-name")[0].innerText = trpDevice.device;
+ 
+ </script>
 	
 </body>
 </html>

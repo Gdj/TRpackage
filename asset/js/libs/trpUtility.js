@@ -56,6 +56,38 @@ var trpBrowser = (function() {
 }());
 
 
+/**
+* trpDevice         : 디바이스 체크  > 모바일:true, 데스크탑:false
+* @method device    : 디바이스 리턴 [ipad, tablet, android, iphone, pc ]
+*/
+var trpDevice = (function(){
+    var _device="none";
+    if(navigator.userAgent.match(/iPad/i)){
+        _device = "ipad";
+    }else if (navigator.userAgent.match(/Tablet|SM-T/i)){ //  SM-T : 삼성 타블릿
+        _device = "tablet";
+    }else if (navigator.userAgent.match(/Android/i)){
+        _device = "android";
+    }else if (navigator.userAgent.match(/iPhone|iPod/i)){
+        _device = "iphone";
+    }else{
+        _device = "pc";
+    }
+    return { device : _device };
+}());
+
+
+
+/* 
+* trpIsMobile  : 디바이스 체크  > 모바일:true, 데스크탑:false
+*
+*/
+function trpIsMobile(){ if(navigator.userAgent.indexOf('Mobile') != -1){ return true; } else{ return false; } }
+
+
+
+
+
 
 /**
 *  trpClassBubbleCheck : 클릭 이벤트로 타겟 대상의 부모클래스가 있는지를 체크
@@ -91,8 +123,6 @@ function trpUtilityChangeOnceFN($value, $activeFn){
     $activeFn(trpUtilityChangeOnce_newVal);
     trpUtilityChangeOnce_oldVal = trpUtilityChangeOnce_newVal;
 }// end fn
-
-
 
 
 
