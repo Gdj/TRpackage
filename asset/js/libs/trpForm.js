@@ -1,8 +1,8 @@
 /*
  * Base			: jQuery JavaScript Library v1.12.1
  * trPackage	:
- * trpPopup	    : v0.9
- * release date : 2020.12.02
+ * trpPopup	    : v0.9.2
+ * release date : 2021.11.16
  * author		: http://turfrain.tistory.com/
  * Copyright 2018. turfrain all rights reserved.
  *
@@ -602,7 +602,7 @@ _timeEL += '</span>';
 _timeEL += '<span class="ui-count" minute>';
 _timeEL += '<input type="text" class="ui-countTxt minute" readonly value="00" min="00" max="59" title="mouse wheel">';
 _timeEL += '</span>';
-_timeEL += '<button class="btn ui-ampm" data-ampm="AM" >AM</button>';
+_timeEL += '<button class="btn ui-ampm" data-ampm="AM" ><span>AM</span></button>';
 _timeEL += '</div>';
 $(_this).append(_timeEL);
 
@@ -631,7 +631,7 @@ $(document).on("click", function (t) {
 $('.ui-count').uiCount();  
 $(".trp-timepicker", _this).on("click", ".ui-ampm", function() { 		
 	$(".trp-timepicker").toggleClass("am");
-	$(".trp-timepicker").hasClass("am")? $(this).attr("data-ampm", "AM").text("AM"): $(this).attr("data-ampm", "PM").text("PM")
+	$(".trp-timepicker").hasClass("am")? $(this).attr("data-ampm", "AM").find("span").text("AM"): $(this).attr("data-ampm", "PM").find("span").text("PM");
 });
 $(".trp-timepicker .ui-count a", _this ).on("click", function(){
 	setTimeout( upDate_time , 10);
