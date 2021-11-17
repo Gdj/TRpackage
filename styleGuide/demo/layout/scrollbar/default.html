@@ -35,6 +35,65 @@
 		<div class="api">
 			<h2 class="api-title">scrollbar</h2>
 			<div class="api-body">
+        <table class="table_col" summary="scroll 속성">
+					<caption>scroll 속성</caption>
+					<colgroup>
+						<col width="150">
+						<col width="">		
+					</colgroup>
+					<tbody>
+					<tr>
+						<th scope="col">scroll 속성</th>
+						<th scope="col">속성 설명</th>
+					</tr>
+					<tr>
+            <td>
+              <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/overflow" target="_blank" rel="noopener noreferrer">overflow</a>
+              <ul>
+                <li>visible : 컨텐츠 영역 밖으로 보임</li>
+                <li>hidden  : 컨텐츠 영역 밖숨김</li>
+                <li>clip    : hidden 유사 프로그램 방식의 스크롤을 금지.</li>
+                <li>scroll  : 상시 스크롤 생성</li>
+                <li>auto    : 컨텐츠 넘칠때만 스크롤 생성</li>
+                <li>overlay : 스크롤 영역 차지하지 않음. (webkit)</li>
+              </ul>
+            </td>
+            <td>
+              <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-snap-type" target="_blank" rel="noopener noreferrer">scroll-snap-type</a>
+            </td>
+						<td>스크롤 스넵 <br />
+              <ul>
+                <li>none : 기본값</li>
+                <li>x mandatroy : 엄격한 스넵</li>
+                <li>x proximity : 느슨한 스넵</li>
+              </ul>
+            </td>		
+					</tr>
+          <tr>
+            <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/overscroll-behavior" target="_blank" rel="noopener noreferrer">overscroll-behavior</a></td>
+            <td>스크롤 끝에 도달했을때 브라우저 작업설정 <br />
+              <ul>
+                <li>auto: 기본값</li>
+                <li>contain: 인접 스크롤 영역에 스크롤 체인이 발생하지 않음. 기본 요소는 스크롤되지 않습니다</li>
+                <li>none: 인접 스크롤 영역에 스크롤 체인이 발생하지 않음. 기본스크롤 오버플로 동작 방지</li>
+              </ul>
+            </td>		
+          </tr>
+          
+					<tr>
+						<td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-behavior" target="_blank" rel="noopener noreferrer">scroll-behavior</a></td>
+						<td>
+              앵커이동에대한 스크롤이동 (브라우져 속성 우선) <br />
+              <ul>
+                <li>auto : 즉시이동</li>
+                <li>smooth : 부드럽게 이동</li>
+              </ul>
+            </td>		
+					</tr>
+					</tbody>
+				</table>
+
+
 				<dl>
 					<dt>ie </dt>					
 					<dd><span class="icon"></span>IE5 이상 브라우져에 적용가능하며 색만 정의 할수 있다.</dd>
