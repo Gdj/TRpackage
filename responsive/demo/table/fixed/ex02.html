@@ -3,81 +3,82 @@
 <head>
   <meta charset="UTF-8">
   <title>scroll X</title>
+  <link rel="stylesheet" type="text/css"  href="../../../../asset/css/trpBase.css" media="all" />
   <style>
-    .table th { 
-      background:#ccc;
-    }
-    .table td, .table th {
-      padding:10px 20px;
-      border-top:1px solid #ccc;
-      word-break:break-all
-    }
-    .table--min {
-      min-width:700px;
-    }
+    .table-wrap { position:relative; border-top: 2px solid #000; }
+    .trp.table-data-type1 { border-collapse: initial; width: 100%; border-top: 0; }
+    .trp.table-data-type1 thead th, .trp.table-data-type1 thead td,
+    .trp.table-data-type1 tbody th, .trp.table-data-type1 tbody td { height: 50px; box-sizing: border-box;}
+    .table--min table { min-width:700px; }
+    .table-box.table--horizontal th { width:15%;  }  
+    .mb_layout_t { text-align: center;}
+
     @media screen and (max-width:768px) {
-      /*normal*/
-      .table-box {
-        overflow-x:auto;
-      }
+      /* 테이블 스타일 */
+      .mb_layout_t{ display: table; table-layout: fixed; border-collapse: collapse; width: 100%; height: 100%;}
+      .mb_layout_t .layout_r{ display: table-row;}
+      .mb_layout_t .layout_c{ display: table-cell; vertical-align: middle; text-align: center;}
+
+      .trp.table-data-type1 { width: auto; }
+
       /*horizontal*/
-      .table--horizontal tr {
-        position:relative;
-      }
-      .table--horizontal th {
-        position:absolute;
-        width:32px;
-      }  
+      .table-box.table--horizontal   { overflow-x:auto; overflow-y: hidden; }
+      .table-box.table--horizontal table  { padding-left: 80px; }
+      .table-box.table--horizontal tr { position:relative; }
+      .table-box.table--horizontal th { position:fixed; width:80px; margin-left: -80px; }  
+      .table-box.table--horizontal th + td {  }  
     }
   </style>
 </head>
 <body>
-  <h1>Horizontal</h1>
-  <div class="table-box">
-    <table class="table table--min table--horizontal" cellspacing="0" cellpadding="0">
-      <tr>
-        <th>1월</th>
-        <td>1</td>
-        <td>2</td>
-        <td>3</td>
-        <td>4</td>
-        <td>5</td>
-        <td>6</td>
-        <td>7</td>
-        <td>8</td>
-        <td>4</td>
-        <td>5</td>
-        <td>1</td>
-      </tr>
-      <tr>
-        <th>2월</th>
-        <td>8</td>
-        <td>7</td>
-        <td>6</td>
-        <td>5</td>
-        <td>4</td>
-        <td>3</td>
-        <td>2</td>
-        <td>1</td>
-        <td>4</td>
-        <td>2</td>
-        <td>7</td>
-      </tr>
-      <tr>
-        <th>3월</th>
-        <td>5</td>
-        <td>4</td>
-        <td>3</td>
-        <td>2</td>
-        <td>1</td>
-        <td>6</td>
-        <td>7</td>
-        <td>8</td>
-        <td>1</td>
-        <td>2</td>
-        <td>3</td>
-      </tr>
-    </table>
+  <h1 class="trp h1">Horizontal</h1>
+  <div class="table-wrap">
+    <div class="table-box table--min table--horizontal">
+      <table class="trp table-data-type1  " cellspacing="0" cellpadding="0">
+        <tr>
+          <th><div class="mb_layout_t"><span class="layout_c">1월</span></div></th>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+          <td>4</td>
+          <td>5</td>
+          <td>6</td>
+          <td>7</td>
+          <td>8</td>
+          <td>4</td>
+          <td>5</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <th><div class="mb_layout_t"><span class="layout_c">2월</span></div></th>
+          <td>8</td>
+          <td>7</td>
+          <td>6 <br /> 76</td>
+          <td>5</td>
+          <td>4</td>
+          <td>3</td>
+          <td>2</td>
+          <td>1</td>
+          <td>4</td>
+          <td>2</td>
+          <td>7</td>
+        </tr>
+        <tr>
+          <th><div class="mb_layout_t"><span class="layout_c">3월</span></div></th>
+          <td>5</td>
+          <td>4</td>
+          <td>3</td>
+          <td>2</td>
+          <td>1</td>
+          <td>6</td>
+          <td>7</td>
+          <td>8</td>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+        </tr>
+      </table>
+    </div>
   </div>
 </body>
 </html>

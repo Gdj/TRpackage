@@ -1,0 +1,591 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+<title>responsive table fixed | TR package </title>
+<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.11.1.js" charset="UTF-8"></script>
+<link rel="stylesheet" type="text/css"  href="../../../../asset/css/common.css" media="all" />
+<link rel="stylesheet" type="text/css"  href="../../../../asset/css/trpBase.css" media="all" />
+
+
+</head>
+<body>
+  <div id="header"></div>
+  <div id="container">
+	<div id="lnb" class="gnb"></div>
+	<!-- s: 컨텐츠 시작 -->
+	<div id="contents" class="contents">
+		<!-- s: css 설명 -->
+		<div class="desc_wapper">
+			<h1 class="desc_title">최소 크기에서 가로 스크롤이 생성됩니다. </h1>
+			<p>(-ms-overflow-style: none;) ie 스크롤되지만 숨기기. <br >
+         (::-webkit-scrollbar{display:none}) 웹킷 스크롤되지만 숨기기.
+      </p>
+		</div>
+		<!-- e: css 설명 -->
+	
+
+		<!-- s: api 설명 -->
+		<div class="api">
+			<h2 class="api-title">table css (scroll-Y) </h2>
+			<div class="api-body">
+				<dl>
+					<dt>설명</dt>					
+					<dd><span class="icon"></span>모바일 크기일대 table header 고정되면서 세로 스크롤이 생성됨.</dd>
+				</dl>
+
+
+ 				<div class="ex_wapper">
+					<h3 class="api-title_h3">VIEW</h3>
+					<p class="ex-more"><a href="javascript:return false;"><span class="d-n">+</span><span style="display: inline;">-</span></a></p>
+					<p class="ex-view"><a href="ex01.html" target="_blank">View Sample</a></p>
+					<div class="ex-body d-n" >
+				      
+
+            <style type="text/css">
+              .table-wrap {position: relative; border-top: 2px solid #000; }
+              .table-box .trp.table-data-type1 { border-top: 0;}
+              @media screen and (max-width:768px) {
+                /* vertical */
+                .table-wrap { padding-top:45px;  }
+                .table-box--vertical {
+                  overflow-y:auto;
+                  max-height:200px;
+                  /* -ms-overflow-style: none; */ /* ie 스크롤 숨김 */
+                }
+                /* .table-box--vertical::-webkit-scrollbar { display:none; } */ /* 웹킷 스크롤 숨김 */
+                .table-box--vertical thead {
+                  display:table;
+                  position:absolute;
+                  top:0;
+                  width:100%;
+                }
+              }
+            </style>
+            <div class="table-wrap">
+              <div class="table-box table-box--vertical">
+                <table class="trp table-data-type1 " cellspacing="0" cellpadding="0">
+                  <thead>
+                  <tr>
+                    <th>1월</th>
+                    <th>2월</th>
+                    <th>3월</th>
+                    <th>4월</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>3</td>
+                    <td>2</td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>1</td>
+                    <td>2</td>
+                  </tr>
+                  <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>3</td>
+                    <td>2</td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>1</td>
+                    <td>2</td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+				    
+
+					</div>
+				</div> 
+				
+
+				<div class="ex_wapper">
+					<h3 class="api-title_h3 css">CSS</h3>
+					<div class="api-body_h3 css">
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20</pre></td><td><pre style="margin: 0; line-height: 125%">  <span style="color: #f92672">&lt;style </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/css&quot;</span><span style="color: #f92672">&gt;</span>
+   <span style="color: #a6e22e">.table-wrap</span> <span style="color: #f8f8f2">{</span><span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">relative</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">border-top</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">2px</span> <span style="color: #66d9ef">solid</span> <span style="color: #ae81ff">#000</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+   <span style="color: #a6e22e">.table-box</span> <span style="color: #a6e22e">.trp.table-data-type1</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">border-top</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;}</span>
+   <span style="color: #66d9ef">@media</span> <span style="color: #f92672">screen</span> <span style="color: #f92672">and</span> <span style="color: #f92672">(max-width</span><span style="color: #a6e22e">:768px</span><span style="color: #f92672">)</span> <span style="color: #f8f8f2">{</span>
+     <span style="color: #75715e">/* vertical */</span>
+     <span style="color: #a6e22e">.table-wrap</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">padding-top</span><span style="color: #f92672">:</span><span style="color: #ae81ff">45px</span><span style="color: #f8f8f2">;</span>  <span style="color: #f8f8f2">}</span>
+     <span style="color: #a6e22e">.table-box--vertical</span> <span style="color: #f8f8f2">{</span>
+       <span style="color: #66d9ef">overflow-y</span><span style="color: #f92672">:</span><span style="color: #66d9ef">auto</span><span style="color: #f8f8f2">;</span>
+       <span style="color: #66d9ef">max-height</span><span style="color: #f92672">:</span><span style="color: #ae81ff">200px</span><span style="color: #f8f8f2">;</span>
+       <span style="color: #75715e">/* -ms-overflow-style: none; */</span> <span style="color: #75715e">/* ie 스크롤 숨김 */</span>
+     <span style="color: #f8f8f2">}</span>
+     <span style="color: #75715e">/* .table-box--vertical::-webkit-scrollbar { display:none; } */</span> <span style="color: #75715e">/* 웹킷 스크롤 숨김 */</span>
+     <span style="color: #a6e22e">.table-box--vertical</span> <span style="color: #f92672">thead</span> <span style="color: #f8f8f2">{</span>
+       <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span><span style="color: #f8f8f2">table;</span>
+       <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span><span style="color: #66d9ef">absolute</span><span style="color: #f8f8f2">;</span>
+       <span style="color: #66d9ef">top</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+       <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span>
+     <span style="color: #f8f8f2">}</span>
+   <span style="color: #f8f8f2">}</span>
+   <span style="color: #f92672">&lt;/style&gt;</span>
+ </pre></td></tr></table></div>
+ 
+
+
+
+					</div>
+				</div>
+
+
+
+				<div class="ex_wapper">
+				<h3 class="api-title_h3 html">HTML</h3>
+					<div class="api-body_h3 html">
+						
+	
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64</pre></td><td><pre style="margin: 0; line-height: 125%">  <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;table-wrap&quot;</span><span style="color: #f92672">&gt;</span>
+     <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;table-box table-box--vertical&quot;</span><span style="color: #f92672">&gt;</span>
+       <span style="color: #f92672">&lt;table</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;trp table-data-type1 &quot;</span> <span style="color: #a6e22e">cellspacing=</span><span style="color: #e6db74">&quot;0&quot;</span> <span style="color: #a6e22e">cellpadding=</span><span style="color: #e6db74">&quot;0&quot;</span><span style="color: #f92672">&gt;</span>
+         <span style="color: #f92672">&lt;thead&gt;</span>
+         <span style="color: #f92672">&lt;tr&gt;</span>
+           <span style="color: #f92672">&lt;th&gt;</span>1월<span style="color: #f92672">&lt;/th&gt;</span>
+           <span style="color: #f92672">&lt;th&gt;</span>2월<span style="color: #f92672">&lt;/th&gt;</span>
+           <span style="color: #f92672">&lt;th&gt;</span>3월<span style="color: #f92672">&lt;/th&gt;</span>
+           <span style="color: #f92672">&lt;th&gt;</span>4월<span style="color: #f92672">&lt;/th&gt;</span>
+         <span style="color: #f92672">&lt;/tr&gt;</span>
+         <span style="color: #f92672">&lt;/thead&gt;</span>
+         <span style="color: #f92672">&lt;tbody&gt;</span>
+         <span style="color: #f92672">&lt;tr&gt;</span>
+           <span style="color: #f92672">&lt;td&gt;</span>1<span style="color: #f92672">&lt;/td&gt;</span>
+           <span style="color: #f92672">&lt;td&gt;</span>2<span style="color: #f92672">&lt;/td&gt;</span>
+           <span style="color: #f92672">&lt;td&gt;</span>3<span style="color: #f92672">&lt;/td&gt;</span>
+           <span style="color: #f92672">&lt;td&gt;</span>4<span style="color: #f92672">&lt;/td&gt;</span>
+         <span style="color: #f92672">&lt;/tr&gt;</span>
+         <span style="color: #f92672">&lt;tr&gt;</span>
+           <span style="color: #f92672">&lt;td&gt;</span>4<span style="color: #f92672">&lt;/td&gt;</span>
+           <span style="color: #f92672">&lt;td&gt;</span>3<span style="color: #f92672">&lt;/td&gt;</span>
+           <span style="color: #f92672">&lt;td&gt;</span>2<span style="color: #f92672">&lt;/td&gt;</span>
+           <span style="color: #f92672">&lt;td&gt;</span>1<span style="color: #f92672">&lt;/td&gt;</span>
+         <span style="color: #f92672">&lt;/tr&gt;</span>
+         <span style="color: #f92672">&lt;tr&gt;</span>
+           <span style="color: #f92672">&lt;td&gt;</span>2<span style="color: #f92672">&lt;/td&gt;</span>
+           <span style="color: #f92672">&lt;td&gt;</span>3<span style="color: #f92672">&lt;/td&gt;</span>
+           <span style="color: #f92672">&lt;td&gt;</span>4<span style="color: #f92672">&lt;/td&gt;</span>
+           <span style="color: #f92672">&lt;td&gt;</span>1<span style="color: #f92672">&lt;/td&gt;</span>
+         <span style="color: #f92672">&lt;/tr&gt;</span>
+         <span style="color: #f92672">&lt;tr&gt;</span>
+           <span style="color: #f92672">&lt;td&gt;</span>3<span style="color: #f92672">&lt;/td&gt;</span>
+           <span style="color: #f92672">&lt;td&gt;</span>4<span style="color: #f92672">&lt;/td&gt;</span>
+           <span style="color: #f92672">&lt;td&gt;</span>1<span style="color: #f92672">&lt;/td&gt;</span>
+           <span style="color: #f92672">&lt;td&gt;</span>2<span style="color: #f92672">&lt;/td&gt;</span>
+         <span style="color: #f92672">&lt;/tr&gt;</span>
+         <span style="color: #f92672">&lt;tr&gt;</span>
+           <span style="color: #f92672">&lt;td&gt;</span>1<span style="color: #f92672">&lt;/td&gt;</span>
+           <span style="color: #f92672">&lt;td&gt;</span>2<span style="color: #f92672">&lt;/td&gt;</span>
+           <span style="color: #f92672">&lt;td&gt;</span>3<span style="color: #f92672">&lt;/td&gt;</span>
+           <span style="color: #f92672">&lt;td&gt;</span>4<span style="color: #f92672">&lt;/td&gt;</span>
+         <span style="color: #f92672">&lt;/tr&gt;</span>
+         <span style="color: #f92672">&lt;tr&gt;</span>
+           <span style="color: #f92672">&lt;td&gt;</span>4<span style="color: #f92672">&lt;/td&gt;</span>
+           <span style="color: #f92672">&lt;td&gt;</span>3<span style="color: #f92672">&lt;/td&gt;</span>
+           <span style="color: #f92672">&lt;td&gt;</span>2<span style="color: #f92672">&lt;/td&gt;</span>
+           <span style="color: #f92672">&lt;td&gt;</span>1<span style="color: #f92672">&lt;/td&gt;</span>
+         <span style="color: #f92672">&lt;/tr&gt;</span>
+         <span style="color: #f92672">&lt;tr&gt;</span>
+           <span style="color: #f92672">&lt;td&gt;</span>2<span style="color: #f92672">&lt;/td&gt;</span>
+           <span style="color: #f92672">&lt;td&gt;</span>3<span style="color: #f92672">&lt;/td&gt;</span>
+           <span style="color: #f92672">&lt;td&gt;</span>4<span style="color: #f92672">&lt;/td&gt;</span>
+           <span style="color: #f92672">&lt;td&gt;</span>1<span style="color: #f92672">&lt;/td&gt;</span>
+         <span style="color: #f92672">&lt;/tr&gt;</span>
+         <span style="color: #f92672">&lt;tr&gt;</span>
+           <span style="color: #f92672">&lt;td&gt;</span>3<span style="color: #f92672">&lt;/td&gt;</span>
+           <span style="color: #f92672">&lt;td&gt;</span>4<span style="color: #f92672">&lt;/td&gt;</span>
+           <span style="color: #f92672">&lt;td&gt;</span>1<span style="color: #f92672">&lt;/td&gt;</span>
+           <span style="color: #f92672">&lt;td&gt;</span>2<span style="color: #f92672">&lt;/td&gt;</span>
+         <span style="color: #f92672">&lt;/tr&gt;</span>
+         <span style="color: #f92672">&lt;/tbody&gt;</span>
+       <span style="color: #f92672">&lt;/table&gt;</span>
+     <span style="color: #f92672">&lt;/div&gt;</span>
+   <span style="color: #f92672">&lt;/div&gt;</span>
+ </pre></td></tr></table></div>
+ 
+            
+            
+							
+					</div>
+				</div>
+					
+		
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+		
+
+
+    <!-- s: api 설명 -->
+    <div class="api">
+      <h2 class="api-title">table css (scroll-x) </h2>
+      <div class="api-body">
+        <dl>
+          <dt>설명</dt>					
+          <dd><span class="icon"></span>모바일 크기일대 th가 고정되면서 가로 스크롤이 생성됨. </dd>
+        </dl>
+
+
+          <div class="ex_wapper">
+          <h3 class="api-title_h3">VIEW</h3>
+          <p class="ex-more"><a href="javascript:return false;"><span class="d-n">+</span><span style="display: inline;">-</span></a></p>
+          <p class="ex-view"><a href="ex02.html" target="_blank">View Sample</a></p>
+          <div class="ex-body d-n" >
+              
+
+            <style>
+              .table-wrap { position:relative; border-top: 2px solid #000; }
+              .trp.table-data-type1 { border-collapse: initial; width: 100%; border-top: 0; }
+              .trp.table-data-type1 thead th, .trp.table-data-type1 thead td,
+              .trp.table-data-type1 tbody th, .trp.table-data-type1 tbody td { height: 50px; box-sizing: border-box;}
+              .table--min table { min-width:700px; }
+              .table-box.table--horizontal th { width:15%;  }  
+              .mb_layout_t { text-align: center;}
+          
+              @media screen and (max-width:768px) {
+                /* 테이블 스타일 */
+                .mb_layout_t{ display: table; table-layout: fixed; border-collapse: collapse; width: 100%; height: 100%;}
+                .mb_layout_t .layout_r{ display: table-row;}
+                .mb_layout_t .layout_c{ display: table-cell; vertical-align: middle; text-align: center;}
+          
+                .trp.table-data-type1 { width: auto; }
+          
+                /*horizontal*/
+                .table-box.table--horizontal   { overflow-x:auto; overflow-y: hidden; }
+                .table-box.table--horizontal table  { padding-left: 80px; }
+                .table-box.table--horizontal tr { position:relative; }
+                .table-box.table--horizontal th { position:fixed; width:80px; margin-left: -80px; }  
+                .table-box.table--horizontal th + td {  }  
+              }
+            </style>
+            <div class="table-wrap">
+              <div class="table-box table--min table--horizontal">
+                <table class="trp table-data-type1  " cellspacing="0" cellpadding="0">
+                  <tr>
+                    <th><div class="mb_layout_t"><span class="layout_c">1월</span></div></th>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <th><div class="mb_layout_t"><span class="layout_c">2월</span></div></th>
+                    <td>8</td>
+                    <td>7</td>
+                    <td>6 <br /> 76</td>
+                    <td>5</td>
+                    <td>4</td>
+                    <td>3</td>
+                    <td>2</td>
+                    <td>1</td>
+                    <td>4</td>
+                    <td>2</td>
+                    <td>7</td>
+                  </tr>
+                  <tr>
+                    <th><div class="mb_layout_t"><span class="layout_c">3월</span></div></th>
+                    <td>5</td>
+                    <td>4</td>
+                    <td>3</td>
+                    <td>2</td>
+                    <td>1</td>
+                    <td>6</td>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+
+          </div>
+        </div> 
+        
+
+        <div class="ex_wapper">
+          <h3 class="api-title_h3 css">CSS</h3>
+          <div class="api-body_h3 css">
+
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25</pre></td><td><pre style="margin: 0; line-height: 125%">  <span style="color: #f92672">&lt;style&gt;</span>
+     <span style="color: #a6e22e">.table-wrap</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span><span style="color: #66d9ef">relative</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">border-top</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">2px</span> <span style="color: #66d9ef">solid</span> <span style="color: #ae81ff">#000</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+     <span style="color: #a6e22e">.trp.table-data-type1</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">border-collapse</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">initial;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">border-top</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+     <span style="color: #a6e22e">.trp.table-data-type1</span> <span style="color: #f92672">thead</span> <span style="color: #f92672">th,</span> <span style="color: #a6e22e">.trp.table-data-type1</span> <span style="color: #f92672">thead</span> <span style="color: #f92672">td,</span>
+     <span style="color: #a6e22e">.trp.table-data-type1</span> <span style="color: #f92672">tbody</span> <span style="color: #f92672">th,</span> <span style="color: #a6e22e">.trp.table-data-type1</span> <span style="color: #f92672">tbody</span> <span style="color: #f92672">td</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">50px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">box</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">sizing</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">border</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">box;}</span>
+     <span style="color: #a6e22e">.table--min</span> <span style="color: #f92672">table</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">min-width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">700px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+     <span style="color: #a6e22e">.table-box.table--horizontal</span> <span style="color: #f92672">th</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">15</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span>  <span style="color: #f8f8f2">}</span>  
+     <span style="color: #a6e22e">.mb_layout_t</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">text-align</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">center</span><span style="color: #f8f8f2">;}</span>
+ 
+     <span style="color: #66d9ef">@media</span> <span style="color: #f92672">screen</span> <span style="color: #f92672">and</span> <span style="color: #f92672">(max-width</span><span style="color: #a6e22e">:768px</span><span style="color: #f92672">)</span> <span style="color: #f8f8f2">{</span>
+       <span style="color: #75715e">/* 테이블 스타일 */</span>
+       <span style="color: #a6e22e">.mb_layout_t</span><span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">table;</span> <span style="color: #66d9ef">table-layout</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">fixed</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">border-collapse</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">collapse</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;}</span>
+       <span style="color: #a6e22e">.mb_layout_t</span> <span style="color: #a6e22e">.layout_r</span><span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">table-row</span><span style="color: #f8f8f2">;}</span>
+       <span style="color: #a6e22e">.mb_layout_t</span> <span style="color: #a6e22e">.layout_c</span><span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">table-cell</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">vertical-align</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">middle</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">text-align</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">center</span><span style="color: #f8f8f2">;}</span>
+ 
+       <span style="color: #a6e22e">.trp.table-data-type1</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">auto</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+ 
+       <span style="color: #75715e">/*horizontal*/</span>
+       <span style="color: #a6e22e">.table-box.table--horizontal</span>   <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">overflow-x</span><span style="color: #f92672">:</span><span style="color: #66d9ef">auto</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">overflow-y</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">hidden</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+       <span style="color: #a6e22e">.table-box.table--horizontal</span> <span style="color: #f92672">table</span>  <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">padding-left</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">80px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+       <span style="color: #a6e22e">.table-box.table--horizontal</span> <span style="color: #f92672">tr</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span><span style="color: #66d9ef">relative</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+       <span style="color: #a6e22e">.table-box.table--horizontal</span> <span style="color: #f92672">th</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span><span style="color: #66d9ef">fixed</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">80px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">margin-left</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">-80px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>  
+       <span style="color: #a6e22e">.table-box.table--horizontal</span> <span style="color: #f92672">th</span> <span style="color: #f92672">+</span> <span style="color: #f92672">td</span> <span style="color: #f8f8f2">{</span>  <span style="color: #f8f8f2">}</span>  
+     <span style="color: #f8f8f2">}</span>
+   <span style="color: #f92672">&lt;/style&gt;</span>
+ </pre></td></tr></table></div>
+ 
+
+
+
+
+          </div>
+        </div>
+
+
+
+        <div class="ex_wapper">
+        <h3 class="api-title_h3 html">HTML</h3>
+          <div class="api-body_h3 html">
+            
+
+            
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25</pre></td><td><pre style="margin: 0; line-height: 125%">  <span style="color: #f92672">&lt;style&gt;</span>
+     <span style="color: #a6e22e">.table-wrap</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span><span style="color: #66d9ef">relative</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">border-top</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">2px</span> <span style="color: #66d9ef">solid</span> <span style="color: #ae81ff">#000</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+     <span style="color: #a6e22e">.trp.table-data-type1</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">border-collapse</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">initial;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">border-top</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+     <span style="color: #a6e22e">.trp.table-data-type1</span> <span style="color: #f92672">thead</span> <span style="color: #f92672">th,</span> <span style="color: #a6e22e">.trp.table-data-type1</span> <span style="color: #f92672">thead</span> <span style="color: #f92672">td,</span>
+     <span style="color: #a6e22e">.trp.table-data-type1</span> <span style="color: #f92672">tbody</span> <span style="color: #f92672">th,</span> <span style="color: #a6e22e">.trp.table-data-type1</span> <span style="color: #f92672">tbody</span> <span style="color: #f92672">td</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">50px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">box</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">sizing</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">border</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">box;}</span>
+     <span style="color: #a6e22e">.table--min</span> <span style="color: #f92672">table</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">min-width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">700px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+     <span style="color: #a6e22e">.table-box.table--horizontal</span> <span style="color: #f92672">th</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">15</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span>  <span style="color: #f8f8f2">}</span>  
+     <span style="color: #a6e22e">.mb_layout_t</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">text-align</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">center</span><span style="color: #f8f8f2">;}</span>
+ 
+     <span style="color: #66d9ef">@media</span> <span style="color: #f92672">screen</span> <span style="color: #f92672">and</span> <span style="color: #f92672">(max-width</span><span style="color: #a6e22e">:768px</span><span style="color: #f92672">)</span> <span style="color: #f8f8f2">{</span>
+       <span style="color: #75715e">/* 테이블 스타일 */</span>
+       <span style="color: #a6e22e">.mb_layout_t</span><span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">table;</span> <span style="color: #66d9ef">table-layout</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">fixed</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">border-collapse</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">collapse</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;}</span>
+       <span style="color: #a6e22e">.mb_layout_t</span> <span style="color: #a6e22e">.layout_r</span><span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">table-row</span><span style="color: #f8f8f2">;}</span>
+       <span style="color: #a6e22e">.mb_layout_t</span> <span style="color: #a6e22e">.layout_c</span><span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">table-cell</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">vertical-align</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">middle</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">text-align</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">center</span><span style="color: #f8f8f2">;}</span>
+ 
+       <span style="color: #a6e22e">.trp.table-data-type1</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">auto</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+ 
+       <span style="color: #75715e">/*horizontal*/</span>
+       <span style="color: #a6e22e">.table-box.table--horizontal</span>   <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">overflow-x</span><span style="color: #f92672">:</span><span style="color: #66d9ef">auto</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">overflow-y</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">hidden</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+       <span style="color: #a6e22e">.table-box.table--horizontal</span> <span style="color: #f92672">table</span>  <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">padding-left</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">80px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+       <span style="color: #a6e22e">.table-box.table--horizontal</span> <span style="color: #f92672">tr</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span><span style="color: #66d9ef">relative</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+       <span style="color: #a6e22e">.table-box.table--horizontal</span> <span style="color: #f92672">th</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span><span style="color: #66d9ef">fixed</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">80px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">margin-left</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">-80px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>  
+       <span style="color: #a6e22e">.table-box.table--horizontal</span> <span style="color: #f92672">th</span> <span style="color: #f92672">+</span> <span style="color: #f92672">td</span> <span style="color: #f8f8f2">{</span>  <span style="color: #f8f8f2">}</span>  
+     <span style="color: #f8f8f2">}</span>
+   <span style="color: #f92672">&lt;/style&gt;</span>
+ </pre></td></tr></table></div>
+ 
+
+
+            
+            
+              
+          </div>
+        </div>
+          
+    
+      </div>
+    </div>
+    <!-- e: api 설명 -->
+        
+	
+  </div>		
+	<!-- e: 컨텐츠 끝 -->
+	<p class="cl-b"></p>
+</div>
+
+
+
+<script type="text/javascript">
+	$("#header").load("../../../head.html");
+	$("#lnb").load("../../../lnb.html");	
+
+
+	$(".ex-more a").click(function() {
+		$( this ).find("span").toggle();
+		$( this ).parent().siblings(".ex-body").slideToggle();
+		return false;
+	});
+
+</script>
+
+</body>
+</html>
