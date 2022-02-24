@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Video.js | HTML5 Video Player</title>
+    <script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="../../../../asset/js/libs/videojs/videojs.js"></script>
+    <link href="../../../../asset/js/libs/videojs/videojs.css" rel="stylesheet">
+    <style>
+      .video-js .vjs-big-play-button { top:calc(50% - 22.5px ); left: calc(50% - 45px); }
+      .controler img {width: 30px;}
+    </style>
+
+</head>
+<body>
+
+  <video id="example_video_1" class="video-js" controls preload="none" width="640" height="264" poster="../../../../asset/media/REDPLANET_meanie.jpg" data-setup="{}">
+    <source src="../../../../asset/media/REDPLANET_meanie.mp4" type="video/mp4">
+    <!--     
+    <source src="http://vjs.zencdn.net/v/oceans.webm" type="video/webm">
+    <source src="http://vjs.zencdn.net/v/oceans.ogv" type="video/ogg"> 
+    -->
+  </video>
+
+  <div class="controler">
+       
+    <a class="icon" href="javascript:video_play();"><img src="../../../../asset/images/btn_play.png" alt="play" /></a>
+    <a class="icon" href="javascript:video_pause();"><img src="../../../../asset/images/btn_pause.png" alt="pause" /></a>
+    <a class="icon" href="javascript:video_stop();"><img src="../../../../asset/images/btn_stop.png" alt="stop" /></a>
+    <button onclick="video_playPause()">Play/Pause</button>
+    <br>
+
+    <button onclick='video_volume(0.2)'>volume20</button>
+    <button onclick='video_volume(1)'>volume100</button>
+    <br>
+    <button onclick="makeSize(1024)">Big: 1024</button>
+    <button onclick="makeSize(640)">Normal : 640</button>
+    <button onclick="makeSize(320)">Small : 320</button>
+            
+</div>
+<script>
+  var myVideo = videojs('example_video_1');
+  
+  function video_play(){
+    myVideo.play();
+    } 
+    function video_pause(){
+      myVideo.pause();
+    }
+    function video_stop(){
+      myVideo.currentTime(0);
+      myVideo.pause();
+      myVideo.load();
+    }
+    console.log(myVideo)
+    function video_playPause() {
+        if (myVideo.paused())
+            myVideo.play();
+        else
+            myVideo.pause();
+    }
+    function video_volume($vol){ myVideo.volume($vol); }
+    function makeSize($size) {myVideo.width($size); return}
+
+
+    
+    /* 이벤트 재생 끝 */
+    myVideo.ready(function(){
+
+      this.on('ended', function() {
+        console.log( "재생끝" )
+      });
+
+    })
+    
+</script>
+
+</body>
+
+</html>

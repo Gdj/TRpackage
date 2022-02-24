@@ -1,0 +1,323 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+<title>videojs | TR package</title>
+<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="../../../../asset/js/libs/trpMenu.js"></script>
+<link rel="stylesheet" href="../../../../asset/css/common.css" type="text/css" media="all" />
+
+
+</head>
+<body>
+  <div id="header" ></div>
+  <div id="container">
+	<div id="lnb" class="gnb"></div>
+	<!-- s: 컨텐츠 시작 -->
+	<div id="contents" class="contents">
+		<!-- s: 스크립드 설명 -->
+		<div class="desc_wapper">
+			<h1 class="desc_title">videojs</h1>
+			<p>동영상 재생 플러그인 <br />
+				link API : <a href="https://docs.videojs.com/" target="_blank" >https://docs.videojs.com/</a> <br />
+                link github : <a href="https://github.com/videojs/video.js" target="_blank" >https://github.com/videojs/video.js</a>
+			</p>
+			<p>다른 플레이어 <br />
+				link API : <a href="https://sample.pallycon.com/dev/devconsole/demo/multiDrm.do?lang=ko" target="_blank" >유사 플레이어/</a> <br />
+                link github : <a href="https://github.com/Azure-Samples/media-services-3rdparty-player-samples" target="_blank" >유사 플레이어</a>
+			</p>
+		</div>
+		<!-- e: 스크립드 설명 -->
+	
+		<!-- s: api 설명 -->
+		<div class="api">
+			<h2 class="api-title">videojs( id이름 )</h2>
+			<div class="api-body">
+				<dl>
+					<dt>설명</dt>
+					<dd><span class="icon"></span>IE11(Win8.1 이상), Edge, 크롬, FF 지원</dd>
+					<dd><span class="icon"></span>네이티브 메서드이름 함수형태로 지원.</dd>
+				</dl>
+				<table class="table_col" summary="메서드 설명 ">
+					<caption>메서드</caption>
+					<colgroup>
+						<col width="150">
+						<col width="">		
+					</colgroup>
+					<tbody>
+					<tr>
+						<th scope="col">메서드 이름</th>
+						<th scope="col">메서드 설명</th>
+					</tr>
+					<tr>
+						<td>videojs("ID명");</td>
+						<td>video 브라우져마다 도일한 스킨적용 <br />
+							poster : 영상미리보기 이미지  <br />
+							m4v : mp4 영상파일  <br />
+							ogv : ogv 영상파일 <br />
+							webmv : webmv 영상파일 <br />
+						</td>		
+					</tr>
+					</tbody>
+				</table>
+				
+							
+				<table class="table_col" summary="methods 설명 ">
+					<caption>methods</caption>
+					<colgroup>
+						<col width="150">
+						<col width="">		
+					</colgroup>
+					<tbody>
+					<tr>
+						<th scope="col">methods 이름</th>
+						<th scope="col">methods 설명</th>
+					</tr>
+					<tr>
+						<td>.canPlayType()</td>
+						<td>지정된 미디어 유형을 재생할 수 있는지 여부를 결정합니다.</td>		
+					</tr>		
+					<tr>
+						<td>.fastSeek()</td>
+						<td>주어진 시간을 직접 찾습니다.</td>		
+					 </tr>
+					<tr>
+						<td>.load()</td>
+						<td>미디어 요소를 재설정하고 미디어 리소스를 다시 시작합니다.</td>
+					</tr>
+					<tr>
+						<td>.pause()</td>
+						<td>미디어 재생을 일시 중지합니다.</td>
+					</tr>
+					<tr>
+						<td>.play()</td>
+						<td>미디어 재생을 시작합니다.</td>
+					</tr>				
+					<tr>
+						<td>.currentTime(초)</td>
+						<td>해당 위치로 플래이 해드옴김</td>
+					</tr>				
+					<tr>
+						<td>.paused()</td>
+						<td>재생중인지 부울린값 및 설정</td>
+					</tr>				
+					</tbody>
+				</table>
+			
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+
+		<!-- s: examples 예제 -->
+		<div class="ex_wapper">
+			<div class="section">
+				<h2 class="ex-title">예제) 1.기본사용법 </h2>
+				<p class="ex-more" ><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p>
+				<p class="ex-view" ><a href="ex01.html" target="_blank">View</a></p>
+				<div class="ex-body" style="display:none" >					
+					<div class="source">
+					<!-- 소스 -->
+
+
+                    <!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!DOCTYPE html&gt;</span>
+<span style="color: #f92672">&lt;html</span> <span style="color: #a6e22e">lang=</span><span style="color: #e6db74">&quot;en&quot;</span><span style="color: #f92672">&gt;</span>
+<span style="color: #f92672">&lt;head&gt;</span>
+
+    <span style="color: #f92672">&lt;title&gt;</span>Video.js | HTML5 Video Player<span style="color: #f92672">&lt;/title&gt;</span>
+    <span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/jquery-1.12.1.min.js&quot;</span> <span style="color: #a6e22e">charset=</span><span style="color: #e6db74">&quot;UTF-8&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+    <span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/videojs/videojs.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+    <span style="color: #f92672">&lt;link</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/videojs/videojs.css&quot;</span> <span style="color: #a6e22e">rel=</span><span style="color: #e6db74">&quot;stylesheet&quot;</span><span style="color: #f92672">&gt;</span>
+    <span style="color: #f92672">&lt;style&gt;</span>
+      <span style="color: #a6e22e">.video-js</span> <span style="color: #a6e22e">.vjs-big-play-button</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">top</span><span style="color: #f92672">:</span><span style="color: #f8f8f2">calc(</span><span style="color: #ae81ff">50</span><span style="color: #f92672">%</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">22.5px</span> <span style="color: #f8f8f2">);</span> <span style="color: #66d9ef">left</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">calc(</span><span style="color: #ae81ff">50</span><span style="color: #f92672">%</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">45px</span><span style="color: #f8f8f2">);</span> <span style="color: #f8f8f2">}</span>
+      <span style="color: #a6e22e">.controler</span> <span style="color: #f92672">img</span> <span style="color: #f8f8f2">{</span><span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">30px</span><span style="color: #f8f8f2">;}</span>
+    <span style="color: #f92672">&lt;/style&gt;</span>
+
+<span style="color: #f92672">&lt;/head&gt;</span>
+<span style="color: #f92672">&lt;body&gt;</span>
+
+  <span style="color: #f92672">&lt;video</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;example_video_1&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;video-js&quot;</span> <span style="color: #a6e22e">controls</span> <span style="color: #a6e22e">preload=</span><span style="color: #e6db74">&quot;none&quot;</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;640&quot;</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;264&quot;</span> <span style="color: #a6e22e">poster=</span><span style="color: #e6db74">&quot;../../../../asset/media/REDPLANET_meanie.jpg&quot;</span> <span style="color: #a6e22e">data-setup=</span><span style="color: #e6db74">&quot;{}&quot;</span><span style="color: #f92672">&gt;</span>
+    <span style="color: #f92672">&lt;source</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/media/REDPLANET_meanie.mp4&quot;</span> <span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;video/mp4&quot;</span><span style="color: #f92672">&gt;</span>
+    <span style="color: #75715e">&lt;!--     </span>
+<span style="color: #75715e">    &lt;source src=&quot;http://vjs.zencdn.net/v/oceans.webm&quot; type=&quot;video/webm&quot;&gt;</span>
+<span style="color: #75715e">    &lt;source src=&quot;http://vjs.zencdn.net/v/oceans.ogv&quot; type=&quot;video/ogg&quot;&gt; </span>
+<span style="color: #75715e">    --&gt;</span>
+  <span style="color: #f92672">&lt;/video&gt;</span>
+
+  <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;controler&quot;</span><span style="color: #f92672">&gt;</span>
+       
+    <span style="color: #f92672">&lt;a</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;icon&quot;</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;javascript:video_play();&quot;</span><span style="color: #f92672">&gt;&lt;img</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/images/btn_play.png&quot;</span> <span style="color: #a6e22e">alt=</span><span style="color: #e6db74">&quot;play&quot;</span> <span style="color: #f92672">/&gt;&lt;/a&gt;</span>
+    <span style="color: #f92672">&lt;a</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;icon&quot;</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;javascript:video_pause();&quot;</span><span style="color: #f92672">&gt;&lt;img</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/images/btn_pause.png&quot;</span> <span style="color: #a6e22e">alt=</span><span style="color: #e6db74">&quot;pause&quot;</span> <span style="color: #f92672">/&gt;&lt;/a&gt;</span>
+    <span style="color: #f92672">&lt;a</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;icon&quot;</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;javascript:video_stop();&quot;</span><span style="color: #f92672">&gt;&lt;img</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/images/btn_stop.png&quot;</span> <span style="color: #a6e22e">alt=</span><span style="color: #e6db74">&quot;stop&quot;</span> <span style="color: #f92672">/&gt;&lt;/a&gt;</span>
+    <span style="color: #f92672">&lt;button</span> <span style="color: #a6e22e">onclick=</span><span style="color: #e6db74">&quot;video_playPause()&quot;</span><span style="color: #f92672">&gt;</span>Play/Pause<span style="color: #f92672">&lt;/button&gt;</span>
+    <span style="color: #f92672">&lt;br&gt;</span>
+
+    <span style="color: #f92672">&lt;button</span> <span style="color: #a6e22e">onclick=</span><span style="color: #e6db74">&#39;video_volume(0.2)&#39;</span><span style="color: #f92672">&gt;</span>volume20<span style="color: #f92672">&lt;/button&gt;</span>
+    <span style="color: #f92672">&lt;button</span> <span style="color: #a6e22e">onclick=</span><span style="color: #e6db74">&#39;video_volume(1)&#39;</span><span style="color: #f92672">&gt;</span>volume100<span style="color: #f92672">&lt;/button&gt;</span>
+    <span style="color: #f92672">&lt;br&gt;</span>
+    <span style="color: #f92672">&lt;button</span> <span style="color: #a6e22e">onclick=</span><span style="color: #e6db74">&quot;makeSize(1024)&quot;</span><span style="color: #f92672">&gt;</span>Big: 1024<span style="color: #f92672">&lt;/button&gt;</span>
+    <span style="color: #f92672">&lt;button</span> <span style="color: #a6e22e">onclick=</span><span style="color: #e6db74">&quot;makeSize(640)&quot;</span><span style="color: #f92672">&gt;</span>Normal : 640<span style="color: #f92672">&lt;/button&gt;</span>
+    <span style="color: #f92672">&lt;button</span> <span style="color: #a6e22e">onclick=</span><span style="color: #e6db74">&quot;makeSize(320)&quot;</span><span style="color: #f92672">&gt;</span>Small : 320<span style="color: #f92672">&lt;/button&gt;</span>
+            
+<span style="color: #f92672">&lt;/div&gt;</span>
+<span style="color: #f92672">&lt;script&gt;</span>
+  <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">myVideo</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">videojs</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;example_video_1&#39;</span><span style="color: #f8f8f2">);</span>
+  
+  <span style="color: #66d9ef">function</span> <span style="color: #a6e22e">video_play</span><span style="color: #f8f8f2">(){</span>
+    <span style="color: #a6e22e">myVideo</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">play</span><span style="color: #f8f8f2">();</span>
+    <span style="color: #f8f8f2">}</span> 
+    <span style="color: #66d9ef">function</span> <span style="color: #a6e22e">video_pause</span><span style="color: #f8f8f2">(){</span>
+      <span style="color: #a6e22e">myVideo</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">pause</span><span style="color: #f8f8f2">();</span>
+    <span style="color: #f8f8f2">}</span>
+    <span style="color: #66d9ef">function</span> <span style="color: #a6e22e">video_stop</span><span style="color: #f8f8f2">(){</span>
+      <span style="color: #a6e22e">myVideo</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">currentTime</span><span style="color: #f8f8f2">(</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">);</span>
+      <span style="color: #a6e22e">myVideo</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">pause</span><span style="color: #f8f8f2">();</span>
+      <span style="color: #a6e22e">myVideo</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">load</span><span style="color: #f8f8f2">();</span>
+    <span style="color: #f8f8f2">}</span>
+    <span style="color: #a6e22e">console</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">log</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">myVideo</span><span style="color: #f8f8f2">)</span>
+    <span style="color: #66d9ef">function</span> <span style="color: #a6e22e">video_playPause</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
+        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span><span style="color: #a6e22e">myVideo</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">paused</span><span style="color: #f8f8f2">())</span>
+            <span style="color: #a6e22e">myVideo</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">play</span><span style="color: #f8f8f2">();</span>
+        <span style="color: #66d9ef">else</span>
+            <span style="color: #a6e22e">myVideo</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">pause</span><span style="color: #f8f8f2">();</span>
+    <span style="color: #f8f8f2">}</span>
+    <span style="color: #66d9ef">function</span> <span style="color: #a6e22e">video_volume</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">$vol</span><span style="color: #f8f8f2">){</span> <span style="color: #a6e22e">myVideo</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">volume</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">$vol</span><span style="color: #f8f8f2">);</span> <span style="color: #f8f8f2">}</span>
+    <span style="color: #66d9ef">function</span> <span style="color: #a6e22e">makeSize</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">$size</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span><span style="color: #a6e22e">myVideo</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">width</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">$size</span><span style="color: #f8f8f2">);</span> <span style="color: #66d9ef">return</span><span style="color: #f8f8f2">}</span>
+
+
+    
+    <span style="color: #75715e">/* 이벤트 재생 끝 */</span>
+    <span style="color: #a6e22e">myVideo</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">ready</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(){</span>
+
+      <span style="color: #66d9ef">this</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">on</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;ended&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
+        <span style="color: #a6e22e">console</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">log</span><span style="color: #f8f8f2">(</span> <span style="color: #e6db74">&quot;재생끝&quot;</span> <span style="color: #f8f8f2">)</span>
+      <span style="color: #f8f8f2">});</span>
+
+    <span style="color: #f8f8f2">})</span>
+    
+<span style="color: #f92672">&lt;/script&gt;</span>
+
+<span style="color: #f92672">&lt;/body&gt;</span>
+
+<span style="color: #f92672">&lt;/html&gt;</span>
+</pre></td></tr></table></div>
+
+
+
+
+				
+				
+
+				    <!--// 소스 -->
+					</div>
+				</div>
+			</div>			
+		</div>
+		<!-- e: examples 예제 -->
+
+
+
+
+	</div>
+	<!-- e: 컨텐츠 끝 -->
+</div>
+
+
+
+<script type="text/javascript">
+	$("#header").load("../../../head.html");
+	$("#lnb").load("../../../lnb.html");	
+
+	$(".ex-more a").click(function() {
+		$( this ).find("span").toggle();
+		$( this ).parent().siblings(".ex-body").slideToggle();
+		return false;
+	});
+
+	$(".icon-more a").click(function() {
+		$( this ).find("span").toggle();
+		$( this ).parent().siblings(".ex-body").slideToggle();
+		return false;
+	});
+</script>
+
+</body>
+</html>
