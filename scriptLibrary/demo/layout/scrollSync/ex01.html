@@ -51,13 +51,14 @@
 
 
   <script>
-    $(".scroll_top").trpScrollSync({ maxWidth:1000, heightTar:60, showHeight:300, bottonTar:50, bottomStop:300 });
+    var _scroll_top = $(".scroll_top").trpScrollSync({ maxWidth:1000, heightTar:60, showHeight:300, bottonTar:50, bottomStop:300 });
     
-     $(window).on("resize", function($e){
+    $(window).on("resize", function($e){
       $(".js-1").text( $(document).width() );
       $(".js-2").text( $(window).innerWidth() );
       $(".js-3").text( window.innerWidth );
-     });
+      //_scroll_top.setBottonTar(window.innerWidth / 3);
+    });
   </script>
 
 </body>

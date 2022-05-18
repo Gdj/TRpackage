@@ -1,8 +1,8 @@
 /*
  * Base			    : jQuery JavaScript Library v1.12.1
  * trPackage	  :   
- * trpLayout	  : v0.22
- * release date : 2022.03.22
+ * trpLayout	  : v0.23
+ * release date : 2022.05.18
  * author	      : http://turfrain.tistory.com/
  * Copyright 2020. turfrain all rights reserved.
  *
@@ -12,8 +12,7 @@
 
 
 /**
-* trpScrollSync             : 스크롤 움직임에 따라 타겟 높이 값을 변경하여 따라다니게 한다.
-* @option	maxWidth   		  : 컨테이너 넓이                (기본값 : 윈도우 넓이)
+* trpScrollSync           : 스크롤 움직임에 따라 타겟 높이 값을 변경하여 따라다니게 한다.
 * @option	positionTar		  : 적용할 타겟 선택자            (기본값 : this)
 * @option	widthTar			  : 적용할 타켓 넓이값            (기본값 : this.width)
 * @option	heightTar			  : 적용할 타켓 높이값            (기본값 : this.height)
@@ -27,12 +26,11 @@ jQuery.fn.trpScrollSync = function( options ){
   var winST = $(window).scrollTop();
   var docH  = $(document).height();
   var settings = {
-      maxWidth   : window.innerWidth,      // 컨테이너 넓이
-      positionTar : _this  ,               //  타겟 선택자  
+      positionTar : _this  ,               // 타겟 선택자  
       widthTar    : _this.width  ,         // 스크롤 타켓 넓이
-      heightTar   : _this.height  ,        // 타켓 높이값  
+      heightTar   : _this.height  ,        // 스크롤 타켓 높이값  
       showHeight  : wH  ,                  // 타켓 상단으로 부터 보여질 위치
-      bottonTar   : 50  ,                  // 타겟 하단으로 부터 여백 
+      bottonTar   : 0  ,                   // 타겟 하단으로 부터 여백 
       bottomStop  : 100 ,                  // 타겟 하단기준 멈춰야할 위치
   };
   settings = jQuery.extend(settings, options || {});
@@ -52,12 +50,13 @@ jQuery.fn.trpScrollSync = function( options ){
     if( winST < settings.showHeight ){   // winST < wH
         $(settings.positionTar).fadeOut();
     } else {
-        $(".scroll_top").fadeIn();
+        $(settings.positionTar).fadeIn();
     }
     
     // scroll top botton hold
     //console.log( wH, docH, _bottomStop);
-    if( (winST + wH)  > (docH - _bottomStop) ){
+    if( (winST + wH)  > (docH - _bottomStop) ){ 
+      //console.log( "바닥")
       var temp1 = (docH - _bottomStop - _bottomSpace);
       $(settings.positionTar).css({ position: 'absolute', top : "auto" , bottom: settings.bottomStop });
       $(settings.positionTar).css({ left: "auto" });
@@ -77,7 +76,130 @@ jQuery.fn.trpScrollSync = function( options ){
 
   }
   scrollResizeSyncWatch();
+
+  return {
+    setWidthTar : function($num){
+      settings.widthTar = $num;
+    },
+    setHeightTar : function($num){
+      settings.heightTar = $num;
+    },
+    setShowHeight : function($num){
+      settings.showHeight = $num;
+    },
+    setBottonTar : function($num){
+      settings.bottonTar = $num;
+    },
+    setBottomStop : function($num){
+      settings.bottomStop = $num;
+    },
+  }
+
 }
+
+
+
+
+
+/**
+* trpScrollSyncTop           : 스크롤 움직임에 따라 타겟 높이 값을 변경하여 따라다니게 한다.
+* @option	positionTar		  : 적용할 타겟 선택자            (기본값 : this)
+* @option	maxWidth   		  : 컨테이너 넓이                 (기본값 : 윈도우 넓이)
+* @option	widthTar			  : 적용할 타켓 넓이값            (기본값 : this.width)
+* @option	heightTar			  : 적용할 타켓 높이값            (기본값 : this.height)
+* @option	topStart  			: 타켓 상단으로 부터 시작할 위치(기본값 : window.height)
+* @option	topMagin  			: 타겟 상단으로 부터 여백       (기본값 : 0)
+* @option	bottomStop		  : 적용할 타겟 하단기준 멈춰야할 위치 (기본값 : 100)
+*/
+jQuery.fn.trpScrollSyncTop = function( options ){
+  var _this = this;
+  var wH    = $(window).height();
+  var winST = $(window).scrollTop();
+  var docH  = $(document).height();
+  var _getPositon = {
+    top: 0, 
+    bottom : 0,
+  };
+  var settings = {
+      positionTar : _this  ,               // 타겟 선택자  
+      maxWidth    : window.innerWidth,     // 컨테이너 넓이
+      widthTar    : $(_this).width()  ,    // 스크롤 타켓 넓이
+      heightTar   : $(_this).height()  ,   // 스크롤 타켓 높이값  
+      topStart    : wH  ,                  // 타켓 상단으로 부터 시작할 위치
+      topMagin    : 0 ,                    // 타겟 상단으로 부터 여백 
+      bottomStop  : 300 ,                  // 타겟 하단기준 멈춰야할 위치
+  };
+  settings = jQuery.extend(settings, options || {});
+     
+    
+  var _stop_switch = true;
+  var _stop_h = 0;
+  $(window).on("scroll resize", function($e){
+    scrollResizeSyncWatch();
+  
+  });
+  function scrollResizeSyncWatch(){
+    ///console.log($(_this).height())
+    var _bottomStop  = (settings.bottomStop - settings.bottonTar);  // 멈출 위치 
+    wH    = $(window).height();
+    winST = $(window).scrollTop();
+    docH  = $(document).height();
+    
+    // scroll_top view
+    if( winST < settings.topStart ){   // winST < wH
+      $(settings.positionTar).removeClass("hold_start");
+      $(settings.positionTar).css({ position: 'relative', top: "auto", bottom: "auto"  });
+    } else {
+      $(settings.positionTar).addClass("hold_start");
+      $(settings.positionTar).css({ position: 'fixed', top: settings.topMagin,  bottom: "auto"});
+      _getPositon.top = settings.topMagin;   
+    }
+    
+    
+    // scroll top botton hold    
+    /* 컨텐츠 하단까지 길이 > (도듀먼트에서 하단높이) */
+    if( (winST + settings.heightTar + settings.topMagin)  > (docH - _bottomStop) ){ 
+      _stop_h = (docH - _bottomStop ) - (settings.topStart + settings.topMagin + settings.heightTar);
+      
+      $(settings.positionTar).css({ position: 'absolute', top : (_stop_h) , bottom:  "auto" });
+      $(settings.positionTar).css({ left: "auto" });
+      $(settings.positionTar).addClass("hold_stop");
+      _getPositon.top = _stop_h;   
+    } else {
+      $(settings.positionTar).removeClass("hold_stop");
+      _stop_switch = true;
+    } 
+
+  }
+  scrollResizeSyncWatch();
+
+  return {
+    setMaxWidth : function($num){
+      settings.maxWidth = $num;
+    },
+    setWidthTar : function($num){
+      settings.widthTar = $num;
+    },
+    setHeightTar : function($num){
+      settings.heightTar = $num;
+    },
+    setTopStart : function($num){
+      settings.topStart = $num;
+    },
+    settopMagin : function($num){
+      settings.topMagin = $num;
+    },
+    setBottomStop : function($num){
+      settings.bottomStop = $num;
+    },
+    getPosition : function(){
+      return _getPositon;
+    },
+  }
+
+}
+
+
 
 
 
@@ -115,6 +237,16 @@ jQuery.fn.trpScrollPositionClass = function($scrollTar, $scrollTarModi, $addTar,
   }
   scrollResizeClassWatch();
 };
+
+
+
+
+
+
+
+
+
+
 
 /**
 * trpScrollPositionWindowClass    : 스크롤타겟위치에서 윈도우높이 절반 타겟클래스변경

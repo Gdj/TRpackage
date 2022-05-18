@@ -1,0 +1,84 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+	<title>trpScrollSync</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css"  href="../../../../asset/css/trpBase.css" media="all" />
+	<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js" ></script>
+	<script type="text/javascript" src="../../../../asset/js/libs/trpLayout.js" ></script>
+</head>
+
+<style type="text/css">
+    
+    .container  { position: relative; width: 100%;  max-width: 1000px; margin: 0 auto; border: 1px solid #ff0000; border-top: 0; border-bottom: 0; box-sizing: border-box; }
+    .container p { position: relative;
+      height: 50px; /* border-bottom: 1px solid #00ff00; */ box-sizing: border-box; }
+    .container p:after { content: ""; display: block; height: 1px; width: 100%; 
+      position: absolute; bottom: 0; background-color: #00ff00;
+    }
+    .container .h50 { position: relative; 
+      height: 50px;/*  border-bottom: 1px solid #00ff00;  */box-sizing: border-box; text-align: right;
+    }
+    .container .h50:after { content: ""; display: block; height: 1px; width: 100%; 
+      position: absolute; bottom: 0; background-color: #00ff00;
+    }
+    .container p.bg_orange { background-color: orange; }
+    
+    .scroll-area { position: relative; display: inline-block; width: 50px; height: 50px;}
+    .scroll_top {  display: block; position: relative; width: 50px; height: 50px;     
+    cursor: pointer; z-index: 100;}
+    .scroll_top a { display: block; height: 100%;
+      color:#ffffff; border-radius: 50%; text-align: center; line-height: 50px;
+      background-color: #333333;  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.05);
+    }
+  
+    @media screen and (max-width:1000px) {
+      p { background-color: aquamarine;}
+	  }
+    
+</style>
+ 
+ 
+<body>
+
+	<div class="container">
+   
+    <p class="js-1">1</p><p class="js-2">2</p>
+    <p class="js-3">3 </p><p>4</p>
+    <p>5</p><p>6: 300</p>
+    <p>7</p><p>8: 400</p>
+    <p>9</p>
+    <div class="h50">10 
+      <div class="scroll-area">
+        <div class="scroll_top"><a href="#">TOP</a></div> 
+      </div> 
+    </div>
+    <p>11</p><p>12: 600</p><p>13</p><p>14: 700</p><p>15</p><p>16: 800</p>
+    <p>17</p><p>18: 900</p><p>19</p><p>20: 1000</p><p>21</p><p>22: 1100</p>
+    <p>23</p><p>24: 1200</p><p>25</p><p>26: 1300</p><p>27</p><p>28: 1400</p>
+    <p>29</p><p>30: 1500</p><p>31</p><p>32: 1600</p><p>33</p><p>34: 170</p>
+    <p>35</p><p>36: 1800</p><p>37</p><p>38: 1900</p><p>39</p><p>40: 2000</p>
+    <p>41</p><p>42: 2100</p><p>43</p><p>44: 2200</p><p>45</p><p>46: 2300</p>
+    <p>47</p><p>48: 2400</p><p>49</p><p>50: 2500</p><p>51</p><p>52: 2600</p>
+    <p>53</p><p class="bg_orange">54: 7000</p><p>55</p><p>56: 2800</p>
+    <p>57</p><p>58: 2900</p><p>59</p><p>60: 3000</p><p>61</p><p>62: 3100</p> 
+    <p>63</p><p>64: 3200</p><p>65</p><p>66: 3300</p><p>67</p><p>68: 3400</p> 
+    <p>69</p><p>70: 3500</p>
+
+	</div>
+
+
+  <script>
+    var _scroll_top = $(".scroll_top").trpScrollSyncTop({ maxWidth:1000, topStart:300, topMagin:150, bottonTar:0, bottomStop:800 });
+    
+    $(window).on("resize", function($e){
+      $(".js-1").text( "document.width : "+  $(document).width() );
+      $(".js-2").text( "window.widthInner : "+ $(window).innerWidth() );
+      $(".js-3").text( "window.width : "+  window.innerWidth );
+      //_scroll_top.setBottonTar(window.innerWidth / 3);
+    });
+  </script>
+
+</body>
+</html>
