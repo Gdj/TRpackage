@@ -84,6 +84,10 @@
 						<td>기본 값은 "false" 이고 "true" 설정하면 루프 모드로 설정할수 있습니다.</td>
 					</tr>
 					<tr>
+						<td>loopedSlides</td>
+						<td>loop 일대 복제 갯수</td>
+					</tr>
+					<tr>
 						<td>direction</td>
 						<td>기본 값은 "horizontal" 이고 "vertical" 설정하면 세로로 형으로 모드를 변경할수 있습니다.</td>
 					</tr>
@@ -101,8 +105,14 @@
 					</tr>
 					<tr>
 						<td>slidesPerView</td>
-						<td>슬라이더 컨테이너에 동시에 표현할수있는 슬라이드 겟수를 숫자 형태로 정의 합니다. </td>
+						<td>슬라이더 컨테이너에 동시에 표현할수있는 슬라이드 겟수를 숫자 형태로 정의 합니다. or "auto" </td>
 					</tr>
+          
+					<tr>
+						<td>slidesPerGroup</td>
+						<td>슬라이더 컨테이너에 동시에 슬라이드 되는 겟수 (slidesPerView)동일하게 사용할수있음 </td>
+					</tr>
+          
 					<tr>
 				  <td>autoplay: {delay: 5000,},</td>
 						<td>(1000 = 1초) 로시간을 정의하면 자동으로 슬라이드를 합니다.</td>
@@ -112,43 +122,66 @@
 						<td>el(태그 선텍자), type ["bullets", "fraction", "progressbar", "custom"] 
 								<br />
 								pagination: {el: '.swiper-pagination',type: 'bullets',},
+                <br />
+            
+<pre>
+<strong>- fraction 일때</strong>
+pagination : {
+  el   : '.page-box',
+  type : 'fraction',
+  formatFractionCurren : function($curr)  {}, 
+  formatFractionTotal  : function($total) {}, 
+  renderFraction: function ($currentClass, $totalClass) {
+    return  '<span class="' + $currentClass + '"></span>' +
+            '<span class="bar">/</span>' +
+            '<span class="' + $totalClass + '"></span>';
+  },
+  renderCustom: function (swiper, current, total) {
+    return current + ' of ' + total;
+  }
+},
+</pre>                
 						</td>
 					</tr>
 					<tr>
-						<td>paginationClickable: true,,</td>
+						<td>paginationClickable: true,</td>
 						<td>도트 클릭여부</td>
 					</tr>
 					<tr>
 						<td>
 							navigation: 
 						</td>
-						<td>좌우버튼  <br />
-							navigation: {
-								nextEl: ".swiper-button-next",
-								prevEl: ".swiper-button-prev",
-							},
+						<td>
+<pre>
+- <strong>좌우버튼</strong>
+navigation: {
+  nextEl: ".swiper-button-next",
+  prevEl: ".swiper-button-prev",
+},
+</pre> 
 						</td>
 					</tr>
 					<tr>
 						<td>breakpoints</td>
-						<td> <strong>반응형</strong>
-							<pre>
+						<td>
+<pre>
+- <strong>반응형</strong>
 {							
-	slidesPerView: 1,
-	spaceBetween: 10,
-	breakpointsInverse: true,
-	breakpoints: {
-	  320: {
+  slidesPerView: 1,
+  spaceBetween: 10,
+  breakpointsInverse: true,
+  breakpoints: {
+    320: {
       slidesPerView: 2,
       spaceBetween: 20
     },
-	  640: {
+    640: {
       slidesPerView: 4,
       spaceBetween: 20
     },
-	}
+  }
 }
-							</pre>
+</pre>
 						</td>
 					</tr>
 					</tbody>
@@ -166,8 +199,11 @@
 						<th scope="col">Swiper 메서드 설명</th>
 					</tr>
 					<tr>
-						<td>.realIndex</td>
+						<td>.activeIndex</td>
 						<td>진행중인 인덱스 값을 리턴합다.
+						</td>
+						<td>.realIndex</td>
+						<td>loop 일때 진행중인 인덱스 값을 리턴합다.
 						</td>
 					</tr>
 					<tr>
@@ -255,7 +291,11 @@ swiper.init();
 						<td>swiper 초기화 후 실행</td>
 					</tr>
 					<tr>
-						<td>transitionStart:function(event){},</td>
+						<td>slideChange: function () { },</td>
+						<td>슬라이더가 바뀔때마다</td>
+					</tr>
+					<tr>
+						<td>transitionStart:function(){},</td>
 						<td>슬라이드 모션이 시작되는 시점에 호출되는 콜백 합수입니다. 인자값으로 현제"Swiper"를 오브젝트로 받아옵니다. </td>
 					</tr>
 					<tr>
@@ -263,7 +303,7 @@ swiper.init();
 						<td>슬라이드 모션이 끝나는 시점에 호출되는 콜백 합수입니다. 인자값으로 현제"Swiper"를 오브젝트로 받아옵니다. </td>
 					</tr>
 					<tr>
-						<td>touchMove:function(event){}</td>
+						<td>touchMove:function(){}</td>
 						<td>손으로 터치 이동할때 콜백 함수 실행</td>
 					</tr>
 
