@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>swiper 4.5.0thumbnail </title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />	
+	<link rel="stylesheet" href="./css/style.css"/>
+	<link rel="stylesheet" href="./css/swiper.min.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="./js/swiper.min.js"></script>
+
+    <style>
+        * {margin: 0;padding: 0;box-sizing: border-box;font-family: 'Noto Sans KR', sans-serif;box-sizing: border-box;}
+        ul,ol,li {list-style: none;}
+        
+        /* 슬라이드 CSS */
+        .slider {text-align: center;font-size: 0;max-width: 1180px;margin: 50px auto 0;padding: 0 15px;}
+        .slider .inner {overflow: hidden;width: 100%;padding: 75px 0;margin: 0 auto;}
+        .slide_list > li {position: relative;width: 20%; height: 150px;text-align: center;background: #ade9ff;margin: 0;font-size: 20px;line-height: 150px;color: #000;transform: scale(1); transition: all 0.3s;z-index: 0;}
+        
+        /* 영역별 크기 설정 */
+        .slide_list > li.swiper-slide-next,
+        .slide_list > li.swiper-slide-prev,
+        .slide_list > li.swiper-slide-duplicate-next,
+        .slide_list > li.swiper-slide-duplicate-prev {transform: scale(1.5);z-index: 50;}
+        .slide_list > li.swiper-slide-active,
+        .slide_list > li.swiper-slide-duplicate-active {transform: scale(2);z-index: 100;}
+        
+        /* 영역별 밝기 설정 */
+        .slide_list > li:after {position: absolute;content:'';top: 0;left: 0;width: 100%;height: 100%;background:rgba(0,0,0,0.5);transition: all 0.3s;opacity: 0;opacity: 1;}
+        .slide_list > li.swiper-slide-next:after,
+        .slide_list > li.swiper-slide-prev:after,
+        .slide_list > li.swiper-slide-duplicate-next:after,
+        .slide_list > li.swiper-slide-duplicate-prev:after {background:rgba(0,0,0,0.3);} 
+        .slide_list > li.swiper-slide-active:after,
+        .slide_list > li.swiper-slide-duplicate-active:after{opacity: 0;}
+        
+        /* 화살표 */
+        .slider .swiper-prev,
+        .slider .swiper-next {display: inline-block;width: 35px;height: 35px;margin:30px 15px 0;background:url('images/arrow.png') center center no-repeat;background-size: cover;text-indent: -999em;cursor: pointer;}
+        .slider .swiper-prev {transform: rotateY(180deg);}
+        
+        @media (max-width: 768px) {
+            .slider .inner {padding: 38px 0;}
+            .slide_list > li { width: 33.333%;}
+            .slide_list > li.swiper-slide-next,
+            .slide_list > li.swiper-slide-prev,
+            .slide_list > li.swiper-slide-duplicate-next,
+            .slide_list > li.swiper-slide-duplicate-prev {transform: scale(1);}
+            .slide_list > li.swiper-slide-active,
+            .slide_list > li.swiper-slide-duplicate-active {transform: scale(1.5);}
+        }
+    
+    </style>
+</head>
+<body>
+
+<!-- https://nyweb.tistory.com/entry/Swiper-Center-Mode -->
+
+<div class="slider">
+    <div class="inner">
+        <ul class="swiper-wrapper slide_list">
+            <li class="swiper-slide">slider1</li>
+            <li class="swiper-slide">slider2</li>
+            <li class="swiper-slide">slider3</li>
+            <li class="swiper-slide">slider4</li>
+            <li class="swiper-slide">slider5</li>
+        </ul>
+    </div>
+    <div class="swiper-prev">이전</div>
+    <div class="swiper-next">다음</div>
+</div>
+
+
+<script>
+
+    $(document).ready(function () {
+        slider();
+    })
+
+    function slider() {
+        var winW = window.innerWidth; //화면 가로사이즈
+        var swiper = undefined;
+        var viewNum = ''; //슬라이드 개수 (옵션)
+        var loopChk = ''; //무한반복 체크
+        var slideNum = $('.slider .swiper-slide').length //슬라이드 총 개수
+        var slideInx = 0; //현재 슬라이드 index
+
+        //디바이스 체크
+        var winWChk = '';
+        if (window.innerWidth > 768) { //PC 버전
+            winWChk = 'pc';
+        } else { //mobile 버전
+            winWChk = 'mo';
+        }
+
+        sliderAct(); //슬라이드 실행
+
+        $(window).on('resize', function () {
+            winW = window.innerWidth;
+            if (winWChk != 'mo' && winW <= 768) { //모바일 버전으로 전환할 때
+                winWChk = 'mo'
+                setTimeout(function () {
+                    sliderAct();
+                }, 300);
+
+            }
+
+            if (winWChk != 'pc' && winW >= 769) { //PC 버전으로 전환할 때
+                winWChk = 'pc'
+                setTimeout(function () {
+                    sliderAct();
+                }, 300);
+            }
+        })
+
+        function sliderAct() {
+            //슬라이드 초기화 
+            if (swiper != undefined) {
+                swiper.destroy();
+                swiper = undefined;
+            }
+
+            //slidesPerView 옵션 설정
+            if (winW > 768) { //PC 버전
+                viewNum = 4;
+            } else { //mobile 버전
+                viewNum = 2;
+            }
+
+            //loop 옵션 체크
+            if (slideNum > viewNum) {
+                loopChk = true;
+            } else {
+                loopChk = false;
+            }
+
+            swiper = new Swiper(".slider .inner", {
+                slidesPerView: "auto",
+                initialSlide: slideInx,
+                loop: loopChk,
+                centeredSlides: true,
+                navigation: {
+                    nextEl: $('.slider .swiper-next'),
+                    prevEl: $('.slider .swiper-prev'),
+                },
+                on: {
+                    activeIndexChange: function () {
+                        slideInx = this.realIndex; //현재 슬라이드 index 갱신
+                    }
+                },
+            });
+        }
+    }
+
+
+</script>
+</body>
+</html>
