@@ -1,8 +1,8 @@
 /*
  * Base			    : jQuery JavaScript Library v1.12.1
  * trPackage	  :   
- * trpLayout	  : v0.23
- * release date : 2022.05.18
+ * trpLayout	  : v0.24
+ * release date : 2022.07.11
  * author	      : http://turfrain.tistory.com/
  * Copyright 2020. turfrain all rights reserved.
  *
@@ -293,61 +293,109 @@ scrollResizeClassWatch();
 * @method setTarModi($tarModi) : 가감수치 변경
 */
 jQuery.fn.trpScrollActive = function( $add_class, $show_per ){
-var _tarGet   = this
-var _addClass = $add_class;
-var _show_per = $show_per;
-var _scrollTarModi = 0;
-function trpScrollActiveFn() { 
-  var _wH  = window.innerHeight; 
-  var _wS  = $(window).scrollTop();
-  var _wHS = (_wH + _wS);
-  $(_tarGet).each(function($i) { 			
-    var _t  = ($(this).offset().top + _scrollTarModi) +  (_wH * _show_per); 
-    var _th = ($(this).offset().top + _scrollTarModi) + $(this).innerHeight(); 
-    if (_wS > _th) { 
-        $(this).removeClass(_addClass);     // pass 
-    } else if (_wHS > _t) { 
-        $(this).addClass(_addClass);        // over
-    } else {
-        $(this).removeClass(_addClass);     // under
-    } 	
-  }); 
-}
-$(window).on('scroll resize', trpScrollActiveFn);
-$(window).trigger('scroll resize');
+  var _tarGet   = this
+  var _addClass = $add_class;
+  var _show_per = $show_per;
+  var _scrollTarModi = 0;
+  function trpScrollActiveFn() { 
+    var _wH  = window.innerHeight; 
+    var _wS  = $(window).scrollTop();
+    var _wHS = (_wH + _wS);
+    $(_tarGet).each(function($i) { 			
+      var _t  = ($(this).offset().top + _scrollTarModi) +  (_wH * _show_per); 
+      var _th = ($(this).offset().top + _scrollTarModi) + $(this).innerHeight(); 
+      if (_wS > _th) { 
+          $(this).removeClass(_addClass);     // pass 
+      } else if (_wHS > _t) { 
+          $(this).addClass(_addClass);        // over
+      } else {
+          $(this).removeClass(_addClass);     // under
+      } 	
+    }); 
+  }
+  $(window).on('scroll resize', trpScrollActiveFn);
+  $(window).trigger('scroll resize');
 
 
-return {
-  /* 기준 타겟 위치 가감 수치 변경 */
-  setTarModi : function($tarModi){
-    _scrollTarModi = $tarModi;
+  return {
+    /* 기준 타겟 위치 가감 수치 변경 */
+    setTarModi : function($tarModi){
+      _scrollTarModi = $tarModi;
+    }
   }
 }
+
+
+
+/** 
+* @param	$motion_items      : 모션 들어갈 아이템 선택자
+* @param	$add_class         : 추가 삭제될 클래스 
+* @param	$show_per          : 시작위치  (0: 보일때, .2: 20% 올라왔을때)
+* @method setTarModi($tarModi) : 가감수치 변경
+*/
+jQuery.fn.trpScrollActivePer = function( $add_class, $show_per ){
+  var _tarGet   = this
+  var _addClass = $add_class;
+  var _show_per = $show_per;
+  var _scrollTarModi = 0;
+  function trpScrollActiveFn() { 
+    var _wH  = window.innerHeight; 
+    var _wS  = $(window).scrollTop();
+    var _wHS = (_wH + _wS);
+    
+    $(_tarGet).each(function($i) { 			
+      var _tarT    = $(this).offset().top;                              // 타겟 위치
+      var _tarTmd  = ( _tarT + _scrollTarModi) +  (_wH * _show_per);    // 타겟 가감위치
+      var _th      = ( _tarT + _scrollTarModi) + $(this).innerHeight(); // 타겟 끝
+      var _th_full = ( _th + _wH );                                     // 타겟 + 브라우져 끝
+
+      if (_wS > _th) {                         // pass 
+        $(this).removeClass(_addClass);    
+        $(this).attr("data-per",  100 );
+      } else if (_wHS > _tarTmd) {             // over
+        var _per = trpRangeRatioFn(_tarTmd , _th_full, _wHS, 0, 100 );
+        $(this).addClass(_addClass);       
+        $(this).attr("data-per",  _per );
+      } else {                                 // under
+        $(this).removeClass(_addClass);    
+        $(this).attr("data-per",  0 );
+      } 	
+
+      /* 변화 있을때 만 이벤트 발생 */
+      if( $(this).data("oldper") !=  $(this).attr("data-per") ){
+        $(this).trigger('data-per-changed');
+        $(this).data("oldper", $(this).attr("data-per") )
+      }
+
+    }); 
+  }
+  $(window).on('scroll resize', trpScrollActiveFn);
+  $(window).trigger('scroll resize');
+
+  function trpRangeRatioFn($rMin, $rMax, $ref, $tMin, $tMax ){
+
+    var rMin 	= 0;					// Refer 참고 최소 값		
+    var rMax	= $rMax - $rMin;		// Refer 참고 최대 값	
+    var ref 	= $ref  - $rMin;		// Refer 참고 변화 값
+    var rPer;							// Refer 참고 변화 퍼센트
+    var tMin 	= 0;					// target타겟 최소값
+    var tMax	= $tMax - $tMin;		// target타겟 최대값 
+    
+    //rPer = Math.abs(rTar) / rMax  // 퍼센테지	== 100% => 1.0
+    rPer = ref / rMax				// 퍼센테지	== 100% => 1.0
+          
+    return (tMax * rPer)+ $tMin;	// 참고 비례 타겟값
+  }
+  
+
+
+  return {
+    /* 기준 타겟 위치 가감 수치 변경 */
+    setTarModi : function($tarModi){
+      _scrollTarModi = $tarModi;
+    }
+  }
 }
-
-
-
-/**  trpScrollActiveFn	       : 스크롤에따라 컨텐츠 도달하면 (ms_active)클래스 추가 */
-function trpScrollActiveFn() { 
-var _wH  = window.innerHeight; 
-var _wS  = $(window).scrollTop();
-var _wHS = (_wH + _wS);
-$('.js-msitem').each(function($i) { 			
-  var _t  = $(this).offset().top +  (_wH * .2); 
-  var _th = $(this).offset().top + $(this).innerHeight(); 
-  if (_wS > _th) { 
-      $(this).removeClass("ms_active");     // pass 
-  } else if (_wHS > _t) { 
-      $(this).addClass("ms_active");        // over
-  } else {
-      $(this).removeClass("ms_active");     // under
-  } 	
-}); 
-}
-//$(window).on('scroll resize', scroll_motionActive);
-//$(window).trigger('scroll resize');
-
-
 
 
 

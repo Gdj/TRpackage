@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
-<title> trpUtilityChangeOnce | TR package</title>
+<title> trpScrollActivePer | TR package</title>
 <script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js" charset="UTF-8"></script>
 <script type="text/javascript" src="../../../../asset/js/libs/trpMenu.js"></script>
 <link rel="stylesheet" href="../../../../asset/css/common.css" type="text/css" media="all" />
@@ -17,15 +17,17 @@
 	<div id="contents" class="contents">
 		<!-- s: 스크립드 설명 -->
 		<div class="desc_wapper">
-			<h1 class="desc_title">trpScrollActive</h1>
+			<h1 class="desc_title">trpScrollActivePer</h1>
 			<p>
-				타켓 위치에 도달하면 특정 엘리먼트에 클래스를 추가, 못미치면 삭제, 넘어가도 삭제
+				- 타켓 위치에 도달하면 특정 엘리먼트에 클래스를 추가, 못미치면 삭제, 넘어가도 삭제 <br />
+				- 타겟 위치 비례 화면위치 비율을 "data-per" 값으로 출력 <br />
+				- "data-per" 값이 바뀔때 "data-per-changed" 이벤트 발생
 			</p>												
 		</div>
 		<!-- e: 스크립드 설명 -->
 		<!-- s: api 설명 -->
 		<div class="api">
-			<h2 class="api-title">$("타겟선택자").trpScrollActive( $add_class, $show_per);</h2>
+			<h2 class="api-title">$("타겟선택자").trpScrollActivePer( $add_class, $show_per);</h2>
 			<div class="api-body">
 				<dl>
 					<dt>설명</dt>
@@ -40,8 +42,8 @@
 					</colgroup>
 					<tbody>
 					<tr>
-						<th scope="col">이벤트 이름</th>
-						<th scope="col">이벤트 설명</th>
+						<th scope="col">파라미터 이름</th>
+						<th scope="col">파마미너 설명</th>
 					</tr>
 					<tr>
 						<td>$add_class</td>
@@ -50,14 +52,14 @@
 					</tr>
 					<tr>
 						<td>$show_per</td>
-						<td>
+						<td> 
 							타겟이 처음 보일때 `0` ,
 							타겟이 상단 도착시`1.0` , 브라우저 절반 도착시 `0.5`
 						</td>		
 					</tr>
 					</tbody>
 				</table>
-
+				
 				<table class="table_col" summary="생성되는 method 설명">
 					<caption>method 설명</caption>
 					<colgroup>
@@ -76,7 +78,25 @@
 						</tr>
 					</tbody>
 				</table>
-		
+				
+				<table class="table_col" summary="생성되는 event 설명">
+					<caption>event 설명</caption>
+					<colgroup>
+						<col width="150">
+						<col width="">		
+					</colgroup>
+					<tbody>
+					<tr>
+						<th scope="col">이벤트 이름</th>
+						<th scope="col">이벤트 설명</th>
+					</tr>
+					<tr>
+						<td>data-per-changed</td>
+						<td>data-per 값이 바뀔때 트리거 됨.
+						</td>		
+					</tr>
+					</tbody>
+				</table>
 			</div>
 		</div>
 
@@ -92,7 +112,6 @@
 					<div class="source">
 						<!-- 소스 -->
 					
-
 
 
 
@@ -144,7 +163,11 @@
  46
  47
  48
- 49</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!DOCTYPE html&gt;</span>
+ 49
+ 50
+ 51
+ 52
+ 53</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!DOCTYPE html&gt;</span>
  <span style="color: #f92672">&lt;html&gt;</span>
  <span style="color: #f92672">&lt;head&gt;</span>
 	 <span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">charset=</span><span style="color: #e6db74">&quot;UTF-8&quot;</span><span style="color: #f92672">&gt;</span>
@@ -167,15 +190,15 @@
 			 <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;position_org_x4&quot;</span><span style="color: #f92672">&gt;</span> ching line <span style="color: #f92672">&lt;/div&gt;</span>
 			 <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;position_org_x4&quot;</span><span style="color: #f92672">&gt;</span> ching line <span style="color: #f92672">&lt;/div&gt;</span>
 			 <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;position_org_x4&quot;</span><span style="color: #f92672">&gt;</span> ching line <span style="color: #f92672">&lt;/div&gt;</span>
-			 <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;position_target js-motion&quot;</span><span style="color: #f92672">&gt;</span>500<span style="color: #f92672">&lt;/div&gt;</span>
+			 <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;position_target js-motion&quot;</span>  <span style="color: #a6e22e">data-per=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #f92672">&gt;</span>500<span style="color: #f92672">&lt;/div&gt;</span>
 			 <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;position_org_x4&quot;</span><span style="color: #f92672">&gt;</span> ching line <span style="color: #f92672">&lt;/div&gt;</span>
 			 <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;position_org_x4&quot;</span><span style="color: #f92672">&gt;</span> ching line <span style="color: #f92672">&lt;/div&gt;</span>
 			 <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;position_org_x4&quot;</span><span style="color: #f92672">&gt;</span> ching line <span style="color: #f92672">&lt;/div&gt;</span>
-			 <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;position_target js-motion&quot;</span><span style="color: #f92672">&gt;</span>500<span style="color: #f92672">&lt;/div&gt;</span>
+			 <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;position_target js-motion&quot;</span> <span style="color: #f92672">&gt;</span>500<span style="color: #f92672">&lt;/div&gt;</span>
 			 <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;position_org_x4&quot;</span><span style="color: #f92672">&gt;</span> ching line <span style="color: #f92672">&lt;/div&gt;</span>
 			 <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;position_org_x4&quot;</span><span style="color: #f92672">&gt;</span> ching line <span style="color: #f92672">&lt;/div&gt;</span>
 			 <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;position_org_x4&quot;</span><span style="color: #f92672">&gt;</span> ching line <span style="color: #f92672">&lt;/div&gt;</span>
-			 <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;position_target js-motion&quot;</span><span style="color: #f92672">&gt;</span>500<span style="color: #f92672">&lt;/div&gt;</span>
+			 <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;position_target js-motion&quot;</span> <span style="color: #f92672">&gt;</span>500<span style="color: #f92672">&lt;/div&gt;</span>
 			 <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;position_org_x4&quot;</span><span style="color: #f92672">&gt;</span> ching line <span style="color: #f92672">&lt;/div&gt;</span>
 			 <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;position_org_x4&quot;</span><span style="color: #f92672">&gt;</span> ching line <span style="color: #f92672">&lt;/div&gt;</span>
 			 <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;position_org_x4&quot;</span><span style="color: #f92672">&gt;</span> ching line <span style="color: #f92672">&lt;/div&gt;</span>
@@ -186,7 +209,11 @@
 		<span style="color: #f92672">&lt;script&gt;</span>
 			
 		 <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(){</span>
-				 <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.js-motion&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">trpScrollActive</span><span style="color: #f8f8f2">(</span> <span style="color: #e6db74">&quot;addClass&quot;</span> <span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">1.0</span><span style="color: #f8f8f2">);</span>
+			 <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.js-motion&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">trpScrollActivePer</span><span style="color: #f8f8f2">(</span> <span style="color: #e6db74">&quot;addClass&quot;</span> <span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">);</span>
+ 
+			 <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.js-motion&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">on</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;data-attribute-changed&quot;</span> <span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">$e</span><span style="color: #f8f8f2">){</span>
+				 <span style="color: #a6e22e">console</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">log</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">this</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">index</span><span style="color: #f8f8f2">()</span> <span style="color: #f92672">+</span> <span style="color: #e6db74">&quot; &gt;&gt;&gt;&gt; : &quot;</span><span style="color: #f92672">+</span> <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">this</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">attr</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;data-per&quot;</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">);</span>
+			 <span style="color: #f8f8f2">})</span>
 		 <span style="color: #f8f8f2">})</span>
 	
 	 <span style="color: #f92672">&lt;/script&gt;</span>
@@ -194,6 +221,8 @@
  <span style="color: #f92672">&lt;/body&gt;</span>
  <span style="color: #f92672">&lt;/html&gt;</span>
  </pre></td></tr></table></div>
+ 
+
  
 
 
