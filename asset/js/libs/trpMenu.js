@@ -67,13 +67,13 @@ jQuery.fn.trpTabSimple = function( $btn, $activeClass, $activeFN){
 
 
 /**
- * trpTabMenu				: 텝메뉴
+ * trpTabSimpleMenu : 텝메뉴
  * @param	$btn			: 링크버튼
  * @param	$cont			: 컨텐츠
  * @param	$activeClass	: 활성화 class 이름
  * @method  setBtn(index)	: 인덱스값을 넘기현 해당컨텐츠 활성화
  */
- jQuery.fn.trpTabMenu = function( $btn, $cont, $activeClass){
+ jQuery.fn.trpTabSimpleMenu = function( $btn, $cont, $activeClass){
 	var tabMenu = this;												// 텝 컨테이너
 	$activeClass = ($activeClass)? $activeClass : "on";				// activeClass 없으면 on으로 체크
 	$(tabMenu).find('li:first').addClass($activeClass);				// 텝 버튼 초기화

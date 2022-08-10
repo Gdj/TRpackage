@@ -24,7 +24,7 @@
 	
 		<!-- s: api 설명 -->
 		<div class="api">
-			<h2 class="api-title">.trpTabMenu( button, contant [, activeClass] )</h2>
+			<h2 class="api-title">.trpTabSimpleMenu( button, contant [, activeClass] )</h2>
 			<div class="api-body">
 				<dl>
 					<dt>설명</dt>
@@ -182,8 +182,8 @@
   <span style="color: #f92672">&lt;/style&gt;</span>
   <span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span><span style="color: #f92672">&gt;</span>
     <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(document).</span><span style="color: #a6e22e">ready</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(){</span>       		
-      <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.tabs&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">trpTabMenu</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.btn&quot;</span><span style="color: #f8f8f2">,</span><span style="color: #e6db74">&quot;.cons&quot;</span> <span style="color: #f8f8f2">,</span><span style="color: #e6db74">&quot;on&quot;</span><span style="color: #f8f8f2">);</span>    					<span style="color: #75715e">// on 이름은 변경 가능.</span>
-      <span style="color: #75715e">//$(&quot;.tabs&quot;).trpTabMenu(&quot;.btn&quot;,&quot;.cons&quot; ,&quot;on&quot;).setBtn(1);    		// on 이름은 변경 가능.</span>
+      <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.tabs&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">trpTabSimpleMenu</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.btn&quot;</span><span style="color: #f8f8f2">,</span><span style="color: #e6db74">&quot;.cons&quot;</span> <span style="color: #f8f8f2">,</span><span style="color: #e6db74">&quot;on&quot;</span><span style="color: #f8f8f2">);</span>    					<span style="color: #75715e">// on 이름은 변경 가능.</span>
+      <span style="color: #75715e">//$(&quot;.tabs&quot;).trpTabSimpleMenu(&quot;.btn&quot;,&quot;.cons&quot; ,&quot;on&quot;).setBtn(1);    		// on 이름은 변경 가능.</span>
     <span style="color: #f8f8f2">})</span> <span style="color: #75715e">// ready </span>
   <span style="color: #f92672">&lt;/script&gt;</span>
 <span style="color: #f92672">&lt;/head&gt;</span>
@@ -347,7 +347,7 @@
   <span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/trpMenu.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
   <span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span><span style="color: #f92672">&gt;</span>
     <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(document).</span><span style="color: #a6e22e">ready</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(){</span>       		
-      <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">tabMenu</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.tabs1&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">trpTabMenu</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.btn&quot;</span><span style="color: #f8f8f2">,</span><span style="color: #e6db74">&quot;.cons&quot;</span> <span style="color: #f8f8f2">,</span><span style="color: #e6db74">&quot;on&quot;</span><span style="color: #f8f8f2">);</span>    		<span style="color: #75715e">// on 이름은 변경 가능.</span>
+      <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">tabMenu</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.tabs1&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">trpTabSimpleMenu</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.btn&quot;</span><span style="color: #f8f8f2">,</span><span style="color: #e6db74">&quot;.cons&quot;</span> <span style="color: #f8f8f2">,</span><span style="color: #e6db74">&quot;on&quot;</span><span style="color: #f8f8f2">);</span>    		<span style="color: #75715e">// on 이름은 변경 가능.</span>
       <span style="color: #a6e22e">tabMenu</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">setBtn</span><span style="color: #f8f8f2">([</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]);</span>													<span style="color: #75715e">// 활성화 체크</span>
     <span style="color: #f8f8f2">})</span> <span style="color: #75715e">// ready </span>
   <span style="color: #f92672">&lt;/script&gt;</span>
