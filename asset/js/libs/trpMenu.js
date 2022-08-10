@@ -1,8 +1,8 @@
 /*
  * Base			: jQuery JavaScript Library v1.12.1
  * trPackage	:
- * trpPopup	    : v0.86
- * release date : 2020.03.09
+ * trpPopup	    : v0.88
+ * release date : 2022.08.10
  * author		: http://turfrain.tistory.com/
  * Copyright 2018. turfrain all rights reserved.
  *
@@ -23,6 +23,53 @@ jQuery.fn.trpQuickMenu = function($top){
 	});
 	function quickMenuH($tarH){ _conTar.stop().animate( { "top": $tarH + "px" }, 500 );  }
 }
+
+
+
+
+/**
+ * trpTabMenu				    : 텝메뉴
+ * @param	$tabBtn		   	: 텝 버튼 선택자
+ * @param	$tabCon      	: 텝 컨텐츠 선택자
+ * @param	$activeClass	: 활성화 class 이름
+ * @param	$activeFN			: (index) 선택된 인덱스 넘기기
+ * @method setBtn(index)	: 인덱스값을 넘기현 해당컨텐츠 활성화
+ */
+ jQuery.fn.trpTabMenu = function( $tabBtn, $tabCon, $activeClass, $activeFN){
+	var tabMenu = this;												// 텝 컨테이너
+	$activeClass = ($activeClass)? $activeClass : "on";			// activeClass 없으면 on으로 체크
+
+	$($tabBtn, tabMenu).on("click",function(){
+		var _this =  $(this);
+		var _index = _this.index();
+			active( _index , _this );
+		return false;
+	});
+
+	function active($index){
+    $($tabBtn, tabMenu).removeClass("on_prev");
+    if( 0 < $index ){
+			$($tabBtn, tabMenu).eq($index-1).addClass("on_prev");
+    }
+
+    $($tabBtn, tabMenu).removeClass($activeClass);
+    $($tabBtn, tabMenu).eq($index).addClass($activeClass);
+    $($tabCon, tabMenu).removeClass($activeClass);
+    $($tabCon, tabMenu).eq($index).addClass($activeClass);
+
+    if($activeFN){
+			$activeFN($index);
+    }
+	}
+	active(0);
+	return {
+		setBtn: function($index) {
+			active($index);
+		}
+	}
+};
+
+
 
 
 /**

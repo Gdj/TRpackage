@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>    
+  <meta charset="UTF-8">
+  <title>tab_menu</title>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript" src="../../../../asset/js/libs/trpMenu.js"></script>
+  <style type="text/css">		
+    .tabContainer { position: relative;}
+    .tab_btn-area { overflow: hidden; overflow-x: auto; }
+
+    .tabs { position:relative; margin:0; padding:0; font-size: 0; 
+      display: flex; justify-content: flex-start; flex-wrap: nowrap;
+    }
+    .tabs li { display:block; list-style:none; width: 50%; text-align: center; min-width: 200px;
+
+    }	
+    .tabs li a{ height:30px; display:block; text-decoration:none; text-align: center; line-height:2; color:#000; padding: 0px 20px; font-size: 15px; background-color: #ccc; }		
+    .tabs li.on a { background-color: #fee;}
+
+    .tab_contents >div{ display: none; border: 1px solid #ccc; padding:0 10px }	
+    .tab_contents >div.on { display: block;}
+
+  </style>	
+</head>
+<body>
+
+  <div class="tabContainer js-tabs">
+    <div class="tab_btn-area">
+      <ul class="tabs">
+        <li class="js-tabBtn"><a href="#first" class="btn">first</a>
+        </li>
+        <li class="js-tabBtn"><a href="#secound" class="btn"> secound</a>
+        </li>
+        <li class="js-tabBtn"><a href="#third" class="btn">third</a>
+        </li>
+      </ul>
+    </div>
+    <div class="tab_contents">
+      <div id="first"   class="js-cons" >
+        <h2>First</h2>
+        <p>첫번째 내용 첫번째 내용 첫번째 내용 첫번째 내용 <br />
+          첫번째 내용 첫번째 내용 첫번째 내용 첫번째 내용 <br />
+          첫번째 내용 첫번째 내용 첫번째 내용 첫번째 내용 <br />
+        </p>
+      </div>
+      <div id="secound" class="js-cons" >
+        <h2>Secound</h2>
+        <p>두번째 내용 두번째 내용 두번째 내용 두번째 내용 두번째 내용 두번째 <br />
+          두번째 내용 두번째 내용 두번째 내용 두번째 내용 두번째 내용 두번째 <br />
+          두번째 내용 두번째 내용 두번째 내용 두번째 내용 두번째 내용 두번째 <br />
+          두번째 내용 두번째 내용 두번째 내용 두번째 내용 두번째 내용 두번째 <br />
+          두번째 내용 두번째 내용 두번째 내용 두번째 내용 두번째 내용 두번째 <br />
+        </p>
+      </div>
+      <div id="third"   class="js-cons" >
+        <h2>Third</h2>
+        <p>세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 <br />
+          세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 <br />
+          세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 <br />
+          세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 <br />
+          세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 <br />
+          세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 <br />
+          세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 세번째 내용 <br />
+        </p>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    $(document).ready(function(){       		
+      $(".js-tabs").trpTabMenu( ".js-tabBtn", ".js-cons", "on", function($index){
+        console.log("index : " + $index);
+        /* 센터 이동 */
+        var tar = $(".js-tabBtn", ".js-tabs").eq($index);
+        var tar_left = tar.position().left;
+        console.log(">>>", tar_left)
+        var scrollX = tar_left - ($(".js-tabs .tab_btn-area").width() / 2) + tar.width() / 2;
+        $(".js-tabs .tab_btn-area").scrollLeft(scrollX);
+
+      }).setBtn(1);    			
+    })// ready 
+  </script>
+  컨텐츠
+  <div>--------------------------</div>
+  
+</body>
+</html>
