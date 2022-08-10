@@ -13,7 +13,7 @@
  * trpQuickMenu : 스크롤 딸아 다니는 컨테이너
  * @param $top : 컨테이너 높이값
  */
-jQuery.fn.trpQuickMenu = function($top){
+ jQuery.fn.trpQuickMenu = function($top){
 	var _conTar = this;												// 퀵메뉴 컨테이너
 	var _top ;														// 상단에서 떨어져야하는위치
 	_top = ($top)? $top : 0;
@@ -39,7 +39,8 @@ jQuery.fn.trpQuickMenu = function($top){
 	var tabMenu = this;												// 텝 컨테이너
 	$activeClass = ($activeClass)? $activeClass : "on";			// activeClass 없으면 on으로 체크
 
-	$($tabBtn, tabMenu).on("click",function(){
+	$($tabBtn, tabMenu).on("click",function($e){
+		$e.preventDefault();
 		var _this =  $(this);
 		var _index = _this.index();
 			active( _index , _this );
