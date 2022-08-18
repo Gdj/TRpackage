@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>underline</title>
+  <style>
+    /** trp_underline  **/
+    .trp_underline { position: relative; }
+    .trp_underline:after { content: "";
+      position: absolute; right: 0; bottom:5px; width: 0;
+      height: 1px; background: #1e1e1e;
+      -khtml-transition: all 0.5s ease;
+      -moz-transition: all 0.5s ease;
+      -ms-transition: all 0.5s ease;
+      -o-transition: all 0.5s ease;
+      transition: all 0.5s ease;    
+    }
+    .trp_underline:hover:after { width: 100%; left: 0; }
+
+    .trp_underline.btn_type { display: inline-block; padding: 5px 10px;
+      text-decoration: none; color:#000;
+    }
+  </style>
+</head>
+<body>
+      
+  <a href="#" class="trp_underline btn_type">underline motion btn</a>
+  
+</body>
+</html>
