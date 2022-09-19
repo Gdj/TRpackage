@@ -1,8 +1,8 @@
 /*
  * Base			    : jQuery JavaScript Library v1.12.1
  * trPackage	  :   
- * trpLayout	  : v0.24
- * release date : 2022.07.11
+ * trpLayout	  : v0.25
+ * release date : 2022.09.19
  * author	      : http://turfrain.tistory.com/
  * Copyright 2020. turfrain all rights reserved.
  *
@@ -30,13 +30,13 @@ jQuery.fn.trpScrollSync = function( options ){
       widthTar    : _this.width  ,         // 스크롤 타켓 넓이
       heightTar   : _this.height  ,        // 스크롤 타켓 높이값  
       showHeight  : wH  ,                  // 타켓 상단으로 부터 보여질 위치
-      bottonTar   : 0  ,                   // 타겟 하단으로 부터 여백 
+      bottomTar   : 0  ,                   // 타겟 하단으로 부터 여백 
       bottomStop  : 100 ,                  // 타겟 하단기준 멈춰야할 위치
   };
   settings = jQuery.extend(settings, options || {});
   
-  var _bottomSpace = (settings.bottonTar + settings.heightTar);   // 스크롤 시 하단 간격 + 타겟높이
-  var _bottomStop  = (settings.bottomStop - settings.bottonTar);  // 멈출 위치 
+  var _bottomSpace = (settings.bottomTar + settings.heightTar);   // 스크롤 시 하단 간격 + 타겟높이
+  var _bottomStop  = (settings.bottomStop - settings.bottomTar);  // 멈출 위치 
   
   $(window).on("scroll resize", function($e){
     scrollResizeSyncWatch();
@@ -62,11 +62,11 @@ jQuery.fn.trpScrollSync = function( options ){
       $(settings.positionTar).css({ left: "auto" });
     } else {
       var temp2 = (wH - _bottomSpace) + winST;
-      $(settings.positionTar).css({ position: 'fixed', top : "auto" , bottom: settings.bottonTar });
+      $(settings.positionTar).css({ position: 'fixed', top : "auto" , bottom: settings.bottomTar });
 
       // width hold
       var _left = settings.maxWidth - _this.width() - ( $(window).scrollLeft() );
-      console.log(_left);
+      
       if(  window.innerWidth  < settings.maxWidth ){
         $(settings.positionTar).css({ left: _left });
       }else {
@@ -87,15 +87,17 @@ jQuery.fn.trpScrollSync = function( options ){
     setShowHeight : function($num){
       settings.showHeight = $num;
     },
-    setBottonTar : function($num){
-      settings.bottonTar = $num;
+    setBottomTar : function($num){
+      settings.bottomTar = $num;
     },
     setBottomStop : function($num){
       settings.bottomStop = $num;
+      _bottomStop  = (settings.bottomStop - settings.bottomTar); 
     },
   }
 
 }
+
 
 
 

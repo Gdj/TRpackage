@@ -1,8 +1,8 @@
 /*
  * Base			: jQuery JavaScript Library v1.12.1
  * trPackage	:
- * trpPopup	    : v0.82 _ ones
- * release date : 2018.09.07
+ * trpPopup	    : v0.83 _ ones
+ * release date : 2022.09.19
  * author		: http://turfrain.tistory.com/
  * Copyright 2018. turfrain all rights reserved.
  *
@@ -198,7 +198,7 @@ jQuery.fn.trpLayerFixedPopup = function( $tarPopup ){
         });
         $(_tarPopup).fadeOut(300 ,function(){
           if( $(".popupfixed-wrap").filter(":visible").length == 0){
-              $(".wrapper").css({ position:"relative",  top:"0" });
+              $(".wrapper").css({ position:"static",  top:"0" });
               $("html, body").scrollTop(trpLayerFixedPopupScroll_top);
               $(".wrapper").attr("data-pop", "off");
               //$("html, body").css({ overflow : "initial"});

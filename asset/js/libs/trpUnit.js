@@ -1,8 +1,8 @@
 /*
  * Base			: jQuery JavaScript Library v1.12.1
  * trPackage	:
- * trpUnit    : v0.1
- * release date : 2021.10.29
+ * trpUnit    : v0.11
+ * release date : 2022.09.19
  * author		: http://turfrain.tistory.com/
  * Copyright 2021. turfrain all rights reserved.
  *
@@ -189,8 +189,8 @@
 
     var _this        = this;   // 현컨텐츠
     var _setTimer    = "";     // 타이머
-    var _setInterval = settings.interval   //5000;   // 카운트 인터벌
-    var _setCall     = settings.call       //100;    // 율 인터벌
+    var _setInterval = settings.setInterval   //5000;   // 카운트 인터벌
+    var _setCall     = settings.setCall       //100;    // 율 인터벌
     var _setProgress = 0; 
      
     function trpTimer_start(){
@@ -244,7 +244,5 @@
     }
 
   }
-  
-  
   
 }(jQuery));

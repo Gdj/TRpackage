@@ -1,8 +1,8 @@
 /*
  * Base			: jQuery JavaScript Library v1.12.1
  * trPackage	:
- * trpPopup	    : v0.1
- * release date : 2020.12.22
+ * trpFnNumberUtils    : v0.11
+ * release date : 2022.09.19
  * author		: http://turfrain.tistory.com/
  * Copyright 2020. turfrain all rights reserved.
  *
@@ -101,6 +101,17 @@ function trpStrReturn($val, $default){
 		if ($default){$val = $default;}
 	}
 	return $val;
+}
+
+
+/**
+ * trpDiagonal		            : 대각선값 (피타고라스정리)
+ * @param   {Number} $x	      : 문자 값변수   (필수)
+ * @param   {Number} $y       : 값이 없을때 리턴값 (선택)
+ * @returns {Number}          : 대각선값
+ */
+ function trpDiagonal($x, $y){
+	return Math.sqrt(Math.pow($x,2) + Math.pow($y,2));;
 }
 
 
