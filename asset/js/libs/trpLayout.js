@@ -1,8 +1,8 @@
 /*
  * Base			    : jQuery JavaScript Library v1.12.1
  * trPackage	  :   
- * trpLayout	  : v0.25
- * release date : 2022.09.19
+ * trpLayout	  : v0.26
+ * release date : 2022.10.05
  * author	      : http://turfrain.tistory.com/
  * Copyright 2020. turfrain all rights reserved.
  *
@@ -407,46 +407,63 @@ jQuery.fn.trpScrollActivePer = function( $add_class, $show_per ){
 * trpScrollPositionFn            : 스크롤타겟위치에서 타겟클래스변경
 * @param	$scrollTar	           : 기준 타겟 위치 선택자
 * @param	$scrollTarModi	       : 기준 타겟 위치 가감 수치
-* @param	$function              : ( over:true | under:false )	: 함수
+* @param	$functionChange        : ( under | over | pass , this )	: 함수
 * @method setTarModi(가감수치)   : 타겟 가감 수치 변경
 */
 jQuery.fn.trpScrollPositionFn = function($scrollTar, $scrollTarModi, $functionChange) {
-var _scrolTar = $(this);
-var _scrollTarModi = $scrollTarModi;
-var _scrolWin = _scrolTar.scrollTop();
-var _scrolTag = 0;
-var _only  = "defaul"; // over, under  : over:true | under:false
+  var _scrolTar = $(this);
+  var _scrollTarModi = $scrollTarModi;
+  var _scrolWin = _scrolTar.scrollTop();
+  var _scrolTag = 0;
+  var _scrolPassTag = 0;
+  var _only  = "defaul"; 
+  $($scrollTar).each(function() {
+    $(this).data("only", "under");
+    $functionChange("under", this);
+  })
 
-// 선텍자 체크
-if( $scrollTar != "" && $($scrollTar).length > 0  ){ _scrolTag = $($scrollTar).offset().top;  }  
+  $(window).on("scroll resize", function($e){
+    scrollResizeClassWatch()
+  });
+  function scrollResizeClassWatch(){
+    $($scrollTar).each(function() {
+      // 선텍자 체크
+      if( $scrollTar != "" && $($scrollTar).length > 0  ){ _scrolTag = $(this).offset().top;  }  
 
-// 숫자 체크
-if( isNaN(_scrollTarModi) == false)    { _scrolTag = _scrolTag + (_scrollTarModi); }  
+      // 숫자 체크
+      if( isNaN(_scrollTarModi) == false)    { _scrolTag = _scrolTag + (_scrollTarModi); }  
 
-$(window).on("scroll resize", function($e){
-  scrollResizeClassWatch()
-});
-function scrollResizeClassWatch(){
-  if( $scrollTar != "" && $($scrollTar).length == 0  ){ return false }  
-  if( isNaN(_scrollTarModi) == false) { _scrolTag = $($scrollTar).offset().top + (_scrollTarModi); }  
-  _scrolWin = _scrolTar.scrollTop();
-  if (_scrolWin >= _scrolTag) {
-      if (_only != "over") { $functionChange(true) }
-      _only = "over";
-  } else {
-      if (_only != "under") { $functionChange(false); }
-      _only = "under";
+      
+      if( this != "" && $(this).length == 0  ){ return false }  
+      if( isNaN(_scrollTarModi) == false) { 
+        _scrolTag     = $(this).offset().top + (_scrollTarModi); 
+        _scrolPassTag = $(this).offset().top + (_scrollTarModi) + $(this).innerHeight(); 
+      }  
+      _scrolWin = _scrolTar.scrollTop();
+      if (_scrolWin >= _scrolPassTag) {
+        if ($(this).data("only") != "pass") { $functionChange("pass", this); }
+        $(this).data("only", "pass"); 
+      } else if (_scrolWin >= _scrolTag) {
+        if ($(this).data("only") != "over") { $functionChange("over", this) }
+        $(this).data("only", "over"); 
+      } else {
+        if ($(this).data("only") != "under") { $functionChange("under", this); }
+        $(this).data("only", "under"); 
+      }
+      
+    });
   }
-}
-scrollResizeClassWatch();
+  scrollResizeClassWatch();
 
-return {
-  /* 기준 타겟 위치 가감 수치 변경 */
-  setTarModi : function($tarModi){
-    _scrollTarModi = $tarModi;
+  return {
+    /* 기준 타겟 위치 가감 수치 변경 */
+    setTarModi : function($tarModi){
+      _scrollTarModi = $tarModi;
+    }
   }
-}
 };
+
+
 
 
 
