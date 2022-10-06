@@ -1,8 +1,8 @@
 /**
  * Base			: jQuery JavaScript Library v1.12.1
  * trPackage	:
- * trpPopup	    : v0.75
- * release date : 2022.08.02
+ * trpPopup	    : v0.76
+ * release date : 2022.10.06
  * author		: http://turfrain.tistory.com/
  * Copyright 2020. turfrain all rights reserved.
  */
