@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>trpHasScrollBar</title>
+  <!-- <script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js"></script> -->
+  <script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js" charset="UTF-8"></script>
+  <script type="text/javascript" src="../../../../asset/js/libs/trpUtility.js"></script> 
+  <link rel="stylesheet" type="text/css" href="../../../../asset/css/trpBase.css" media="all">
+</head>
+<body class="">
+
+  <style>
+    html, body { position: relative; height: 100%;}
+
+    .scroll-type.scrollbar_on, .scroll-typeX.scrollbar_on { background-color: #aaa; }
+    .scroll-type { overflow: hidden; overflow-y: auto; 
+      height: 50%;  border: 1px solid #33f;
+    }
+    .scroll-type::-webkit-scrollbar{ width: 5px; height: 5px;
+      background-color: #ececec;
+      -webkit-appearance: none;
+      background-color: transparent;
+    }
+    .scroll-type::-webkit-scrollbar-thumb  { 
+      background-color: #898989; 
+      border-radius: 3px;
+    }
+  </style>
+
+  <div class="scroll-type js-scrollbar">
+    <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p>
+    <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p>
+    <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p>
+    <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p>
+  </div>
+
+  
+  <script type="text/javascript">	 
+    
+    $(window).on("resize",function($e){
+      scrollbarB();
+    });
+    function scrollbarB(){
+      if( $(".js-scrollbar").trpHasScrollBar() ){
+        console.log($(".js-scrollbar").trpHasScrollBar(), "스크롤바생성....");
+      }else{  
+        console.log($(".js-scrollbar").trpHasScrollBar(), "스크롤바없음....");
+      }
+    }
+    scrollbarB();
+
+  </script>
+
+</body>
+</html>
+

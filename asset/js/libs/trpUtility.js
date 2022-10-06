@@ -195,21 +195,48 @@
  
  
  /*
- * trpRemoveClassPrefix          : 특정문자열로 시작되는 클래스 삭제
+ * trpRemoveClassPrefix   : 특정문자열로 시작되는 클래스 삭제
  * @param	$prefix			    : 특정문자열
  */
  jQuery.fn.trpRemoveClassPrefix = function($prefix) {
-     this.each(function(i, el) {
-         var classes = el.className.split(" ").filter(function(c) {
-             return c.lastIndexOf($prefix, 0) !== 0;
-         });
-         el.className = $.trim(classes.join(" "));
-     });
-     return this;
+  this.each(function(i, el) {
+    var classes = el.className.split(" ").filter(function(c) {
+        return c.lastIndexOf($prefix, 0) !== 0;
+    });
+    el.className = $.trim(classes.join(" "));
+  });
+  return this;
  };
  
- 
- 
+
+ /*
+ * trpHasScrollBar   : 스크롤바가 생겼는지 판단
+ * @return  	  	   : (true, false)boolean
+ */
+jQuery.fn.trpHasScrollBar = function() { 
+  // 스크롤 있는지 여부 판단
+  this.each(function(i, el) {
+    console.log(i, $(el).prop("scrollHeight"));
+    var _B = ($(el).prop("scrollHeight") == 0 && $(el).prop("clientHeight") == 0)
+    || ($(el).prop("scrollHeight") > $(el).prop("clientHeight"));
+    _B ? $(el).addClass("scrollbar_on") : $(el).removeClass("scrollbar_on");
+  });
+  return _B
+};
+ /*
+ * trpHasScrollBarX   : 스크롤바가 생겼는지 판단
+ * @return  	  	   : (true, false)boolean
+ */
+jQuery.fn.trpHasScrollBarX = function() { 
+  // 스크롤 있는지 여부 판단
+  var _B;
+  this.each(function(i, el) {
+    _B = ($(el).prop("scrollWidth") == 0 && $(el).prop("clientWidth") == 0)
+    || ($(el).prop("scrollWidth") > $(el).prop("clientWidth"));
+    _B ? $(el).addClass("scrollbar_on") : $(el).removeClass("scrollbar_on");
+  });
+  return _B
+};
  
  
  

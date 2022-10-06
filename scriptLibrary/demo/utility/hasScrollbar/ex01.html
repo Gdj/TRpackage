@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>trpHasScrollBar</title>
+  <!-- <script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js"></script> -->
+  <script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js" charset="UTF-8"></script>
+  <script type="text/javascript" src="../../../../asset/js/libs/trpUtility.js"></script> 
+</head>
+<body class="">
+
+  <style>
+    table { width:100%; border: 1px solid #000; text-align:center; table-layout: fixed; border-collapse: collapse;  }
+    table td{ padding: 10px; border: 1px solid #000;}
+
+    .scroll-type.scrollbar_on, .scroll-typeX.scrollbar_on { background-color: #aaa; }
+    .scroll-typeX { overflow: hidden; overflow-x: auto;
+      border: 1px solid #33f;
+    }
+    .scroll-typeX::-webkit-scrollbar{
+      background-color:#dedede; width: 4px; height: 4px;
+      -webkit-appearance: none;
+    }
+    .scroll-typeX::-webkit-scrollbar-thumb  { 
+      background-color:#222; 
+      border-radius: 3px;
+    }
+  </style>
+
+  <div class="scroll-typeX js-scrollbarX">
+    <table class="">
+      <colgroup>
+        <col style="min-width:200px;"/>
+        <col style="min-width:200px;"/>
+        <col style="min-width:200px;"/>
+        <col style="min-width:200px;"/>
+      </colgroup>
+      <tbody>
+        <td>this 선택자에, "scrollbar_on"클래스 여부로 스크롤바가 생겼을때 스타일을 달리 줄수 있다.</td>
+        <td>true(스크롤이 생성되었을때) | false(스크롤이 없을때)</td>
+        <td>this 선택자에, "scrollbar_on"클래스 여부로 스크롤바가 생겼을때 스타일을 달리 줄수 있다.</td>
+        <td>true(스크롤이 생성되었을때) | false(스크롤이 없을때)</td>
+      </tbody>
+    </table>
+  </div>
+  
+  <br /><br />
+
+  <div class="scroll-typeX js-scrollbarX">
+    <table class="">
+      <colgroup>
+        <col style="min-width:200px;"/>
+        <col style="min-width:200px;"/>
+        <col style="min-width:200px;"/>
+        <col style="min-width:200px;"/>
+        <col style="min-width:200px;"/>
+        <col style="min-width:200px;"/>
+      </colgroup>
+      <tbody>
+        <td>this 선택자에, "scrollbar_on"클래스 여부로 스크롤바가 생겼을때 스타일을 달리 줄수 있다.</td>
+        <td>true(스크롤이 생성되었을때) | false(스크롤이 없을때)</td>
+        <td>this 선택자에, "scrollbar_on"클래스 여부로 스크롤바가 생겼을때 스타일을 달리 줄수 있다.</td>
+        <td>true(스크롤이 생성되었을때) | false(스크롤이 없을때)</td>
+        <td>this 선택자에, "scrollbar_on"클래스 여부로 스크롤바가 생겼을때 스타일을 달리 줄수 있다.</td>
+        <td>true(스크롤이 생성되었을때) | false(스크롤이 없을때)</td>
+      </tbody>
+    </table>
+  </div>
+  
+  <script type="text/javascript">	 
+    $(window).on("resize",function($e){
+      scrollbarB();
+    });
+    function scrollbarB(){
+      if( $(".js-scrollbarX").trpHasScrollBarX() ){
+        console.log($(".js-scrollbarX").trpHasScrollBarX(), "스크롤바 생성 OOO");
+      }else{  
+        console.log($(".js-scrollbarX").trpHasScrollBarX(), "스크롤바 없음 XXX");
+      }
+    }
+    scrollbarB();
+  </script>
+
+</body>
+</html>
+
