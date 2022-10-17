@@ -475,61 +475,61 @@ jQuery.fn.trpScrollPositionFn = function($scrollTar, $scrollTarModi, $functionCh
 * @param	$col	  : col 아이템 겟수
 */
 jQuery.fn.trpColH = function( $col ){
-var _arr = [], _arr_temps = [], _arr_col=[];
-var _items  = $(this);
-var _colNum = $col;
-var _max_temp = [];
+  var _arr = [], _arr_temps = [], _arr_col=[];
+  var _items  = $(this);
+  var _colNum = $col;
+  var _max_temp = [];
 
-function each_set(){
-  _items.css({ "min-height": "auto"});
-  if(_colNum == 1){ return; }
+  function each_set(){
+    _items.css({ "min-height": "auto"});
+    if(_colNum == 1){ return; }
 
-  _arr_temps = [];
-  _max_temp  = [];
-  _items.each( function($i){
-    _arr_temps.push( $(this).height() );
-    $(this).css({ "min-height": 0 });
-    if( ($i+1) % _colNum != 0 ){          // 줄에 첫번째부터 마지막전
-      _arr.push( $(this).height() );
-      _arr_col.push( $(this) );
-     if ( $i+1 == _items.length ){        // 마지막줄 마지막 아이템
+    _arr_temps = [];
+    _max_temp  = [];
+    _items.each( function($i){
+      _arr_temps.push( $(this).height() );
+      $(this).css({ "min-height": 0 });
+      if( ($i+1) % _colNum != 0 ){          // 줄에 첫번째부터 마지막전
+        _arr.push( $(this).height() );
+        _arr_col.push( $(this) );
+      if ( $i+1 == _items.length ){        // 마지막줄 마지막 아이템
+          _max_temp.push(height_max(_arr_col, _arr));
+          _arr = []; _arr_col=[];
+        }
+      }else{	                           // 줄에 마지막 아이템			
+        _arr.push( $(this).height() );
+        _arr_col.push( $(this) );
         _max_temp.push(height_max(_arr_col, _arr));
         _arr = []; _arr_col=[];
       }
-    }else{	                           // 줄에 마지막 아이템			
-      _arr.push( $(this).height() );
-      _arr_col.push( $(this) );
-      _max_temp.push(height_max(_arr_col, _arr));
-      _arr = []; _arr_col=[];
+      
+    });
+
+    //$(".js-text1").text(_arr_temps);
+    return _arr_temps;
+  };
+
+
+  function height_max($coltimes, $arr){
+    var _max = Math.max.apply(null, $arr);
+    for( var i=0; i < $coltimes.length ; i++){
+      $coltimes[i].css({ "min-height":  (Math.round(_max)) });
     }
-    
-  });
-
-  //$(".js-text1").text(_arr_temps);
-  return _arr_temps;
-};
-
-
-function height_max($coltimes, $arr){
-  var _max = Math.max.apply(null, $arr);
-  for( var i=0; i < $coltimes.length ; i++){
-    $coltimes[i].css({ "min-height":  (Math.round(_max)) });
+    return _max;
   }
-  return _max;
-}
-each_set();
+  each_set();
 
-return {
-  setCol: function($col) { 
-    _colNum = $col;
-    each_set();
-  }, 
-  getHeight : function(){
-    return each_set();
-  }, getMaxHeight : function(){
-    return _max_temp;
-  } 
-}
+  return {
+    setCol: function($col) { 
+      _colNum = $col;
+      each_set();
+    }, 
+    getHeight : function(){
+      return each_set();
+    }, getMaxHeight : function(){
+      return _max_temp;
+    } 
+  }
 
 };
 
@@ -540,71 +540,69 @@ return {
 * @param	$tar		  : col 최소크기가 적용타겟 _targets
 */
 jQuery.fn.trpColItemH = function( $col , $tra, $tar ){
-var _arr = [], _arr_temps = [], _arr_col=[];
-var _items     = $(this);  
-var _target    = $(this);
-var _colNum    = $col;
-var _max_temp  = [];
-if ($tar != undefined ){ _target   = $($tar , this) }; 
+  var _arr = [], _arr_temps = [], _arr_col=[];
+  var _items     = $(this);  
+  var _target    = $(this);
+  var _colNum    = $col;
+  var _max_temp  = [];
+  if ($tar != undefined ){ _target   = $($tar , this) }; 
 
-
-function each_set(){
-  _target.css({ "min-height": "auto"});
-  if(_colNum == 1){ return; }
-  _arr_temps = [];
-  _max_temp  = [];
-  _arr = []; _arr_col=[];
-  
-  _items.each( function($i){      
-    var _trackings = $(this);
-    var _targets   = $(this);
-    if ($tra != undefined ){ _trackings = $($tra , this) }; 
-    if ($tar != undefined ){ _targets   = $($tar , this) }; 
+  function each_set(){
+    _target.css({ "min-height": "auto"});
+    if(_colNum == 1){ return; }
+    _arr_temps = [];
+    _max_temp  = [];
+    _arr = []; _arr_col=[];
     
-    _arr_temps.push( _trackings.height() );
-    _targets.css({ "min-height": 0 });
+    _items.each( function($i){      
+      var _trackings = $(this);
+      var _targets   = $(this);
+      if ($tra != undefined ){ _trackings = $($tra , this) }; 
+      if ($tar != undefined ){ _targets   = $($tar , this) }; 
       
-    if( ($i+1) % _colNum != 0 ){          // 줄에 첫번째부터 마지막전
-      _arr.push( _trackings.height() );
-      _arr_col.push( _targets );
-      if ( $i+1 == _items.length ){       // 마지막줄 마지막 아이템
+      _arr_temps.push( _trackings.height() );
+      _targets.css({ "min-height": 0 });
+        
+      if( ($i+1) % _colNum != 0 ){          // 줄에 첫번째부터 마지막전
+        _arr.push( _trackings.height() );
+        _arr_col.push( _targets );
+        if ( $i+1 == _items.length ){       // 마지막줄 마지막 아이템
+          _max_temp.push(height_max(_arr_col, _arr));
+          _arr = []; _arr_col=[];
+        }
+      }else{                                // 줄에 마지막 아이템
+        _arr.push( _trackings.height() );   
+        _arr_col.push( _targets );
         _max_temp.push(height_max(_arr_col, _arr));
         _arr = []; _arr_col=[];
       }
-    }else{                                // 줄에 마지막 아이템
-      _arr.push( _trackings.height() );   
-      _arr_col.push( _targets );
-      _max_temp.push(height_max(_arr_col, _arr));
-      _arr = []; _arr_col=[];
+      
+    });
+
+    //$(".js-text1").text(_arr_temps);
+    return _arr_temps;
+  };
+
+  function height_max($colTargets, $arr){
+    var _max = Math.max.apply(null, $arr);
+    for( var i=0; i < $colTargets.length ; i++){
+      $colTargets[i].css({ "min-height":  (Math.round(_max)) });
     }
-    
-  });
-
-  //$(".js-text1").text(_arr_temps);
-  return _arr_temps;
-};
-
-
-function height_max($colTargets, $arr){
-  var _max = Math.max.apply(null, $arr);
-  for( var i=0; i < $colTargets.length ; i++){
-    $colTargets[i].css({ "min-height":  (Math.round(_max)) });
+    return _max;
   }
-  return _max;
-}
-each_set();
+  each_set();
 
-return {
-  setCol: function($col) { 
-    _colNum = $col;
-    each_set();
-  }, 
-  getHeight : function(){
-    return each_set();
-  }, getMaxHeight : function(){
-    return _max_temp;
-  } 
-}
+  return {
+    setCol: function($col) { 
+      _colNum = $col;
+      each_set();
+    }, 
+    getHeight : function(){
+      return each_set();
+    }, getMaxHeight : function(){
+      return _max_temp;
+    } 
+  }
 
 };
 
@@ -613,45 +611,45 @@ return {
 * @param	$col       : col 아이템 겟수
 */
 jQuery.fn.trpColItemHW = function( $col ){
-var _arr = [], _arr_temps = [], _arr_col=[], _col_w="";
-var _items  = $(this);
-var _colNum = $col;
+  var _arr = [], _arr_temps = [], _arr_col=[], _col_w="";
+  var _items  = $(this);
+  var _colNum = $col;
 
-function each_set(){
-  _col_w = (100 / _colNum) + "%"; 
-  _items.css({ "min-height": 0, "width":_col_w });
-  
-  _arr_temps = [];
-  _items.each( function($i){
-    _arr_temps.push( $(this).height() );
-    $(this).css({ "min-height": 0 });
-    if( $i % _colNum == 0 ){
-      height_max(_arr_col, _arr);
-      _arr = []; _arr_col=[];
-      _arr.push( $(this).height() );
-      _arr_col.push( $(this) );
-    }else{				
-      _arr.push( $(this).height() );
-      _arr_col.push( $(this) );
+  function each_set(){
+    _col_w = (100 / _colNum) + "%"; 
+    _items.css({ "min-height": 0, "width":_col_w });
+    
+    _arr_temps = [];
+    _items.each( function($i){
+      _arr_temps.push( $(this).height() );
+      $(this).css({ "min-height": 0 });
+      if( $i % _colNum == 0 ){
+        height_max(_arr_col, _arr);
+        _arr = []; _arr_col=[];
+        _arr.push( $(this).height() );
+        _arr_col.push( $(this) );
+      }else{				
+        _arr.push( $(this).height() );
+        _arr_col.push( $(this) );
+      }
+    });
+    
+    $(".js-text1").text(_arr_temps);
+  };
+
+
+  function height_max($coltimes, $arr){
+    var _max = Math.max.apply(null, $arr);
+    for( var i=0; i < $coltimes.length ; i++){
+      $coltimes[i].css({ "min-height":  (Math.round(_max)) });
     }
-  });
-  
-  $(".js-text1").text(_arr_temps);
-};
-
-
-function height_max($coltimes, $arr){
-  var _max = Math.max.apply(null, $arr);
-  for( var i=0; i < $coltimes.length ; i++){
-    $coltimes[i].css({ "min-height":  (Math.round(_max)) });
   }
-}
-each_set();
+  each_set();
 
-return {
-  setCol: function($col) { 
-    _colNum = $col;
-    each_set();
-  }
+  return {
+    setCol: function($col) { 
+      _colNum = $col;
+      each_set();
+    }
 }
 };
