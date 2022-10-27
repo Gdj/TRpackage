@@ -2,7 +2,7 @@
  * Base			    : jQuery JavaScript Library v1.12.1
  * trPackage	  :   
  * trpLayout	  : v0.26
- * release date : 2022.10.05
+ * release date : 2022.10.29
  * author	      : http://turfrain.tistory.com/
  * Copyright 2020. turfrain all rights reserved.
  *
@@ -125,24 +125,24 @@ jQuery.fn.trpScrollSyncTop = function( options ){
   var settings = {
       positionTar : _this  ,               // 타겟 선택자  
       maxWidth    : window.innerWidth,     // 컨테이너 넓이
-      widthTar    : $(_this).width()  ,    // 스크롤 타켓 넓이
-      heightTar   : $(_this).height()  ,   // 스크롤 타켓 높이값  
+      widthTar    : $(_this).innerWidth()  ,    // 스크롤 타켓 넓이
+      heightTar   : $(_this).innerHeight() ,    // 스크롤 타켓 높이값  
       topStart    : wH  ,                  // 타켓 상단으로 부터 시작할 위치
       topMagin    : 0 ,                    // 타겟 상단으로 부터 여백 
+      topGap      : 0 ,                    // hold 되는 위치컨테이너와의 차이
       bottomStop  : 300 ,                  // 타겟 하단기준 멈춰야할 위치
+      bottomTar   : 0  ,                   // 타겟 하단으로 부터 여백 
   };
   settings = jQuery.extend(settings, options || {});
-     
     
   var _stop_switch = true;
   var _stop_h = 0;
   $(window).on("scroll resize", function($e){
     scrollResizeSyncWatch();
-  
   });
   function scrollResizeSyncWatch(){
     ///console.log($(_this).height())
-    var _bottomStop  = (settings.bottomStop - settings.bottonTar);  // 멈출 위치 
+    var _bottomStop  = (settings.bottomStop - settings.bottomTar);  // 멈출 위치 
     wH    = $(window).height();
     winST = $(window).scrollTop();
     docH  = $(document).height();
@@ -157,11 +157,10 @@ jQuery.fn.trpScrollSyncTop = function( options ){
       _getPositon.top = settings.topMagin;   
     }
     
-    
     // scroll top botton hold    
     /* 컨텐츠 하단까지 길이 > (도듀먼트에서 하단높이) */
     if( (winST + settings.heightTar + settings.topMagin)  > (docH - _bottomStop) ){ 
-      _stop_h = (docH - _bottomStop ) - (settings.topStart + settings.topMagin + settings.heightTar);
+      _stop_h = docH - (_bottomStop + settings.heightTar + settings.topMagin ) + settings.topGap;
       
       $(settings.positionTar).css({ position: 'absolute', top : (_stop_h) , bottom:  "auto" });
       $(settings.positionTar).css({ left: "auto" });
@@ -190,6 +189,12 @@ jQuery.fn.trpScrollSyncTop = function( options ){
     },
     settopMagin : function($num){
       settings.topMagin = $num;
+    },
+    settopGap : function($num){
+      settings.topGap = $num;
+    },
+    setBottomTar : function($num){
+      settings.bottomTar = $num;
     },
     setBottomStop : function($num){
       settings.bottomStop = $num;
@@ -289,16 +294,18 @@ scrollResizeClassWatch();
 
 
 /** 
-* @param	$motion_items      : 모션 들어갈 아이템 선택자
-* @param	$add_class         : 추가 삭제될 클래스 
-* @param	$show_per          : 시작위치  (0: 보일때, .2: 20% 올라왔을때)
+* @param	$motion_items        : 모션 들어갈 아이템 선택자
+* @param	$add_class           : 추가 삭제될 클래스 
+* @param	$show_per            : 시작위치  (0: 보일때, .2: 20% 올라왔을때)
+* @param	$pass_b              : 지나갔을때 초기화 여부 (default:false)
 * @method setTarModi($tarModi) : 가감수치 변경
 */
-jQuery.fn.trpScrollActive = function( $add_class, $show_per ){
+jQuery.fn.trpScrollActive = function( $add_class, $show_per, $pass_b ){
   var _tarGet   = this
   var _addClass = $add_class;
   var _show_per = $show_per;
   var _scrollTarModi = 0;
+  var _pass_b = ($pass_b)? $pass_b : false;
   function trpScrollActiveFn() { 
     var _wH  = window.innerHeight; 
     var _wS  = $(window).scrollTop();
@@ -307,17 +314,60 @@ jQuery.fn.trpScrollActive = function( $add_class, $show_per ){
       var _t  = ($(this).offset().top + _scrollTarModi) +  (_wH * _show_per); 
       var _th = ($(this).offset().top + _scrollTarModi) + $(this).innerHeight(); 
       if (_wS > _th) { 
-          $(this).removeClass(_addClass);     // pass 
+        if(_pass_b){$(this).removeClass(_addClass); }      // pass
       } else if (_wHS > _t) { 
-          $(this).addClass(_addClass);        // over
+        $(this).addClass(_addClass);        // over
       } else {
-          $(this).removeClass(_addClass);     // under
+        $(this).removeClass(_addClass);     // under
       } 	
     }); 
   }
   $(window).on('scroll resize', trpScrollActiveFn);
   $(window).trigger('scroll resize');
 
+  return {
+    /* 기준 타겟 위치 가감 수치 변경 */
+    setTarModi : function($tarModi){
+      _scrollTarModi = $tarModi;
+    }
+  }
+}
+
+
+/** 
+* @param	$motion_items        : 모션 들어갈 아이템 선택자
+* @param	$function            : 함수
+* @param	$show_per            : 시작위치  (0: 보일때, .2: 20% 올라왔을때)
+* @method setTarModi($tarModi) : 가감수치 변경
+*/
+jQuery.fn.trpScrollActiveFn = function( $function, $show_per ){
+  var _tarGet   = this
+  var _show_per = $show_per;
+  var _scrollTarModi = 0;
+  function scrollActiveFn() { 
+    var _wH  = window.innerHeight; 
+    var _wS  = $(window).scrollTop();
+    var _wHS = (_wH + _wS);
+    $(_tarGet).each(function($i) { 			
+      var _t  = ($(this).offset().top + _scrollTarModi) +  (_wH * _show_per); 
+      var _th = ($(this).offset().top + _scrollTarModi) + $(this).innerHeight(); 
+      var _state = "under";
+      if (_wS > _th) { 
+        _state = "pass";   // pass 
+      } else if (_wHS > _t) { 
+        _state = "over";     // over
+      } else {
+        _state = "under"; // under
+      } 
+      if( _state != $(this).data("state") ){
+        $(this).data("state", _state); 
+        $function(this, _state);
+      }
+
+    }); 
+  }
+  $(window).on('scroll resize', scrollActiveFn);
+  $(window).trigger('scroll resize');
 
   return {
     /* 기준 타겟 위치 가감 수치 변경 */
@@ -407,7 +457,7 @@ jQuery.fn.trpScrollActivePer = function( $add_class, $show_per ){
 * trpScrollPositionFn            : 스크롤타겟위치에서 타겟클래스변경
 * @param	$scrollTar	           : 기준 타겟 위치 선택자
 * @param	$scrollTarModi	       : 기준 타겟 위치 가감 수치
-* @param	$functionChange        : ( under | over | pass , this )	: 함수
+* @param	$function              : ( under | over | pass , scrollTar ) 	: 함수
 * @method setTarModi(가감수치)   : 타겟 가감 수치 변경
 */
 jQuery.fn.trpScrollPositionFn = function($scrollTar, $scrollTarModi, $functionChange) {
@@ -416,7 +466,7 @@ jQuery.fn.trpScrollPositionFn = function($scrollTar, $scrollTarModi, $functionCh
   var _scrolWin = _scrolTar.scrollTop();
   var _scrolTag = 0;
   var _scrolPassTag = 0;
-  var _only  = "defaul"; 
+  var _only  = "defaul"; // over, under  : over:true | under:false
   $($scrollTar).each(function() {
     $(this).data("only", "under");
     $functionChange("under", this);
@@ -468,68 +518,66 @@ jQuery.fn.trpScrollPositionFn = function($scrollTar, $scrollTarModi, $functionCh
 
 
 
-
-
 /*
 * trpColH         : 같은 col 아이템 높이를 같게
 * @param	$col	  : col 아이템 겟수
 */
 jQuery.fn.trpColH = function( $col ){
-  var _arr = [], _arr_temps = [], _arr_col=[];
-  var _items  = $(this);
-  var _colNum = $col;
-  var _max_temp = [];
+var _arr = [], _arr_temps = [], _arr_col=[];
+var _items  = $(this);
+var _colNum = $col;
+var _max_temp = [];
 
-  function each_set(){
-    _items.css({ "min-height": "auto"});
-    if(_colNum == 1){ return; }
+function each_set(){
+  _items.css({ "min-height": "auto"});
+  if(_colNum == 1){ return; }
 
-    _arr_temps = [];
-    _max_temp  = [];
-    _items.each( function($i){
-      _arr_temps.push( $(this).height() );
-      $(this).css({ "min-height": 0 });
-      if( ($i+1) % _colNum != 0 ){          // 줄에 첫번째부터 마지막전
-        _arr.push( $(this).height() );
-        _arr_col.push( $(this) );
-      if ( $i+1 == _items.length ){        // 마지막줄 마지막 아이템
-          _max_temp.push(height_max(_arr_col, _arr));
-          _arr = []; _arr_col=[];
-        }
-      }else{	                           // 줄에 마지막 아이템			
-        _arr.push( $(this).height() );
-        _arr_col.push( $(this) );
+  _arr_temps = [];
+  _max_temp  = [];
+  _items.each( function($i){
+    _arr_temps.push( $(this).height() );
+    $(this).css({ "min-height": 0 });
+    if( ($i+1) % _colNum != 0 ){          // 줄에 첫번째부터 마지막전
+      _arr.push( $(this).height() );
+      _arr_col.push( $(this) );
+     if ( $i+1 == _items.length ){        // 마지막줄 마지막 아이템
         _max_temp.push(height_max(_arr_col, _arr));
         _arr = []; _arr_col=[];
       }
-      
-    });
-
-    //$(".js-text1").text(_arr_temps);
-    return _arr_temps;
-  };
-
-
-  function height_max($coltimes, $arr){
-    var _max = Math.max.apply(null, $arr);
-    for( var i=0; i < $coltimes.length ; i++){
-      $coltimes[i].css({ "min-height":  (Math.round(_max)) });
+    }else{	                           // 줄에 마지막 아이템			
+      _arr.push( $(this).height() );
+      _arr_col.push( $(this) );
+      _max_temp.push(height_max(_arr_col, _arr));
+      _arr = []; _arr_col=[];
     }
-    return _max;
-  }
-  each_set();
+    
+  });
 
-  return {
-    setCol: function($col) { 
-      _colNum = $col;
-      each_set();
-    }, 
-    getHeight : function(){
-      return each_set();
-    }, getMaxHeight : function(){
-      return _max_temp;
-    } 
+  //$(".js-text1").text(_arr_temps);
+  return _arr_temps;
+};
+
+
+function height_max($coltimes, $arr){
+  var _max = Math.max.apply(null, $arr);
+  for( var i=0; i < $coltimes.length ; i++){
+    $coltimes[i].css({ "min-height":  (Math.round(_max)) });
   }
+  return _max;
+}
+each_set();
+
+return {
+  setCol: function($col) { 
+    _colNum = $col;
+    each_set();
+  }, 
+  getHeight : function(){
+    return each_set();
+  }, getMaxHeight : function(){
+    return _max_temp;
+  } 
+}
 
 };
 
@@ -547,44 +595,45 @@ jQuery.fn.trpColItemH = function( $col , $tra, $tar ){
   var _max_temp  = [];
   if ($tar != undefined ){ _target   = $($tar , this) }; 
 
+
   function each_set(){
     _target.css({ "min-height": "auto"});
-    if(_colNum == 1){ return; }
     _arr_temps = [];
     _max_temp  = [];
     _arr = []; _arr_col=[];
     
-    _items.each( function($i){      
+    _items.each( function($i){
       var _trackings = $(this);
       var _targets   = $(this);
       if ($tra != undefined ){ _trackings = $($tra , this) }; 
       if ($tar != undefined ){ _targets   = $($tar , this) }; 
       
-      _arr_temps.push( _trackings.height() );
+      _arr_temps.push( _trackings.innerHeight() );
       _targets.css({ "min-height": 0 });
         
       if( ($i+1) % _colNum != 0 ){          // 줄에 첫번째부터 마지막전
-        _arr.push( _trackings.height() );
+        _arr.push( _trackings.innerHeight() );
         _arr_col.push( _targets );
         if ( $i+1 == _items.length ){       // 마지막줄 마지막 아이템
           _max_temp.push(height_max(_arr_col, _arr));
           _arr = []; _arr_col=[];
         }
       }else{                                // 줄에 마지막 아이템
-        _arr.push( _trackings.height() );   
+        _arr.push( _trackings.innerHeight() );   
         _arr_col.push( _targets );
         _max_temp.push(height_max(_arr_col, _arr));
         _arr = []; _arr_col=[];
       }
-      
     });
 
     //$(".js-text1").text(_arr_temps);
     return _arr_temps;
   };
 
+
   function height_max($colTargets, $arr){
     var _max = Math.max.apply(null, $arr);
+    if(_colNum == 1){ return Math.round(_max); }
     for( var i=0; i < $colTargets.length ; i++){
       $colTargets[i].css({ "min-height":  (Math.round(_max)) });
     }
@@ -599,57 +648,69 @@ jQuery.fn.trpColItemH = function( $col , $tra, $tar ){
     }, 
     getHeight : function(){
       return each_set();
-    }, getMaxHeight : function(){
+    }, 
+    getMaxHeight : function(){
       return _max_temp;
     } 
   }
 
 };
 
+
 /*
 * trpColTimeHW       : 같은 col 아이템 높이를 같게 및 컬럼 Width % 조정
 * @param	$col       : col 아이템 겟수
 */
-jQuery.fn.trpColItemHW = function( $col ){
-  var _arr = [], _arr_temps = [], _arr_col=[], _col_w="";
-  var _items  = $(this);
+jQuery.fn.trpColItemHW = function ($col) {
+  var _arr = [],
+    _arr_temps = [],
+    _arr_col = [],
+    _col_w = "";
+  var _items = $(this);
   var _colNum = $col;
 
-  function each_set(){
-    _col_w = (100 / _colNum) + "%"; 
-    _items.css({ "min-height": 0, "width":_col_w });
-    
+  function each_set() {
+    _col_w = (100 / _colNum) + "%";
+    _items.css({
+      "min-height": 0,
+      "width": _col_w
+    });
+
     _arr_temps = [];
-    _items.each( function($i){
-      _arr_temps.push( $(this).height() );
-      $(this).css({ "min-height": 0 });
-      if( $i % _colNum == 0 ){
+    _items.each(function ($i) {
+      _arr_temps.push($(this).height());
+      $(this).css({
+        "min-height": 0
+      });
+      if ($i % _colNum == 0) {
         height_max(_arr_col, _arr);
-        _arr = []; _arr_col=[];
-        _arr.push( $(this).height() );
-        _arr_col.push( $(this) );
-      }else{				
-        _arr.push( $(this).height() );
-        _arr_col.push( $(this) );
+        _arr = [];
+        _arr_col = [];
+        _arr.push($(this).height());
+        _arr_col.push($(this));
+      } else {
+        _arr.push($(this).height());
+        _arr_col.push($(this));
       }
     });
-    
-    $(".js-text1").text(_arr_temps);
+
   };
 
 
-  function height_max($coltimes, $arr){
+  function height_max($coltimes, $arr) {
     var _max = Math.max.apply(null, $arr);
-    for( var i=0; i < $coltimes.length ; i++){
-      $coltimes[i].css({ "min-height":  (Math.round(_max)) });
+    for (var i = 0; i < $coltimes.length; i++) {
+      $coltimes[i].css({
+        "min-height": (Math.round(_max))
+      });
     }
   }
   each_set();
 
   return {
-    setCol: function($col) { 
+    setCol: function ($col) {
       _colNum = $col;
       each_set();
     }
-}
+  }
 };

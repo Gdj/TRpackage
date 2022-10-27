@@ -17,7 +17,7 @@
 	<div id="contents" class="contents">
 		<!-- s: 스크립드 설명 -->
 		<div class="desc_wapper">
-			<h1 class="desc_title">trpScrollActive</h1>
+			<h1 class="desc_title">trpScrollActiveFn</h1>
 			<p>
 				타켓 위치에 도달하면 특정 엘리먼트에 클래스를 추가, 못미치면 삭제, 넘어가도 삭제
 			</p>												
@@ -25,7 +25,7 @@
 		<!-- e: 스크립드 설명 -->
 		<!-- s: api 설명 -->
 		<div class="api">
-			<h2 class="api-title">$("타겟선택자").trpScrollActive( $add_class, $show_per);</h2>
+			<h2 class="api-title">$("타겟선택자").trpScrollActiveFn( $add_class, $show_per);</h2>
 			<div class="api-body">
 				<dl>
 					<dt>설명</dt>
@@ -44,8 +44,10 @@
 						<th scope="col">이벤트 설명</th>
 					</tr>
 					<tr>
-						<td>$add_class</td>
-						<td>타겟 위치도달하면 추가될 클래스
+						<td>$function($this, $state)</td>
+						<td>이밴트 발생시 호훌 함수 <br />
+							$this  : 해당 타겟, <br />
+							$state : 해당 타겟 상태 (under, over, pass)상태 넘김
 						</td>		
 					</tr>
 					<tr>
@@ -53,12 +55,6 @@
 						<td>
 							타겟이 처음 보일때 `0` ,
 							타겟이 상단 도착시`1.0` , 브라우저 절반 도착시 `0.5`
-						</td>		
-					</tr>
-					<tr>
-						<td>$pass_b</td>
-						<td>
-							지나첬을때 초기화 여부 (false);
 						</td>		
 					</tr>
 					</tbody>
@@ -150,7 +146,11 @@
  46
  47
  48
- 49</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!DOCTYPE html&gt;</span>
+ 49
+ 50
+ 51
+ 52
+ 53</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!DOCTYPE html&gt;</span>
  <span style="color: #f92672">&lt;html&gt;</span>
  <span style="color: #f92672">&lt;head&gt;</span>
 	 <span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">charset=</span><span style="color: #e6db74">&quot;UTF-8&quot;</span><span style="color: #f92672">&gt;</span>
@@ -192,7 +192,11 @@
 		<span style="color: #f92672">&lt;script&gt;</span>
 			
 		 <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(){</span>
-				 <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.js-motion&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">trpScrollActive</span><span style="color: #f8f8f2">(</span> <span style="color: #e6db74">&quot;addClass&quot;</span> <span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">1.0</span><span style="color: #f8f8f2">);</span>
+			 <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.js-motion&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">trpScrollActiveFn</span><span style="color: #f8f8f2">(</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">$this</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">$state</span><span style="color: #f8f8f2">){</span>
+				 <span style="color: #a6e22e">console</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">log</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">$this</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">$state</span><span style="color: #f8f8f2">));</span>
+				 <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">$this</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">removeClass</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;under over pass&quot;</span><span style="color: #f8f8f2">)</span>
+				 <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">$this</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">addClass</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">$state</span><span style="color: #f8f8f2">);</span>
+			 <span style="color: #f8f8f2">},</span> <span style="color: #ae81ff">1.0</span><span style="color: #f8f8f2">);</span>
 		 <span style="color: #f8f8f2">})</span>
 	
 	 <span style="color: #f92672">&lt;/script&gt;</span>
