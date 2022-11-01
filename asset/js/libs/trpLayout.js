@@ -297,14 +297,16 @@ scrollResizeClassWatch();
 * @param	$motion_items        : 모션 들어갈 아이템 선택자
 * @param	$add_class           : 추가 삭제될 클래스 
 * @param	$show_per            : 시작위치  (0: 보일때, .2: 20% 올라왔을때)
+* @param	$under_b             : 못미쳤을때 초기화 여부 (default:false)
 * @param	$pass_b              : 지나갔을때 초기화 여부 (default:false)
 * @method setTarModi($tarModi) : 가감수치 변경
 */
-jQuery.fn.trpScrollActive = function( $add_class, $show_per, $pass_b ){
+jQuery.fn.trpScrollActive = function( $add_class, $show_per, $under_b, $pass_b ){
   var _tarGet   = this
   var _addClass = $add_class;
   var _show_per = $show_per;
   var _scrollTarModi = 0;
+  var _under_b = ($under_b)? $under_b : false;
   var _pass_b = ($pass_b)? $pass_b : false;
   function trpScrollActiveFn() { 
     var _wH  = window.innerHeight; 
@@ -314,11 +316,15 @@ jQuery.fn.trpScrollActive = function( $add_class, $show_per, $pass_b ){
       var _t  = ($(this).offset().top + _scrollTarModi) +  (_wH * _show_per); 
       var _th = ($(this).offset().top + _scrollTarModi) + $(this).innerHeight(); 
       if (_wS > _th) { 
-        if(_pass_b){$(this).removeClass(_addClass); }      // pass
+        if(_pass_b){
+          $(this).removeClass(_addClass); 
+        }else{
+          $(this).addClass(_addClass);
+        }                                                  // pass
       } else if (_wHS > _t) { 
-        $(this).addClass(_addClass);        // over
+        $(this).addClass(_addClass);                       // over
       } else {
-        $(this).removeClass(_addClass);     // under
+        if(_under_b){ $(this).removeClass(_addClass); }    // under
       } 	
     }); 
   }
