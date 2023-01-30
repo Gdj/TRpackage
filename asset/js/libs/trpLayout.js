@@ -315,6 +315,10 @@ jQuery.fn.trpScrollActive = function( $add_class, $show_per, $under_b, $pass_b )
     $(_tarGet).each(function($i) { 			
       var _t  = ($(this).offset().top + _scrollTarModi) +  (_wH * _show_per); 
       var _th = ($(this).offset().top + _scrollTarModi) + $(this).innerHeight(); 
+
+      /* 화면에 벗어난 컨텐츠는 딜레이를 주지 않음. */
+      if( $(this).offset().top > _wH ){ $(this).addClass("scrolldelay0"); }
+
       if (_wS > _th) { 
         if(_pass_b){
           $(this).removeClass(_addClass); 
