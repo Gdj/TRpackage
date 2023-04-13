@@ -521,7 +521,7 @@ jQuery.fn.trpToggleBtn = function($trueFn,$falseFn){
 
 
 /**
-	trpToggleBtn : 토글버튼함수 		//  $(버튼 선택자).trpToggleWrapBtn($wrap, $btn, $trueFn, $falseFn)
+	trpToggleWrapBtn : 토글버튼함수 		//  $(버튼 선택자).trpToggleWrapBtn($wrap, $btn, $trueFn, $falseFn)
 	@param	$wrap			                    : $wrap 버튼 와퍼
 	@param	$btn			                    : $btn  버튼
 	@param	$trueFn			                  : true  일때 호출되는 함수
