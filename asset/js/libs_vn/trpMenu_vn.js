@@ -2,22 +2,24 @@
 	Vanilla JS
 */
 /**
- * TRP 
- * @param {*} $select 
+ * TRP : 패키지 선택자
+ * @constructor
+ * @param {string} $select - 선택자
  */
 function Trp($select){
+	/** _this : 선택자 */
 	this._this    = document.querySelectorAll($select);
 	this.text 		= this._this.innerText;        // = "" 
 	this.html 		= this._this.innerHtml;        // = ""
 	this.attr 		= this._this.getAttribute;     // 읽기(attr)
-	this.setAttr  = this._this.setAttribute;  // 쓰기(attr, value)
-	
+	this.setAttr  = this._this.setAttribute;     // 쓰기(attr, value)
 }
+Trp.prototype = {};
 
 /**
- * getName : 
- * @param {*} $name 
- * @returns 
+ * getName : 이름 전달 리턴
+ * Trp.getName
+ * @param {string} $name - 이름
  */
 Trp.prototype.getName = function($name) {
 	var _this = this._this;
@@ -28,17 +30,16 @@ Trp.prototype.getName = function($name) {
 }
 
 
-
-
-
-
 /**
-	trpToggleBtn : 토글버튼함수 		//  $(버튼 선택자).trpToggleBtn($trueFn,$falseFn)
-	@param	$trueFn			                  : true  일때 호출되는 함수
-	@param	$falseFn		                  : false 일때 호출되는 함수
-	@method toggleAllSet("true"/"false")	: 동일한 형태의 버튼을 "true" 이면 "true" 상태로 "false" 이면 "false" 상태로 만듬
-	@method setBtn(index)					        : 활성화 인덱스를 넣으면 해당 버튼만 "true" 상태로 바꿈
-*/
+ * trpToggleBtn : 토글버튼함수 		
+ * @param {function} $trueFn   - true 일때 함수
+ * @param {function} $falseFn  - false 일때 함수
+ * @returns toggleAllSet($b)   : 상태값
+ * @returns setToggle($index)  : 대상 인덱스 토글
+ * @returns setBtn($index)     : 대상 인덱스 활성
+ * @returns reSetBtn($index)   : 대상 인덱스 비활성
+ * @returns setOneBtn($index)  : 대상 인덱스만 활성
+ */
 Trp.prototype.trpToggleBtn = function($trueFn,$falseFn){
 	var _this, _thisAll, _e;
 	_thisAll = this._this;;							// 전체 버튼
@@ -116,6 +117,3 @@ Trp.prototype.trpToggleBtn = function($trueFn,$falseFn){
 	
 
 }
-
-
-
