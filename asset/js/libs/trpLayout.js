@@ -392,13 +392,15 @@ jQuery.fn.trpScrollActiveFn = function( $function, $show_per ){
 /** 
 * @param	$motion_items      : 모션 들어갈 아이템 선택자
 * @param	$add_class         : 추가 삭제될 클래스 
-* @param	$show_per          : 시작위치  (0: 보일때, .2: 20% 올라왔을때)
+* @param	$start_per         : 시작위치  (0: 보일때, .2: 20% 하단기준)
+* @param	$end_per           : 종료위치  (0: 숨겨질, .2: 20% 상단기준)
 * @method setTarModi($tarModi) : 가감수치 변경
 */
-jQuery.fn.trpScrollActivePer = function( $add_class, $show_per ){
+jQuery.fn.trpScrollActivePer = function( $add_class, $start_per, $end_per ){
   var _tarGet   = this
   var _addClass = $add_class;
-  var _show_per = $show_per;
+  var _start_per = $start_per;
+  var _end_per = 1 - $end_per;
   var _scrollTarModi = 0;
   function trpScrollActiveFn() { 
     var _wH  = window.innerHeight; 
@@ -406,22 +408,36 @@ jQuery.fn.trpScrollActivePer = function( $add_class, $show_per ){
     var _wHS = (_wH + _wS);
     
     $(_tarGet).each(function($i) { 			
-      var _tarT    = $(this).offset().top;                              // 타겟 위치
-      var _tarTmd  = ( _tarT + _scrollTarModi) +  (_wH * _show_per);    // 타겟 가감위치
-      var _th      = ( _tarT + _scrollTarModi) + $(this).innerHeight(); // 타겟 끝
-      var _th_full = ( _th + _wH );                                     // 타겟 + 브라우져 끝
+      var _tarT    = $(this).offset().top;     // 타겟 위치      
+      var _tarH    = $(this).innerHeight();     // 타겟 높이
+      var _tarStart = ( _tarT + _scrollTarModi) +  (_wH * _start_per);     // 타겟 가감위치
+      var _tarEnd   = ( _tarT + _tarH + _scrollTarModi) + (_wH * _end_per) // 타겟 + 브라우져 끝
+      var _tarShow = ( _tarT + _scrollTarModi) ;           // Show
+      var _tarHiden   = ( _tarT + _tarH + _scrollTarModi)  // Hiden
 
-      if (_wS > _th) {                         // pass 
-        $(this).removeClass(_addClass);    
+      $("#start_bar").css({ top: ($start_per * 100) + "%"  })
+      $("#end_bar").css({ top: ($end_per * 100) + "%" })
+
+      if (_wHS > _tarEnd) {                   // pass 
         $(this).attr("data-per",  100 );
-      } else if (_wHS > _tarTmd) {             // over
-        var _per = trpRangeRatioFn(_tarTmd , _th_full, _wHS, 0, 100 );
+      } else if (_wHS > _tarStart) {             // over
+        var _per = trpRangeRatioFn(_tarStart , _tarEnd, _wHS, 0, 100 );
+        _per = (_per >= 100)? 100 : _per;
         $(this).addClass(_addClass);       
         $(this).attr("data-per",  _per );
       } else {                                 // under
         $(this).removeClass(_addClass);    
         $(this).attr("data-per",  0 );
       } 	
+
+      if (_wS > _tarHiden) {                    // pass 
+        $(this).attr("data-trstate", "trPass");    
+        $(this).attr("data-per",  100 );
+      } else if (_wHS > _tarShow) {             // over
+        $(this).attr("data-trstate", "trOver");    
+      } else {                                 // under
+        $(this).attr("data-trstate", "trUnder");    
+      }
 
       /* 변화 있을때 만 이벤트 발생 */
       if( $(this).data("oldper") !=  $(this).attr("data-per") ){
@@ -435,12 +451,11 @@ jQuery.fn.trpScrollActivePer = function( $add_class, $show_per ){
   $(window).trigger('scroll resize');
 
   function trpRangeRatioFn($rMin, $rMax, $ref, $tMin, $tMax ){
-
-    var rMin 	= 0;					// Refer 참고 최소 값		
+    var rMin 	= 0;					       // Refer 참고 최소 값		
     var rMax	= $rMax - $rMin;		// Refer 참고 최대 값	
     var ref 	= $ref  - $rMin;		// Refer 참고 변화 값
-    var rPer;							// Refer 참고 변화 퍼센트
-    var tMin 	= 0;					// target타겟 최소값
+    var rPer;							        // Refer 참고 변화 퍼센트
+    var tMin 	= 0;					      // target타겟 최소값
     var tMax	= $tMax - $tMin;		// target타겟 최대값 
     
     //rPer = Math.abs(rTar) / rMax  // 퍼센테지	== 100% => 1.0
