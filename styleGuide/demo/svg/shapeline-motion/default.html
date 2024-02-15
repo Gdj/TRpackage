@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+<title>SVG shape motion | TR package</title>
+<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.js" charset="UTF-8"></script>
+<link rel="stylesheet" type="text/css"  href="../../../../asset/css/common.css" media="all" />
+<link rel="stylesheet" type="text/css"  href="../../../../asset/css/trpBase.css" media="all" />
+
+<style>
+	/* 태두리 길이 : 600 */
+	/*
+    .trp_svgbox { background-color: aqua; }
+    .squiggle {      
+      stroke-dasharray: 600;   
+      stroke-dashoffset: 600;
+    }
+    .squiggle:hover {
+      animation: draw 1s ease-out forwards;
+    }
+    @keyframes draw {
+      to { stroke-dashoffset: 0; }
+    }
+  */
+
+</style>
+
+
+</head>
+<body>
+  <div id="header" ></div>
+  <div id="container">
+	<div id="lnb" class="gnb"></div>
+	<!-- s: 컨텐츠 시작 -->
+	<div id="contents" class="contents">
+		<!-- s: css 설명	
+		<div class="desc_wapper">
+			<h1 class="desc_title">list</h1>
+			<p>목록에 대한 정의입니다.</p>
+		</div>-->
+		<!-- e: css 설명 -->
+	
+
+		<!-- s: api 설명 -->
+		<div class="api">
+			<h2 class="api-title">SVG shape line motion</h2>
+			<div class="api-body">
+				<dl>
+					<dt>motion 설명</dt>
+					<dd><span class="icon"></span>도형의 라인 모션 효과</dd>
+					<dd><span class="icon"></span>.trp_svgbox로 svg를 감싸서 사용 </dd>
+				</dl>
+
+
+				<!-- ===VIEW=== -->		
+				<div class="ex_wapper">
+					<h3 class="api-title_h3">VIEW</h3>
+					<p class="ex-more"><a href="javascript:return false;"><span class="d-n">+</span><span style="display: inline;">-</span></a></p>
+					<p class="ex-view"><a href="ex01.html" target="_blank">View Sample</a></p>
+					<div class="ex-body d-n" style="height:400px;" >
+					<!-- 소스 -->
+					
+
+	<div class="trp_svgbox">
+		<h3>hover</h3>
+		<svg>
+			<rect class="squiggle" width="200" height="100"  fill="#000" fill-opacity="0.2" x="5" y="5"
+				rx="20" ry="20" 
+				stroke="#f9b10a" stroke-width="5"
+			/>
+			Sorry, your browser does not support inline SVG.
+		</svg>
+	</div>			
+										
+																				
+
+					<!-- //소스 -->
+					</div>
+				</div>
+				
+				
+<!-- ===CSS=== -->		
+				<div class="ex_wapper">
+					<h3 class="api-title_h3 css">CSS</h3>
+					<div class="api-body_h3 css">
+					<!-- 소스 -->
+
+                            
+                            				
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #f92672">&lt;style&gt;</span>
+  <span style="color: #a6e22e">.trp_svgbox</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">aqua;</span> <span style="color: #f8f8f2">}</span>
+  <span style="color: #75715e">/* 태두리 길이 */</span>
+  <span style="color: #a6e22e">.squiggle</span> <span style="color: #f8f8f2">{</span>      
+    <span style="color: #f8f8f2">stroke</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">dasharray</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">600</span><span style="color: #f8f8f2">;</span>   
+    <span style="color: #f8f8f2">stroke</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">dashoffset</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">600</span><span style="color: #f8f8f2">;</span>
+  <span style="color: #f8f8f2">}</span>
+  <span style="color: #a6e22e">.squiggle:hover</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #f8f8f2">animation</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">draw</span> <span style="color: #ae81ff">1s</span> <span style="color: #f8f8f2">ease</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">out</span> <span style="color: #f8f8f2">forwards;</span>
+  <span style="color: #f8f8f2">}</span>
+  <span style="color: #66d9ef">@keyframes</span> <span style="color: #f92672">draw</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #f92672">to</span> <span style="color: #f8f8f2">{</span> <span style="color: #f8f8f2">stroke</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">dashoffset</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+  <span style="color: #f8f8f2">}</span>
+<span style="color: #f92672">&lt;/style&gt;</span>
+</pre></div>
+
+ 
+ 
+
+                            												                            												
+															
+
+					<!-- //소스 -->
+					</div>
+				</div>
+
+
+<!-- ===HTML=== -->		
+				<div class="ex_wapper">
+				<h3 class="api-title_h3 html">HTML</h3>
+					<div class="api-body_h3 html">
+					<!-- 소스 -->
+
+
+                  
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;trp_svgbox&quot;</span><span style="color: #f92672">&gt;</span>
+  <span style="color: #f92672">&lt;h3&gt;</span>hover<span style="color: #f92672">&lt;/h3&gt;</span>
+  <span style="color: #f92672">&lt;svg&gt;</span>
+    <span style="color: #f92672">&lt;rect</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;squiggle&quot;</span> <span style="color: #a6e22e">width=</span><span style="color: #e6db74">&quot;200&quot;</span> <span style="color: #a6e22e">height=</span><span style="color: #e6db74">&quot;100&quot;</span>  <span style="color: #a6e22e">fill=</span><span style="color: #e6db74">&quot;#000&quot;</span> <span style="color: #a6e22e">fill-opacity=</span><span style="color: #e6db74">&quot;0.2&quot;</span> <span style="color: #a6e22e">x=</span><span style="color: #e6db74">&quot;5&quot;</span> <span style="color: #a6e22e">y=</span><span style="color: #e6db74">&quot;5&quot;</span>
+      <span style="color: #a6e22e">rx=</span><span style="color: #e6db74">&quot;20&quot;</span> <span style="color: #a6e22e">ry=</span><span style="color: #e6db74">&quot;20&quot;</span> 
+      <span style="color: #a6e22e">stroke=</span><span style="color: #e6db74">&quot;#f9b10a&quot;</span> <span style="color: #a6e22e">stroke-width=</span><span style="color: #e6db74">&quot;5&quot;</span>
+    <span style="color: #f92672">/&gt;</span>
+    Sorry, your browser does not support inline SVG.
+  <span style="color: #f92672">&lt;/svg&gt;</span>
+<span style="color: #f92672">&lt;/div&gt;</span>
+</pre></div>
+
+ 
+                  
+										
+
+					
+					<!-- //소스 -->
+					</div>
+				</div>
+					
+		
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+		
+	
+		</div>		
+	<!-- e: 컨텐츠 끝 -->
+	<p class="cl-b"></p>
+</div>
+
+
+
+<script type="text/javascript">
+	$("#header").load("../../../head.html");
+	$("#lnb").load("../../../lnb.html");	
+
+
+	$(".ex-more a").click(function() {
+		$( this ).find("span").toggle();
+		$( this ).parent().siblings(".ex-body").slideToggle();
+		return false;
+	});
+
+</script>
+
+</body>
+</html>
