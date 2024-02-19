@@ -6,45 +6,62 @@
 	<script type="text/javascript" src="../../../../asset/js/libs/trpLayout.js"></script>
   <style>
     html, body { padding: 0; margin: 0;}
-    #header     { height:200px; background-color: darkgray; }
-    #container { position: relative;height:2000px; background-color: rosybrown;  }
-    #container .position_org { width: 100%; height: 100px; background-color: plum; }
+    #header     { height:200px; background-color: lightgrey; }
+    #header.over, #header.pass     { height:200px; background-color: #888;  transition: all .5s linear;  }
+    #container { position: relative; height:2000px; background-color: rosybrown;  }
+    #container .text { position: fixed; top:10px; right: 10px; font-size: 15px; font-weight: bold;  }
+    #container .position_org    { width: 100%; height: 100px; background-color: plum; }
     #container .position_org_x4 { width: 100%; height: 400px; background-color: blueviolet; }
     #container .position_target { width: 100%; height: 500px; background-color: brown; }
-    #container .position_target.addClass {  background-color: #0f0; }
+    #container .position_target { 
+      transition: all 0s linear;
+    }
+    #container .position_target.over,
+    #container .position_target.pass
+    { transition: all .5s linear; background-color: #0f0; }
+
+    #start_bar { position: fixed;  top:50%; right: 0; width: 70px; height: 1px; background-color: #ff0; }
+    #start_bar:after { display: block; content: "Start .5"; color:#ff0}
 	</style> 
 </head>
 <body>
 	
-   <div id="header">header</div>
-   <div id="container">
-      <div class="position_org_x4"> ching line </div>
-      <div class="position_org_x4"> ching line </div>
-      <div class="position_org_x4"> ching line </div>
-      <div class="position_target js-motion">500</div>
-      <div class="position_org_x4"> ching line </div>
-      <div class="position_org_x4"> ching line </div>
-      <div class="position_org_x4"> ching line </div>
-      <div class="position_target js-motion">500</div>
-      <div class="position_org_x4"> ching line </div>
-      <div class="position_org_x4"> ching line </div>
-      <div class="position_org_x4"> ching line </div>
-      <div class="position_target js-motion">500</div>
-      <div class="position_org_x4"> ching line </div>
-      <div class="position_org_x4"> ching line </div>
-      <div class="position_org_x4"> ching line </div>
-      <div class="position_org_x4"> ching line </div>
-      <div class="position_org_x4"> ching line </div>
-      <div class="position_org_x4"> ching line </div>
-   </div>
-   <script>
+  <div id="header" class="js-motion">header</div>
+  <div id="container">
+    <div class="text">0</div>
+    <div id="start_bar"></div>
+    <div class="position_org_x4"> ching line 200 </div>
+    <div class="position_org_x4"> ching line 600</div>
+    <div class="position_org_x4"> ching line 1000</div>
+    <div class="position_target js-motion">1400</div>
+    <div class="position_org_x4"> ching line 1900</div>
+    <div class="position_org_x4"> ching line 2300</div>
+    <div class="position_org_x4"> ching line 2700</div>
+    <div class="position_target js-motion">3100</div>
+    <div class="position_org_x4"> ching line 3600</div>
+    <div class="position_org_x4"> ching line 4000</div>
+    <div class="position_org_x4"> ching line 4400</div>
+    <div class="position_target js-motion">4800</div>
+    <div class="position_org_x4"> ching line 5300</div>
+    <div class="position_org_x4"> ching line </div>
+    <div class="position_org_x4"> ching line </div>
+    <div class="position_org_x4"> ching line </div>
+    <div class="position_org_x4"> ching line </div>
+    <div class="position_org_x4"> ching line </div>
+  </div>
+
+
+  <script>
    	
     $(function(){
       $(".js-motion").trpScrollActiveFn( function($this, $state){
-        console.log($($this, $state));
-        $($this).removeClass("under over pass")
-        $($this).addClass($state);
-      }, 1.0);
+        /// console.log( $this, $state );
+
+      }, .5);
+
+      $(window).on('scroll resize', function($e){
+        $("#container .text").text( $(this).scrollTop() )
+      });
     })
  
   </script>

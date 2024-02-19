@@ -294,12 +294,12 @@ scrollResizeClassWatch();
 
 
 /** 
-* @param	$motion_items        : 모션 들어갈 아이템 선택자
-* @param	$add_class           : 추가 삭제될 클래스 
-* @param	$show_per            : 시작위치  (0: 보일때, .2: 20% 올라왔을때)
-* @param	$under_b             : 못미쳤을때 초기화 여부 (default:false)
-* @param	$pass_b              : 지나갔을때 초기화 여부 (default:false)
-* @method setTarModi($tarModi) : 가감수치 변경
+* @param	$motion_items         : 모션 들어갈 아이템 선택자
+* @param	$add_class            : 추가 삭제될 클래스 
+* @param	$show_per             : 시작위치  (0: 보일때, .2: 20% 올라왔을때)
+* @param	$under_b              : 못미쳤을때 초기화 여부 (default:false)
+* @param	$pass_b               : 지나갔을때 초기화 여부 (default:false)
+* @method setTarModi($tarModi)  : 가감수치 변경
 */
 jQuery.fn.trpScrollActive = function( $add_class, $show_per, $under_b, $pass_b ){
   var _tarGet   = this
@@ -308,10 +308,12 @@ jQuery.fn.trpScrollActive = function( $add_class, $show_per, $under_b, $pass_b )
   var _scrollTarModi = 0;
   var _under_b = ($under_b)? $under_b : false;
   var _pass_b = ($pass_b)? $pass_b : false;
-  function trpScrollActiveFn() { 
+  function scrollActiveFn() { 
     var _wH  = window.innerHeight; 
     var _wS  = $(window).scrollTop();
     var _wHS = (_wH + _wS);
+    
+
     $(_tarGet).each(function($i) { 			
       var _t  = ($(this).offset().top + _scrollTarModi) +  (_wH * _show_per); 
       var _th = ($(this).offset().top + _scrollTarModi) + $(this).innerHeight(); 
@@ -325,14 +327,14 @@ jQuery.fn.trpScrollActive = function( $add_class, $show_per, $under_b, $pass_b )
         }else{
           $(this).addClass(_addClass);
         }                                                  // pass
-      } else if (_wHS > _t) { 
+      } else if (_wHS >= _t) { 
         $(this).addClass(_addClass);                       // over
       } else {
         if(_under_b){ $(this).removeClass(_addClass); }    // under
       } 	
     }); 
   }
-  $(window).on('scroll resize', trpScrollActiveFn);
+  $(window).on('scroll resize', scrollActiveFn);
   $(window).trigger('scroll resize');
 
   return {
@@ -353,31 +355,91 @@ jQuery.fn.trpScrollActive = function( $add_class, $show_per, $under_b, $pass_b )
 jQuery.fn.trpScrollActiveFn = function( $function, $show_per ){
   var _tarGet   = this
   var _show_per = $show_per;
-  var _scrollTarModi = 0;
+  var _last_scrollTop = 0;
+  var _state = "";
+
+  function scrollActiveReSetFn(){
+    $(this).removeClass("under over pass");
+    $(this).addClass("under");
+  }
+
   function scrollActiveFn() { 
     var _wH  = window.innerHeight; 
     var _wS  = $(window).scrollTop();
-    var _wHS = (_wH + _wS);
-    $(_tarGet).each(function($i) { 			
-      var _t  = ($(this).offset().top + _scrollTarModi) +  (_wH * _show_per); 
-      var _th = ($(this).offset().top + _scrollTarModi) + $(this).innerHeight(); 
-      var _state = "under";
-      if (_wS > _th) { 
-        _state = "pass";   // pass 
-      } else if (_wHS > _t) { 
-        _state = "over";     // over
-      } else {
-        _state = "under"; // under
-      } 
-      if( _state != $(this).data("state") ){
-        $(this).data("state", _state); 
-        $function(this, _state);
-      }
+    var _wHS = (_wH + _wS);           // 윈도우 높이 + 스크롤 높이 show
+    /// console.log("=================== trigger ================");
+    function scrollDown(){
+      $(_tarGet).each(function($i) { 			
+        var _s  = ($(this).offset().top) - _wH                          /* 타겟 show   */     
+        //var _t  = ($(this).offset().top) +  (_wH * _show_per);          /* 타겟 active */  
+        var _t  = ($(this).offset().top) - (_wH * _show_per);           /* 타겟 active */
+        var _th = ($(this).offset().top) + $(this).innerHeight();       /* 타겟 pass   */  
+        
+        if (_wS >= _th) { 
+          _state = "pass";   // pass 
+        } else if (_wS >= _t) { 
+          _state = "over";     // over
+        } else {
+          (_state == "over")? _state == "over" : _state = "under"; // under
+        } 
+        console.log("scrollDown : ", "_wS", _wS , "   _s",_s, "   _t", _t, "   _wHS", _wHS, "   _th",_th, _state);
 
-    }); 
+        /* 상태 초기화 및 변경 */
+        if( _state != $(this).data("state") ){
+          $(this).data("state", _state); 
+          $(this).removeClass("under over pass")
+          $(this).addClass(_state);
+          $function(this, _state);
+        }
+      }); 
+    }
+    function scrollUp(){
+      $(_tarGet).each(function($i) { 			
+        var _s  = ($(this).offset().top) - _wH                         /* 타겟 show */
+        var _t  = ($(this).offset().top) - (_wH * _show_per);          /* 타겟 시작 */
+        var _th = ($(this).offset().top) + $(this).innerHeight();      /* 타겟 hide */
+
+        if ( _wS > _s && _wS < _th ) {    // over 
+          if( _wS >= _t ) { 
+            _state = "over";
+          }else{
+            (_state == "over")? _state == "over" : _state = "under"; // over & under
+          }
+        }else if( _wS >= _th ) {          // pass
+          _state = "pass";
+        }else  {
+          _state = "under";               // under
+        }
+   
+        /* 스크롤 , show, 대상, pass,  */
+        console.log("scrollUp : ", "_wS", _wS , "   _s",_s, "   _t", _t, "   _wHS", _wHS, "   _th",_th, _state);
+
+        /* 상태 초기화 및 변경 */
+        if( _state != $(this).data("state") ){
+          $(this).data("state", _state); 
+          $(this).removeClass("under over pass")
+          $(this).addClass(_state);
+          $function(this, _state);
+        }
+      }); 
+    }
+
+    /* ------------------------------- scroll up & down */
+    var _tmp =  _wS;            //$(this).scrollTop();
+    if (_tmp >= _last_scrollTop) { /// console.log(">>>>>>>>>>>>>>>>> down")
+      scrollDown();
+    } else {                       /// console.log(">>>>>>>>>>>>>>>>> up")
+      scrollUp()
+    }
+    _last_scrollTop = _tmp;
+    /* -------------------------------  */
+
   }
+
+
+  scrollActiveReSetFn();
   $(window).on('scroll resize', scrollActiveFn);
-  $(window).trigger('scroll resize');
+  $(window).trigger('resize');
 
   return {
     /* 기준 타겟 위치 가감 수치 변경 */
@@ -402,7 +464,7 @@ jQuery.fn.trpScrollActivePer = function( $add_class, $start_per, $end_per ){
   var _start_per = $start_per;
   var _end_per = 1 - $end_per;
   var _scrollTarModi = 0;
-  function trpScrollActiveFn() { 
+  function scrollActiveFn() { 
     var _wH  = window.innerHeight; 
     var _wS  = $(window).scrollTop();
     var _wHS = (_wH + _wS);
@@ -420,7 +482,7 @@ jQuery.fn.trpScrollActivePer = function( $add_class, $start_per, $end_per ){
 
       if (_wHS > _tarEnd) {                   // pass 
         $(this).attr("data-per",  100 );
-      } else if (_wHS > _tarStart) {             // over
+      } else if (_wHS >= _tarStart) {             // over
         var _per = trpRangeRatioFn(_tarStart , _tarEnd, _wHS, 0, 100 );
         _per = (_per >= 100)? 100 : _per;
         $(this).addClass(_addClass);       
@@ -433,7 +495,7 @@ jQuery.fn.trpScrollActivePer = function( $add_class, $start_per, $end_per ){
       if (_wS > _tarHiden) {                    // pass 
         $(this).attr("data-trstate", "trPass");    
         $(this).attr("data-per",  100 );
-      } else if (_wHS > _tarShow) {             // over
+      } else if (_wHS >= _tarShow) {             // over
         $(this).attr("data-trstate", "trOver");    
       } else {                                 // under
         $(this).attr("data-trstate", "trUnder");    
@@ -447,7 +509,7 @@ jQuery.fn.trpScrollActivePer = function( $add_class, $start_per, $end_per ){
 
     }); 
   }
-  $(window).on('scroll resize', trpScrollActiveFn);
+  $(window).on('scroll resize', scrollActiveFn);
   $(window).trigger('scroll resize');
 
   function trpRangeRatioFn($rMin, $rMax, $ref, $tMin, $tMax ){
@@ -487,8 +549,8 @@ jQuery.fn.trpScrollActivePer = function( $add_class, $start_per, $end_per ){
 */
 jQuery.fn.trpScrollPositionFn = function($scrollTar, $scrollTarModi, $functionChange) {
   var _scrolTar = $(this);
-  var _scrollTarModi = $scrollTarModi;
-  var _scrolWin = _scrolTar.scrollTop();
+  var _scrollTarModi = $scrollTarModi;        // 타겟 가감
+  var _scrolWin = _scrolTar.scrollTop();    
   var _scrolTag = 0;
   var _scrolPassTag = 0;
   var _only  = "defaul"; // over, under  : over:true | under:false
