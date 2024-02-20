@@ -17,8 +17,8 @@
 </head>
 <body>
 	
-   <div id="header">header h200</div>
-   <div id="container">
+  <div id="header">header h200</div>
+    <div id="container">
       <div class="text">0</div>
       <div class="position_org_x4"> ching line 200 </div>
       <div class="position_org_x4"> ching line 600</div>
@@ -38,11 +38,12 @@
       <div class="position_org_x4"> ching line </div>
       <div class="position_org_x4"> ching line </div>
       <div class="position_org_x4"> ching line </div>
+    </div>
    </div>
    <script>
    	
     $(function(){
-      $(".js-motion").trpScrollActive( "addClass" , 1.0);
+      $(".js-motion").trpScrollActive( "addClass" , 1.0, false, false);
 
       $(window).on('scroll resize', function($e){
         $("#container .text").text( $(this).scrollTop() )

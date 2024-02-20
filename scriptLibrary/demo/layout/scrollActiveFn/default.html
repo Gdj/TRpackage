@@ -7,7 +7,6 @@
 <script type="text/javascript" src="../../../../asset/js/libs/trpMenu.js"></script>
 <link rel="stylesheet" href="../../../../asset/css/common.css" type="text/css" media="all" />
 
-
 </head>
 <body>
   <div id="header" ></div>
@@ -44,10 +43,11 @@
 						<th scope="col">이벤트 설명</th>
 					</tr>
 					<tr>
-						<td>$function($this, $state)</td>
+						<td>$function($this, $state, $options)</td>
 						<td>이밴트 발생시 호훌 함수 <br />
-							$this  : 해당 타겟, <br />
-							$state : 해당 타겟 상태 (under, over, pass)상태 넘김
+							$this  		: 해당 타겟, <br />
+							$state 		: 해당 타겟 상태 (under, over, pass)상태 넘김 <br />
+							$options  : 기본값 { upHold : false } up 스크롤시 영역 반응 홀드 여부
 						</td>		
 					</tr>
 					<tr>
@@ -98,112 +98,146 @@
 
 
 
-<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
-	2
-	3
-	4
-	5
-	6
-	7
-	8
-	9
- 10
- 11
- 12
- 13
- 14
- 15
- 16
- 17
- 18
- 19
- 20
- 21
- 22
- 23
- 24
- 25
- 26
- 27
- 28
- 29
- 30
- 31
- 32
- 33
- 34
- 35
- 36
- 37
- 38
- 39
- 40
- 41
- 42
- 43
- 44
- 45
- 46
- 47
- 48
- 49
- 50
- 51
- 52
- 53</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!DOCTYPE html&gt;</span>
- <span style="color: #f92672">&lt;html&gt;</span>
- <span style="color: #f92672">&lt;head&gt;</span>
-	 <span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">charset=</span><span style="color: #e6db74">&quot;UTF-8&quot;</span><span style="color: #f92672">&gt;</span>
-	 <span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/jquery-1.12.1.min.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
-	 <span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/trpLayout.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
-	 <span style="color: #f92672">&lt;style&gt;</span>
-		 <span style="color: #f92672">html,</span> <span style="color: #f92672">body</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">margin</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;}</span>
-		 <span style="color: #a6e22e">#header</span>     <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span><span style="color: #ae81ff">200px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">darkgray;</span> <span style="color: #f8f8f2">}</span>
-		 <span style="color: #a6e22e">#container</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">relative</span><span style="color: #f8f8f2">;</span><span style="color: #66d9ef">height</span><span style="color: #f92672">:</span><span style="color: #ae81ff">2000px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">rosybrown;</span>  <span style="color: #f8f8f2">}</span>
-		 <span style="color: #a6e22e">#container</span> <span style="color: #a6e22e">.position_org</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">plum;</span> <span style="color: #f8f8f2">}</span>
-		 <span style="color: #a6e22e">#container</span> <span style="color: #a6e22e">.position_org_x4</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">400px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">blueviolet;</span> <span style="color: #f8f8f2">}</span>
-		 <span style="color: #a6e22e">#container</span> <span style="color: #a6e22e">.position_target</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">500px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">brown;</span> <span style="color: #f8f8f2">}</span>
-		 <span style="color: #a6e22e">#container</span> <span style="color: #a6e22e">.position_target.addClass</span> <span style="color: #f8f8f2">{</span>  <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#0f0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
-	 <span style="color: #f92672">&lt;/style&gt;</span> 
- <span style="color: #f92672">&lt;/head&gt;</span>
- <span style="color: #f92672">&lt;body&gt;</span>
-	 
-		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;header&quot;</span><span style="color: #f92672">&gt;</span>header<span style="color: #f92672">&lt;/div&gt;</span>
-		<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;container&quot;</span><span style="color: #f92672">&gt;</span>
-			 <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;position_org_x4&quot;</span><span style="color: #f92672">&gt;</span> ching line <span style="color: #f92672">&lt;/div&gt;</span>
-			 <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;position_org_x4&quot;</span><span style="color: #f92672">&gt;</span> ching line <span style="color: #f92672">&lt;/div&gt;</span>
-			 <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;position_org_x4&quot;</span><span style="color: #f92672">&gt;</span> ching line <span style="color: #f92672">&lt;/div&gt;</span>
-			 <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;position_target js-motion&quot;</span><span style="color: #f92672">&gt;</span>500<span style="color: #f92672">&lt;/div&gt;</span>
-			 <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;position_org_x4&quot;</span><span style="color: #f92672">&gt;</span> ching line <span style="color: #f92672">&lt;/div&gt;</span>
-			 <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;position_org_x4&quot;</span><span style="color: #f92672">&gt;</span> ching line <span style="color: #f92672">&lt;/div&gt;</span>
-			 <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;position_org_x4&quot;</span><span style="color: #f92672">&gt;</span> ching line <span style="color: #f92672">&lt;/div&gt;</span>
-			 <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;position_target js-motion&quot;</span><span style="color: #f92672">&gt;</span>500<span style="color: #f92672">&lt;/div&gt;</span>
-			 <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;position_org_x4&quot;</span><span style="color: #f92672">&gt;</span> ching line <span style="color: #f92672">&lt;/div&gt;</span>
-			 <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;position_org_x4&quot;</span><span style="color: #f92672">&gt;</span> ching line <span style="color: #f92672">&lt;/div&gt;</span>
-			 <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;position_org_x4&quot;</span><span style="color: #f92672">&gt;</span> ching line <span style="color: #f92672">&lt;/div&gt;</span>
-			 <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;position_target js-motion&quot;</span><span style="color: #f92672">&gt;</span>500<span style="color: #f92672">&lt;/div&gt;</span>
-			 <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;position_org_x4&quot;</span><span style="color: #f92672">&gt;</span> ching line <span style="color: #f92672">&lt;/div&gt;</span>
-			 <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;position_org_x4&quot;</span><span style="color: #f92672">&gt;</span> ching line <span style="color: #f92672">&lt;/div&gt;</span>
-			 <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;position_org_x4&quot;</span><span style="color: #f92672">&gt;</span> ching line <span style="color: #f92672">&lt;/div&gt;</span>
-			 <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;position_org_x4&quot;</span><span style="color: #f92672">&gt;</span> ching line <span style="color: #f92672">&lt;/div&gt;</span>
-			 <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;position_org_x4&quot;</span><span style="color: #f92672">&gt;</span> ching line <span style="color: #f92672">&lt;/div&gt;</span>
-			 <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;position_org_x4&quot;</span><span style="color: #f92672">&gt;</span> ching line <span style="color: #f92672">&lt;/div&gt;</span>
-		<span style="color: #f92672">&lt;/div&gt;</span>
-		<span style="color: #f92672">&lt;script&gt;</span>
-			
-		 <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(){</span>
-			 <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.js-motion&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">trpScrollActiveFn</span><span style="color: #f8f8f2">(</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">$this</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">$state</span><span style="color: #f8f8f2">){</span>
-				 <span style="color: #a6e22e">console</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">log</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">$this</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">$state</span><span style="color: #f8f8f2">));</span>
-				 <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">$this</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">removeClass</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;under over pass&quot;</span><span style="color: #f8f8f2">)</span>
-				 <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">$this</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">addClass</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">$state</span><span style="color: #f8f8f2">);</span>
-			 <span style="color: #f8f8f2">},</span> <span style="color: #ae81ff">1.0</span><span style="color: #f8f8f2">);</span>
-		 <span style="color: #f8f8f2">})</span>
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .4em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!DOCTYPE html&gt;</span>
+<span style="color: #f92672">&lt;html&gt;</span>
+<span style="color: #f92672">&lt;head&gt;</span>
+<span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">charset=</span><span style="color: #e6db74">&quot;UTF-8&quot;</span><span style="color: #f92672">&gt;</span>
+<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/jquery-1.12.1.min.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/trpLayout.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+<span style="color: #f92672">&lt;style&gt;</span>
+	<span style="color: #f92672">html,</span> <span style="color: #f92672">body</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">margin</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;}</span>
+	<span style="color: #a6e22e">#header</span>     <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span><span style="color: #ae81ff">200px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">lightgrey;</span> <span style="color: #f8f8f2">}</span>
+	<span style="color: #a6e22e">#header.over</span><span style="color: #f92672">,</span> <span style="color: #a6e22e">#header.pass</span>     <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span><span style="color: #ae81ff">200px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#888</span><span style="color: #f8f8f2">;</span>  <span style="color: #f8f8f2">transition</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">all</span> <span style="color: #ae81ff">.5s</span> <span style="color: #f8f8f2">linear;</span>  <span style="color: #f8f8f2">}</span>
+	<span style="color: #a6e22e">#container</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">relative</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span><span style="color: #ae81ff">2000px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">rosybrown;</span>  <span style="color: #f8f8f2">}</span>
+	<span style="color: #a6e22e">#container</span> <span style="color: #a6e22e">.text</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">fixed</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">top</span><span style="color: #f92672">:</span><span style="color: #ae81ff">10px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">right</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">10px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">15px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">font-weight</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">bold</span><span style="color: #f8f8f2">;</span>  <span style="color: #f8f8f2">}</span>
+	<span style="color: #a6e22e">#container</span> <span style="color: #a6e22e">.position_org</span>    <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">plum;</span> <span style="color: #f8f8f2">}</span>
+	<span style="color: #a6e22e">#container</span> <span style="color: #a6e22e">.position_org_x4</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">400px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">blueviolet;</span> <span style="color: #f8f8f2">}</span>
+	<span style="color: #a6e22e">#container</span> <span style="color: #a6e22e">.position_target</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">500px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">brown;</span> <span style="color: #f8f8f2">}</span>
+	<span style="color: #a6e22e">#container</span> <span style="color: #a6e22e">.position_target</span> <span style="color: #f8f8f2">{</span> 
+		<span style="color: #f8f8f2">transition</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">all</span> <span style="color: #ae81ff">0s</span> <span style="color: #f8f8f2">linear;</span>
+	<span style="color: #f8f8f2">}</span>
+	<span style="color: #a6e22e">#container</span> <span style="color: #a6e22e">.position_target.over</span><span style="color: #f92672">,</span>
+	<span style="color: #a6e22e">#container</span> <span style="color: #a6e22e">.position_target.pass</span>
+	<span style="color: #f8f8f2">{</span> <span style="color: #f8f8f2">transition</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">all</span> <span style="color: #ae81ff">.5s</span> <span style="color: #f8f8f2">linear;</span> <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#0f0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+
+	<span style="color: #a6e22e">#start_bar</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">fixed</span><span style="color: #f8f8f2">;</span>  <span style="color: #66d9ef">top</span><span style="color: #f92672">:</span><span style="color: #ae81ff">50</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">right</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">70px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">1px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#ff0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+	<span style="color: #a6e22e">#start_bar:after</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">block</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">content</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;Start .5&quot;</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">color</span><span style="color: #f92672">:</span><span style="color: #ae81ff">#ff0</span><span style="color: #f8f8f2">}</span>
+<span style="color: #f92672">&lt;/style&gt;</span> 
+<span style="color: #f92672">&lt;/head&gt;</span>
+<span style="color: #f92672">&lt;body&gt;</span>
+
+<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;header&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;js-motion&quot;</span><span style="color: #f92672">&gt;</span>header<span style="color: #f92672">&lt;/div&gt;</span>
+<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;container&quot;</span><span style="color: #f92672">&gt;</span>
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;text&quot;</span><span style="color: #f92672">&gt;</span>0<span style="color: #f92672">&lt;/div&gt;</span>
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;start_bar&quot;</span><span style="color: #f92672">&gt;&lt;/div&gt;</span>
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;position_org_x4&quot;</span><span style="color: #f92672">&gt;</span> ching line 200 <span style="color: #f92672">&lt;/div&gt;</span>
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;position_org_x4&quot;</span><span style="color: #f92672">&gt;</span> ching line 600<span style="color: #f92672">&lt;/div&gt;</span>
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;position_org_x4&quot;</span><span style="color: #f92672">&gt;</span> ching line 1000<span style="color: #f92672">&lt;/div&gt;</span>
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;position_target js-motion&quot;</span><span style="color: #f92672">&gt;</span>1400<span style="color: #f92672">&lt;/div&gt;</span>
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;position_org_x4&quot;</span><span style="color: #f92672">&gt;</span> ching line 1900<span style="color: #f92672">&lt;/div&gt;</span>
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;position_org_x4&quot;</span><span style="color: #f92672">&gt;</span> ching line 2300<span style="color: #f92672">&lt;/div&gt;</span>
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;position_org_x4&quot;</span><span style="color: #f92672">&gt;</span> ching line 2700<span style="color: #f92672">&lt;/div&gt;</span>
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;position_target js-motion&quot;</span><span style="color: #f92672">&gt;</span>3100<span style="color: #f92672">&lt;/div&gt;</span>
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;position_org_x4&quot;</span><span style="color: #f92672">&gt;</span> ching line 3600<span style="color: #f92672">&lt;/div&gt;</span>
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;position_org_x4&quot;</span><span style="color: #f92672">&gt;</span> ching line 4000<span style="color: #f92672">&lt;/div&gt;</span>
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;position_org_x4&quot;</span><span style="color: #f92672">&gt;</span> ching line 4400<span style="color: #f92672">&lt;/div&gt;</span>
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;position_target js-motion&quot;</span><span style="color: #f92672">&gt;</span>4800<span style="color: #f92672">&lt;/div&gt;</span>
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;position_org_x4&quot;</span><span style="color: #f92672">&gt;</span> ching line 5300<span style="color: #f92672">&lt;/div&gt;</span>
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;position_org_x4&quot;</span><span style="color: #f92672">&gt;</span> ching line <span style="color: #f92672">&lt;/div&gt;</span>
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;position_org_x4&quot;</span><span style="color: #f92672">&gt;</span> ching line <span style="color: #f92672">&lt;/div&gt;</span>
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;position_org_x4&quot;</span><span style="color: #f92672">&gt;</span> ching line <span style="color: #f92672">&lt;/div&gt;</span>
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;position_org_x4&quot;</span><span style="color: #f92672">&gt;</span> ching line <span style="color: #f92672">&lt;/div&gt;</span>
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;position_org_x4&quot;</span><span style="color: #f92672">&gt;</span> ching line <span style="color: #f92672">&lt;/div&gt;</span>
+<span style="color: #f92672">&lt;/div&gt;</span>
+
+
+<span style="color: #f92672">&lt;script&gt;</span>
 	
-	 <span style="color: #f92672">&lt;/script&gt;</span>
-	
- <span style="color: #f92672">&lt;/body&gt;</span>
- <span style="color: #f92672">&lt;/html&gt;</span>
- </pre></td></tr></table></div>
+	<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(){</span>
+		<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.js-motion&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">trpScrollActiveFn</span><span style="color: #f8f8f2">(</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">$this</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">$state</span><span style="color: #f8f8f2">){</span>
+			<span style="color: #75715e">/// console.log( $this, $state );</span>
+		<span style="color: #f8f8f2">},</span> <span style="color: #f8f8f2">.</span><span style="color: #ae81ff">5</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">{</span><span style="color: #a6e22e">upHold</span> <span style="color: #f92672">:</span> <span style="color: #66d9ef">true</span><span style="color: #f8f8f2">});</span>
+
+		<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(window).</span><span style="color: #a6e22e">on</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;scroll resize&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">$e</span><span style="color: #f8f8f2">){</span>
+			<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;#container .text&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">text</span><span style="color: #f8f8f2">(</span> <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">this</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">scrollTop</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">)</span>
+		<span style="color: #f8f8f2">});</span>
+	<span style="color: #f8f8f2">})</span>
+
+<span style="color: #f92672">&lt;/script&gt;</span>
+
+<span style="color: #f92672">&lt;/body&gt;</span>
+<span style="color: #f92672">&lt;/html&gt;</span>
+</pre></td></tr></table></div>
+ 
+ 
  
 
 

@@ -307,21 +307,32 @@ jQuery.fn.trpScrollActive = function( $add_class, $show_per, $under_b, $pass_b )
   var _show_per = $show_per;
   var _scrollTarModi = 0;
   var _under_b = ($under_b)? $under_b : false;
-  var _pass_b = ($pass_b)? $pass_b : false;
+  var _pass_b  = ($pass_b)? $pass_b : false;
+  var _last_scrollTop = 0; 
+ 
+
   function scrollActiveFn() { 
     var _wH  = window.innerHeight; 
     var _wS  = $(window).scrollTop();
     var _wHS = (_wH + _wS);
+    var _sdB = true;
+    /* ------------------------------- scroll up & down */
+    var _tmp =  _wS;            //$(this).scrollTop();
+    if (_tmp >= _last_scrollTop) { console.log(">>>>>>>>>>>>>>>>> down");
+      _sdB = true;
+    } else {                       console.log(">>>>>>>>>>>>>>>>> up");
+      _sdB = false;
+    }
+    _last_scrollTop = _tmp;
+    /* -------------------------------  */
+
     
-
     $(_tarGet).each(function($i) { 			
-      var _t  = ($(this).offset().top + _scrollTarModi) +  (_wH * _show_per); 
-      var _th = ($(this).offset().top + _scrollTarModi) + $(this).innerHeight(); 
-
-      /* 화면에 벗어난 컨텐츠는 딜레이를 주지 않음. */
-      if( $(this).offset().top > _wH ){ $(this).addClass("scrolldelay0"); }
-
-      if (_wS > _th) { 
+      var _t  = ($(this).offset().top + _scrollTarModi) +  (_wH * _show_per);    // 이벤트 시작
+      var _ts = ($(this).offset().top + _scrollTarModi) +  (_wH * 0);            // 보이기 시작
+      var _th = ($(this).offset().top + _scrollTarModi) + $(this).innerHeight(); // pass
+     
+      if (_wS >= _th) { 
         if(_pass_b){
           $(this).removeClass(_addClass); 
         }else{
@@ -329,13 +340,32 @@ jQuery.fn.trpScrollActive = function( $add_class, $show_per, $under_b, $pass_b )
         }                                                  // pass
       } else if (_wHS >= _t) { 
         $(this).addClass(_addClass);                       // over
-      } else {
-        if(_under_b){ $(this).removeClass(_addClass); }    // under
+      } else {                                             // under
+        if(_under_b){ 
+          $(this).removeClass(_addClass); 
+        }    
       } 	
+
+      /* show & pass */
+      $(this).removeClass("show pass under"); 
+      if (_wS >= _th) {                                     // pass
+        $(this).attr("state", "pass");
+      } else if (_wHS >= _ts) {                             // show
+        $(this).attr("state", "show");
+
+        if(!_sdB &&  $(this).hasClass(_addClass) ){
+          $(this).addClass(_addClass);
+        }
+      } else {
+        $(this).attr("state", "under");
+
+        $(this).removeClass(_addClass); 
+      }
+
     }); 
   }
   $(window).on('scroll resize', scrollActiveFn);
-  $(window).trigger('scroll resize');
+  $(window).trigger('resize');
 
   return {
     /* 기준 타겟 위치 가감 수치 변경 */
@@ -352,17 +382,29 @@ jQuery.fn.trpScrollActive = function( $add_class, $show_per, $under_b, $pass_b )
 * @param	$show_per            : 시작위치  (0: 보일때, .2: 20% 올라왔을때)
 * @method setTarModi($tarModi) : 가감수치 변경
 */
-jQuery.fn.trpScrollActiveFn = function( $function, $show_per ){
+jQuery.fn.trpScrollActiveFn = function( $function, $show_per, $options ){
   var _tarGet   = this
   var _show_per = $show_per;
+  var _scrollTarModi = 0;
   var _last_scrollTop = 0;
-  var _state = "";
+  var _State = "under";
+  var settings = {
+    upHold : false,               // 타겟 선택자  
+  };
+  settings = jQuery.extend(settings, $options || {});
 
-  function scrollActiveReSetFn(){
-    $(this).removeClass("under over pass");
-    $(this).addClass("under");
+  /* --- 상태 변경 --- */
+  function scrollActiveReSetFn($this, $state){
+    /* 상태 변화가 있을때만 변경 */
+    if( $state != $($this).data("state") ){
+      $($this).data("state", $state); 
+      $($this).removeClass("under over pass")
+      $($this).addClass($state);
+      $function($this, $state);
+    }
   }
 
+  /* --- 스크롤 & 리싸이즈 --- */
   function scrollActiveFn() { 
     var _wH  = window.innerHeight; 
     var _wS  = $(window).scrollTop();
@@ -371,56 +413,53 @@ jQuery.fn.trpScrollActiveFn = function( $function, $show_per ){
     function scrollDown(){
       $(_tarGet).each(function($i) { 			
         var _s  = ($(this).offset().top) - _wH                          /* 타겟 show   */     
-        //var _t  = ($(this).offset().top) +  (_wH * _show_per);          /* 타겟 active */  
-        var _t  = ($(this).offset().top) - (_wH * _show_per);           /* 타겟 active */
+        var _t  = ($(this).offset().top + _scrollTarModi ) - (_wH * _show_per);           /* 타겟 active */
         var _th = ($(this).offset().top) + $(this).innerHeight();       /* 타겟 pass   */  
-        
+        var _state = $(this).data("state");
+
         if (_wS >= _th) { 
-          _state = "pass";   // pass 
+          _state = "pass";      // pass 
         } else if (_wS >= _t) { 
-          _state = "over";     // over
+          _state = "over";      // over
         } else {
-          (_state == "over")? _state == "over" : _state = "under"; // under
+          if (settings.upHold) {
+            ($(this).data("state") == "over")? _state == "over" : _state = "under"; // under
+          }else{ 
+            _state = "under";
+          }
         } 
-        console.log("scrollDown : ", "_wS", _wS , "   _s",_s, "   _t", _t, "   _wHS", _wHS, "   _th",_th, _state);
+        /* 스크롤 , show, 대상, pass,  */
+        ///console.log("scrollDown : ", "_wS", _wS , "   _s",_s, "   _t", _t, "   _wHS", _wHS, "   _th",_th, _state);
 
         /* 상태 초기화 및 변경 */
-        if( _state != $(this).data("state") ){
-          $(this).data("state", _state); 
-          $(this).removeClass("under over pass")
-          $(this).addClass(_state);
-          $function(this, _state);
-        }
+        scrollActiveReSetFn(this, _state);
       }); 
     }
+
     function scrollUp(){
       $(_tarGet).each(function($i) { 			
         var _s  = ($(this).offset().top) - _wH                         /* 타겟 show */
-        var _t  = ($(this).offset().top) - (_wH * _show_per);          /* 타겟 시작 */
-        var _th = ($(this).offset().top) + $(this).innerHeight();      /* 타겟 hide */
+        var _t  = ($(this).offset().top + _scrollTarModi) - (_wH * _show_per);          /* 타겟 시작 */
+        var _th = ($(this).offset().top) + $(this).innerHeight();      /* 타겟 hide : pass */
+        var _state = $(this).data("state");
 
         if ( _wS > _s && _wS < _th ) {    // over 
           if( _wS >= _t ) { 
             _state = "over";
           }else{
-            (_state == "over")? _state == "over" : _state = "under"; // over & under
+            ( _state == "over")? _state == "over" : _state = "under"; // over & under
           }
         }else if( _wS >= _th ) {          // pass
           _state = "pass";
-        }else  {
+        }else {
           _state = "under";               // under
         }
    
         /* 스크롤 , show, 대상, pass,  */
-        console.log("scrollUp : ", "_wS", _wS , "   _s",_s, "   _t", _t, "   _wHS", _wHS, "   _th",_th, _state);
+        ///console.log("scrollUp : ", "_wS", _wS , "   _s",_s, "   _t", _t, "   _wHS", _wHS, "   _th",_th, _state);
 
         /* 상태 초기화 및 변경 */
-        if( _state != $(this).data("state") ){
-          $(this).data("state", _state); 
-          $(this).removeClass("under over pass")
-          $(this).addClass(_state);
-          $function(this, _state);
-        }
+        scrollActiveReSetFn(this, _state);
       }); 
     }
 
@@ -429,15 +468,13 @@ jQuery.fn.trpScrollActiveFn = function( $function, $show_per ){
     if (_tmp >= _last_scrollTop) { /// console.log(">>>>>>>>>>>>>>>>> down")
       scrollDown();
     } else {                       /// console.log(">>>>>>>>>>>>>>>>> up")
-      scrollUp()
+      (settings.upHold)? scrollUp() : scrollDown();
     }
     _last_scrollTop = _tmp;
     /* -------------------------------  */
-
   }
 
-
-  scrollActiveReSetFn();
+  scrollActiveReSetFn(this, _State);
   $(window).on('scroll resize', scrollActiveFn);
   $(window).trigger('resize');
 
