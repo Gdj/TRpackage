@@ -80,6 +80,7 @@
     </div>
     <div class="bg"></div>
 </div>
+
 <div class="trp-progress_circle">
     <div class="slice clipauto" style="">
         <div class="bar" style="transform: rotate(270deg);"> </div>
@@ -87,6 +88,26 @@
     </div>
     <div class="bg"></div>
 </div>
+
+
+<script>
+    var fillBar = document.querySelector('.clipauto .fill');
+    var fullBar = document.querySelector('.clipauto .bar');
+    function progress(value) {
+        
+        if (value <= 50) {
+            var degree = 18*value/5;
+            fullBar.style.transform = "rotate("+degree+"deg)";
+            fillBar.style.transform = "rotate(0deg)";
+        } else {
+            var degree = 18*(value-50)/5;
+            fullBar.style.transform = "rotate(180deg)";
+            fillBar.style.transform = "rotate("+degree+"deg)";
+        }
+    }
+
+    progress(70)
+</script>
 
 </body>
 
