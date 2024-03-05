@@ -1,7 +1,7 @@
 @use "sass:math";
 
-.particle1-area {position: absolute; top:50px; left: 50px; overflow: hidden;
-  width: 260px; height: 380px; background-color: #333;
+.particle1-area { position: relative; overflow: hidden;
+  width: 260px; height: 180px; background-color: #333;
   .particle {
     $moveDurations: 15000 + math.random(4000) + s;
     position: absolute; top:-5px; left: 50%;
@@ -30,7 +30,7 @@
   }
 }          
 
-.particle2-area { position: absolute; top:50px; left: 400px; 
+.particle2-area { position: relative; overflow: hidden;
   width: 230px; height: 100px; /* border: 1px solid #f00; */
   background-color: #333;
   $boxW: 150px;
