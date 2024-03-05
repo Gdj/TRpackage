@@ -187,7 +187,6 @@
                     <!-- 소스 -->
 
 
-
 <!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .4em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
 	2
 	3
@@ -277,18 +276,18 @@
  87
  88</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #66d9ef">@use</span> <span style="color: #e6db74">&quot;sass:math&quot;</span><span style="color: #f92672">;</span>
  
- <span style="color: #a6e22e">.particle2-area</span> <span style="color: #f8f8f2">{</span> <span style="color: #a6e22e">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">absolute</span><span style="color: #f8f8f2">;</span> <span style="color: #a6e22e">top</span><span style="color: #f92672">:</span><span style="color: #ae81ff">50</span><span style="color: #66d9ef">px</span><span style="color: #f8f8f2">;</span> <span style="color: #a6e22e">left</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">400</span><span style="color: #66d9ef">px</span><span style="color: #f8f8f2">;</span> 
-	 <span style="color: #a6e22e">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">230</span><span style="color: #66d9ef">px</span><span style="color: #f8f8f2">;</span> <span style="color: #a6e22e">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #66d9ef">px</span><span style="color: #f8f8f2">;</span> <span style="color: #75715e">/* border: 1px solid #f00; */</span>
+ <span style="color: #a6e22e">.particle2-area</span> <span style="color: #f8f8f2">{</span> <span style="color: #a6e22e">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">relative</span><span style="color: #f8f8f2">;</span> <span style="color: #a6e22e">overflow</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">hidden</span><span style="color: #f8f8f2">;</span>
+	 <span style="color: #a6e22e">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">330</span><span style="color: #66d9ef">px</span><span style="color: #f8f8f2">;</span> <span style="color: #a6e22e">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #66d9ef">px</span><span style="color: #f8f8f2">;</span> <span style="color: #75715e">/* border: 1px solid #f00; */</span>
 	 <span style="color: #a6e22e">background-color</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#333</span><span style="color: #f8f8f2">;</span>
-	 <span style="color: #f8f8f2">$boxW</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">150</span><span style="color: #66d9ef">px</span><span style="color: #f8f8f2">;</span>
-	 <span style="color: #f8f8f2">$boxH</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #66d9ef">px</span><span style="color: #f8f8f2">;</span>
+	 <span style="color: #f8f8f2">$boxW</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #66d9ef">px</span><span style="color: #f8f8f2">;</span>
+	 <span style="color: #f8f8f2">$boxH</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">150</span><span style="color: #66d9ef">px</span><span style="color: #f8f8f2">;</span>
 	 <span style="color: #f8f8f2">$particleWidth</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">5</span><span style="color: #66d9ef">px</span><span style="color: #f8f8f2">;</span>
 	 <span style="color: #f8f8f2">$particleNum</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">20</span><span style="color: #f8f8f2">;</span>
 	 <span style="color: #f8f8f2">$particleColor</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">hsl</span><span style="color: #f8f8f2">(</span><span style="color: #ae81ff">180</span><span style="color: #f92672">,</span> <span style="color: #ae81ff">100</span><span style="color: #66d9ef">%</span><span style="color: #f92672">,</span> <span style="color: #ae81ff">80</span><span style="color: #66d9ef">%</span><span style="color: #f8f8f2">);</span>
 	 
 	 <span style="color: #a6e22e">.particle</span>  <span style="color: #f8f8f2">{</span>
-		 <span style="color: #a6e22e">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">absolute</span><span style="color: #f8f8f2">;</span> <span style="color: #a6e22e">right</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">-10</span><span style="color: #66d9ef">px</span><span style="color: #f8f8f2">;</span>
-		 <span style="color: #a6e22e">animation-iteration-count</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">infinite;</span>
+		 <span style="color: #a6e22e">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">absolute</span><span style="color: #f8f8f2">;</span> <span style="color: #a6e22e">left</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">-0</span><span style="color: #66d9ef">px</span><span style="color: #f8f8f2">;</span> <span style="color: #a6e22e">top</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">-10</span><span style="color: #66d9ef">px</span>
+		 <span style="color: #f8f8f2">animation-iteration-count</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">infinite;</span>
 		 <span style="color: #a6e22e">animation-timing-function</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">linear;</span>
  
 		 <span style="color: #f92672">span</span> <span style="color: #f8f8f2">{</span> <span style="color: #a6e22e">display</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">block</span><span style="color: #f8f8f2">;</span>
@@ -322,7 +321,7 @@
 				 <span style="color: #a6e22e">width</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">$circleSize</span> <span style="color: #f92672">+</span> <span style="color: #66d9ef">px</span><span style="color: #f8f8f2">;</span>
 				 <span style="color: #a6e22e">height</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">$circleSize</span> <span style="color: #f92672">+</span> <span style="color: #66d9ef">px</span><span style="color: #f8f8f2">;</span>
  
-				 <span style="color: #f8f8f2">$startPositionY</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">math</span><span style="color: #f92672">.</span><span style="color: #a6e22e">random</span><span style="color: #f8f8f2">(</span><span style="color: #ae81ff">10</span><span style="color: #f8f8f2">)</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">10</span><span style="color: #f8f8f2">;</span>
+				 <span style="color: #f8f8f2">$startPositionY</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">math</span><span style="color: #f92672">.</span><span style="color: #a6e22e">random</span><span style="color: #f8f8f2">(</span><span style="color: #ae81ff">10</span><span style="color: #f8f8f2">)</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">10</span><span style="color: #66d9ef">px</span><span style="color: #f8f8f2">;</span>
 				 <span style="color: #f8f8f2">$framesName</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;move-frames-&quot;</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">$i;</span>
 				 <span style="color: #f8f8f2">$moveDuration</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">7000</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">math</span><span style="color: #f92672">.</span><span style="color: #a6e22e">random</span><span style="color: #f8f8f2">(</span><span style="color: #ae81ff">4000</span><span style="color: #f8f8f2">)</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">ms;</span>
  
@@ -364,6 +363,7 @@
 	 <span style="color: #f8f8f2">}</span>
  <span style="color: #f8f8f2">}</span>
  </pre></td></tr></table></div>
+ 
  
 
                     

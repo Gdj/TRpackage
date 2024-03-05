@@ -31,16 +31,16 @@
 }          
 
 .particle2-area { position: relative; overflow: hidden;
-  width: 230px; height: 100px; /* border: 1px solid #f00; */
+  width: 330px; height: 100px; /* border: 1px solid #f00; */
   background-color: #333;
-  $boxW: 150px;
-  $boxH: 100px;
+  $boxW: 100px;
+  $boxH: 150px;
   $particleWidth: 5px;
   $particleNum: 20;
   $particleColor: hsl(180, 100%, 80%);
   
   .particle  {
-    position: absolute; right: -10px;
+    position: absolute; left: -0px; top: -10px
     animation-iteration-count: infinite;
     animation-timing-function: linear;
 
@@ -75,7 +75,7 @@
         width: $circleSize + px;
         height: $circleSize + px;
 
-        $startPositionY: math.random(10) - 10;
+        $startPositionY: math.random(10) - 10px;
         $framesName: "move-frames-" + $i;
         $moveDuration: 7000 + math.random(4000) + ms;
 
