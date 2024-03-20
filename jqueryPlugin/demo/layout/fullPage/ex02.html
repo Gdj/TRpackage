@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ex02 : fullpagejs</title>
+  <link rel="stylesheet" type="text/css" href="../../../../asset/js/libs/fullPage/css/jquery.fullpage-2.9.7.css" />
+	<!--[if IE]>
+		<script type="text/javascript">
+			 var console = { log: function() {} };
+		</script>
+	<![endif]-->
+	<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js"></script>
+	<script type="text/javascript" src="../../../../asset/js/libs/fullPage/jquery.fullpage-2.9.7.js"></script>
+	<style>
+		.section { text-align: center; }
+    .section-inner { position: relative; margin: 0 50px; background-color: rgba(255,255,255, 0.5);}
+    .section-inner.free { }
+    .section-inner .full_scroll { height: 100%; background-color: #ffa9dd;
+    
+      overflow: hidden;
+      overflow-y: scroll;
+      height: 100vh;
+      ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+
+  </style>
+</head>
+<body>
+
+
+  <div id="fullpage" class="fullpage-wrap">
+    <section class="section" id="section1">
+      <h1>#section1</h1>
+    </section>
+
+    <section class="section" id="section2">
+      <div class="section-inner">
+        <h1>#section2</h1>
+      </div>
+    </section>
+
+    <section class="section" id="section3">
+      <h1>#section3</h1>
+    </section>
+
+    <section class="section" id="section4">
+      <h1>#section4</h1>
+    </section>
+
+    <section class="section" id="section5">
+      <div class="section-inner free">
+        <div class="full_scroll">
+          <h1>#section5 : free1</h1> <br>
+          <h1>#section5 : free2</h1> <br>
+          <h1>#section5 : free3</h1> <br>
+          <h1>#section5 : free4</h1> <br>
+          <h1>#section5 : free5</h1> <br>
+          <h1>#section5 : free6</h1> <br>
+          <h1>#section5 : free7</h1> <br>
+          <h1>#section5 : free8</h1> <br>
+          <h1>#section5 : free9</h1> <br>
+          <h1>#section5 : free10</h1> <br>
+          <h1>#section5 : free11</h1> <br>
+          <h1>#section5 : free12</h1> <br>
+          <h1>#section5 : free13</h1> <br>
+          <h1>#section5 : free14</h1> <br>
+          <h1>#section5 : free15</h1> <br>
+          <h1>#section5 : free16</h1> <br>
+          <h1>#section5 : free17</h1> <br>
+          <h1>#section5 : free18</h1> <br>
+        </div>
+      </div>
+    </section>
+
+    <!-- fp-auto-height -->
+    <section class="section fp-auto-height" id="section6">
+      <footer id="footer">
+        <h2>#section6 : footer</h2>
+        <h2>#section6 : footer</h2>
+      </footer>
+    </section>
+  </div>
+  
+  
+
+  <!-- fullpage -->
+  <script>
+  $(function() {
+    function section5_next() {
+      if (_section5_conOnes) {
+        _section5_conOnes = false;
+        $.fn.fullpage.moveSectionDown();
+      }
+    }
+    function section5_prev() {
+      if (_section5_conOnes) {
+        _section5_conOnes = false;
+        $.fn.fullpage.moveSectionUp();
+      }
+    }
+
+    function section5_TimeOut() {
+      clearTimeout(_section5_conTimeOut);
+      _section5_conTimeOut = setTimeout(function() {
+          _section5_conOnes = true;
+          clearTimeout(_section5_conTimeOut);
+      }, 300);
+    }
+
+    function section5_reset() {
+      _section5_conOnes = true;
+      $("#section5 .full_scroll").removeClass("scroll_up scroll_down");
+      $("#section5").removeClass("active_section");
+    }
+    function section5_start() {
+      _section5_conOnes = true;
+      $("#section5").addClass("active_section");
+    }
+
+    /* #section5 스크롤 정도 계산 */
+    var _s5_settime;
+    var s5_per = 0;
+    $("#section5 .full_scroll").on("scroll", function($e) {
+      console.log("================== > #section5 .full_scroll")
+      s5_per = Math.floor(($("#section5 .full_scroll").scrollTop() / ($("#section5 .full_scroll").prop("scrollHeight") - $("#section5 .full_scroll").prop("clientHeight"))) * 100);
+      if (s5_per == 0) {
+        clearTimeout(_s5_settime);
+        _s5_settime = setTimeout(function() {
+          if (s5_per == 0) {
+            $("#section5 .full_scroll").addClass("scroll_up");
+          }
+        }, 400);
+      } else if (s5_per == 100) {
+        clearTimeout(_s5_settime);
+        _s5_settime = setTimeout(function() {
+          if (s5_per == 100) {
+            $("#section5 .full_scroll").addClass("scroll_down");
+          }
+        }, 400);
+      } else {
+        $("#section5 .full_scroll").removeClass("scroll_up scroll_down");
+      }
+    });
+
+    /* ----- wheel event -----     */
+    var _section5_conTimeOut = null;
+    var _section5_conOnes = true;
+    $("#section5 .full_scroll").on('wheel', function(e) {
+      var E = e.originalEvent;
+      var delta = 0;
+      console.log("wheelwheelwheel : ", e.originalEvent.deltaY, E.detail, E.wheelDelta)
+      if (E.detail) {
+        delta = E.detail * -40;
+      } else {
+        delta = E.wheelDelta;
+      }
+      if (delta < 0) { // wheel down
+        //Next
+        if ($("#section5 .full_scroll").hasClass("scroll_down")) {
+          section5_next();
+        }
+      } else { // wheel up
+        // Prev
+        if ($("#section5 .full_scroll").hasClass("scroll_up")) {
+          section5_prev();
+        }
+      }
+    });
+
+    /* ----- touch event ----- */
+    var s5_startY, s5_endY;
+    $("#section5 .full_scroll").on('touchStart', function(event) {
+      s5_startY = event.touches[0].pageY;
+    });
+    $("#section5 .full_scroll").on('touchMove', function(event) {
+      s5_endY = event.touches[0].pageY;
+      if (s5_startY - s5_endY > 30) {         // down to up (NEXT)
+        section5_next();
+      } else if (s5_endY - s5_startY > 30) {  // up to down (PREV)
+        section5_prev();
+      }
+    });
+    
+
+    var _pageMain = 0;
+    var _pageSub = 0;
+    $('#fullpage').fullpage({
+        menu: '#menu',
+        anchors: ['secton1', 'secton2', 'secton3', 'secton4', 'secton5', 'secton6'],
+        sectionsColor: ['#fff', '#a5d8ea', '#ddefc8', '#b4c1c7', '#1cddda' , '#777'],
+        //autoScrolling: false,
+        navigation: true,
+        navigationPosition: 'right',
+        slidesNavigation: true,
+        fitToSectionDelay: 0,
+        fitToSection: false,
+        scrollingSpeed: 800,
+        responsiveHeight: 480,
+        css3: false,
+        // ** 페이지를 불러온 후  
+        afterLoad: function(anchorLink, index, direction, trigger) {
+          if (index == 1) {
+            $.fn.fullpage.setAllowScrolling(true);  // 스크롤 활성
+          }
+          if (index == 2) {
+            //$.fn.fullpage.moveTo(2,0);            // 페이지 이동
+            $.fn.fullpage.setAllowScrolling(true);  // 스크롤 활성
+          }
+          if (index == 3) {
+            $.fn.fullpage.setAllowScrolling(true);  // 스크롤 활성
+          }
+          if (index == 4) {
+            $.fn.fullpage.setAllowScrolling(true);  // 스크롤 활성
+          }
+          if (index == 5) {
+            $.fn.fullpage.setAllowScrolling(false); // 스크롤 막기
+            section5_start();
+          }
+          if (index == 6) {
+            $.fn.fullpage.setAllowScrolling(true);  // 스크롤 활성
+          }
+
+        },
+        // ** 페이지를 떠날때
+        onLeave: function(index, nextIndex, direction) {
+          if (index == 1 && direction == 'down') {
+          } else if (index == 2 && direction == 'up') {
+          } else if (index == 2 && direction == 'down') {
+          } else if (index == 3 && direction == 'up') {
+          } else if (index == 3 && direction == 'down') {
+          } else if (index == 4 && direction == 'up') {
+          } else if (index == 4 && direction == 'down') {
+          } else if (index == 5 && direction == 'up') {    section5_reset();
+          } else if (index == 5 && direction == 'down') {
+          } else if (index == 6 && direction == 'up') {
+          }
+        }
+    });
+
+  });
+</script>
+
+</body>
+</html>
