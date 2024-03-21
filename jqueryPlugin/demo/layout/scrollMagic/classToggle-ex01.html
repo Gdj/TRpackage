@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>ClassToggle-ex01 : ScrollMagic</title>
+	<!--[if IE]>
+		<script type="text/javascript">
+			 var console = { log: function() {} };
+		</script>
+		<![endif]-->
+
+	<!-- ============ source highlight ================= -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/dark.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+	<script>hljs.highlightAll();</script>
+	<!-- // ============ source highlight ================= -->
+
+	<script type="text/javascript" src="../../../../asset/js/libs/scrollmagic/jquery.min.js"></script>
+	<script type="text/javascript" src="../../../../asset/js/libs/scrollmagic/ScrollMagic-2.0.7.js"></script>
+	<script type="text/javascript" src="../../../../asset/js/libs/scrollmagic/debug.addIndicators-2.0.7.js"></script>
+
+</head>
+<body>
+
+  <style>
+		body{ margin: 0; padding: 0;}
+		pre { position: absolute; top:20px; left: 20px;font-family: Consolas, monospace; font-size: 14px; tab-size: 2; z-index: 5;}
+		h1, h2, h3 { margin: 0; }
+		.section {padding: 0 20px; height: 300px;}
+		.section.active { background-color: #fb7f7e;}
+		.top10 { position: absolute; top: 10px; }
+		.mt10 { margin-top: 10px;}
+		.pt10 { padding-top: 10px;}
+		.ibg1 { background-color: #1cddda; }
+		.ibg2 { background-color: #b0f0a5; }
+		.ibg3 { background-color: #fb9f9e; }
+		.bg0 { background-color: #dcecec; height: 500px;}
+		.bg1 { background-color: #ffceff;}
+		.bg2 { background-color: #adcdff;}
+		.bg3 { background-color: #ffffd1;}
+		.bg4 { background-color: #c9e7db;}
+		.bg5 { background-color: #aef0ff;}
+		.bg6 { background-color: #ffddd8;}
+		
+    
+		.box { 
+			display: inline-block; padding: 0px 20px; font-size: 20px; line-height: 30px;   
+		}
+	</style>
+
+	<div class="wrap">
+		<section class="section bg0">
+			<h1>classToggle-ex01</h1>
+			<pre>
+				<code class="language-js">
+          // init controller
+          var controller = new ScrollMagic.Controller({globalSceneOptions: {duration: 300}});
+      
+          // build scenes
+          new ScrollMagic.Scene({triggerElement: ".bg1"})
+                  .setClassToggle(".bg1", "active") // add class toggle
+                  .addIndicators() // add indicators (requires plugin)
+                  .addTo(controller);
+          new ScrollMagic.Scene({triggerElement: ".bg2"})
+                  .setClassToggle(".bg2", "active") // add class toggle
+                  .addIndicators() // add indicators (requires plugin)
+                  .addTo(controller);
+          new ScrollMagic.Scene({triggerElement: ".bg3"})
+                  .setClassToggle(".bg3", "active") // add class toggle
+                  .addIndicators() // add indicators (requires plugin)
+                  .addTo(controller);
+          new ScrollMagic.Scene({triggerElement: ".bg4"})
+                  .setClassToggle(".bg4", "active") // add class toggle
+                  .addIndicators() // add indicators (requires plugin)
+                  .addTo(controller);
+				</code>
+			</pre>
+		</section>
+		<section class="section bg1"></section>
+		<section class="section bg2"></section>
+		<section class="section bg3"></section>
+		<section class="section bg4"></section>
+		<section class="section bg5"></section>
+		<section class="section bg6"></section>
+	</div>
+
+	<script>
+	$(function () { // wait for document ready
+    // init controller
+    var controller = new ScrollMagic.Controller({globalSceneOptions: {duration: 300}});
+
+    // build scenes
+    new ScrollMagic.Scene({triggerElement: ".bg1"})
+            .setClassToggle(".bg1", "active") // add class toggle
+            .addIndicators() // add indicators (requires plugin)
+            .addTo(controller);
+    new ScrollMagic.Scene({triggerElement: ".bg2"})
+            .setClassToggle(".bg2", "active") // add class toggle
+            .addIndicators() // add indicators (requires plugin)
+            .addTo(controller);
+    new ScrollMagic.Scene({triggerElement: ".bg3"})
+            .setClassToggle(".bg3", "active") // add class toggle
+            .addIndicators() // add indicators (requires plugin)
+            .addTo(controller);
+    new ScrollMagic.Scene({triggerElement: ".bg4"})
+            .setClassToggle(".bg4", "active") // add class toggle
+            .addIndicators() // add indicators (requires plugin)
+            .addTo(controller);
+	});
+	</script>
+
+</body>
+</html>

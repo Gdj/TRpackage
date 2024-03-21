@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>AttributeTracking-ex01 : ScrollMagic</title>
+	<!--[if IE]>
+		<script type="text/javascript">
+			 var console = { log: function() {} };
+		</script>
+		<![endif]-->
+
+	<!-- ============ source highlight ================= -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/dark.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+	<script>hljs.highlightAll();</script>
+	<!-- // ============ source highlight ================= -->
+
+	<script type="text/javascript" src="../../../../asset/js/libs/scrollmagic/jquery.min.js"></script>
+		<script type="text/javascript" src="../../../../asset/js/libs/scrollmagic/plugins/gsap.min.js"></script>
+	<script type="text/javascript" src="../../../../asset/js/libs/scrollmagic/ScrollMagic-2.0.7.js"></script>
+		<script type="text/javascript" src="../../../../asset/js/libs/scrollmagic/plugins/animation.gsap.js"></script>
+	<script type="text/javascript" src="../../../../asset/js/libs/scrollmagic/debug.addIndicators-2.0.7.js"></script>
+
+</head>
+<body>
+	<style>
+		body{ margin: 0; padding: 0;}
+		pre { position: absolute; top:20px; left: 20px;font-family: Consolas, monospace; font-size: 14px; tab-size: 2; z-index: 5;}
+		h1, h2, h3 { margin: 0; }
+		.section {padding: 0 20px; height: 300px;}
+		.top10 { position: absolute; top: 10px; }
+		.mt10 { margin-top: 10px;}
+		.pt10 { padding-top: 10px;}
+		.ibg1 { background-color: #1cddda; }
+		.ibg2 { background-color: #b0f0a5; }
+		.ibg3 { background-color: #fb9f9e; }
+		.bg0 { background-color: #dcecec; height: 500px;}
+		.bg1 { background-color: #ffceff;}
+		.bg2 { background-color: #adcdff;}
+		.bg3 { background-color: #ffffd1;}
+		.bg4 { background-color: #c9e7db;}
+		.bg5 { background-color: #aef0ff;}
+		.bg6 { background-color: #ffddd8;}
+		
+		.box { 
+			display: inline-block; padding: 0px 20px; font-size: 20px; line-height: 30px;   
+		}
+	</style>
+
+	<div class="wrap">
+		<section class="section bg0">
+			<h1>AttributeTracking-ex01</h1>
+			<pre>
+				<code class="language-js">
+				/* load javascript
+				"/asset/js/libs/scrollmagic/jquery.min.js"
+					"/asset/js/libs/scrollmagic/plugins/gsap.min.js"
+				"/asset/js/libs/scrollmagic/ScrollMagic-2.0.7.js"
+					"/asset/js/libs/scrollmagic/plugins/animation.gsap.js"
+				"/asset/js/libs/scrollmagic/debug.addIndicators-2.0.7.js"
+				*/
+
+				// init controller
+				var controller = new ScrollMagic.Controller();
+		
+				// build tween
+				var tween = TweenMax.to("#pin1", 1, {rotation: 360, ease: Linear.easeNone});
+		
+				// build scene
+				var scene = new ScrollMagic.Scene({triggerElement: "#trigger1", duration: 300})
+								.setTween(tween)
+								.setPin("#pin1", {pushFollowers: false})
+								.addIndicators() // add indicators (requires plugin)
+								.addTo(controller);
+				// 재정의						
+				scene.duration(600);
+				</code>
+			</pre>
+		</section>
+		<section class="section bg1"></section>
+		<section class="section bg2" id="trigger1">
+			<div class="box ibg1" id="pin1">target (GSAP)</div>
+		</section>
+		<section class="section bg3"></section>
+		<section class="section bg4"></section>
+		<section class="section bg5"></section>
+		<section class="section bg1"></section>
+		<section class="section bg2"></section>
+		<section class="section bg3"></section>
+		<section class="section bg4"></section>
+		<section class="section bg5"></section>
+	</div>
+
+	<script>
+	$(function () { // wait for document ready
+		// init controller
+		var controller = new ScrollMagic.Controller();
+
+		// build tween
+		var tween = TweenMax.to("#pin1", 1, {rotation: 360, ease: Linear.easeNone});
+
+		// build scene
+		var scene = new ScrollMagic.Scene({triggerElement: "#trigger1", duration: 300})
+						.setTween(tween)
+						.setPin("#pin1", {pushFollowers: false})
+						.addIndicators() // add indicators (requires plugin)
+						.addTo(controller);
+		// 재정의						
+		scene.duration(600);
+	});
+	</script>
+
+</body>
+</html>

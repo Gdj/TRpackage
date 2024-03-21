@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>event-ex01 : ScrollMagic</title>
+	<!--[if IE]>
+		<script type="text/javascript">
+			 var console = { log: function() {} };
+		</script>
+		<![endif]-->
+
+	<!-- ============ source highlight ================= -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/dark.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+	<script>hljs.highlightAll();</script>
+	<!-- // ============ source highlight ================= -->
+
+	<script type="text/javascript" src="../../../../asset/js/libs/scrollmagic/jquery.min.js"></script>
+	<script type="text/javascript" src="../../../../asset/js/libs/scrollmagic/ScrollMagic-2.0.7.js"></script>
+	<script type="text/javascript" src="../../../../asset/js/libs/scrollmagic/debug.addIndicators-2.0.7.js"></script>
+
+</head>
+<body>
+
+  <style>
+		body{ margin: 0; padding: 0;}
+		pre { position: absolute; top:20px; left: 20px;font-family: Consolas, monospace; font-size: 14px; tab-size: 2; z-index: 5;}
+		h1, h2, h3 { margin: 0; }
+		.section {padding: 0 20px; height: 300px;}
+		.section.active { background-color: #fb7f7e;}
+		.top10 { position: absolute; top: 10px; }
+		.mt10 { margin-top: 10px;}
+		.pt10 { padding-top: 10px;}
+		.ibg1 { background-color: #1cddda; }
+		.ibg2 { background-color: #b0f0a5; }
+		.ibg3 { background-color: #fb9f9e; }
+		.bg0 { background-color: #dcecec; height: 500px;}
+		.bg1 { background-color: #ffceff;}
+		.bg2 { background-color: #adcdff;}
+		.bg3 { background-color: #ffffd1;}
+		.bg4 { background-color: #c9e7db;}
+		.bg5 { background-color: #aef0ff;}
+		.bg6 { background-color: #ffddd8;}
+		
+    
+		.box { 
+			display: inline-block; padding: 0px 20px; font-size: 20px; line-height: 30px;   
+		}
+	</style>
+
+	<div class="wrap">
+		<section class="section bg0">
+			<h1>event-ex01</h1>
+			<pre>
+				<code class="language-js">
+					// init controller
+					var controller = new ScrollMagic.Controller();
+			
+					// build scene
+					var scene = new ScrollMagic.Scene({triggerElement: "#trigger1", duration: 300})
+									.addTo(controller)
+									.addIndicators() // add indicators (requires plugin)
+									.on("update", function (e) {
+										$("#scrollDirection").text(e.target.controller().info("scrollDirection"));
+									})
+									.on("enter leave", function (e) {
+										$("#state").text(e.type == "enter" ? "inside" : "outside");
+									})
+									.on("start end", function (e) {
+										$("#lastHit").text(e.type == "start" ? "top" : "bottom");
+									})
+									.on("progress", function (e) {
+										$("#progress").text(e.progress.toFixed(3)); // 소수점 3자리까지
+									});        
+				</code>
+			</pre>
+		</section>
+		<section class="section bg1"></section>
+		<section class="section bg2" id="trigger1">
+			<div class="box ibg1" id="pin1">target</div>
+			<p>
+				<label>scroll 방향 : </label>
+				<code id="scrollDirection">REVERSE</code>
+			</p>
+			<p>
+				<label>state : </label>
+				<code id="state">inside</code>
+			</p>
+			<p>
+				<label>last hit</label>
+				<code id="lastHit">top</code>
+			</p>
+			<p>
+				<label>progress</label>
+				<code id="progress">0</code>
+			</p>
+		</section>
+		<section class="section bg3"></section>
+		<section class="section bg4"></section>
+		<section class="section bg5"></section>
+		<section class="section bg6"></section>
+	</div>
+
+	<script>
+	$(function () { // wait for document ready
+		// init controller
+		var controller = new ScrollMagic.Controller();
+
+		// build scene
+		var scene = new ScrollMagic.Scene({triggerElement: "#trigger1", duration: 300})
+						.addTo(controller)
+						.addIndicators() // add indicators (requires plugin)
+						.on("update", function (e) {
+							$("#scrollDirection").text(e.target.controller().info("scrollDirection"));
+						})
+						.on("enter leave", function (e) {
+						})
+						.on("start end", function (e) {
+							$("#lastHit").text(e.type == "start" ? "top" : "bottom");
+							$("#state").text(e.state);
+						})
+						.on("progress", function (e) {
+							$("#progress").text(e.progress.toFixed(3)); // 소수점 3자리까지
+						});
+	});
+	</script>
+
+</body>
+</html>

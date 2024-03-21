@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Sticky_Wipes-ex02 : ScrollMagic</title>
+	<!--[if IE]>
+		<script type="text/javascript">
+			 var console = { log: function() {} };
+		</script>
+	<![endif]-->
+
+	<!-- ============ source highlight ================= -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/dark.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+	<script>hljs.highlightAll();</script>
+	<!-- // ============ source highlight ================= -->
+
+	<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js"></script>
+	<script type="text/javascript" src="../../../../asset/js/libs/scrollmagic/ScrollMagic-2.0.7.js"></script>
+	<script type="text/javascript" src="../../../../asset/js/libs/scrollmagic/debug.addIndicators-2.0.7.js"></script>
+
+</head>
+<body>
+
+	<style>
+		body{ margin: 0; padding: 0;}
+		pre { position: absolute; top:20px; left: 20px;font-family: Consolas, monospace; font-size: 14px; tab-size: 2; z-index: 5;}
+		h1, h2, h3 { margin: 0; }
+		.section {padding: 0 20px; height: 300px;}
+		.top10 { position: absolute; top: 10px; }
+		.mt10 { margin-top: 10px;}
+		.pt10 { padding-top: 10px;}
+		.ibg1 { background-color: #1cddda; }
+		.ibg2 { background-color: #b0f0a5; }
+		.ibg3 { background-color: #fb9f9e; }
+		.bg0 { background-color: #dcecec; height: 500px;}
+		.bg1 { background-color: #ffceff;}
+		.bg2 { background-color: #adcdff;}
+		.bg3 { background-color: #ffffd1;}
+		.bg4 { background-color: #c9e7db;}
+		.bg5 { background-color: #fbd7e5;}
+		
+		.box { 
+			display: inline-block; padding: 0px 20px; font-size: 20px; line-height: 30px;   
+		}
+	</style>
+
+	<div class="wrap">
+		<section class="section bg0">
+			<h1>Sticky-ex02</h1>
+			<pre>
+				<code class="language-js">
+				var controller = new ScrollMagic.Controller({
+					globalSceneOptions: {
+						triggerHook: 'onLeave',
+						duration: "200%" // 이것은 기간 0에서도 잘 작동합니다.
+					}
+				});
+		
+				// get all slides
+				var slides = document.querySelectorAll(".js-item");
+		
+				// create scene for every slide
+				for (var i=0; i ＜ slides.length; i++) {
+					new ScrollMagic.Scene({ triggerElement: slides[i] })
+						.setPin(slides[i], {pushFollowers: false})
+		
+						.addIndicators() // add indicators (requires plugin)
+						.addTo(controller);
+				}
+				</code>
+			</pre>
+
+		</section>
+		<section class="section bg1 js-item"> <h3 class="ibg1 top10">section1</h3> </section>
+		<section class="section bg2 js-item"> <h3 class="ibg1 top10">section2</h3> </section>
+		<section class="section bg3 js-item"> <h3 class="ibg1 top10">section3</h3> </section>
+		<section class="section bg4 js-item"> <h3 class="ibg1 top10">section4</h3> </section>
+		<section class="section bg5 js-item"> <h3 class="ibg1 top10">section5</h3> </section>
+		<section class="section bg1 js-item"> <h3 class="ibg1 top10">section6</h3> </section>
+		<section class="section bg2 js-item"> <h3 class="ibg1 top10">section7</h3> </section>
+		<section class="section bg3 js-item"> <h3 class="ibg1 top10">section8</h3> </section>
+		<section class="section bg4 js-item js-fit"> <h3 class="ibg1 top10">section9</h3> </section>
+	</div>
+
+	<script>
+	$(function () { // wait for document ready
+		// init
+		var controller = new ScrollMagic.Controller({
+			globalSceneOptions: {
+				triggerHook: 'onLeave',
+				duration: "200%" // 이것은 기간 0에서도 잘 작동합니다.
+				// 그러나 고정된 섹션 수가 많으면(>20) 표시 오류가 발생할 수 있으므로 다음 섹션에 포함된 모든 섹션을 고정 해제해야 합니다.
+				// 일반적으로 100%가 작동하지만 여기서는 일시 중지로 인해 패널 3이 스크롤 높이의 100%를 초과하여 표시되므로 여기서는 200%가 사용됩니다.
+			}
+		});
+
+		// get all slides
+		var slides = document.querySelectorAll(".js-item");
+
+		// create scene for every slide
+		for (var i=0; i<slides.length; i++) {
+			new ScrollMagic.Scene({ triggerElement: slides[i] })
+				.setPin(slides[i], {pushFollowers: false})
+
+				.addIndicators() // add indicators (requires plugin)
+				.addTo(controller);
+		}
+
+	});
+	</script>
+
+</body>
+</html>

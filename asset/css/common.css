@@ -113,6 +113,9 @@ pre { tab-size: 4; }
 .contents .bold { font-weight:bold; }
 .contents .h3_con { padding-left:20px; }
 
+ul.mark-list li { padding-left: 1em; text-indent: -1em;}
+
+
 
 /* 공통:테이블style */
 .table_row { width:100%; margin:10px 0; padding:0; border-top:1px solid #dcdcdc; border-right:1px solid #dcdcdc; border-left:1px solid #dcdcdc;}
