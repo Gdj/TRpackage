@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>ClassToggle-ex01 : ScrollMagic</title>
+	<!--[if IE]>
+		<script type="text/javascript">
+			 var console = { log: function() {} };
+		</script>
+		<![endif]-->
+
+	<!-- ============ source highlight ================= -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/dark.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+	<script>hljs.highlightAll();</script>
+	<!-- // ============ source highlight ================= -->
+
+	<script type="text/javascript" src="../../../../asset/js/libs/scrollmagic/jquery.min.js"></script>
+		<script type="text/javascript" src="../../../../asset/js/libs/scrollmagic/plugins/gsap.min.js"></script>
+	<script type="text/javascript" src="../../../../asset/js/libs/scrollmagic/ScrollMagic-2.0.7.js"></script>
+		<script type="text/javascript" src="../../../../asset/js/libs/scrollmagic/plugins/animation.gsap.js"></script>
+	<script type="text/javascript" src="../../../../asset/js/libs/scrollmagic/debug.addIndicators-2.0.7.js"></script>
+
+</head>
+<body>
+
+  <style>
+		body{ margin: 0; padding: 0;}
+		pre { position: absolute; top:20px; left: 20px;font-family: Consolas, monospace; font-size: 14px; tab-size: 2; z-index: 5;}
+		h1, h2, h3 { margin: 0; }
+		.section { position: relative; padding: 0 20px; height: 300px; overflow: hidden;}
+		.section.active { background-color: #fb7f7e;}
+		.section > div[class^=bg] {  height: 100%; }
+		.top10 { position: absolute; top: 10px; }
+		.mt10 { margin-top: 10px;}
+		.pt10 { padding-top: 10px;}
+		.ibg1 { background-color: #1cddda; }
+		.ibg2 { background-color: #b0f0a5; }
+		.ibg3 { background-color: #fb9f9e; }
+
+    .imgbg { position: relative; top: -100%;   height: 200%; }
+		.bg0 { background-color: #dcecec; height: 500px;}
+		.bg1 { background: linear-gradient(#e66465, #9198e5); }
+		.bg2 { background: linear-gradient(#adcdff, #ffd16d); }
+		.bg3 { background: linear-gradient(#22c1c3, #00f57b); }
+		.bg4 { background: linear-gradient(#dee61b, #c799ff); }
+		.bg5 { background: linear-gradient(#fbda85, #e25526); }
+		.bg6 { background: linear-gradient(#5adf86, #bffb42); }
+		
+		.box { position: absolute; top:20px; z-index: 5;
+			display: inline-block; padding: 0px 20px; font-size: 20px; line-height: 30px;   
+		}
+	</style>
+
+	<div class="wrap">
+		<section class="section bg0">
+			<h1>classToggle-ex01</h1>
+			<pre>
+				<code class="language-js">
+          // init controller
+          var controller = new ScrollMagic.Controller({globalSceneOptions: {triggerHook: "onEnter", duration: "200%"}});
+      
+          // build scenes
+          new ScrollMagic.Scene({triggerElement: "#trigger1"})
+                  .setTween("#trigger1 > div", {y: "80%", ease: Linear.easeNone})
+                  .addIndicators()
+                  .addTo(controller);
+      
+          new ScrollMagic.Scene({triggerElement: "#trigger2"})
+                  .setTween("#trigger2 > div", {y: "80%", ease: Linear.easeNone})
+                  .addIndicators()
+                  .addTo(controller);
+      
+          new ScrollMagic.Scene({triggerElement: "#trigger3"})
+                  .setTween("#trigger3 > div", {y: "80%", ease: Linear.easeNone})
+                  .addIndicators()
+                  .addTo(controller);
+          new ScrollMagic.Scene({triggerElement: "#trigger4"})
+                  .setTween("#trigger4 > div", {y: "100%", ease: Linear.easeNone})
+                  .addIndicators()
+                  .addTo(controller);
+				</code>
+			</pre>
+		</section>
+		<section class="section" id="trigger1">
+      <div class="box ibg1">trigger1</div>
+      <div class="imgbg" style="background-image: url(../../../../asset/images/plugin/example_parallax_bg1.png);">
+      </div>
+    </section>
+    <section class="section bg2">
+    </section>
+    <section class="section" id="trigger2">
+      <div class="box ibg2">trigger2</div>
+      <div class="imgbg" style="background-image: url(../../../../asset/images/plugin/example_parallax_bg2.png);">
+      </div>
+    </section>
+    <section class="section" id="trigger3">
+      <div class="box ibg3">trigger3</div>
+      <div class="imgbg" style="background-image: url(../../../../asset/images/plugin/example_parallax_bg3.png);">
+      </div>
+    </section>
+		<section class="section" id="">
+      <div class="bg4"></div>
+    </section>
+		<section class="section" id="trigger4">
+      <div class="box ibg2">trigger4</div>
+      <div class="imgbg bg5"></div>
+    </section>
+		<section class="section" id="">
+      <div class="bg6"></div>
+    </section>
+	</div>
+
+	<script>
+	$(function () { // wait for document ready
+    // init controller
+    var controller = new ScrollMagic.Controller({globalSceneOptions: {triggerHook: "onEnter", duration: "200%"}});
+
+    // build scenes
+    new ScrollMagic.Scene({triggerElement: "#trigger1"})
+            .setTween("#trigger1 > div", {y: "80%", ease: Linear.easeNone})
+            .addIndicators()
+            .addTo(controller);
+
+    new ScrollMagic.Scene({triggerElement: "#trigger2"})
+            .setTween("#trigger2 > div", {y: "80%", ease: Linear.easeNone})
+            .addIndicators()
+            .addTo(controller);
+
+    new ScrollMagic.Scene({triggerElement: "#trigger3"})
+            .setTween("#trigger3 > div", {y: "80%", ease: Linear.easeNone})
+            .addIndicators()
+            .addTo(controller);
+    new ScrollMagic.Scene({triggerElement: "#trigger4"})
+            .setTween("#trigger4 > div", {y: "100%", ease: Linear.easeNone})
+            .addIndicators()
+            .addTo(controller);
+	});
+	</script>
+
+</body>
+</html>

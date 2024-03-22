@@ -35,7 +35,9 @@
 			<div class="api-body">
 				<dl>
 					<dt>설명</dt>
-					<dd><span class="icon"></span>jQuery 3.3.1</dd>
+					<dd><span class="icon"></span>jQuery 3.3.1 사용</dd>
+					<dd><span class="icon"></span>TweenMax 응용</dd>
+					<dd><span class="icon"></span>download : <a href="../../../../asset/download/scrollmagic.zip">scrollmagic.zip</a></dd>
 				</dl>
 
 				
@@ -575,6 +577,252 @@
 	 <span style="color: #f8f8f2">});</span>
 	 <span style="color: #f92672">&lt;/script&gt;</span>
  </pre></td></tr></table></div>
+
+ 
+
+				
+					</div><!--// 소스 -->
+				</div>
+			</div>			
+		</div>
+		<!-- e: examples 예제 -->
+
+		<!-- s: examples 예제 -->
+		<div class="ex_wapper">
+			<div class="section">
+				<h2 class="ex-title">예제) parallax-ex01 </h2>
+				<p class="ex-more" ><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p>
+				<p class="ex-view" ><a href="parallax-ex01.html" target="_blank">View</a></p>
+				<div class="ex-body" style="display:none" >					
+					<div class="source"><!-- 소스 -->
+					
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .4em;"><table><tr><td><pre style="margin: 0; line-height: 125%">  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #f92672">&lt;style&gt;</span>
+		<span style="color: #f92672">body</span><span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">margin</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;}</span>
+		<span style="color: #f92672">pre</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">absolute</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">top</span><span style="color: #f92672">:</span><span style="color: #ae81ff">20px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">left</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">20px</span><span style="color: #f8f8f2">;</span><span style="color: #66d9ef">font-family</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">Consolas</span><span style="color: #f92672">,</span> <span style="color: #66d9ef">monospace</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">14px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">tab</span><span style="color: #f92672">-</span><span style="color: #66d9ef">size</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">z-index</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">5</span><span style="color: #f8f8f2">;}</span>
+		<span style="color: #f92672">h1,</span> <span style="color: #f92672">h2,</span> <span style="color: #f92672">h3</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">margin</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+		<span style="color: #a6e22e">.section</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">relative</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span> <span style="color: #ae81ff">20px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">300px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">overflow</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">hidden</span><span style="color: #f8f8f2">;}</span>
+		<span style="color: #a6e22e">.section.active</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#fb7f7e</span><span style="color: #f8f8f2">;}</span>
+		<span style="color: #a6e22e">.section</span> <span style="color: #f92672">&gt;</span> <span style="color: #f92672">div[class^=bg]</span> <span style="color: #f8f8f2">{</span>  <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+		<span style="color: #a6e22e">.top10</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">absolute</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">top</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">10px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+		<span style="color: #a6e22e">.mt10</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">margin-top</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">10px</span><span style="color: #f8f8f2">;}</span>
+		<span style="color: #a6e22e">.pt10</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">padding-top</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">10px</span><span style="color: #f8f8f2">;}</span>
+		<span style="color: #a6e22e">.ibg1</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#1cddda</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+		<span style="color: #a6e22e">.ibg2</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#b0f0a5</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+		<span style="color: #a6e22e">.ibg3</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#fb9f9e</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+
+    <span style="color: #a6e22e">.imgbg</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">relative</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">top</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">-100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span>   <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">200</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+		<span style="color: #a6e22e">.bg0</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#dcecec</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">500px</span><span style="color: #f8f8f2">;}</span>
+		<span style="color: #a6e22e">.bg1</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">background</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">linear</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">gradient(</span><span style="color: #ae81ff">#e66465</span><span style="color: #f92672">,</span> <span style="color: #ae81ff">#9198e5</span><span style="color: #f8f8f2">);</span> <span style="color: #f8f8f2">}</span>
+		<span style="color: #a6e22e">.bg2</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">background</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">linear</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">gradient(</span><span style="color: #ae81ff">#adcdff</span><span style="color: #f92672">,</span> <span style="color: #ae81ff">#ffd16d</span><span style="color: #f8f8f2">);</span> <span style="color: #f8f8f2">}</span>
+		<span style="color: #a6e22e">.bg3</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">background</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">linear</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">gradient(</span><span style="color: #ae81ff">#22c1c3</span><span style="color: #f92672">,</span> <span style="color: #ae81ff">#00f57b</span><span style="color: #f8f8f2">);</span> <span style="color: #f8f8f2">}</span>
+		<span style="color: #a6e22e">.bg4</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">background</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">linear</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">gradient(</span><span style="color: #ae81ff">#dee61b</span><span style="color: #f92672">,</span> <span style="color: #ae81ff">#c799ff</span><span style="color: #f8f8f2">);</span> <span style="color: #f8f8f2">}</span>
+		<span style="color: #a6e22e">.bg5</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">background</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">linear</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">gradient(</span><span style="color: #ae81ff">#fbda85</span><span style="color: #f92672">,</span> <span style="color: #ae81ff">#e25526</span><span style="color: #f8f8f2">);</span> <span style="color: #f8f8f2">}</span>
+		<span style="color: #a6e22e">.bg6</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">background</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">linear</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">gradient(</span><span style="color: #ae81ff">#5adf86</span><span style="color: #f92672">,</span> <span style="color: #ae81ff">#bffb42</span><span style="color: #f8f8f2">);</span> <span style="color: #f8f8f2">}</span>
+		
+		<span style="color: #a6e22e">.box</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">absolute</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">top</span><span style="color: #f92672">:</span><span style="color: #ae81ff">20px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">z-index</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">5</span><span style="color: #f8f8f2">;</span>
+			<span style="color: #66d9ef">display</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">inline</span><span style="color: #f92672">-</span><span style="color: #66d9ef">block</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0px</span> <span style="color: #ae81ff">20px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">20px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">line-height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">30px</span><span style="color: #f8f8f2">;</span>   
+		<span style="color: #f8f8f2">}</span>
+	<span style="color: #f92672">&lt;/style&gt;</span>
+
+	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;wrap&quot;</span><span style="color: #f92672">&gt;</span>
+		<span style="color: #f92672">&lt;section</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;section bg0&quot;</span><span style="color: #f92672">&gt;</span>
+			<span style="color: #f92672">&lt;h1&gt;</span>classToggle-ex01<span style="color: #f92672">&lt;/h1&gt;</span>
+			<span style="color: #f92672">&lt;pre&gt;</span>
+				<span style="color: #f92672">&lt;code</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;language-js&quot;</span><span style="color: #f92672">&gt;</span>
+          // init controller
+          var controller = new ScrollMagic.Controller({globalSceneOptions: {triggerHook: &quot;onEnter&quot;, duration: &quot;200%&quot;}});
+      
+          // build scenes
+          new ScrollMagic.Scene({triggerElement: &quot;#trigger1&quot;})
+                  .setTween(&quot;#trigger1 &gt; div&quot;, {y: &quot;80%&quot;, ease: Linear.easeNone})
+                  .addIndicators()
+                  .addTo(controller);
+      
+          new ScrollMagic.Scene({triggerElement: &quot;#trigger2&quot;})
+                  .setTween(&quot;#trigger2 &gt; div&quot;, {y: &quot;80%&quot;, ease: Linear.easeNone})
+                  .addIndicators()
+                  .addTo(controller);
+      
+          new ScrollMagic.Scene({triggerElement: &quot;#trigger3&quot;})
+                  .setTween(&quot;#trigger3 &gt; div&quot;, {y: &quot;80%&quot;, ease: Linear.easeNone})
+                  .addIndicators()
+                  .addTo(controller);
+          new ScrollMagic.Scene({triggerElement: &quot;#trigger4&quot;})
+                  .setTween(&quot;#trigger4 &gt; div&quot;, {y: &quot;100%&quot;, ease: Linear.easeNone})
+                  .addIndicators()
+                  .addTo(controller);
+				<span style="color: #f92672">&lt;/code&gt;</span>
+			<span style="color: #f92672">&lt;/pre&gt;</span>
+		<span style="color: #f92672">&lt;/section&gt;</span>
+		<span style="color: #f92672">&lt;section</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;section&quot;</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;trigger1&quot;</span><span style="color: #f92672">&gt;</span>
+      <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;box ibg1&quot;</span><span style="color: #f92672">&gt;</span>trigger1<span style="color: #f92672">&lt;/div&gt;</span>
+      <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;imgbg&quot;</span> <span style="color: #a6e22e">style=</span><span style="color: #e6db74">&quot;background-image: url(../../../../asset/images/plugin/example_parallax_bg1.png);&quot;</span><span style="color: #f92672">&gt;</span>
+      <span style="color: #f92672">&lt;/div&gt;</span>
+    <span style="color: #f92672">&lt;/section&gt;</span>
+    <span style="color: #f92672">&lt;section</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;section bg2&quot;</span><span style="color: #f92672">&gt;</span>
+    <span style="color: #f92672">&lt;/section&gt;</span>
+    <span style="color: #f92672">&lt;section</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;section&quot;</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;trigger2&quot;</span><span style="color: #f92672">&gt;</span>
+      <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;box ibg2&quot;</span><span style="color: #f92672">&gt;</span>trigger2<span style="color: #f92672">&lt;/div&gt;</span>
+      <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;imgbg&quot;</span> <span style="color: #a6e22e">style=</span><span style="color: #e6db74">&quot;background-image: url(../../../../asset/images/plugin/example_parallax_bg2.png);&quot;</span><span style="color: #f92672">&gt;</span>
+      <span style="color: #f92672">&lt;/div&gt;</span>
+    <span style="color: #f92672">&lt;/section&gt;</span>
+    <span style="color: #f92672">&lt;section</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;section&quot;</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;trigger3&quot;</span><span style="color: #f92672">&gt;</span>
+      <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;box ibg3&quot;</span><span style="color: #f92672">&gt;</span>trigger3<span style="color: #f92672">&lt;/div&gt;</span>
+      <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;imgbg&quot;</span> <span style="color: #a6e22e">style=</span><span style="color: #e6db74">&quot;background-image: url(../../../../asset/images/plugin/example_parallax_bg3.png);&quot;</span><span style="color: #f92672">&gt;</span>
+      <span style="color: #f92672">&lt;/div&gt;</span>
+    <span style="color: #f92672">&lt;/section&gt;</span>
+		<span style="color: #f92672">&lt;section</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;section&quot;</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;&quot;</span><span style="color: #f92672">&gt;</span>
+      <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;bg4&quot;</span><span style="color: #f92672">&gt;&lt;/div&gt;</span>
+    <span style="color: #f92672">&lt;/section&gt;</span>
+		<span style="color: #f92672">&lt;section</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;section&quot;</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;trigger4&quot;</span><span style="color: #f92672">&gt;</span>
+      <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;box ibg2&quot;</span><span style="color: #f92672">&gt;</span>trigger4<span style="color: #f92672">&lt;/div&gt;</span>
+      <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;imgbg bg5&quot;</span><span style="color: #f92672">&gt;&lt;/div&gt;</span>
+    <span style="color: #f92672">&lt;/section&gt;</span>
+		<span style="color: #f92672">&lt;section</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;section&quot;</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;&quot;</span><span style="color: #f92672">&gt;</span>
+      <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;bg6&quot;</span><span style="color: #f92672">&gt;&lt;/div&gt;</span>
+    <span style="color: #f92672">&lt;/section&gt;</span>
+	<span style="color: #f92672">&lt;/div&gt;</span>
+
+	<span style="color: #f92672">&lt;script&gt;</span>
+	<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span> <span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span> <span style="color: #75715e">// wait for document ready</span>
+    <span style="color: #75715e">// init controller</span>
+    <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">controller</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">new</span> <span style="color: #a6e22e">ScrollMagic</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">Controller</span><span style="color: #f8f8f2">({</span><span style="color: #a6e22e">globalSceneOptions</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">{</span><span style="color: #a6e22e">triggerHook</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;onEnter&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">duration</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;200%&quot;</span><span style="color: #f8f8f2">}});</span>
+
+    <span style="color: #75715e">// build scenes</span>
+    <span style="color: #66d9ef">new</span> <span style="color: #a6e22e">ScrollMagic</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">Scene</span><span style="color: #f8f8f2">({</span><span style="color: #a6e22e">triggerElement</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;#trigger1&quot;</span><span style="color: #f8f8f2">})</span>
+            <span style="color: #f8f8f2">.</span><span style="color: #a6e22e">setTween</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;#trigger1 &gt; div&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">{</span><span style="color: #a6e22e">y</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;80%&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">ease</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">Linear</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">easeNone</span><span style="color: #f8f8f2">})</span>
+            <span style="color: #f8f8f2">.</span><span style="color: #a6e22e">addIndicators</span><span style="color: #f8f8f2">()</span>
+            <span style="color: #f8f8f2">.</span><span style="color: #a6e22e">addTo</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">controller</span><span style="color: #f8f8f2">);</span>
+
+    <span style="color: #66d9ef">new</span> <span style="color: #a6e22e">ScrollMagic</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">Scene</span><span style="color: #f8f8f2">({</span><span style="color: #a6e22e">triggerElement</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;#trigger2&quot;</span><span style="color: #f8f8f2">})</span>
+            <span style="color: #f8f8f2">.</span><span style="color: #a6e22e">setTween</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;#trigger2 &gt; div&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">{</span><span style="color: #a6e22e">y</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;80%&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">ease</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">Linear</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">easeNone</span><span style="color: #f8f8f2">})</span>
+            <span style="color: #f8f8f2">.</span><span style="color: #a6e22e">addIndicators</span><span style="color: #f8f8f2">()</span>
+            <span style="color: #f8f8f2">.</span><span style="color: #a6e22e">addTo</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">controller</span><span style="color: #f8f8f2">);</span>
+
+    <span style="color: #66d9ef">new</span> <span style="color: #a6e22e">ScrollMagic</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">Scene</span><span style="color: #f8f8f2">({</span><span style="color: #a6e22e">triggerElement</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;#trigger3&quot;</span><span style="color: #f8f8f2">})</span>
+            <span style="color: #f8f8f2">.</span><span style="color: #a6e22e">setTween</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;#trigger3 &gt; div&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">{</span><span style="color: #a6e22e">y</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;80%&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">ease</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">Linear</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">easeNone</span><span style="color: #f8f8f2">})</span>
+            <span style="color: #f8f8f2">.</span><span style="color: #a6e22e">addIndicators</span><span style="color: #f8f8f2">()</span>
+            <span style="color: #f8f8f2">.</span><span style="color: #a6e22e">addTo</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">controller</span><span style="color: #f8f8f2">);</span>
+    <span style="color: #66d9ef">new</span> <span style="color: #a6e22e">ScrollMagic</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">Scene</span><span style="color: #f8f8f2">({</span><span style="color: #a6e22e">triggerElement</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;#trigger4&quot;</span><span style="color: #f8f8f2">})</span>
+            <span style="color: #f8f8f2">.</span><span style="color: #a6e22e">setTween</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;#trigger4 &gt; div&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">{</span><span style="color: #a6e22e">y</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;100%&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">ease</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">Linear</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">easeNone</span><span style="color: #f8f8f2">})</span>
+            <span style="color: #f8f8f2">.</span><span style="color: #a6e22e">addIndicators</span><span style="color: #f8f8f2">()</span>
+            <span style="color: #f8f8f2">.</span><span style="color: #a6e22e">addTo</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">controller</span><span style="color: #f8f8f2">);</span>
+	<span style="color: #f8f8f2">});</span>
+	<span style="color: #f92672">&lt;/script&gt;</span>
+</pre></td></tr></table></div>
 
  
 
