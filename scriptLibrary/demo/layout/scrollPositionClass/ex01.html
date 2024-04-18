@@ -3,36 +3,51 @@
 <head>
 	<meta charset="UTF-8">
 	<style>
-        
-        #header     { height:200px; background-color: darkgray; }
-        #container { position: relative;height:2000px; background-color: aquamarine;  }
-        #container .position_org { position: absolute; top: 400px; width: 100%; height: 100px; background-color: blueviolet; }
-        #container .position_target { position: absolute; top: 500px; width: 100%; height: 100px; background-color: brown; }
-        #container.scoll_in {  background-color: olivedrab;  }
+      html, body { padding: 0; margin: 0;}
+      #header     { height:200px; background-color: darkgray; }
+      #footer     { height:100px; background-color: darkgray; }
+      #container { position: relative; background-color: aquamarine;  }
+      #container .position_org    { width: 100%; height: 100px; }
+      #container .position_gap    { width: 100%; height: 500px; }
+      #container .position_target { width: 100%; height: 300px; }
+      #container .position_target.scoll_active { background-color: #Fa0f7F; }
+      .bgcolor1 { background-color: #FF98A3;}
+      .bgcolor2 { background-color: #FFB4AE;}
+      .bgcolor3 { background-color: #FFD5BC;}
+      .bgcolor4 { background-color: #B9E7E8;}
+      .bgcolor5 { background-color: #B0C4DF;}
+      .bgcolor6 { background-color: #D1E5C0;}
+      .bgcolor7 { background-color: #9ADFCC;}
+      .bgcolor8 { background-color: #B4C5E1;}
 	</style> 
 	<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js"></script>
 	<script type="text/javascript" src="../../../../asset/js/libs/trpLayout.js"></script>
-	<script>
-	
-	$(document).ready(function(){
-        /*
-           (기준 타겟 위치 선택자, 기준 타겟 위치 가감 수치, 적용 타겟 선택자, 적용 타겟 class 이름)
-        */
-		$(window).trpScrollPositionClass(".position_target" , -100 ,"#container" , "scoll_in");
-        
-	})
-        
-	</script>
-	
 </head>
 <body>
 	
    <div id="header">header</div>
    <div id="container">
-       <div class="position_org"> ching line </div>
-       <div class="position_target">(position_target - 100)</div>
+      <div class="position_org bgcolor1"> ching line </div>
+      <div class="position_target bgcolor2">(position_target - 100)</div>
+      <div class="position_gap bgcolor3">bgcolor3</div>
+      <div class="position_target bgcolor2">(position_target - 100)</div>
+      <div class="position_gap bgcolor4">bgcolor4</div>
+      <div class="position_gap bgcolor5">bgcolor5</div>
+      <div class="position_gap bgcolor6">bgcolor6</div>
+      <div class="position_target bgcolor2">(position_target - 100)</div>
+      <div class="position_gap bgcolor7">bgcolor7</div>
+      <div class="position_gap bgcolor8">bgcolor8</div>
    </div>
+   <div id="footer">footer</div>
 
+   <script>
+      $(document).ready(function(){
+         /*
+            (기준 타겟 위치 선택자, 컨테이너 크기대비 보여질 위치 , 적용 타겟 선택자, 적용 타겟 class 이름)
+         */
+         $(window).trpScrollPositionClass(".position_target" , 0 , "scoll_active").setTarModi(100);
+      })
+   </script>
  
 </body>
 </html>

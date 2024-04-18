@@ -211,86 +211,55 @@ jQuery.fn.trpScrollSyncTop = function( options ){
 
 
 /**
-* trpScrollPositionClass     : 스크롤타겟위치에서 타겟클래스변경
+* trpScrollPositionClass   : 스크롤타겟위치에서 타겟클래스변경
 * @param	$scrollTar			 : 기준 타겟 위치 선택자
-* @param	$scrollTarModi	 : 기준 타겟 위치 가감 수치
+* @param	$show_per	       : 컨테이너 크기대비 보여질 위치 (.5)
 * @param	$addTar				   : 적용 타겟 선택자
 * @param	$addTarClass	   : 적용 타겟 class 이름
+* @method setTarModi       : 기준 타겟 위치 가감 수치(px)
 */
-jQuery.fn.trpScrollPositionClass = function($scrollTar, $scrollTarModi, $addTar, $addTarClass) {
-  var _scrolTar = $(this);
-  var _scrolWin = _scrolTar.scrollTop();
-  var _scrolTag = 0;
-  var _only = "defaul"; // over, under
-  
+jQuery.fn.trpScrollPositionClass = function($scrollTar, $show_per, $addTarClass, $instantB ) {
+  var _wrap = this;
+  var _scrollTarModi = 0; 
+  var instantB = $instantB ? true : false;
   // 선텍자 체크
   if( $scrollTar != "" && $($scrollTar).length > 0  ){ _scrolTag = $($scrollTar).offset().top;  }  
   
   // 숫자 체크
-  if( isNaN($scrollTarModi) == false)    { _scrolTag = _scrolTag + ($scrollTarModi); }  
+  if( isNaN($show_per) == false)    { _scrolTag = _scrolTag + ($show_per); }  
   
-  $(window).on("scroll resize", function($e){
-      scrollResizeClassWatch()
+  $(_wrap).on("scroll resize", function($e){
+    scrollResizeClassWatch();
   });
   function scrollResizeClassWatch(){
-    _scrolWin = _scrolTar.scrollTop();
-    if (_scrolWin >= _scrolTag) {
-        if (_only != "over") { $($addTar).addClass($addTarClass); }
-        _only = "over";
-    } else {
-        if (_only != "under") { $($addTar).removeClass($addTarClass); }
-        _only = "under";
-    }
+    var _wrapH = _wrap.innerHeight();
+    var _wrapT = _wrap.scrollTop();
+    $($scrollTar).each(function() {
+      var _t = $(this).offset().top + (_wrapH * $show_per) - _scrollTarModi;
+      //console.log("targ: " , _wrapT, _wrapH,  _t) 
+      if ( (_wrapT) >= _t) {
+        $(this).addClass($addTarClass);
+      } else {
+        if(instantB){
+          $(this).removeClass($addTarClass);
+        }else if($(this).offset().top - _wrapH >= _wrapT){
+          $(this).removeClass($addTarClass);
+          console.log("여기")
+        }
+      }
+    })
   }
   scrollResizeClassWatch();
-};
-
-
-
-
-
-
-
-
-
-
-
-/**
-* trpScrollPositionWindowClass    : 스크롤타겟위치에서 윈도우높이 절반 타겟클래스변경
-* @param	$scrollTar			        : 기준 타겟 위치 선택자
-* @param	$scrollTarModi		      : 기준 타겟 위치 가감 수치
-* @param	$addTar				          : 적용 타겟 선택자
-* @param	$addTarClass		        : 적용 타겟 class 이름
-*/
-jQuery.fn.trpScrollPositionWindowClass = function($scrollTar, $scrollTarModi, $addTar, $addTarClass) {
-var _scrolWin = $(window).scrollTop();
-var _scrolTag = 0;
-var _only = "defaul"; // over, under
-
-// 선텍자 체크
-if( $scrollTar != "" && $($scrollTar).length > 0  ){ _scrolTag = $($scrollTar).offset().top;  }  
-
-// 숫자 체크
-if( isNaN($scrollTarModi) == false)    { 
-    _scrolTag = _scrolTag + ( $(window).height() / 2 ) + ($scrollTarModi); 
-}  
-
-$(window).on("scroll resize", function($e){
-    scrollResizeClassWatch()
-});
-function scrollResizeClassWatch(){
-    _scrolWin = $(window).scrollTop();
-    if (_scrolWin >= _scrolTag) {
-        if (_only != "over") { $($addTar).addClass($addTarClass); }
-        _only = "over";
-    } else {
-        if (_only != "under") { $($addTar).removeClass($addTarClass); }
-        _only = "under";
+  
+  return {
+    /* 기준 타겟 위치 가감 수치 변경 */
+    setTarModi : function($tarModi){
+      _scrollTarModi = $tarModi;
     }
-}
-scrollResizeClassWatch();
-
+  }
 };
+
+
 
 
 /** 
