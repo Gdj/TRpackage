@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>scrollTrigger</title>
+  <script src="../../../../asset/js/libs/gsap/gsap-3.12.5.min.js"></script>
+  <script src="../../../../asset/js/libs/gsap/ScrollTrigger-3.12.5.min.js"></script>
+  <style>
+    html, body { margin: 0; padding: 0;}
+    /* html { height: 100vh; } */
+    body { height:5000px; background: #000; }
+    canvas {
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      max-width: 100vw;
+      max-height: 100vh;
+    }
+
+    section { height: 100vh; display: flex; justify-content: center; align-items: center;}
+    .bgcolor1 { background-color: antiquewhite;}
+    .bgcolor2 {
+      background-size: 50px 50px;
+      background-image:
+        linear-gradient(to right, #dfdfdf 1px, transparent 1px),
+        linear-gradient(to bottom, #dfdfdf 1px, transparent 1px);
+    }
+    .bgcolor3 { background-color: beige;}
+  </style>
+</head>
+<body>
+  <section class="section1 bgcolor1"></section>
+  <section class="section2 bgcolor2">
+    <canvas id="hero-lightpass" />
+  </section>
+  <section class="section3 bgcolor3"></section>
+
+  <script>
+    console.clear();
+
+    const canvas = document.getElementById("hero-lightpass");
+    const context = canvas.getContext("2d");
+    canvas.width = 1158;
+    canvas.height = 770;
+
+    const frameCount = 147;
+    const currentFrame = index => (
+      `./images/${(index + 1).toString().padStart(4, '0')}.jpg`
+    );
+
+    const images = []
+    const airpods = { frame: 0 };
+
+    for (let i = 0; i < frameCount; i++) {
+      const img = new Image();
+      img.src = currentFrame(i);
+      images.push(img);
+    }
+
+    gsap.to(airpods, {
+      frame: frameCount - 1,
+      snap: "frame",
+      ease: "none",
+      scrollTrigger: {
+        scrub: 0.5
+      },
+      onUpdate: render // use animation onUpdate instead of scrollTrigger's onUpdate
+    });
+
+    images[0].onload = render;
+
+    function render() {
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      context.drawImage(images[airpods.frame], 0, 0); 
+    }
+
+  </script>
+</body>
+</html>

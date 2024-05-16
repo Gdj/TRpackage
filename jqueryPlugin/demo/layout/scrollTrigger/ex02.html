@@ -32,22 +32,25 @@
   <script>
       /* to, from, fromTo */
       gsap.registerPlugin(ScrollTrigger);
-
-      gsap.from(".box1", {
-        x: 800,
-        duration: 5,
-        scrollTrigger: {
-            trigger: ".box1",
-            start: "top 60%",
-            end: "top 40%",
-            // Accepts Strings , 4 keywords that can effect 4 diff events
-            toggleActions: "restart pause resume complete",
-            //              play pause resume reverse restart reset complete none
-            //              onEnter onLeave onEnterBack onLeaveBack
-            toggleClass: "activeOn",
-            markers: true, 
+      var ST1 = gsap.timeline({
+        scrollTrigger:{
+          trigger : '.section2 .item',
+          start : 'top 70%',
+          end   : 'bottom 40%' /* '+=100%' */,
+          //toggleClass: "activeOn",
+          scrub: 1,
+          // ones : false,
+          toggleActions: "play none none none",
+          markers: true, 
+          onUpdate: function(self){
+            //console.log("방향, Per >>: ", self.direction, self.progress)
+          }
         }
-    });
+      })
+      .from(".box1", { y:"300px" , ease:'none' }, 0 )
+
+
+  
 
   </script>
 </body>

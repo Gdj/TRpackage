@@ -85,22 +85,15 @@
 								.toFrom("움직적용 선택자", { y:"300px" , ease:'none' }, { y:"0px" , ease:'none' } 위상값(.1) ) <br>
 								.toFrom(..  {위치에서}, {위치로} , ... ) 시작위치에서 끝나는 위치</td>
 						</tr>
-	
-						<tr>
-							<td>움직일대상 선택자</td>
-							<td>움직임을 적용할 타겟 (".xxx", "#xxx")</td>
-						</tr>
-						<tr>
-							<td>{움직임 속성값}</td>													
-							<td>움직임 속성 적용 <br>
-								scale:(0, 0.5, 1)
-							</td>		
-						</tr>
-						<tr>
-							<td>위상값</td>																
-							<td>`.1` 위상값이 커질수록 딜레이거리가 늘어남</td>		
-						</tr>
 						
+						<tr>
+							<td>to, from, toFrom</td>
+							<td>
+								- 움직일대상 선택자 : 움직임을 적용할 타겟 (".xxx", "#xxx") <br>
+								- {움직임 속성값} : 움직임 속성 적용 scale:(0 ~ 0.5 ~ 1) <br>
+								- 위상값 : `.1` 위상값이 커질수록 딜레이거리가 늘어남
+							</td>
+						</tr>
 					</tbody>
 				</table>
 
@@ -116,8 +109,12 @@
 							<th scope="col">scrollTrigger 속성 설명</th>
 						</tr>
 						<tr>
-							<td>trigger:</td>
-							<td>움직임을 트리거할 타겟 선택자</td>		
+							<td>trigger: ""</td>
+							<td>(".xxx" , "#xxx") 움직임을 트리거할 타겟 선택자</td>		
+						</tr>
+						<tr>
+							<td>endTrigger: ""</td>
+							<td>(".xxx" , "#xxx") 움직임을 끝지점 트리거할 타겟 선택자. 없으면 "trigger"</td>		
 						</tr>
 						<tr>
 							<td>start: 'AAA BBB'</td>
@@ -132,19 +129,28 @@
 							</td>		
 						</tr>
 						<tr>
-							<td>scrub: 2</td>
-							<td>운직임의 부드러운 정도, `ease` 값대신 사용
+							<td>scrub: 1</td>
+							<td>
+								- Boolean : scrub 사용 여부 <br>
+								- Number : "1" => 1초,   운직임의 부드러운(duration) 정도, `ease` 값대신 사용.
 							</td>		
 						</tr>
 						<tr>
 							<td>toggleClass: { 'targets': ".item", className:"active"}</td>
-							<td>toggleClass : 반응에 대한 적용을 클래스로 넣기
+							<td>toggleClass : 반응에 대한 적용을 클래스로 넣기 <br>
+								- string : "클래스이름"
+								- {targets : , className : ""}
 							</td>		
 						</tr>
 						<tr>
 							<td>toggleActions: "play none none none"</td>
 							<td>(onEnter, onLeave, onEnterBack, onLeaveBack) <br>
 								값("play", "pause", "resume", "reset", "restart", "complete", "reverse", and "none")사용함.
+							</td>		
+						</tr>
+						<tr>
+							<td>once: false</td>
+							<td>진입후 끝위치에 도달후 이벤트 삭제, 한번만 실행할지 여부. true : "play none none none"
 							</td>		
 						</tr>
 						<tr>
@@ -155,6 +161,53 @@
 						<tr>
 							<td>markers: true</td>
 							<td>가이드 라인 표기여부 (false : default 숨김), (true : 가이드 라인표기)
+							</td>		
+						</tr>
+					</tbody>
+				</table>
+				
+				<table class="table_col" summary="scrollTrigger Event 설명">
+					<caption>scrollTrigger  Event</caption>
+					<colgroup>
+						<col width="150">
+						<col width="">		
+					</colgroup>
+					<tbody>
+						<tr>
+							<th scope="col">scrollTrigger Event</th>
+							<th scope="col">scrollTrigger Event 설명</th>
+						</tr>
+						onEnter, onLeave, onEnterBack, onLeaveBack
+						<tr>
+							<td>.onEnter:(()=>{...})</td>
+							<td>.onEnter: ({progress, direction, isActive}) <br>
+								순방향 영역에 들어올때.
+							</td>		
+						</tr>
+						<tr>
+							<td>.onLeave:(()=>{...})</td>
+							<td>.onLeave: ({progress, direction, isActive}) <br>
+								순방향 영역에 벗어날때.
+							</td>		
+						</tr>
+						<tr>
+							<td>.onEnterBack:(()=>{...})</td>
+							<td>
+								onLeaveBack: ({progress, direction, isActive}) <br>
+								역방향 영역에 들어올때.
+							</td>		
+						</tr>
+						<tr>
+							<td>.onLeaveBack:(()=>{...})</td>
+							<td>onLeaveBack: ({progress, direction, isActive}) <br>
+								역방향 영역에 벗어날때.
+							</td>		
+						</tr>
+						<tr>
+							<td>.onUpdate: (self)=>{ ... }</td>
+							<td>
+								self.progress, self.direction, self.isActive  <br>
+								이벤트가 업데이트 되는 동안 호출됨.
 							</td>		
 						</tr>
 					</tbody>
@@ -179,15 +232,289 @@
 
            
 
-						<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">  1
-  2
-  3
-  4
-  5
-  6
-  7
-  8
-  9
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .4em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+	2
+	3
+	4
+	5
+	6
+	7
+	8
+	9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!DOCTYPE html&gt;</span>
+ <span style="color: #f92672">&lt;html</span> <span style="color: #a6e22e">lang=</span><span style="color: #e6db74">&quot;en&quot;</span><span style="color: #f92672">&gt;</span>
+ <span style="color: #f92672">&lt;head&gt;</span>
+	 <span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">charset=</span><span style="color: #e6db74">&quot;UTF-8&quot;</span><span style="color: #f92672">&gt;</span>
+	 <span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">name=</span><span style="color: #e6db74">&quot;viewport&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;width=device-width, initial-scale=1.0&quot;</span><span style="color: #f92672">&gt;</span>
+	 <span style="color: #f92672">&lt;title&gt;</span>scrollTrigger<span style="color: #f92672">&lt;/title&gt;</span>
+	 <span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/gsap/gsap-3.12.5.min.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+	 <span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/gsap/ScrollTrigger-3.12.5.min.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+	 <span style="color: #f92672">&lt;style&gt;</span>
+		 <span style="color: #f92672">html,</span> <span style="color: #f92672">body</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">margin</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;}</span>
+		 <span style="color: #f92672">section</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f8f8f2">vh;</span> <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">flex;</span> <span style="color: #66d9ef">justify</span><span style="color: #f92672">-</span><span style="color: #66d9ef">content</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">center</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">align</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">items</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">center</span><span style="color: #f8f8f2">;}</span>
+		 <span style="color: #a6e22e">.bgcolor1</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">antiquewhite;}</span>
+		 <span style="color: #a6e22e">.bgcolor2</span> <span style="color: #f8f8f2">{</span>
+			 <span style="color: #66d9ef">background</span><span style="color: #f92672">-</span><span style="color: #66d9ef">size</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">50px</span> <span style="color: #ae81ff">50px</span><span style="color: #f8f8f2">;</span>
+			 <span style="color: #66d9ef">background-image</span><span style="color: #f92672">:</span>
+				 <span style="color: #f8f8f2">linear</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">gradient(to</span> <span style="color: #66d9ef">right</span><span style="color: #f92672">,</span> <span style="color: #ae81ff">#dfdfdf</span> <span style="color: #ae81ff">1px</span><span style="color: #f92672">,</span> <span style="color: #66d9ef">transparent</span> <span style="color: #ae81ff">1px</span><span style="color: #f8f8f2">)</span><span style="color: #f92672">,</span>
+				 <span style="color: #f8f8f2">linear</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">gradient(to</span> <span style="color: #66d9ef">bottom</span><span style="color: #f92672">,</span> <span style="color: #ae81ff">#dfdfdf</span> <span style="color: #ae81ff">1px</span><span style="color: #f92672">,</span> <span style="color: #66d9ef">transparent</span> <span style="color: #ae81ff">1px</span><span style="color: #f8f8f2">);</span>
+		 <span style="color: #f8f8f2">}</span>
+		 <span style="color: #a6e22e">.bgcolor3</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">beige;}</span>
+		 <span style="color: #a6e22e">.box1</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">cadetblue;}</span>
+	 <span style="color: #f92672">&lt;/style&gt;</span>
+ <span style="color: #f92672">&lt;/head&gt;</span>
+ <span style="color: #f92672">&lt;body&gt;</span>
+	 <span style="color: #f92672">&lt;section</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;section1 bgcolor1&quot;</span><span style="color: #f92672">&gt;&lt;/section&gt;</span>
+	 <span style="color: #f92672">&lt;section</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;section2 bgcolor2&quot;</span><span style="color: #f92672">&gt;</span>
+		 <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;item&quot;</span><span style="color: #f92672">&gt;</span>
+			 <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;box1&quot;</span><span style="color: #f92672">&gt;&lt;/div&gt;</span>
+		 <span style="color: #f92672">&lt;/div&gt;</span>
+	 <span style="color: #f92672">&lt;/section&gt;</span>
+	 <span style="color: #f92672">&lt;section</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;section3 bgcolor3&quot;</span><span style="color: #f92672">&gt;&lt;/section&gt;</span>
+ 
+	 <span style="color: #f92672">&lt;script&gt;</span>
+			 <span style="color: #75715e">/* to, from, fromTo */</span>
+			 <span style="color: #a6e22e">gsap</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">registerPlugin</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">ScrollTrigger</span><span style="color: #f8f8f2">);</span>
+ 
+			 <span style="color: #a6e22e">gsap</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">from</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.box1&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">{</span>
+				 <span style="color: #a6e22e">x</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">800</span><span style="color: #f8f8f2">,</span>
+				 <span style="color: #a6e22e">duration</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">5</span><span style="color: #f8f8f2">,</span>
+				 <span style="color: #a6e22e">scrollTrigger</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">{</span>
+						 <span style="color: #a6e22e">trigger</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;.box1&quot;</span><span style="color: #f8f8f2">,</span>
+						 <span style="color: #a6e22e">start</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;top 60%&quot;</span><span style="color: #f8f8f2">,</span>
+						 <span style="color: #a6e22e">end</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;top 40%&quot;</span><span style="color: #f8f8f2">,</span>
+						 <span style="color: #75715e">// Accepts Strings , 4 keywords that can effect 4 diff events</span>
+						 <span style="color: #a6e22e">toggleActions</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;restart pause resume complete&quot;</span><span style="color: #f8f8f2">,</span>
+						 <span style="color: #75715e">//              play pause resume reverse restart reset complete none</span>
+						 <span style="color: #75715e">//              onEnter onLeave onEnterBack onLeaveBack</span>
+						 <span style="color: #a6e22e">toggleClass</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;activeOn&quot;</span><span style="color: #f8f8f2">,</span>
+						 <span style="color: #a6e22e">markers</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">true</span><span style="color: #f8f8f2">,</span> 
+				 <span style="color: #f8f8f2">}</span>
+		 <span style="color: #f8f8f2">});</span>
+ 
+	 <span style="color: #f92672">&lt;/script&gt;</span>
+ <span style="color: #f92672">&lt;/body&gt;</span>
+ <span style="color: #f92672">&lt;/html&gt;</span>
+ </pre></td></tr></table></div>
+ 
+ 
+
+
+                
+
+				
+					</div><!--// 소스 -->
+				<div>
+			</div>			
+		</div>
+		<!-- e: examples 예제 -->
+
+
+		<!-- s: examples 예제 -->
+		<div class="ex_wapper">
+			<div class="section">
+				<h2 class="ex-title">예제) 2.사용예 (timeline) </h2>
+				<p class="ex-more" ><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p>
+				<p class="ex-view" ><a href="ex02.html" target="_blank">View</a></p>
+				<div class="ex-body" style="display:none" >					
+					<div class="source"><!-- 소스 -->
+
+
+           
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .4em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+	2
+	3
+	4
+	5
+	6
+	7
+	8
+	9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!DOCTYPE html&gt;</span>
+ <span style="color: #f92672">&lt;html</span> <span style="color: #a6e22e">lang=</span><span style="color: #e6db74">&quot;en&quot;</span><span style="color: #f92672">&gt;</span>
+ <span style="color: #f92672">&lt;head&gt;</span>
+	 <span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">charset=</span><span style="color: #e6db74">&quot;UTF-8&quot;</span><span style="color: #f92672">&gt;</span>
+	 <span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">name=</span><span style="color: #e6db74">&quot;viewport&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;width=device-width, initial-scale=1.0&quot;</span><span style="color: #f92672">&gt;</span>
+	 <span style="color: #f92672">&lt;title&gt;</span>scrollTrigger<span style="color: #f92672">&lt;/title&gt;</span>
+	 <span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/gsap/gsap-3.12.5.min.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+	 <span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/gsap/ScrollTrigger-3.12.5.min.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+	 <span style="color: #f92672">&lt;style&gt;</span>
+		 <span style="color: #f92672">html,</span> <span style="color: #f92672">body</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">margin</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;}</span>
+		 <span style="color: #f92672">section</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f8f8f2">vh;</span> <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">flex;</span> <span style="color: #66d9ef">justify</span><span style="color: #f92672">-</span><span style="color: #66d9ef">content</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">center</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">align</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">items</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">center</span><span style="color: #f8f8f2">;}</span>
+		 <span style="color: #a6e22e">.bgcolor1</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">antiquewhite;}</span>
+		 <span style="color: #a6e22e">.bgcolor2</span> <span style="color: #f8f8f2">{</span>
+			 <span style="color: #66d9ef">background</span><span style="color: #f92672">-</span><span style="color: #66d9ef">size</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">50px</span> <span style="color: #ae81ff">50px</span><span style="color: #f8f8f2">;</span>
+			 <span style="color: #66d9ef">background-image</span><span style="color: #f92672">:</span>
+				 <span style="color: #f8f8f2">linear</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">gradient(to</span> <span style="color: #66d9ef">right</span><span style="color: #f92672">,</span> <span style="color: #ae81ff">#dfdfdf</span> <span style="color: #ae81ff">1px</span><span style="color: #f92672">,</span> <span style="color: #66d9ef">transparent</span> <span style="color: #ae81ff">1px</span><span style="color: #f8f8f2">)</span><span style="color: #f92672">,</span>
+				 <span style="color: #f8f8f2">linear</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">gradient(to</span> <span style="color: #66d9ef">bottom</span><span style="color: #f92672">,</span> <span style="color: #ae81ff">#dfdfdf</span> <span style="color: #ae81ff">1px</span><span style="color: #f92672">,</span> <span style="color: #66d9ef">transparent</span> <span style="color: #ae81ff">1px</span><span style="color: #f8f8f2">);</span>
+		 <span style="color: #f8f8f2">}</span>
+		 <span style="color: #a6e22e">.bgcolor3</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">beige;}</span>
+		 <span style="color: #a6e22e">.box1</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">cadetblue;}</span>
+	 <span style="color: #f92672">&lt;/style&gt;</span>
+ <span style="color: #f92672">&lt;/head&gt;</span>
+ <span style="color: #f92672">&lt;body&gt;</span>
+	 <span style="color: #f92672">&lt;section</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;section1 bgcolor1&quot;</span><span style="color: #f92672">&gt;&lt;/section&gt;</span>
+	 <span style="color: #f92672">&lt;section</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;section2 bgcolor2&quot;</span><span style="color: #f92672">&gt;</span>
+		 <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;item&quot;</span><span style="color: #f92672">&gt;</span>
+			 <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;box1&quot;</span><span style="color: #f92672">&gt;&lt;/div&gt;</span>
+		 <span style="color: #f92672">&lt;/div&gt;</span>
+	 <span style="color: #f92672">&lt;/section&gt;</span>
+	 <span style="color: #f92672">&lt;section</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;section3 bgcolor3&quot;</span><span style="color: #f92672">&gt;&lt;/section&gt;</span>
+ 
+	 <span style="color: #f92672">&lt;script&gt;</span>
+			 <span style="color: #75715e">/* to, from, fromTo */</span>
+			 <span style="color: #a6e22e">gsap</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">registerPlugin</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">ScrollTrigger</span><span style="color: #f8f8f2">);</span>
+			 <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">ST1</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">gsap</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">timeline</span><span style="color: #f8f8f2">({</span>
+				 <span style="color: #a6e22e">scrollTrigger</span><span style="color: #f92672">:</span><span style="color: #f8f8f2">{</span>
+					 <span style="color: #a6e22e">trigger</span><span style="color: #f92672">:</span><span style="color: #e6db74">&#39;.section2 .item&#39;</span><span style="color: #f8f8f2">,</span>
+					 <span style="color: #a6e22e">start</span> <span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;top 70%&#39;</span><span style="color: #f8f8f2">,</span>
+					 <span style="color: #75715e">///end : &#39;100% 40%&#39;,</span>
+					 <span style="color: #a6e22e">scrub</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span>
+					 <span style="color: #a6e22e">toggleClass</span> <span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;activeOn&quot;</span><span style="color: #f8f8f2">,</span>
+					 <span style="color: #a6e22e">ones</span> <span style="color: #f92672">:</span> <span style="color: #66d9ef">true</span><span style="color: #f8f8f2">,</span>
+					 <span style="color: #a6e22e">markers</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">true</span><span style="color: #f8f8f2">,</span> 
+					 <span style="color: #a6e22e">onUpdate</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">self</span><span style="color: #f8f8f2">){</span>
+						 <span style="color: #a6e22e">console</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">log</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;방향, Per &gt;&gt;: &quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">self</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">direction</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">self</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">progress</span><span style="color: #f8f8f2">)</span>
+					 <span style="color: #f8f8f2">}</span>
+				 <span style="color: #f8f8f2">}</span>
+			 <span style="color: #f8f8f2">})</span>
+			 <span style="color: #f8f8f2">.</span><span style="color: #a6e22e">from</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.box1&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">{</span> <span style="color: #a6e22e">y</span><span style="color: #f92672">:</span><span style="color: #e6db74">&quot;300px&quot;</span> <span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">ease</span><span style="color: #f92672">:</span><span style="color: #e6db74">&#39;none&#39;</span> <span style="color: #f8f8f2">},</span> <span style="color: #ae81ff">0</span> <span style="color: #f8f8f2">)</span>
+ 
+ 
+	 
+ 
+	 <span style="color: #f92672">&lt;/script&gt;</span>
+ <span style="color: #f92672">&lt;/body&gt;</span>
+ <span style="color: #f92672">&lt;/html&gt;</span>
+ </pre></td></tr></table></div>
+ 
+
+
+                
+
+				
+					</div><!--// 소스 -->
+				<div>
+			</div>			
+		</div>
+		<!-- e: examples 예제 -->
+
+
+
+		<!-- s: examples 예제 -->
+		<div class="ex_wapper">
+			<div class="section">
+				<h2 class="ex-title">예제) 3.시퀀스 </h2>
+				<p class="ex-more" ><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p>
+				<p class="ex-view" ><a href="ex03.html" target="_blank">View</a></p>
+				<div class="ex-body" style="display:none" >					
+					<div class="source"><!-- 소스 -->
+
+
+           
+
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .4em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+	2
+	3
+	4
+	5
+	6
+	7
+	8
+	9
  10
  11
  12
@@ -254,211 +581,84 @@
  73
  74
  75
- 76
- 77
- 78
- 79
- 80
- 81
- 82
- 83
- 84
- 85
- 86
- 87
- 88
- 89
- 90
- 91
- 92
- 93
- 94
- 95
- 96
- 97
- 98
- 99
-100
-101
-102
-103
-104
-105
-106
-107
-108
-109
-110
-111
-112
-113
-114
-115
-116
-117
-118
-119
-120
-121
-122
-123
-124
-125
-126
-127
-128
-129
-130
-131
-132
-133
-134
-135
-136
-137
-138</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!DOCTYPE html&gt;</span>
-<span style="color: #f92672">&lt;html&gt;</span>
-<span style="color: #f92672">&lt;head&gt;</span>
-    <span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">charset=</span><span style="color: #e6db74">&quot;utf-8&quot;</span><span style="color: #f92672">&gt;</span>
-    <span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">name=</span><span style="color: #e6db74">&quot;viewport&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;width=device-width, initial-scale=1&quot;</span><span style="color: #f92672">&gt;</span>
-    <span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">name=</span><span style="color: #e6db74">&quot;msapplication-tap-highlight&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;no&quot;</span><span style="color: #f92672">&gt;</span>
-    <span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js&quot;</span> <span style="color: #f92672">&gt;&lt;/script&gt;</span>
-    <span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/stickyfill/stickyfill.js&quot;</span> <span style="color: #f92672">&gt;&lt;/script&gt;</span>
-
-    <span style="color: #f92672">&lt;style&gt;</span>
-        <span style="color: #f92672">section</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">border</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">1px</span> <span style="color: #66d9ef">dashed</span> <span style="color: #f8f8f2">red;</span> <span style="color: #f8f8f2">}</span>
-
-        <span style="color: #a6e22e">.sticky</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #f92672">-</span><span style="color: #f8f8f2">webkit</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">sticky;</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">sticky;</span> <span style="color: #66d9ef">top</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-            <span style="color: #66d9ef">background</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">black;</span> <span style="color: #66d9ef">background</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">rgba(</span><span style="color: #ae81ff">0</span><span style="color: #f92672">,</span><span style="color: #ae81ff">0</span><span style="color: #f92672">,</span><span style="color: #ae81ff">0</span><span style="color: #f92672">,</span><span style="color: #ae81ff">0</span><span style="color: #f92672">.</span><span style="color: #ae81ff">8</span><span style="color: #f8f8f2">);</span> <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">2em</span><span style="color: #f8f8f2">;</span>
-            <span style="color: #66d9ef">color</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">white;</span>
-        <span style="color: #f8f8f2">}</span>
-
-        <span style="color: #a6e22e">.clearfix</span> <span style="color: #f8f8f2">{</span> <span style="color: #f8f8f2">zoom</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
-        <span style="color: #a6e22e">.clearfix:before</span><span style="color: #f92672">,</span>
-        <span style="color: #a6e22e">.clearfix:after</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">content</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;&quot;</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">table;</span> <span style="color: #f8f8f2">}</span>
-        <span style="color: #a6e22e">.clearfix:after</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">clear</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">both</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
-    <span style="color: #f92672">&lt;/style&gt;</span>
-
-    <span style="color: #f92672">&lt;title&gt;</span>Test<span style="color: #f92672">&lt;/title&gt;</span>
-<span style="color: #f92672">&lt;/head&gt;</span>
-
-<span style="color: #f92672">&lt;body&gt;</span>
-
-    <span style="color: #f92672">&lt;section&gt;</span>
-        <span style="color: #f92672">&lt;h1&gt;</span>MQ test<span style="color: #f92672">&lt;/h1&gt;</span>
-
-        <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;sticky sticky--desktop&quot;</span> <span style="color: #a6e22e">style=</span><span style="color: #e6db74">&quot;top: 0; margin-bottom: 50px;&quot;</span><span style="color: #f92672">&gt;</span>
-            <span style="color: #f92672">&lt;h1&gt;</span>desktop STICKY top: 0; margin-bottom: 50px;
-                다음 sticky 50px 간격
-            <span style="color: #f92672">&lt;/h1&gt;</span>
-        <span style="color: #f92672">&lt;/div&gt;</span>
-
-        <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;sticky sticky--mobile&quot;</span> <span style="color: #a6e22e">style=</span><span style="color: #e6db74">&quot;top: 0;&quot;</span><span style="color: #f92672">&gt;</span>
-            <span style="color: #f92672">&lt;h1&gt;</span>mobile STICKY top: 0;<span style="color: #f92672">&lt;/h1&gt;</span>
-        <span style="color: #f92672">&lt;/div&gt;</span>
-
-        <span style="color: #f92672">&lt;p&gt;</span>~~~<span style="color: #f92672">&lt;/p&gt;</span>
-
-        <span style="color: #f92672">&lt;p&gt;</span>~~~<span style="color: #f92672">&lt;/p&gt;</span>
-
-    <span style="color: #f92672">&lt;/section&gt;</span>
-
-
-    <span style="color: #75715e">&lt;!-- library --&gt;</span>
-    <span style="color: #f92672">&lt;section&gt;</span>
-        <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;sticky&quot;</span> <span style="color: #a6e22e">style=</span><span style="color: #e6db74">&quot;top: 0px;&quot;</span><span style="color: #f92672">&gt;</span>
-            <span style="color: #f92672">&lt;h1&gt;</span>STICKY-1 top: 0px<span style="color: #f92672">&lt;/h1&gt;</span>
-        <span style="color: #f92672">&lt;/div&gt;</span>
-
-        <span style="color: #f92672">&lt;p&gt;</span>~~~<span style="color: #f92672">&lt;/p&gt;</span>
-
-
-        <span style="color: #f92672">&lt;p&gt;</span>~~~<span style="color: #f92672">&lt;/p&gt;</span>
-
-    <span style="color: #f92672">&lt;/section&gt;</span>
-    <span style="color: #f92672">&lt;section&gt;</span>
-        <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;sticky&quot;</span> <span style="color: #a6e22e">style=</span><span style="color: #e6db74">&quot;top: 0px;&quot;</span><span style="color: #f92672">&gt;</span>
-            <span style="color: #f92672">&lt;h1&gt;</span>STICKY-2 top: 0px<span style="color: #f92672">&lt;/h1&gt;</span>
-        <span style="color: #f92672">&lt;/div&gt;</span>
-
-        <span style="color: #f92672">&lt;p&gt;</span>~~~<span style="color: #f92672">&lt;/p&gt;</span>
-
-
-        <span style="color: #f92672">&lt;p&gt;</span>~~~<span style="color: #f92672">&lt;/p&gt;</span>
-
-        <span style="color: #f92672">&lt;p&gt;</span>~~~<span style="color: #f92672">&lt;/p&gt;</span>
-    <span style="color: #f92672">&lt;/section&gt;</span>
-    <span style="color: #f92672">&lt;section&gt;</span>
-        <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;sticky&quot;</span> <span style="color: #a6e22e">style=</span><span style="color: #e6db74">&quot;top: 0px;&quot;</span><span style="color: #f92672">&gt;</span>
-            <span style="color: #f92672">&lt;h1&gt;</span>STICKY-3 top: 0px<span style="color: #f92672">&lt;/h1&gt;</span>
-        <span style="color: #f92672">&lt;/div&gt;</span>
-
-
-        <span style="color: #f92672">&lt;p&gt;</span>~~~<span style="color: #f92672">&lt;/p&gt;</span>
-
-        <span style="color: #f92672">&lt;p&gt;</span>~~~<span style="color: #f92672">&lt;/p&gt;</span>
-
-        <span style="color: #f92672">&lt;p&gt;</span>~~~<span style="color: #f92672">&lt;/p&gt;</span>
-    <span style="color: #f92672">&lt;/section&gt;</span>
-    <span style="color: #75715e">&lt;!-- // library --&gt;</span>
-   
-   
-
-    <span style="color: #f92672">&lt;section</span> <span style="color: #a6e22e">style=</span><span style="color: #e6db74">&quot;border: 1.5em solid deepskyblue&quot;</span><span style="color: #f92672">&gt;</span>
-        <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">style=</span><span style="color: #e6db74">&quot;margin: 3em; border: 15px solid deeppink;&quot;</span><span style="color: #f92672">&gt;</span>
-            <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;sticky&quot;</span> <span style="color: #a6e22e">style=</span><span style="color: #e6db74">&quot;box-sizing: border-box; width: 50%; border: 1em solid yellowgreen; float: left;&quot;</span><span style="color: #f92672">&gt;</span>
-                <span style="color: #f92672">&lt;h1&gt;</span>STICKY box-sizing: border-box; width: 50%; float: left;<span style="color: #f92672">&lt;/h1&gt;</span>
-            <span style="color: #f92672">&lt;/div&gt;</span>
-
-            <span style="color: #f92672">&lt;p&gt;</span>~~~<span style="color: #f92672">&lt;/p&gt;</span>
-
-            <span style="color: #f92672">&lt;p&gt;</span>~~~<span style="color: #f92672">&lt;/p&gt;</span>
-        <span style="color: #f92672">&lt;/div&gt;</span>
-    <span style="color: #f92672">&lt;/section&gt;</span>
-    <span style="color: #f92672">&lt;section</span> <span style="color: #a6e22e">style=</span><span style="color: #e6db74">&quot;border: 1.5em solid deepskyblue&quot;</span><span style="color: #f92672">&gt;</span>
-        <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;clearfix&quot;</span> <span style="color: #a6e22e">style=</span><span style="color: #e6db74">&quot;margin: 3em; border: 15px solid deeppink;&quot;</span><span style="color: #f92672">&gt;</span>
-            <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;sticky&quot;</span> <span style="color: #a6e22e">style=</span><span style="color: #e6db74">&quot;box-sizing: border-box; width: 50%; border: 1em solid yellowgreen; float: right;&quot;</span><span style="color: #f92672">&gt;</span>
-                <span style="color: #f92672">&lt;h1&gt;</span>STICKY box-sizing: border-box; width: 50%; float: right;<span style="color: #f92672">&lt;/h1&gt;</span>
-            <span style="color: #f92672">&lt;/div&gt;</span>
-
-            <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">style=</span><span style="color: #e6db74">&quot;float: left; width: 50%; box-sizing: border-box; border: 1em solid violet;&quot;</span><span style="color: #f92672">&gt;</span>
-                <span style="color: #f92672">&lt;h2&gt;&lt;code&gt;</span>div {float: left; width: 50%; box-sizing: border-box; border: 1em}<span style="color: #f92672">&lt;/code&gt;&lt;/h2&gt;</span>
-
-                <span style="color: #f92672">&lt;p&gt;</span>~~~<span style="color: #f92672">&lt;/p&gt;</span>
-
-                <span style="color: #f92672">&lt;p&gt;</span>~~~<span style="color: #f92672">&lt;/p&gt;</span>
-            <span style="color: #f92672">&lt;/div&gt;</span>
-        <span style="color: #f92672">&lt;/div&gt;</span>
-    <span style="color: #f92672">&lt;/section&gt;</span>
-
-
-    <span style="color: #f92672">&lt;section&gt;</span>
-        <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;sticky&quot;</span> <span style="color: #a6e22e">style=</span><span style="color: #e6db74">&quot;top: 0px; margin-bottom: 50px;&quot;</span><span style="color: #f92672">&gt;</span>
-            <span style="color: #f92672">&lt;h1&gt;</span>STICKY-end top: 0px margin-bottom: 50px<span style="color: #f92672">&lt;/h1&gt;</span>
-        <span style="color: #f92672">&lt;/div&gt;</span>
-
-
-        <span style="color: #f92672">&lt;p&gt;</span>~~~<span style="color: #f92672">&lt;/p&gt;</span>
-
-        <span style="color: #f92672">&lt;p&gt;</span>~~~<span style="color: #f92672">&lt;/p&gt;</span>
-
-        <span style="color: #f92672">&lt;p&gt;</span>~~~<span style="color: #f92672">&lt;/p&gt;</span>
-    <span style="color: #f92672">&lt;/section&gt;</span>
-
-
-    <span style="color: #f92672">&lt;script&gt;</span>
-        <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
-            <span style="color: #a6e22e">Stickyfill</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">add</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;.sticky&#39;</span><span style="color: #f8f8f2">));</span>
-        <span style="color: #f8f8f2">});</span>
-    <span style="color: #f92672">&lt;/script&gt;</span>
-<span style="color: #f92672">&lt;/body&gt;</span>
-
-<span style="color: #f92672">&lt;/html&gt;</span>
-</pre></td></tr></table></div>
-
-
-
-
+ 76</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!DOCTYPE html&gt;</span>
+ <span style="color: #f92672">&lt;html</span> <span style="color: #a6e22e">lang=</span><span style="color: #e6db74">&quot;en&quot;</span><span style="color: #f92672">&gt;</span>
+ <span style="color: #f92672">&lt;head&gt;</span>
+	 <span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">charset=</span><span style="color: #e6db74">&quot;UTF-8&quot;</span><span style="color: #f92672">&gt;</span>
+	 <span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">name=</span><span style="color: #e6db74">&quot;viewport&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;width=device-width, initial-scale=1.0&quot;</span><span style="color: #f92672">&gt;</span>
+	 <span style="color: #f92672">&lt;title&gt;</span>scrollTrigger<span style="color: #f92672">&lt;/title&gt;</span>
+	 <span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/gsap/gsap-3.12.5.min.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+	 <span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/gsap/ScrollTrigger-3.12.5.min.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+	 <span style="color: #f92672">&lt;style&gt;</span>
+		 <span style="color: #f92672">html,</span> <span style="color: #f92672">body</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">margin</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;}</span>
+		 <span style="color: #f92672">html</span> <span style="color: #f8f8f2">{</span>
+			 <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f8f8f2">vh;</span>
+		 <span style="color: #f8f8f2">}</span>
+ 
+		 <span style="color: #f92672">body</span> <span style="color: #f8f8f2">{</span>
+			 <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">5000px</span><span style="color: #f8f8f2">;</span>
+			 <span style="color: #66d9ef">background</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#000</span><span style="color: #f8f8f2">;</span>
+		 <span style="color: #f8f8f2">}</span>
+ 
+		 <span style="color: #f92672">canvas</span> <span style="color: #f8f8f2">{</span>
+			 <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">fixed</span><span style="color: #f8f8f2">;</span>
+			 <span style="color: #66d9ef">left</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">50</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span>
+			 <span style="color: #66d9ef">top</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">50</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span>
+			 <span style="color: #f8f8f2">transform</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">translate(</span><span style="color: #ae81ff">-50</span><span style="color: #f92672">%,</span> <span style="color: #ae81ff">-50</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">);</span>
+			 <span style="color: #66d9ef">max-width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f8f8f2">vw;</span>
+			 <span style="color: #66d9ef">max-height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f8f8f2">vh;</span>
+		 <span style="color: #f8f8f2">}</span>
+	 <span style="color: #f92672">&lt;/style&gt;</span>
+ <span style="color: #f92672">&lt;/head&gt;</span>
+ <span style="color: #f92672">&lt;body&gt;</span>
+	 <span style="color: #f92672">&lt;section&gt;</span>
+		 <span style="color: #f92672">&lt;canvas</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;hero-lightpass&quot;</span> <span style="color: #f92672">/&gt;</span>
+	 <span style="color: #f92672">&lt;/section&gt;</span>
+ 
+	 <span style="color: #f92672">&lt;script&gt;</span>
+		 <span style="color: #a6e22e">console</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">clear</span><span style="color: #f8f8f2">();</span>
+ 
+		 <span style="color: #66d9ef">const</span> <span style="color: #a6e22e">canvas</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">document.</span><span style="color: #a6e22e">getElementById</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;hero-lightpass&quot;</span><span style="color: #f8f8f2">);</span>
+		 <span style="color: #66d9ef">const</span> <span style="color: #a6e22e">context</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">canvas</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">getContext</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;2d&quot;</span><span style="color: #f8f8f2">);</span>
+		 <span style="color: #a6e22e">canvas</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">width</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1158</span><span style="color: #f8f8f2">;</span>
+		 <span style="color: #a6e22e">canvas</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">height</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">770</span><span style="color: #f8f8f2">;</span>
+ 
+		 <span style="color: #66d9ef">const</span> <span style="color: #a6e22e">frameCount</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">147</span><span style="color: #f8f8f2">;</span>
+		 <span style="color: #66d9ef">const</span> <span style="color: #a6e22e">currentFrame</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">index</span> <span style="color: #f92672">=&gt;</span> <span style="color: #f8f8f2">(</span>
+			 <span style="color: #960050; background-color: #1e0010">`</span><span style="color: #f8f8f2">.</span><span style="color: #f92672">/</span><span style="color: #a6e22e">images</span><span style="color: #f92672">/</span><span style="color: #a6e22e">$</span><span style="color: #f8f8f2">{(</span><span style="color: #a6e22e">index</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">toString</span><span style="color: #f8f8f2">().</span><span style="color: #a6e22e">padStart</span><span style="color: #f8f8f2">(</span><span style="color: #ae81ff">4</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;0&#39;</span><span style="color: #f8f8f2">)}.</span><span style="color: #a6e22e">jpg</span><span style="color: #960050; background-color: #1e0010">`</span>
+		 <span style="color: #f8f8f2">);</span>
+ 
+		 <span style="color: #66d9ef">const</span> <span style="color: #a6e22e">images</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">[]</span>
+		 <span style="color: #66d9ef">const</span> <span style="color: #a6e22e">airpods</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">{</span> <span style="color: #a6e22e">frame</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span> <span style="color: #f8f8f2">};</span>
+ 
+		 <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">let</span> <span style="color: #a6e22e">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #a6e22e">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #a6e22e">frameCount</span><span style="color: #f8f8f2">;</span> <span style="color: #a6e22e">i</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+			 <span style="color: #66d9ef">const</span> <span style="color: #a6e22e">img</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">new</span> <span style="color: #a6e22e">Image</span><span style="color: #f8f8f2">();</span>
+			 <span style="color: #a6e22e">img</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">src</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">currentFrame</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">i</span><span style="color: #f8f8f2">);</span>
+			 <span style="color: #a6e22e">images</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">push</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">img</span><span style="color: #f8f8f2">);</span>
+		 <span style="color: #f8f8f2">}</span>
+ 
+		 <span style="color: #a6e22e">gsap</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">to</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">airpods</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">{</span>
+			 <span style="color: #a6e22e">frame</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">frameCount</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span>
+			 <span style="color: #a6e22e">snap</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;frame&quot;</span><span style="color: #f8f8f2">,</span>
+			 <span style="color: #a6e22e">ease</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;none&quot;</span><span style="color: #f8f8f2">,</span>
+			 <span style="color: #a6e22e">scrollTrigger</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">{</span>
+				 <span style="color: #a6e22e">scrub</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0.5</span>
+			 <span style="color: #f8f8f2">},</span>
+			 <span style="color: #a6e22e">onUpdate</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">render</span> <span style="color: #75715e">// use animation onUpdate instead of scrollTrigger&#39;s onUpdate</span>
+		 <span style="color: #f8f8f2">});</span>
+ 
+		 <span style="color: #a6e22e">images</span><span style="color: #f8f8f2">[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">].</span><span style="color: #a6e22e">onload</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">render</span><span style="color: #f8f8f2">;</span>
+ 
+		 <span style="color: #66d9ef">function</span> <span style="color: #a6e22e">render</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
+			 <span style="color: #a6e22e">context</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">clearRect</span><span style="color: #f8f8f2">(</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">canvas</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">width</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">canvas</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">height</span><span style="color: #f8f8f2">);</span>
+			 <span style="color: #a6e22e">context</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">drawImage</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">images</span><span style="color: #f8f8f2">[</span><span style="color: #a6e22e">airpods</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">frame</span><span style="color: #f8f8f2">],</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">);</span> 
+		 <span style="color: #f8f8f2">}</span>
+ 
+	 <span style="color: #f92672">&lt;/script&gt;</span>
+ <span style="color: #f92672">&lt;/body&gt;</span>
+ <span style="color: #f92672">&lt;/html&gt;</span>
+ </pre></td></tr></table></div>
+ 
                 
 
 				
