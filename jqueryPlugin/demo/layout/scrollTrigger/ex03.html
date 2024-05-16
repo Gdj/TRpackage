@@ -9,19 +9,17 @@
   <style>
     html, body { margin: 0; padding: 0;}
     /* html { height: 100vh; } */
-    body { height:5000px; background: #000; }
-    canvas {
-      position: fixed;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
+    body {  background: #000; }
+    .sequence {
+      position: relative;
+      transform: translate(0%, -50%);
       max-width: 100vw;
       max-height: 100vh;
     }
 
-    section { height: 100vh; display: flex; justify-content: center; align-items: center;}
+    section { position: relative; height: 100vh; display: flex; justify-content: center; align-items: center;}
     .bgcolor1 { background-color: antiquewhite;}
-    .bgcolor2 {
+    .bgcolor2 { height: 150vh; 
       background-size: 50px 50px;
       background-image:
         linear-gradient(to right, #dfdfdf 1px, transparent 1px),
@@ -33,7 +31,9 @@
 <body>
   <section class="section1 bgcolor1"></section>
   <section class="section2 bgcolor2">
-    <canvas id="hero-lightpass" />
+    <div class="sequence">
+      <canvas id="hero-lightpass" />
+    </div>
   </section>
   <section class="section3 bgcolor3"></section>
 
@@ -64,7 +64,10 @@
       snap: "frame",
       ease: "none",
       scrollTrigger: {
-        scrub: 0.5
+        scrub: 0.5,
+        pin: ".sequence",
+        pinSpacing:false,
+        markers: true, 
       },
       onUpdate: render // use animation onUpdate instead of scrollTrigger's onUpdate
     });
