@@ -41,31 +41,38 @@
 
 	$($tabBtn, tabMenu).on("click",function($e){
 		$e.preventDefault();
-		var _this =  $(this);
+		var _this = $(this);
+		var _wrap = $(this).closest(".tab-wrap")
 		var _index = _this.index();
-			active( _index , _this );
+			active( _index , _wrap );
 		return false;
 	});
 
-	function active($index){
-    $($tabBtn, tabMenu).removeClass("on_prev");
+	function active($index, _wrap){
+    $($tabBtn, _wrap).removeClass("on_prev");
     if( 0 < $index ){
-			$($tabBtn, tabMenu).eq($index-1).addClass("on_prev");
+			$($tabBtn, _wrap).eq($index-1).addClass("on_prev");
     }
 
-    $($tabBtn, tabMenu).removeClass($activeClass);
-    $($tabBtn, tabMenu).eq($index).addClass($activeClass);
-    $($tabCon, tabMenu).removeClass($activeClass);
-    $($tabCon, tabMenu).eq($index).addClass($activeClass);
+    $($tabBtn, _wrap).removeClass($activeClass);
+    $($tabBtn, _wrap).eq($index).addClass($activeClass);
+    $($tabCon, _wrap).removeClass($activeClass);
+    $($tabCon, _wrap).eq($index).addClass($activeClass);
 
     if($activeFN){
 			$activeFN($index);
     }
 	}
-	active(0);
+	
+	$(tabMenu).each(function($i){
+		active(0, this );
+	})
+
 	return {
 		setBtn: function($index) {
-			active($index);
+			$(tabMenu).each(function($i){
+				active($index, this );
+			})
 		}
 	}
 };
