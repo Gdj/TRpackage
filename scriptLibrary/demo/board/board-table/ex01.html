@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+	<title>board-list-type1</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css"  href="../../../../asset/css/trpBase.css" media="all" />
+	<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js" charset="UTF-8"></script>
+	<script type="text/javascript" src="../../../../asset/js/libs/trpBoard.js"></script>
+</head>
+
+<style type="text/css">
+
+	.trp.board-table-type1 { width:100%; border-top: 2px solid #000; text-align:center; }
+	.trp.board-table-type1 thead th { height: 38px; padding: 4px 5px 3px 5px; border-bottom: 1px solid #d9d9d9; font-size: 13px; background-color: #f6f6f6; }
+	.trp.board-table-type1 tbody td { height: 35px; padding: 4px 5px 3px 5px; border-bottom: 1px solid #e5e5e5; font-size: 13px;}
+	.trp.board-table-type1 tbody td.tit { padding-left: 50px; text-align: left; }
+
+	.trp.board-table-type1 th.table_sort { cursor: pointer; position: relative; padding-right: 16px !important; }
+	.trp.board-table-type1 th.table_sort.sort_up i.sort::before { border-bottom: 5px solid #555; }
+	.trp.board-table-type1 th.table_sort.sort_up i.sort::after { border-top: 5px solid #9C9C9C; }
+	.trp.board-table-type1 th.table_sort.sort_dw i.sort::before { border-bottom: 5px solid #9C9C9C; }
+	.trp.board-table-type1 th.table_sort.sort_dw i.sort::after { border-top: 5px solid #555; }
+	.trp.board-table-type1 th.table_sort i.sort { position: relative; text-decoration: none; font-style: normal;
+		position: absolute; top: 50%; right: 0px; margin-top: -8px;
+		width: 16px; height: 16px;
+	}
+	.trp.board-table-type1 th.table_sort i.sort::before, th.table_sort i.sort::after {
+		content: ""; width: 0; height: 0;
+		position: absolute; top: 50%; right: 5px;
+	}
+	.trp.board-table-type1 th.table_sort i.sort::before {
+		margin-top: -7px;
+		border-left: 4px solid transparent;
+		border-right: 4px solid transparent;
+		border-bottom: 5px solid #9C9C9C;
+	}
+	.trp.board-table-type1 th.table_sort i.sort::after {
+		margin-top: 2px;
+		border-top: 5px solid #9C9C9C;
+		border-left: 4px solid transparent;
+		border-right: 4px solid transparent;
+	}
+
+</style>
+
+
+<body>
+
+<table class="trp board-table-type1 js-table_sort" summary="소식 리스트 - 번호, 제목, 첨부파일, 날짜">
+	<caption>소식 리스트</caption>
+	<colgroup>
+		<col width="6.38297%">
+		<col width="*">
+		<col width="9.51062%">
+		<col width="14.89361%">
+	</colgroup>
+	<thead>
+		<tr>
+			<th scope="col" class="table_sort sort_up">번호 <i class="sort"></i></th>
+			<th scope="col">제목</th>
+			<th scope="col">첨부파일</th>
+			<th scope="col" class="table_sort">등록일 <i class="sort"></i></th>
+		</tr>
+	</thead>
+	<tbody>		
+
+		<tr>
+			<td>3</td>
+			<td class="tit"><a href="#" title="">공지사항 첫번째입니다.</a></td>
+			<td>					
+				<a href="#" title="첨부파일"></a>				
+			</td>
+			<td>2014-07-14</td>
+		</tr>		
+
+		<tr>
+			<td>2</td>
+			<td class="tit"><a href="#" title="">공지사항 첫번째입니다.</a></td>
+			<td>					
+				<a href="#" title="첨부파일"></a>				
+			</td>
+			<td>2014-06-14</td>
+		</tr>			
+
+		<tr>
+			<td>1</td>
+			<td class="tit"><a href="#" title="">테스트 제목입니다.</a></td>
+			<td>					
+				<a href="#" title="첨부파일"></a>					
+			</td>
+			<td>2014-07-10</td>
+		</tr>
+		
+	</tbody>
+</table>
+
+<script>
+	$(".js-table_sort").trpSortTable();
+</script>
+
+</body>
+</html>

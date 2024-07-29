@@ -5,16 +5,43 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link rel="stylesheet" type="text/css"  href="../../../../asset/css/trpBase.css" media="all" />
 </head>
-<!--
+<!-- 
 <style type="text/css">
-	
+
 	.trp.board-table-type1 { width:100%; border-top: 2px solid #000; text-align:center; }
 	.trp.board-table-type1 thead th { height: 38px; padding: 4px 5px 3px 5px; border-bottom: 1px solid #d9d9d9; font-size: 13px; background-color: #f6f6f6; }
 	.trp.board-table-type1 tbody td { height: 35px; padding: 4px 5px 3px 5px; border-bottom: 1px solid #e5e5e5; font-size: 13px;}
 	.trp.board-table-type1 tbody td.tit { padding-left: 50px; text-align: left; }
-	
+
+	.trp.board-table-type1 th.table_sort { cursor: pointer; position: relative; padding-right: 16px !important; }
+	.trp.board-table-type1 th.table_sort.sort_up i.sort::before { border-bottom: 5px solid #777; }
+	.trp.board-table-type1 th.table_sort.sort_up i.sort::after { border-top: 5px solid #9C9C9C; }
+	.trp.board-table-type1 th.table_sort.sort_dw i.sort::before { border-bottom: 5px solid #9C9C9C; }
+	.trp.board-table-type1 th.table_sort.sort_dw i.sort::after { border-top: 5px solid #777; }
+	.trp.board-table-type1 th.table_sort i.sort { position: relative; text-decoration: none; font-style: normal;
+		position: absolute; top: 50%; right: 0px; margin-top: -8px;
+		width: 16px; height: 16px;
+	}
+	.trp.board-table-type1 th.table_sort i.sort::before, th.table_sort i.sort::after {
+		content: ""; width: 0; height: 0;
+		position: absolute; top: 50%; right: 5px;
+	}
+	.trp.board-table-type1 th.table_sort i.sort::before {
+		margin-top: -7px;
+		border-left: 4px solid transparent;
+		border-right: 4px solid transparent;
+		border-bottom: 5px solid #9C9C9C;
+	}
+	.trp.board-table-type1 th.table_sort i.sort::after {
+		margin-top: 2px;
+		border-top: 5px solid #9C9C9C;
+		border-left: 4px solid transparent;
+		border-right: 4px solid transparent;
+	}
+
 </style>
- -->
+-->
+
 <body>
 
 <table class="trp board-table-type1" summary="소식 리스트 - 번호, 제목, 첨부파일, 날짜">
@@ -27,10 +54,10 @@
 	</colgroup>
 	<thead>
 		<tr>
-			<th scope="col">번호</th>
+			<th scope="col" class="table_sort sort_up">번호 <i class="sort"></i></th>
 			<th scope="col">제목</th>
 			<th scope="col">첨부파일</th>
-			<th scope="col">등록일</th>
+			<th scope="col" class="table_sort">등록일 <i class="sort"></i></th>
 		</tr>
 	</thead>
 	<tbody>		

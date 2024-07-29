@@ -1,8 +1,8 @@
 /*
- * Base			: jQuery JavaScript Library v1.12.1
+ * Base			  : jQuery JavaScript Library v1.12.1
  * trPackage	:
- * trpPopup	    : v0.9.2
- * release date : 2021.11.16
+ * trpPopup	    : v0.9.3
+ * release date : 2024.07.26
  * author		: http://turfrain.tistory.com/
  * Copyright 2018. turfrain all rights reserved.
  *
@@ -175,47 +175,50 @@ $(document).ready(function(){
 
 
 
-/*  trpCheckBoxAllsImg             : 전체 선택 체크 박스
-    @param	$checkAll			: 전체 체크박스 선택자
+/*  trpCheckBoxAllsImg      : 전체 선택 체크 박스
+    @param	$checkAll			  : 전체 체크박스 선택자
     @param	$checkItem			: 개별 체크박스 선택자
+    @param	$itemParent			: 아이템 부모
 */
-jQuery.fn.trpCheckBoxAllsImg = function($checkAll, $checkItem){
+jQuery.fn.trpCheckBoxAllsImg = function($checkAll, $checkItem, $itemParent){
 	var _wrap = this;										// 컨테이너
+  var _itemParent = ".checkbox-box";
+  if ( $itemParent ) { _itemParent = $itemParent }
 
-    /* 전체 선택 */
-    $(_wrap).on("change", $checkAll , function(){ 
-        if($(_wrap).find($checkAll).prop( "checked" )){
-            $(_wrap).find($checkItem).prop('checked', true);
-            $(_wrap).find($checkAll).parent().addClass("on");
-            $(_wrap).find($checkItem).parent().addClass("on");
-        }else{
-            $(_wrap).find($checkItem).prop('checked', false);
-            $(_wrap).find($checkAll).parent().removeClass("on");
-            $(_wrap).find($checkItem).parent().removeClass("on");
-        }
-    });
+  /* 전체 선택 */
+  $(_wrap).on("change", $checkAll , function(){ 
+      if($(_wrap).find($checkAll).prop( "checked" )){
+          $(_wrap).find($checkItem).prop('checked', true);
+          $(_wrap).find($checkAll).parent().addClass("on");
+          $(_wrap).find($checkItem).parent().addClass("on");
+      }else{
+          $(_wrap).find($checkItem).prop('checked', false);
+          $(_wrap).find($checkAll).parent().removeClass("on");
+          $(_wrap).find($checkItem).parent().removeClass("on");
+      }
+  });
 
-    /* 개별 선택 */
-    $(_wrap).on("change", $checkItem, function(){
-        var n = $(_wrap).find($checkItem + ":checked").length;
-       
-        // all
-        if ( n >= $(_wrap).find($checkItem).length ){
-            $(_wrap).find($checkAll).prop('checked', true);
-            $(_wrap).find($checkAll).parent().addClass("on");
-        }else{
-            $(_wrap).find($checkAll).prop('checked', false);
-            $(_wrap).find($checkAll).parent().removeClass("on");
-        }
-        // item
-        //if ( !$(this).parent().hasClass("on") ){
-		if ( $(this).prop( "checked" ) ){
-            $(this).parent().addClass("on");
-        }else{
-            $(this).parent().removeClass("on");
-        }
+  /* 개별 선택 */
+  $(_wrap).on("change", $checkItem, function(){
+      var n = $(_wrap).find($checkItem + ":checked").length;
+      
+      // all
+      if ( n >= $(_wrap).find($checkItem).length ){
+          $(_wrap).find($checkAll).prop('checked', true);
+          $(_wrap).find($checkAll).parent().addClass("on");
+      }else{
+          $(_wrap).find($checkAll).prop('checked', false);
+          $(_wrap).find($checkAll).parent().removeClass("on");
+      }
+      // item
+      //if ( !$(this).parent().hasClass("on") ){
+      if ( $(this).prop( "checked" ) ){
+          $(this).closest(_itemParent).addClass("on");
+      }else{
+          $(this).closest(_itemParent).removeClass("on");
+      }
 
-    });
+  });
 }
 /* //전체 선택 체크 박스 */
 
