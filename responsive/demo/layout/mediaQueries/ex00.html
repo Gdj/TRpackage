@@ -13,20 +13,20 @@
 	.mediaQuery::after{ content: "default : 1280px 초과 "; display: block; }
 	.mediaQuery>div{ font-size: 15px }
 
-	@media screen and (max-width:1280px) {
-		.mediaQuery::after{ content: "@media screen and (max-width:1280px)"; display: block; background-color: #aef0ff;}
+	@media screen and (width <= 1280px) {
+		.mediaQuery::after{ content: "@media screen and (width <= 1280px)"; display: block; background-color: #aef0ff;}
 	}
 	
-	@media screen and (max-width:1024px) {
-		.mediaQuery::after{ content: "@media screen and (max-width:1024px)"; display: block; background-color: #89f0a5;}
+	@media screen and (width <= 1024px) {
+		.mediaQuery::after{ content: "@media screen and (width <= 1024px)"; display: block; background-color: #89f0a5;}
 	}
 
-	@media screen and (max-width:768px) {
-		.mediaQuery::after{ content: "@media screen and (max-width:768px)"; display: block; background-color: #ffd09e; }
+	@media screen and (width <= 768px) {
+		.mediaQuery::after{ content: "@media screen and (width <= 768px)"; display: block; background-color: #ffd09e; }
 	}
 
-	@media screen and (max-width:480px) {
-		.mediaQuery::after{ content: "@media screen and (max-width:480px)"; display: block; background-color: #ffbfd2; }
+	@media screen and (width <= 480px) {
+		.mediaQuery::after{ content: "@media screen and (width <= 480px)"; display: block; background-color: #ffbfd2; }
 	}
 	
 </style>

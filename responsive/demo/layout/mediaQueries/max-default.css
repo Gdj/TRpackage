@@ -1,0 +1,5 @@
+.mediaQuery { display: flex; flex-direction: column; align-items: center; justify-content: center; 
+  height: 300px; font-size: 20px; font-weight: bold; background-color: #eee;
+} 
+.mediaQuery::after{ content: "default : 1280px 초과 "; display: block; }
+.mediaQuery>div{ font-size: 15px }

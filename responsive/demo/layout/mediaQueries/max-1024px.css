@@ -1,0 +1,1 @@
+.mediaQuery::after{ content: "@media screen and (max-width:1024px)"; display: block; background-color: #89f0a5;}

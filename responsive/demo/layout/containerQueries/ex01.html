@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+	<title>컨테이너쿼리</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css"  href="../../../../asset/css/trpBase.css" media="all" />
+	<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js" charset="UTF-8"></script>
+
+	<!-- responsive web design area -->
+	<style type="text/css">
+
+		.containerQuery { display: flex; flex-direction: column; align-items: center; justify-content: center; 
+			width: 80%; height: 300px; font-size: 20px; font-weight: bold; background-color: #eee;
+			container-name: div-container;
+			container-type: inline-size; 
+		} 
+		.containerQuery::after{ content: "default : 1280px 초과 "; display: block; }
+		.containerQuery>div{ font-size: 15px }
+
+		@container div-container (width <= 1280px) {
+			.containerQuery::after{ content: "@container div-container (width <= 1280px)"; display: block; background-color: #aef0ff;}
+		}
+		
+		@container div-container (width <= 1024px) {
+			.containerQuery::after{ content: "@container div-container (width <= 1024px)"; display: block; background-color: #89f0a5;}
+		}
+
+		@container div-container (width <= 768px) {
+			.containerQuery::after{ content: "@container div-container (width <= 768px)"; display: block; background-color: #ffd09e; }
+		}
+
+		@container div-container (width <= 480px) {
+			.containerQuery::after{ content: "@container div-container (width <= 480px)"; display: block; background-color: #ffbfd2; }
+		}
+		
+	</style>
+
+</head>
+<body>
+
+	<div class="containerQuery">
+		<div><strong>데스크탑 중심</strong> </div>
+		<div> 컨테이너 크기 : <strong class="widthSize">0</strong>px </div>
+		<div> deafult : 1280px 초과</div>
+		<div> width : 1280px 까지</div>
+		<div> width : 1024px 까지</div>
+		<div> width : 768px 까지</div>
+		<div> width : 480px 까지</div>
+	</div>
+
+	<script>
+		$(window).on("resize", function($e){
+			$(".widthSize").text( $(".containerQuery").innerWidth() );
+			console.log("ssssssss")
+		})
+	</script>
+</body>
+</html>
+
+
+
