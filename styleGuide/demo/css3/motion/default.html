@@ -64,7 +64,62 @@
 				
 
 
-			
+				<table class="table_col" summary="transition 설명">
+					<caption>transition 설명</caption>
+					<colgroup>
+						<col width="150">
+						<col width="">		
+					</colgroup>
+					<thead>
+						<tr>
+							<th colspan="2">
+								transition: property name | duration | timing function | delay  <br>
+								transition: margin-left 4s ease-in-out 1s;
+							</th>
+						</tr>
+					</thead>
+					<tr>
+						<th scope="col">transition 속성</th>
+						<th scope="col">속성 설명</th>
+					</tr>
+					<tbody>
+					<tr>
+						<td>transition-property</td>
+						<td>
+							트랜지션 이벤트를 적용할 CSS 속성 <br>
+							initial(defatul), none, all, inherit, css property명 (margin, width 등)
+						</td>		
+					</tr>
+					<tr>
+						<td>transition-duration</td>
+						<td>
+							트랜지션 이벤트를 실행할 시간 <br>
+							0.3s(0.3초), 500ms(0.5초)
+						</td>		
+					</tr>
+					<tr>
+						<td>transition-timing-function</td>
+						<td>
+							트랜지션 이벤트를 실행할 시간 <br>
+							linear : cubic-bezier(0, 0, 1, 1), ease-in-out : cubic-bezier(0.42, 0, 0.58, 1) <br>
+							ease-in : cubic-bezier(0.42, 0, 1, 1), ease-out : cubic-bezier(0, 0, 0.58, 1)
+						</td>		
+					</tr>
+					<tr>
+						<td>transition-delay</td>
+						<td>
+							트랜지션 지연 시간 <br>
+							0.3s(0.3초), 500ms(0.5초)
+						</td>		
+					</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<th colspan="2"> <code>element.addEventListener('transitionend', EventHandlerTransitionEnd);</code> </td>
+						</tr>
+					</tfoot>
+				</table>
+
 
 				<div class="ex_wapper">
 					<h3 class="api-title_h3 css">CSS (속성으로 모션주기)</h3>
@@ -90,11 +145,102 @@
 				</div>
 				
 				
+				<table class="table_col" summary="animation 설명">
+					<caption>animation 설명</caption>
+					<colgroup>
+						<col width="150">
+						<col width="">		
+					</colgroup>
+					<thead>
+						<tr>
+							<th colspan="2">
+								animation: name | duration | timing-function | delay | iteration-count | direction | fill-mode; <br>
+								animation: animation_name .5s  ease-in-out  .2s  infinite  noraml  forwards ; 
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<th scope="col">animation 속성</th>
+						<th scope="col">속성 설명</th>
+					</tr>
+					<tr>
+						<td>animation-name</td>
+						<td>
+							애니메이션 이름 <br>
+							@-webkit-keyframes 애니메이션이름 {
+								0%   { top: 0 }
+						 		100% { top: 10px }
+							 1}
+						</td>		
+					</tr>
+					<tr>
+						<td>animation-delay</td>
+						<td>
+							애니메이션 실행 시간 
+						</td>		
+					</tr>
+					<tr>
+						<td>animation-duration</td>
+						<td>
+							애니메이션 지연 시간 
+						</td>		
+					</tr>
+					<tr>
+						<td>animation-timing-function</td>
+						<td>
+							이진 함수
+						</td>		
+					</tr>
+					<tr>
+						<td>animation-iteration-count</td>
+						<td>
+							반복 횟수 <br>
+							1, 3, infinite
+						</td>		
+					</tr>
+					<tr>
+						<td>animation-direction</td>
+						<td>
+							애니메이션 방향 <br>
+							noraml, revers(역재생), alternate(왔다갔다), alternate-reverse
+						</td>		
+					</tr>
+					<tr>
+						<td>animation-play-state</td>
+						<td>
+							애니메이션의 동작 상태 여부 <br>
+							running = 재생중 | paused = 일시 정지중
+						</td>		
+					</tr>
+					<tr>
+						<td>animation-fill-mode</td>
+						<td>
+							애니메이션의 실행 전/후에 대상에 스타일을 적용 방법 <br>
+							none (default)    = 애니메이션 시작 전 요소에 할당된 스타일을 그대로 유지 <br>
+							forwards  = 실행된 애니메이션의 마지막 keyframe 에 의해 설정된 스타일값을 유지 <br>
+							backwards = delay 가 일어나는 동안 keyframe 에 의해 설정된 시작 스타일값을 적용 <br>
+							both = forwards & backwards 가 동시에 적용
+						</td>		
+					</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<th colspan="2">
+								element.addEventListener("animationstart",     EventHandler, false); <br>
+								element.addEventListener("animationend",       EventHandler, false); <br>
+								element.addEventListener("animationiteration", EventHandler, false); 
+							</th>
+						</tr>
+					</tfoot>
+				</table>
 
 				<div class="ex_wapper">
 					<h3 class="api-title_h3 css">CSS (키프레임으로 모션주기)</h3>
 					<div class="api-body_h3 css">
                     <!-- 소스 -->
+
+
 
 
 <!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
@@ -116,41 +262,29 @@
 17
 18
 19
-20
-21
-22
-23
-24
-25
-26
-27</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #f92672">&lt;style </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/css&quot;</span><span style="color: #f92672">&gt;</span>
-    
-    <span style="color: #a6e22e">.class</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f92672">-</span><span style="color: #f8f8f2">webkit</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">transition</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">width</span> <span style="color: #ae81ff">2s</span><span style="color: #f8f8f2">;</span> <span style="color: #75715e">/* Safari */</span>
-        <span style="color: #f8f8f2">transition</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">width</span> <span style="color: #ae81ff">2s</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #f8f8f2">}</span>
-    
-    <span style="color: #a6e22e">.class</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100px</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100px</span><span style="color: #f8f8f2">;</span>
-        <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">red;</span>
-        <span style="color: #f92672">-</span><span style="color: #f8f8f2">webkit</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">animation</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">name</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">example;</span> <span style="color: #75715e">/* Safari 4.0 - 8.0 */</span>
-        <span style="color: #f92672">-</span><span style="color: #f8f8f2">webkit</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">animation</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">duration</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">4s</span><span style="color: #f8f8f2">;</span> <span style="color: #75715e">/* Safari 4.0 - 8.0 */</span>
-        <span style="color: #f92672">-</span><span style="color: #f8f8f2">webkit</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">animation</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">fill</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">mode</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">forwards;</span> <span style="color: #75715e">/* Safari 4.0 - 8.0 */</span>
-        <span style="color: #f8f8f2">animation</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">name</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">example;</span>
-        <span style="color: #f8f8f2">animation</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">duration</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">4s</span><span style="color: #f8f8f2">;</span>  
-        <span style="color: #f8f8f2">animation</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">fill</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">mode</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">forwards;</span> <span style="color: #f92672">//</span> <span style="color: #960050; background-color: #1e0010">모션후정지</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #75715e">/* Safari 4.0 - 8.0 */</span>
-    <span style="color: #66d9ef">@-webkit-keyframes</span> <span style="color: #f92672">example</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #f92672">0%</span>   <span style="color: #f8f8f2">{</span><span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">red;}</span>
-        <span style="color: #f92672">25%</span>  <span style="color: #f8f8f2">{</span><span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">yellow;}</span>
-        <span style="color: #f92672">50%</span>  <span style="color: #f8f8f2">{</span><span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">blue;}</span>
-        <span style="color: #f92672">100%</span> <span style="color: #f8f8f2">{</span><span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">green;}</span>
-    <span style="color: #f8f8f2">}</span>
-
+20</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #f92672">&lt;style </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/css&quot;</span><span style="color: #f92672">&gt;</span>
+  <span style="color: #a6e22e">.class</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100px</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100px</span><span style="color: #f8f8f2">;</span>
+    <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">red;</span>
+    <span style="color: #f92672">-</span><span style="color: #f8f8f2">webkit</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">animation</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">name</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">example;</span> <span style="color: #75715e">/* Safari 4.0 - 8.0 */</span>
+    <span style="color: #f92672">-</span><span style="color: #f8f8f2">webkit</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">animation</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">duration</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">4s</span><span style="color: #f8f8f2">;</span> <span style="color: #75715e">/* Safari 4.0 - 8.0 */</span>
+    <span style="color: #f92672">-</span><span style="color: #f8f8f2">webkit</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">animation</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">fill</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">mode</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">forwards;</span> <span style="color: #75715e">/* Safari 4.0 - 8.0 */</span>
+    <span style="color: #f8f8f2">animation</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">name</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">example;</span>
+    <span style="color: #f8f8f2">animation</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">duration</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">4s</span><span style="color: #f8f8f2">;</span>  
+    <span style="color: #f8f8f2">animation</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">fill</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">mode</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">forwards;</span> <span style="color: #f92672">//</span> <span style="color: #960050; background-color: #1e0010">모션후정지</span>
+  <span style="color: #f8f8f2">}</span>
+  <span style="color: #75715e">/* Safari 4.0 - 8.0 */</span>
+  <span style="color: #66d9ef">@-webkit-keyframes</span> <span style="color: #f92672">example</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #f92672">0%</span>   <span style="color: #f8f8f2">{</span><span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">red;}</span>
+    <span style="color: #f92672">25%</span>  <span style="color: #f8f8f2">{</span><span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">yellow;}</span>
+    <span style="color: #f92672">50%</span>  <span style="color: #f8f8f2">{</span><span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">blue;}</span>
+    <span style="color: #f92672">100%</span> <span style="color: #f8f8f2">{</span><span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">green;}</span>
+  <span style="color: #f8f8f2">}</span>
 <span style="color: #f92672">&lt;/style&gt;</span>
 </pre></td></tr></table></div>
+
+ 
 
 
                     

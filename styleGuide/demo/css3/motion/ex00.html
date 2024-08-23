@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>css3 motion</title>
+  <style>
+    .class {
+      -webkit-transition: width 2s; /* Safari */
+      transition: width 2s;
+    }
+  </style>
+
+
+  <style type="text/css">
+    .class {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+      -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+      -webkit-animation-fill-mode: forwards; /* Safari 4.0 - 8.0 */
+      animation-name: example;
+      animation-duration: 4s;  
+      animation-fill-mode: forwards; // 모션후정지
+    }
+    /* Safari 4.0 - 8.0 */
+    @-webkit-keyframes example {
+      0%   {background-color: red;}
+      25%  {background-color: yellow;}
+      50%  {background-color: blue;}
+      100% {background-color: green;}
+    }
+  </style>
+
+</head>
+<body>
+   
+    
+</body>
+</html>
