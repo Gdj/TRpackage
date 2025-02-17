@@ -697,8 +697,9 @@ jQuery.fn.trpBgDim = function($opacity,$bgColor){
 	function trpSetCookie($cName, $cValue, $cDay){
 		var expire = new Date();
 
-		expire.setDate(expire.getDate() + $cDay);				// 현재 날짜+팝업을 안열을 일수
-		cookies = $cName + '=' + escape($cValue) + '; path=/';	// 한글 깨짐을 막기위해 escape(cValue)를 합니다.
+		expire.setDate(expire.getDate() + $cDay);											// 현재 날짜+팝업을 안열을 일수
+		cookies = $cName + '=' +  encodeURI($cValue) + '; path=/';		// 한글 깨짐을 막기위해 escape(cValue)를 합니다.
+		///cookies = $cName + '=' + escape($cValue) + '; path=/';			// 한글 깨짐을 막기위해 escape(cValue)를 합니다.
 		if(typeof $cDay != 'undefined') cookies += ';expires=' + expire.toGMTString() + ';';  // 쿠키 지속시간 설정( toUTCString )
 		document.cookie = cookies;
 	}
@@ -721,6 +722,7 @@ jQuery.fn.trpBgDim = function($opacity,$bgColor){
 			cValue = cookieData.substring(start, end);
 		}
 
-		return unescape(cValue);
+		return decodeURI(cValue);
+		/// return unescape(cValue);
 	}
 /** //==================== 쿠키관련 ==================== **/

@@ -549,18 +549,18 @@ $.fn.uiCount = function(options){
 	function checkVal() {
 		_count = (countTxt.val().length) ? parseInt(countTxt.val()) : 0;
 		_count = isNaN(_count) ? 0 : _count;
-		if( _min == 00 ){ countTxt.val( fill_num(_count, 2) ); }else{ countTxt.val(_count); }
+		if( _min == 0 ){ countTxt.val( fill_num(_count, 2) ); }else{ countTxt.val(_count); }
 	}
 
 	function upCount(){
 		_count = parseInt(countTxt.val())+1;
 		_count = (_count > _max) ? _max : _count;
-		if( _min == 00 ){ countTxt.val( fill_num(_count, 2) ); }else{ countTxt.val(_count); }
+		if( _min == 0 ){ countTxt.val( fill_num(_count, 2) ); }else{ countTxt.val(_count); }
 	}
 	function downCount(){
 		_count = parseInt(countTxt.val())-1;
 		_count = (_count > _min) ? _count : _min;
-		if( _min == 00 ){ countTxt.val( fill_num(_count, 2) ); }else{ countTxt.val(_count); }
+		if( _min == 0 ){ countTxt.val( fill_num(_count, 2) ); }else{ countTxt.val(_count); }
 	}
 	function addEvent(){			
 		$(_wrap).on('click', '.arrow_up', function() {
