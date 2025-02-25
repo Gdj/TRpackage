@@ -74,6 +74,8 @@ pre { tab-size: 4; }
 .mt20 { margin-top: 20px;}
 
 
+.row2 { display: flex; flex-wrap: wrap; justify-content: space-between; }
+
 
 .contents {/* width:780px; margin:10px 0 50px 20px; line-height:18px; */}
 .contents .con_comm { margin-bottom:30px; }
