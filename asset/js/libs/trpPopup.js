@@ -279,15 +279,16 @@ jQuery.fn.trpBgDim = function($opacity,$bgColor){
 /** ==================== 쿠키관련 ==================== **/
 	/**
 	*	trpSetCookie : 쿠키세팅
-	*	cName		: 쿠키이름
-	*	cValue		: 쿠키값
-	*	cDay		: 날짜 1일단위
+	*	cName		 : 쿠키이름
+	*	cValue		 : 쿠키값
+	*	cDay		 : 날짜 1일단위
 	*/
 	function trpSetCookie($cName, $cValue, $cDay){
 		var expire = new Date();
 
-		expire.setDate(expire.getDate() + $cDay);				// 현재 날짜+팝업을 안열을 일수
-		cookies = $cName + '=' + escape($cValue) + '; path=/ ';	// 한글 깨짐을 막기위해 escape(cValue)를 합니다.
+		expire.setDate(expire.getDate() + $cDay);											// 현재 날짜+팝업을 안열을 일수
+		cookies = $cName + '=' +  encodeURI($cValue) + '; path=/';		// 한글 깨짐을 막기위해 escape(cValue)를 합니다.
+		///cookies = $cName + '=' + escape($cValue) + '; path=/';			// 한글 깨짐을 막기위해 escape(cValue)를 합니다.
 		if(typeof $cDay != 'undefined') cookies += ';expires=' + expire.toGMTString() + ';';  // 쿠키 지속시간 설정( toUTCString )
 		document.cookie = cookies;
 	}
@@ -310,6 +311,7 @@ jQuery.fn.trpBgDim = function($opacity,$bgColor){
 			cValue = cookieData.substring(start, end);
 		}
 
-		return unescape(cValue);
+		return decodeURI(cValue);
+		/// return unescape(cValue);
 	}
 /** //==================== 쿠키관련 ==================== **/
