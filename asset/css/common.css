@@ -64,6 +64,16 @@ pre { tab-size: 4; }
 .d-n { display:none; }
 .cl-b { clear:both; width:0; }
 .dr_hl_codeContainer {width:750px}
+.ml5  { margin-left: 5px;}
+.ml10 { margin-left: 10px;}
+.ml15 { margin-left: 15px;}
+.ml20 { margin-left: 20px;}
+.mt5  { margin-top: 5px;}
+.mt10 { margin-top: 10px;}
+.mt15 { margin-top: 15px;}
+.mt20 { margin-top: 20px;}
+
+
 
 .contents {/* width:780px; margin:10px 0 50px 20px; line-height:18px; */}
 .contents .con_comm { margin-bottom:30px; }
@@ -135,3 +145,7 @@ ul.mark-list li { padding-left: 1em; text-indent: -1em;}
 .html_rule .doctype_ex { padding:10px 10px 0px 10px; background:#f3f3f3; border:1px solid #eeeeee; }
 .html_rule .doctype_ex .tit { padding-left:10px; font-weight:bold; background:url('../images/dot_blue.png') 0 7px no-repeat; }
 .html_rule .doctype_ex .con { margin-bottom:10px; padding-left:10px; }
+
+
+ul.disc-list li { padding-left: 1em; text-indent: -1em; }
+ul.disc-list li:before { content: "·"; margin-right: 0.5em; } 
