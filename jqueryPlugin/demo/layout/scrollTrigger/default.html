@@ -20,7 +20,8 @@
 			<h1 class="desc_title">gsap.registerPlugin(ScrollTrigger)</h1>
 			<p>
 				gsap 이용하여 scrollTrigger 플러그인 적용<br />
-				scrollTrigger DOC : <a href="https://gsap.com/docs/v3/Plugins/ScrollTrigger/" target="_blank">ScrollTrigger Plugin DOC</a>
+				- scrollTrigger DOC : <a href="https://gsap.com/docs/v3/Plugins/ScrollTrigger/" target="_blank">ScrollTrigger DOC</a> <br>
+				- MotionPathPlugin DOC : <a href="https://gsap.com/docs/v3/Plugins/MotionPathPlugin/" target="_blank">MotionPath Plugin DOC</a> <br>
 			</p>												
 		</div>
 		<!-- e: 스크립드 설명 -->
@@ -36,6 +37,7 @@
 					<dd><span class="icon"></span>GSAP CDN : <a href="http://https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" target="_blank">https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js</a></dd>					
 					<dd><span class="icon"></span>ScrollTrigger plugin CDN : <a href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js" target="_blank">https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js</a></dd>					
 					<dd><span class="icon"></span>ScrollTrigger CDN : <a href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" target="_blank">https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js</a></dd>					
+					<dd><span class="icon"></span>MotionPathPlugin CDN : <a href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/MotionPathPlugin.min.js" target="_blank">https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/MotionPathPlugin.min.js</a></dd>					
 					<dd><span class="icon"></span>초기 선언 :  gsap.registerPlugin(ScrollTrigger); <br>
 						&nbsp;&nbsp; gsap.timeline({ scrollTrigger:{ ... } }).from( ... )
 					</dd>
@@ -382,7 +384,7 @@
 		</div>
 		<!-- e: api 설명 -->
 
-		<!-- s: examples 예제 -->
+		<!-- s: examples 예제 1 -->
 		<div class="ex_wapper">
 			<div class="section">
 				<h2 class="ex-title">예제) 1.사용예 </h2>
@@ -516,7 +518,7 @@
 		<!-- e: examples 예제 -->
 
 
-		<!-- s: examples 예제 -->
+		<!-- s: examples 예제 2 -->
 		<div class="ex_wapper">
 			<div class="section">
 				<h2 class="ex-title">예제) 2.사용예 (timeline) </h2>
@@ -654,7 +656,7 @@
 
 
 
-		<!-- s: examples 예제 -->
+		<!-- s: examples 예제 3 -->
 		<div class="ex_wapper">
 			<div class="section">
 				<h2 class="ex-title">예제) 3.사용예 (sticky) </h2>
@@ -983,12 +985,177 @@
 
 
 
-		<!-- s: examples 예제 -->
+		<!-- s: examples 예제 4 -->
 		<div class="ex_wapper">
 			<div class="section">
-				<h2 class="ex-title">예제) 4.시퀀스 </h2>
+				<h2 class="ex-title">예제) 4.사용예 (MotionPathPlugin) </h2>
 				<p class="ex-more" ><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p>
 				<p class="ex-view" ><a href="ex04.html" target="_blank">View</a></p>
+				<div class="ex-body" style="display:none" >					
+					<div class="source"><!-- 소스 -->
+
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+	2
+	3
+	4
+	5
+	6
+	7
+	8
+	9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #f92672">&lt;body&gt;</span>
+	
+	 <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;section-area&quot;</span><span style="color: #f92672">&gt;</span>
+		 
+		 <span style="color: #f92672">&lt;section</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;section-2&quot;</span><span style="color: #f92672">&gt;</span>
+		 <span style="color: #f92672">&lt;/section&gt;</span>
+		 
+		 <span style="color: #f92672">&lt;section</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;section-3&quot;</span><span style="color: #f92672">&gt;</span>
+		 <span style="color: #f92672">&lt;/section&gt;</span>
+		 
+		 <span style="color: #f92672">&lt;section</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;section-4&quot;</span><span style="color: #f92672">&gt;</span>
+		 <span style="color: #f92672">&lt;/section&gt;</span>
+ 
+		 <span style="color: #f92672">&lt;section</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;section-1&quot;</span><span style="color: #f92672">&gt;</span>
+			 <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;ball&quot;</span><span style="color: #f92672">&gt;&lt;/div&gt;</span>
+		 <span style="color: #f92672">&lt;/section&gt;</span>
+		 
+		 <span style="color: #f92672">&lt;section</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;section-2&quot;</span><span style="color: #f92672">&gt;</span>
+		 <span style="color: #f92672">&lt;/section&gt;</span>
+		 
+		 <span style="color: #f92672">&lt;section</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;section-3&quot;</span><span style="color: #f92672">&gt;</span>
+		 <span style="color: #f92672">&lt;/section&gt;</span>
+		 
+		 <span style="color: #f92672">&lt;section</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;section-4&quot;</span><span style="color: #f92672">&gt;</span>
+		 <span style="color: #f92672">&lt;/section&gt;</span>
+	 <span style="color: #f92672">&lt;/div&gt;</span>
+	 <span style="color: #f92672">&lt;style&gt;</span>
+ 
+		 <span style="color: #a6e22e">.section-area</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">relative</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+		 <span style="color: #f92672">section</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f8f8f2">vh;</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">relative</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+		 <span style="color: #a6e22e">.section-1</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">background</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">rgb</span><span style="color: #f8f8f2">(</span><span style="color: #ae81ff">192</span><span style="color: #f92672">,</span> <span style="color: #ae81ff">192</span><span style="color: #f92672">,</span> <span style="color: #ae81ff">255</span><span style="color: #f8f8f2">);</span> <span style="color: #f8f8f2">}</span>
+		 <span style="color: #a6e22e">.section-2</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">background</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">rgb</span><span style="color: #f8f8f2">(</span><span style="color: #ae81ff">184</span><span style="color: #f92672">,</span> <span style="color: #ae81ff">252</span><span style="color: #f92672">,</span> <span style="color: #ae81ff">184</span><span style="color: #f8f8f2">);</span> <span style="color: #f8f8f2">}</span>
+		 <span style="color: #a6e22e">.section-3</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">background</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">rgb</span><span style="color: #f8f8f2">(</span><span style="color: #ae81ff">254</span><span style="color: #f92672">,</span> <span style="color: #ae81ff">167</span><span style="color: #f92672">,</span> <span style="color: #ae81ff">167</span><span style="color: #f8f8f2">);</span> <span style="color: #f8f8f2">}</span>
+		 <span style="color: #a6e22e">.section-4</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">background</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">rgb</span><span style="color: #f8f8f2">(</span><span style="color: #ae81ff">253</span><span style="color: #f92672">,</span> <span style="color: #ae81ff">253</span><span style="color: #f92672">,</span> <span style="color: #ae81ff">152</span><span style="color: #f8f8f2">);</span> <span style="color: #f8f8f2">}</span>
+ 
+		 <span style="color: #a6e22e">#ball</span><span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">absolute</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">top</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">5</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">left</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
+			 <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">50px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">50px</span><span style="color: #f8f8f2">;</span>
+			 <span style="color: #66d9ef">background</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">black;</span> <span style="color: #66d9ef">border</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">radius</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">20</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span>
+			 <span style="color: #66d9ef">z-index</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
+		 <span style="color: #f8f8f2">}</span>
+	 <span style="color: #f92672">&lt;/style&gt;</span>
+	 <span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/MotionPathPlugin.min.js&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+	 <span style="color: #f92672">&lt;script&gt;</span>
+ 
+		 <span style="color: #a6e22e">gsap</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">registerPlugin</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">MotionPathPlugin</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">ScrollTrigger</span><span style="color: #f8f8f2">);</span>
+ 
+		 <span style="color: #66d9ef">let</span> <span style="color: #a6e22e">test</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">gsap</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">timeline</span><span style="color: #f8f8f2">({</span>
+			 <span style="color: #a6e22e">scrollTrigger</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">{</span>
+				 <span style="color: #a6e22e">trigger</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;.section-1&quot;</span><span style="color: #f8f8f2">,</span>
+				 <span style="color: #a6e22e">start</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;top bottom&quot;</span><span style="color: #f8f8f2">,</span>
+				 <span style="color: #a6e22e">end</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;bottom top&quot;</span><span style="color: #f8f8f2">,</span>
+				 <span style="color: #75715e">// end: &#39;+=&#39; + ((window.innerHeight * 3) + 50),</span>
+				 <span style="color: #a6e22e">scrub</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span>
+				 <span style="color: #a6e22e">markers</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">true</span>
+			 <span style="color: #f8f8f2">}</span>
+		 <span style="color: #f8f8f2">});</span> 
+		 
+		 <span style="color: #a6e22e">test</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">fromTo</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;#ball&quot;</span><span style="color: #f8f8f2">,</span> 
+		 <span style="color: #f8f8f2">{</span><span style="color: #a6e22e">x</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">y</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">},</span> 
+		 <span style="color: #f8f8f2">{</span> <span style="color: #a6e22e">ease</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;none&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">motionPath</span><span style="color: #f92672">:</span>
+			 <span style="color: #f8f8f2">{</span> <span style="color: #a6e22e">path</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">[</span>
+				 <span style="color: #f8f8f2">{</span> <span style="color: #a6e22e">scale</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0.7</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">rotation</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">10</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">x</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;25vw&#39;</span><span style="color: #f8f8f2">,</span>  <span style="color: #a6e22e">y</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;30vh&#39;</span> <span style="color: #f8f8f2">},</span> 
+				 <span style="color: #f8f8f2">{</span> <span style="color: #a6e22e">scale</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0.9</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">rotation</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">30</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">x</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;55vw&#39;</span><span style="color: #f8f8f2">,</span>  <span style="color: #a6e22e">y</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;60vh&#39;</span> <span style="color: #f8f8f2">},</span> 
+				 <span style="color: #f8f8f2">{</span> <span style="color: #a6e22e">scale</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">1.2</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">rotation</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">60</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">x</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;30vw&#39;</span><span style="color: #f8f8f2">,</span>  <span style="color: #a6e22e">y</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;90vh&#39;</span> <span style="color: #f8f8f2">},</span>
+				 <span style="color: #f8f8f2">{</span> <span style="color: #a6e22e">scale</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0.9</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">rotation</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">90</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">x</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;70vw&#39;</span><span style="color: #f8f8f2">,</span>  <span style="color: #a6e22e">y</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;120vh&#39;</span><span style="color: #f8f8f2">}</span> 
+			 <span style="color: #f8f8f2">]}</span>
+		 <span style="color: #f8f8f2">},</span> <span style="color: #f8f8f2">);</span>
+ 
+	 <span style="color: #f92672">&lt;/script&gt;</span>
+ <span style="color: #f92672">&lt;/body&gt;</span>
+ </pre></td></tr></table></div>
+ 
+
+
+                
+
+				
+					</div><!--// 소스 -->
+				<div>
+			</div>			
+		</div>
+		<!-- e: examples 예제 -->
+
+
+
+		<!-- s: examples 예제 5 -->
+		<div class="ex_wapper">
+			<div class="section">
+				<h2 class="ex-title">예제) 5.시퀀스 </h2>
+				<p class="ex-more" ><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p>
+				<p class="ex-view" ><a href="ex05.html" target="_blank">View</a></p>
 				<div class="ex-body" style="display:none" >					
 					<div class="source"><!-- 소스 -->
 

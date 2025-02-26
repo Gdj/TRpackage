@@ -5,79 +5,76 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>scrollTrigger</title>
   <script src="../../../../asset/js/libs/gsap/gsap-3.12.5.min.js"></script>
+  <script src="../../../../asset/js/libs/gsap/ScrollToPlugin-3.12.5.min.js"></script>
   <script src="../../../../asset/js/libs/gsap/ScrollTrigger-3.12.5.min.js"></script>
-  <style>
-    html, body { margin: 0; padding: 0;}
-    /* html { height: 100vh; } */
-    body {  background: #000; }
-    .sequence {
-      position: relative;
-      transform: translate(0%, -50%);
-      max-width: 100vw;
-      max-height: 100vh;
-    }
-
-    section { position: relative; height: 100vh; display: flex; justify-content: center; align-items: center;}
-    .bgcolor1 { background-color: antiquewhite;}
-    .bgcolor2 { height: 150vh; 
-      background-size: 50px 50px;
-      background-image:
-        linear-gradient(to right, #dfdfdf 1px, transparent 1px),
-        linear-gradient(to bottom, #dfdfdf 1px, transparent 1px);
-    }
-    .bgcolor3 { background-color: beige;}
-  </style>
 </head>
 <body>
-  <section class="section1 bgcolor1"></section>
-  <section class="section2 bgcolor2">
-    <div class="sequence">
-      <canvas id="hero-lightpass" />
-    </div>
-  </section>
-  <section class="section3 bgcolor3"></section>
+ 
+	<div class="section-area">
+		
+		<section class="section-2">
+		</section>
+		
+		<section class="section-3">
+		</section>
+		
+		<section class="section-4">
+		</section>
 
-  <script>
-    console.clear();
+		<section class="section-1">
+			<div id="ball"></div>
+		</section>
+		
+		<section class="section-2">
+		</section>
+		
+		<section class="section-3">
+		</section>
+		
+		<section class="section-4">
+		</section>
+	</div>
+	<style>
 
-    const canvas = document.getElementById("hero-lightpass");
-    const context = canvas.getContext("2d");
-    canvas.width = 1158;
-    canvas.height = 770;
+		.section-area { position: relative; height: 100%; }
+		section { height: 100vh; position: relative; }
+		.section-1 { background: rgb(192, 192, 255); }
+		.section-2 { background: rgb(184, 252, 184); }
+		.section-3 { background: rgb(254, 167, 167); }
+		.section-4 { background: rgb(253, 253, 152); }
 
-    const frameCount = 147;
-    const currentFrame = index => (
-      `./images/${(index + 1).toString().padStart(4, '0')}.jpg`
-    );
+		#ball{ position: absolute; top: 5%; left: 0;
+			width: 50px; height: 50px;
+			background: black; border-radius: 20%;
+			z-index: 1;
+		}
+	</style>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/MotionPathPlugin.min.js"></script>
+	<script>
 
-    const images = []
-    const airpods = { frame: 0 };
+		gsap.registerPlugin(MotionPathPlugin, ScrollTrigger);
 
-    for (let i = 0; i < frameCount; i++) {
-      const img = new Image();
-      img.src = currentFrame(i);
-      images.push(img);
-    }
-
-    gsap.to(airpods, {
-      frame: frameCount - 1,
-      snap: "frame",
-      ease: "none",
-      scrollTrigger: {
-        scrub: 0.5,
-        pin: ".sequence",
-        pinSpacing:false,
-        markers: true, 
-      },
-      onUpdate: render // use animation onUpdate instead of scrollTrigger's onUpdate
-    });
-
-    images[0].onload = render;
-
-    function render() {
-      context.clearRect(0, 0, canvas.width, canvas.height);
-      context.drawImage(images[airpods.frame], 0, 0); 
-    }
+		let test = gsap.timeline({
+			scrollTrigger: {
+				trigger: ".section-1",
+				start: "top bottom",
+				end: "bottom top",
+				// end: '+=' + ((window.innerHeight * 3) + 50),
+				scrub: 1,
+				markers: true
+			}
+		}); 
+		
+		test.fromTo("#ball", 
+		{x: 0, y: 0}, 
+		{ ease: "none", motionPath:
+			{ path: [
+				{ scale: 0.7, rotation: 10, x: '25vw',  y: '30vh' }, 
+				{ scale: 0.9, rotation: 30, x: '55vw',  y: '60vh' }, 
+				{ scale: 1.2, rotation: 60, x: '30vw',  y: '90vh' },
+				{ scale: 0.9, rotation: 90, x: '70vw',  y: '120vh'} 
+			]}
+		}, );
 
   </script>
 </body>
