@@ -4,13 +4,13 @@
 	<title>you tube player</title>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
 	<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js" charset="UTF-8"></script>
+</head>
+  <body>
 	<style type="text/css">
 		.menu { padding: 10px 0;}
 		.menu-list {  padding: 0;	}
 		.menu-list li { display: inline-block; margin:0 10px;	}
 	</style>
-</head>
-  <body>
 	<!-- https://developers.google.com/youtube/iframe_api_reference#Loading_a_Video_Player -->
 	
     <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
@@ -47,11 +47,12 @@
 					height: '390',
 					width: '640',
 					videoId: '9II_GQJ7mKo',					
-					playerVars: { 'start': 0, 'autoplay': 0, 'controls': 0 , 'mute':0, 'rel':0, 'ytp-pause-overlay':0 }, 
+					playerVars: { 'start': 0, 'autoplay': 0, 'controls': 0 , 'mute':0, 'rel':0, 'ytp-pause-overlay':0, 'playsinline':1 }, 
 					// start : 시작위치(초), autoplay: 자동시행여부(0 기본값 안함, 1 함), controls: 컨트롤러 여부(0 표시안함, 1 기본값표시 ), 
 					// mute: 음소거 ( 0 기본값 안함, 1 함), 
 					// rel: 동영상종료후 관련영상 표시여부 ( 0 안함, 1 기본값 함), 
 					// ytp-pause-overlay: 동영상 일시정지에서 관련영상표기여부( 0표시안함, 1 기본값 함 )
+					// playsinline: iOS 인라인재생여부( 0 기본값 안함 전체화면, 1 함 )
 					events: {
 					'onReady': playVideo					
 				}

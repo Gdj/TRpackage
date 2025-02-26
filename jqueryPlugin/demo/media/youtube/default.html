@@ -1,264 +1,297 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-    <title>YouTube API | TR package</title>
-    <script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js" charset="UTF-8"></script>
-    <script type="text/javascript" src="../../../../asset/js/libs/trpMenu.js"></script>
-    <link rel="stylesheet" href="../../../../asset/css/common.css" type="text/css" media="all" />
-    <link rel="stylesheet" type="text/css" href="../../../../asset/css/dottoro-highlighter-v4.css" />
-    <script type="text/javascript" src="http://tools.dottoro.com/public/highlighter/dottoro-highlighter-v4.js"></script>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <title>YouTube API | TR package</title>
+  <script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js" charset="UTF-8"></script>
+  <script type="text/javascript" src="../../../../asset/js/libs/trpMenu.js"></script>
+  <link rel="stylesheet" href="../../../../asset/css/common.css" type="text/css" media="all" />
+  <link rel="stylesheet" type="text/css" href="../../../../asset/css/dottoro-highlighter-v4.css" />
+  <script type="text/javascript" src="http://tools.dottoro.com/public/highlighter/dottoro-highlighter-v4.js"></script>
 </head>
 
 <body>
-    <div id="header"></div>
-    <div id="container">
-        <div id="lnb" class="gnb"></div>
-        <!-- s: 컨텐츠 시작 -->
-        <div id="contents" class="contents">
-            <!-- s: 스크립드 설명 -->
-            <div class="desc_wapper">
-                <h1 class="desc_title">YouTube API</h1>
-                <p><a href="https://developers.google.com/youtube/iframe_api_reference?hl=ko" target="_blank">YouTube API</a>를 이용한 컨트롤</p>
+  <div id="header"></div>
+  <div id="container">
+    <div id="lnb" class="gnb"></div>
+    <!-- s: 컨텐츠 시작 -->
+    <div id="contents" class="contents">
+      <!-- s: 스크립드 설명 -->
+      <div class="desc_wapper">
+        <h1 class="desc_title">YouTube API</h1>
+        <p><a href="https://developers.google.com/youtube/iframe_api_reference?hl=ko" target="_blank">YouTube API</a>를
+          이용한 컨트롤</p>
 
-            </div>
-            <!-- e: 스크립드 설명 -->
+      </div>
+      <!-- e: 스크립드 설명 -->
 
-            <!-- s: api 설명 -->
-            <div class="api">
-                <h2 class="api-title">YT.Player( selector ,{ option } )</h2>
-                <div class="api-body">
-                    <dl>
-                        <dt>설명</dt>
-                        <dd><span class="icon"></span>기본 위치값은 CSS 에서 설정해야합니다.</dd>
-                        <dd><span class="icon"></span>버튼 옵션 정의</dd>
-                    </dl>
-                    <table class="table_col" summary="option속성 설명 ">
-                        <caption>option</caption>
-                        <colgroup>
-                            <col width="150">
-                                <col width="">
-                        </colgroup>
-                        <tbody>
-                            <tr>
-                                <th scope="col">매개변수</th>
-                                <th scope="col">매개변수 설명</th>
-                            </tr>
-                            <tr>
-                                <td>width</td>
-                                <td>동영상 플레이어의 너비입니다. 기본값은 640입니다.</td>
-                            </tr>
-                            <tr>
-                                <td>height</td>
-                                <td>동영상 플레이어의 높이입니다. 기본값은 390입니다.</td>
-                            </tr>
-                            <tr>
-                                <td>videoId</td>
-                                <td>플레이어에서 로드할 동영상을 식별하는 YouTube 동영상 ID입니다</td>
-                            </tr>
-                            <tr>
-                                <td>events</td>
-                                <td>개체의 속성은 API가 실행하는 이벤트 및 해당 이벤트 발생 시 API가 호출하는 함수(이벤트 리스너)를 식별합니다. 예를 들어 생성자는 onReady 이벤트 실행 시 onPlayerReady 함수가 실행되고 onStateChange 이벤트 실행 시 onPlayerStateChange 함수가 실행됨을 나타냅니다.</td>
-                            </tr>
-                        </tbody>
-                    </table>
+      <!-- s: api 설명 -->
+      <div class="api">
+        <h2 class="api-title">YT.Player( selector ,{ option } )</h2>
+        <div class="api-body">
+          <dl>
+            <dt>설명</dt>
+            <dd><span class="icon"></span>기본 위치값은 CSS 에서 설정해야합니다.</dd>
+            <dd><span class="icon"></span>버튼 옵션 정의</dd>
+          </dl>
+          <table class="table_col" summary="option속성 설명 ">
+            <caption>option</caption>
+            <colgroup>
+              <col width="150">
+              <col width="">
+            </colgroup>
+            <tbody>
+              <tr>
+                <th scope="col">매개변수</th>
+                <th scope="col">매개변수 설명</th>
+              </tr>
+              <tr>
+                <td>width</td>
+                <td>동영상 플레이어의 너비입니다. 기본값은 640입니다.</td>
+              </tr>
+              <tr>
+                <td>height</td>
+                <td>동영상 플레이어의 높이입니다. 기본값은 390입니다.</td>
+              </tr>
+              <tr>
+                <td>videoId</td>
+                <td>플레이어에서 로드할 동영상을 식별하는 YouTube 동영상 ID입니다</td>
+              </tr>
+              <tr>
+                <td>playerVars</td>
+                <td>플레이 어의 옵션 : <a class="link_line"
+                    href="https://developers.google.com/youtube/player_parameters#Parameters">OPTION API</a>
+                  <br>
+                  <ul class="mark-list">
+                    <li>- start : 시작위치(초)</li>
+                    <li>- autoplay : 자동시행여부(0 기본값 안함, 1 함)(초)</li>
+                    <li>- controls : 컨트롤러 여부(0 표시안함, 1 기본값 표시 )</li>
+                    <li>- rel: 동영상종료후 관련영상 표시여부 ( 0 안함, 1 기본값 함)</li>
+                    <li>- ytp-pause-overlay: 동영상 일시정지에서 관련영상표기여부( 0표시안함, 1 기본값 함 )</li>
+                    <li>- playsinline: iOS 인라인재생여부( 0 기본값 안함 전체화면, 1 함 )</li>
+                    <li>- loop: 반복재생여부 ( 0 기본값 안함, 1 계속재생함 )</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>events</td>
+                <td>개체의 속성은 API가 실행하는 이벤트 및 해당 이벤트 발생 시 API가 호출하는 함수(이벤트 리스너)를 식별합니다. 예를 들어 생성자는 onReady 이벤트 실행 시
+                  onPlayerReady 함수가 실행되고 onStateChange 이벤트 실행 시 onPlayerStateChange 함수가 실행됨을 나타냅니다.</td>
+              </tr>
+            </tbody>
+          </table>
 
-                    <table class="table_col" summary="메서드 설명 ">
-                        <caption>메서드</caption>
-                        <colgroup>
-                            <col width="150">
-                                <col width="">
-                        </colgroup>
-                        <tbody>
-                            <tr>
-                                <th scope="col">메서드</th>
-                                <th scope="col">메서드 설명</th>
-                            </tr>
-                            <tr>
-                                <td>.playVideo()</td>
-                                <td>현재 신호를 준 동영상과 로드한 동영상을 재생합니다. 이 함수를 실행한 후 플레이어의 마지막 상태는 playing(1)입니다.</td>
-                            </tr>
-                            <tr>
-                                <td>pauseVideo()</td>
-                                <td>현재 재생 중인 동영상을 일시중지합니다. 함수가 호출될 때 플레이어 상태가 변경되지 않는 ended(0) 상태에 있지 않는 한 이 함수를 실행한 후 플레이어의 마지막 상태는 paused(2)입니다.</td>
-                            </tr>
-                            <tr>
-                                <td>stopVideo()</td>
-                                <td>현재 동영상의 로드를 중지하고 취소합니다. 이 함수는 사용자가 플레이어에서 추가 동영상을 보지 않을 것을 알고 있는 드문 경우에 사용해야 합니다. 동영상을 일시중지하려는 경우에는 pauseVideo 함수를 호출해야 합니다. 플레이어가 재생 중인 동영상을 변경하려는 경우 stopVideo를 먼저 호출하지 않고 대기열 함수 중 하나를 호출할 수 있습니다.</td>
-                            </tr>
-                            <tr>
-                                <td>seekTo(seconds:Number, allowSeekAhead:Boolean)</td>
-                                <td>동영상에서 지정한 시간을 찾습니다. 함수가 호출될 때 플레이어가 일시중지되면 일시중지로 유지됩니다. </td>
-                            </tr>
-													 <tr>
-                                <td>loadVideoById(videoId:String, startSeconds:Number, suggestedQuality:String)</td>
-                                <td>동영상 변경
-                                    <br /> videoId : 동영상 ID
-                                    <br /> startSeconds : 시작 초
-                                    <br /> suggestedQuality : 동영상 쿼릴티 (small, medium, large, hd720, hd1080, highres, default) default 권장
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>clearVideo()</td>
-                                <td>동영상 표시를 지웁니다. 이 함수는 stopVideo() 호출 후 잔여 동영상을 지우려는 경우에 유용합니다. </td>
-                            </tr>
-                           
-                            <tr>
-                                <td>mute()</td>
-                                <td>플레이어를 음소거합니다.</td>
-                            </tr>
-                            <tr>
-                                <td>unMute()</td>
-                                <td>플레이어 음소거를 해제합니다.</td>
-                            </tr>
-                            <tr>
-                                <td>isMuted()</td>
-                                <td>플레이어가 음소거 상태인 경우 true를 반환하고 음소가 상태가 아닌 경우 false를 반환합니다.</td>
-                            </tr>
-                            <tr>
-                                <td>setVolume(volume:Number)</td>
-                                <td>볼륨을 설정합니다. 0에서 100 사이의 정수를 허용합니다.</td>
-                            </tr>
-                            <tr>
-                                <td>getVolume()</td>
-                                <td>플레이어의 현재 볼륨을 0에서 100 사이의 정수로 반환합니다. </td>
-                            </tr>
-                            <tr>
-                                <td>setSize(width:Number, height:Number)</td>
-                                <td>플레이어가 포함된 "iframe"의 크기를 픽셀 단위로 설정합니다.</td>
-                            </tr>
-                            <tr>
-                                <td>setPlaybackRate(suggestedRate:Number)</td>
-                                <td>이 함수는 현재 동영상에 대한 추천 재생 속도를 설정합니다. 재생 속도가 변경되면 이미 신호를 주었거나 재생 중인 동영상에 대해서만 변경됩니다. </td>
-                            </tr>
-                            <tr>
-                                <td>getPlaybackRate()</td>
-                                <td>이 함수는 현재 재생 중인 동영상의 재생 속도를 가져옵니다. 기본 재생 속도는 1이며 동영상이 일반적인 속도로 재생되고 있음을 나타냅니다. 재생 속도에는 0.25, 0.5, 1, 1.5 및 2와 같은 값이 포함될 수 있습니다.</td>
-                            </tr>
+          <table class="table_col" summary="메서드 설명 ">
+            <caption>메서드</caption>
+            <colgroup>
+              <col width="150">
+              <col width="">
+            </colgroup>
+            <tbody>
+              <tr>
+                <th scope="col">메서드</th>
+                <th scope="col">메서드 설명</th>
+              </tr>
+              <tr>
+                <td>.playVideo()</td>
+                <td>현재 신호를 준 동영상과 로드한 동영상을 재생합니다. 이 함수를 실행한 후 플레이어의 마지막 상태는 playing(1)입니다.</td>
+              </tr>
+              <tr>
+                <td>pauseVideo()</td>
+                <td>현재 재생 중인 동영상을 일시중지합니다. 함수가 호출될 때 플레이어 상태가 변경되지 않는 ended(0) 상태에 있지 않는 한 이 함수를 실행한 후 플레이어의 마지막 상태는
+                  paused(2)입니다.</td>
+              </tr>
+              <tr>
+                <td>stopVideo()</td>
+                <td>현재 동영상의 로드를 중지하고 취소합니다. 이 함수는 사용자가 플레이어에서 추가 동영상을 보지 않을 것을 알고 있는 드문 경우에 사용해야 합니다. 동영상을 일시중지하려는 경우에는
+                  pauseVideo 함수를 호출해야 합니다. 플레이어가 재생 중인 동영상을 변경하려는 경우 stopVideo를 먼저 호출하지 않고 대기열 함수 중 하나를 호출할 수 있습니다.</td>
+              </tr>
+              <tr>
+                <td>seekTo(seconds:Number, allowSeekAhead:Boolean)</td>
+                <td>동영상에서 지정한 시간을 찾습니다. 함수가 호출될 때 플레이어가 일시중지되면 일시중지로 유지됩니다. </td>
+              </tr>
+              <tr>
+                <td>loadVideoById(videoId:String, startSeconds:Number, suggestedQuality:String)</td>
+                <td>동영상 변경
+                  <br /> videoId : 동영상 ID
+                  <br /> startSeconds : 시작 초
+                  <br /> suggestedQuality : 동영상 쿼릴티 (small, medium, large, hd720, hd1080, highres, default) default 권장
+                </td>
+              </tr>
+              <tr>
+                <td>clearVideo()</td>
+                <td>동영상 표시를 지웁니다. 이 함수는 stopVideo() 호출 후 잔여 동영상을 지우려는 경우에 유용합니다. </td>
+              </tr>
 
-                            <tr>
-                                <td>getDuration()</td>
-                                <td>현재 재생 중인 동영상의 재생 시간을 초 단위로 반환합니다</td>
-                            </tr>
-                            <tr>
-                                <td>getVideoUrl()</td>
-                                <td>현재 재생 중인 동영상의 재생 시간을 초 단위로 반환합니다</td>
-                            </tr>
-                        </tbody>
-                    </table>
+              <tr>
+                <td>mute()</td>
+                <td>플레이어를 음소거합니다.</td>
+              </tr>
+              <tr>
+                <td>unMute()</td>
+                <td>플레이어 음소거를 해제합니다.</td>
+              </tr>
+              <tr>
+                <td>isMuted()</td>
+                <td>플레이어가 음소거 상태인 경우 true를 반환하고 음소가 상태가 아닌 경우 false를 반환합니다.</td>
+              </tr>
+              <tr>
+                <td>setVolume(volume:Number)</td>
+                <td>볼륨을 설정합니다. 0에서 100 사이의 정수를 허용합니다.</td>
+              </tr>
+              <tr>
+                <td>getVolume()</td>
+                <td>플레이어의 현재 볼륨을 0에서 100 사이의 정수로 반환합니다. </td>
+              </tr>
+              <tr>
+                <td>setSize(width:Number, height:Number)</td>
+                <td>플레이어가 포함된 "iframe"의 크기를 픽셀 단위로 설정합니다.</td>
+              </tr>
+              <tr>
+                <td>setPlaybackRate(suggestedRate:Number)</td>
+                <td>이 함수는 현재 동영상에 대한 추천 재생 속도를 설정합니다. 재생 속도가 변경되면 이미 신호를 주었거나 재생 중인 동영상에 대해서만 변경됩니다. </td>
+              </tr>
+              <tr>
+                <td>getPlaybackRate()</td>
+                <td>이 함수는 현재 재생 중인 동영상의 재생 속도를 가져옵니다. 기본 재생 속도는 1이며 동영상이 일반적인 속도로 재생되고 있음을 나타냅니다. 재생 속도에는 0.25, 0.5, 1,
+                  1.5 및 2와 같은 값이 포함될 수 있습니다.</td>
+              </tr>
 
-                    <table class="table_col" summary="event 설명">
-                        <caption>event</caption>
-                        <colgroup>
-                            <col width="150">
-                                <col width="">
-                        </colgroup>
-                        <tbody>
-                            <tr>
-                                <th scope="col">이벤트 </th>
-                                <th scope="col">이벤트 설명</th>
-                            </tr>
-                            <tr>
-                                <td>onReady</td>
-                                <td>동영상 플레이어가 준비되면 호출 될함수를 설정</td>
-                            </tr>
-                            <tr>
-                                <td>onStateChange($event)</td>
-                                <td>이 이벤트는 플레이어의 상태가 변경될 때마다 실행됩니다
-                                    <br/> $event.data 값 아래 참고.
-                                    <ul>
-                                        <li>-1 //(시작되지 않음)</li>
-                                        <li>0 == YT.PlayerState.ENDED //(종료됨)</li>
-                                        <li>1 == YT.PlayerState.PLAYING //(재생 중)</li>
-                                        <li>2 == YT.PlayerState.PAUSED //(일시중지됨)</li>
-                                        <li>3 == YT.PlayerState.BUFFERING //(버퍼링 중)</li>
-                                        <li>5 == YT.PlayerState.CUED //(재생 준비되면)</li>
-                                    </ul>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>onPlaybackQualityChange($suggestedQuality:String)</td>
-                                <td>동영상 재생 품질이 변경될 때마다 실행됩니다.
-                                    <br />
-                                    <ul>
-                                        <li>default : 좋은방법</li>
-                                        <li>small</li>
-                                        <li>medium</li>
-                                        <li>large</li>
-                                        <li>hd720</li>
-                                        <li>hd1080</li>
-                                        <li>highres </li>
-                                    </ul>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>onPlaybackRateChange</td>
-                                <td>이벤트는 동영상 재생 속도가 변경될 때마다 실행됩니다</td>
-                            </tr>
-                            <tr>
-                                <td>onError</td>
-                                <td>플레이어에서 오류가 발생하면 실행됩니다.
-                                    <ul>
-                                        <li></li>
-                                    </ul>
-                                </td>
-                            </tr>
+              <tr>
+                <td>getDuration()</td>
+                <td>현재 재생 중인 동영상의 재생 시간을 초 단위로 반환합니다</td>
+              </tr>
+              <tr>
+                <td>getVideoUrl()</td>
+                <td>현재 재생 중인 동영상의 재생 시간을 초 단위로 반환합니다</td>
+              </tr>
+            </tbody>
+          </table>
 
-                        </tbody>
-                    </table>
+          <table class="table_col" summary="event 설명">
+            <caption>event</caption>
+            <colgroup>
+              <col width="150">
+              <col width="">
+            </colgroup>
+            <tbody>
+              <tr>
+                <th scope="col">이벤트 </th>
+                <th scope="col">이벤트 설명</th>
+              </tr>
+              <tr>
+                <td>onReady</td>
+                <td>동영상 플레이어가 준비되면 호출 될함수를 설정</td>
+              </tr>
+              <tr>
+                <td>onStateChange($event)</td>
+                <td>이 이벤트는 플레이어의 상태가 변경될 때마다 실행됩니다
+                  <br /> $event.data 값 아래 참고.
+                  <ul>
+                    <li>-1 //(시작되지 않음)</li>
+                    <li>0 == YT.PlayerState.ENDED //(종료됨)</li>
+                    <li>1 == YT.PlayerState.PLAYING //(재생 중)</li>
+                    <li>2 == YT.PlayerState.PAUSED //(일시중지됨)</li>
+                    <li>3 == YT.PlayerState.BUFFERING //(버퍼링 중)</li>
+                    <li>5 == YT.PlayerState.CUED //(재생 준비되면)</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>onPlaybackQualityChange($suggestedQuality:String)</td>
+                <td>동영상 재생 품질이 변경될 때마다 실행됩니다.
+                  <br />
+                  <ul>
+                    <li>default : 좋은방법</li>
+                    <li>small</li>
+                    <li>medium</li>
+                    <li>large</li>
+                    <li>hd720</li>
+                    <li>hd1080</li>
+                    <li>highres </li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>onPlaybackRateChange</td>
+                <td>이벤트는 동영상 재생 속도가 변경될 때마다 실행됩니다</td>
+              </tr>
+              <tr>
+                <td>onError</td>
+                <td>플레이어에서 오류가 발생하면 실행됩니다.
+                  <ul>
+                    <li></li>
+                  </ul>
+                </td>
+              </tr>
 
-                    <table class="table_col" summary="etc ">
-                        <caption>event</caption>
-                        <colgroup>
-                            <col width="150">
-                                <col width="">
-                        </colgroup>
-                        <tbody>
-                            <tr>
-                                <th scope="col">요소 </th>
-                                <th scope="col">요소 설명</th>
-                            </tr>
-                            <tr>
-                                <td>썸네일 이미지
-                                    <br /> https://img.youtube.com/vi/ID/*.jpg
-                                </td>
-                                <td>
-                                    시작(120x90) : <a href="https://img.youtube.com/vi/fvEZUbzqqyM/1.jpg" target="_blank">https://img.youtube.com/vi/fvEZUbzqqyM/1.jpg</a>
-                                    <br /> 중간(120x90) : <a href="https://img.youtube.com/vi/fvEZUbzqqyM/2.jpg" target="_blank">https://img.youtube.com/vi/fvEZUbzqqyM/2.jpg</a>
-                                    <br /> 끝지점(120x90) : <a href="https://img.youtube.com/vi/fvEZUbzqqyM/3.jpg" target="_blank">https://img.youtube.com/vi/fvEZUbzqqyM/3.jpg</a>
-                                    <br /> (120x90) : <a href="https://img.youtube.com/vi/fvEZUbzqqyM/default.jpg" target="_blank">https://img.youtube.com/vi/fvEZUbzqqyM/default.jpg</a>
-                                    <br /> (320x180) : <a href="https://img.youtube.com/vi/fvEZUbzqqyM/mqdefault.jpg" target="_blank">https://img.youtube.com/vi/fvEZUbzqqyM/mqdefault.jpg</a>
-                                    <br /> (480x360) : <a href="https://img.youtube.com/vi/fvEZUbzqqyM/hqdefault.jpg" target="_blank">https://img.youtube.com/vi/fvEZUbzqqyM/hqdefault.jpg</a>
-                                    <br /> (640x480) : <a href="https://img.youtube.com/vi/fvEZUbzqqyM/sddefault.jpg" target="_blank">https://img.youtube.com/vi/fvEZUbzqqyM/sddefault.jpg</a>
-                                    <br /> (1920x1080) : <a href="https://img.youtube.com/vi/fvEZUbzqqyM/maxresdefault.jpg" target="_blank">https://img.youtube.com/vi/fvEZUbzqqyM/maxresdefault.jpg</a>
-                                </td>
-                            </tr>
+            </tbody>
+          </table>
+
+          <table class="table_col" summary="etc ">
+            <caption>event</caption>
+            <colgroup>
+              <col width="150">
+              <col width="">
+            </colgroup>
+            <tbody>
+              <tr>
+                <th scope="col">요소 </th>
+                <th scope="col">요소 설명</th>
+              </tr>
+              <tr>
+                <td>썸네일 이미지
+                  <br /> https://img.youtube.com/vi/ID/*.jpg
+                </td>
+                <td>
+                  시작(120x90) : <a href="https://img.youtube.com/vi/fvEZUbzqqyM/1.jpg"
+                    target="_blank">https://img.youtube.com/vi/fvEZUbzqqyM/1.jpg</a>
+                  <br /> 중간(120x90) : <a href="https://img.youtube.com/vi/fvEZUbzqqyM/2.jpg"
+                    target="_blank">https://img.youtube.com/vi/fvEZUbzqqyM/2.jpg</a>
+                  <br /> 끝지점(120x90) : <a href="https://img.youtube.com/vi/fvEZUbzqqyM/3.jpg"
+                    target="_blank">https://img.youtube.com/vi/fvEZUbzqqyM/3.jpg</a>
+                  <br /> (120x90) : <a href="https://img.youtube.com/vi/fvEZUbzqqyM/default.jpg"
+                    target="_blank">https://img.youtube.com/vi/fvEZUbzqqyM/default.jpg</a>
+                  <br /> (320x180) : <a href="https://img.youtube.com/vi/fvEZUbzqqyM/mqdefault.jpg"
+                    target="_blank">https://img.youtube.com/vi/fvEZUbzqqyM/mqdefault.jpg</a>
+                  <br /> (480x360) : <a href="https://img.youtube.com/vi/fvEZUbzqqyM/hqdefault.jpg"
+                    target="_blank">https://img.youtube.com/vi/fvEZUbzqqyM/hqdefault.jpg</a>
+                  <br /> (640x480) : <a href="https://img.youtube.com/vi/fvEZUbzqqyM/sddefault.jpg"
+                    target="_blank">https://img.youtube.com/vi/fvEZUbzqqyM/sddefault.jpg</a>
+                  <br /> (1920x1080) : <a href="https://img.youtube.com/vi/fvEZUbzqqyM/maxresdefault.jpg"
+                    target="_blank">https://img.youtube.com/vi/fvEZUbzqqyM/maxresdefault.jpg</a>
+                </td>
+              </tr>
 
 
-                        </tbody>
-                    </table>
+            </tbody>
+          </table>
 
 
-                </div>
-            </div>
-            <!-- e: api 설명 -->
+        </div>
+      </div>
+      <!-- e: api 설명 -->
 
-            <!-- s: examples 예제 -->
-            <div class="ex_wapper">
-                <div class="section">
-                    <h2 class="ex-title">예제) 1.기본사용법 </h2>
-                    <p class="ex-more"><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p>
-                    <p class="ex-view"><a href="ex01.html" target="_blank">View</a></p>
-                    <div class="ex-body" style="display:none">
-                        <div class="source">
-                            <!-- 소스 -->
+      <!-- s: examples 예제 -->
+      <div class="ex_wapper">
+        <div class="section">
+          <h2 class="ex-title">예제) 1.기본사용법 </h2>
+          <p class="ex-more"><a href="javascript:return false;"><span>+</span><span style="display:none">-</span></a>
+          </p>
+          <p class="ex-view"><a href="ex01.html" target="_blank">View</a></p>
+          <div class="ex-body" style="display:none">
+            <div class="source">
+              <!-- 소스 -->
 
-                            <!-- HTML generated using hilite.me -->
-                            <div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
-                                <table>
-                                    <tr>
-                                        <td><pre style="margin: 0; line-height: 125%"> 1
+              <!-- HTML generated using hilite.me -->
+              <div
+                style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+                <table>
+                  <tr>
+                    <td>
+                      <pre style="margin: 0; line-height: 125%"> 1
  2
  3
  4
@@ -351,8 +384,10 @@
 91
 92
 93
-94</pre></td>
-                                        <td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</span>
+94</pre>
+                    </td>
+                    <td>
+                      <pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</span>
 <span style="color: #f92672">&lt;html</span> <span style="color: #a6e22e">xmlns=</span><span style="color: #e6db74">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span style="color: #a6e22e">lang=</span><span style="color: #e6db74">&quot;ko&quot;</span> <span style="color: #a6e22e">xml:lang=</span><span style="color: #e6db74">&quot;ko&quot;</span><span style="color: #f92672">&gt;</span>
 <span style="color: #f92672">&lt;head&gt;</span>
 	<span style="color: #f92672">&lt;title&gt;</span>you tube player<span style="color: #f92672">&lt;/title&gt;</span>
@@ -446,314 +481,315 @@
     <span style="color: #f92672">&lt;/script&gt;</span>
   <span style="color: #f92672">&lt;/body&gt;</span>
 <span style="color: #f92672">&lt;/html&gt;</span>
-</pre></td>
-                                    </tr>
-                                </table>
-                            </div>
+</pre>
+                    </td>
+                  </tr>
+                </table>
+              </div>
 
 
 
 
-                        </div>
-                        <!--// 소스 -->
-                        <div>
-                        </div>
-                    </div>
-                    <!-- e: examples 예제 -->
-
-
-
-
-                </div>
-                <!-- e: 컨텐츠 끝 -->
             </div>
-
-						
-            
-             <!-- s: examples 예제 -->
-            <div class="ex_wapper">
-                <div class="section">
-                    <h2 class="ex-title">예제) 2.아이디 바꾸기 </h2>
-                    <p class="ex-more"><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p>
-                    <p class="ex-view"><a href="ex02.html" target="_blank">View</a></p>
-                    <div class="ex-body" style="display:none">
-                        <!-- 소스 -->
-                        <div class="source">
-                            
-
-
-<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">  1
-  2
-  3
-  4
-  5
-  6
-  7
-  8
-  9
- 10
- 11
- 12
- 13
- 14
- 15
- 16
- 17
- 18
- 19
- 20
- 21
- 22
- 23
- 24
- 25
- 26
- 27
- 28
- 29
- 30
- 31
- 32
- 33
- 34
- 35
- 36
- 37
- 38
- 39
- 40
- 41
- 42
- 43
- 44
- 45
- 46
- 47
- 48
- 49
- 50
- 51
- 52
- 53
- 54
- 55
- 56
- 57
- 58
- 59
- 60
- 61
- 62
- 63
- 64
- 65
- 66
- 67
- 68
- 69
- 70
- 71
- 72
- 73
- 74
- 75
- 76
- 77
- 78
- 79
- 80
- 81
- 82
- 83
- 84
- 85
- 86
- 87
- 88
- 89
- 90
- 91
- 92
- 93
- 94
- 95
- 96
- 97
- 98
- 99
-100
-101
-102
-103
-104
-105
-106
-107
-108
-109
-110
-111
-112
-113
-114
-115
-116
-117</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</span>
-<span style="color: #f92672">&lt;html</span> <span style="color: #a6e22e">xmlns=</span><span style="color: #e6db74">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span style="color: #a6e22e">lang=</span><span style="color: #e6db74">&quot;ko&quot;</span> <span style="color: #a6e22e">xml:lang=</span><span style="color: #e6db74">&quot;ko&quot;</span><span style="color: #f92672">&gt;</span>
-<span style="color: #f92672">&lt;head&gt;</span>
-	<span style="color: #f92672">&lt;title&gt;</span>you tube player<span style="color: #f92672">&lt;/title&gt;</span>
-	<span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">http-equiv=</span><span style="color: #e6db74">&quot;Content-Type&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;text/html;charset=utf-8&quot;</span> <span style="color: #f92672">/&gt;</span> 
-	<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.12.1/jquery.min.js&quot;</span> <span style="color: #f92672">&gt;&lt;/script&gt;</span>
-	<span style="color: #f92672">&lt;style </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/css&quot;</span><span style="color: #f92672">&gt;</span>
-		<span style="color: #a6e22e">.menu</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">10px</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;}</span>
-		<span style="color: #a6e22e">.menu-list</span> <span style="color: #f8f8f2">{</span>  <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>	<span style="color: #f8f8f2">}</span>
-		<span style="color: #a6e22e">.menu-list</span> <span style="color: #f92672">li</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">inline</span><span style="color: #f92672">-</span><span style="color: #66d9ef">block</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">margin</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span> <span style="color: #ae81ff">10px</span><span style="color: #f8f8f2">;</span>	<span style="color: #f8f8f2">}</span>
-	<span style="color: #f92672">&lt;/style&gt;</span>
-<span style="color: #f92672">&lt;/head&gt;</span>
-  <span style="color: #f92672">&lt;body&gt;</span>
-	<span style="color: #75715e">&lt;!-- https://developers.google.com/youtube/iframe_api_reference#Loading_a_Video_Player --&gt;</span>
-	
-    <span style="color: #75715e">&lt;!-- 1. The &lt;iframe&gt; (and video player) will replace this &lt;div&gt; tag. --&gt;</span>
-	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;player&quot;</span><span style="color: #f92672">&gt;&lt;/div&gt;</span>
-	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;menu&quot;</span><span style="color: #f92672">&gt;</span>
-		<span style="color: #f92672">&lt;button</span>  <span style="color: #a6e22e">data-urlid=</span><span style="color: #960050; background-color: #1e0010"> </span><span style="color: #e6db74">&quot;9II_GQJ7mKo&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;js-song_play&quot;</span><span style="color: #f92672">&gt;</span>폴킴 - 모든 날, 모든 순간<span style="color: #f92672">&lt;/button&gt;</span>
-		<span style="color: #f92672">&lt;button</span>  <span style="color: #a6e22e">data-urlid=</span><span style="color: #960050; background-color: #1e0010"> </span><span style="color: #e6db74">&quot;YBzJ0jmHv-4&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;js-song_play&quot;</span><span style="color: #f92672">&gt;</span>폴킴 - 너를 만나<span style="color: #f92672">&lt;/button&gt;</span>
-		<span style="color: #f92672">&lt;button</span>  <span style="color: #a6e22e">data-urlid=</span><span style="color: #960050; background-color: #1e0010"> </span><span style="color: #e6db74">&quot;9jFZdu0zTEA&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;js-song_play&quot;</span><span style="color: #f92672">&gt;</span>폴킴 - 비<span style="color: #f92672">&lt;/button&gt;</span>
-	<span style="color: #f92672">&lt;/div&gt;</span>
-	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;menu&quot;</span><span style="color: #f92672">&gt;</span>
-		<span style="color: #f92672">&lt;ul</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;menu-list&quot;</span><span style="color: #f92672">&gt;</span>
-			<span style="color: #f92672">&lt;li&gt;&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;javascript:void(0)&quot;</span> <span style="color: #a6e22e">onclick=</span><span style="color: #e6db74">&quot;playVideo()&quot;</span><span style="color: #f92672">&gt;</span>재생<span style="color: #f92672">&lt;/a&gt;&lt;/li&gt;</span>
-			<span style="color: #f92672">&lt;li&gt;&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;javascript:void(0)&quot;</span> <span style="color: #a6e22e">onclick=</span><span style="color: #e6db74">&quot;stopVideo()&quot;</span><span style="color: #f92672">&gt;</span>정지<span style="color: #f92672">&lt;/a&gt;&lt;/li&gt;</span>
-			<span style="color: #f92672">&lt;li&gt;&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;javascript:void(0)&quot;</span> <span style="color: #a6e22e">onclick=</span><span style="color: #e6db74">&quot;pauseVideo()&quot;</span><span style="color: #f92672">&gt;</span>일시정지<span style="color: #f92672">&lt;/a&gt;&lt;/li&gt;</span>
-			<span style="color: #f92672">&lt;li&gt;&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;javascript:void(0)&quot;</span> <span style="color: #a6e22e">onclick=</span><span style="color: #e6db74">&quot;seekTo(150,true)&quot;</span><span style="color: #f92672">&gt;</span>150초뒤로 이동<span style="color: #f92672">&lt;/a&gt;&lt;/li&gt;</span>
-			<span style="color: #f92672">&lt;li&gt;&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;javascript:void(0)&quot;</span> <span style="color: #a6e22e">onclick=</span><span style="color: #e6db74">&quot;unMute()&quot;</span><span style="color: #f92672">&gt;</span>음소거 해지<span style="color: #f92672">&lt;/a&gt;&lt;/li&gt;</span>
-			<span style="color: #f92672">&lt;li&gt;&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;javascript:void(0)&quot;</span> <span style="color: #a6e22e">onclick=</span><span style="color: #e6db74">&quot;mute()&quot;</span><span style="color: #f92672">&gt;</span>음소거<span style="color: #f92672">&lt;/a&gt;&lt;/li&gt;</span>
-			<span style="color: #f92672">&lt;li&gt;&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;javascript:void(0)&quot;</span> <span style="color: #a6e22e">onclick=</span><span style="color: #e6db74">&quot;setVolume(50)&quot;</span><span style="color: #f92672">&gt;</span>볼룸 50<span style="color: #f92672">&lt;/a&gt;&lt;/li&gt;</span>
-			<span style="color: #f92672">&lt;li&gt;&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;javascript:void(0)&quot;</span> <span style="color: #a6e22e">onclick=</span><span style="color: #e6db74">&quot;setPlaybackRate(2.5)&quot;</span><span style="color: #f92672">&gt;</span>재생속도 x2.5<span style="color: #f92672">&lt;/a&gt;</span>  |  <span style="color: #f92672">&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;javascript:void(0)&quot;</span> <span style="color: #a6e22e">onclick=</span><span style="color: #e6db74">&quot;setPlaybackRate(1)&quot;</span><span style="color: #f92672">&gt;</span>정상속도 x1<span style="color: #f92672">&lt;/a&gt;&lt;/li&gt;</span>
-		<span style="color: #f92672">&lt;/ul&gt;</span>
-	<span style="color: #f92672">&lt;/div&gt;</span>
-
-
-    <span style="color: #f92672">&lt;script&gt;</span>
-      
-      <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">player</span><span style="color: #f8f8f2">;</span>
-			<span style="color: #66d9ef">var</span> <span style="color: #a6e22e">tag</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">document.</span><span style="color: #a6e22e">createElement</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;script&#39;</span><span style="color: #f8f8f2">);</span>
-					<span style="color: #a6e22e">tag</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">src</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;https://www.youtube.com/iframe_api&quot;</span><span style="color: #f8f8f2">;</span>
-			<span style="color: #66d9ef">var</span> <span style="color: #a6e22e">firstScriptTag</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">document.</span><span style="color: #a6e22e">getElementsByTagName</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;script&#39;</span><span style="color: #f8f8f2">)[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">];</span>
-					<span style="color: #a6e22e">firstScriptTag</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">parentNode</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">insertBefore</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">tag</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">firstScriptTag</span><span style="color: #f8f8f2">);</span>
-			
-      <span style="color: #66d9ef">function</span> <span style="color: #a6e22e">onYouTubeIframeAPIReady</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span> 	
-				<span style="color: #a6e22e">player</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">new</span> <span style="color: #a6e22e">YT</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">Player</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;player&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">{</span>
-					<span style="color: #a6e22e">height</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;390&#39;</span><span style="color: #f8f8f2">,</span>
-					<span style="color: #a6e22e">width</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;640&#39;</span><span style="color: #f8f8f2">,</span>
-					<span style="color: #a6e22e">videoId</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;9II_GQJ7mKo&#39;</span><span style="color: #f8f8f2">,</span>					
-					<span style="color: #a6e22e">playerVars</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">{</span> <span style="color: #e6db74">&#39;start&#39;</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;autoplay&#39;</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;controls&#39;</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span> <span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;rel&#39;</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;ytp-pause-overlay&#39;</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span> <span style="color: #f8f8f2">},</span> 
-					<span style="color: #75715e">// start : 시작위치(초), autoplay: 자동시행여부(0 기본값 안함, 1 함), controls: 컨트롤러 여부(0 표시안함, 1 기본값표시 ), </span>
-					<span style="color: #75715e">// rel: 동영상종료후 관련영상 표시여부 ( 0 안함, 1 기본값 함), </span>
-					<span style="color: #75715e">// ytp-pause-overlay: 동영상 일시정지에서 관련영상표기여부( 0표시안함, 1 기본값 함 )</span>
-					<span style="color: #a6e22e">events</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">{</span>
-					<span style="color: #e6db74">&#39;onReady&#39;</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">playVideo</span>					
-				<span style="color: #f8f8f2">}</span>
-        <span style="color: #f8f8f2">});</span>
-      <span style="color: #f8f8f2">}</span>
-
-  
-	  <span style="color: #75715e">/* 재생 */</span>
-      <span style="color: #66d9ef">function</span> <span style="color: #a6e22e">playVideo</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #a6e22e">player</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">playVideo</span><span style="color: #f8f8f2">();</span>
-      <span style="color: #f8f8f2">}</span>
-
-	  <span style="color: #75715e">/* 재생정지 */</span>
-      <span style="color: #66d9ef">function</span> <span style="color: #a6e22e">stopVideo</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
-		<span style="color: #a6e22e">player</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">seekTo</span><span style="color: #f8f8f2">(</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">true</span> <span style="color: #f8f8f2">);</span>
-        <span style="color: #a6e22e">player</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">stopVideo</span><span style="color: #f8f8f2">();</span>		
-        <span style="color: #a6e22e">player</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">clearVideo</span><span style="color: #f8f8f2">();</span> <span style="color: #75715e">//잔여영상지우기</span>
-      <span style="color: #f8f8f2">}</span>
-
-	  <span style="color: #75715e">/* 재생 일시정지*/</span>
-	  <span style="color: #66d9ef">function</span> <span style="color: #a6e22e">pauseVideo</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #a6e22e">player</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">pauseVideo</span><span style="color: #f8f8f2">();</span>
-      <span style="color: #f8f8f2">}</span>
-
-	  <span style="color: #75715e">/* seekTo */</span>
-	  <span style="color: #66d9ef">function</span> <span style="color: #a6e22e">seekTo</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">$seconds</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">$allowSeekAhead</span> <span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #a6e22e">player</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">seekTo</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">$seconds</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">$allowSeekAhead</span> <span style="color: #f8f8f2">);</span>
-      <span style="color: #f8f8f2">}</span>
-
-
-	  <span style="color: #75715e">/* 음소거 해지 =&gt; player.isMuted() : 플레이어가 음소거 상태인 경우 true를 반환하고 음소가 상태가 아닌 경우 false를 반환합니다.*/</span>	
-      <span style="color: #66d9ef">function</span> <span style="color: #a6e22e">unMute</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #a6e22e">player</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">unMute</span><span style="color: #f8f8f2">();</span>
-      <span style="color: #f8f8f2">}</span>
-
-	  <span style="color: #75715e">/* 음소거 */</span>	
-      <span style="color: #66d9ef">function</span> <span style="color: #a6e22e">mute</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #a6e22e">player</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">mute</span><span style="color: #f8f8f2">();</span>
-      <span style="color: #f8f8f2">}</span>	
-	  
-  	  <span style="color: #75715e">/* 볼륨 조절 : 볼륨을 설정합니다. 0에서 100 사이의 정수를 허용합니다. */</span>
-      <span style="color: #66d9ef">function</span> <span style="color: #a6e22e">setVolume</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">$volume</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #a6e22e">player</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">setVolume</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">$volume</span><span style="color: #f8f8f2">);</span>
-		<span style="color: #75715e">// player.getVolume()  볼륨 반환</span>
-      <span style="color: #f8f8f2">}</span>
-
-
-	  <span style="color: #75715e">/* 재생속도 변경 ( x1=1 , x22=2.5 )*/</span>
-      <span style="color: #66d9ef">function</span> <span style="color: #a6e22e">setPlaybackRate</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">$suggestedRate</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #a6e22e">player</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">setPlaybackRate</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">$suggestedRate</span><span style="color: #f8f8f2">);</span>
-		<span style="color: #75715e">// player.getPlaybackRate():Number 이 함수는 현재 재생 중인 동영상의 재생 속도를 가져옵니다.  </span>
-      <span style="color: #f8f8f2">}</span>
-    
-			
-			<span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.js-song_play&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">on</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;click&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">$e</span><span style="color: #f8f8f2">){</span>
-				<span style="color: #a6e22e">$e</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">preventDefault</span><span style="color: #f8f8f2">();</span>
-
-				<span style="color: #66d9ef">var</span> <span style="color: #a6e22e">u_id</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">this</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">attr</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;data-urlid&quot;</span><span style="color: #f8f8f2">);</span>
-				<span style="color: #a6e22e">player</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">loadVideoById</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">u_id</span><span style="color: #f8f8f2">);</span>
-			<span style="color: #f8f8f2">})</span>
-		
-    <span style="color: #f92672">&lt;/script&gt;</span>
-  <span style="color: #f92672">&lt;/body&gt;</span>
-<span style="color: #f92672">&lt;/html&gt;</span>
-</pre></td></tr></table></div>
-
-
-
-
-                        </div>
-                        <!--// 소스 -->
-                        <div>
-                        </div>
-                    </div>
-                    <!-- e: examples 예제 -->
-
-
-
-
-                </div>
-                <!-- e: 컨텐츠 끝 -->
+            <!--// 소스 -->
+            <div>
             </div>
+          </div>
+          <!-- e: examples 예제 -->
 
 
 
-            <script type="text/javascript">
-                $("#header").load("../../../head.html");
-                $("#lnb").load("../../../lnb.html");
 
-                $(".ex-more a").click(function() {
-                    $(this).find("span").toggle();
-                    $(this).parent().siblings(".ex-body").slideToggle();
-                    return false;
-                });
-
-                $(".icon-more a").click(function() {
-                    $(this).find("span").toggle();
-                    $(this).parent().siblings(".ex-body").slideToggle();
-                    return false;
-                });
-            </script>
         </div>
+        <!-- e: 컨텐츠 끝 -->
+      </div>
+
+
+
+      <!-- s: examples 예제 -->
+      <div class="ex_wapper">
+        <div class="section">
+          <h2 class="ex-title">예제) 2.아이디 바꾸기 </h2>
+          <p class="ex-more"><a href="javascript:return false;"><span>+</span><span style="display:none">-</span></a>
+          </p>
+          <p class="ex-view"><a href="ex02.html" target="_blank">View</a></p>
+          <div class="ex-body" style="display:none">
+            <!-- 소스 -->
+            <div class="source">
+
+              <!-- HTML generated using hilite.me -->
+              <div
+                style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+                <table>
+                  <tr>
+                    <td>
+                      <pre style="margin: 0; line-height: 125%">  1
+    2
+    3
+    4
+    5
+    6
+    7
+    8
+    9
+   10
+   11
+   12
+   13
+   14
+   15
+   16
+   17
+   18
+   19
+   20
+   21
+   22
+   23
+   24
+   25
+   26
+   27
+   28
+   29
+   30
+   31
+   32
+   33
+   34
+   35
+   36
+   37
+   38
+   39
+   40
+   41
+   42
+   43
+   44
+   45
+   46
+   47
+   48
+   49
+   50
+   51
+   52
+   53
+   54
+   55
+   56
+   57
+   58
+   59
+   60
+   61
+   62
+   63
+   64
+   65
+   66
+   67
+   68
+   69
+   70
+   71
+   72
+   73
+   74
+   75
+   76
+   77
+   78
+   79
+   80
+   81
+   82
+   83
+   84
+   85
+   86
+   87
+   88
+   89
+   90
+   91
+   92
+   93
+   94
+   95
+   96
+   97
+   98
+   99
+  100
+  101
+  102
+  103
+  104
+  105
+  106
+  107
+  108
+  109
+  110
+  111</pre>
+                    </td>
+                    <td>
+                      <pre style="margin: 0; line-height: 125%">  <span style="color: #f92672">&lt;body&gt;</span>
+      <span style="color: #f92672">&lt;style </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/css&quot;</span><span style="color: #f92672">&gt;</span>
+          <span style="color: #a6e22e">.menu</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">10px</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;}</span>
+          <span style="color: #a6e22e">.menu-list</span> <span style="color: #f8f8f2">{</span>  <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>	<span style="color: #f8f8f2">}</span>
+          <span style="color: #a6e22e">.menu-list</span> <span style="color: #f92672">li</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">inline</span><span style="color: #f92672">-</span><span style="color: #66d9ef">block</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">margin</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span> <span style="color: #ae81ff">10px</span><span style="color: #f8f8f2">;</span>	<span style="color: #f8f8f2">}</span>
+      <span style="color: #f92672">&lt;/style&gt;</span>
+      <span style="color: #75715e">&lt;!-- https://developers.google.com/youtube/iframe_api_reference#Loading_a_Video_Player --&gt;</span>
+      
+      <span style="color: #75715e">&lt;!-- 1. The &lt;iframe&gt; (and video player) will replace this &lt;div&gt; tag. --&gt;</span>
+          <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;player&quot;</span><span style="color: #f92672">&gt;&lt;/div&gt;</span>
+          <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;menu&quot;</span><span style="color: #f92672">&gt;</span>
+              <span style="color: #f92672">&lt;button</span>  <span style="color: #a6e22e">data-urlid=</span><span style="color: #960050; background-color: #1e0010"> </span><span style="color: #e6db74">&quot;P94SfHo2Gts&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;js-song_play&quot;</span><span style="color: #f92672">&gt;</span>폴킴 - 모든 날, 모든 순간<span style="color: #f92672">&lt;/button&gt;</span>
+              <span style="color: #f92672">&lt;button</span>  <span style="color: #a6e22e">data-urlid=</span><span style="color: #960050; background-color: #1e0010"> </span><span style="color: #e6db74">&quot;YBzJ0jmHv-4&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;js-song_play&quot;</span><span style="color: #f92672">&gt;</span>폴킴 - 너를 만나<span style="color: #f92672">&lt;/button&gt;</span>
+              <span style="color: #f92672">&lt;button</span>  <span style="color: #a6e22e">data-urlid=</span><span style="color: #960050; background-color: #1e0010"> </span><span style="color: #e6db74">&quot;9jFZdu0zTEA&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;js-song_play&quot;</span><span style="color: #f92672">&gt;</span>폴킴 - 비<span style="color: #f92672">&lt;/button&gt;</span>
+          <span style="color: #f92672">&lt;/div&gt;</span>
+          <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;menu&quot;</span><span style="color: #f92672">&gt;</span>
+              <span style="color: #f92672">&lt;ul</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;menu-list&quot;</span><span style="color: #f92672">&gt;</span>
+                  <span style="color: #f92672">&lt;li&gt;&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;javascript:void(0)&quot;</span> <span style="color: #a6e22e">onclick=</span><span style="color: #e6db74">&quot;playVideo()&quot;</span><span style="color: #f92672">&gt;</span>재생<span style="color: #f92672">&lt;/a&gt;&lt;/li&gt;</span>
+                  <span style="color: #f92672">&lt;li&gt;&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;javascript:void(0)&quot;</span> <span style="color: #a6e22e">onclick=</span><span style="color: #e6db74">&quot;stopVideo()&quot;</span><span style="color: #f92672">&gt;</span>정지<span style="color: #f92672">&lt;/a&gt;&lt;/li&gt;</span>
+                  <span style="color: #f92672">&lt;li&gt;&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;javascript:void(0)&quot;</span> <span style="color: #a6e22e">onclick=</span><span style="color: #e6db74">&quot;pauseVideo()&quot;</span><span style="color: #f92672">&gt;</span>일시정지<span style="color: #f92672">&lt;/a&gt;&lt;/li&gt;</span>
+                  <span style="color: #f92672">&lt;li&gt;&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;javascript:void(0)&quot;</span> <span style="color: #a6e22e">onclick=</span><span style="color: #e6db74">&quot;seekTo(150,true)&quot;</span><span style="color: #f92672">&gt;</span>150초뒤로 이동<span style="color: #f92672">&lt;/a&gt;&lt;/li&gt;</span>
+                  <span style="color: #f92672">&lt;li&gt;&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;javascript:void(0)&quot;</span> <span style="color: #a6e22e">onclick=</span><span style="color: #e6db74">&quot;unMute()&quot;</span><span style="color: #f92672">&gt;</span>음소거 해지<span style="color: #f92672">&lt;/a&gt;&lt;/li&gt;</span>
+                  <span style="color: #f92672">&lt;li&gt;&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;javascript:void(0)&quot;</span> <span style="color: #a6e22e">onclick=</span><span style="color: #e6db74">&quot;mute()&quot;</span><span style="color: #f92672">&gt;</span>음소거<span style="color: #f92672">&lt;/a&gt;&lt;/li&gt;</span>
+                  <span style="color: #f92672">&lt;li&gt;&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;javascript:void(0)&quot;</span> <span style="color: #a6e22e">onclick=</span><span style="color: #e6db74">&quot;setVolume(50)&quot;</span><span style="color: #f92672">&gt;</span>볼룸 50<span style="color: #f92672">&lt;/a&gt;&lt;/li&gt;</span>
+                  <span style="color: #f92672">&lt;li&gt;&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;javascript:void(0)&quot;</span> <span style="color: #a6e22e">onclick=</span><span style="color: #e6db74">&quot;setPlaybackRate(2.5)&quot;</span><span style="color: #f92672">&gt;</span>재생속도 x2.5<span style="color: #f92672">&lt;/a&gt;</span>  |  <span style="color: #f92672">&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;javascript:void(0)&quot;</span> <span style="color: #a6e22e">onclick=</span><span style="color: #e6db74">&quot;setPlaybackRate(1)&quot;</span><span style="color: #f92672">&gt;</span>정상속도 x1<span style="color: #f92672">&lt;/a&gt;&lt;/li&gt;</span>
+              <span style="color: #f92672">&lt;/ul&gt;</span>
+          <span style="color: #f92672">&lt;/div&gt;</span>
+  
+  
+      <span style="color: #f92672">&lt;script&gt;</span>
+        
+        <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">player</span><span style="color: #f8f8f2">;</span>
+              <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">tag</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">document.</span><span style="color: #a6e22e">createElement</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;script&#39;</span><span style="color: #f8f8f2">);</span>
+                      <span style="color: #a6e22e">tag</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">src</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;https://www.youtube.com/iframe_api&quot;</span><span style="color: #f8f8f2">;</span>
+              <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">firstScriptTag</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">document.</span><span style="color: #a6e22e">getElementsByTagName</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;script&#39;</span><span style="color: #f8f8f2">)[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">];</span>
+                      <span style="color: #a6e22e">firstScriptTag</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">parentNode</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">insertBefore</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">tag</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">firstScriptTag</span><span style="color: #f8f8f2">);</span>
+              
+        <span style="color: #66d9ef">function</span> <span style="color: #a6e22e">onYouTubeIframeAPIReady</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span> 	
+                  <span style="color: #a6e22e">player</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">new</span> <span style="color: #a6e22e">YT</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">Player</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;player&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">{</span>
+                      <span style="color: #a6e22e">height</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;390&#39;</span><span style="color: #f8f8f2">,</span>
+                      <span style="color: #a6e22e">width</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;640&#39;</span><span style="color: #f8f8f2">,</span>
+                      <span style="color: #a6e22e">videoId</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;9II_GQJ7mKo&#39;</span><span style="color: #f8f8f2">,</span>					
+                      <span style="color: #a6e22e">playerVars</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">{</span> <span style="color: #e6db74">&#39;start&#39;</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;autoplay&#39;</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;controls&#39;</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span> <span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;mute&#39;</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;rel&#39;</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;ytp-pause-overlay&#39;</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;playsinline&#39;</span><span style="color: #f92672">:</span><span style="color: #ae81ff">1</span> <span style="color: #f8f8f2">},</span> 
+                      <span style="color: #75715e">// start : 시작위치(초), autoplay: 자동시행여부(0 기본값 안함, 1 함), controls: 컨트롤러 여부(0 표시안함, 1 기본값표시 ), </span>
+                      <span style="color: #75715e">// mute: 음소거 ( 0 기본값 안함, 1 함), </span>
+                      <span style="color: #75715e">// rel: 동영상종료후 관련영상 표시여부 ( 0 안함, 1 기본값 함), </span>
+                      <span style="color: #75715e">// ytp-pause-overlay: 동영상 일시정지에서 관련영상표기여부( 0표시안함, 1 기본값 함 )</span>
+                      <span style="color: #75715e">// playsinline: iOS 인라인재생여부( 0 기본값 안함 전체화면, 1 함 )</span>
+                      <span style="color: #a6e22e">events</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">{</span>
+                      <span style="color: #e6db74">&#39;onReady&#39;</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">playVideo</span>					
+                  <span style="color: #f8f8f2">}</span>
+          <span style="color: #f8f8f2">});</span>
+        <span style="color: #f8f8f2">}</span>
+  
+    
+        <span style="color: #75715e">/* 재생 */</span>
+        <span style="color: #66d9ef">function</span> <span style="color: #a6e22e">playVideo</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
+          <span style="color: #a6e22e">player</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">playVideo</span><span style="color: #f8f8f2">();</span>
+        <span style="color: #f8f8f2">}</span>
+  
+        <span style="color: #75715e">/* 재생정지 */</span>
+        <span style="color: #66d9ef">function</span> <span style="color: #a6e22e">stopVideo</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
+          <span style="color: #a6e22e">player</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">seekTo</span><span style="color: #f8f8f2">(</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">true</span> <span style="color: #f8f8f2">);</span>
+          <span style="color: #a6e22e">player</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">stopVideo</span><span style="color: #f8f8f2">();</span>		
+          <span style="color: #a6e22e">player</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">clearVideo</span><span style="color: #f8f8f2">();</span> <span style="color: #75715e">//잔여영상지우기</span>
+        <span style="color: #f8f8f2">}</span>
+  
+        <span style="color: #75715e">/* 재생 일시정지*/</span>
+        <span style="color: #66d9ef">function</span> <span style="color: #a6e22e">pauseVideo</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
+          <span style="color: #a6e22e">player</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">pauseVideo</span><span style="color: #f8f8f2">();</span>
+        <span style="color: #f8f8f2">}</span>
+  
+        <span style="color: #75715e">/* seekTo */</span>
+        <span style="color: #66d9ef">function</span> <span style="color: #a6e22e">seekTo</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">$seconds</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">$allowSeekAhead</span> <span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+          <span style="color: #a6e22e">player</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">seekTo</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">$seconds</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">$allowSeekAhead</span> <span style="color: #f8f8f2">);</span>
+        <span style="color: #f8f8f2">}</span>
+  
+  
+        <span style="color: #75715e">/* 음소거 해지 =&gt; player.isMuted() : 플레이어가 음소거 상태인 경우 true를 반환하고 음소가 상태가 아닌 경우 false를 반환합니다.*/</span>	
+        <span style="color: #66d9ef">function</span> <span style="color: #a6e22e">unMute</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
+          <span style="color: #a6e22e">player</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">unMute</span><span style="color: #f8f8f2">();</span>
+        <span style="color: #f8f8f2">}</span>
+  
+        <span style="color: #75715e">/* 음소거 */</span>	
+        <span style="color: #66d9ef">function</span> <span style="color: #a6e22e">mute</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
+          <span style="color: #a6e22e">player</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">mute</span><span style="color: #f8f8f2">();</span>
+        <span style="color: #f8f8f2">}</span>	
+        
+          <span style="color: #75715e">/* 볼륨 조절 : 볼륨을 설정합니다. 0에서 100 사이의 정수를 허용합니다. */</span>
+        <span style="color: #66d9ef">function</span> <span style="color: #a6e22e">setVolume</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">$volume</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+          <span style="color: #a6e22e">player</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">setVolume</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">$volume</span><span style="color: #f8f8f2">);</span>
+          <span style="color: #75715e">// player.getVolume()  볼륨 반환</span>
+        <span style="color: #f8f8f2">}</span>
+  
+  
+        <span style="color: #75715e">/* 재생속도 변경 ( x1=1 , x22=2.5 )*/</span>
+        <span style="color: #66d9ef">function</span> <span style="color: #a6e22e">setPlaybackRate</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">$suggestedRate</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+          <span style="color: #a6e22e">player</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">setPlaybackRate</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">$suggestedRate</span><span style="color: #f8f8f2">);</span>
+          <span style="color: #75715e">// player.getPlaybackRate():Number 이 함수는 현재 재생 중인 동영상의 재생 속도를 가져옵니다.  </span>
+        <span style="color: #f8f8f2">}</span>
+      
+              
+              <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.js-song_play&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">on</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;click&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">$e</span><span style="color: #f8f8f2">){</span>
+                  <span style="color: #a6e22e">$e</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">preventDefault</span><span style="color: #f8f8f2">();</span>
+  
+                  <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">u_id</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">this</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">attr</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;data-urlid&quot;</span><span style="color: #f8f8f2">);</span>
+                  <span style="color: #a6e22e">player</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">loadVideoById</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">u_id</span><span style="color: #f8f8f2">);</span>
+              <span style="color: #f8f8f2">})</span>
+          
+      <span style="color: #f92672">&lt;/script&gt;</span>
+    <span style="color: #f92672">&lt;/body&gt;</span>
+  </pre>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+
+
+
+
+            </div>
+            <!--// 소스 -->
+            <div>
+            </div>
+          </div>
+          <!-- e: examples 예제 -->
+
+
+
+
+        </div>
+        <!-- e: 컨텐츠 끝 -->
+      </div>
+
+
+
+      <script type="text/javascript">
+        $("#header").load("../../../head.html");
+        $("#lnb").load("../../../lnb.html");
+
+        $(".ex-more a").click(function () {
+          $(this).find("span").toggle();
+          $(this).parent().siblings(".ex-body").slideToggle();
+          return false;
+        });
+
+        $(".icon-more a").click(function () {
+          $(this).find("span").toggle();
+          $(this).parent().siblings(".ex-body").slideToggle();
+          return false;
+        });
+      </script>
     </div>
+  </div>
 </body>
 
 </html>
