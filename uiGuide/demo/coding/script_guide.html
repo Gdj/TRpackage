@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+<title>스크립트 선언 방식 : TR package</title>
+<script type="text/javascript" src="../../../asset/js/libs/jquery-1.11.1.js" charset="UTF-8"></script>
+<link rel="stylesheet" type="text/css"  href="../../../asset/css/common.css" media="all" />
+<link rel="stylesheet" type="text/css"  href="../../../asset/css/trpBase.css" media="all" />
+
+<!--
+<style type="text/css">
+
+</style>
+-->
+
+</head>
+<body>
+  <div id="header" ></div>
+  <div id="container">
+		<div id="lnb" class="gnb"></div>
+		<!-- s: 컨텐츠 시작 -->
+		<div id="contents" class="contents">
+			<!-- s: css 설명  -->
+			<div class="desc_wapper">
+				<h1 class="desc_title">script 로드 방법</h1>
+				<p> &lt;script&gt; 로드 방법 :  head tag, body tag, async, defer </p>
+			</div>		
+			<!-- e: css 설명 -->
+
+
+
+					<!-- s: api 설명 -->
+					<div class="api">
+							<h2 class="api-title">&lt;script&gt; 태그 사용</h2>
+							<div class="api-body">
+
+                <article class="typo-area">
+                  <h3># &lt;head&gt; 태그에 &lt;script&gt; 넣을경우</h3>
+                  <p>head 태그에서 스크립트가 로드될때까지 body 태그로 넘어가지 않는다. <br>
+                    스크립트가 로드되지 않으면 html이 화면에 그려지지 않는다.
+                  </p>
+                </article>
+
+                <article class="typo-area">
+                  <h3># &lt;body&gt; 태그 하단에 &lt;script&gt; 넣을경우</h3>
+                  <p>html 화면이 다 그려지고 나서 스크립트를 로드드후 실행 
+                  </p>
+                </article>
+
+                <article class="typo-area">
+                  <h3># &lt;script defer scr="" &gt; 넣을경우 (비동기)</h3>
+                  <p>html 화면이 다 그려지 지는 동시에 스크립트를 로드한다. <br>
+                    html 이 다그려지면 스크립트를 실행한다.
+                  </p>
+                  <ul class="mark-list">
+                    <li>- defer 은 스크립트 로딩이 완료돼도 무조건 html parsing이 끝난 후 스크립트를 실행시킨다.</li>
+                    <li>- defer 은 먼저 작성된 스크립트가 마지막에 작성된 스크립트보다 늦게 로딩 되어도 먼저 실행시킨다. (실행 순서를 지킴)</li>
+                    <li>- defer 은 DOM 전체가 필요한 스크립트나 실행 순서가 중요한 경우에 사용하는 것이 적합하다.</li>
+                  </ul>
+                </article>
+
+                <article class="typo-area">
+                  <h3>&lt;script async scr="" &gt; 넣을경우 (비동기)</h3>
+                  <p>html 화면이 그려지 지는 동시에 스크립트를 로드하고 실행한다. <br>
+                    스크립트가 실행될때는 html 그려지는걸 중지된다.
+                  </p>
+                  <ul class="mark-list">
+                    <li>- async 는 스크립트 로딩이 완료되면 html parsing이 끝나지 않아도, 잠시 멈춰놓고 일단 스크립트를 실행시킨다.</li>
+                    <li>- async 는 마지막으로 선언된 스크립트 파일이 제일 먼저 선언된 스크립트 파일보다 먼저 다운로드 되면 순서에 상관없이 먼저 실행되고, 이렇게 먼저 로드 된 스크립트가 먼저 실행되는 걸 'load-first order'라고 부른다.</li>
+                    <li>- async 는 독립적으로 작동한다.</li>
+                    <li>- async 는 방문자 수 카운터, 광고 관련 스크립트처럼 각 독립적인 역할을 하는 서드파티 스크립트를 현재 개발 중인 스크립트에 통합하려 할 때 아주 유용하다 (async 스크립트는 개발 중인 스크립트에 의존하지 않고, 그 반대도 마찬가지이기 때문)</li>
+                  </ul>
+                </article>
+
+
+
+
+                  <!-- 소스 
+
+									<div class="ex_wapper">
+                    <h3 class="api-title_h3 html">HTML default </h3>
+                    <div class="api-body_h3 html">
+                        
+                      
+                    </div>
+                  </div> 
+                      
+                  //소스 -->
+                  
+
+							</div>
+					</div>
+					<!-- e: api 설명 -->
+
+
+
+
+
+
+
+    </div>		
+		<!-- e: 컨텐츠 끝 -->
+		<p class="cl-b"></p>
+	</div>
+
+
+<script type="text/javascript">
+	$("#header").load("../../head.html");
+	$("#lnb").load("../../lnb.html");	
+
+
+	$(".ex-more a").click(function() {
+		$( this ).find("span").toggle();
+		$( this ).parent().siblings(".ex-body").slideToggle();
+		return false;
+	});
+
+</script>
+
+</body>
+</html>
+
+				
