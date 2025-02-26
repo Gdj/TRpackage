@@ -12,17 +12,24 @@
  
 	<div class="section-area">
 		
-		<section class="section-2">
-		</section>
+    
+    <section class="section-3">
+    </section>
 		
-		<section class="section-3">
-		</section>
-		
+    <section class="section-0">
+      <div id="ball-0" class="ball" style="top:50%"></div>
+      <svg id="motionPath" viewBox="-20 0 557 190">
+        <path id="path" fill="none" d="M8,102 C15,83 58,25 131,24 206,24 233,63 259,91 292,125 328,155 377,155 464,155 497,97 504,74"/>
+      </svg>
+      <div class="section-item">
+      </div>
+    </section>
+
 		<section class="section-4">
 		</section>
 
 		<section class="section-1">
-			<div id="ball"></div>
+			<div id="ball-1" class="ball"></div>
 		</section>
 		
 		<section class="section-2">
@@ -35,37 +42,66 @@
 		</section>
 	</div>
 	<style>
+    body { margin: 0; padding: 0;}
+
+    #motionPath { overflow: visible; height: 100%; max-width: 100%; }
+		#motionPath path { stroke-width: 2; stroke: gray; }
+		#motionPath .astronaut { visibility: hidden; }
+
 
 		.section-area { position: relative; height: 100%; }
+    .section-item { display: flex; justify-content: center; align-items: center; height: 100%; }
 		section { height: 100vh; position: relative; }
 		.section-1 { background: rgb(192, 192, 255); }
 		.section-2 { background: rgb(184, 252, 184); }
 		.section-3 { background: rgb(254, 167, 167); }
 		.section-4 { background: rgb(253, 253, 152); }
 
-		#ball{ position: absolute; top: 5%; left: 0;
+		.ball{ position: absolute; top: 5%; left: 0;
 			width: 50px; height: 50px;
 			background: black; border-radius: 20%;
 			z-index: 1;
 		}
 	</style>
+
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/MotionPathPlugin.min.js"></script>
+
+  <script>
+  	gsap.registerPlugin(MotionPathPlugin, ScrollTrigger);
+    let test1 = gsap.timeline({
+			scrollTrigger: {
+				trigger: ".section-0 .section-item",
+				start: "-50% 70%",
+				end  : "-30% 60%",
+				scrub: 1,
+        // pin: true,
+				markers: true
+			}
+		}); 
+    test1.fromTo("#ball-0", 
+		{x: 0, y: 0}, 
+		{ ease: "none", motionPath:
+			{ path: "#motionPath path", align: "#motionPath path", autoRotate: true 
+				/* [8, 102, 15, 83, 58, 25, 131, 24, 206, 24, 233, 63, 259, 91, 292, 125, 328, 155, 377, 155, 464, 155, 497, 97, 504, 74] */
+			}
+		}, );
+	
+  </script>
+
 	<script>
-
-		gsap.registerPlugin(MotionPathPlugin, ScrollTrigger);
-
-		let test = gsap.timeline({
+    gsap.registerPlugin(MotionPathPlugin, ScrollTrigger);
+		let test2 = gsap.timeline({
 			scrollTrigger: {
 				trigger: ".section-1",
 				start: "top bottom",
 				end: "bottom top",
 				// end: '+=' + ((window.innerHeight * 3) + 50),
 				scrub: 1,
-				markers: true
+				//markers: true
 			}
 		}); 
 		
-		test.fromTo("#ball", 
+		test2.fromTo("#ball-1", 
 		{x: 0, y: 0}, 
 		{ ease: "none", motionPath:
 			{ path: [
@@ -75,7 +111,6 @@
 				{ scale: 0.9, rotation: 90, x: '70vw',  y: '120vh'} 
 			]}
 		}, );
-
   </script>
 </body>
 </html>
