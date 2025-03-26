@@ -43,6 +43,7 @@
 					<dd><span class="icon"></span>기본 사용법 : <br>
 						<code>
 
+
 <!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
 	2
 	3
@@ -76,42 +77,76 @@
  31
  32
  33
- 34</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">// scrollTrigger 사용선언</span>
-	<span style="color: #a6e22e">gsap</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">registerPlugin</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">ScrollTrigger</span><span style="color: #f8f8f2">);</span>
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51</pre></td><td><pre style="margin: 0; line-height: 125%">  <span style="color: #75715e">// scrollTrigger 사용선언</span>
+	 <span style="color: #a6e22e">gsap</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">registerPlugin</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">ScrollTrigger</span><span style="color: #f8f8f2">);</span>
+	 
+	 <span style="color: #75715e">/* scrollTrigger 공통 전역 설정 */</span>
+	 <span style="color: #a6e22e">ScrollTrigger</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">defaults</span><span style="color: #f8f8f2">({</span>
+		 <span style="color: #a6e22e">markers</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">true</span>
+	 <span style="color: #f8f8f2">})</span>
+	 
+	 <span style="color: #75715e">/* scrollTrigger 설정1 */</span>
+	 <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">TS</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">gsap</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">timeline</span><span style="color: #f8f8f2">();</span> 
+	 <span style="color: #a6e22e">ScrollTrigger</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">create</span><span style="color: #f8f8f2">({</span>
+		 <span style="color: #a6e22e">trigger</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;.targetItem &quot;</span><span style="color: #f8f8f2">,</span>
+		 <span style="color: #a6e22e">start</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;top top&quot;</span><span style="color: #f8f8f2">,</span>
+		 <span style="color: #a6e22e">scrub</span><span style="color: #f92672">:</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span>
+		 <span style="color: #a6e22e">animation</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">TS</span> <span style="color: #f8f8f2">,</span>
+	 <span style="color: #f8f8f2">})</span>
+	 
+	 <span style="color: #75715e">/* scrollTrigger 설정2 */</span>
+	 <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">TS</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">gsap</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">timeline</span><span style="color: #f8f8f2">({</span>
+		 <span style="color: #a6e22e">scrollTrigger</span><span style="color: #f92672">:</span><span style="color: #f8f8f2">{</span>
+			 <span style="color: #a6e22e">trigger</span> <span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;.targetItem&quot;</span> <span style="color: #f8f8f2">,</span>
+			 <span style="color: #a6e22e">start</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;top top&quot;</span><span style="color: #f8f8f2">,</span>
+			 <span style="color: #a6e22e">scrub</span><span style="color: #f92672">:</span><span style="color: #ae81ff">1</span>   
+		 <span style="color: #f8f8f2">}</span>
+	 <span style="color: #f8f8f2">})</span> 
+	 
+	 <span style="color: #75715e">/* 초기설정 */</span>
+	 <span style="color: #a6e22e">TS</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">set</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.class&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">{</span> <span style="color: #a6e22e">x</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span> <span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">delay</span><span style="color: #f92672">:</span><span style="color: #f8f8f2">.</span><span style="color: #ae81ff">5</span> <span style="color: #f8f8f2">});</span>
+	 <span style="color: #75715e">/* 트윈 */</span>
+	 <span style="color: #a6e22e">TS</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">to</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.class&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">{</span> <span style="color: #a6e22e">x</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span> <span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">delay</span><span style="color: #f92672">:</span><span style="color: #f8f8f2">.</span><span style="color: #ae81ff">5</span> <span style="color: #f8f8f2">});</span>
+	 
+	 <span style="color: #75715e">/* 다중설정 시 */</span>
+	 <span style="color: #a6e22e">gsap</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">utils</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">toArray</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;section&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">forEach</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">$item</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">$index</span><span style="color: #f8f8f2">){</span>
+		<span style="color: #f8f8f2">...</span>
+	 <span style="color: #f8f8f2">})</span>
+ 
 	
-	<span style="color: #75715e">/* scrollTrigger 공통 전역 설정 */</span>
-	<span style="color: #a6e22e">ScrollTrigger</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">defaults</span><span style="color: #f8f8f2">({</span>
-		<span style="color: #a6e22e">markers</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">true</span>
-	<span style="color: #f8f8f2">})</span>
-	
-	<span style="color: #75715e">/* scrollTrigger 설정1 */</span>
-	<span style="color: #66d9ef">var</span> <span style="color: #a6e22e">TS</span> <span style="color: #f92672">=</span>  <span style="color: #f92672">=</span> <span style="color: #a6e22e">gsap</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">timeline</span><span style="color: #f8f8f2">();</span> 
-	<span style="color: #a6e22e">ScrollTrigger</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">create</span><span style="color: #f8f8f2">({</span>
-		<span style="color: #a6e22e">trigger</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;.targetItem &quot;</span><span style="color: #f8f8f2">,</span>
-		<span style="color: #a6e22e">start</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;top top&quot;</span><span style="color: #f8f8f2">,</span>
-		<span style="color: #a6e22e">scrub</span><span style="color: #f92672">:</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span>
-		<span style="color: #a6e22e">animation</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">TS</span> <span style="color: #f8f8f2">,</span>
-	<span style="color: #f8f8f2">})</span>
-	
-	<span style="color: #75715e">/* scrollTrigger 설정2 */</span>
-	<span style="color: #66d9ef">var</span> <span style="color: #a6e22e">TS</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">gsap</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">timeline</span><span style="color: #f8f8f2">({</span>
-		<span style="color: #a6e22e">scrollTrigger</span><span style="color: #f92672">:</span><span style="color: #f8f8f2">{</span>
-			<span style="color: #a6e22e">trigger</span> <span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;.targetItem&quot;</span> <span style="color: #f8f8f2">,</span>
-			<span style="color: #a6e22e">start</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;top top&quot;</span><span style="color: #f8f8f2">,</span>
-			<span style="color: #a6e22e">scrub</span><span style="color: #f92672">:</span><span style="color: #ae81ff">1</span>   
-			<span style="color: #f8f8f2">}</span>
-		<span style="color: #f8f8f2">}</span>
-	<span style="color: #f8f8f2">})</span> 
-	
-	<span style="color: #75715e">/* 트윈 */</span>
-	<span style="color: #a6e22e">TS</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">to</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.class&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">{</span> <span style="color: #a6e22e">x</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span> <span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">delay</span><span style="color: #f92672">:</span><span style="color: #f8f8f2">.</span><span style="color: #ae81ff">5</span> <span style="color: #f8f8f2">});</span>
-	
-	<span style="color: #75715e">/* 다중설정 시 */</span>
-	<span style="color: #a6e22e">gsap</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">utils</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">toArray</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;section&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">forEach</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">$item</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">$index</span><span style="color: #f8f8f2">){</span>
-	 <span style="color: #f8f8f2">...</span>
-	<span style="color: #f8f8f2">})</span>
+		<span style="color: #75715e">/* 미디어쿼리 */</span>
+	 <span style="color: #a6e22e">ScrollTrigger</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">matchMedia</span><span style="color: #f8f8f2">({</span>
+		 <span style="color: #75715e">// mobile</span>
+		 <span style="color: #e6db74">&quot;(min-width: 320px) and (max-width: 767px)&quot;</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
+			 <span style="color: #a6e22e">gsap</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">timeline</span><span style="color: #f8f8f2">({</span>
+				 <span style="color: #a6e22e">scrollTrigger</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">{</span>
+					 <span style="color: #a6e22e">trigger</span> <span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;.targetItem&quot;</span> <span style="color: #f8f8f2">,</span>
+					 <span style="color: #a6e22e">start</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;top top&quot;</span><span style="color: #f8f8f2">,</span>
+					 <span style="color: #a6e22e">scrub</span><span style="color: #f92672">:</span><span style="color: #ae81ff">1</span>   
+				 <span style="color: #f8f8f2">}</span>
+			 <span style="color: #f8f8f2">}).</span><span style="color: #a6e22e">to</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.class&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">{</span> <span style="color: #a6e22e">x</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span> <span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">delay</span><span style="color: #f92672">:</span><span style="color: #f8f8f2">.</span><span style="color: #ae81ff">5</span> <span style="color: #f8f8f2">})</span>
+		 <span style="color: #f8f8f2">}</span>
+ 
+	 <span style="color: #f8f8f2">})</span>
  </pre></td></tr></table></div>
-							 
+ 
 
 						</code>
 
