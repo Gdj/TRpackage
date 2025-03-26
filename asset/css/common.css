@@ -152,3 +152,5 @@ ul.mark-list li { padding-left: 1em; text-indent: -1em;}
 
 ul.disc-list li { padding-left: 1em; text-indent: -1em; }
 ul.disc-list li:before { content: "·"; margin-right: 0.5em; } 
+
+.underline { text-decoration:underline; }

@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>scrollTrigger</title>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="../../../../asset/js/libs/gsap/gsap-3.12.5.min.js"></script>
+  <script src="../../../../asset/js/libs/gsap/ScrollTrigger-3.12.5.min.js"></script>
   <style>
     html, body { margin: 0; padding: 0;}
     section { height: 100vh; display: flex; justify-content: center; align-items: center;
@@ -25,7 +25,7 @@
     /* to, from, fromTo */
     gsap.registerPlugin(ScrollTrigger);
 
-    /* 전역 기본 설정 */
+    /* 전역 설정 */
     ScrollTrigger.defaults({
       markers: true
     })

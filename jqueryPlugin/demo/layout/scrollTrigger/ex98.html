@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>scrollTrigger</title>
+  <script src="../../../../asset/js/libs/gsap/gsap-3.12.5.min.js"></script>
+  <script src="../../../../asset/js/libs/gsap/ScrollTrigger-3.12.5.min.js"></script>
+  <style>
+    html, body { margin: 0; padding: 0;}
+    section { height: 100vh; display: flex; justify-content: center; align-items: center;}
+    .bgcolor1 { background-color: antiquewhite;}
+    .bgcolor2 {
+      background-size: 50px 50px;
+      background-image:
+      linear-gradient(to right, #dfdfdf 1px, transparent 1px),
+      linear-gradient(to bottom, #dfdfdf 1px, transparent 1px);
+    }
+    .bgcolor3 { background-color: beige;}
+    .box1 { width: 100px; height: 100px; background-color: darkolivegreen;}
+    .box2 { width: 100px; height: 100px; background-color: cadetblue;}
+    .box3 { width: 100px; height: 100px; background-color: blueviolet;}
+    .box4 { width: 100px; height: 100px; background-color: darkorange;}
+  </style>
+</head>
+<body>
+  <section class="section1 bgcolor1"></section>
+  <section class="section2 bgcolor2">
+    <div class="item">
+      <div class="box1"></div>
+      <div class="box2"></div>
+      <div class="box3"></div>
+      <div class="box4"></div>
+    </div>
+  </section>
+  <section class="section3 bgcolor3"></section>
+
+  <script>
+    /* to, from, fromTo */
+    gsap.registerPlugin(ScrollTrigger);
+
+    /* box2 */
+    gsap.to(".box2", {
+      scrollTrigger: {
+        trigger: ".box2",
+        start:   "top 60%",
+        end  :   "bottom 40%",
+        toggleActions: "play pause none reset",
+        scrub: 1,
+        markers: true, 
+        id: "box2",
+      },
+      x: 400,
+      rotation: 360,
+      //duration: 5,
+    });
+
+    /* box3 */
+    var tg3 = gsap.timeline();
+    ScrollTrigger.create({
+      animation: tg3,
+      trigger: ".box3",
+      start:   "top 60%",
+      end  :   "bottom 40%",
+      toggleActions: "play pause none reset",
+      scrub: 1,
+      markers: true, 
+      id: "box3",
+    });
+    tg3.to(".box3", {
+      x: 400,
+      rotation: 360,
+      //duration: 5,
+    });
+
+    /* box4 */
+    var tg4 = gsap.timeline({
+      scrollTrigger:{
+        trigger: ".box4",
+        start:   "top 60%",
+        end  :   "bottom 40%",
+        toggleActions: "play pause none reset",
+        scrub: 1,
+        markers: true, 
+        id: "box4",
+      }
+    });
+    tg4.to(".box4", {
+      x: 400,
+      rotation: 360,
+      //duration: 5,
+    });
+
+
+
+  </script>
+</body>
+</html>

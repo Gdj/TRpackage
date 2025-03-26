@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>scrollTrigger</title>
+  <script src="../../../../asset/js/libs/gsap/gsap-3.12.5.min.js"></script>
+  <script src="../../../../asset/js/libs/gsap/ScrollTrigger-3.12.5.min.js"></script>
+  <style>
+    html, body { margin: 0; padding: 0;}
+    section { height: 100vh; display: flex; justify-content: center; align-items: center;}
+    .bgcolor1 { background-color: antiquewhite;}
+    .bgcolor2 {
+      background-size: 50px 50px;
+      background-image:
+      linear-gradient(to right, #dfdfdf 1px, transparent 1px),
+      linear-gradient(to bottom, #dfdfdf 1px, transparent 1px);
+    }
+    .bgcolor3 { background-color: beige;}
+    .box1 { width: 100px; height: 100px; background-color: darkolivegreen;}
+    .box2 { width: 100px; height: 100px; background-color: cadetblue;}
+    .box3 { width: 100px; height: 100px; background-color: blueviolet;}
+  </style>
+</head>
+<body>
+  <section class="section1 bgcolor1"></section>
+  <section class="section2 bgcolor2">
+    <div class="item">
+      <div class="box1"></div>
+      <div class="box2"></div>
+      <div class="box3"></div>
+    </div>
+  </section>
+  <section class="section3 bgcolor3"></section>
+
+  <script>
+      /* to, from, fromTo */
+      gsap.registerPlugin(ScrollTrigger);
+
+      var ST1 = gsap.timeline({
+        scrollTrigger:{
+          trigger : ".box2",
+          start   : "top 60%",
+          end     : "bottom 40%",
+          toggleActions : "play pause none reset",
+          scrub   : 1,
+          markers : true, 
+          onUpdate: function(self){
+            console.log("방향, Per >>: ", self.direction, self.progress)
+          }
+        }
+      })
+      ST1.to(".box1", {
+        x: 400,
+        rotation: 360,
+        ease: "none",
+      })
+      ST1.to(".box2", {
+        x: 400,
+        rotation: 360,
+        ease: "none",
+        delay : 1
+      })
+      ST1.to(".box3", {
+        x: 400,
+        rotation: 360,
+        ease: "none",
+        duration: 5,
+      })
+
+  </script>
+</body>
+</html>

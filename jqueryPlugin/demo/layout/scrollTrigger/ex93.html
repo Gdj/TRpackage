@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>scrollTrigger</title>
+  <script src="../../../../asset/js/libs/gsap/gsap-3.12.5.min.js"></script>
+  <script src="../../../../asset/js/libs/gsap/ScrollTrigger-3.12.5.min.js"></script>
+  <style>
+    html, body { margin: 0; padding: 0;}
+    body { overflow-x: hidden;}
+    .container { display: flex; flex-direction: row; width: 300%;}
+    section { width: 100%; height: 100vh; display: flex; justify-content: center; align-items: center;
+      background-repeat: none; background-size: cover;
+    }
+    .bgcolor1 { background-image: url(./images/bg1.jpg);}
+    .bgcolor2 { background-image: url(./images/bg2.jpg);}
+    .bgcolor3 { background-image: url(./images/bg3.jpg);}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <section class="section1 bgcolor1"></section>
+    <section class="section2 bgcolor2"> </section>
+    <section class="section3 bgcolor3"></section>
+  </div>
+
+  <script>
+    /* to, from, fromTo */
+    gsap.registerPlugin(ScrollTrigger);
+
+    let sections = gsap.utils.toArray("section");
+    gsap.to(sections, {
+      xPercent: -100 * (sections.length - 1),
+      ease: "none",
+      scrollTrigger: {
+        trigger : ".container",
+        pin: true,
+        scrub: 1 ,
+        snap: 1/ (sections.length - 1),
+        end : ()=> "=+" + document.querySelector(".container").offsetWidth
+      }
+    });
+
+
+
+  </script>
+</body>
+</html>
