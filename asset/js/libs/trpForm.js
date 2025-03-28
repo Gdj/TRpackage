@@ -2,10 +2,9 @@
  * Base			  : jQuery JavaScript Library v1.12.1
  * trPackage	:
  * trpPopup	    : v0.9.3
- * release date : 2024.07.26
+ * release date : 2025.03.28
  * author		: http://turfrain.tistory.com/
  * Copyright 2018. turfrain all rights reserved.
- *
  */
 
 
@@ -331,39 +330,40 @@ $.fn.trpDropdown = function(options){
     };
     settings = jQuery.extend(settings, options || {});
 
-    
+    /* select items */
     $(_this).on("click", function($e){   
       if( $(this).hasClass("active") ){        
-          $(this).removeClass("active");
+        $(this).removeClass("active");
       }else{ 
-          _thisArea = $(this).closest(settings.area);          
-          $(this).addClass("active");
-          $(settings.list, _thisArea).show();
-          setTimeout(closeEvent, 100);
+        _thisArea = $(this).closest(settings.area);          
+        $(this).addClass("active");
+        $(settings.list, _thisArea).addClass("show");
+        setTimeout(closeEvent, 100);
       }
     }) 
     function closeEvent() { 
       $('html > *').on("click", function ($e) {
-          $e.preventDefault();
-          var _close_list = $(settings.list).attr("data-trp-focusid");
-          var _tarGet_list = $($e.target).closest(settings.list).attr("data-trp-focusid");
-          //console.log(_close_list, _tarGet_list)
-          if ( _close_list != _tarGet_list ){
-              $(_this).removeClass("active");
-              $(settings.list, settings.area).hide();
-              $('html > *').off("click");
-          }
+        $e.preventDefault();
+        var _close_list = $(settings.list).attr("data-trp-focusid");
+        var _tarGet_list = $($e.target).closest(settings.list).attr("data-trp-focusid");
+        //console.log(_close_list, _tarGet_list)
+        if ( _close_list != _tarGet_list ){
+          closeFn();
+        }
       });
     }
+    function closeFn(){
+      $(_this).removeClass("active");
+      $(settings.list, settings.area).removeClass("show");
+      $('html > *').off("click");
+    }
+
     return {
 		getOpen: function($index) {
-            $(_this).on("trigger");
-        },
+      $(_this).on("trigger");
+    },
 		getClose: function($index) {
-            console.log(_this)
-		    $(_this).removeClass("active");
-            $(settings.list, settings.area).hide();
-            $('html > *').off("click");
+      closeFn();
 		}
 	} 
 }
