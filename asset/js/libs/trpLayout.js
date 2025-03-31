@@ -868,7 +868,7 @@ function trpCallBackMenuActiveFN($items, $setction, $offSet, $fn1, $fn2){
       if( _onesFalse == _TotoalItem && $($setction).attr("data-shows") == "false" ){
         $fn1();  	/// End
         _EndScroll = true;
-        // console.log(" ---------------------------- over")
+        console.log(" ---------------------------- over")
       }
     }
   }else{
@@ -879,7 +879,7 @@ function trpCallBackMenuActiveFN($items, $setction, $offSet, $fn1, $fn2){
       if( _onesTrue == _TotoalItem && $($setction).attr("data-shows") == "false" ){
         $fn2();  	/// End
         _EndScroll = false;
-        // console.log(" ---------------------------- under")
+        console.log(" ---------------------------- under")
       }
     }
   }
