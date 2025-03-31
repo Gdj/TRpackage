@@ -807,3 +807,81 @@ jQuery.fn.trpColItemHW = function ($col) {
     }
   }
 };
+
+
+
+
+
+
+/**
+ * trpCallBackMenuActiveFN : 
+ * 
+ * @param	$items     : 아이템 선택자
+ * @param	$setction  : 스크롤 컨텐츠
+ * @param	$offSet	   : 스크린 위치값
+ * @param	$fn1	     : true  일대 실행
+ * @param	$fn2	     : false 일대 실행
+ * #return boolean   : under : false, over : true;
+ * */
+function trpCallBackMenuActiveFN($items, $setction, $offSet, $fn1, $fn2){  
+  var _tarY     = $($setction).offset().top; 
+  var _tarH     = $($setction).innerHeight(); 
+  var _scrollY  = getNowScroll().Y;
+  var _boolean  = $($setction).attr("data-ones") ; 
+  var WIN_HEIGHT = $(window).height();
+  var _EndScroll = false;
+
+  /* 현제 스크롤 위치 */
+  function getNowScroll() {
+    var de = document.documentElement;
+    var b = document.body;
+    var now = {};
+    now.X = document.all ? (!de.scrollLeft ? b.scrollLeft : de.scrollLeft) : (window.pageXOffset ? window.pageXOffset : window.scrollX);
+    now.Y = document.all ? (!de.scrollTop ? b.scrollTop : de.scrollTop) : (window.pageYOffset ? window.pageYOffset : window.scrollY);
+    now.TOTAL = $(document).height();
+    return now;
+  }
+  
+
+  /* data-shows  화면 활성화  */
+  function showSection(){    
+    /* start , end */
+    if(  _scrollY >  (_tarY - WIN_HEIGHT) &&  _scrollY < (_tarY + _tarH) ){
+      $($setction).attr("data-shows", "true");
+    }else{
+      $($setction).attr("data-shows", "false");
+    }
+  }
+
+
+  var _onesFalse = $($items).filter("[data-ones='false']").length;
+  var _onesTrue  = $($items).filter("[data-ones='true']").length;
+  var _TotoalItem = $($items).length;
+  /* data-ones 스크롤  ↓ ↑ */
+  showSection();
+  if(  _scrollY > (_tarY - $offSet) ){
+    if(_boolean === "true"){
+      $($setction).attr("data-ones", "false");
+      _onesFalse = $($items).filter("[data-ones='false']").length;
+      $fn1();
+    }else if( $($setction).attr("id")  == $($items).eq(_TotoalItem - 1).attr("id") ){  // 마지막 아이템
+      if( _onesFalse == _TotoalItem && $($setction).attr("data-shows") == "false" ){
+        $fn1();  	/// End
+        _EndScroll = true;
+        // console.log(" ---------------------------- over")
+      }
+    }
+  }else{
+    if(_boolean === "false"){
+      $($setction).attr("data-ones", "true");
+      $fn2(); 
+    }else if( $($setction).attr("id")  == $($items).eq(0).attr("id") ){  // 첫번쩨 아이템
+      if( _onesTrue == _TotoalItem && $($setction).attr("data-shows") == "false" ){
+        $fn2();  	/// End
+        _EndScroll = false;
+        // console.log(" ---------------------------- under")
+      }
+    }
+  }
+  return _EndScroll
+}

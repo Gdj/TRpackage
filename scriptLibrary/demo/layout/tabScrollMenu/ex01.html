@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Tab Scroll Menu | TR package</title>
+<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js"  charset="UTF-8"></script>
+<script type="text/javascript" src="../../../../asset/js/libs/trpLayout.js"  charset="UTF-8"></script>
+<style>
+	html, body { margin:0; padding:0; min-height: 100%; height: 100%;  /*  scroll-behavior: smooth; */ }	
+  .tab_menu { position: fixed; top: 0; left: 0; width: 100%; height: 50px; background-color: #333; 
+    opacity: .8;
+  }
+  .tab_menu ul { margin: 0; padding: 0; list-style: none; display: flex; justify-content: center; align-items: center; height: 100%; }
+  .tab_menu ul li.active a{ color: chartreuse; }
+  .tab_menu ul a { display: block; padding: 0 20px; color: #fff; text-decoration: none; height: 100%; }
+
+  section { height: 100vh; display: flex; justify-content: center; align-items: center; }
+  .bg1 { background-color: goldenrod; }
+  .bg2 { background-color: beige }
+  .bg3 { background-color: burlywood; }
+  .bg4 { background-color: aquamarine; }
+  .bg5 { background-color: darkseagreen; }
+  .bg6 { background-color: cadetblue; }
+</style>
+<body>
+
+  <div class="tab_menu">
+    <ul class="tab_menu-list">
+      <li class=""><a href="#TabMenu1">TabMenu1</a></li>
+      <li class=""><a href="#TabMenu2">TabMenu2</a></li>
+      <li class=""><a href="#TabMenu3">TabMenu3</a></li>
+      <li class=""><a href="#TabMenu4">TabMenu4</a></li>
+      <li class=""><a href="#TabMenu5">TabMenu5</a></li>
+      <li class=""><a href="#TabMenu6">TabMenu6</a></li>
+    </ul>
+  </div>
+
+  <div class="container">
+    <section id="" class="bg6" ><div>none</div></section>
+    <section id="" class="bg6" ><div>none</div></section>
+    <section id="TabMenu1" class="sectionitem bg1" data-ones="true"><div>TabMenu1</div></section>
+    <section id="TabMenu2" class="sectionitem bg2" data-ones="true"><div>TabMenu2</div></section>
+    <section id="TabMenu3" class="sectionitem bg3" data-ones="true"><div>TabMenu3</div></section>
+    <section id="TabMenu4" class="sectionitem bg4" data-ones="true"><div>TabMenu4</div></section>
+    <section id="TabMenu5" class="sectionitem bg5" data-ones="true"><div>TabMenu5</div></section>
+    <section id="TabMenu6" class="sectionitem bg6" data-ones="true"><div>TabMenu6</div></section>
+    <section id="" class="bg1" ><div>none</div></section>
+    <section id="" class="bg1" ><div>none</div></section>
+  </div>
+
+
+  <!-- =============== tab menu -->
+  <script>
+    $(function(){
+
+      // 리싸이즈 윈도우 높이 
+      $(window).on( "resize scroll", function(){  scrollResize(); });
+
+      // 섹션 아이템  (data-boolean="true")
+      var sectionID = [ "TabMenu1", "TabMenu2", "TabMenu3", "TabMenu4", "TabMenu5", "TabMenu6", ];
+      //sectionID = [ "TabMenu1" ];
+     
+      /* 텝메뉴 클릭 이벤트 */
+      $(".tab_menu").on("click", "a", function($e) {
+        $e.preventDefault();
+        var _id = $(this).attr("href");
+        var _idx = $(this).closest("li").index();
+        var scrollSpeed = $(_id).offset().top - ($(".tab_menu").height() + 0);
+
+        window.scroll({ top: scrollSpeed, behavior: "smooth" });
+        //floatTabActive(_idx);
+      })
+
+      /* 메뉴 활성화 FN */
+      function floatTabActive($index){
+        $(".tab_menu ul li").removeClass("active");
+              
+        if( $index >= 0){
+          $(".tab_menu ul li").eq($index).addClass("active")
+        }else if($index === -1) {
+          /// start
+          $(".tab_menu ul li").eq(0).addClass("active");
+        } 
+       
+
+      }
+
+      /* 스크롤 리사이즈 FN */
+      function scrollResize(){
+        var RESIZE_HEIGHT = $(window).height();
+        var offSet = (RESIZE_HEIGHT/2); 
+        
+        for (var i = 0; i < sectionID.length; i++) {
+          trpCallBackMenuActiveFN( ".sectionitem", "#"+sectionID[i], offSet,  function(){
+            console.log("▼ " , i , $(".sectionitem").filter("[data-shows='false']").length);
+            floatTabActive(i);      // 메뉴 활성화
+          }, function(){
+            console.log("▲ " , i - 1);
+            floatTabActive(i - 1);  // 메뉴 기본값
+          })
+        }
+
+      }
+      scrollResize(); 
+
+    });
+  </script>
+</body>
+</html>
