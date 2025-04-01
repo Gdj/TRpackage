@@ -1,10 +1,10 @@
 /*
  * Base			    : jQuery JavaScript Library v1.12.1
  * trPackage	  :   
- * trpLayout	  : v0.26
- * release date : 2022.10.29
+ * trpLayout	  : v0.27
+ * release date : 2025.04.01
  * author	      : http://turfrain.tistory.com/
- * Copyright 2020. turfrain all rights reserved.
+ * Copyright 2025. turfrain all rights reserved.
  *
  */
 
