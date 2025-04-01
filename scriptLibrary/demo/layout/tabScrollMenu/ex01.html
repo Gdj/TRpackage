@@ -38,12 +38,12 @@
   <div class="container">
     <section id="" class="bg6" ><div>none</div></section>
     <section id="" class="bg6" ><div>none</div></section>
-    <section id="TabMenu1" class="sectionitem bg1" data-ones="true"><div>TabMenu1</div></section>
-    <section id="TabMenu2" class="sectionitem bg2" data-ones="true"><div>TabMenu2</div></section>
-    <section id="TabMenu3" class="sectionitem bg3" data-ones="true"><div>TabMenu3</div></section>
-    <section id="TabMenu4" class="sectionitem bg4" data-ones="true"><div>TabMenu4</div></section>
-    <section id="TabMenu5" class="sectionitem bg5" data-ones="true"><div>TabMenu5</div></section>
-    <section id="TabMenu6" class="sectionitem bg6" data-ones="true"><div>TabMenu6</div></section>
+    <section id="TabMenu1" class="sectionitem bg1"><div>TabMenu1</div></section>
+    <section id="TabMenu2" class="sectionitem bg2"><div>TabMenu2</div></section>
+    <section id="TabMenu3" class="sectionitem bg3"><div>TabMenu3</div></section>
+    <section id="TabMenu4" class="sectionitem bg4"><div>TabMenu4</div></section>
+    <section id="TabMenu5" class="sectionitem bg5"><div>TabMenu5</div></section>
+    <section id="TabMenu6" class="sectionitem bg6"><div>TabMenu6</div></section>
     <section id="" class="bg1" ><div>none</div></section>
     <section id="" class="bg1" ><div>none</div></section>
   </div>
@@ -53,54 +53,33 @@
   <script>
     $(function(){
 
-      // 리싸이즈 윈도우 높이 
-      $(window).on( "resize scroll", function(){  scrollResize(); });
-
       // 섹션 아이템  (data-boolean="true")
       var sectionID = [ "TabMenu1", "TabMenu2", "TabMenu3", "TabMenu4", "TabMenu5", "TabMenu6", ];
-      //sectionID = [ "TabMenu1" ];
-     
-      /* 텝메뉴 클릭 이벤트 */
-      $(".tab_menu").on("click", "a", function($e) {
-        $e.preventDefault();
-        var _id = $(this).attr("href");
-        var _idx = $(this).closest("li").index();
-        var scrollSpeed = $(_id).offset().top - ($(".tab_menu").height() + 0);
-
-        window.scroll({ top: scrollSpeed, behavior: "smooth" });
-        //floatTabActive(_idx);
-      })
+      /**
+       * trpTabScrollMenu(parameter)             : 텝 스크롤 메뉴 활성화 메뉴
+       * @param {string}    $tabBtn              : 텝버튼 선택자
+       * @param {string}    $setctionSelector    : 섹션선택자 
+       * @param {Array}     $sectionIDArr        : 섹션 아이디 배열
+       * @param {function}  $activeCollbackFn($index:Number, $options:String)    : 액티브 실행 함수 (인덱스, 상태옵션 문자열)
+       * @returns 
+       *    @method setScreenRatio($ratio)       : 메뉴 활성화 화면 비율; 
+      */
+      var tabScrollMenu = $(".tab_menu").trpTabScrollMenu("a", ".sectionitem", sectionID, floatTabActive);
+      tabScrollMenu.setScreenRatio(0.5);
+      tabScrollMenu.setScreenOffset( $("tab_menu").innerHeight() );
+      tabScrollMenu.setGoScroll( "#TabMenu3" );
 
       /* 메뉴 활성화 FN */
-      function floatTabActive($index){
+      function floatTabActive($index, $opt){
         $(".tab_menu ul li").removeClass("active");
-              
         if( $index >= 0){
           $(".tab_menu ul li").eq($index).addClass("active")
         }else if($index === -1) {
-          /// start
           $(".tab_menu ul li").eq(0).addClass("active");
         } 
       }
 
-      /* 스크롤 리사이즈 FN */
-      function scrollResize(){
-        var RESIZE_HEIGHT = $(window).height();
-        var offSet = (RESIZE_HEIGHT/2); 
-        
-        for (var i = 0; i < sectionID.length; i++) {
-          trpCallBackMenuActiveFN( ".sectionitem", "#"+sectionID[i], offSet,  function(){
-            console.log("▼ " , i , $(".sectionitem").filter("[data-shows='false']").length);
-            floatTabActive(i);      // 메뉴 활성화
-          }, function(){
-            console.log("▲ " , i - 1);
-            floatTabActive(i - 1);  // 메뉴 기본값
-          })
-        }
-
-      }
-      scrollResize(); 
-
+      
     });
   </script>
 </body>

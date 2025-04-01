@@ -813,75 +813,177 @@ jQuery.fn.trpColItemHW = function ($col) {
 
 
 
-/**
- * trpCallBackMenuActiveFN : 
- * 
- * @param	$items     : 아이템 선택자
- * @param	$setction  : 스크롤 컨텐츠
- * @param	$offSet	   : 스크린 위치값
- * @param	$fn1	     : true  일대 실행
- * @param	$fn2	     : false 일대 실행
- * #return boolean   : under : false, over : true;
- * */
-function trpCallBackMenuActiveFN($items, $setction, $offSet, $fn1, $fn2){  
-  var _tarY     = $($setction).offset().top; 
-  var _tarH     = $($setction).innerHeight(); 
-  var _scrollY  = getNowScroll().Y;
-  var _boolean  = $($setction).attr("data-ones") ; 
-  var WIN_HEIGHT = $(window).height();
-  var _EndScroll = false;
 
+
+
+/**
+ * trpTabScrollMenu(parameter)             : 텝 스크롤 메뉴 활성화 메뉴
+ * @param {string}    $tabBtn              : 텝버튼 선택자
+ * @param {string}    $setctionSelector    : 섹션선택자 
+ * @param {Array}     $sectionIDArr        : 섹션 아이디 배열
+ * @param {function}  $activeCallbackFn($index:Number, $state:String)    : 액티브 실행 함수 (인덱스, 상태옵션 문자열)
+ * @returns 
+ *    @method setScreenRatio($ratio)       : 메뉴 활성화 화면 비율; 
+ *    @method setScreenOffset($ratio)      : 메뉴 활성화 화면 비율; 
+ *    @method setGoScroll($ratio)          : 메뉴 활성화 화면 비율; 
+ */
+jQuery.fn.trpTabScrollMenu = function( $tabBtn , $setctionSelector, $sectionIDArr, $activeCallbackFn ){
+  var _tabMenu = this;                          // 텝메뉴 컨테이너
+  var _scrollY  = getNowScroll().Y;             // 스크롤 위치 (스크롤 & 리사이즈)  
+  var _RESIZE_HEIGHT = $(window).height();      // 화면 높이
+  var _ScreenRatio = .5;                        // 활성화 비율
+  var _ScreenOffSet = 0;                        // 활성화 비율
+  var _UnderScroll = true;                      // under:true 
+  var _OverScroll = false;                      // over:true
+
+  var _tabBtn           = $tabBtn;              // 텝메뉴 아이템
+  var _setctionSelector = $setctionSelector;    // 섹션선택자
+  var _sectionIDArr     = $sectionIDArr;        // 섹션 아이디 배열
+  var _activeCallbackFn = $activeCallbackFn;    // 액티브 실행 함수
+  $(_setctionSelector).attr("data-ones", "true");
+
+  /* ================================ 텝메뉴 클릭 이벤트 */
+  $(_tabMenu).on("click", _tabBtn, function($e) {
+    $e.preventDefault();
+    var _id  = $(this).attr("href");                // 섹션 아이디
+    var _idx = $(this).closest("li").index();       // 섹션 인덱스
+    scrollMove(_id);
+    // _activeCallbackFn(_idx);  메뉴 활성화
+  });
+  /**
+   * @function scrollMove
+   * @param {String} $sectionID   : 움직일 섹션 ID
+   */
+  function scrollMove($sectionID){
+    var scrollPosition = $($sectionID).offset().top - ( _ScreenOffSet );
+    window.scroll({ top: scrollPosition, behavior: "smooth" });
+  }
+
+
+  
+  /* data-shows  화면 활성화 여부  */
+  function showSection($setctionID){    
+    var _tarY     = $($setctionID).offset().top;              // 움직여야할 아이템(section) 위치
+    var _tarH     = $($setctionID).innerHeight();             // 움직여야할 아이템(section) 크기
+    /* start , end */
+    if(  _scrollY >  (_tarY - _RESIZE_HEIGHT) &&  _scrollY < (_tarY + _tarH) ){
+      $($setctionID).attr("data-shows", "true");
+    }else{
+      $($setctionID).attr("data-shows", "false");
+    }
+  }
   /* 현제 스크롤 위치 */
   function getNowScroll() {
     var de = document.documentElement;
     var b = document.body;
     var now = {};
-    now.X = document.all ? (!de.scrollLeft ? b.scrollLeft : de.scrollLeft) : (window.pageXOffset ? window.pageXOffset : window.scrollX);
-    now.Y = document.all ? (!de.scrollTop ? b.scrollTop : de.scrollTop) : (window.pageYOffset ? window.pageYOffset : window.scrollY);
+    now.X = document.querySelectorAll("*") ? (!de.scrollLeft ? b.scrollLeft : de.scrollLeft) : (window.pageXOffset ? window.pageXOffset : window.scrollX);
+    now.Y = document.querySelectorAll("*") ? (!de.scrollTop ? b.scrollTop : de.scrollTop) : (window.pageYOffset ? window.pageYOffset : window.scrollY);
     now.TOTAL = $(document).height();
     return now;
   }
-  
-
-  /* data-shows  화면 활성화  */
-  function showSection(){    
-    /* start , end */
-    if(  _scrollY >  (_tarY - WIN_HEIGHT) &&  _scrollY < (_tarY + _tarH) ){
-      $($setction).attr("data-shows", "true");
+  /* [스크롤 & 리사이즈] 섹션ID 위치에따른 함수 호출 */
+  function callBackMenuActive($sections, $setctionID, $offSet, $fn1, $fn2){  
+    var _onesFalse = $($sections).filter("[data-ones='false']").length;
+    var _onesTrue  = $($sections).filter("[data-ones='true']").length;
+    var _TotoalItem = $($sections).length;                     // 움직여야할 아이템(section) 수
+    var _tarY     = $($setctionID).offset().top;              // 움직여야할 아이템(section) 위치
+    var _tarH     = $($setctionID).innerHeight();             // 움직여야할 아이템(section) 크기
+    var _boolean  = $($setctionID).attr("data-ones");         // (순방향 ↓),  (역방향 ↑)
+    showSection($setctionID);
+    /* --- 스크롤 양 > 타겟 위치 --- */
+    if(  _scrollY >= (_tarY - $offSet) ){
+      if(_boolean === "true"){
+        $($setctionID).attr("data-ones", "false");
+        $fn1("");
+        ///console.log(" ----------------------------  ↓")
+      }else if( _onesFalse === _TotoalItem && $($sections).eq(_TotoalItem - 1).attr("data-shows") === "true" ){
+        /* --- (_onesFalse all) && endSection false ---  */
+        if(_OverScroll === false){
+          $fn1("overIN");
+          _OverScroll = true;
+          ///console.log(" ---------------------------- ↓ over" )
+        }
+      }
     }else{
-      $($setction).attr("data-shows", "false");
+      if(_boolean === "false"){
+        $($setctionID).attr("data-ones", "true");
+        $fn2(""); 
+        // console.log(" ----------------------------  ↑")
+      }else if( _onesTrue === _TotoalItem && $($sections).eq(0).attr("data-shows") === "true" ){
+        /* (_onesTrue all) && StartSection true  */
+        if(_UnderScroll === false){
+          $fn2("underIN");
+          _UnderScroll = true;
+          // console.log(" ---------------------------- ↑ under" )
+        }
+      }
+    }
+
+    /* under --- over */
+    if( _onesTrue === _TotoalItem && $($sections).eq(0).attr("data-shows") === "false" ) { 
+      if(_UnderScroll){
+        ///console.log(" ---------------------------- under" )
+        $fn2("under"); 
+        _UnderScroll = false;   
+      }
+    }
+    if( _onesFalse === _TotoalItem && $($sections).eq(_TotoalItem - 1).attr("data-shows") === "false" ) { 
+      if(_OverScroll){
+        //console.log(" ----------------------------  over" )
+        $fn1("over"); 
+        _OverScroll = false;   
+      }
+    } 
+    return false;
+  }
+
+
+  /* ================================ [스크롤 & 리사이즈] FN */
+  function scrollResize(){
+    _RESIZE_HEIGHT = $(window).height();
+    _scrollY  = getNowScroll().Y;             // 스크롤 위치
+    var offSet = (_RESIZE_HEIGHT * _ScreenRatio); 
+
+    for (var i = 0; i < _sectionIDArr.length; i++) {
+      callBackMenuActive( _setctionSelector, "#"+_sectionIDArr[i], offSet,  function($state){
+        ///console.log("fn1 ", i , $state);
+        _activeCallbackFn(i, $state);      // 메뉴 활성화
+      }, function($state){
+        ///console.log("fn2 ", i - 1, $state);
+        _activeCallbackFn(i - 1, $state);  // 메뉴 기본값
+      })
+    }
+  }
+  $(window).on("resize scroll", function(){  scrollResize(); });
+  scrollResize(); 
+
+
+  return {
+    /**
+     * setScreenRatio : 메뉴 활성화 스크린위치 비율값 : (0~1)
+     * @param {Number} $ratio 
+     */
+    setScreenRatio: function($ratio) { 
+      _ScreenRatio = $ratio;
+    }, 
+    /**
+     * setScreenOffset : 스크린 움직임 가감수치
+     * @param {Number} $offset 
+     */
+    setScreenOffset: function($offset) { 
+      _ScreenOffSet = $offset;
+    }, 
+    /**
+     * setGoScroll : 스크롤 이동
+     * @param {String} $sectionID 
+     */
+    setGoScroll: function($sectionID) {
+      scrollMove($sectionID);
     }
   }
 
 
-  var _onesFalse = $($items).filter("[data-ones='false']").length;
-  var _onesTrue  = $($items).filter("[data-ones='true']").length;
-  var _TotoalItem = $($items).length;
-  /* data-ones 스크롤  ↓ ↑ */
-  showSection();
-  if(  _scrollY > (_tarY - $offSet) ){
-    if(_boolean === "true"){
-      $($setction).attr("data-ones", "false");
-      _onesFalse = $($items).filter("[data-ones='false']").length;
-      $fn1();
-    }else if( $($setction).attr("id")  == $($items).eq(_TotoalItem - 1).attr("id") ){  // 마지막 아이템
-      if( _onesFalse == _TotoalItem && $($setction).attr("data-shows") == "false" ){
-        $fn1();  	/// End
-        _EndScroll = true;
-        console.log(" ---------------------------- over")
-      }
-    }
-  }else{
-    if(_boolean === "false"){
-      $($setction).attr("data-ones", "true");
-      $fn2(); 
-    }else if( $($setction).attr("id")  == $($items).eq(0).attr("id") ){  // 첫번쩨 아이템
-      if( _onesTrue == _TotoalItem && $($setction).attr("data-shows") == "false" ){
-        $fn2();  	/// End
-        _EndScroll = false;
-        console.log(" ---------------------------- under")
-      }
-    }
-  }
-  return _EndScroll
+
 }
+

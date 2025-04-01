@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
-<title> trpUtilityChangeOnce | TR package</title>
+<title> trpTabScrollMenu | TR package</title>
 <script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js" charset="UTF-8"></script>
 <script type="text/javascript" src="../../../../asset/js/libs/trpMenu.js"></script>
 <link rel="stylesheet" href="../../../../asset/css/common.css" type="text/css" media="all" />
@@ -17,63 +17,80 @@
 	<div id="contents" class="contents">
 		<!-- s: 스크립드 설명 -->
 		<div class="desc_wapper">
-			<h1 class="desc_title">trpCallBackMenuActiveFN</h1>
+			<h1 class="desc_title">trpTabScrollMenu</h1>
 			<p>
-				스크롤 움직임에 따라 텝메뉴 활성화
+				스크롤 움직임에 따라 텝메뉴 활성화.
 			</p>
 		</div>
 		<!-- e: 스크립드 설명 -->
 	
 		<!-- s: api 설명 -->
 		<div class="api">
-			<h2 class="api-title">trpCallBackMenuActiveFN( option )</h2>
+			<h2 class="api-title">trpTabScrollMenu( parameter )</h2>
 			<div class="api-body">
 				<dl>
 					<dt>설명</dt>
-					<dd><span class="icon"></span>trpLayout.js 불러오면 trpScrollSync 사용할수 있습니다.</dd>
+					<dd><span class="icon"></span>trpLayout.js 불러오면 trpTabScrollMenu 사용할수 있습니다.</dd>
 					<dd><span class="icon"></span>&lt;script type="text/javascript" src="./js/libs/trpLayout.js"&gt;&lt;/script&gt;<br /> </dd>					
 				</dl>
 				
 				<table class="table_col" summary="생성되는 class 설명">
-					<caption>class 설명</caption>
+					<caption>parameter 설명</caption>
 					<colgroup>
 						<col width="150">
 						<col width="">		
 					</colgroup>
 					<tbody>
 					<tr>
-						<th scope="col">option 이름</th>
-						<th scope="col">option 설명</th>
+						<th scope="col">parameter 이름</th>
+						<th scope="col">parameter 설명</th>
 					</tr>
 					<tr>
-						<td>$items</td>
-						<td>아이템 선택자 </td>		
+						<td>$tabBtn </td>
+						<td>텝버튼 선택자 </td>		
 					</tr>	
 					<tr>
-						<td>$setction</td>
-						<td>스크롤 컨텐츠
+						<td>$setctionSelector</td>
+						<td>섹션선택자 
 						</td>		
 					</tr>
 					<tr>
-						<td>$offSet</td>
-						<td>적용 스크린 위치값
+						<td>$sectionIDArr</td>
+						<td>섹션 아이디 배열
 						</td>		
 					</tr>
 					<tr>
-						<td>$fn1</td>
-						<td>data-ones : true  일대 실행 함수
+						<td>$activeCallbackFn($index, $state)</td>
+						<td>$index : 인덱스<br>
+							 $state : 상태값 ("under", "underIn", "over", "overIN")
 						</td>		
 					</tr>
+					</tbody>
+				</table>
+
+				<table class="table_col" summary="생성되는 class 설명">
+					<caption>return  method 설명</caption>
+					<colgroup>
+						<col width="150">
+						<col width="">		
+					</colgroup>
+					<tbody>
 					<tr>
-						<td>$fn2</td>
-						<td>data-ones : false  일대 실행 함수
-						</td>		
+						<th scope="col">method 이름</th>
+						<th scope="col">method 설명</th>
 					</tr>
 					<tr>
-						<td>return</td>
-						<td> under : false, over : true;
-						</td>		
+						<td>setScreenRatio( $ratio ) </td>
+						<td> $ratio : (0~1) 메뉴 활성화 스크린위치 비율값 </td>		
 					</tr>	
+					<tr>
+						<td>setScreenOffset( $offset )</td>
+						<td>스크린 움직임 가감수치 (메뉴 높이 등....) </td>		
+					</tr>
+					<tr>
+						<td>setGoScroll( $sectionID )</td>
+						<td>섹션 아이디 값으로 이동 </td>		
+					</tr>
 					</tbody>
 				</table>
 				
@@ -93,15 +110,15 @@
 
 
 
-<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">  1
-  2
-  3
-  4
-  5
-  6
-  7
-  8
-  9
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+	2
+	3
+	4
+	5
+	6
+	7
+	8
+	9
  10
  11
  12
@@ -178,140 +195,94 @@
  83
  84
  85
- 86
- 87
- 88
- 89
- 90
- 91
- 92
- 93
- 94
- 95
- 96
- 97
- 98
- 99
-100
-101
-102
-103
-104
-105
-106
-107
-108
-109</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</span>
-<span style="color: #f92672">&lt;html</span> <span style="color: #a6e22e">xmlns=</span><span style="color: #e6db74">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span style="color: #a6e22e">lang=</span><span style="color: #e6db74">&quot;ko&quot;</span> <span style="color: #a6e22e">xml:lang=</span><span style="color: #e6db74">&quot;ko&quot;</span><span style="color: #f92672">&gt;</span>
-<span style="color: #f92672">&lt;head&gt;</span>
-<span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">http-equiv=</span><span style="color: #e6db74">&quot;Content-Type&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;text/html; charset=utf-8&quot;</span><span style="color: #f92672">&gt;</span>
-<span style="color: #f92672">&lt;title&gt;</span>Tab Scroll Menu | TR package<span style="color: #f92672">&lt;/title&gt;</span>
-<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/jquery-1.12.1.min.js&quot;</span>  <span style="color: #a6e22e">charset=</span><span style="color: #e6db74">&quot;UTF-8&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
-<span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/trpLayout.js&quot;</span>  <span style="color: #a6e22e">charset=</span><span style="color: #e6db74">&quot;UTF-8&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
-<span style="color: #f92672">&lt;style&gt;</span>
-	<span style="color: #f92672">html,</span> <span style="color: #f92672">body</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">margin</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">min-height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span>  <span style="color: #75715e">/*  scroll-behavior: smooth; */</span> <span style="color: #f8f8f2">}</span>	
-  <span style="color: #a6e22e">.tab_menu</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">fixed</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">top</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">left</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">50px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#333</span><span style="color: #f8f8f2">;</span> 
-    <span style="color: #66d9ef">opacity</span><span style="color: #f92672">:</span> <span style="color: #f92672">.</span><span style="color: #ae81ff">8</span><span style="color: #f8f8f2">;</span>
-  <span style="color: #f8f8f2">}</span>
-  <span style="color: #a6e22e">.tab_menu</span> <span style="color: #f92672">ul</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">margin</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">list-style</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">none</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">flex;</span> <span style="color: #66d9ef">justify</span><span style="color: #f92672">-</span><span style="color: #66d9ef">content</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">center</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">align</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">items</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">center</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
-  <span style="color: #a6e22e">.tab_menu</span> <span style="color: #f92672">ul</span> <span style="color: #f92672">li</span><span style="color: #a6e22e">.active</span> <span style="color: #f92672">a</span><span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">color</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">chartreuse;</span> <span style="color: #f8f8f2">}</span>
-  <span style="color: #a6e22e">.tab_menu</span> <span style="color: #f92672">ul</span> <span style="color: #f92672">a</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">block</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span> <span style="color: #ae81ff">20px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">color</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#fff</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">text-decoration</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">none</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
-
-  <span style="color: #f92672">section</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f8f8f2">vh;</span> <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">flex;</span> <span style="color: #66d9ef">justify</span><span style="color: #f92672">-</span><span style="color: #66d9ef">content</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">center</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">align</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">items</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">center</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
-  <span style="color: #a6e22e">.bg1</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">goldenrod;</span> <span style="color: #f8f8f2">}</span>
-  <span style="color: #a6e22e">.bg2</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">beige</span> <span style="color: #f8f8f2">}</span>
-  <span style="color: #a6e22e">.bg3</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">burlywood;</span> <span style="color: #f8f8f2">}</span>
-  <span style="color: #a6e22e">.bg4</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">aquamarine;</span> <span style="color: #f8f8f2">}</span>
-  <span style="color: #a6e22e">.bg5</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">darkseagreen;</span> <span style="color: #f8f8f2">}</span>
-  <span style="color: #a6e22e">.bg6</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">cadetblue;</span> <span style="color: #f8f8f2">}</span>
-<span style="color: #f92672">&lt;/style&gt;</span>
-<span style="color: #f92672">&lt;body&gt;</span>
-
-  <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;tab_menu&quot;</span><span style="color: #f92672">&gt;</span>
-    <span style="color: #f92672">&lt;ul</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;tab_menu-list&quot;</span><span style="color: #f92672">&gt;</span>
-      <span style="color: #f92672">&lt;li</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;&quot;</span><span style="color: #f92672">&gt;&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#TabMenu1&quot;</span><span style="color: #f92672">&gt;</span>TabMenu1<span style="color: #f92672">&lt;/a&gt;&lt;/li&gt;</span>
-      <span style="color: #f92672">&lt;li</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;&quot;</span><span style="color: #f92672">&gt;&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#TabMenu2&quot;</span><span style="color: #f92672">&gt;</span>TabMenu2<span style="color: #f92672">&lt;/a&gt;&lt;/li&gt;</span>
-      <span style="color: #f92672">&lt;li</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;&quot;</span><span style="color: #f92672">&gt;&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#TabMenu3&quot;</span><span style="color: #f92672">&gt;</span>TabMenu3<span style="color: #f92672">&lt;/a&gt;&lt;/li&gt;</span>
-      <span style="color: #f92672">&lt;li</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;&quot;</span><span style="color: #f92672">&gt;&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#TabMenu4&quot;</span><span style="color: #f92672">&gt;</span>TabMenu4<span style="color: #f92672">&lt;/a&gt;&lt;/li&gt;</span>
-      <span style="color: #f92672">&lt;li</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;&quot;</span><span style="color: #f92672">&gt;&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#TabMenu5&quot;</span><span style="color: #f92672">&gt;</span>TabMenu5<span style="color: #f92672">&lt;/a&gt;&lt;/li&gt;</span>
-      <span style="color: #f92672">&lt;li</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;&quot;</span><span style="color: #f92672">&gt;&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#TabMenu6&quot;</span><span style="color: #f92672">&gt;</span>TabMenu6<span style="color: #f92672">&lt;/a&gt;&lt;/li&gt;</span>
-    <span style="color: #f92672">&lt;/ul&gt;</span>
-  <span style="color: #f92672">&lt;/div&gt;</span>
-
-  <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;container&quot;</span><span style="color: #f92672">&gt;</span>
-    <span style="color: #f92672">&lt;section</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;bg6&quot;</span> <span style="color: #f92672">&gt;&lt;div&gt;</span>none<span style="color: #f92672">&lt;/div&gt;&lt;/section&gt;</span>
-    <span style="color: #f92672">&lt;section</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;bg6&quot;</span> <span style="color: #f92672">&gt;&lt;div&gt;</span>none<span style="color: #f92672">&lt;/div&gt;&lt;/section&gt;</span>
-    <span style="color: #f92672">&lt;section</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;TabMenu1&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;sectionitem bg1&quot;</span> <span style="color: #a6e22e">data-ones=</span><span style="color: #e6db74">&quot;true&quot;</span><span style="color: #f92672">&gt;&lt;div&gt;</span>TabMenu1<span style="color: #f92672">&lt;/div&gt;&lt;/section&gt;</span>
-    <span style="color: #f92672">&lt;section</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;TabMenu2&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;sectionitem bg2&quot;</span> <span style="color: #a6e22e">data-ones=</span><span style="color: #e6db74">&quot;true&quot;</span><span style="color: #f92672">&gt;&lt;div&gt;</span>TabMenu2<span style="color: #f92672">&lt;/div&gt;&lt;/section&gt;</span>
-    <span style="color: #f92672">&lt;section</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;TabMenu3&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;sectionitem bg3&quot;</span> <span style="color: #a6e22e">data-ones=</span><span style="color: #e6db74">&quot;true&quot;</span><span style="color: #f92672">&gt;&lt;div&gt;</span>TabMenu3<span style="color: #f92672">&lt;/div&gt;&lt;/section&gt;</span>
-    <span style="color: #f92672">&lt;section</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;TabMenu4&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;sectionitem bg4&quot;</span> <span style="color: #a6e22e">data-ones=</span><span style="color: #e6db74">&quot;true&quot;</span><span style="color: #f92672">&gt;&lt;div&gt;</span>TabMenu4<span style="color: #f92672">&lt;/div&gt;&lt;/section&gt;</span>
-    <span style="color: #f92672">&lt;section</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;TabMenu5&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;sectionitem bg5&quot;</span> <span style="color: #a6e22e">data-ones=</span><span style="color: #e6db74">&quot;true&quot;</span><span style="color: #f92672">&gt;&lt;div&gt;</span>TabMenu5<span style="color: #f92672">&lt;/div&gt;&lt;/section&gt;</span>
-    <span style="color: #f92672">&lt;section</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;TabMenu6&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;sectionitem bg6&quot;</span> <span style="color: #a6e22e">data-ones=</span><span style="color: #e6db74">&quot;true&quot;</span><span style="color: #f92672">&gt;&lt;div&gt;</span>TabMenu6<span style="color: #f92672">&lt;/div&gt;&lt;/section&gt;</span>
-    <span style="color: #f92672">&lt;section</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;bg1&quot;</span> <span style="color: #f92672">&gt;&lt;div&gt;</span>none<span style="color: #f92672">&lt;/div&gt;&lt;/section&gt;</span>
-    <span style="color: #f92672">&lt;section</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;bg1&quot;</span> <span style="color: #f92672">&gt;&lt;div&gt;</span>none<span style="color: #f92672">&lt;/div&gt;&lt;/section&gt;</span>
-  <span style="color: #f92672">&lt;/div&gt;</span>
-
-
-  <span style="color: #75715e">&lt;!-- =============== tab menu --&gt;</span>
-  <span style="color: #f92672">&lt;script&gt;</span>
-    <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(){</span>
-
-      <span style="color: #75715e">// 리싸이즈 윈도우 높이 </span>
-      <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(window).</span><span style="color: #a6e22e">on</span><span style="color: #f8f8f2">(</span> <span style="color: #e6db74">&quot;resize scroll&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(){</span>  <span style="color: #a6e22e">scrollResize</span><span style="color: #f8f8f2">();</span> <span style="color: #f8f8f2">});</span>
-
-      <span style="color: #75715e">// 섹션 아이템  (data-boolean=&quot;true&quot;)</span>
-      <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">sectionID</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">[</span> <span style="color: #e6db74">&quot;TabMenu1&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;TabMenu2&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;TabMenu3&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;TabMenu4&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;TabMenu5&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;TabMenu6&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">];</span>
-      <span style="color: #75715e">//sectionID = [ &quot;TabMenu1&quot; ];</span>
-     
-      <span style="color: #75715e">/* 텝메뉴 클릭 이벤트 */</span>
-      <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.tab_menu&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">on</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;click&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;a&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">$e</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #a6e22e">$e</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">preventDefault</span><span style="color: #f8f8f2">();</span>
-        <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">_id</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">this</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">attr</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;href&quot;</span><span style="color: #f8f8f2">);</span>
-        <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">_idx</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">this</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">closest</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;li&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">index</span><span style="color: #f8f8f2">();</span>
-        <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">scrollSpeed</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">_id</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">offset</span><span style="color: #f8f8f2">().</span><span style="color: #a6e22e">top</span> <span style="color: #f92672">-</span> <span style="color: #f8f8f2">(</span><span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.tab_menu&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">height</span><span style="color: #f8f8f2">()</span> <span style="color: #f92672">+</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">);</span>
-
-        <span style="color: #f8f8f2">window.</span><span style="color: #a6e22e">scroll</span><span style="color: #f8f8f2">({</span> <span style="color: #a6e22e">top</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">scrollSpeed</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">behavior</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;smooth&quot;</span> <span style="color: #f8f8f2">});</span>
-        <span style="color: #75715e">//floatTabActive(_idx);</span>
-      <span style="color: #f8f8f2">})</span>
-
-      <span style="color: #75715e">/* 메뉴 활성화 FN */</span>
-      <span style="color: #66d9ef">function</span> <span style="color: #a6e22e">floatTabActive</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">$index</span><span style="color: #f8f8f2">){</span>
-        <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.tab_menu ul li&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">removeClass</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;active&quot;</span><span style="color: #f8f8f2">);</span>
-              
-        <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(</span> <span style="color: #a6e22e">$index</span> <span style="color: #f92672">&gt;=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">){</span>
-          <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.tab_menu ul li&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">eq</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">$index</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">addClass</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;active&quot;</span><span style="color: #f8f8f2">)</span>
-        <span style="color: #f8f8f2">}</span><span style="color: #66d9ef">else</span> <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">$index</span> <span style="color: #f92672">===</span> <span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-          <span style="color: #75715e">/// start</span>
-          <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.tab_menu ul li&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">eq</span><span style="color: #f8f8f2">(</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">addClass</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;active&quot;</span><span style="color: #f8f8f2">);</span>
-        <span style="color: #f8f8f2">}</span> 
-       
-
-      <span style="color: #f8f8f2">}</span>
-
-      <span style="color: #75715e">/* 스크롤 리사이즈 FN */</span>
-      <span style="color: #66d9ef">function</span> <span style="color: #a6e22e">scrollResize</span><span style="color: #f8f8f2">(){</span>
-        <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">RESIZE_HEIGHT</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(window).</span><span style="color: #a6e22e">height</span><span style="color: #f8f8f2">();</span>
-        <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">offSet</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">(</span><span style="color: #a6e22e">RESIZE_HEIGHT</span><span style="color: #f92672">/</span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2">);</span> 
-        
-        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">var</span> <span style="color: #a6e22e">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #a6e22e">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #a6e22e">sectionID</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">length</span><span style="color: #f8f8f2">;</span> <span style="color: #a6e22e">i</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-          <span style="color: #a6e22e">trpCallBackMenuActiveFN</span><span style="color: #f8f8f2">(</span> <span style="color: #e6db74">&quot;.sectionitem&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;#&quot;</span><span style="color: #f92672">+</span><span style="color: #a6e22e">sectionID</span><span style="color: #f8f8f2">[</span><span style="color: #a6e22e">i</span><span style="color: #f8f8f2">],</span> <span style="color: #a6e22e">offSet</span><span style="color: #f8f8f2">,</span>  <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(){</span>
-            <span style="color: #a6e22e">console</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">log</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;▼ &quot;</span> <span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">i</span> <span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.sectionitem&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">filter</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;[data-shows=&#39;false&#39;]&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">length</span><span style="color: #f8f8f2">);</span>
-            <span style="color: #a6e22e">floatTabActive</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">i</span><span style="color: #f8f8f2">);</span>      <span style="color: #75715e">// 메뉴 활성화</span>
-          <span style="color: #f8f8f2">},</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(){</span>
-            <span style="color: #a6e22e">console</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">log</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;▲ &quot;</span> <span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">i</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">);</span>
-            <span style="color: #a6e22e">floatTabActive</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">i</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">);</span>  <span style="color: #75715e">// 메뉴 기본값</span>
-          <span style="color: #f8f8f2">})</span>
-        <span style="color: #f8f8f2">}</span>
-
-      <span style="color: #f8f8f2">}</span>
-      <span style="color: #a6e22e">scrollResize</span><span style="color: #f8f8f2">();</span> 
-
-    <span style="color: #f8f8f2">});</span>
-  <span style="color: #f92672">&lt;/script&gt;</span>
-<span style="color: #f92672">&lt;/body&gt;</span>
-<span style="color: #f92672">&lt;/html&gt;</span>
-</pre></td></tr></table></div>
-                
+ 86</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</span>
+ <span style="color: #f92672">&lt;html</span> <span style="color: #a6e22e">xmlns=</span><span style="color: #e6db74">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span style="color: #a6e22e">lang=</span><span style="color: #e6db74">&quot;ko&quot;</span> <span style="color: #a6e22e">xml:lang=</span><span style="color: #e6db74">&quot;ko&quot;</span><span style="color: #f92672">&gt;</span>
+ <span style="color: #f92672">&lt;head&gt;</span>
+ <span style="color: #f92672">&lt;meta</span> <span style="color: #a6e22e">http-equiv=</span><span style="color: #e6db74">&quot;Content-Type&quot;</span> <span style="color: #a6e22e">content=</span><span style="color: #e6db74">&quot;text/html; charset=utf-8&quot;</span><span style="color: #f92672">&gt;</span>
+ <span style="color: #f92672">&lt;title&gt;</span>Tab Scroll Menu | TR package<span style="color: #f92672">&lt;/title&gt;</span>
+ <span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/jquery-1.12.1.min.js&quot;</span>  <span style="color: #a6e22e">charset=</span><span style="color: #e6db74">&quot;UTF-8&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+ <span style="color: #f92672">&lt;script </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/javascript&quot;</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/js/libs/trpLayout.js&quot;</span>  <span style="color: #a6e22e">charset=</span><span style="color: #e6db74">&quot;UTF-8&quot;</span><span style="color: #f92672">&gt;&lt;/script&gt;</span>
+ <span style="color: #f92672">&lt;style&gt;</span>
+	 <span style="color: #f92672">html,</span> <span style="color: #f92672">body</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">margin</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">min-height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span>  <span style="color: #75715e">/*  scroll-behavior: smooth; */</span> <span style="color: #f8f8f2">}</span>	
+	 <span style="color: #a6e22e">.tab_menu</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">position</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">fixed</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">top</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">left</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">50px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#333</span><span style="color: #f8f8f2">;</span> 
+		 <span style="color: #66d9ef">opacity</span><span style="color: #f92672">:</span> <span style="color: #f92672">.</span><span style="color: #ae81ff">8</span><span style="color: #f8f8f2">;</span>
+	 <span style="color: #f8f8f2">}</span>
+	 <span style="color: #a6e22e">.tab_menu</span> <span style="color: #f92672">ul</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">margin</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">list-style</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">none</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">flex;</span> <span style="color: #66d9ef">justify</span><span style="color: #f92672">-</span><span style="color: #66d9ef">content</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">center</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">align</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">items</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">center</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+	 <span style="color: #a6e22e">.tab_menu</span> <span style="color: #f92672">ul</span> <span style="color: #f92672">li</span><span style="color: #a6e22e">.active</span> <span style="color: #f92672">a</span><span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">color</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">chartreuse;</span> <span style="color: #f8f8f2">}</span>
+	 <span style="color: #a6e22e">.tab_menu</span> <span style="color: #f92672">ul</span> <span style="color: #f92672">a</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">block</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">0</span> <span style="color: #ae81ff">20px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">color</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#fff</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">text-decoration</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">none</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+ 
+	 <span style="color: #f92672">section</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f8f8f2">vh;</span> <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">flex;</span> <span style="color: #66d9ef">justify</span><span style="color: #f92672">-</span><span style="color: #66d9ef">content</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">center</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">align</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">items</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">center</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+	 <span style="color: #a6e22e">.bg1</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">goldenrod;</span> <span style="color: #f8f8f2">}</span>
+	 <span style="color: #a6e22e">.bg2</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">beige</span> <span style="color: #f8f8f2">}</span>
+	 <span style="color: #a6e22e">.bg3</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">burlywood;</span> <span style="color: #f8f8f2">}</span>
+	 <span style="color: #a6e22e">.bg4</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">aquamarine;</span> <span style="color: #f8f8f2">}</span>
+	 <span style="color: #a6e22e">.bg5</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">darkseagreen;</span> <span style="color: #f8f8f2">}</span>
+	 <span style="color: #a6e22e">.bg6</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">cadetblue;</span> <span style="color: #f8f8f2">}</span>
+ <span style="color: #f92672">&lt;/style&gt;</span>
+ <span style="color: #f92672">&lt;body&gt;</span>
+ 
+	 <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;tab_menu&quot;</span><span style="color: #f92672">&gt;</span>
+		 <span style="color: #f92672">&lt;ul</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;tab_menu-list&quot;</span><span style="color: #f92672">&gt;</span>
+			 <span style="color: #f92672">&lt;li</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;&quot;</span><span style="color: #f92672">&gt;&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#TabMenu1&quot;</span><span style="color: #f92672">&gt;</span>TabMenu1<span style="color: #f92672">&lt;/a&gt;&lt;/li&gt;</span>
+			 <span style="color: #f92672">&lt;li</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;&quot;</span><span style="color: #f92672">&gt;&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#TabMenu2&quot;</span><span style="color: #f92672">&gt;</span>TabMenu2<span style="color: #f92672">&lt;/a&gt;&lt;/li&gt;</span>
+			 <span style="color: #f92672">&lt;li</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;&quot;</span><span style="color: #f92672">&gt;&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#TabMenu3&quot;</span><span style="color: #f92672">&gt;</span>TabMenu3<span style="color: #f92672">&lt;/a&gt;&lt;/li&gt;</span>
+			 <span style="color: #f92672">&lt;li</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;&quot;</span><span style="color: #f92672">&gt;&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#TabMenu4&quot;</span><span style="color: #f92672">&gt;</span>TabMenu4<span style="color: #f92672">&lt;/a&gt;&lt;/li&gt;</span>
+			 <span style="color: #f92672">&lt;li</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;&quot;</span><span style="color: #f92672">&gt;&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#TabMenu5&quot;</span><span style="color: #f92672">&gt;</span>TabMenu5<span style="color: #f92672">&lt;/a&gt;&lt;/li&gt;</span>
+			 <span style="color: #f92672">&lt;li</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;&quot;</span><span style="color: #f92672">&gt;&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#TabMenu6&quot;</span><span style="color: #f92672">&gt;</span>TabMenu6<span style="color: #f92672">&lt;/a&gt;&lt;/li&gt;</span>
+		 <span style="color: #f92672">&lt;/ul&gt;</span>
+	 <span style="color: #f92672">&lt;/div&gt;</span>
+ 
+	 <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;container&quot;</span><span style="color: #f92672">&gt;</span>
+		 <span style="color: #f92672">&lt;section</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;bg6&quot;</span> <span style="color: #f92672">&gt;&lt;div&gt;</span>none<span style="color: #f92672">&lt;/div&gt;&lt;/section&gt;</span>
+		 <span style="color: #f92672">&lt;section</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;bg6&quot;</span> <span style="color: #f92672">&gt;&lt;div&gt;</span>none<span style="color: #f92672">&lt;/div&gt;&lt;/section&gt;</span>
+		 <span style="color: #f92672">&lt;section</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;TabMenu1&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;sectionitem bg1&quot;</span><span style="color: #f92672">&gt;&lt;div&gt;</span>TabMenu1<span style="color: #f92672">&lt;/div&gt;&lt;/section&gt;</span>
+		 <span style="color: #f92672">&lt;section</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;TabMenu2&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;sectionitem bg2&quot;</span><span style="color: #f92672">&gt;&lt;div&gt;</span>TabMenu2<span style="color: #f92672">&lt;/div&gt;&lt;/section&gt;</span>
+		 <span style="color: #f92672">&lt;section</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;TabMenu3&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;sectionitem bg3&quot;</span><span style="color: #f92672">&gt;&lt;div&gt;</span>TabMenu3<span style="color: #f92672">&lt;/div&gt;&lt;/section&gt;</span>
+		 <span style="color: #f92672">&lt;section</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;TabMenu4&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;sectionitem bg4&quot;</span><span style="color: #f92672">&gt;&lt;div&gt;</span>TabMenu4<span style="color: #f92672">&lt;/div&gt;&lt;/section&gt;</span>
+		 <span style="color: #f92672">&lt;section</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;TabMenu5&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;sectionitem bg5&quot;</span><span style="color: #f92672">&gt;&lt;div&gt;</span>TabMenu5<span style="color: #f92672">&lt;/div&gt;&lt;/section&gt;</span>
+		 <span style="color: #f92672">&lt;section</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;TabMenu6&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;sectionitem bg6&quot;</span><span style="color: #f92672">&gt;&lt;div&gt;</span>TabMenu6<span style="color: #f92672">&lt;/div&gt;&lt;/section&gt;</span>
+		 <span style="color: #f92672">&lt;section</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;bg1&quot;</span> <span style="color: #f92672">&gt;&lt;div&gt;</span>none<span style="color: #f92672">&lt;/div&gt;&lt;/section&gt;</span>
+		 <span style="color: #f92672">&lt;section</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;&quot;</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;bg1&quot;</span> <span style="color: #f92672">&gt;&lt;div&gt;</span>none<span style="color: #f92672">&lt;/div&gt;&lt;/section&gt;</span>
+	 <span style="color: #f92672">&lt;/div&gt;</span>
+ 
+ 
+	 <span style="color: #75715e">&lt;!-- =============== tab menu --&gt;</span>
+	 <span style="color: #f92672">&lt;script&gt;</span>
+		 <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(){</span>
+ 
+			 <span style="color: #75715e">// 섹션 아이템  (data-boolean=&quot;true&quot;)</span>
+			 <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">sectionID</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">[</span> <span style="color: #e6db74">&quot;TabMenu1&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;TabMenu2&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;TabMenu3&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;TabMenu4&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;TabMenu5&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;TabMenu6&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">];</span>
+			 <span style="color: #75715e">/**</span>
+ <span style="color: #75715e">       * trpTabScrollMenu(parameter)             : 텝 스크롤 메뉴 활성화 메뉴</span>
+ <span style="color: #75715e">       * @param {string}    $tabBtn              : 텝버튼 선택자</span>
+ <span style="color: #75715e">       * @param {string}    $setctionSelector    : 섹션선택자 </span>
+ <span style="color: #75715e">       * @param {Array}     $sectionIDArr        : 섹션 아이디 배열</span>
+ <span style="color: #75715e">       * @param {function}  $activeCollbackFn($index:Number, $options:String)    : 액티브 실행 함수 (인덱스, 상태옵션 문자열)</span>
+ <span style="color: #75715e">       * @returns </span>
+ <span style="color: #75715e">       *    @method setScreenRatio($ratio)       : 메뉴 활성화 화면 비율; </span>
+ <span style="color: #75715e">      */</span>
+			 <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">tabScrollMenu</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.tab_menu&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">trpTabScrollMenu</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;a&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;.sectionitem&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">sectionID</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">floatTabActive</span><span style="color: #f8f8f2">);</span>
+			 <span style="color: #a6e22e">tabScrollMenu</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">setScreenRatio</span><span style="color: #f8f8f2">(</span><span style="color: #ae81ff">0.5</span><span style="color: #f8f8f2">);</span>
+			 <span style="color: #a6e22e">tabScrollMenu</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">setScreenOffset</span><span style="color: #f8f8f2">(</span> <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;tab_menu&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">innerHeight</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">);</span>
+			 <span style="color: #a6e22e">tabScrollMenu</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">setGoScroll</span><span style="color: #f8f8f2">(</span> <span style="color: #e6db74">&quot;#TabMenu3&quot;</span> <span style="color: #f8f8f2">);</span>
+ 
+			 <span style="color: #75715e">/* 메뉴 활성화 FN */</span>
+			 <span style="color: #66d9ef">function</span> <span style="color: #a6e22e">floatTabActive</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">$index</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">$opt</span><span style="color: #f8f8f2">){</span>
+				 <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.tab_menu ul li&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">removeClass</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;active&quot;</span><span style="color: #f8f8f2">);</span>
+				 <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(</span> <span style="color: #a6e22e">$index</span> <span style="color: #f92672">&gt;=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">){</span>
+					 <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.tab_menu ul li&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">eq</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">$index</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">addClass</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;active&quot;</span><span style="color: #f8f8f2">)</span>
+				 <span style="color: #f8f8f2">}</span><span style="color: #66d9ef">else</span> <span style="color: #66d9ef">if</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">$index</span> <span style="color: #f92672">===</span> <span style="color: #f92672">-</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+					 <span style="color: #a6e22e">$</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;.tab_menu ul li&quot;</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">eq</span><span style="color: #f8f8f2">(</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">).</span><span style="color: #a6e22e">addClass</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;active&quot;</span><span style="color: #f8f8f2">);</span>
+				 <span style="color: #f8f8f2">}</span> 
+			 <span style="color: #f8f8f2">}</span>
+ 
+			 
+		 <span style="color: #f8f8f2">});</span>
+	 <span style="color: #f92672">&lt;/script&gt;</span>
+ <span style="color: #f92672">&lt;/body&gt;</span>
+ <span style="color: #f92672">&lt;/html&gt;</span>
+ </pre></td></tr></table></div>
+ 
 
                 
 
