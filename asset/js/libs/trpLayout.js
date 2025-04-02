@@ -987,3 +987,157 @@ jQuery.fn.trpTabScrollMenu = function( $tabBtn , $setctionSelector, $sectionIDAr
 
 }
 
+
+
+
+/**
+ * trpStickyTopEvent   : 스티키 상태 이벤트발생및 클래스 출력
+ * @param {*} $stickyPoint : top 값
+ */
+jQuery.fn.trpStickyTopEvent = function( $stickyPoint, $parentClass ){
+  var _stickyElement = $(this);
+  var _scrollTop = $(window).scrollTop();
+  var _stickyPoint = 0;
+  var _parentClass = "";
+  _stickyPoint = $stickyPoint ? $stickyPoint : 0;
+  _parentClass = $parentClass ? $parentClass : "";
+  
+  /* 초기 세팅 */
+  _stickyElement.each(function($idx, $stickyEl){ 
+    $($stickyEl).data("isSticky", false);
+  })
+
+  /* 스크롤 & 리싸이즈 함수 */
+  function resizeScrollFn() {
+    _scrollTop = $(window).scrollTop();
+    _stickyElement.each(function($idx, $stickyEl){ 
+      var elementTop  = $($stickyEl).offset().top;      /// 스티키 대상위치
+      var isSticky    = $($stickyEl).data("isSticky");  /// 스티키 여부
+
+      ///console.log( "_scrollTop ", _scrollTop , (elementTop - _stickyPoint),  isSticky) ;
+      // 스티키 상태 변경 감지 (스티키, over->스티키, 스티키over, 스티키under)
+      if (_scrollTop == (elementTop - _stickyPoint) && !isSticky) {
+        // under-> 스티키
+        $($stickyEl).trigger('stickyOn', [_scrollTop]);
+        $($stickyEl).data("isSticky", true);
+
+        $($stickyEl).addClass('is-sticky');
+        $($stickyEl).closest(_parentClass).addClass('is-parentSticky');
+        $($stickyEl).removeClass('is-sticky_over');
+      } 
+      if (_scrollTop == (elementTop - _stickyPoint) && isSticky) {
+        // over -> 스티키
+        $($stickyEl).trigger('stickyOnIng', [_scrollTop]);
+
+        $($stickyEl).removeClass('is-sticky_over');
+      }
+      else if (_scrollTop > (elementTop - _stickyPoint) ) {
+        // 스티키over
+        $($stickyEl).trigger('stickyOverIng', [_scrollTop]);
+
+        $($stickyEl).addClass('is-sticky_over');
+      }
+      else if (_scrollTop < (elementTop - _stickyPoint) && isSticky) {
+        // 스티키under
+        $($stickyEl).trigger('stickyUnder', [_scrollTop]);
+        $($stickyEl).data("isSticky", false);
+        
+        $($stickyEl).removeClass('is-sticky');
+        $($stickyEl).closest(_parentClass).removeClass('is-parentSticky');
+        $($stickyEl).removeClass('is-sticky_over');
+      }
+    });
+  }
+
+  /* 스크롤 & 리싸이즈 리스너 */
+  $(window).on('resize scroll', function() { resizeScrollFn() });
+  resizeScrollFn();
+
+  return {
+    /**
+     * setScreenRatio : 메뉴 활성화 스크린위치 비율값 : (0~1)
+     * @param {Number} $ratio 
+     */
+    setPoint: function($stickyPoint) { 
+      _stickyPoint = $stickyPoint;
+    }, 
+  }
+}
+
+
+
+/**
+ * trpStickyBottomEvent  : 스티키 상태 이벤트발생및 클래스 출력
+ * @param {*} $stickyPoint : bottom 값
+ */
+jQuery.fn.trpStickyBottomEvent = function( $stickyPoint, $parentClass ){
+  var _stickyElement = $(this);
+  var _scrollBottom = $(window).scrollTop() +  $(window).height();
+  var _stickyPoint = 0;
+  var _parentClass = "";
+  _stickyPoint = $stickyPoint ? $stickyPoint : 0;
+  _parentClass = $parentClass ? $parentClass : "";
+
+  /* 초기 세팅 */
+  _stickyElement.each(function($idx, $stickyEl){ 
+    $($stickyEl).data("isStickyB", false);
+  })
+
+  /* 스크롤 & 리싸이즈 함수 */
+  function resizeScrollFn() {
+    
+    _scrollBottom = $(window).scrollTop() +  $(window).height();
+    _stickyElement.each(function($idx, $stickyEl){ 
+      var elementBottom  = $($stickyEl).offset().top + $($stickyEl).innerHeight(); /// 스티키 대상위치
+      var isSticky       = $($stickyEl).data("isStickyB");                         /// 스티키 여부
+    
+      //console.log( "_scrollBottom ", _scrollBottom , (elementBottom + _stickyPoint),  isSticky) ;
+      // 스티키 상태 변경 감지 (스티키, over->스티키, 스티키over, 스티키under)
+      if (_scrollBottom == (elementBottom + _stickyPoint) && !isSticky  ) {
+        // over -> 스티키
+        $($stickyEl).trigger('stickyOn', [_scrollBottom]);
+        $($stickyEl).data("isStickyB", true);
+
+        $($stickyEl).addClass('is-sticky');
+        $($stickyEl).closest(_parentClass).addClass('is-parentSticky');
+        $($stickyEl).removeClass('is-sticky_over');
+      }
+      else if (_scrollBottom == (elementBottom + _stickyPoint) && isSticky  ) {
+        // ounder -> 스티키
+        $($stickyEl).trigger('stickyOnIng', [_scrollBottom]);
+
+        $($stickyEl).removeClass('is-sticky_over');
+      }
+      else if (_scrollBottom < (elementBottom + _stickyPoint)  ) {
+        // 스티키over ↑
+        $($stickyEl).trigger('stickyOverIng', [_scrollBottom]);
+
+        $($stickyEl).addClass('is-sticky_over');
+      } 
+      else if (_scrollBottom > (elementBottom + _stickyPoint) && isSticky ) {
+        // 스티키under ↓
+        $($stickyEl).trigger('stickyUnder', [_scrollBottom]);
+        $($stickyEl).data("isStickyB", false);
+
+        $($stickyEl).removeClass('is-sticky');
+        $($stickyEl).closest(_parentClass).removeClass('is-parentSticky');
+        $($stickyEl).removeClass('is-sticky_over');
+      }
+    
+    });
+  }
+
+  /* 스크롤 & 리싸이즈 리스너 */
+  $(window).on('resize scroll', function() { resizeScrollFn() });
+  resizeScrollFn();
+
+  return {
+    /**
+     * setScreenRatio : 메뉴 활성화 스크린위치 비율값 : (0~1)
+     * @param {Number} $ratio 
+     */
+    setPoint: function($stickyPoint) { 
+      _stickyPoint = $stickyPoint;
+    }, 
+  }
+}

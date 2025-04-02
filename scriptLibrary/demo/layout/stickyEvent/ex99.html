@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+
+<head>
+  <title>sticky</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" type="text/css" href="../../../../asset/css/trpBase.css" media="all" />
+  <script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js"  charset="UTF-8"></script>
+</head>
+<style type="text/css">
+  .item + .item{ margin-top: 30px; }
+  .item { margin-top: 30px; 
+    height: auto; width: 200px; 
+    border: 4px solid #666;
+  }
+
+  .item-head {  
+    position: sticky; top:30px; 
+    background-color: #ccc;
+    height: 30px; line-height: 30px;
+  }
+  /* .item-head.is-sticky{ position: sticky; top:30px; } */
+  .item-bottom {  position: sticky; bottom:20px; 
+    background-color: #cec;
+    height: 30px; line-height: 30px; 
+  }
+</style>
+
+<body>
+  <div class="wrap">
+
+    <div class="item">
+      <div class="item-head">title 1</div>
+      <div class="item-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus numquam ratione facere illo voluptatum laboriosam quam nobis rem temporibus non, laborum perspiciatis, nostrum quas deleniti minus maxime tempora ex voluptas?</div>
+    </div>
+    <div class="item">
+      <div class="item-head js-sticky">title 2</div>
+      <div class="item-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus numquam ratione facere illo voluptatum laboriosam quam nobis rem temporibus non, laborum perspiciatis, nostrum quas deleniti minus maxime tempora ex voluptas?</div>
+    </div>
+    <div class="item">
+      <div class="item-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus numquam ratione facere illo voluptatum laboriosam quam nobis rem temporibus non, laborum perspiciatis, nostrum quas deleniti minus maxime tempora ex voluptas?</div>
+    </div>
+    <div class="item">
+      <div class="item-head">title 4</div>
+      <div class="item-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus numquam ratione facere illo voluptatum laboriosam quam nobis rem temporibus non, laborum perspiciatis, nostrum quas deleniti minus maxime tempora ex voluptas?</div>
+    </div>
+    <div class="item">
+      <div class="item-head">title 5</div>
+      <div class="item-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus numquam ratione facere illo voluptatum laboriosam quam nobis rem temporibus non, laborum perspiciatis, nostrum quas deleniti minus maxime tempora ex voluptas?</div>
+      <div class="item-bottom">bottom 5</div>
+    </div>
+    <div class="item">
+      <div class="item-head">title 6</div>
+      <div class="item-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus numquam ratione facere illo voluptatum laboriosam quam nobis rem temporibus non, laborum perspiciatis, nostrum quas deleniti minus maxime tempora ex voluptas?</div>
+    </div>
+    <div class="item">
+      <div class="item-head">title 7</div>
+      <div class="item-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus numquam ratione facere illo voluptatum laboriosam quam nobis rem temporibus non, laborum perspiciatis, nostrum quas deleniti minus maxime tempora ex voluptas?</div>
+    </div>
+    <div class="item">
+      <div class="item-head">title 8</div>
+      <div class="item-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus numquam ratione facere illo voluptatum laboriosam quam nobis rem temporibus non, laborum perspiciatis, nostrum quas deleniti minus maxime tempora ex voluptas?</div>
+    </div>
+    <div class="item">
+      <div class="item-head">title 9</div>
+      <div class="item-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus numquam ratione facere illo voluptatum laboriosam quam nobis rem temporibus non, laborum perspiciatis, nostrum quas deleniti minus maxime tempora ex voluptas?</div>
+    </div>
+
+  </div>
+
+
+  <script>
+    $(function(){
+
+      // 스티키 요소 선택
+      var $stickyElement = $('.js-sticky');
+      // 스티키 상태 추적을 위한 변수
+      //var isSticky = false;
+
+      $stickyElement.data('isSticky', false);
+      var isSticky =  $stickyElement.data('isSticky');
+      console.log('isSticky ofofo: ',   $stickyElement.data('isSticky'));
+
+
+      // 스크롤 이벤트 리스너
+      $(window).on('scroll', function() {
+        var scrollTop = $(window).scrollTop();
+        var elementTop = $stickyElement.offset().top;
+        var stickyPoint = 30;                               // 스티키; 위치
+        
+        console.log('scrollTop : ', scrollTop , (elementTop - stickyPoint), $stickyElement.data('isSticky') )
+        if (scrollTop == elementTop - stickyPoint && !$stickyElement.data('isSticky')) {
+          // 스티키 상태 변경 감지
+          // 스티키 상태로 변경될 때 이벤트 트리거
+          $stickyElement.trigger('stickyStart', [scrollTop]);
+          
+          //isSticky = true;
+          $stickyElement.data('isSticky', true)
+          $stickyElement.addClass('is-sticky');
+          $stickyElement.removeClass('is-sticky_over');
+        } 
+        if (scrollTop == elementTop - stickyPoint && $stickyElement.data('isSticky')) {
+          $stickyElement.removeClass('is-sticky_over');
+        }
+        else if (scrollTop > elementTop - stickyPoint && $stickyElement.data('isSticky')) {
+          $stickyElement.addClass('is-sticky_over');
+        }
+        else if (scrollTop < elementTop - stickyPoint && $stickyElement.data('isSticky')) {
+          // 스티키 상태에서 벗어날 때 이벤트 트리거
+          $stickyElement.trigger('stickyEnd', [scrollTop]);
+          
+          //isSticky = false;
+          $stickyElement.data('isSticky', false)
+          $stickyElement.removeClass('is-sticky');
+          $stickyElement.removeClass('is-sticky_over');
+        }
+      });
+
+      
+      
+      // 커스텀 이벤트 리스너 
+      $stickyElement.on('stickyStart', function(event, scrollPosition) {
+        //console.log('스크롤 고정:', scrollPosition);
+      });
+      $stickyElement.on('stickyEnd', function(event, scrollPosition) {
+        //console.log('스크롤 고정 해지:', scrollPosition);
+      });
+
+    });
+  </script>
+
+
+</body>
+
+</html>
