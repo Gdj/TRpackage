@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
 
 <head>
-  <title>flex</title>
+  <title>grid</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <link rel="stylesheet" type="text/css" href="../../../../asset/css/trpBase.css" media="all" />
 </head>
@@ -10,27 +10,13 @@
   body, html { height: 100%; }
 
   .wrap { box-sizing: border-box; height: 50%; margin: 30px; background-color: antiquewhite;
-    display: flex;
-    /* 중심선 방향  (row : ↔) (column : ↕ ) */
-    flex-direction: row;   
-    flex-wrap: wrap;
-    /*
-    
-      - center        : 중앙 정열
-      - flex-start    : 시작점에서 부터 정열
-      - flex-end      : 끝나는점에서 부터 정열
-      - space-around  : 중심으로부터 아이템에 같은 여백을 줘서 정열
-      - space-evenly  : 아이템 간격이 동일하게 정열 (justify-content)
-      - space-between : 중심 약끝으로 부터 정열
-      - stretch       : 컨테이너 크기만큼 여백없이 정열 (align-content) 
-    
-    */
-    align-content: normal;     
-    justify-content: flex-start;
-    align-items: normal
+    display: grid;
+    grid-template-columns: repeat(3, 30%); 
+    grid-auto-rows: minmax(100px, auto);
+    grid-gap: 10% 0px;
   }
   /* 아이템 width는 최소값으로 반영된다고 보면 됩니다. */
-  .wrap .item { width: 30%; min-height: 30px; outline: 1px solid #f73; }
+  .wrap .item { min-height: 30px; outline: 1px solid #f73; }
 </style>
 
 <body>
