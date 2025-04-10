@@ -201,6 +201,8 @@
 					<div class="api-body_h3 css">
                     <!-- 소스 -->
 
+
+
 <!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
   2
   3
@@ -226,35 +228,44 @@
  23
  24
  25
- 26</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #f92672">&lt;style </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/css&quot;</span><span style="color: #f92672">&gt;</span>
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #f92672">&lt;/head&gt;</span>
+ <span style="color: #f92672">&lt;style </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/css&quot;</span><span style="color: #f92672">&gt;</span>
    <span style="color: #f92672">body,</span> <span style="color: #f92672">html</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
  
-   <span style="color: #a6e22e">.wrap</span> <span style="color: #f8f8f2">{</span> <span style="color: #f8f8f2">box</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">sizing</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">border</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">box;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">50</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">margin</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">30px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">antiquewhite;</span>
+   <span style="color: #a6e22e">.wrap</span> <span style="color: #f8f8f2">{</span> <span style="color: #f8f8f2">box</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">sizing</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">border</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">box;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">50</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">margin</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">30px</span><span style="color: #f8f8f2">;</span> 
      <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">flex;</span>
      <span style="color: #75715e">/* 중심선 방향  (row : ↔) (column : ↕ ) */</span>
      <span style="color: #f8f8f2">flex</span><span style="color: #f92672">-</span><span style="color: #66d9ef">direction</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">row;</span>   
      <span style="color: #f8f8f2">flex</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">wrap</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">wrap;</span>
      <span style="color: #75715e">/*</span>
- <span style="color: #75715e">    </span>
  <span style="color: #75715e">      - center        : 중앙 정열</span>
  <span style="color: #75715e">      - flex-start    : 시작점에서 부터 정열</span>
  <span style="color: #75715e">      - flex-end      : 끝나는점에서 부터 정열</span>
  <span style="color: #75715e">      - space-around  : 중심으로부터 아이템에 같은 여백을 줘서 정열</span>
- <span style="color: #75715e">      - space-evenly  : 아이템 간격이 동일하게 정열</span>
+ <span style="color: #75715e">      - space-evenly  : 아이템 간격이 동일하게 정열 (justify-content)</span>
  <span style="color: #75715e">      - space-between : 중심 약끝으로 부터 정열</span>
- <span style="color: #75715e">      - stretch       : 컨테이너 크기만큼 여백없이 정열  </span>
- <span style="color: #75715e">    </span>
+ <span style="color: #75715e">      - stretch       : 컨테이너 크기만큼 여백없이 정열 (align-content) </span>
  <span style="color: #75715e">    */</span>
      <span style="color: #f8f8f2">align</span><span style="color: #f92672">-</span><span style="color: #66d9ef">content</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">normal</span><span style="color: #f8f8f2">;</span>     
      <span style="color: #66d9ef">justify</span><span style="color: #f92672">-</span><span style="color: #66d9ef">content</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">flex</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">start;</span>
-     <span style="color: #f8f8f2">align</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">items</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">normal</span>
+     <span style="color: #f8f8f2">align</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">items</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">normal</span><span style="color: #f8f8f2">;</span>
+ 
+     <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">10px</span><span style="color: #f8f8f2">;</span>
+     <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#f0f0f0</span><span style="color: #f8f8f2">;</span>
    <span style="color: #f8f8f2">}</span>
    <span style="color: #75715e">/* 아이템 width는 최소값으로 반영된다고 보면 됩니다. */</span>
-   <span style="color: #a6e22e">.wrap</span> <span style="color: #a6e22e">.item</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">30</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">min-height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">30px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">outline</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">1px</span> <span style="color: #66d9ef">solid</span> <span style="color: #ae81ff">#f73</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+   <span style="color: #a6e22e">.wrap</span> <span style="color: #a6e22e">.item</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">20px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">30</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">min-height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">30px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">box</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">sizing</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">border</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">box;</span>
+     <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">20px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">text-align</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">center</span><span style="color: #f8f8f2">;</span>  <span style="color: #66d9ef">border</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">1px</span> <span style="color: #66d9ef">solid</span> <span style="color: #ae81ff">#333</span><span style="color: #f8f8f2">;</span>
+     <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#ddd</span><span style="color: #f8f8f2">;</span> 
+   <span style="color: #f8f8f2">}</span>
  <span style="color: #f92672">&lt;/style&gt;</span>
  </pre></td></tr></table></div>
  
-
 
 
                                            
@@ -278,19 +289,15 @@
   4
   5
   6
-  7
-  8
-  9</pre></td><td><pre style="margin: 0; line-height: 125%">  <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;wrap&quot;</span><span style="color: #f92672">&gt;</span>
-  
-      <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;item&quot;</span><span style="color: #f92672">&gt;</span>a<span style="color: #f92672">&lt;/div&gt;</span>    
-      <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;item&quot;</span><span style="color: #f92672">&gt;</span>b<span style="color: #f92672">&lt;/div&gt;</span>    
-      <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;item&quot;</span><span style="color: #f92672">&gt;</span>c<span style="color: #f92672">&lt;/div&gt;</span>    
-      <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;item&quot;</span><span style="color: #f92672">&gt;</span>d<span style="color: #f92672">&lt;/div&gt;</span>    
-      <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;item&quot;</span><span style="color: #f92672">&gt;</span>e<span style="color: #f92672">&lt;/div&gt;</span>    
-  
+  7</pre></td><td><pre style="margin: 0; line-height: 125%">  <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;wrap&quot;</span><span style="color: #f92672">&gt;</span>
+      <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;item&quot;</span><span style="color: #f92672">&gt;</span>아이템 1<span style="color: #f92672">&lt;/div&gt;</span>    
+      <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;item&quot;</span><span style="color: #f92672">&gt;</span>아이템 2<span style="color: #f92672">&lt;/div&gt;</span>    
+      <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;item&quot;</span><span style="color: #f92672">&gt;</span>아이템 3<span style="color: #f92672">&lt;/div&gt;</span>    
+      <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;item&quot;</span><span style="color: #f92672">&gt;</span>아이템 4<span style="color: #f92672">&lt;/div&gt;</span>    
+      <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;item&quot;</span><span style="color: #f92672">&gt;</span>아이템 5<span style="color: #f92672">&lt;/div&gt;</span>    
     <span style="color: #f92672">&lt;/div&gt;</span>
   </pre></td></tr></table></div>
-                                                                          
+                                   
                                                                                                                                                                                     
                     
                     <!-- //소스 -->

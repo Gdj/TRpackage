@@ -35,7 +35,7 @@
 
 		<!-- s: api 설명 -->
 		<div class="api">
-			<h2 class="api-title">display : flex</h2>
+			<h2 class="api-title">display : grid</h2>
 			<div class="api-body">
 				<dl>
           <dt>설명</dt>					
@@ -55,42 +55,56 @@
                 <th scope="col">컨테이너 property 설명</th>
               </tr>
               <tr>
-                <td><strong class="fz14">grid-auto-flow:</strong>: [<strong>row</strong>, column]</td>
+                <td><strong class="fz14">grid-auto-flow:</strong>: <br>
+                    [<strong>row</strong>, column] 
+                </td>
                 <td>
                   정열 방향 <br>
-                  - row : 가로 방향 (↔) <br>
-                  - column : 세로 방향 (↕) <br>
+                  - row    : 세로 방향, 가로가 채워지면 밑으로 떨어짐 (↕) <br>
+                  - column : 가로 방향 (↔) <br>
                 </td>
               </tr>  
               <tr>
-                <td><strong class="fz14">grid-template-columns</strong>: (px, %, fr, ...)</td>
+                <td><strong class="fz14">grid:</strong>: <br>
+                    [행 세로크기 / 열 가로크기 ], <br>
+                    "1열 이름겟수 " <br>"2열 이름겟수" <br>"3열 이름겟수"<br>
+                </td>
+                <td>
+                  정열 방향 <br>
+                  - grid: 150px / auto auto auto;  : 첫번째 행 의높이 150px / 3열의 크기는 균등하게 <br>
+                  - grid:  <br>
+                  'header header header header header header' <br>
+                  'menu main main main right right'  <br>
+                  'menu footer footer footer footer footer';<br>
+                  6컬럼을 가진 그리드에서 3행을 정의 <br>
+                </td>
+              </tr>  
+              <tr>
+                <td><strong class="fz14">grid-template-columns</strong>,
+                    <strong class="fz14">grid-template-row</strong> : <br>
+                    (px, %, fr, ...)
+                </td>
                 <td>
                   가로 크기 패턴 정의 (1fr 나머지크기, 모두 fr 이면 비율로 적용) <br>
                   - grid-template-columns: 200px 200px 200px;<br>
-                  - grid-template-columns: repeat(3, 30%);  
-                  - grid-template-columns: 200px 100px 1fr;             
+                  - grid-template-columns: repeat(3, 30%); <br>
+                  - grid-template-columns: 200px 100px 1fr; <br><br>
+
+                  세로 크기 패턴 정의 (1fr 나머지크기, 모두 fr 이면 비율로 적용) <br>
+                  - grid-template-row: 200px 200px 200px;<br>
+                  - grid-template-row: repeat(3, 30%);  <br>
+                  - grid-template-row: 200px 100px 1fr;             
                 </td>
               </tr>
               <tr>
-                <td><strong class="fz14">grid-template-row</strong>: (px, %, fr, ...)</td>
-                <td>
-                  가로 크기 패턴 정의 (1fr 나머지크기, 모두 fr 이면 비율로 적용) <br>
-                  - grid-template-row: 200px 200px 200px;<br>
-                  - grid-template-row: repeat(3, 30%);  
-                  - grid-template-row: 200px 100px 1fr;             
+                <td><strong class="fz14">grid-auto-columns</strong>, <br>
+                  <strong class="fz14">grid-auto-rows</strong> : <br>
+                  (px, %, auto, ...)
                 </td>
-              </tr>     
-              <tr>
-                <td><strong class="fz14">grid-auto-columns:</strong>: (px, %, auto, ...)</td>
                 <td>
                   가로 크기지정 (auto 부족한 영역을 채워줌) <br>
                   - grid-auto-columns: 200px;<br>
-                  - grid-auto-columns: minmax(100px, auto); (최소값, 최대값);  
-                </td>
-              </tr>     
-              <tr>
-                <td><strong class="fz14">grid-auto-rows:</strong>: (px, %, auto, ...)</td>
-                <td>
+                  - grid-auto-columns: minmax(100px, auto); (최소값, 최대값);  <br><br>
                   세로 크기지정 (auto 부족한 영역을 채워줌) <br>
                   - grid-auto-rows: 200px;<br>
                   - grid-auto-row: minmax(100px, auto); (최소값, 최대값)<br>  
@@ -101,11 +115,14 @@
                 <td>
                   그리트 아이템 간격 (위아래, 좌우) <br>
                   - grid-gap: 20px 10px;<br>
+                  - <strong>row-gap, column-gap</strong> 각각 지정할 수 있다.
                 </td>
               </tr>    
               
               <tr>
-                <td><strong class="fz14">align-content</strong>: [ <strong>normal</strong>, center, flex-start, flex-end, space-around, space-between, stretch]</td>
+                <td><strong class="fz14">align-content</strong>: <br>
+                  [<strong>normal</strong>, center, flex-start, flex-end, space-around, space-between, stretch]
+                </td>
                 <td>
                   "flex-direction" 중심 선 기준에따른 정열 방법, 기본(↕)<br>
                   - center        : 중앙 정열 <br>
@@ -119,7 +136,9 @@
               </tr>
               
               <tr>
-                <td><strong class="fz14">justify-content</strong>: [ <strong>normal</strong>, center, flex-start, flex-end, space-around, space-between, stretch]</td>
+                <td><strong class="fz14">justify-content</strong>: <br>
+                    [<strong>normal</strong>, center, flex-start, flex-end, space-around, space-between, stretch]
+                  </td>
                 <td>
                   "flex-direction" 중심 선 반대 기준에따른 정열 방법, 기본(↔)<br>
                   - center        : 중앙 정열 <br>
@@ -132,7 +151,9 @@
                 </td>
               </tr>          
               <tr>
-                <td><strong class="fz14">align-items</strong>: [ <strong>normal</strong>, center, flex-start, flex-end, stretch, baseline]</td>
+                <td><strong class="fz14">align-items</strong>: <br>
+                  [<strong>normal</strong>, center, flex-start, flex-end, stretch, baseline]
+                </td>
                 <td>
                   아이템 기준에서 정열 기준 (↕)<br>
                   - center        : 중앙 정열 <br>
@@ -159,19 +180,28 @@
                 <th scope="col">아이템 property 설명</th>
               </tr>
               <tr>
-                <td><strong class="fz14">grid-area</strong>: name</td>
-                <td>
-                  아이템 이름 지어주기, 아래 내용에서 컬럼 번호 대신 이름으로 사용할 수 있다. <br>
-                  - grid-area: 이름<br>
+                <td><strong class="fz14">grid-area</strong><br>
+                  <strong class="fz14">grid-column,</strong> <br>
+                  <strong class="fz14">grid-row,</strong>    <br>
+                  : (name), 단축속성
                 </td>
-              </tr>  
-              <tr>
-                <td><strong class="fz14">grid-area, grid-row-start, grid-column-start, grid-row-end, grid-column-end </strong>: (number, name)</td>
                 <td>
-                   번호 , 위치
+                  영역(Area) 이름을 설정하거나, grid-row와 grid-column의 단축 속성 <br>
+                  - grid-area: 이름<br>
                   - grid-area : grid-row-start  grid-column-start  grid-row-end  grid-column-end<br>
                   - grid-column : grid-column-start grid-column-end<br>
                   - grid-row : grid-row-start grid-row-end<br>
+                </td>
+              </tr>  
+              <tr>
+                <td><strong class="fz14">
+                  grid-row-start, <br>grid-column-start, <br>
+                  grid-row-end, <br>grid-column-end </strong>: <br>
+                  (number, name)
+                </td>
+                <td>
+                   번호 , 위치 <br>
+                   그리드 아이템의 (row)행 column(열) start(시작), end(끝)위치 지정
                   <br>
                   - grid-row-start : 2 | span 2; 시작위치 | 시작위치까지 채움<br>
                   - grid-column-start : 2 | span 2; 시작위치 | 시작위치까지 채움 <br>
@@ -179,15 +209,44 @@
                   - grid-column-end : 3 | span 2; 끝위치 앞에까지 | 끝위치까지 채움 <br>
                 </td>
               </tr>     
+              <tr>
+                <td><strong class="fz14">place-self</strong>: <br> 
+                  [align-self, justify-self]
+                </td>
+                <td>
+                  align-self, justify-self 단축 속성<br>
+              </tr>     
+              <tr>
+                <td><strong class="fz14">align-self</strong>: <br>
+                  [<strong>normal</strong>, center, flex-start, flex-end, stretch, baseline]
+                </td>
+                <td>
+                  그리드 아이템을 수직(열 ↕) 정렬<br>
+              </tr>
+              <tr>
+                <td><strong class="fz14">justify-self</strong>: <br>
+                  [<strong>normal</strong>, center, flex-start, flex-end, space-around, space-between, stretch]
+                </td>
+                <td>
+                  그리드 아이템을 수평(행 ↔) 정렬<br>
+              </tr>     
+            
+              <tr>
+                <td><strong class="fz14">order</strong>: <br>
+                  (number)
+                </td>
+                <td>
+                  그리드 아이템의 배치 순서를 지정<br>
+              </tr>     
         
             </tbody>
           </table>
 
 
 
-<!-- ===VIEW=== -->	            
+<!-- ===VIEW=== 1 -->	            
 				<div class="ex_wapper">
-					<h3 class="api-title_h3">VIEW</h3>
+					<h3 class="api-title_h3">VIEW - Grid 가로 정열</h3>
 					<!-- <p class="ex-more"><a href="javascript:return false;"><span class="d-n">+</span><span style="display: inline;">-</span></a></p> -->
 					<p class="ex-view"><a href="ex01.html" target="_blank">View Sample</a></p>
 					<!-- <div class="ex-body d-n" > -->
@@ -201,8 +260,7 @@
 					<!-- </div> -->
 				</div>
 				
-
-<!-- ===CSS=== -->	
+<!-- ===CSS=== 1 -->	
 				<div class="ex_wapper">
 					<h3 class="api-title_h3 css">CSS</h3>
 					<div class="api-body_h3 css">
@@ -221,18 +279,32 @@
   9
  10
  11
- 12</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #f92672">&lt;style </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/css&quot;</span><span style="color: #f92672">&gt;</span>
-   <span style="color: #f92672">body,</span> <span style="color: #f92672">html</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
- 
-   <span style="color: #a6e22e">.wrap</span> <span style="color: #f8f8f2">{</span> <span style="color: #f8f8f2">box</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">sizing</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">border</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">box;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">50</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">margin</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">30px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">antiquewhite;</span>
-     <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">grid;</span>
-     <span style="color: #f8f8f2">grid</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">template</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">columns</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">repeat</span><span style="color: #f8f8f2">(</span><span style="color: #ae81ff">3</span><span style="color: #f92672">,</span> <span style="color: #ae81ff">30</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">);</span> 
-     <span style="color: #f8f8f2">grid</span><span style="color: #f92672">-</span><span style="color: #66d9ef">auto</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">rows</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">minmax(</span><span style="color: #ae81ff">100px</span><span style="color: #f92672">,</span> <span style="color: #66d9ef">auto</span><span style="color: #f8f8f2">);</span>
-     <span style="color: #f8f8f2">grid</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">gap</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">10</span><span style="color: #f92672">%</span> <span style="color: #ae81ff">0px</span><span style="color: #f8f8f2">;</span>
-   <span style="color: #f8f8f2">}</span>
-   <span style="color: #75715e">/* 아이템 width는 최소값으로 반영된다고 보면 됩니다. */</span>
-   <span style="color: #a6e22e">.wrap</span> <span style="color: #a6e22e">.item</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">min-height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">30px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">outline</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">1px</span> <span style="color: #66d9ef">solid</span> <span style="color: #ae81ff">#f73</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
- <span style="color: #f92672">&lt;/style&gt;</span>
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19</pre></td><td><pre style="margin: 0; line-height: 125%">  <span style="color: #f92672">&lt;style </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/css&quot;</span><span style="color: #f92672">&gt;</span>
+     <span style="color: #f92672">body,</span> <span style="color: #f92672">html</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">100</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+   
+     <span style="color: #a6e22e">.wrap</span> <span style="color: #f8f8f2">{</span> <span style="color: #f8f8f2">box</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">sizing</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">border</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">box;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">50</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">margin</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">30px</span><span style="color: #f8f8f2">;</span> 
+       <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">grid;</span>
+       <span style="color: #f8f8f2">grid</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">template</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">columns</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">repeat</span><span style="color: #f8f8f2">(</span><span style="color: #ae81ff">3</span><span style="color: #f92672">,</span> <span style="color: #ae81ff">30</span><span style="color: #f92672">%</span><span style="color: #f8f8f2">);</span> 
+       <span style="color: #f8f8f2">grid</span><span style="color: #f92672">-</span><span style="color: #66d9ef">auto</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">rows</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">minmax(</span><span style="color: #ae81ff">100px</span><span style="color: #f92672">,</span> <span style="color: #66d9ef">auto</span><span style="color: #f8f8f2">);</span>
+       <span style="color: #f8f8f2">grid</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">gap</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">10px</span> <span style="color: #ae81ff">5px</span><span style="color: #f8f8f2">;</span>
+   
+       <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">10px</span><span style="color: #f8f8f2">;</span>
+       <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#f0f0f0</span><span style="color: #f8f8f2">;</span>
+     <span style="color: #f8f8f2">}</span>
+     <span style="color: #75715e">/* 아이템 width는 최소값으로 반영된다고 보면 됩니다. */</span>
+     <span style="color: #a6e22e">.wrap</span> <span style="color: #a6e22e">.item</span> <span style="color: #f8f8f2">{</span> 
+       <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">20px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">min-height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">30px</span><span style="color: #f8f8f2">;</span>  
+       <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">20px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">text-align</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">center</span><span style="color: #f8f8f2">;</span>   
+       <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#ddd</span><span style="color: #f8f8f2">;</span> 
+     <span style="color: #f8f8f2">}</span>
+   <span style="color: #f92672">&lt;/style&gt;</span>
  </pre></td></tr></table></div>
  
  
@@ -245,8 +317,7 @@
 					</div>
 				</div>
 
-
-<!-- ===HTML=== -->	
+<!-- ===HTML=== 1 -->	
 				<div class="ex_wapper">
 				<h3 class="api-title_h3 html">HTML</h3>
 					<div class="api-body_h3 html">
@@ -260,19 +331,122 @@
   4
   5
   6
-  7
-  8
-  9</pre></td><td><pre style="margin: 0; line-height: 125%">  <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;wrap&quot;</span><span style="color: #f92672">&gt;</span>
-  
-      <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;item&quot;</span><span style="color: #f92672">&gt;</span>a<span style="color: #f92672">&lt;/div&gt;</span>    
-      <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;item&quot;</span><span style="color: #f92672">&gt;</span>b<span style="color: #f92672">&lt;/div&gt;</span>    
-      <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;item&quot;</span><span style="color: #f92672">&gt;</span>c<span style="color: #f92672">&lt;/div&gt;</span>    
-      <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;item&quot;</span><span style="color: #f92672">&gt;</span>d<span style="color: #f92672">&lt;/div&gt;</span>    
-      <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;item&quot;</span><span style="color: #f92672">&gt;</span>e<span style="color: #f92672">&lt;/div&gt;</span>    
-  
+  7</pre></td><td><pre style="margin: 0; line-height: 125%">  <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;wrap&quot;</span><span style="color: #f92672">&gt;</span>
+      <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;item&quot;</span><span style="color: #f92672">&gt;</span>아이템 1<span style="color: #f92672">&lt;/div&gt;</span>    
+      <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;item&quot;</span><span style="color: #f92672">&gt;</span>아이템 2<span style="color: #f92672">&lt;/div&gt;</span>    
+      <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;item&quot;</span><span style="color: #f92672">&gt;</span>아이템 3<span style="color: #f92672">&lt;/div&gt;</span>    
+      <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;item&quot;</span><span style="color: #f92672">&gt;</span>아이템 4<span style="color: #f92672">&lt;/div&gt;</span>    
+      <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;item&quot;</span><span style="color: #f92672">&gt;</span>아이템 5<span style="color: #f92672">&lt;/div&gt;</span>    
     <span style="color: #f92672">&lt;/div&gt;</span>
   </pre></td></tr></table></div>
-                      
+  
+
+  
+                    
+                    <!-- //소스 -->
+					</div>
+				</div>
+					
+		
+
+
+<!-- ===VIEW=== 2 -->	            
+				<div class="ex_wapper">
+					<h3 class="api-title_h3">VIEW - Grid 세로 정열</h3>
+					<!-- <p class="ex-more"><a href="javascript:return false;"><span class="d-n">+</span><span style="display: inline;">-</span></a></p> -->
+					<p class="ex-view"><a href="ex02.html" target="_blank">View Sample</a></p>
+					<!-- <div class="ex-body d-n" > -->
+                    <!-- 소스 -->
+                
+
+
+	
+                    
+                    <!-- //소스 -->        
+					<!-- </div> -->
+				</div>
+				
+<!-- ===CSS=== 2 -->	
+				<div class="ex_wapper">
+					<h3 class="api-title_h3 css">CSS</h3>
+					<div class="api-body_h3 css">
+                    <!-- 소스 -->
+
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18</pre></td><td><pre style="margin: 0; line-height: 125%">  <span style="color: #f92672">&lt;style&gt;</span>
+     <span style="color: #a6e22e">.grid-container</span> <span style="color: #f8f8f2">{</span>
+       <span style="color: #66d9ef">display</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">grid;</span>
+       <span style="color: #f8f8f2">grid</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">template</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">rows</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">repeat</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">auto</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">fill</span><span style="color: #f92672">,</span> <span style="color: #f8f8f2">minmax(</span><span style="color: #ae81ff">100px</span><span style="color: #f92672">,</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">fr));</span> <span style="color: #75715e">/* 최소 높이 100px, 가능한 최대 높이로 자동 채움 */</span>
+       <span style="color: #f8f8f2">grid</span><span style="color: #f92672">-</span><span style="color: #66d9ef">auto</span><span style="color: #f92672">-</span><span style="color: #f8f8f2">flow</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">column;</span> <span style="color: #75715e">/* 아이템 배치 방향을 열 방향으로 변경 */</span>
+       <span style="color: #f8f8f2">gap</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">10px</span><span style="color: #f8f8f2">;</span> <span style="color: #75715e">/* 아이템 간 간격 */</span>
+ 
+       <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">10px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">margin</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">30px</span><span style="color: #f8f8f2">;</span> 
+       <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#f0f0f0</span><span style="color: #f8f8f2">;</span>
+       <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">300px</span><span style="color: #f8f8f2">;</span> <span style="color: #75715e">/* 컨테이너의 높이를 명시적으로 지정해야 동작을 확인할 수 있습니다. */</span>
+     <span style="color: #f8f8f2">}</span>
+ 
+     <span style="color: #a6e22e">.grid-item</span> <span style="color: #f8f8f2">{</span>
+       <span style="color: #66d9ef">padding</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">20px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">min-height</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">30px</span><span style="color: #f8f8f2">;</span>  
+       <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">20px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">text-align</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">center</span><span style="color: #f8f8f2">;</span>   
+       <span style="color: #66d9ef">background-color</span><span style="color: #f92672">:</span> <span style="color: #ae81ff">#ddd</span><span style="color: #f8f8f2">;</span> 
+     <span style="color: #f8f8f2">}</span>
+   <span style="color: #f92672">&lt;/style&gt;</span>
+ </pre></td></tr></table></div>
+ 
+ 
+ 
+
+
+
+                                           
+
+                    <!-- //소스 -->
+					</div>
+				</div>
+
+<!-- ===HTML=== 2 -->	
+				<div class="ex_wapper">
+				<h3 class="api-title_h3 html">HTML</h3>
+					<div class="api-body_h3 html">
+                    <!-- 소스 -->
+
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+  2
+  3
+  4
+  5
+  6
+  7</pre></td><td><pre style="margin: 0; line-height: 125%">  <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;wrap&quot;</span><span style="color: #f92672">&gt;</span>
+      <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;item&quot;</span><span style="color: #f92672">&gt;</span>아이템 1<span style="color: #f92672">&lt;/div&gt;</span>    
+      <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;item&quot;</span><span style="color: #f92672">&gt;</span>아이템 2<span style="color: #f92672">&lt;/div&gt;</span>    
+      <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;item&quot;</span><span style="color: #f92672">&gt;</span>아이템 3<span style="color: #f92672">&lt;/div&gt;</span>    
+      <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;item&quot;</span><span style="color: #f92672">&gt;</span>아이템 4<span style="color: #f92672">&lt;/div&gt;</span>    
+      <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;item&quot;</span><span style="color: #f92672">&gt;</span>아이템 5<span style="color: #f92672">&lt;/div&gt;</span>    
+    <span style="color: #f92672">&lt;/div&gt;</span>
+  </pre></td></tr></table></div>
+
+  
+
                                                                                                                                                                                     
                     
                     <!-- //소스 -->
@@ -280,6 +454,37 @@
 				</div>
 					
 		
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;grid-container&quot;</span><span style="color: #f92672">&gt;</span>
+   <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;grid-item&quot;</span><span style="color: #f92672">&gt;</span>아이템 1<span style="color: #f92672">&lt;/div&gt;</span>
+   <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;grid-item&quot;</span><span style="color: #f92672">&gt;</span>아이템 2<span style="color: #f92672">&lt;/div&gt;</span>
+   <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;grid-item&quot;</span><span style="color: #f92672">&gt;</span>아이템 3<span style="color: #f92672">&lt;/div&gt;</span>
+   <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;grid-item&quot;</span><span style="color: #f92672">&gt;</span>아이템 4<span style="color: #f92672">&lt;/div&gt;</span>
+   <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;grid-item&quot;</span><span style="color: #f92672">&gt;</span>아이템 5<span style="color: #f92672">&lt;/div&gt;</span>
+   <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;grid-item&quot;</span><span style="color: #f92672">&gt;</span>아이템 6<span style="color: #f92672">&lt;/div&gt;</span>
+   <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;grid-item&quot;</span><span style="color: #f92672">&gt;</span>아이템 7<span style="color: #f92672">&lt;/div&gt;</span>
+   <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;grid-item&quot;</span><span style="color: #f92672">&gt;</span>아이템 8<span style="color: #f92672">&lt;/div&gt;</span>
+   <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;grid-item&quot;</span><span style="color: #f92672">&gt;</span>아이템 9<span style="color: #f92672">&lt;/div&gt;</span>
+   <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;grid-item&quot;</span><span style="color: #f92672">&gt;</span>아이템 10<span style="color: #f92672">&lt;/div&gt;</span>
+   <span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;grid-item&quot;</span><span style="color: #f92672">&gt;</span>아이템 11<span style="color: #f92672">&lt;/div&gt;</span>
+ <span style="color: #f92672">&lt;/div&gt;</span>
+ </pre></td></tr></table></div>
+ 
+
+
+
 			</div>
 		</div>
 		<!-- e: api 설명 -->

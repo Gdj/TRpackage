@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CSS Grid 열 채우기 후 오른쪽 채우기</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" type="text/css" href="../../../../asset/css/trpBase.css" media="all" />
+  <style>
+    .grid-container {
+      display: grid;
+      grid-template-rows: repeat(auto-fill, minmax(100px, 1fr)); /* 최소 높이 100px, 가능한 최대 높이로 자동 채움 */
+      grid-auto-flow: column; /* 아이템 배치 방향을 열 방향으로 변경 */
+      gap: 10px; /* 아이템 간 간격 */
+
+      padding: 10px; margin: 30px; 
+      background-color: #f0f0f0;
+      height: 300px; /* 컨테이너의 높이를 명시적으로 지정해야 동작을 확인할 수 있습니다. */
+    }
+
+    .grid-item {
+      padding: 20px; min-height: 30px;  
+      font-size: 20px; text-align: center;   
+      background-color: #ddd; 
+    }
+  </style>
+</head>
+<body>
+
+<div class="grid-container">
+  <div class="grid-item">아이템 1</div>
+  <div class="grid-item">아이템 2</div>
+  <div class="grid-item">아이템 3</div>
+  <div class="grid-item">아이템 4</div>
+  <div class="grid-item">아이템 5</div>
+  <div class="grid-item">아이템 6</div>
+  <div class="grid-item">아이템 7</div>
+  <div class="grid-item">아이템 8</div>
+  <div class="grid-item">아이템 9</div>
+  <div class="grid-item">아이템 10</div>
+  <div class="grid-item">아이템 11</div>
+</div>
+
+</body>
+</html>

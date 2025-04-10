@@ -5,34 +5,38 @@
   <title>grid</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <link rel="stylesheet" type="text/css" href="../../../../asset/css/trpBase.css" media="all" />
+  <style type="text/css">
+    body, html { height: 100%; }
+  
+    .wrap { box-sizing: border-box; height: 50%; margin: 30px; 
+      display: grid;
+      grid-template-columns: repeat(3, 30%); 
+      grid-auto-rows: minmax(100px, auto);
+      grid-gap: 10px 5px;
+  
+      padding: 10px;
+      background-color: #f0f0f0;
+    }
+    /* 아이템 width는 최소값으로 반영된다고 보면 됩니다. */
+    .wrap .item { 
+      padding: 20px; min-height: 30px;  
+      font-size: 20px; text-align: center;   
+      background-color: #ddd; 
+    }
+  </style>
 </head>
-<style type="text/css">
-  body, html { height: 100%; }
-
-  .wrap { box-sizing: border-box; height: 50%; margin: 30px; background-color: antiquewhite;
-    display: grid;
-    grid-template-columns: repeat(3, 30%); 
-    grid-auto-rows: minmax(100px, auto);
-    grid-gap: 10% 0px;
-  }
-  /* 아이템 width는 최소값으로 반영된다고 보면 됩니다. */
-  .wrap .item { min-height: 30px; outline: 1px solid #f73; }
-</style>
 
 <body>
 
 
   <div class="wrap">
-
-    <div class="item">a</div>    
-    <div class="item">b</div>    
-    <div class="item">c</div>    
-    <div class="item">d</div>    
-    <div class="item">e</div>    
-
+    <div class="item">아이템 1</div>    
+    <div class="item">아이템 2</div>    
+    <div class="item">아이템 3</div>    
+    <div class="item">아이템 4</div>    
+    <div class="item">아이템 5</div>    
   </div>
 
 
 </body>
-
 </html>

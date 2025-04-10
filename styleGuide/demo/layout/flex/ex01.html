@@ -9,13 +9,12 @@
 <style type="text/css">
   body, html { height: 100%; }
 
-  .wrap { box-sizing: border-box; height: 50%; margin: 30px; background-color: antiquewhite;
+  .wrap { box-sizing: border-box; height: 50%; margin: 30px; 
     display: flex;
     /* 중심선 방향  (row : ↔) (column : ↕ ) */
     flex-direction: row;   
     flex-wrap: wrap;
     /*
-    
       - center        : 중앙 정열
       - flex-start    : 시작점에서 부터 정열
       - flex-end      : 끝나는점에서 부터 정열
@@ -23,30 +22,32 @@
       - space-evenly  : 아이템 간격이 동일하게 정열 (justify-content)
       - space-between : 중심 약끝으로 부터 정열
       - stretch       : 컨테이너 크기만큼 여백없이 정열 (align-content) 
-    
     */
     align-content: normal;     
     justify-content: flex-start;
-    align-items: normal
+    align-items: normal;
+
+    padding: 10px;
+    background-color: #f0f0f0;
   }
   /* 아이템 width는 최소값으로 반영된다고 보면 됩니다. */
-  .wrap .item { width: 30%; min-height: 30px; outline: 1px solid #f73; }
+  .wrap .item { padding: 20px; width: 30%; min-height: 30px; box-sizing: border-box;
+    font-size: 20px; text-align: center;  border: 1px solid #333;
+    background-color: #ddd; 
+  }
 </style>
 
 <body>
 
 
   <div class="wrap">
-
-    <div class="item">a</div>    
-    <div class="item">b</div>    
-    <div class="item">c</div>    
-    <div class="item">d</div>    
-    <div class="item">e</div>    
-
+    <div class="item">아이템 1</div>    
+    <div class="item">아이템 2</div>    
+    <div class="item">아이템 3</div>    
+    <div class="item">아이템 4</div>    
+    <div class="item">아이템 5</div>    
   </div>
 
 
 </body>
-
 </html>
