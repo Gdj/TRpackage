@@ -1,0 +1,219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+<title>HTML tip : TR package</title>
+<script type="text/javascript" src="../../../asset/js/libs/jquery-1.11.1.js" charset="UTF-8"></script>
+<link rel="stylesheet" type="text/css"  href="../../../asset/css/common.css" media="all" />
+<link rel="stylesheet" type="text/css"  href="../../../asset/css/trpBase.css" media="all" />
+
+<!--
+<style type="text/css">
+
+</style>
+-->
+
+</head>
+<body>
+  <div id="header" ></div>
+  <div id="container">
+	<div id="lnb" class="gnb"></div>
+	<!-- s: 컨텐츠 시작 -->
+	<div id="contents" class="contents">
+		<!-- s: css 설명  -->
+		<div class="desc_wapper">
+			<h1 class="desc_title">HTML 텍스트</h1>
+			<p>html 텍스트 표기</p>
+		</div>		
+		<!-- e: css 설명 -->
+
+
+        
+
+
+		<!-- s: api 설명 inline -->
+		<div class="api">
+			<h2 class="api-title">inline element</h2>
+			<div class="api-body">
+				<dl>
+					<dt>설명</dt>					
+					<dd><span class="icon"></span>abbr : 약어 표기, 밑줄 점선</dd>
+					<dd><span class="icon"></span>del  : 제거 표기, 취소선</dd>
+					<dd><span class="icon"></span>s    : 관련없음/ 정확하지 않음, 취소선</dd>
+					<dd><span class="icon"></span>ins  : 사입 표기, 밑줄</dd>
+					<dd><span class="icon"></span>kbd  : 키보드 단축키, font-family: monospace;</dd>
+					<dd><span class="icon"></span>samp : 샘플 출력 , font-family: monospace;</dd>
+					<dd><span class="icon"></span>q    : 짧은 인용구 , 쌍타음표</dd>
+					<dd><span class="icon"></span>small  : 작은 텍스트, 작게 표기 </dd>
+					<dd><span class="icon"></span>sub    : 아래 첨자, 아래로 작게 표기</dd>
+					<dd><span class="icon"></span>sup    : 위 첨자 , 위로 작게 표기</dd>
+					<dd><span class="icon"></span>wbr    : 줄바꿈 허용위치지정 , 보이지 않음</dd>
+					<dd><span class="icon"></span>time   : 문자에 날짜를 내포함 , 보이지 않음</dd>
+					<dd><span class="icon"></span>data   : 문자에 날짜왜 의미를 내포함 , 보이지 않음</dd>
+				</dl>
+				
+				<div class="ex_wapper">
+					<h3 class="api-title_h3">VIEW</h3>
+					<p class="ex-more"><a href="javascript:return false;"><span class="d-n">+</span><span style="display: inline;">-</span></a></p>
+					<div class="ex-body d-n" >
+
+
+<abbr title="HyperText Markup Language">HTML</abbr> <br>
+<del>삭제된 내용</del> <br>
+<s>정확하지 않음</s> <br>
+<ins>추가된 내용</ins> <br>
+<kbd>Ctrl</kbd> + <kbd>V</kbd>  <br>
+<samp>샘플 출력시</samp>  <br>
+이것은 : <q>이내용에 쌍따으표로</q> 표기된다.  <br>		
+기본 <small>작은 텍스트</small>, 기본  <sub>아래 첨자</sub>, 기본 <sup>위 첨자</sup> <br>
+<p>This is a veryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryvery<wbr>longwordthatwillbreakatspecific<wbr>placeswhenthebrowserwindowisresized.</p>
+<time datetime="05-28 20:00">생일날</time> <br>
+<data value="21055">그의 학번</data>
+           
+
+					</div>
+				</div>
+				
+
+
+				<div class="ex_wapper">
+				<h3 class="api-title_h3 html">HTML</h3>
+					<div class="api-body_h3 html">
+
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%;"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></td><td><pre style="margin: 0; line-height: 125%;"><span></span><span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">abbr</span> <span style="color: #A6E22E">title</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;HyperText Markup Language&quot;</span><span style="color: #F8F8F2">&gt;</span>HTML<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">abbr</span><span style="color: #F8F8F2">&gt;</span> <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">br</span><span style="color: #F8F8F2">&gt;</span>
+<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">del</span><span style="color: #F8F8F2">&gt;</span>삭제된 내용<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">del</span><span style="color: #F8F8F2">&gt;</span> <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">br</span><span style="color: #F8F8F2">&gt;</span>
+<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">s</span><span style="color: #F8F8F2">&gt;</span>정확하지 않음<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">s</span><span style="color: #F8F8F2">&gt;</span> <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">br</span><span style="color: #F8F8F2">&gt;</span>
+<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">ins</span><span style="color: #F8F8F2">&gt;</span>추가된 내용<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">ins</span><span style="color: #F8F8F2">&gt;</span> <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">br</span><span style="color: #F8F8F2">&gt;</span>
+<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">kbd</span><span style="color: #F8F8F2">&gt;</span>Ctrl<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">kbd</span><span style="color: #F8F8F2">&gt;</span> + <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">kbd</span><span style="color: #F8F8F2">&gt;</span>V<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">kbd</span><span style="color: #F8F8F2">&gt;</span>  <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">br</span><span style="color: #F8F8F2">&gt;</span>
+<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">samp</span><span style="color: #F8F8F2">&gt;</span>샘플 출력시<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">samp</span><span style="color: #F8F8F2">&gt;</span>  <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">br</span><span style="color: #F8F8F2">&gt;</span>
+이것은 : <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">q</span><span style="color: #F8F8F2">&gt;</span>이내용에 쌍따으표로<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">q</span><span style="color: #F8F8F2">&gt;</span> 표기된다.  <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">br</span><span style="color: #F8F8F2">&gt;</span>		
+기본 <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">small</span><span style="color: #F8F8F2">&gt;</span>작은 텍스트<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">small</span><span style="color: #F8F8F2">&gt;</span>, 기본  <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">sub</span><span style="color: #F8F8F2">&gt;</span>아래 첨자<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">sub</span><span style="color: #F8F8F2">&gt;</span>, 기본 <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">sup</span><span style="color: #F8F8F2">&gt;</span>위 첨자<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">sup</span><span style="color: #F8F8F2">&gt;</span> <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">br</span><span style="color: #F8F8F2">&gt;</span>
+<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>This is a veryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryvery<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">wbr</span><span style="color: #F8F8F2">&gt;</span>longwordthatwillbreakatspecific<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">wbr</span><span style="color: #F8F8F2">&gt;</span>placeswhenthebrowserwindowisresized.<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>
+<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">time</span> <span style="color: #A6E22E">datetime</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;05-28 20:00&quot;</span><span style="color: #F8F8F2">&gt;</span>생일날<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">time</span><span style="color: #F8F8F2">&gt;</span> <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">br</span><span style="color: #F8F8F2">&gt;</span>
+<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">data</span> <span style="color: #A6E22E">value</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;21055&quot;</span><span style="color: #F8F8F2">&gt;</span>그의 학번<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">data</span><span style="color: #F8F8F2">&gt;</span>
+</pre></td></tr></table></div>
+
+
+
+
+
+					</div>
+				</div>
+					
+		
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+		
+
+
+
+		<!-- s: api 설명 q -->
+		<div class="api">
+			<h2 class="api-title">ruby</h2>
+			<div class="api-body">
+				<dl>
+					<dt>설명</dt>					
+					<dd><span class="icon"></span>ruby : 주석 , 설명/발음 </dd>
+					<dd><span class="icon"></span>rt : 주석내용 , 상단에표기</dd>
+					<dd><span class="icon"></span>rp : 주석내용 루주석이 지원되지 않을때 , 상단에표기</dd>
+				</dl>
+				
+				<div class="ex_wapper">
+					<h3 class="api-title_h3">VIEW</h3>
+					<p class="ex-more"><a href="javascript:return false;"><span class="d-n">+</span><span style="display: inline;">-</span></a></p>
+					<div class="ex-body d-n" >
+
+						
+
+<ruby>
+안녕 <rt> hi </rt>
+</ruby>
+
+<ruby>
+안녕! <rp>(</rp><rt> hi </rt><rp>)</rp> 
+</ruby>
+
+
+
+					</div>
+				</div>
+				
+
+
+				<div class="ex_wapper">
+				<h3 class="api-title_h3 html">HTML</h3>
+					<div class="api-body_h3 html">
+
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%;">1
+2
+3
+4
+5
+6
+7</pre></td><td><pre style="margin: 0; line-height: 125%;"><span></span><span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">ruby</span><span style="color: #F8F8F2">&gt;</span>
+  안녕 <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">rt</span><span style="color: #F8F8F2">&gt;</span> hi <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">rt</span><span style="color: #F8F8F2">&gt;</span>
+<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">ruby</span><span style="color: #F8F8F2">&gt;</span>
+
+<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">ruby</span><span style="color: #F8F8F2">&gt;</span>
+  안녕! <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">rp</span><span style="color: #F8F8F2">&gt;</span>(<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">rp</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">rt</span><span style="color: #F8F8F2">&gt;</span> hi <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">rt</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">rp</span><span style="color: #F8F8F2">&gt;</span>)<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">rp</span><span style="color: #F8F8F2">&gt;</span> 
+<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">ruby</span><span style="color: #F8F8F2">&gt;</span>
+</pre></td></tr></table></div>
+
+
+
+
+					</div>
+				</div>
+					
+		
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+		
+
+
+
+
+
+
+
+		
+		</div>		
+	<!-- e: 컨텐츠 끝 -->
+	<p class="cl-b"></p>
+</div>
+
+
+
+<script type="text/javascript">
+	$("#header").load("../../head.html");
+	$("#lnb").load("../../lnb.html");	
+
+
+	$(".ex-more a").click(function() {
+		$( this ).find("span").toggle();
+		$( this ).parent().siblings(".ex-body").slideToggle();
+		return false;
+	});
+
+</script>
+
+</body>
+</html>
+
+				
