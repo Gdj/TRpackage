@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 인터랙티브 요소들</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .section {
+            margin: 30px 0;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            background: #fafafa;
+        }
+        .section h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        details {
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        summary {
+            padding: 10px;
+            background: #f5f5f5;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        details[open] summary {
+            border-bottom: 1px solid #ddd;
+        }
+        details > div {
+            padding: 15px;
+        }
+        dialog {
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            padding: 20px;
+            min-width: 300px;
+        }
+        dialog::backdrop {
+            background: rgba(0,0,0,0.5);
+        }
+        button {
+            padding: 8px 16px;
+            margin: 5px;
+            border: 1px solid #007bff;
+            background: #007bff;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        button.secondary {
+            background: #6c757d;
+            border-color: #6c757d;
+        }
+        input, select, textarea {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin: 5px 0;
+        }
+        .form-group {
+            margin: 10px 0;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        progress, meter {
+            width: 200px;
+            height: 20px;
+            margin: 10px 0;
+        }
+        .media-controls {
+            margin: 20px 0;
+        }
+        audio, video {
+            width: 100%;
+            margin: 10px 0;
+        }
+        .output-demo {
+            background: #e8f4f8;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        #calculator-output {
+            font-weight: bold;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <h1>HTML 인터랙티브 요소들</h1>
+    <p>JavaScript 없이도 동작하는 HTML의 내장 인터랙티브 요소들을 살펴보세요!</p>
+
+    <!-- Details & Summary -->
+    <div class="section">
+        <h3>1. &lt;details&gt; & &lt;summary&gt;</h3>
+        <p>접고 펼치기 기능이 내장되어 있습니다.</p>
+        
+        <details>
+            <summary>클릭해서 내용 보기</summary>
+            <div>
+                <p>이 내용은 summary를 클릭했을 때만 보입니다!</p>
+                <p>JavaScript 없이도 동작하는 순수 HTML 기능입니다.</p>
+            </div>
+        </details>
+
+        <details open>
+            <summary>기본으로 열린 상태 (open 속성)</summary>
+            <div>
+                <p>open 속성이 있으면 처음부터 펼쳐진 상태로 시작합니다.</p>
+                <details>
+                    <summary>중첩된 details도 가능합니다</summary>
+                    <div>중첩된 내용입니다!</div>
+                </details>
+            </div>
+        </details>
+    </div>
+
+    <!-- Dialog -->
+    <div class="section">
+        <h3>2. &lt;dialog&gt;</h3>
+        <p>모달과 비모달 대화상자를 만들 수 있습니다.</p>
+        
+        <button onclick="document.getElementById('modal-dialog').showModal()">모달 다이얼로그 열기</button>
+        <button onclick="document.getElementById('normal-dialog').show()">일반 다이얼로그 열기</button>
+
+        <dialog id="modal-dialog">
+            <h4>모달 다이얼로그</h4>
+            <p>배경을 클릭해도 닫히지 않습니다.</p>
+            <button onclick="document.getElementById('modal-dialog').close()">닫기</button>
+        </dialog>
+
+        <dialog id="normal-dialog">
+            <h4>일반 다이얼로그</h4>
+            <p>모달이 아닌 일반 다이얼로그입니다.</p>
+            <button onclick="document.getElementById('normal-dialog').close()">닫기</button>
+        </dialog>
+    </div>
+
+    <!-- Form Elements -->
+    <div class="section">
+        <h3>3. 폼 관련 인터랙티브 요소들</h3>
+        
+        <div class="form-group">
+            <label for="text-input">텍스트 입력:</label>
+            <input type="text" id="text-input" placeholder="여기에 입력하세요">
+        </div>
+
+        <div class="form-group">
+            <label for="range-input">범위 슬라이더:</label>
+            <input type="range" id="range-input" min="0" max="100" value="50" 
+                   oninput="document.getElementById('range-value').textContent = this.value">
+            <span>값: <span id="range-value">50</span></span>
+        </div>
+
+        <div class="form-group">
+            <label for="color-input">색상 선택:</label>
+            <input type="color" id="color-input" value="#007bff" 
+                   onchange="document.body.style.accentColor = this.value">
+        </div>
+
+        <div class="form-group">
+            <label for="date-input">날짜 선택 (기본):</label>
+            <input type="date" id="date-input">
+        </div>
+
+        <div class="form-group">
+            <label for="date-limited">날짜 선택 (범위 제한):</label>
+            <input type="date" id="date-limited" min="1900-01-01" max="2099-12-31" 
+                   value="2024-01-01">
+            <small style="color: #666;">1900년~2099년 범위로 제한</small>
+        </div>
+
+        <div class="form-group">
+            <label for="date-current">날짜 선택 (현재 기준):</label>
+            <input type="date" id="date-current" min="2000-01-01" max="2030-12-31">
+            <small style="color: #666;">2000년~2030년 범위로 제한</small>
+        </div>
+
+        <div class="form-group">
+            <label for="select-input">선택 상자:</label>
+            <select id="select-input">
+                <option>옵션 1</option>
+                <option>옵션 2</option>
+                <option>옵션 3</option>
+                <optgroup label="그룹화된 옵션들">
+                    <option>그룹 옵션 1</option>
+                    <option>그룹 옵션 2</option>
+                </optgroup>
+            </select>
+        </div>
+
+        <fieldset>
+            <legend>Fieldset (전체 비활성화 가능)</legend>
+            <input type="text" placeholder="필드셋 내부 입력">
+            <button type="button">버튼</button>
+            <br><br>
+            <label>
+                <input type="checkbox" onchange="this.closest('fieldset').disabled = this.checked"> 
+                이 fieldset 비활성화
+            </label>
+        </fieldset>
+    </div>
+
+    <!-- Media Elements -->
+    <div class="section">
+        <h3>4. &lt;audio&gt; & &lt;video&gt;</h3>
+        <p>controls 속성으로 미디어 컨트롤러가 자동 제공됩니다.</p>
+        
+        <audio controls>
+            <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmocBSuEzvzOeSYGJ4DN8teQOQcTaNnx7Zw/" preload="none">
+            브라우저가 오디오를 지원하지 않습니다.
+        </audio>
+
+        <div class="media-controls">
+            <button onclick="document.querySelector('audio').play()">▶️ 재생</button>
+            <button onclick="document.querySelector('audio').pause()">⏸️ 일시정지</button>
+            <button onclick="document.querySelector('audio').currentTime = 0">⏹️ 정지</button>
+        </div>
+    </div>
+
+    <!-- Progress & Meter -->
+    <div class="section">
+        <h3>5. &lt;progress&gt; & &lt;meter&gt;</h3>
+        
+        <div>
+            <label>Progress (진행률):</label><br>
+            <progress value="70" max="100">70%</progress>
+            <span>70%</span>
+        </div>
+        
+        <div>
+            <label>Meter (측정값):</label><br>
+            <meter value="0.7" min="0" max="1" optimum="0.8">70%</meter>
+            <span>0.7 / 1.0</span>
+        </div>
+
+        <div>
+            <button onclick="updateProgress()">진행률 업데이트</button>
+        </div>
+    </div>
+
+    <!-- Output -->
+    <div class="section">
+        <h3>6. &lt;output&gt;</h3>
+        <p>계산 결과나 사용자 액션의 결과를 표시합니다.</p>
+        
+        <div class="output-demo">
+            <label>숫자 1: <input type="number" id="num1" value="10" oninput="calculate()"></label><br>
+            <label>숫자 2: <input type="number" id="num2" value="5" oninput="calculate()"></label><br>
+            <br>
+            <strong>합계: <output id="calculator-output" for="num1 num2">15</output></strong>
+        </div>
+    </div>
+
+    <script>
+        function updateProgress() {
+            const progress = document.querySelector('progress');
+            const meter = document.querySelector('meter');
+            const newValue = Math.random() * 100;
+            
+            progress.value = newValue;
+            progress.nextElementSibling.textContent = Math.round(newValue) + '%';
+            
+            const meterValue = newValue / 100;
+            meter.value = meterValue;
+            meter.nextElementSibling.textContent = meterValue.toFixed(2) + ' / 1.0';
+        }
+
+        function calculate() {
+            const num1 = parseFloat(document.getElementById('num1').value) || 0;
+            const num2 = parseFloat(document.getElementById('num2').value) || 0;
+            document.getElementById('calculator-output').textContent = num1 + num2;
+        }
+
+        // 현재 날짜로 date input 초기화
+        const today = new Date();
+        const currentYear = today.getFullYear();
+        const currentMonth = String(today.getMonth() + 1).padStart(2, '0');
+        const currentDay = String(today.getDate()).padStart(2, '0');
+        const currentDateString = `${currentYear}-${currentMonth}-${currentDay}`;
+        
+        document.getElementById('date-current').value = currentDateString;
+
+        // 날짜 입력 유효성 검사
+        document.getElementById('date-limited').addEventListener('change', function() {
+            const selectedDate = new Date(this.value);
+            const year = selectedDate.getFullYear();
+            
+            if (year < 1900 || year > 2099) {
+                alert('연도는 1900년부터 2099년 사이여야 합니다.');
+                this.value = '';
+            }
+        });
+
+        // 초기 계산
+        calculate();
+    </script>
+</body>
+</html>

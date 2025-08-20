@@ -46,7 +46,10 @@
 
 <details>
   <summary>제목</summary>
-  Something small enough to escape casual notice.
+  <div>
+		이 내용은 summary를 클릭했을 때만 보입니다!
+		JavaScript 없이도 동작하는 순수 HTML 기능입니다.
+	</div>
 </details>
                 
 					</div>
@@ -62,11 +65,20 @@
 <!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%;">1
 2
 3
-4</pre></td><td><pre style="margin: 0; line-height: 125%;"><span></span><span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">details</span><span style="color: #F8F8F2">&gt;</span>
+4
+5
+6
+7
+8</pre></td><td><pre style="margin: 0; line-height: 125%;"><span></span><span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">details</span><span style="color: #F8F8F2">&gt;</span>
   <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">summary</span><span style="color: #F8F8F2">&gt;</span>제목<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">summary</span><span style="color: #F8F8F2">&gt;</span>
-  Something small enough to escape casual notice.
+  <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+		이 내용은 summary를 클릭했을 때만 보입니다!
+		JavaScript 없이도 동작하는 순수 HTML 기능입니다.
+	<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
 <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">details</span><span style="color: #F8F8F2">&gt;</span>
+           
 </pre></td></tr></table></div>
+
 
 
 					</div>
@@ -98,10 +110,13 @@
 					<p class="ex-more"><a href="javascript:return false;"><span class="d-n">+</span><span style="display: inline;">-</span></a></p>
 					<div class="ex-body d-n" >
 
-<dialog open style="position: relative;">
+<button class="trp button type1" onclick="document.getElementById('dialog-popup').showModal()">모달 다이얼로그 열기</button>
+<button class="trp button type1" onclick="document.getElementById('dialog-popup').show()">일반 다이얼로그 열기</button>
+
+<dialog id="dialog-popup" >
   <p>팝업 메시지 </p>
   <form method="dialog">
-    <button>완료!</button>
+    <button class="trp button type1" onclick="document.getElementById('modal-dialog').close()">닫기</button>
   </form>
 </dialog>
                 
@@ -115,18 +130,26 @@
 					<div class="api-body_h3 html">
 
 
+
 <!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%;">1
 2
 3
 4
 5
-6</pre></td><td><pre style="margin: 0; line-height: 125%;"><span></span><span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">dialog</span> <span style="color: #A6E22E">open</span><span style="color: #F8F8F2">&gt;</span>
+6
+7
+8
+9</pre></td><td><pre style="margin: 0; line-height: 125%;"><span></span><span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">button</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;trp button type1&quot;</span> <span style="color: #A6E22E">onclick</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;document.getElementById(&#39;dialog-popup&#39;).showModal()&quot;</span><span style="color: #F8F8F2">&gt;</span>모달 다이얼로그 열기<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">button</span><span style="color: #F8F8F2">&gt;</span>
+<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">button</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;trp button type1&quot;</span> <span style="color: #A6E22E">onclick</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;document.getElementById(&#39;dialog-popup&#39;).show()&quot;</span><span style="color: #F8F8F2">&gt;</span>일반 다이얼로그 열기<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">button</span><span style="color: #F8F8F2">&gt;</span>
+
+<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">dialog</span> <span style="color: #A6E22E">id</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;dialog-popup&quot;</span> <span style="color: #F8F8F2">&gt;</span>
   <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>팝업 메시지 <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>
   <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">form</span> <span style="color: #A6E22E">method</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;dialog&quot;</span><span style="color: #F8F8F2">&gt;</span>
-    <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">button</span><span style="color: #F8F8F2">&gt;</span>완료!<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">button</span><span style="color: #F8F8F2">&gt;</span>
+    <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">button</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;trp button type1&quot;</span> <span style="color: #A6E22E">onclick</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;document.getElementById(&#39;modal-dialog&#39;).close()&quot;</span><span style="color: #F8F8F2">&gt;</span>닫기<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">button</span><span style="color: #F8F8F2">&gt;</span>
   <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">form</span><span style="color: #F8F8F2">&gt;</span>
 <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">dialog</span><span style="color: #F8F8F2">&gt;</span>
 </pre></td></tr></table></div>
+
 
 
 
@@ -142,13 +165,16 @@
 
 	    
 		
-		<!-- s: api 설명 dialog -->
+		<!-- s: api 설명 progress & meter -->
 		<div class="api">
-			<h2 class="api-title">progress : 진행상태</h2>
+			<h2 class="api-title">progress & meter </h2>
 			<div class="api-body">
 				<dl>
 					<dt>설명</dt>					
-					<dd><span class="icon"></span>진행상태</dd>
+					<dd><span class="icon"></span>progress : 진행상태 [value, max]</dd>
+					<dd><span class="icon"></span>meter : 측정값 [value, min(최소값D:0), max(최대값D:1), low(낮음값), high(높은값), optimum(최적값)] <br>
+						low <= value <= high
+					</dd>
 				</dl>
 				
 				<div class="ex_wapper">
@@ -157,9 +183,45 @@
 					<div class="ex-body d-n" >
 
 
-<label for="file">다운로드 상태:</label>
-<progress id="file" value="32" max="100"> 32% </progress>
+<style>
+	/* meter 막대의 배경색과 높이 변경 */
+	progress, meter {
+		/* -webkit-appearance: none; appearance: none; */
+		width: 200px;
+	}
+
+	/* meter 막대의 빈 공간(track) 색상 변경 */
+	meter::-webkit-meter-bar {
+		background-color: #f0f0f0;
+	}
+	
+	/* 매우낮은 */
+	meter::-webkit-meter-even-less-good-value {
+		background: blue;   /* low 미만 */
+	}
+	/* 낮은 */
+	meter::-webkit-meter-suboptimum-value {
+		background: green;  /* low ~ high */
+	}
+	/* 최적 optimum : 가까우면*/
+	meter::-webkit-meter-optimum-value {
+		background: red;    /* high 초과 */
+	}
+</style>
+
+<div>
+	<label>Progress (진행률):</label><br>
+	<progress value="70" max="100">70%</progress>
+	<span>70%</span>
+</div>
+<br>
+<div>
+	<label>Meter (측정값): 0~59 | 60~89 | 90~100 </label><br>
+	<meter value="70" min="0" max="100" low="60" high="90" optimum="100">95%</meter>
+	<span>범위 : 0~100 </span> | <span>현재값: 70</span>  | <span>최적: 100</span> | <span>낮은: 60</span> | <span>높은: 90</span>
+</div>
                 
+
 
 					</div>
 				</div>
@@ -171,10 +233,86 @@
 					<div class="api-body_h3 html">
 
 
-<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%;">1
-2</pre></td><td><pre style="margin: 0; line-height: 125%;"><span></span><span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">label</span> <span style="color: #A6E22E">for</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;file&quot;</span><span style="color: #F8F8F2">&gt;</span>다운로드 상태:<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">label</span><span style="color: #F8F8F2">&gt;</span>
-<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">progress</span> <span style="color: #A6E22E">id</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;file&quot;</span> <span style="color: #A6E22E">value</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;32&quot;</span> <span style="color: #A6E22E">max</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;100&quot;</span><span style="color: #F8F8F2">&gt;</span> 32% <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">progress</span><span style="color: #F8F8F2">&gt;</span>
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%;"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37</pre></td><td><pre style="margin: 0; line-height: 125%;"><span></span><span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">style</span><span style="color: #F8F8F2">&gt;</span>
+<span style="color: #F8F8F2">	</span><span style="color: #959077">/* meter 막대의 배경색과 높이 변경 */</span>
+<span style="color: #F8F8F2">	</span><span style="color: #FF4689">progress,</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">meter</span><span style="color: #F8F8F2"> {</span>
+<span style="color: #F8F8F2">		</span><span style="color: #959077">/* -webkit-appearance: none; appearance: none; */</span>
+<span style="color: #F8F8F2">		</span><span style="color: #66D9EF">width</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">200</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">	}</span>
+
+<span style="color: #F8F8F2">	</span><span style="color: #959077">/* meter 막대의 빈 공간(track) 색상 변경 */</span>
+<span style="color: #F8F8F2">	</span><span style="color: #FF4689">meter</span><span style="color: #F8F8F2">::</span><span style="color: #A6E22E">-webkit-meter-bar</span><span style="color: #F8F8F2"> {</span>
+<span style="color: #F8F8F2">		</span><span style="color: #66D9EF">background-color</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">#f0f0f0</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">	}</span>
+<span style="color: #F8F8F2">	</span>
+<span style="color: #F8F8F2">	</span><span style="color: #959077">/* 매우낮은 */</span>
+<span style="color: #F8F8F2">	</span><span style="color: #FF4689">meter</span><span style="color: #F8F8F2">::</span><span style="color: #A6E22E">-webkit-meter-even-less-good-value</span><span style="color: #F8F8F2"> {</span>
+<span style="color: #F8F8F2">		</span><span style="color: #66D9EF">background</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">blue</span><span style="color: #F8F8F2">;   </span><span style="color: #959077">/* low 미만 */</span>
+<span style="color: #F8F8F2">	}</span>
+<span style="color: #F8F8F2">	</span><span style="color: #959077">/* 낮은 */</span>
+<span style="color: #F8F8F2">	</span><span style="color: #FF4689">meter</span><span style="color: #F8F8F2">::</span><span style="color: #A6E22E">-webkit-meter-suboptimum-value</span><span style="color: #F8F8F2"> {</span>
+<span style="color: #F8F8F2">		</span><span style="color: #66D9EF">background</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">green</span><span style="color: #F8F8F2">;  </span><span style="color: #959077">/* low ~ high */</span>
+<span style="color: #F8F8F2">	}</span>
+<span style="color: #F8F8F2">	</span><span style="color: #959077">/* 최적 optimum : 가까우면*/</span>
+<span style="color: #F8F8F2">	</span><span style="color: #FF4689">meter</span><span style="color: #F8F8F2">::</span><span style="color: #A6E22E">-webkit-meter-optimum-value</span><span style="color: #F8F8F2"> {</span>
+<span style="color: #F8F8F2">		</span><span style="color: #66D9EF">background</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">red</span><span style="color: #F8F8F2">;    </span><span style="color: #959077">/* high 초과 */</span>
+<span style="color: #F8F8F2">	}</span>
+<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">style</span><span style="color: #F8F8F2">&gt;</span>
+
+<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+	<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">label</span><span style="color: #F8F8F2">&gt;</span>Progress (진행률):<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">label</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">br</span><span style="color: #F8F8F2">&gt;</span>
+	<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">progress</span> <span style="color: #A6E22E">value</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;70&quot;</span> <span style="color: #A6E22E">max</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;100&quot;</span><span style="color: #F8F8F2">&gt;</span>70%<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">progress</span><span style="color: #F8F8F2">&gt;</span>
+	<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">span</span><span style="color: #F8F8F2">&gt;</span>70%<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">span</span><span style="color: #F8F8F2">&gt;</span>
+<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">br</span><span style="color: #F8F8F2">&gt;</span>
+<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+	<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">label</span><span style="color: #F8F8F2">&gt;</span>Meter (측정값): 0~59 | 60~89 | 90~100 <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">label</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">br</span><span style="color: #F8F8F2">&gt;</span>
+	<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">meter</span> <span style="color: #A6E22E">value</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;70&quot;</span> <span style="color: #A6E22E">min</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;0&quot;</span> <span style="color: #A6E22E">max</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;100&quot;</span> <span style="color: #A6E22E">low</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;60&quot;</span> <span style="color: #A6E22E">high</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;90&quot;</span> <span style="color: #A6E22E">optimum</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;100&quot;</span><span style="color: #F8F8F2">&gt;</span>95%<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">meter</span><span style="color: #F8F8F2">&gt;</span>
+	<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">span</span><span style="color: #F8F8F2">&gt;</span>범위 : 0~100 <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">span</span><span style="color: #F8F8F2">&gt;</span> | <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">span</span><span style="color: #F8F8F2">&gt;</span>현재값: 70<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">span</span><span style="color: #F8F8F2">&gt;</span>  | <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">span</span><span style="color: #F8F8F2">&gt;</span>최적: 100<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">span</span><span style="color: #F8F8F2">&gt;</span> | <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">span</span><span style="color: #F8F8F2">&gt;</span>낮은: 60<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">span</span><span style="color: #F8F8F2">&gt;</span> | <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">span</span><span style="color: #F8F8F2">&gt;</span>높은: 90<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">span</span><span style="color: #F8F8F2">&gt;</span>
+<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
 </pre></td></tr></table></div>
+
+
+
+
+
 
 
 
@@ -189,13 +327,119 @@
 
 
 
-
-		<!-- s: api 설명 fieldset -->
+		<!-- s: api 설명 output -->
 		<div class="api">
-			<h2 class="api-title">datalist : 데이터 리스트</h2>
+			<h2 class="api-title">&lt;output&gt;</h2>
 			<div class="api-body">
 				<dl>
 					<dt>설명</dt>					
+					<dd><span class="icon"></span> &lt;output&gt; : 계산 결과나 사용자 액션의 결과 표시</dd>
+				</dl>
+				
+				<div class="ex_wapper">
+					<h3 class="api-title_h3">VIEW</h3>
+					<p class="ex-more"><a href="javascript:return false;"><span class="d-n">+</span><span style="display: inline;">-</span></a></p>
+					<div class="ex-body d-n" >
+
+
+<div>
+	<label for="standard-input">기준값:
+	<input type="number" id="standard-input" value="50" oninput="calculate()" >
+	</label>
+	<label for="variation-input">변동값:
+	<input type="number" id="variation-input" value="80" oninput="calculate()" >
+	</label>
+	<br>
+	<strong>변동율:
+		<output id="calculator-output" for="standard-input variation-input">0</output>%
+	</strong>
+</div>
+<script>
+	function calculate() {
+		const num1 = parseFloat(document.getElementById('standard-input').value) || 0;
+		const num2 = parseFloat(document.getElementById('variation-input').value) || 0;
+		document.getElementById('calculator-output').textContent = Math.round((num2 / num1 * 100) - 100);
+	}
+	calculate();
+</script>
+
+                
+					</div>
+				</div>
+				
+
+
+				<div class="ex_wapper">
+				<h3 class="api-title_h3 html">HTML</h3>
+					<div class="api-body_h3 html">
+
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%;"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></td><td><pre style="margin: 0; line-height: 125%;"><span></span><span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+	<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">label</span> <span style="color: #A6E22E">for</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;standard-input&quot;</span><span style="color: #F8F8F2">&gt;</span>기준값:
+	<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">input</span> <span style="color: #A6E22E">type</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;number&quot;</span> <span style="color: #A6E22E">id</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;standard-input&quot;</span> <span style="color: #A6E22E">value</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;50&quot;</span> <span style="color: #A6E22E">oninput</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;calculate()&quot;</span> <span style="color: #F8F8F2">&gt;</span>
+	<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">label</span><span style="color: #F8F8F2">&gt;</span>
+	<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">label</span> <span style="color: #A6E22E">for</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;variation-input&quot;</span><span style="color: #F8F8F2">&gt;</span>변동값:
+	<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">input</span> <span style="color: #A6E22E">type</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;number&quot;</span> <span style="color: #A6E22E">id</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;variation-input&quot;</span> <span style="color: #A6E22E">value</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;80&quot;</span> <span style="color: #A6E22E">oninput</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;calculate()&quot;</span> <span style="color: #F8F8F2">&gt;</span>
+	<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">label</span><span style="color: #F8F8F2">&gt;</span>
+	<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">br</span><span style="color: #F8F8F2">&gt;</span>
+	<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">strong</span><span style="color: #F8F8F2">&gt;</span>변동율:
+		<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">output</span> <span style="color: #A6E22E">id</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;calculator-output&quot;</span> <span style="color: #A6E22E">for</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;standard-input variation-input&quot;</span><span style="color: #F8F8F2">&gt;</span>0<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">output</span><span style="color: #F8F8F2">&gt;</span>%
+	<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">strong</span><span style="color: #F8F8F2">&gt;</span>
+<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">script</span><span style="color: #F8F8F2">&gt;</span>
+<span style="color: #F8F8F2">	</span><span style="color: #66D9EF">function</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">calculate</span><span style="color: #F8F8F2">() {</span>
+<span style="color: #F8F8F2">		</span><span style="color: #66D9EF">const</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">num1</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> parseFloat(document.</span><span style="color: #A6E22E">getElementById</span><span style="color: #F8F8F2">(</span><span style="color: #E6DB74">&#39;standard-input&#39;</span><span style="color: #F8F8F2">).</span><span style="color: #A6E22E">value</span><span style="color: #F8F8F2">) </span><span style="color: #FF4689">||</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">0</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">		</span><span style="color: #66D9EF">const</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">num2</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> parseFloat(document.</span><span style="color: #A6E22E">getElementById</span><span style="color: #F8F8F2">(</span><span style="color: #E6DB74">&#39;variation-input&#39;</span><span style="color: #F8F8F2">).</span><span style="color: #A6E22E">value</span><span style="color: #F8F8F2">) </span><span style="color: #FF4689">||</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">0</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">		document.</span><span style="color: #A6E22E">getElementById</span><span style="color: #F8F8F2">(</span><span style="color: #E6DB74">&#39;calculator-output&#39;</span><span style="color: #F8F8F2">).</span><span style="color: #A6E22E">textContent</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> Math.</span><span style="color: #A6E22E">round</span><span style="color: #F8F8F2">((</span><span style="color: #A6E22E">num2</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">/</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">num1</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">*</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">100</span><span style="color: #F8F8F2">) </span><span style="color: #FF4689">-</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">100</span><span style="color: #F8F8F2">);</span>
+<span style="color: #F8F8F2">	}</span>
+<span style="color: #F8F8F2">	</span><span style="color: #A6E22E">calculate</span><span style="color: #F8F8F2">();</span>
+<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">script</span><span style="color: #F8F8F2">&gt;</span>
+</pre></td></tr></table></div>
+
+
+
+
+
+
+					</div>
+				</div>
+					
+		
+			</div>
+		</div>
+		<!-- e: api 설명 -->		
+
+
+
+
+
+		<!-- s: api 설명 datalist -->
+		<div class="api">
+			<h2 class="api-title">&lt;datalist&gt; </h2>
+			<div class="api-body">
+				<dl>
+					<dt>설명</dt>					
+					<dd><span class="icon"></span>&lt;datalist&gt;  : 데이터 리스트</dd>
 					<dd><span class="icon"></span>select 보다 유연하게 기존 데이터를 이용하여 검색됨</dd>
 				</dl>
 				
@@ -253,6 +497,247 @@
   <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">input</span> <span style="color: #A6E22E">type</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;submit&quot;</span><span style="color: #F8F8F2">&gt;</span>
 <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">form</span><span style="color: #F8F8F2">&gt;</span>
 </pre></td></tr></table></div>
+
+
+
+
+					</div>
+				</div>
+					
+		
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+
+
+
+
+
+		<!-- s: api 설명 input[type=range] -->
+		<div class="api">
+			<h2 class="api-title">input[type=range]</h2>
+			<div class="api-body">
+				<dl>
+					<dt>설명</dt>					
+					<dd><span class="icon"></span>input[type=range] : 범위 슬라이더</dd>
+				</dl>
+				
+				<div class="ex_wapper">
+					<h3 class="api-title_h3">VIEW</h3>
+					<p class="ex-more"><a href="javascript:return false;"><span class="d-n">+</span><span style="display: inline;">-</span></a></p>
+					<div class="ex-body d-n" >
+
+<div>
+	<label for="range-input">범위 슬라이더:</label>
+	<input type="range" id="range-input" min="0" max="100" value="50" 
+			oninput="document.getElementById('range-value').textContent = this.value">
+	<span>값: <span id="range-value">50</span></span>
+</div>
+
+                
+					</div>
+				</div>
+				
+
+
+				<div class="ex_wapper">
+				<h3 class="api-title_h3 html">HTML</h3>
+					<div class="api-body_h3 html">
+
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%;">1
+2
+3
+4
+5
+6</pre></td><td><pre style="margin: 0; line-height: 125%;"><span></span><span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+	<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">label</span> <span style="color: #A6E22E">for</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;range-input&quot;</span><span style="color: #F8F8F2">&gt;</span>범위 슬라이더:<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">label</span><span style="color: #F8F8F2">&gt;</span>
+	<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">input</span> <span style="color: #A6E22E">type</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;range&quot;</span> <span style="color: #A6E22E">id</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;range-input&quot;</span> <span style="color: #A6E22E">min</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;0&quot;</span> <span style="color: #A6E22E">max</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;100&quot;</span> <span style="color: #A6E22E">value</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;50&quot;</span> 
+			<span style="color: #A6E22E">oninput</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;document.getElementById(&#39;range-value&#39;).textContent = this.value&quot;</span><span style="color: #F8F8F2">&gt;</span>
+	<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">span</span><span style="color: #F8F8F2">&gt;</span>값: <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">span</span> <span style="color: #A6E22E">id</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;range-value&quot;</span><span style="color: #F8F8F2">&gt;</span>50<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">span</span><span style="color: #F8F8F2">&gt;&lt;/</span><span style="color: #FF4689">span</span><span style="color: #F8F8F2">&gt;</span>
+<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+</pre></td></tr></table></div>
+
+
+
+
+					</div>
+				</div>
+					
+		
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+
+
+
+
+
+		<!-- s: api 설명 input[type=color] -->
+		<div class="api">
+			<h2 class="api-title">input[type=color]</h2>
+			<div class="api-body">
+				<dl>
+					<dt>설명</dt>					
+					<dd><span class="icon"></span>input[type=color] : 색상 선택</dd>
+					<dd><span class="icon"></span>[js] accentColor: 사용자인터페이스 색상</dd>
+					<dd><span class="icon"></span>[css] accent-color: 사용자인터페이스 색상</dd>
+				</dl>
+				
+				<div class="ex_wapper">
+					<h3 class="api-title_h3">VIEW</h3>
+					<p class="ex-more"><a href="javascript:return false;"><span class="d-n">+</span><span style="display: inline;">-</span></a></p>
+					<div class="ex-body d-n" >
+
+<div>
+	<label for="color-input">색상 선택:</label>
+	<input type="color" id="color-input" value="#007bff" 
+		onchange="document.body.style.accentColor = this.value">
+</div>
+
+                
+					</div>
+				</div>
+				
+
+
+				<div class="ex_wapper">
+				<h3 class="api-title_h3 html">HTML</h3>
+					<div class="api-body_h3 html">
+
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%;">1
+2
+3
+4
+5</pre></td><td><pre style="margin: 0; line-height: 125%;"><span></span><span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+	<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">label</span> <span style="color: #A6E22E">for</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;color-input&quot;</span><span style="color: #F8F8F2">&gt;</span>색상 선택:<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">label</span><span style="color: #F8F8F2">&gt;</span>
+	<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">input</span> <span style="color: #A6E22E">type</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;color&quot;</span> <span style="color: #A6E22E">id</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;color-input&quot;</span> <span style="color: #A6E22E">value</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;#007bff&quot;</span> 
+		<span style="color: #A6E22E">onchange</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;document.body.style.accentColor = this.value&quot;</span><span style="color: #F8F8F2">&gt;</span>
+<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+</pre></td></tr></table></div>
+
+
+
+
+
+					</div>
+				</div>
+					
+		
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+
+
+
+
+
+		<!-- s: api 설명 input[type=date] -->
+		<div class="api">
+			<h2 class="api-title">input[type=date]</h2>
+			<div class="api-body">
+				<dl>
+					<dt>설명</dt>					
+					<dd><span class="icon"></span>input[type=date] : 데이트피커</dd>
+					<dd><span class="icon"></span>min: 최소</dd>
+					<dd><span class="icon"></span>max: 최대</dd>
+					<dd><span class="icon"></span>최대(max)을 넣으면 년도 6자리 오류없어짐.</dd>
+				</dl>
+				
+				<div class="ex_wapper">
+					<h3 class="api-title_h3">VIEW</h3>
+					<p class="ex-more"><a href="javascript:return false;"><span class="d-n">+</span><span style="display: inline;">-</span></a></p>
+					<div class="ex-body d-n" >
+
+<div>
+	<label for="date-current">날짜 선택 (범위 제한):</label>
+	<input type="date" id="date-current"  max="9999-12-31" value="">
+	<br><small style="color: #666;">1900년~9999년 범위로 제한</small>
+</div>
+<script>
+	// 현재 날짜로 date input 초기화
+	const today = new Date();
+	const currentYear = today.getFullYear();
+	const currentMonth = String(today.getMonth() + 1).padStart(2, '0');
+	const currentDay = String(today.getDate()).padStart(2, '0');
+	const currentDateString = `${currentYear}-${currentMonth}-${currentDay}`;
+	document.getElementById('date-current').value = currentDateString;
+
+	// 날짜 입력 유효성 검사
+	document.getElementById('date-current').addEventListener('change', function() {
+		const selectedDate = new Date(this.value);
+		const year = selectedDate.getFullYear();
+		if (year < 1900 || year > 2099) {
+			alert('연도는 1900년부터 9999년 사이여야 합니다.');
+			this.value = '';
+		}
+	});
+</script>
+
+                
+					</div>
+				</div>
+				
+
+
+				<div class="ex_wapper">
+				<h3 class="api-title_h3 html">HTML</h3>
+					<div class="api-body_h3 html">
+
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%;"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24</pre></td><td><pre style="margin: 0; line-height: 125%;"><span></span><span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+	<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">label</span> <span style="color: #A6E22E">for</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;date-current&quot;</span><span style="color: #F8F8F2">&gt;</span>날짜 선택 (범위 제한):<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">label</span><span style="color: #F8F8F2">&gt;</span>
+	<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">input</span> <span style="color: #A6E22E">type</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;date&quot;</span> <span style="color: #A6E22E">id</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;date-current&quot;</span>  <span style="color: #A6E22E">max</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;9999-12-31&quot;</span> <span style="color: #A6E22E">value</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;&quot;</span><span style="color: #F8F8F2">&gt;</span>
+	<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">br</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">small</span> <span style="color: #A6E22E">style</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;color: #666;&quot;</span><span style="color: #F8F8F2">&gt;</span>1900년~9999년 범위로 제한<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">small</span><span style="color: #F8F8F2">&gt;</span>
+<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">script</span><span style="color: #F8F8F2">&gt;</span>
+<span style="color: #F8F8F2">	</span><span style="color: #959077">// 현재 날짜로 date input 초기화</span>
+<span style="color: #F8F8F2">	</span><span style="color: #66D9EF">const</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">today</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">new</span><span style="color: #F8F8F2"> Date();</span>
+<span style="color: #F8F8F2">	</span><span style="color: #66D9EF">const</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">currentYear</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">today</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">getFullYear</span><span style="color: #F8F8F2">();</span>
+<span style="color: #F8F8F2">	</span><span style="color: #66D9EF">const</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">currentMonth</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> String(</span><span style="color: #A6E22E">today</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">getMonth</span><span style="color: #F8F8F2">() </span><span style="color: #FF4689">+</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">1</span><span style="color: #F8F8F2">).</span><span style="color: #A6E22E">padStart</span><span style="color: #F8F8F2">(</span><span style="color: #AE81FF">2</span><span style="color: #F8F8F2">, </span><span style="color: #E6DB74">&#39;0&#39;</span><span style="color: #F8F8F2">);</span>
+<span style="color: #F8F8F2">	</span><span style="color: #66D9EF">const</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">currentDay</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> String(</span><span style="color: #A6E22E">today</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">getDate</span><span style="color: #F8F8F2">()).</span><span style="color: #A6E22E">padStart</span><span style="color: #F8F8F2">(</span><span style="color: #AE81FF">2</span><span style="color: #F8F8F2">, </span><span style="color: #E6DB74">&#39;0&#39;</span><span style="color: #F8F8F2">);</span>
+<span style="color: #F8F8F2">	</span><span style="color: #66D9EF">const</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">currentDateString</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> </span><span style="color: #E6DB74">`${</span><span style="color: #A6E22E">currentYear</span><span style="color: #E6DB74">}-${</span><span style="color: #A6E22E">currentMonth</span><span style="color: #E6DB74">}-${</span><span style="color: #A6E22E">currentDay</span><span style="color: #E6DB74">}`</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">	document.</span><span style="color: #A6E22E">getElementById</span><span style="color: #F8F8F2">(</span><span style="color: #E6DB74">&#39;date-current&#39;</span><span style="color: #F8F8F2">).</span><span style="color: #A6E22E">value</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">currentDateString</span><span style="color: #F8F8F2">;</span>
+
+<span style="color: #F8F8F2">	</span><span style="color: #959077">// 날짜 입력 유효성 검사</span>
+<span style="color: #F8F8F2">	document.</span><span style="color: #A6E22E">getElementById</span><span style="color: #F8F8F2">(</span><span style="color: #E6DB74">&#39;date-current&#39;</span><span style="color: #F8F8F2">).</span><span style="color: #A6E22E">addEventListener</span><span style="color: #F8F8F2">(</span><span style="color: #E6DB74">&#39;change&#39;</span><span style="color: #F8F8F2">, </span><span style="color: #66D9EF">function</span><span style="color: #F8F8F2">() {</span>
+<span style="color: #F8F8F2">		</span><span style="color: #66D9EF">const</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">selectedDate</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">new</span><span style="color: #F8F8F2"> Date(</span><span style="color: #66D9EF">this</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">value</span><span style="color: #F8F8F2">);</span>
+<span style="color: #F8F8F2">		</span><span style="color: #66D9EF">const</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">year</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">selectedDate</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">getFullYear</span><span style="color: #F8F8F2">();</span>
+<span style="color: #F8F8F2">		</span><span style="color: #66D9EF">if</span><span style="color: #F8F8F2"> (</span><span style="color: #A6E22E">year</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">&lt;</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">1900</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">||</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">year</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">&gt;</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">2099</span><span style="color: #F8F8F2">) {</span>
+<span style="color: #F8F8F2">			</span><span style="color: #A6E22E">alert</span><span style="color: #F8F8F2">(</span><span style="color: #E6DB74">&#39;연도는 1900년부터 9999년 사이여야 합니다.&#39;</span><span style="color: #F8F8F2">);</span>
+<span style="color: #F8F8F2">			</span><span style="color: #66D9EF">this</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">value</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> </span><span style="color: #E6DB74">&#39;&#39;</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">		}</span>
+<span style="color: #F8F8F2">	});</span>
+<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">script</span><span style="color: #F8F8F2">&gt;</span>
+</pre></td></tr></table></div>
+
 
 
 
