@@ -637,7 +637,7 @@
 
 		<!-- s: api 설명 input[type=date] -->
 		<div class="api">
-			<h2 class="api-title">input[type=date]</h2>
+			<h2 class="api-title">input[type=date], input[type=month], input[type=time], input[type=datetime-local]</h2>
 			<div class="api-body">
 				<dl>
 					<dt>설명</dt>					
@@ -653,8 +653,26 @@
 					<div class="ex-body d-n" >
 
 <div>
-	<label for="date-current">날짜 선택 (범위 제한):</label>
+	<label for="date-current">날짜 선택 (범위 제한): script</label>
 	<input type="date" id="date-current"  max="9999-12-31" value="">
+	<br><small style="color: #666;">1900년~9999년 범위로 제한</small>
+</div>
+<br>
+<div>
+	<label for="month-current">년도달 선택 (범위 제한): </label>
+	<input type="month" id="month-current" min="1900-01"  max="9999-12" value="2021-08">
+	<br><small style="color: #666;">1900년~9999년 범위로 제한</small>
+</div>
+<br>
+<div>
+	<label for="time-current">시간 선택 (범위 제한): </label>
+	<input type="time" id="time-current"  min="09:00" max="18:00" required >
+	<br><small style="color: #666;">시간선택</small>
+</div>
+<br>
+<div>
+	<label for="datetime-current">날짜 시간 (범위 제한):</label>
+	<input type="datetime-local" id="datetime-current"  value="2021-08-28T19:30" min="1900-06-07T00:00" max="9999-12-31T23:59">
 	<br><small style="color: #666;">1900년~9999년 범위로 제한</small>
 </div>
 <script>
@@ -689,6 +707,9 @@
 
 
 
+
+
+						
 <!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%;"> 1
  2
  3
@@ -712,9 +733,45 @@
 21
 22
 23
-24</pre></td><td><pre style="margin: 0; line-height: 125%;"><span></span><span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
-	<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">label</span> <span style="color: #A6E22E">for</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;date-current&quot;</span><span style="color: #F8F8F2">&gt;</span>날짜 선택 (범위 제한):<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">label</span><span style="color: #F8F8F2">&gt;</span>
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42</pre></td><td><pre style="margin: 0; line-height: 125%;"><span></span><span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+	<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">label</span> <span style="color: #A6E22E">for</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;date-current&quot;</span><span style="color: #F8F8F2">&gt;</span>날짜 선택 (범위 제한): script<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">label</span><span style="color: #F8F8F2">&gt;</span>
 	<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">input</span> <span style="color: #A6E22E">type</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;date&quot;</span> <span style="color: #A6E22E">id</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;date-current&quot;</span>  <span style="color: #A6E22E">max</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;9999-12-31&quot;</span> <span style="color: #A6E22E">value</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;&quot;</span><span style="color: #F8F8F2">&gt;</span>
+	<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">br</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">small</span> <span style="color: #A6E22E">style</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;color: #666;&quot;</span><span style="color: #F8F8F2">&gt;</span>1900년~9999년 범위로 제한<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">small</span><span style="color: #F8F8F2">&gt;</span>
+<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">br</span><span style="color: #F8F8F2">&gt;</span>
+<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+	<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">label</span> <span style="color: #A6E22E">for</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;month-current&quot;</span><span style="color: #F8F8F2">&gt;</span>년도달 선택 (범위 제한): <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">label</span><span style="color: #F8F8F2">&gt;</span>
+	<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">input</span> <span style="color: #A6E22E">type</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;month&quot;</span> <span style="color: #A6E22E">id</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;month-current&quot;</span> <span style="color: #A6E22E">min</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;1900-01&quot;</span>  <span style="color: #A6E22E">max</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;9999-12&quot;</span> <span style="color: #A6E22E">value</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;2021-08&quot;</span><span style="color: #F8F8F2">&gt;</span>
+	<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">br</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">small</span> <span style="color: #A6E22E">style</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;color: #666;&quot;</span><span style="color: #F8F8F2">&gt;</span>1900년~9999년 범위로 제한<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">small</span><span style="color: #F8F8F2">&gt;</span>
+<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">br</span><span style="color: #F8F8F2">&gt;</span>
+<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+	<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">label</span> <span style="color: #A6E22E">for</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;time-current&quot;</span><span style="color: #F8F8F2">&gt;</span>시간 선택 (범위 제한): <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">label</span><span style="color: #F8F8F2">&gt;</span>
+	<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">input</span> <span style="color: #A6E22E">type</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;time&quot;</span> <span style="color: #A6E22E">id</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;time-current&quot;</span>  <span style="color: #A6E22E">min</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;09:00&quot;</span> <span style="color: #A6E22E">max</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;18:00&quot;</span> <span style="color: #A6E22E">required</span> <span style="color: #F8F8F2">&gt;</span>
+	<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">br</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">small</span> <span style="color: #A6E22E">style</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;color: #666;&quot;</span><span style="color: #F8F8F2">&gt;</span>시간선택<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">small</span><span style="color: #F8F8F2">&gt;</span>
+<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">br</span><span style="color: #F8F8F2">&gt;</span>
+<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+	<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">label</span> <span style="color: #A6E22E">for</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;datetime-current&quot;</span><span style="color: #F8F8F2">&gt;</span>날짜 시간 (범위 제한):<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">label</span><span style="color: #F8F8F2">&gt;</span>
+	<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">input</span> <span style="color: #A6E22E">type</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;datetime-local&quot;</span> <span style="color: #A6E22E">id</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;datetime-current&quot;</span>  <span style="color: #A6E22E">value</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;2021-08-28T19:30&quot;</span> <span style="color: #A6E22E">min</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;1900-06-07T00:00&quot;</span> <span style="color: #A6E22E">max</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;9999-12-31T23:59&quot;</span><span style="color: #F8F8F2">&gt;</span>
 	<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">br</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">small</span> <span style="color: #A6E22E">style</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;color: #666;&quot;</span><span style="color: #F8F8F2">&gt;</span>1900년~9999년 범위로 제한<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">small</span><span style="color: #F8F8F2">&gt;</span>
 <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
 <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">script</span><span style="color: #F8F8F2">&gt;</span>
@@ -737,6 +794,8 @@
 <span style="color: #F8F8F2">	});</span>
 <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">script</span><span style="color: #F8F8F2">&gt;</span>
 </pre></td></tr></table></div>
+
+
 
 
 

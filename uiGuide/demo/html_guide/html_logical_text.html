@@ -39,17 +39,21 @@
 					<dt>설명</dt>					
 					<dd><span class="icon"></span>abbr : 약어 표기, 밑줄 점선</dd>
 					<dd><span class="icon"></span>del  : 제거 표기, 취소선</dd>
-					<dd><span class="icon"></span>s    : 관련없음/ 정확하지 않음, 취소선</dd>
-					<dd><span class="icon"></span>ins  : 사입 표기, 밑줄</dd>
+					<dd><span class="icon"></span>ins  : 삽입 표기 / 추가된 내용, 밑줄</dd>
 					<dd><span class="icon"></span>kbd  : 키보드 단축키, font-family: monospace;</dd>
-					<dd><span class="icon"></span>samp : 샘플 출력 , font-family: monospace;</dd>
-					<dd><span class="icon"></span>q    : 짧은 인용구 , 쌍타음표</dd>
-					<dd><span class="icon"></span>small  : 작은 텍스트, 작게 표기 </dd>
-					<dd><span class="icon"></span>sub    : 아래 첨자, 아래로 작게 표기</dd>
-					<dd><span class="icon"></span>sup    : 위 첨자 , 위로 작게 표기</dd>
-					<dd><span class="icon"></span>wbr    : 줄바꿈 허용위치지정 , 보이지 않음</dd>
+					<dd><span class="icon"></span>samp : 프로그램 샘플 출력 , font-family: monospace;</dd>
+					<dd><span class="icon"></span>code : 프로그램 코드 출력 , font-family: monospace;</dd>
 					<dd><span class="icon"></span>time   : 문자에 날짜를 내포함 , 보이지 않음</dd>
 					<dd><span class="icon"></span>data   : 문자에 날짜왜 의미를 내포함 , 보이지 않음</dd>
+					<dd><span class="icon"></span>q    		: 짧은 인용구 , 쌍타음표</dd>
+					<br>
+					<dd><span class="icon"></span>mark    : 강조표기, 배경색</dd>
+					<dd><span class="icon"></span>big    : 글자를 더크게 , 크게 표기 </dd>
+					<dd><span class="icon"></span>small  : 글자를 더작게, 작게 표기 </dd>
+					<dd><span class="icon"></span>sub    : 아래 첨자, 아래로 작게 표기</dd>
+					<dd><span class="icon"></span>sup    : 위 첨자 , 위로 작게 표기</dd>
+					<dd><span class="icon"></span>s    		: 관련없음/ 정확하지 않음, 취소선</dd>
+					<dd><span class="icon"></span>wbr    : 줄바꿈 허용위치지정 , 보이지 않음</dd>
 				</dl>
 				
 				<div class="ex_wapper">
@@ -58,17 +62,19 @@
 					<div class="ex-body d-n" >
 
 
-<abbr title="HyperText Markup Language">HTML</abbr> <br>
-<del>삭제된 내용</del> <br>
-<s>정확하지 않음</s> <br>
-<ins>추가된 내용</ins> <br>
-<kbd>Ctrl</kbd> + <kbd>V</kbd>  <br>
-<samp>샘플 출력시</samp>  <br>
-이것은 : <q>이내용에 쌍따으표로</q> 표기된다.  <br>		
-기본 <small>작은 텍스트</small>, 기본  <sub>아래 첨자</sub>, 기본 <sup>위 첨자</sup> <br>
-<p>This is a veryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryvery<wbr>longwordthatwillbreakatspecific<wbr>placeswhenthebrowserwindowisresized.</p>
-<time datetime="05-28 20:00">생일날</time> <br>
-<data value="21055">그의 학번</data>
+	abbr : 약어 표기, 밑줄 점선 | <abbr title="HyperText Markup Language">HTML</abbr> <br>
+	<del>del  : 제거 표기, 취소선</del> <br>
+	<ins>ins  : 삽입 표기 / 추가된 내용, 밑줄</ins> <br>
+	<kbd>kbd  : 키보드 단축, font-family: monospace; | </kbd> <kbd>Ctrl</kbd> + <kbd>V</kbd>  <br>
+	<samp>samp : 샘플 출력 , font-family: monospace;</samp>  <br>
+	time   : 날짜표기, 문자에 날짜를 내포함 , 보이지 않음 |<time datetime="05-28 20:00">생일날</time> <br>
+	data   : 문자에 날짜왜 의미를 내포함 , 보이지 않음 | <data value="21055">그의 학번</data> <br>
+	q    : 짧은 인용구 , 쌍타음표 | 이것은 : <q>이내용에 쌍따으표로</q> 표기된다.  <br><br>		
+
+	mark : 강조 표시 | <mark>강조 표시</mark> <br>
+	big, small, sup, sub  : 크고, 작고 , 위, 아래  | <big>큰 텍스트</big>, 기본 <small>작은 텍스트</small>, 기본  <sup>위 첨자</sup>, 기본  <sub>아래 첨자</sub><br>
+	<s>s    : 관련없음/ 정확하지 않음, 취소선</s> <br>
+	<p>wbr    : 줄바꿈 허용위치지정 , 보이지 않음 | This is a veryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryvery<wbr>longwordthatwillbreakatspecific<wbr>placeswhenthebrowserwindowisresized.</p>
            
 
 					</div>
@@ -82,6 +88,7 @@
 
 
 
+
 <!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%;"> 1
  2
  3
@@ -92,18 +99,27 @@
  8
  9
 10
-11</pre></td><td><pre style="margin: 0; line-height: 125%;"><span></span><span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">abbr</span> <span style="color: #A6E22E">title</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;HyperText Markup Language&quot;</span><span style="color: #F8F8F2">&gt;</span>HTML<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">abbr</span><span style="color: #F8F8F2">&gt;</span> <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">br</span><span style="color: #F8F8F2">&gt;</span>
-<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">del</span><span style="color: #F8F8F2">&gt;</span>삭제된 내용<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">del</span><span style="color: #F8F8F2">&gt;</span> <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">br</span><span style="color: #F8F8F2">&gt;</span>
-<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">s</span><span style="color: #F8F8F2">&gt;</span>정확하지 않음<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">s</span><span style="color: #F8F8F2">&gt;</span> <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">br</span><span style="color: #F8F8F2">&gt;</span>
-<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">ins</span><span style="color: #F8F8F2">&gt;</span>추가된 내용<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">ins</span><span style="color: #F8F8F2">&gt;</span> <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">br</span><span style="color: #F8F8F2">&gt;</span>
-<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">kbd</span><span style="color: #F8F8F2">&gt;</span>Ctrl<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">kbd</span><span style="color: #F8F8F2">&gt;</span> + <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">kbd</span><span style="color: #F8F8F2">&gt;</span>V<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">kbd</span><span style="color: #F8F8F2">&gt;</span>  <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">br</span><span style="color: #F8F8F2">&gt;</span>
-<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">samp</span><span style="color: #F8F8F2">&gt;</span>샘플 출력시<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">samp</span><span style="color: #F8F8F2">&gt;</span>  <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">br</span><span style="color: #F8F8F2">&gt;</span>
-이것은 : <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">q</span><span style="color: #F8F8F2">&gt;</span>이내용에 쌍따으표로<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">q</span><span style="color: #F8F8F2">&gt;</span> 표기된다.  <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">br</span><span style="color: #F8F8F2">&gt;</span>		
-기본 <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">small</span><span style="color: #F8F8F2">&gt;</span>작은 텍스트<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">small</span><span style="color: #F8F8F2">&gt;</span>, 기본  <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">sub</span><span style="color: #F8F8F2">&gt;</span>아래 첨자<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">sub</span><span style="color: #F8F8F2">&gt;</span>, 기본 <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">sup</span><span style="color: #F8F8F2">&gt;</span>위 첨자<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">sup</span><span style="color: #F8F8F2">&gt;</span> <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">br</span><span style="color: #F8F8F2">&gt;</span>
-<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>This is a veryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryvery<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">wbr</span><span style="color: #F8F8F2">&gt;</span>longwordthatwillbreakatspecific<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">wbr</span><span style="color: #F8F8F2">&gt;</span>placeswhenthebrowserwindowisresized.<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>
-<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">time</span> <span style="color: #A6E22E">datetime</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;05-28 20:00&quot;</span><span style="color: #F8F8F2">&gt;</span>생일날<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">time</span><span style="color: #F8F8F2">&gt;</span> <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">br</span><span style="color: #F8F8F2">&gt;</span>
-<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">data</span> <span style="color: #A6E22E">value</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;21055&quot;</span><span style="color: #F8F8F2">&gt;</span>그의 학번<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">data</span><span style="color: #F8F8F2">&gt;</span>
+11
+12
+13
+14</pre></td><td><pre style="margin: 0; line-height: 125%;"><span></span>	abbr : 약어 표기, 밑줄 점선 | <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">abbr</span> <span style="color: #A6E22E">title</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;HyperText Markup Language&quot;</span><span style="color: #F8F8F2">&gt;</span>HTML<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">abbr</span><span style="color: #F8F8F2">&gt;</span> <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">br</span><span style="color: #F8F8F2">&gt;</span>
+	<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">del</span><span style="color: #F8F8F2">&gt;</span>del  : 제거 표기, 취소선<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">del</span><span style="color: #F8F8F2">&gt;</span> <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">br</span><span style="color: #F8F8F2">&gt;</span>
+	<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">ins</span><span style="color: #F8F8F2">&gt;</span>ins  : 삽입 표기 / 추가된 내용, 밑줄<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">ins</span><span style="color: #F8F8F2">&gt;</span> <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">br</span><span style="color: #F8F8F2">&gt;</span>
+	<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">kbd</span><span style="color: #F8F8F2">&gt;</span>kbd  : 키보드 단축, font-family: monospace; | <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">kbd</span><span style="color: #F8F8F2">&gt;</span> <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">kbd</span><span style="color: #F8F8F2">&gt;</span>Ctrl<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">kbd</span><span style="color: #F8F8F2">&gt;</span> + <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">kbd</span><span style="color: #F8F8F2">&gt;</span>V<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">kbd</span><span style="color: #F8F8F2">&gt;</span>  <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">br</span><span style="color: #F8F8F2">&gt;</span>
+	<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">samp</span><span style="color: #F8F8F2">&gt;</span>samp : 샘플 출력 , font-family: monospace;<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">samp</span><span style="color: #F8F8F2">&gt;</span>  <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">br</span><span style="color: #F8F8F2">&gt;</span>
+	time   : 날짜표기, 문자에 날짜를 내포함 , 보이지 않음 |<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">time</span> <span style="color: #A6E22E">datetime</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;05-28 20:00&quot;</span><span style="color: #F8F8F2">&gt;</span>생일날<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">time</span><span style="color: #F8F8F2">&gt;</span> <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">br</span><span style="color: #F8F8F2">&gt;</span>
+	data   : 문자에 날짜왜 의미를 내포함 , 보이지 않음 | <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">data</span> <span style="color: #A6E22E">value</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;21055&quot;</span><span style="color: #F8F8F2">&gt;</span>그의 학번<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">data</span><span style="color: #F8F8F2">&gt;</span> <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">br</span><span style="color: #F8F8F2">&gt;</span>
+	q    : 짧은 인용구 , 쌍타음표 | 이것은 : <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">q</span><span style="color: #F8F8F2">&gt;</span>이내용에 쌍따으표로<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">q</span><span style="color: #F8F8F2">&gt;</span> 표기된다.  <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">br</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">br</span><span style="color: #F8F8F2">&gt;</span>		
+
+	mark : 강조 표시 | <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">mark</span><span style="color: #F8F8F2">&gt;</span>강조 표시<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">mark</span><span style="color: #F8F8F2">&gt;</span> <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">br</span><span style="color: #F8F8F2">&gt;</span>
+	big, small, sup, sub  : 크고, 작고 , 위, 아래  | <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">big</span><span style="color: #F8F8F2">&gt;</span>큰 텍스트<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">big</span><span style="color: #F8F8F2">&gt;</span>, 기본 <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">small</span><span style="color: #F8F8F2">&gt;</span>작은 텍스트<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">small</span><span style="color: #F8F8F2">&gt;</span>, 기본  <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">sup</span><span style="color: #F8F8F2">&gt;</span>위 첨자<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">sup</span><span style="color: #F8F8F2">&gt;</span>, 기본  <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">sub</span><span style="color: #F8F8F2">&gt;</span>아래 첨자<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">sub</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">br</span><span style="color: #F8F8F2">&gt;</span>
+	<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">s</span><span style="color: #F8F8F2">&gt;</span>s    : 관련없음/ 정확하지 않음, 취소선<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">s</span><span style="color: #F8F8F2">&gt;</span> <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">br</span><span style="color: #F8F8F2">&gt;</span>
+	<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>wbr    : 줄바꿈 허용위치지정 , 보이지 않음 | This is a veryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryvery<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">wbr</span><span style="color: #F8F8F2">&gt;</span>longwordthatwillbreakatspecific<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">wbr</span><span style="color: #F8F8F2">&gt;</span>placeswhenthebrowserwindowisresized.<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>
+        
 </pre></td></tr></table></div>
+
+
+
 
 
 
@@ -120,6 +136,72 @@
 
 
 
+		<!-- s: api 설명 block -->
+		<div class="api">
+			<h2 class="api-title">block element</h2>
+			<div class="api-body">
+				<dl>
+					<dt>설명</dt>					
+					<dd><span class="icon"></span>blockquote : 긴은 인용구 , 들여쓰기</dd>
+					<dd><span class="icon"></span>rt : 주석내용 , 상단에표기</dd>
+					<dd><span class="icon"></span>rp : 주석내용 루주석이 지원되지 않을때 , 상단에표기</dd>
+				</dl>
+				
+				<div class="ex_wapper">
+					<h3 class="api-title_h3">VIEW</h3>
+					<p class="ex-more"><a href="javascript:return false;"><span class="d-n">+</span><span style="display: inline;">-</span></a></p>
+					<div class="ex-body d-n" >
+
+						
+	<blockquote cite="https://example.com">
+		이것은 긴 인용구입니다. <br>
+		cite 속성은 인용의 출처를 나타냅니다.
+	</blockquote>
+
+						
+
+					</div>
+				</div>
+				
+
+
+				<div class="ex_wapper">
+				<h3 class="api-title_h3 html">HTML</h3>
+					<div class="api-body_h3 html">
+
+
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%;">1
+2
+3
+4</pre></td><td><pre style="margin: 0; line-height: 125%;"><span></span>	<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">blockquote</span> <span style="color: #A6E22E">cite</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;https://example.com&quot;</span><span style="color: #F8F8F2">&gt;</span>
+		이것은 긴 인용구입니다. <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">br</span><span style="color: #F8F8F2">&gt;</span>
+		cite 속성은 인용의 출처를 나타냅니다.
+	<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">blockquote</span><span style="color: #F8F8F2">&gt;</span>
+</pre></td></tr></table></div>
+						
+
+
+
+
+					</div>
+				</div>
+					
+		
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+
+
+
+
+
+
+
+
+
+		
 		<!-- s: api 설명 q -->
 		<div class="api">
 			<h2 class="api-title">ruby</h2>

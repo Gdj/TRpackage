@@ -14,8 +14,8 @@
 	a:active, a:hover, a:focus { text-decoration:underline; }		
 	/* HTML5 display-role reset for older browsers   */	
 	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display:block; margin:0; padding:0;}
-	blockquote, q { quotes:none; }
-	blockquote:before, blockquote:after, q:before, q:after { content:''; content:none; }
+	blockquote, q { /* quotes:none; */ }
+	blockquote:before, blockquote:after, q:before, q:after {  }
 
 /*************************************************** 공통영역 **********************************************/
 .blind {overflow: hidden;position: absolute;clip: rect(0 0 0 0);width: 0;height: 0;margin: -1px;padding: 0;font-size: 1px;line-height: 0;color: transparent;}
@@ -250,7 +250,6 @@ label.screen-reader-text { position:absolute; margin:-1px; padding:0; height:1px
     .trp.checkbox-box input[type="checkbox"] + i:after { display: block; content: ''; width: 20px; height: 20px;  background:url("./trp_images/checkbox.png") 0 0 no-repeat; }
     .trp.checkbox-box input[type="checkbox"]:checked + i:after { background-position: 0 -20px; }
     /*** checkbox ***/
-
 
 /** //input **/
 
