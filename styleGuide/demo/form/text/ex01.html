@@ -8,34 +8,67 @@
 
 <!-- 
 <style type="text/css">
-	    
-    #trp-text { width:150px; height:24px; margin-left:12px; }
-    #trp-password { width:150px; height:24px; }
-    #trp-search { width:150px; height:24px; vertical-align:top; }
 
-    /*** text ***/    
-    .trp.input-box label { vertical-align:middle; }
-    .trp.input-box .search-box label { font-size:0; width:0; }
-    /*** //text ***/
-    
+	input.trp_validation:valid { background-color: palegreen; }      /* 유효할때 */
+	input.trp_validation:invalid { background-color: lightpink; }    /* 유효하지 않을때 */
+	input.trp_validation:placeholder-shown:invalid { background-color: transparent;  } /*  placeholder가 있고 유효하지 않을때 */
+
+	/*** input ***/
+	.trp.input-box label { vertical-align:middle; }
+	.trp.input-box input { width: 200px; padding: 2px; border: 1px solid #e5e5e5; }
+	/*** //input ***/
+
 </style>
--->
+ -->
 
 <body>
 
+
 <div class="trp input-box">
-	<div class="txt-box" style="margin-bottom:10px">
-		<label for="trp-text">아이디</label> <input type="text" id="trp-text" placeholder="아이디">
+	
+	<div class="" style="margin-bottom:10px">
+		<label for="trp-text">type="text"</label> <input type="text" id="trp-text" placeholder="아이디">
 	</div>
-	<div class="password-box" style="margin-bottom:10px">
-		<label for="trp-password">비밀번호</label> <input type="password" id="trp-password" placeholder="비밀번호">
+
+	<div class="" style="margin-bottom:10px">
+		<label for="trp-password">type="password"</label> <input type="password" id="trp-password" placeholder="비밀번호" >
 	</div>
-	<div class="search-box" style="margin-bottom:10px">
-		<label for="trp-search">파일검색</label> 
-		<input type="text" id="trp-search" placeholder="파일검색"> 
+
+	<div class="" style="margin-bottom:10px">
+		<label for="trp-search">type="search"</label> 
+		<input type="search" id="trp-search" placeholder="파일검색"> 
 		<a href="#"><img src="../../../../asset/images/search.gif"></a>
 	</div>
+
+
+	<div class="" style="margin-bottom:10px">
+		<label for="trp-tel">type="tel"</label> 
+			<input type="tel" id="trp-tel" class="trp_validation" pattern="^0\d{1,2}-?\d{3,4}-?\d{4}$" maxlength="13"
+			placeholder="010-1234-5678 또는 02-1234-5678" title="일반전화 또는 휴대전화번호를 입력해주세요" required>
+		<div class="help-text">
+			<strong>허용되는 번호:</strong><br>
+			• 휴대전화: 010-1234-5678, 011-123-4567<br>
+			• 서울: 02-1234-5678, 02-123-4567<br>
+			• 지역: 031-123-4567, 051-123-4567<br>
+			• 인터넷전화: 070-1234-5678
+		</div>
+	</div>
+
+
+	<div class="" style="margin-bottom:10px">
+		<label for="trp-email">type="email"</label> 
+		<input type="email" id="trp-email"
+			pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+			placeholder="example@domain.com"
+			class="trp_validation" required
+			title="올바른 이메일 형식을 입력해주세요">
+	</div>
+	
 </div>
 
+
+
+
+ 
 </body>
 </html>

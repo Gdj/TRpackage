@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>Email Validation (pattern)</title>
+<style>
+  input.trp_validation:valid { background-color: palegreen; }
+  input.trp_validation:invalid { background-color: lightpink; }
+  input.trp_validation:placeholder-shown:invalid { background-color: transparent;  }
+</style>
+</head>
+<body>
+  <label for="email-custom">＠이메일:???</label>
+  <input
+    id="email-custom"
+    class="trp_validation"
+    type="text"
+    required
+    autocomplete="email"
+    inputmode="email"
+    placeholder="example@domain.com"
+    title="올바른 이메일 형식을 입력해주세요 (예: example@domain.com)"
+    pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(?:[.][A-Za-z0-9-]+)*[.][A-Za-z]{2,}$"
+    >
+
+  <script>
+  (function () {
+    const el = document.getElementById('email-custom');
+    // HTML pattern과 동일한 정규식 (JS용)
+    const re = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)*\.[A-Za-z]{2,}$/;
+
+    function validate() {
+      const v = el.value.trim();
+      if (!v) {
+        // required가 처리하지만, 메시지까지 명확히
+        el.setCustomValidity('이메일을 입력해주세요');
+      } else if (!re.test(v)) {
+        el.setCustomValidity('올바른 이메일 형식을 입력해주세요');
+      } else {
+        el.setCustomValidity('');
+      }
+    }
+
+    el.addEventListener('input', validate);
+    // 초기 상태 반영
+    validate();
+  })();
+</script>
+</body>
+</html>

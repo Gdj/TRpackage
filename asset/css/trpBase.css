@@ -163,7 +163,7 @@
     .trp.toolbar-list li::after {content: '';position: absolute;top: 50%;left: 0;margin-top: -6px;height: 12px;line-height: 25px;border-left: 1px solid #231f20;}    
     .trp.toolbar-list li:first-child {padding-left: 0;margin-left: 0;}
     .trp.toolbar-list li:first-child::after {display: none;}
-    .trp.toolbar-list li>a { display: block; padding:7px 0 0; height: 18px;color: #231f20;font-size: 12px;line-height: 1; }
+    .trp.toolbar-list li>a { display: block; padding:7px 0 0; height: 18px;color: #231f20;font-size: 12px;line-height: 1}
 
 /** text **/
 h1.trp.h1 { margin:0; padding:0; height:auto; font-size:40px; line-height: 1.2; color:#333; border:0; font-weight:bold }
@@ -174,7 +174,7 @@ h5.trp.h5 { margin:0; padding:0; height:auto; font-size:20px; line-height: 1.2; 
 h6.trp.h6 { margin:0; padding:0; height:auto; font-size:15px; line-height: 1.2; color:#333; border:0; font-weight:none }
 
 .trp.list-dot li, .list-dot dd { text-indent: -11px; padding-left: 11px; }
-.trp.list-dot .icon18 { width:18px; margin-left:-7px; *margin-left:-18px; text-indent: 7px; *text-indent: -0px; *text-align:center;  }
+.trp.list-dot .icon18 { width:18px; margin-left:-7px;  text-indent: 7px; text-align:center }
 
 .trp.reduction { display: block; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; line-height: 18px; }
 
@@ -189,58 +189,61 @@ h6.trp.h6 { margin:0; padding:0; height:auto; font-size:15px; line-height: 1.2; 
 .trp.input-wrap input[type=radio]{  margin: 4px 2px 2px 0; padding: 0;  vertical-align: middle; }
 .trp.input-box { clear:both; }
 label.screen-reader-text { position:absolute; margin:-1px; padding:0; height:1px; width:1px; overflow:hidden; clip:rect(0,0,0,0); border:0; }
-#trp-text { width:150px; height:24px; }
-#trp-password { width:150px; height:24px; }
-#trp-search { width:150px; height:24px; vertical-align:top; }
 
-    /*** text ***/
-    .trp.input-box label { vertical-align:middle; }
-    .trp.input-box .search-box label { font-size:0; width:0; }
-    /*** //text ***/
+  input.trp_validation:valid { background-color: palegreen; }      /* 유효할때 */
+  input.trp_validation:invalid { background-color: lightpink; }    /* 유효하지 않을때 */
+  input.trp_validation:placeholder-shown:invalid { background-color: transparent;  } /*  placeholder가 있고 유효하지 않을때 */
 
-    /*** textarea ***/
-    .trp.textarea-box { width:560px; height:200px; margin-top:25px; border:1px solid #e5e5e5; }
-    .trp.textarea-box textarea { width:560px; height:200px; overflow-y:scroll; resize:none; }
-    /*** //textarea ***/
+  /*** input ***/
+  .trp.input-box label { vertical-align:middle; }
+  .trp.input-box input { width: 200px; padding: 2px; border: 1px solid #e5e5e5; }
+  /*** //input ***/
 
 
-    /*** select ***/
-    .trp.input-box .select-box { overflow:hidden; float:left; margin-left:5px; }
-    .trp.input-box .select-box .trp-select { height:28px; padding:0 5px; }
-    .trp.input-box .select-txt-box { float:left; }
-    .trp.input-box .select-txt-box input { height:24px; margin:0 5px; }
-    /*** //select ***/
+  /*** textarea ***/
+  .trp.textarea-box { width:560px; height:200px; margin-top:25px; border:1px solid #e5e5e5; }
+  .trp.textarea-box textarea { width:560px; height:200px; overflow-y:scroll; resize:none; }
+  /*** //textarea ***/
 
 
-    /*** file ***/
-    .trp.input-box .file-box { position: relative; min-width: 300px; }
-    .trp.input-box .file-box .trp-Filetext { width: calc(100% - 75px); height:26px; vertical-align:middle; box-sizing: border-box;}
-    .trp.input-box .file-box .trp-Filebutton { position: absolute; top:0; right:0; width: 70px;
-      height:26px; padding:0 10px; color:#555; background:#f7f7f7; border:1px solid #ccc; border-radius:3px; cursor:pointer; }
-    .trp.input-box .file-box .trp-Filehidden { position: absolute; top:0; right:0; 
-      width:100%; height: 26px; opacity:0; cursor:pointer; }
-    /*** //file ***/
+  /*** select ***/
+  .trp.input-box .select-box { overflow:hidden; float:left; margin-left:5px; }
+  .trp.input-box .select-box .trp-select { height:28px; padding:0 5px; }
+  .trp.input-box .select-txt-box { float:left; }
+  .trp.input-box .select-txt-box input { height:24px; margin:0 5px; }
+  /*** //select ***/
 
 
-    /*** radio ***/
-    .trp.input-box .radio-box { float:left; margin-right:10px; }
-    .trp.input-box .radio-box label { vertical-align:top; }
-    /*** radio ***/
+  /*** file ***/
+  .trp.input-box .file-box { position: relative; min-width: 300px; }
+  .trp.input-box .file-box .trp-Filetext { width: calc(100% - 75px); height:26px; vertical-align:middle; box-sizing: border-box;}
+  .trp.input-box .file-box .trp-Filebutton { position: absolute; top:0; right:0; width: 70px;
+    height:26px; padding:0 10px; color:#555; background:#f7f7f7; border:1px solid #ccc; border-radius:3px; cursor:pointer; }
+  .trp.input-box .file-box .trp-Filehidden { position: absolute; top:0; right:0; 
+    width:100%; height: 26px; opacity:0; cursor:pointer; }
+  /*** //file ***/
 
-    /*** 이미지 radio ***/
-    .trp.radio-box { position: relative; display: inline-block;}
-    .trp.radio-box label { display: inline-block; vertical-align: middle;  }
-    .trp.radio-box input[type="radio"] { position: absolute; bottom:0; left: 0;  width:100%; height: 20px; margin: 0; padding: 0;  opacity: 0; filter: alpha(opacity=0);  }    
-    .trp.radio-box input[type="radio"] + i { display: inline-block; vertical-align: middle;  }
-    .trp.radio-box input[type="radio"] + i:after { display: block; content: ''; width: 20px; height: 20px;  background:url("./trp_images/radio.png") 0 0 no-repeat; }
-    .trp.radio-box input[type="radio"]:checked + i:after { background-position: 0 -20px; }
-    /*** radio ***/
-	
 
-    /*** checkbox ***/
-    .trp.input-box .checkbox-box { float:left; margin-right:10px; }
-    .trp.input-box .checkbox-box label { vertical-align:top; }
-    /*** checkbox ***/
+  /*** radio ***/
+  .trp.input-box .radio-box { float:left; margin-right:10px; }
+  .trp.input-box .radio-box label { vertical-align:top; }
+  /*** radio ***/
+
+  /*** 이미지 radio ***/
+  .trp.radio-box { position: relative; display: inline-block;}
+  .trp.radio-box label { display: inline-block; vertical-align: middle;  }
+  .trp.radio-box input[type="radio"] { position: absolute; bottom:0; left: 0;  width:100%; height: 20px; margin: 0; padding: 0;  opacity: 0; filter: alpha(opacity=0);  }    
+  .trp.radio-box input[type="radio"] + i { display: inline-block; vertical-align: middle;  }
+  .trp.radio-box input[type="radio"] + i:after { display: block; content: ''; width: 20px; height: 20px;  background:url("./trp_images/radio.png") 0 0 no-repeat; }
+  .trp.radio-box input[type="radio"]:checked + i:after { background-position: 0 -20px; }
+  /*** radio ***/
+
+
+  /*** checkbox ***/
+  .trp.input-box .checkbox-box { float:left; margin-right:10px; }
+  .trp.input-box .checkbox-box label { vertical-align:top; }
+  /*** checkbox ***/
+  
 	
 	/*** 이미지 checkbox ***/
     .trp.checkbox-box { position: relative; display: inline-block;}

@@ -229,8 +229,10 @@
 
 
 				<div class="ex_wapper">
-				<h3 class="api-title_h3 html">HTML</h3>
-					<div class="api-body_h3 html">
+					<h3 class="api-title_h3 html">HTML</h3>
+					<p class="ex-more"><a href="javascript:return false;"><span class="d-n">+</span><span style="display: inline;">-</span></a></p>
+					<div class="ex-body d-n" >
+						<div class="api-body_h3 html">
 
 
 
@@ -316,9 +318,9 @@
 
 
 
+						</div>
 					</div>
 				</div>
-					
 		
 			</div>
 		</div>
@@ -652,6 +654,9 @@
 					<p class="ex-more"><a href="javascript:return false;"><span class="d-n">+</span><span style="display: inline;">-</span></a></p>
 					<div class="ex-body d-n" >
 
+						
+						
+
 <div>
 	<label for="date-current">날짜 선택 (범위 제한): script</label>
 	<input type="date" id="date-current"  max="9999-12-31" value="">
@@ -703,13 +708,15 @@
 
 				<div class="ex_wapper">
 				<h3 class="api-title_h3 html">HTML</h3>
-					<div class="api-body_h3 html">
+				<p class="ex-more"><a href="javascript:return false;"><span class="d-n">+</span><span style="display: inline;">-</span></a></p>
+					<div class="ex-body d-n" >
+						<div class="api-body_h3 html">
 
 
 
 
 
-						
+
 <!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%;"> 1
  2
  3
@@ -801,6 +808,649 @@
 
 
 
+						</div>
+					</div>
+				</div>
+					
+		
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+
+
+
+		<!-- s: api 설명 input[type=tel] -->
+		<div class="api">
+			<h2 class="api-title">input[type=tel]</h2>
+			<div class="api-body">
+				<dl>
+					<dt>설명</dt>					
+					<dd><span class="icon"></span>input[type="tel"] : 기본적으로 전화번호 벨리데이션이 적용된다. </dd>
+					<dd><span class="icon"></span>pattern: 정규식</dd>
+					<dd><span class="icon"></span>required: 필수값</dd>
+					<dd><span class="icon"></span>maxlength: 최대길이</dd>
+				</dl>
+				
+				<div class="ex_wapper">
+					<h3 class="api-title_h3">VIEW</h3>
+					<p class="ex-more"><a href="javascript:return false;"><span class="d-n">+</span><span style="display: inline;">-</span></a></p>
+					<div class="ex-body d-n" >
+
+						
+						
+
+<style>
+	input[type="tel"] { width: 200px; }
+  input:valid { background-color: palegreen; }      /* 유효할때 */
+  input:invalid { background-color: lightpink; }    /* 유효하지 않을때 */
+  input:placeholder-shown:invalid { background-color: transparent;  } /* placeholder가 있고 유효하지 않을때 */
+</style>
+
+<label for="trp-tel">전화번호 (일반/휴대전화):</label>
+<input type="tel" id="trp-tel" class="trp_tel"
+  pattern="^0\d{1,2}-?\d{3,4}-?\d{4}$"
+  maxlength="13"
+  placeholder="010-1234-5678 또는 02-1234-5678"
+  title="일반전화 또는 휴대전화번호를 입력해주세요" required>
+
+<script>
+  document.getElementById('trp-tel').addEventListener('input', function (e) {
+    let value = e.target.value.replace(/\D/g, ''); // 숫자만 추출
+    let formatted = '';
+
+    // 입력 없으면 초기화
+    if (!value) {
+      e.target.value = '';
+      return;
+    }
+
+    // --- 서울 (02) ---
+    if (value.startsWith('02')) {
+      if (value.length <= 2) {
+        formatted = value;
+      } else if (value.length <= 5) { // 02-123
+        formatted = value.replace(/(\d{2})(\d{1,3})/, '$1-$2');
+      } else if (value.length <= 9) { // 02-123-4567
+        formatted = value.replace(/(\d{2})(\d{3})(\d{1,4})/, '$1-$2-$3');
+      } else { // 02-1234-5678
+        formatted = value.replace(/(\d{2})(\d{4})(\d{1,4})/, '$1-$2-$3');
+      }
+    }
+    // --- 휴대폰, 지역번호(3자리), 인터넷전화(070 등) ---
+    else {
+      if (value.length <= 3) {
+        formatted = value;
+      } else if (value.length <= 6) { // 010-123
+        formatted = value.replace(/(\d{3})(\d{1,3})/, '$1-$2');
+      } else if (value.length <= 10) { // 010-123-4567
+        formatted = value.replace(/(\d{3})(\d{3})(\d{1,4})/, '$1-$2-$3');
+      } else { // 010-1234-5678
+        formatted = value.replace(/(\d{3})(\d{4})(\d{1,4})/, '$1-$2-$3');
+      }
+    }
+
+    e.target.value = formatted;
+  });
+</script>
+
+
+                
+					</div>
+				</div>
+				
+
+
+				<div class="ex_wapper">
+				<h3 class="api-title_h3 html">HTML</h3>
+				<p class="ex-more"><a href="javascript:return false;"><span class="d-n">+</span><span style="display: inline;">-</span></a></p>
+					<div class="ex-body d-n" >
+						<div class="api-body_h3 html">
+
+
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%;"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53</pre></td><td><pre style="margin: 0; line-height: 125%;"><span></span><span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">style</span><span style="color: #F8F8F2">&gt;</span>
+<span style="color: #F8F8F2">	</span><span style="color: #FF4689">input[type=</span><span style="color: #E6DB74">&quot;tel&quot;</span><span style="color: #FF4689">]</span><span style="color: #F8F8F2"> { </span><span style="color: #66D9EF">width</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">200</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2">; }</span>
+<span style="color: #F8F8F2">  </span><span style="color: #FF4689">input</span><span style="color: #F8F8F2">:</span><span style="color: #A6E22E">valid</span><span style="color: #F8F8F2"> { </span><span style="color: #66D9EF">background-color</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">palegreen</span><span style="color: #F8F8F2">; }      </span><span style="color: #959077">/* 유효할때 */</span>
+<span style="color: #F8F8F2">  </span><span style="color: #FF4689">input</span><span style="color: #F8F8F2">:</span><span style="color: #A6E22E">invalid</span><span style="color: #F8F8F2"> { </span><span style="color: #66D9EF">background-color</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">lightpink</span><span style="color: #F8F8F2">; }    </span><span style="color: #959077">/* 유효하지 않을때 */</span>
+<span style="color: #F8F8F2">  </span><span style="color: #FF4689">input</span><span style="color: #F8F8F2">:</span><span style="color: #A6E22E">placeholder-shown</span><span style="color: #F8F8F2">:</span><span style="color: #A6E22E">invalid</span><span style="color: #F8F8F2"> { </span><span style="color: #66D9EF">background-color</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">transparent</span><span style="color: #F8F8F2">;  } </span><span style="color: #959077">/* placeholder가 있고 유효하지 않을때 */</span>
+<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">style</span><span style="color: #F8F8F2">&gt;</span>
+
+<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">label</span> <span style="color: #A6E22E">for</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;trp-tel&quot;</span><span style="color: #F8F8F2">&gt;</span>전화번호 (일반/휴대전화):<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">label</span><span style="color: #F8F8F2">&gt;</span>
+<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">input</span> <span style="color: #A6E22E">type</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;tel&quot;</span> <span style="color: #A6E22E">id</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;trp-tel&quot;</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;trp_tel&quot;</span>
+  <span style="color: #A6E22E">pattern</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;^0\d{1,2}-?\d{3,4}-?\d{4}$&quot;</span>
+  <span style="color: #A6E22E">maxlength</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;13&quot;</span>
+  <span style="color: #A6E22E">placeholder</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;010-1234-5678 또는 02-1234-5678&quot;</span>
+  <span style="color: #A6E22E">title</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;일반전화 또는 휴대전화번호를 입력해주세요&quot;</span> <span style="color: #A6E22E">required</span><span style="color: #F8F8F2">&gt;</span>
+
+<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">script</span><span style="color: #F8F8F2">&gt;</span>
+<span style="color: #F8F8F2">  document.</span><span style="color: #A6E22E">getElementById</span><span style="color: #F8F8F2">(</span><span style="color: #E6DB74">&#39;trp-tel&#39;</span><span style="color: #F8F8F2">).</span><span style="color: #A6E22E">addEventListener</span><span style="color: #F8F8F2">(</span><span style="color: #E6DB74">&#39;input&#39;</span><span style="color: #F8F8F2">, </span><span style="color: #66D9EF">function</span><span style="color: #F8F8F2"> (</span><span style="color: #A6E22E">e</span><span style="color: #F8F8F2">) {</span>
+<span style="color: #F8F8F2">    </span><span style="color: #66D9EF">let</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">value</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">e</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">target</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">value</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">replace</span><span style="color: #F8F8F2">(</span><span style="color: #E6DB74">/\D/g</span><span style="color: #F8F8F2">, </span><span style="color: #E6DB74">&#39;&#39;</span><span style="color: #F8F8F2">); </span><span style="color: #959077">// 숫자만 추출</span>
+<span style="color: #F8F8F2">    </span><span style="color: #66D9EF">let</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">formatted</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> </span><span style="color: #E6DB74">&#39;&#39;</span><span style="color: #F8F8F2">;</span>
+
+<span style="color: #F8F8F2">    </span><span style="color: #959077">// 입력 없으면 초기화</span>
+<span style="color: #F8F8F2">    </span><span style="color: #66D9EF">if</span><span style="color: #F8F8F2"> (</span><span style="color: #FF4689">!</span><span style="color: #A6E22E">value</span><span style="color: #F8F8F2">) {</span>
+<span style="color: #F8F8F2">      </span><span style="color: #A6E22E">e</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">target</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">value</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> </span><span style="color: #E6DB74">&#39;&#39;</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">      </span><span style="color: #66D9EF">return</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">    }</span>
+
+<span style="color: #F8F8F2">    </span><span style="color: #959077">// --- 서울 (02) ---</span>
+<span style="color: #F8F8F2">    </span><span style="color: #66D9EF">if</span><span style="color: #F8F8F2"> (</span><span style="color: #A6E22E">value</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">startsWith</span><span style="color: #F8F8F2">(</span><span style="color: #E6DB74">&#39;02&#39;</span><span style="color: #F8F8F2">)) {</span>
+<span style="color: #F8F8F2">      </span><span style="color: #66D9EF">if</span><span style="color: #F8F8F2"> (</span><span style="color: #A6E22E">value</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">length</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">&lt;=</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">2</span><span style="color: #F8F8F2">) {</span>
+<span style="color: #F8F8F2">        </span><span style="color: #A6E22E">formatted</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">value</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">      } </span><span style="color: #66D9EF">else</span><span style="color: #F8F8F2"> </span><span style="color: #66D9EF">if</span><span style="color: #F8F8F2"> (</span><span style="color: #A6E22E">value</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">length</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">&lt;=</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">5</span><span style="color: #F8F8F2">) { </span><span style="color: #959077">// 02-123</span>
+<span style="color: #F8F8F2">        </span><span style="color: #A6E22E">formatted</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">value</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">replace</span><span style="color: #F8F8F2">(</span><span style="color: #E6DB74">/(\d{2})(\d{1,3})/</span><span style="color: #F8F8F2">, </span><span style="color: #E6DB74">&#39;$1-$2&#39;</span><span style="color: #F8F8F2">);</span>
+<span style="color: #F8F8F2">      } </span><span style="color: #66D9EF">else</span><span style="color: #F8F8F2"> </span><span style="color: #66D9EF">if</span><span style="color: #F8F8F2"> (</span><span style="color: #A6E22E">value</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">length</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">&lt;=</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">9</span><span style="color: #F8F8F2">) { </span><span style="color: #959077">// 02-123-4567</span>
+<span style="color: #F8F8F2">        </span><span style="color: #A6E22E">formatted</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">value</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">replace</span><span style="color: #F8F8F2">(</span><span style="color: #E6DB74">/(\d{2})(\d{3})(\d{1,4})/</span><span style="color: #F8F8F2">, </span><span style="color: #E6DB74">&#39;$1-$2-$3&#39;</span><span style="color: #F8F8F2">);</span>
+<span style="color: #F8F8F2">      } </span><span style="color: #66D9EF">else</span><span style="color: #F8F8F2"> { </span><span style="color: #959077">// 02-1234-5678</span>
+<span style="color: #F8F8F2">        </span><span style="color: #A6E22E">formatted</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">value</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">replace</span><span style="color: #F8F8F2">(</span><span style="color: #E6DB74">/(\d{2})(\d{4})(\d{1,4})/</span><span style="color: #F8F8F2">, </span><span style="color: #E6DB74">&#39;$1-$2-$3&#39;</span><span style="color: #F8F8F2">);</span>
+<span style="color: #F8F8F2">      }</span>
+<span style="color: #F8F8F2">    }</span>
+<span style="color: #F8F8F2">    </span><span style="color: #959077">// --- 휴대폰, 지역번호(3자리), 인터넷전화(070 등) ---</span>
+<span style="color: #F8F8F2">    </span><span style="color: #66D9EF">else</span><span style="color: #F8F8F2"> {</span>
+<span style="color: #F8F8F2">      </span><span style="color: #66D9EF">if</span><span style="color: #F8F8F2"> (</span><span style="color: #A6E22E">value</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">length</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">&lt;=</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">3</span><span style="color: #F8F8F2">) {</span>
+<span style="color: #F8F8F2">        </span><span style="color: #A6E22E">formatted</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">value</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">      } </span><span style="color: #66D9EF">else</span><span style="color: #F8F8F2"> </span><span style="color: #66D9EF">if</span><span style="color: #F8F8F2"> (</span><span style="color: #A6E22E">value</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">length</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">&lt;=</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">6</span><span style="color: #F8F8F2">) { </span><span style="color: #959077">// 010-123</span>
+<span style="color: #F8F8F2">        </span><span style="color: #A6E22E">formatted</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">value</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">replace</span><span style="color: #F8F8F2">(</span><span style="color: #E6DB74">/(\d{3})(\d{1,3})/</span><span style="color: #F8F8F2">, </span><span style="color: #E6DB74">&#39;$1-$2&#39;</span><span style="color: #F8F8F2">);</span>
+<span style="color: #F8F8F2">      } </span><span style="color: #66D9EF">else</span><span style="color: #F8F8F2"> </span><span style="color: #66D9EF">if</span><span style="color: #F8F8F2"> (</span><span style="color: #A6E22E">value</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">length</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">&lt;=</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">10</span><span style="color: #F8F8F2">) { </span><span style="color: #959077">// 010-123-4567</span>
+<span style="color: #F8F8F2">        </span><span style="color: #A6E22E">formatted</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">value</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">replace</span><span style="color: #F8F8F2">(</span><span style="color: #E6DB74">/(\d{3})(\d{3})(\d{1,4})/</span><span style="color: #F8F8F2">, </span><span style="color: #E6DB74">&#39;$1-$2-$3&#39;</span><span style="color: #F8F8F2">);</span>
+<span style="color: #F8F8F2">      } </span><span style="color: #66D9EF">else</span><span style="color: #F8F8F2"> { </span><span style="color: #959077">// 010-1234-5678</span>
+<span style="color: #F8F8F2">        </span><span style="color: #A6E22E">formatted</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">value</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">replace</span><span style="color: #F8F8F2">(</span><span style="color: #E6DB74">/(\d{3})(\d{4})(\d{1,4})/</span><span style="color: #F8F8F2">, </span><span style="color: #E6DB74">&#39;$1-$2-$3&#39;</span><span style="color: #F8F8F2">);</span>
+<span style="color: #F8F8F2">      }</span>
+<span style="color: #F8F8F2">    }</span>
+
+<span style="color: #F8F8F2">    </span><span style="color: #A6E22E">e</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">target</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">value</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">formatted</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">  });</span>
+<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">script</span><span style="color: #F8F8F2">&gt;</span>
+</pre></td></tr></table></div>
+
+
+
+
+
+
+						</div>
+					</div>
+				</div>
+					
+		
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+
+
+
+		<!-- s: api 설명 input[type=email] -->
+		<div class="api">
+			<h2 class="api-title">input[type=emal]</h2>
+			<div class="api-body">
+				<dl>
+					<dt>설명</dt>					
+					<dd><span class="icon"></span>input[type="emal"] : 기본적으로 이메일 벨리데이션이 적용된다. </dd>
+					<dd><span class="icon"></span>pattern: 정규식</dd>
+					<dd><span class="icon"></span>required: 필수값</dd>
+				</dl>
+				
+				<div class="ex_wapper">
+					<h3 class="api-title_h3">VIEW</h3>
+					<p class="ex-more"><a href="javascript:return false;"><span class="d-n">+</span><span style="display: inline;">-</span></a></p>
+					<div class="ex-body d-n" >
+
+						
+						
+
+<style>
+	input[type="tel"] { width: 200px; }
+  input:valid { background-color: palegreen; }      /* 유효할때 */
+  input:invalid { background-color: lightpink; }    /* 유효하지 않을때 */
+  input:placeholder-shown:invalid { background-color: transparent;  } /* placeholder가 있고 유효하지 않을때 */
+</style>
+
+<label for="trp-tel">＠이메일 : </label>
+  <input
+    id="js-email_validation"
+    class="trp_validation"
+    type="text"
+    required
+    autocomplete="email"
+    inputmode="email"
+    placeholder="example@domain.com"
+    title="올바른 이메일 형식을 입력해주세요 (예: example@domain.com)"
+    pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(?:[.][A-Za-z0-9-]+)*[.][A-Za-z]{2,}$"
+    >
+
+  <script>
+		(function () {
+			const el = document.getElementById('js-email_validation');
+			// HTML pattern과 동일한 정규식 (JS용)
+			const re = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)*\.[A-Za-z]{2,}$/;
+
+			function validate() {
+				const v = el.value.trim();
+				if (!v) {
+					// required가 처리하지만, 메시지까지 명확히
+					el.setCustomValidity('이메일을 입력해주세요');
+				} else if (!re.test(v)) {
+					el.setCustomValidity('올바른 이메일 형식을 입력해주세요');
+				} else {
+					el.setCustomValidity('');
+				}
+			}
+
+			el.addEventListener('input', validate);
+			// 초기 상태 반영
+			validate();
+		})();
+	</script>
+
+
+
+
+
+	<div class="form-group">
+		<label for="js-email_detail">@이메일 :</label>
+		<input type="email" id="js-email_detail"
+						placeholder="실시간 JavaScript 검증"
+						required
+						title="실시간으로 검증됩니다">
+		<div id="js-result" class="help-text"></div>
+	</div>
+	<script>
+		// 이메일 검증 함수들 (향상된 버전)
+		function isValidEmail(email) {
+			// 도메인 확장자 필수 패턴 (최소 2글자)
+			const basicPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+			return basicPattern.test(email);
+		}
+
+		function validateEmailDomain(email) {
+			if (!email.includes('@')) return false;
+
+			const domain = email.split('@')[1];
+			if (!domain) return false;
+
+			// 도메인에 최소 하나의 점(.)이 있어야 함
+			if (!domain.includes('.')) return false;
+
+			// 점(.) 뒤에 최소 2글자의 확장자가 있어야 함
+			const parts = domain.split('.');
+			const extension = parts[parts.length - 1];
+
+			return extension && extension.length >= 2 && /^[a-zA-Z]+$/.test(extension);
+		}
+
+		// 초기화
+		function clearEmail() {
+			document.getElementById('email-test').value = '';
+			document.getElementById('email-validation-result').innerHTML = '';
+		}
+
+		// JavaScript 실시간 검증 (향상된 버전)
+		document.getElementById('js-email_detail').addEventListener('input', function (e) {
+			const email = e.target.value;
+			const result = document.getElementById('js-result');
+
+			if (email.length === 0) {
+				result.textContent = '';
+				e.target.style.borderColor = '#ddd';
+				return;
+			}
+
+			const isValid = isValidEmail(email);
+			const isDomainValid = validateEmailDomain(email);
+
+			if (isValid && isDomainValid) {
+				e.target.style.borderColor = '#28a745';
+				result.innerHTML = '<span style="color: #28a745;">✅ 유효한 이메일 형식</span>';
+
+				if (email.includes('@')) {
+					const provider = getEmailProvider(email);
+					result.innerHTML += ' - ' + provider;
+				}
+			} else {
+				e.target.style.borderColor = '#dc3545';
+
+				if (!email.includes('@')) {
+					result.innerHTML = '<span style="color: #dc3545;">❌ @ 기호가 필요합니다</span>';
+				} else if (!isDomainValid) {
+					const domain = email.split('@')[1] || '';
+					if (!domain.includes('.')) {
+						result.innerHTML = '<span style="color: #dc3545;">❌ 도메인 확장자가 필요합니다 (예: .com)</span>';
+					} else {
+						result.innerHTML = '<span style="color: #dc3545;">❌ 올바른 도메인 확장자를 입력하세요</span>';
+					}
+				} else {
+					result.innerHTML = '<span style="color: #dc3545;">❌ 유효하지 않은 형식</span>';
+				}
+			}
+		});
+	</script>
+
+
+                
+					</div>
+				</div>
+				
+
+
+				<div class="ex_wapper">
+				<h3 class="api-title_h3 html">HTML</h3>
+				<p class="ex-more"><a href="javascript:return false;"><span class="d-n">+</span><span style="display: inline;">-</span></a></p>
+					<div class="ex-body d-n" >
+						<div class="api-body_h3 html">
+
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%;">  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126</pre></td><td><pre style="margin: 0; line-height: 125%;"><span></span><span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">style</span><span style="color: #F8F8F2">&gt;</span>
+<span style="color: #F8F8F2">	</span><span style="color: #FF4689">input[type=</span><span style="color: #E6DB74">&quot;tel&quot;</span><span style="color: #FF4689">]</span><span style="color: #F8F8F2"> { </span><span style="color: #66D9EF">width</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">200</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2">; }</span>
+<span style="color: #F8F8F2">  </span><span style="color: #FF4689">input</span><span style="color: #F8F8F2">:</span><span style="color: #A6E22E">valid</span><span style="color: #F8F8F2"> { </span><span style="color: #66D9EF">background-color</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">palegreen</span><span style="color: #F8F8F2">; }      </span><span style="color: #959077">/* 유효할때 */</span>
+<span style="color: #F8F8F2">  </span><span style="color: #FF4689">input</span><span style="color: #F8F8F2">:</span><span style="color: #A6E22E">invalid</span><span style="color: #F8F8F2"> { </span><span style="color: #66D9EF">background-color</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">lightpink</span><span style="color: #F8F8F2">; }    </span><span style="color: #959077">/* 유효하지 않을때 */</span>
+<span style="color: #F8F8F2">  </span><span style="color: #FF4689">input</span><span style="color: #F8F8F2">:</span><span style="color: #A6E22E">placeholder-shown</span><span style="color: #F8F8F2">:</span><span style="color: #A6E22E">invalid</span><span style="color: #F8F8F2"> { </span><span style="color: #66D9EF">background-color</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">transparent</span><span style="color: #F8F8F2">;  } </span><span style="color: #959077">/* placeholder가 있고 유효하지 않을때 */</span>
+<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">style</span><span style="color: #F8F8F2">&gt;</span>
+
+<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">label</span> <span style="color: #A6E22E">for</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;trp-tel&quot;</span><span style="color: #F8F8F2">&gt;</span>＠이메일 : <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">label</span><span style="color: #F8F8F2">&gt;</span>
+  <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">input</span>
+    <span style="color: #A6E22E">id</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;js-email_validation&quot;</span>
+    <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;trp_validation&quot;</span>
+    <span style="color: #A6E22E">type</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;text&quot;</span>
+    <span style="color: #A6E22E">required</span>
+    <span style="color: #A6E22E">autocomplete</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;email&quot;</span>
+    <span style="color: #A6E22E">inputmode</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;email&quot;</span>
+    <span style="color: #A6E22E">placeholder</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;example@domain.com&quot;</span>
+    <span style="color: #A6E22E">title</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;올바른 이메일 형식을 입력해주세요 (예: example@domain.com)&quot;</span>
+    <span style="color: #A6E22E">pattern</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;^[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(?:[.][A-Za-z0-9-]+)*[.][A-Za-z]{2,}$&quot;</span>
+    <span style="color: #F8F8F2">&gt;</span>
+
+  <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">script</span><span style="color: #F8F8F2">&gt;</span>
+<span style="color: #F8F8F2">		(</span><span style="color: #66D9EF">function</span><span style="color: #F8F8F2"> () {</span>
+<span style="color: #F8F8F2">			</span><span style="color: #66D9EF">const</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">el</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> document.</span><span style="color: #A6E22E">getElementById</span><span style="color: #F8F8F2">(</span><span style="color: #E6DB74">&#39;js-email_validation&#39;</span><span style="color: #F8F8F2">);</span>
+<span style="color: #F8F8F2">			</span><span style="color: #959077">// HTML pattern과 동일한 정규식 (JS용)</span>
+<span style="color: #F8F8F2">			</span><span style="color: #66D9EF">const</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">re</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> </span><span style="color: #E6DB74">/^[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)*\.[A-Za-z]{2,}$/</span><span style="color: #F8F8F2">;</span>
+
+<span style="color: #F8F8F2">			</span><span style="color: #66D9EF">function</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">validate</span><span style="color: #F8F8F2">() {</span>
+<span style="color: #F8F8F2">				</span><span style="color: #66D9EF">const</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">v</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">el</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">value</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">trim</span><span style="color: #F8F8F2">();</span>
+<span style="color: #F8F8F2">				</span><span style="color: #66D9EF">if</span><span style="color: #F8F8F2"> (</span><span style="color: #FF4689">!</span><span style="color: #A6E22E">v</span><span style="color: #F8F8F2">) {</span>
+<span style="color: #F8F8F2">					</span><span style="color: #959077">// required가 처리하지만, 메시지까지 명확히</span>
+<span style="color: #F8F8F2">					</span><span style="color: #A6E22E">el</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">setCustomValidity</span><span style="color: #F8F8F2">(</span><span style="color: #E6DB74">&#39;이메일을 입력해주세요&#39;</span><span style="color: #F8F8F2">);</span>
+<span style="color: #F8F8F2">				} </span><span style="color: #66D9EF">else</span><span style="color: #F8F8F2"> </span><span style="color: #66D9EF">if</span><span style="color: #F8F8F2"> (</span><span style="color: #FF4689">!</span><span style="color: #A6E22E">re</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">test</span><span style="color: #F8F8F2">(</span><span style="color: #A6E22E">v</span><span style="color: #F8F8F2">)) {</span>
+<span style="color: #F8F8F2">					</span><span style="color: #A6E22E">el</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">setCustomValidity</span><span style="color: #F8F8F2">(</span><span style="color: #E6DB74">&#39;올바른 이메일 형식을 입력해주세요&#39;</span><span style="color: #F8F8F2">);</span>
+<span style="color: #F8F8F2">				} </span><span style="color: #66D9EF">else</span><span style="color: #F8F8F2"> {</span>
+<span style="color: #F8F8F2">					</span><span style="color: #A6E22E">el</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">setCustomValidity</span><span style="color: #F8F8F2">(</span><span style="color: #E6DB74">&#39;&#39;</span><span style="color: #F8F8F2">);</span>
+<span style="color: #F8F8F2">				}</span>
+<span style="color: #F8F8F2">			}</span>
+
+<span style="color: #F8F8F2">			</span><span style="color: #A6E22E">el</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">addEventListener</span><span style="color: #F8F8F2">(</span><span style="color: #E6DB74">&#39;input&#39;</span><span style="color: #F8F8F2">, </span><span style="color: #A6E22E">validate</span><span style="color: #F8F8F2">);</span>
+<span style="color: #F8F8F2">			</span><span style="color: #959077">// 초기 상태 반영</span>
+<span style="color: #F8F8F2">			</span><span style="color: #A6E22E">validate</span><span style="color: #F8F8F2">();</span>
+<span style="color: #F8F8F2">		})();</span>
+<span style="color: #F8F8F2">	&lt;/</span><span style="color: #FF4689">script</span><span style="color: #F8F8F2">&gt;</span>
+
+
+
+
+
+	<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;form-group&quot;</span><span style="color: #F8F8F2">&gt;</span>
+		<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">label</span> <span style="color: #A6E22E">for</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;js-email_detail&quot;</span><span style="color: #F8F8F2">&gt;</span>@이메일 :<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">label</span><span style="color: #F8F8F2">&gt;</span>
+		<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">input</span> <span style="color: #A6E22E">type</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;email&quot;</span> <span style="color: #A6E22E">id</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;js-email_detail&quot;</span>
+						<span style="color: #A6E22E">placeholder</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;실시간 JavaScript 검증&quot;</span>
+						<span style="color: #A6E22E">required</span>
+						<span style="color: #A6E22E">title</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;실시간으로 검증됩니다&quot;</span><span style="color: #F8F8F2">&gt;</span>
+		<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">id</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;js-result&quot;</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;help-text&quot;</span><span style="color: #F8F8F2">&gt;&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+	<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+	<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">script</span><span style="color: #F8F8F2">&gt;</span>
+<span style="color: #F8F8F2">		</span><span style="color: #959077">// 이메일 검증 함수들 (향상된 버전)</span>
+<span style="color: #F8F8F2">		</span><span style="color: #66D9EF">function</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">isValidEmail</span><span style="color: #F8F8F2">(</span><span style="color: #A6E22E">email</span><span style="color: #F8F8F2">) {</span>
+<span style="color: #F8F8F2">			</span><span style="color: #959077">// 도메인 확장자 필수 패턴 (최소 2글자)</span>
+<span style="color: #F8F8F2">			</span><span style="color: #66D9EF">const</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">basicPattern</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> </span><span style="color: #E6DB74">/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">			</span><span style="color: #66D9EF">return</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">basicPattern</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">test</span><span style="color: #F8F8F2">(</span><span style="color: #A6E22E">email</span><span style="color: #F8F8F2">);</span>
+<span style="color: #F8F8F2">		}</span>
+
+<span style="color: #F8F8F2">		</span><span style="color: #66D9EF">function</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">validateEmailDomain</span><span style="color: #F8F8F2">(</span><span style="color: #A6E22E">email</span><span style="color: #F8F8F2">) {</span>
+<span style="color: #F8F8F2">			</span><span style="color: #66D9EF">if</span><span style="color: #F8F8F2"> (</span><span style="color: #FF4689">!</span><span style="color: #A6E22E">email</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">includes</span><span style="color: #F8F8F2">(</span><span style="color: #E6DB74">&#39;@&#39;</span><span style="color: #F8F8F2">)) </span><span style="color: #66D9EF">return</span><span style="color: #F8F8F2"> </span><span style="color: #66D9EF">false</span><span style="color: #F8F8F2">;</span>
+
+<span style="color: #F8F8F2">			</span><span style="color: #66D9EF">const</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">domain</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">email</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">split</span><span style="color: #F8F8F2">(</span><span style="color: #E6DB74">&#39;@&#39;</span><span style="color: #F8F8F2">)[</span><span style="color: #AE81FF">1</span><span style="color: #F8F8F2">];</span>
+<span style="color: #F8F8F2">			</span><span style="color: #66D9EF">if</span><span style="color: #F8F8F2"> (</span><span style="color: #FF4689">!</span><span style="color: #A6E22E">domain</span><span style="color: #F8F8F2">) </span><span style="color: #66D9EF">return</span><span style="color: #F8F8F2"> </span><span style="color: #66D9EF">false</span><span style="color: #F8F8F2">;</span>
+
+<span style="color: #F8F8F2">			</span><span style="color: #959077">// 도메인에 최소 하나의 점(.)이 있어야 함</span>
+<span style="color: #F8F8F2">			</span><span style="color: #66D9EF">if</span><span style="color: #F8F8F2"> (</span><span style="color: #FF4689">!</span><span style="color: #A6E22E">domain</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">includes</span><span style="color: #F8F8F2">(</span><span style="color: #E6DB74">&#39;.&#39;</span><span style="color: #F8F8F2">)) </span><span style="color: #66D9EF">return</span><span style="color: #F8F8F2"> </span><span style="color: #66D9EF">false</span><span style="color: #F8F8F2">;</span>
+
+<span style="color: #F8F8F2">			</span><span style="color: #959077">// 점(.) 뒤에 최소 2글자의 확장자가 있어야 함</span>
+<span style="color: #F8F8F2">			</span><span style="color: #66D9EF">const</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">parts</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">domain</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">split</span><span style="color: #F8F8F2">(</span><span style="color: #E6DB74">&#39;.&#39;</span><span style="color: #F8F8F2">);</span>
+<span style="color: #F8F8F2">			</span><span style="color: #66D9EF">const</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">extension</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">parts</span><span style="color: #F8F8F2">[</span><span style="color: #A6E22E">parts</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">length</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">-</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">1</span><span style="color: #F8F8F2">];</span>
+
+<span style="color: #F8F8F2">			</span><span style="color: #66D9EF">return</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">extension</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">&amp;&amp;</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">extension</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">length</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">&gt;=</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">2</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">&amp;&amp;</span><span style="color: #F8F8F2"> </span><span style="color: #E6DB74">/^[a-zA-Z]+$/</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">test</span><span style="color: #F8F8F2">(</span><span style="color: #A6E22E">extension</span><span style="color: #F8F8F2">);</span>
+<span style="color: #F8F8F2">		}</span>
+
+<span style="color: #F8F8F2">		</span><span style="color: #959077">// 초기화</span>
+<span style="color: #F8F8F2">		</span><span style="color: #66D9EF">function</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">clearEmail</span><span style="color: #F8F8F2">() {</span>
+<span style="color: #F8F8F2">			document.</span><span style="color: #A6E22E">getElementById</span><span style="color: #F8F8F2">(</span><span style="color: #E6DB74">&#39;email-test&#39;</span><span style="color: #F8F8F2">).</span><span style="color: #A6E22E">value</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> </span><span style="color: #E6DB74">&#39;&#39;</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">			document.</span><span style="color: #A6E22E">getElementById</span><span style="color: #F8F8F2">(</span><span style="color: #E6DB74">&#39;email-validation-result&#39;</span><span style="color: #F8F8F2">).</span><span style="color: #A6E22E">innerHTML</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> </span><span style="color: #E6DB74">&#39;&#39;</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">		}</span>
+
+<span style="color: #F8F8F2">		</span><span style="color: #959077">// JavaScript 실시간 검증 (향상된 버전)</span>
+<span style="color: #F8F8F2">		document.</span><span style="color: #A6E22E">getElementById</span><span style="color: #F8F8F2">(</span><span style="color: #E6DB74">&#39;js-email_detail&#39;</span><span style="color: #F8F8F2">).</span><span style="color: #A6E22E">addEventListener</span><span style="color: #F8F8F2">(</span><span style="color: #E6DB74">&#39;input&#39;</span><span style="color: #F8F8F2">, </span><span style="color: #66D9EF">function</span><span style="color: #F8F8F2"> (</span><span style="color: #A6E22E">e</span><span style="color: #F8F8F2">) {</span>
+<span style="color: #F8F8F2">			</span><span style="color: #66D9EF">const</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">email</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">e</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">target</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">value</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">			</span><span style="color: #66D9EF">const</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">result</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> document.</span><span style="color: #A6E22E">getElementById</span><span style="color: #F8F8F2">(</span><span style="color: #E6DB74">&#39;js-result&#39;</span><span style="color: #F8F8F2">);</span>
+
+<span style="color: #F8F8F2">			</span><span style="color: #66D9EF">if</span><span style="color: #F8F8F2"> (</span><span style="color: #A6E22E">email</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">length</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">===</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">0</span><span style="color: #F8F8F2">) {</span>
+<span style="color: #F8F8F2">				</span><span style="color: #A6E22E">result</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">textContent</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> </span><span style="color: #E6DB74">&#39;&#39;</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">				</span><span style="color: #A6E22E">e</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">target</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">style</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">borderColor</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> </span><span style="color: #E6DB74">&#39;#ddd&#39;</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">				</span><span style="color: #66D9EF">return</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">			}</span>
+
+<span style="color: #F8F8F2">			</span><span style="color: #66D9EF">const</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">isValid</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">isValidEmail</span><span style="color: #F8F8F2">(</span><span style="color: #A6E22E">email</span><span style="color: #F8F8F2">);</span>
+<span style="color: #F8F8F2">			</span><span style="color: #66D9EF">const</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">isDomainValid</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">validateEmailDomain</span><span style="color: #F8F8F2">(</span><span style="color: #A6E22E">email</span><span style="color: #F8F8F2">);</span>
+
+<span style="color: #F8F8F2">			</span><span style="color: #66D9EF">if</span><span style="color: #F8F8F2"> (</span><span style="color: #A6E22E">isValid</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">&amp;&amp;</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">isDomainValid</span><span style="color: #F8F8F2">) {</span>
+<span style="color: #F8F8F2">				</span><span style="color: #A6E22E">e</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">target</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">style</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">borderColor</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> </span><span style="color: #E6DB74">&#39;#28a745&#39;</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">				</span><span style="color: #A6E22E">result</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">innerHTML</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> </span><span style="color: #E6DB74">&#39;&lt;span style=&quot;color: #28a745;&quot;&gt;✅ 유효한 이메일 형식&lt;/span&gt;&#39;</span><span style="color: #F8F8F2">;</span>
+
+<span style="color: #F8F8F2">				</span><span style="color: #66D9EF">if</span><span style="color: #F8F8F2"> (</span><span style="color: #A6E22E">email</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">includes</span><span style="color: #F8F8F2">(</span><span style="color: #E6DB74">&#39;@&#39;</span><span style="color: #F8F8F2">)) {</span>
+<span style="color: #F8F8F2">					</span><span style="color: #66D9EF">const</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">provider</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">getEmailProvider</span><span style="color: #F8F8F2">(</span><span style="color: #A6E22E">email</span><span style="color: #F8F8F2">);</span>
+<span style="color: #F8F8F2">					</span><span style="color: #A6E22E">result</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">innerHTML</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">+=</span><span style="color: #F8F8F2"> </span><span style="color: #E6DB74">&#39; - &#39;</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">+</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">provider</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">				}</span>
+<span style="color: #F8F8F2">			} </span><span style="color: #66D9EF">else</span><span style="color: #F8F8F2"> {</span>
+<span style="color: #F8F8F2">				</span><span style="color: #A6E22E">e</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">target</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">style</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">borderColor</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> </span><span style="color: #E6DB74">&#39;#dc3545&#39;</span><span style="color: #F8F8F2">;</span>
+
+<span style="color: #F8F8F2">				</span><span style="color: #66D9EF">if</span><span style="color: #F8F8F2"> (</span><span style="color: #FF4689">!</span><span style="color: #A6E22E">email</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">includes</span><span style="color: #F8F8F2">(</span><span style="color: #E6DB74">&#39;@&#39;</span><span style="color: #F8F8F2">)) {</span>
+<span style="color: #F8F8F2">					</span><span style="color: #A6E22E">result</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">innerHTML</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> </span><span style="color: #E6DB74">&#39;&lt;span style=&quot;color: #dc3545;&quot;&gt;❌ @ 기호가 필요합니다&lt;/span&gt;&#39;</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">				} </span><span style="color: #66D9EF">else</span><span style="color: #F8F8F2"> </span><span style="color: #66D9EF">if</span><span style="color: #F8F8F2"> (</span><span style="color: #FF4689">!</span><span style="color: #A6E22E">isDomainValid</span><span style="color: #F8F8F2">) {</span>
+<span style="color: #F8F8F2">					</span><span style="color: #66D9EF">const</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">domain</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">email</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">split</span><span style="color: #F8F8F2">(</span><span style="color: #E6DB74">&#39;@&#39;</span><span style="color: #F8F8F2">)[</span><span style="color: #AE81FF">1</span><span style="color: #F8F8F2">] </span><span style="color: #FF4689">||</span><span style="color: #F8F8F2"> </span><span style="color: #E6DB74">&#39;&#39;</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">					</span><span style="color: #66D9EF">if</span><span style="color: #F8F8F2"> (</span><span style="color: #FF4689">!</span><span style="color: #A6E22E">domain</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">includes</span><span style="color: #F8F8F2">(</span><span style="color: #E6DB74">&#39;.&#39;</span><span style="color: #F8F8F2">)) {</span>
+<span style="color: #F8F8F2">						</span><span style="color: #A6E22E">result</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">innerHTML</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> </span><span style="color: #E6DB74">&#39;&lt;span style=&quot;color: #dc3545;&quot;&gt;❌ 도메인 확장자가 필요합니다 (예: .com)&lt;/span&gt;&#39;</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">					} </span><span style="color: #66D9EF">else</span><span style="color: #F8F8F2"> {</span>
+<span style="color: #F8F8F2">						</span><span style="color: #A6E22E">result</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">innerHTML</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> </span><span style="color: #E6DB74">&#39;&lt;span style=&quot;color: #dc3545;&quot;&gt;❌ 올바른 도메인 확장자를 입력하세요&lt;/span&gt;&#39;</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">					}</span>
+<span style="color: #F8F8F2">				} </span><span style="color: #66D9EF">else</span><span style="color: #F8F8F2"> {</span>
+<span style="color: #F8F8F2">					</span><span style="color: #A6E22E">result</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">innerHTML</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> </span><span style="color: #E6DB74">&#39;&lt;span style=&quot;color: #dc3545;&quot;&gt;❌ 유효하지 않은 형식&lt;/span&gt;&#39;</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">				}</span>
+<span style="color: #F8F8F2">			}</span>
+<span style="color: #F8F8F2">		});</span>
+<span style="color: #F8F8F2">	&lt;/</span><span style="color: #FF4689">script</span><span style="color: #F8F8F2">&gt;</span>
+</pre></td></tr></table></div>
+
+
+
+
+
+						</div>
 					</div>
 				</div>
 					

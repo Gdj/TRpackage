@@ -50,7 +50,56 @@
 					<dt>설명</dt>					
 					<dd><span class="icon"></span>input 요소의 text에 대한 재정의</dd>
 				</dl>
-				
+				<table class="table_col" summary="속성 옵션 설명">
+					<caption>attributes 옵션</caption>
+					<colgroup>
+						<col width="150">
+						<col width="">		
+					</colgroup>
+					<tbody>
+					<tr>
+						<th scope="col">속성</th>
+						<th scope="col">속성 설명</th>
+					</tr>
+					<tr>
+						<td>required </td>
+						<td>필수선택</td>		
+					</tr>
+					<tr>
+						<td>pattern </td>
+						<td>정규식 패턴넣기 <br>
+							(예: pattern="^0\d{1,2}-?\d{3,4}-?\d{4}$") : 전화번호 정규식<br>
+							(예: pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(?:[.][A-Za-z0-9-]+)*[.][A-Za-z]{2,}$") : 이메일 정규식<br>
+						</td>		
+					</tr>
+					</tbody>
+				</table>
+
+				<table class="table_col" summary="속성 옵션 설명">
+					<caption>css 옵션</caption>
+					<colgroup>
+						<col width="150">
+						<col width="">		
+					</colgroup>
+					<tbody>
+					<tr>
+						<th scope="col">css 속성</th>
+						<th scope="col">css 속성 설명</th>
+					</tr>
+					<tr>
+						<td>:valid </td>
+						<td>값이 유효할때</td>		
+					</tr>
+					<tr>
+						<td>:invalid </td>
+						<td>값이 없거나 유효하지 않을때 </td>		
+					</tr>
+					<tr>
+						<td>::placeholder-shown:invalid </td>
+						<td>placeholder 가있고 유효하지 않을때 : 첨에 값이없는데 유효하지 않는 표현을 피할때 사용</td> 
+					</tr>
+					</tbody>
+				</table>
 
 
 				<div class="ex_wapper">
@@ -61,17 +110,45 @@
 					
 					
 <div class="trp input-box">
-	<div class="txt-box" style="margin-bottom:10px">
-		<label for="trp-text">아이디</label> <input type="text" id="trp-text" placeholder="아이디">
+	
+	<div class="" style="margin-bottom:10px">
+		<label for="trp-text">type="text"</label> <input type="text" id="trp-text" placeholder="아이디">
 	</div>
-	<div class="password-box" style="margin-bottom:10px">
-		<label for="trp-password">비밀번호</label> <input type="password" id="trp-password" placeholder="비밀번호">
+
+	<div class="" style="margin-bottom:10px">
+		<label for="trp-password">type="password"</label> <input type="password" id="trp-password" placeholder="비밀번호" >
 	</div>
-	<div class="search-box" style="margin-bottom:10px">
-		<label for="trp-search">파일검색</label> 
-		<input type="text" id="trp-search" placeholder="파일검색"> 
+
+	<div class="" style="margin-bottom:10px">
+		<label for="trp-search">type="search"</label> 
+		<input type="search" id="trp-search" placeholder="파일검색"> 
 		<a href="#"><img src="../../../../asset/images/search.gif"></a>
 	</div>
+
+
+	<div class="" style="margin-bottom:10px">
+		<label for="trp-tel">type="tel"</label> 
+			<input type="tel" id="trp-tel" class="trp_validation" pattern="^0\d{1,2}-?\d{3,4}-?\d{4}$" maxlength="13"
+			placeholder="010-1234-5678 또는 02-1234-5678" title="일반전화 또는 휴대전화번호를 입력해주세요" required>
+		<div class="help-text">
+			<strong>허용되는 번호:</strong><br>
+			• 휴대전화: 010-1234-5678, 011-123-4567<br>
+			• 서울: 02-1234-5678, 02-123-4567<br>
+			• 지역: 031-123-4567, 051-123-4567<br>
+			• 인터넷전화: 070-1234-5678
+		</div>
+	</div>
+
+
+	<div class="" style="margin-bottom:10px">
+		<label for="trp-email">type="email"</label> 
+		<input type="email" id="trp-email"
+			pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+			placeholder="example@domain.com"
+			class="trp_validation" required
+			title="올바른 이메일 형식을 입력해주세요">
+	</div>
+	
 </div>
 
                 
@@ -87,29 +164,21 @@
 
 
 
-<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #f92672">&lt;style </span><span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text/css&quot;</span><span style="color: #f92672">&gt;</span>
-	    
-    <span style="color: #a6e22e">#trp-text</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">150px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span><span style="color: #ae81ff">24px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">margin-left</span><span style="color: #f92672">:</span><span style="color: #ae81ff">12px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
-    <span style="color: #a6e22e">#trp-password</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">150px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span><span style="color: #ae81ff">24px</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
-    <span style="color: #a6e22e">#trp-search</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">150px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">height</span><span style="color: #f92672">:</span><span style="color: #ae81ff">24px</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">vertical-align</span><span style="color: #f92672">:</span><span style="color: #66d9ef">top</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%;">1
+2
+3
+4
+5
+6
+7
+8</pre></td><td><pre style="margin: 0; line-height: 125%;"><span></span><span style="color: #FF4689">input</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">trp_validation</span><span style="color: #F8F8F2">:</span><span style="color: #A6E22E">valid</span><span style="color: #F8F8F2"> { </span><span style="color: #66D9EF">background-color</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">palegreen</span><span style="color: #F8F8F2">; }      </span><span style="color: #959077">/* 유효할때 */</span>
+<span style="color: #FF4689">input</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">trp_validation</span><span style="color: #F8F8F2">:</span><span style="color: #A6E22E">invalid</span><span style="color: #F8F8F2"> { </span><span style="color: #66D9EF">background-color</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">lightpink</span><span style="color: #F8F8F2">; }    </span><span style="color: #959077">/* 유효하지 않을때 */</span>
+<span style="color: #FF4689">input</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">trp_validation</span><span style="color: #F8F8F2">:</span><span style="color: #A6E22E">placeholder-shown</span><span style="color: #F8F8F2">:</span><span style="color: #A6E22E">invalid</span><span style="color: #F8F8F2"> { </span><span style="color: #66D9EF">background-color</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">transparent</span><span style="color: #F8F8F2">;  } </span><span style="color: #959077">/*  placeholder가 있고 유효하지 않을때 */</span>
 
-    <span style="color: #75715e">/*** text ***/</span>    
-    <span style="color: #a6e22e">.trp.input-box</span> <span style="color: #f92672">label</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">vertical-align</span><span style="color: #f92672">:</span><span style="color: #66d9ef">middle</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
-    <span style="color: #a6e22e">.trp.input-box</span> <span style="color: #a6e22e">.search-box</span> <span style="color: #f92672">label</span> <span style="color: #f8f8f2">{</span> <span style="color: #66d9ef">font-size</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">width</span><span style="color: #f92672">:</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #f8f8f2">}</span>
-    <span style="color: #75715e">/*** //text ***/</span>
-    
-<span style="color: #f92672">&lt;/style&gt;</span>
+<span style="color: #959077">/*** input ***/</span>
+<span style="color: #F8F8F2">.</span><span style="color: #A6E22E">trp</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">input-box</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">label</span><span style="color: #F8F8F2"> { </span><span style="color: #66D9EF">vertical-align</span><span style="color: #F8F8F2">:</span><span style="color: #66D9EF">middle</span><span style="color: #F8F8F2">; }</span>
+<span style="color: #F8F8F2">.</span><span style="color: #A6E22E">trp</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">input-box</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">input</span><span style="color: #F8F8F2"> { </span><span style="color: #66D9EF">width</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">200</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">padding</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">2</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">border</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">1</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2"> </span><span style="color: #66D9EF">solid</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">#e5e5e5</span><span style="color: #F8F8F2">; }</span>
+<span style="color: #959077">/*** //input ***/</span>
 </pre></td></tr></table></div>
 
 
@@ -128,8 +197,7 @@
 
 
 
-
-<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%;"> 1
  2
  3
  4
@@ -141,19 +209,75 @@
 10
 11
 12
-13</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;trp input-box&quot;</span><span style="color: #f92672">&gt;</span>
-	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;txt-box&quot;</span> <span style="color: #a6e22e">style=</span><span style="color: #e6db74">&quot;margin-bottom:10px&quot;</span><span style="color: #f92672">&gt;</span>
-		<span style="color: #f92672">&lt;label</span> <span style="color: #a6e22e">for=</span><span style="color: #e6db74">&quot;trp-text&quot;</span><span style="color: #f92672">&gt;</span>아이디<span style="color: #f92672">&lt;/label&gt;</span> <span style="color: #f92672">&lt;input</span> <span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text&quot;</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;trp-text&quot;</span> <span style="color: #a6e22e">placeholder=</span><span style="color: #e6db74">&quot;아이디&quot;</span><span style="color: #f92672">&gt;</span>
-	<span style="color: #f92672">&lt;/div&gt;</span>
-	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;password-box&quot;</span> <span style="color: #a6e22e">style=</span><span style="color: #e6db74">&quot;margin-bottom:10px&quot;</span><span style="color: #f92672">&gt;</span>
-		<span style="color: #f92672">&lt;label</span> <span style="color: #a6e22e">for=</span><span style="color: #e6db74">&quot;trp-password&quot;</span><span style="color: #f92672">&gt;</span>비밀번호<span style="color: #f92672">&lt;/label&gt;</span> <span style="color: #f92672">&lt;input</span> <span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;password&quot;</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;trp-password&quot;</span> <span style="color: #a6e22e">placeholder=</span><span style="color: #e6db74">&quot;비밀번호&quot;</span><span style="color: #f92672">&gt;</span>
-	<span style="color: #f92672">&lt;/div&gt;</span>
-	<span style="color: #f92672">&lt;div</span> <span style="color: #a6e22e">class=</span><span style="color: #e6db74">&quot;search-box&quot;</span> <span style="color: #a6e22e">style=</span><span style="color: #e6db74">&quot;margin-bottom:10px&quot;</span><span style="color: #f92672">&gt;</span>
-		<span style="color: #f92672">&lt;label</span> <span style="color: #a6e22e">for=</span><span style="color: #e6db74">&quot;trp-search&quot;</span><span style="color: #f92672">&gt;</span>파일검색<span style="color: #f92672">&lt;/label&gt;</span> 
-		<span style="color: #f92672">&lt;input</span> <span style="color: #a6e22e">type=</span><span style="color: #e6db74">&quot;text&quot;</span> <span style="color: #a6e22e">id=</span><span style="color: #e6db74">&quot;trp-search&quot;</span> <span style="color: #a6e22e">placeholder=</span><span style="color: #e6db74">&quot;파일검색&quot;</span><span style="color: #f92672">&gt;</span> 
-		<span style="color: #f92672">&lt;a</span> <span style="color: #a6e22e">href=</span><span style="color: #e6db74">&quot;#&quot;</span><span style="color: #f92672">&gt;&lt;img</span> <span style="color: #a6e22e">src=</span><span style="color: #e6db74">&quot;../../../../asset/images/search.gif&quot;</span><span style="color: #f92672">&gt;&lt;/a&gt;</span>
-	<span style="color: #f92672">&lt;/div&gt;</span>
-<span style="color: #f92672">&lt;/div&gt;</span>
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41</pre></td><td><pre style="margin: 0; line-height: 125%;"><span></span><span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;trp input-box&quot;</span><span style="color: #F8F8F2">&gt;</span>
+	
+	<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;&quot;</span> <span style="color: #A6E22E">style</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;margin-bottom:10px&quot;</span><span style="color: #F8F8F2">&gt;</span>
+		<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">label</span> <span style="color: #A6E22E">for</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;trp-text&quot;</span><span style="color: #F8F8F2">&gt;</span>type=&quot;text&quot;<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">label</span><span style="color: #F8F8F2">&gt;</span> <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">input</span> <span style="color: #A6E22E">type</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;text&quot;</span> <span style="color: #A6E22E">id</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;trp-text&quot;</span> <span style="color: #A6E22E">placeholder</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;아이디&quot;</span><span style="color: #F8F8F2">&gt;</span>
+	<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+
+	<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;&quot;</span> <span style="color: #A6E22E">style</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;margin-bottom:10px&quot;</span><span style="color: #F8F8F2">&gt;</span>
+		<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">label</span> <span style="color: #A6E22E">for</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;trp-password&quot;</span><span style="color: #F8F8F2">&gt;</span>type=&quot;password&quot;<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">label</span><span style="color: #F8F8F2">&gt;</span> <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">input</span> <span style="color: #A6E22E">type</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;password&quot;</span> <span style="color: #A6E22E">id</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;trp-password&quot;</span> <span style="color: #A6E22E">placeholder</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;비밀번호&quot;</span> <span style="color: #F8F8F2">&gt;</span>
+	<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+
+	<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;&quot;</span> <span style="color: #A6E22E">style</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;margin-bottom:10px&quot;</span><span style="color: #F8F8F2">&gt;</span>
+		<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">label</span> <span style="color: #A6E22E">for</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;trp-search&quot;</span><span style="color: #F8F8F2">&gt;</span>type=&quot;search&quot;<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">label</span><span style="color: #F8F8F2">&gt;</span> 
+		<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">input</span> <span style="color: #A6E22E">type</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;search&quot;</span> <span style="color: #A6E22E">id</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;trp-search&quot;</span> <span style="color: #A6E22E">placeholder</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;파일검색&quot;</span><span style="color: #F8F8F2">&gt;</span> 
+		<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">a</span> <span style="color: #A6E22E">href</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;#&quot;</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">img</span> <span style="color: #A6E22E">src</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;../../../../asset/images/search.gif&quot;</span><span style="color: #F8F8F2">&gt;&lt;/</span><span style="color: #FF4689">a</span><span style="color: #F8F8F2">&gt;</span>
+	<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+
+
+	<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;&quot;</span> <span style="color: #A6E22E">style</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;margin-bottom:10px&quot;</span><span style="color: #F8F8F2">&gt;</span>
+		<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">label</span> <span style="color: #A6E22E">for</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;trp-tel&quot;</span><span style="color: #F8F8F2">&gt;</span>type=&quot;tel&quot;<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">label</span><span style="color: #F8F8F2">&gt;</span> 
+			<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">input</span> <span style="color: #A6E22E">type</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;tel&quot;</span> <span style="color: #A6E22E">id</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;trp-tel&quot;</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;trp_validation&quot;</span> <span style="color: #A6E22E">pattern</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;^0\d{1,2}-?\d{3,4}-?\d{4}$&quot;</span> <span style="color: #A6E22E">maxlength</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;13&quot;</span>
+			<span style="color: #A6E22E">placeholder</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;010-1234-5678 또는 02-1234-5678&quot;</span> <span style="color: #A6E22E">title</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;일반전화 또는 휴대전화번호를 입력해주세요&quot;</span> <span style="color: #A6E22E">required</span><span style="color: #F8F8F2">&gt;</span>
+		<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;help-text&quot;</span><span style="color: #F8F8F2">&gt;</span>
+			<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">strong</span><span style="color: #F8F8F2">&gt;</span>허용되는 번호:<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">strong</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">br</span><span style="color: #F8F8F2">&gt;</span>
+			• 휴대전화: 010-1234-5678, 011-123-4567<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">br</span><span style="color: #F8F8F2">&gt;</span>
+			• 서울: 02-1234-5678, 02-123-4567<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">br</span><span style="color: #F8F8F2">&gt;</span>
+			• 지역: 031-123-4567, 051-123-4567<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">br</span><span style="color: #F8F8F2">&gt;</span>
+			• 인터넷전화: 070-1234-5678
+		<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+	<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+
+
+	<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;&quot;</span> <span style="color: #A6E22E">style</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;margin-bottom:10px&quot;</span><span style="color: #F8F8F2">&gt;</span>
+		<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">label</span> <span style="color: #A6E22E">for</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;trp-email&quot;</span><span style="color: #F8F8F2">&gt;</span>type=&quot;email&quot;<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">label</span><span style="color: #F8F8F2">&gt;</span> 
+		<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">input</span> <span style="color: #A6E22E">type</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;email&quot;</span> <span style="color: #A6E22E">id</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;trp-email&quot;</span>
+			<span style="color: #A6E22E">pattern</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$&quot;</span>
+			<span style="color: #A6E22E">placeholder</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;example@domain.com&quot;</span>
+			<span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;trp_validation&quot;</span> <span style="color: #A6E22E">required</span>
+			<span style="color: #A6E22E">title</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;올바른 이메일 형식을 입력해주세요&quot;</span><span style="color: #F8F8F2">&gt;</span>
+	<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+	
+<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
 </pre></td></tr></table></div>
 
 
