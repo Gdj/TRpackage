@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+	<title>다른 미디어쿼리</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" id="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0">
+	<link rel="stylesheet" type="text/css"  href="../../../../asset/css/trpBase.css" media="all" />
+
+	<!-- responsive web design area -->
+	<style type="text/css">
+		.mediaQuery { display: flex; flex-direction: column; align-items: center; justify-content: center; 
+			padding: 20px 10px;
+			font-size: 22px; font-weight: bold; background-color: #eee;
+		} 
+		.mediaQuery>div{ font-size: 17px;
+			border: 3px solid #333; padding: 20px 10px; margin: 10px 0;
+			background-color: #eee;
+		}
+		.mediaQuery span{ font-weight: bold;font-size: 20px; }
+		.mediaQuery:has(.c1) .c1 { border: 3px solid #3f3; }
+		.mediaQuery:has(.c2) .c2 { border: 3px solid #d35; }
+		.mediaQuery:has(.c3) .c3 { border: 3px solid #777; }
+		.mediaQuery:has(.c4) .c4 { border: 3px solid #369; }
+
+
+		/* 화면 방향 : 가로 | 세로 [landscape | portrait] 
+		*/
+		@media (orientation: landscape) {
+			.mediaQuery .c1 { background-color: #3f3; }
+		}
+
+		/* 해상도 : 레티나 해상도 */
+		@media (min-resolution: 2dppx) {
+			.mediaQuery .c2 { background-color: #d35; }
+		}
+
+		/* 시스템 설정 모드 : [light | dark] */
+		@media (prefers-color-scheme: dark) {
+			.mediaQuery .c3{ background-color: #777; }
+		}
+
+		/* hover 지원 : pc, mobile[hover, none]*/
+		@media (hover: hover) {
+			.mediaQuery .c4 { background-color: #369 }
+		}
+	</style>
+
+</head>
+<body>
+	
+	<div class="mediaQuery">
+		<div><strong>미디이쿼리 적용될때 <br> (border-color, background-color) 같아짐</strong></div>
+		<div class="c1"> @media (orientation: portrait) {} = <br> <span>가로 방향일때</span> </div>
+		<div class="c2"> @media (min-resolution: 2dppx) {} = <br> <span>레티나 해상도일때</span></div>
+		<div class="c3"> @media (prefers-color-scheme: dark) {} = <br> <span>ligth , dark모드일때</span></div>
+		<div class="c4"> @media (hover: hover) {} = <br> <span>hover 지원 될때  (PC)</span></div>
+	</div>
+
+</body>
+</html>

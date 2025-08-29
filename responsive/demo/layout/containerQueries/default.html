@@ -34,9 +34,56 @@
 					<dd><span class="icon"></span>@container div-container (width <= XXXpx)  : 데스크탑 기준 : XXXpx 까지</dd>
 				</dl>
 
+				<table class="table_col" summary="layer Popup 메소드">
+              <caption>layer Popup 설명</caption>
+              <colgroup>
+                <col width="150">
+                  <col width="">
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th scope="col">메서드</th>
+                  <th scope="col">메서드 설명</th>
+                </tr>
+                <tr>
+                  <td>container-type: </td>
+                  <td>컨테이너 타입 [normal(컨테이너 쿼리 비활성화),  size(가로세로 모두반응), inline-size(기로반응), scroll-state(스크롤에따라), 
+										inherit(부모 쿼리에 따라), inital(생성시쿼리에 따라)]
+                  </td>
+                </tr>
+                <tr>
+                  <td>contain: </td>
+                  <td>웹 페이지의 렌더링 성능을 최적화하기 위해 사용되는 CSS 속성 <br>
+										[none(기본값. 컨테인먼트(containment)를 적용하지 않음),  <br>
+										strict(모든 종류의 컨테인먼트를 적용함),   <br>
+										size(요소의 크기가 외부 콘텐츠의 영향을 받지 않도록 함), <br> 
+										layout(요소의 내부 레이아웃이 외부 레이아웃에 영향을 주지 않도록 함), 
+										style(요소의 콘텐츠 내부에 있는 CSS 속성(카운터, 폰트, quotes 등)이 외부 콘텐츠에 영향을 주지 않도록함), <br>
+										paint(요소의 내부 콘텐츠가 외부 콘텐츠 위로 넘쳐 흐르거나(overflow) 다른 요소의 렌더링에 영향을 주지 않도록 함)
+										]
+                  </td>
+                </tr>
+                <tr>
+                  <td>container-name </td>
+                  <td>컨테이너 이름 지정
+                  </td>
+                </tr>
+                <tr>
+                  <td>이름이 없을때 </td>
+                  <td>부모컨테이너에 아래속성이 있는 더 가까운 컨테이너에 반응함. <br>
+										container-type: inline-size; <br>
+										container-type: size; <br>
+										contain: layout; <br>
+										contain: style;
+                  </td>
+                </tr>
+               
+
+              </tbody>
+            </table>
 
 				<div class="ex_wapper">
-					<h3 class="api-title_h3">VIEW max(css)</h3>
+					<h3 class="api-title_h3">VIEW (컨테이너 크기에 따른 )</h3>
 					<!-- <p class="ex-more"><a href="javascript:return false;"><span class="d-n">+</span><span style="display: inline;">-</span></a></p> -->
 					<p class="ex-view"><a href="ex01.html" target="_blank">View Sample</a></p>
 					<div class="ex-body d-n" >
