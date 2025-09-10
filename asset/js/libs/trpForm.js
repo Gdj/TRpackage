@@ -642,3 +642,169 @@ $(".trp-timepicker .ui-count a", _this ).on("click", function(){
 $(".trp-timepicker .ui-count", _this).on('mousewheel',  upDate_time );
 }
 
+
+
+
+
+/* =====================================  Vanilla JS =====================================  */
+/**
+ * trpJsDropdownManager  : 드롭 다운 메뉴
+ */
+const trpJsDropdownManager = (function () {
+  let onSelectCallback = null;
+
+  // 드롭다운 이벤트실행
+  function toggleDropdown(dropdownId) {
+    const dropdown = document.getElementById(dropdownId);
+    const content = dropdown.querySelector('.trp-dropdown_list-box');
+
+    // 다른 모든 드롭다운 닫기
+    closeAllDropdowns(dropdownId);
+
+    // 현재 드롭다운 토글
+    dropdown.classList.toggle('active');
+    content.classList.toggle('show');
+  }
+
+  // 모든 드롭다운 닫기
+  function closeAllDropdowns(exceptId = null) {
+    const dropdowns = document.querySelectorAll('.trp-dropdown-area');
+    dropdowns.forEach(dropdown => {
+      if (dropdown.id !== exceptId) {
+        dropdown.classList.remove('active');
+        dropdown.querySelector('.trp-dropdown_list-box').classList.remove('show');
+      }
+    });
+  }
+
+  function handleItemClick(event) {
+    const link = event.target.closest('a');
+    if (!link) return;
+
+    // 서브메뉴의 부모 링크인 경우 무시
+    if (link.textContent.includes('▶')) return;
+
+    event.preventDefault();
+
+    const itemText = link.textContent.trim();
+    const dropdownArea = link.closest('.trp-dropdown-area');
+    const dropdownId = dropdownArea ? dropdownArea.id : null;
+
+    // 콜백 함수 실행
+    if (onSelectCallback && typeof onSelectCallback === 'function') {
+      onSelectCallback(itemText, dropdownId);
+    }
+
+    // 모든 드롭다운 닫기
+    closeAllDropdowns();
+  }
+  // document 이벤트 
+  function handleDocumentClick(event) {
+    const dropdowns = document.querySelectorAll('.trp-dropdown-area');
+    let clickedInsideDropdown = false;
+
+    dropdowns.forEach(dropdown => {
+      if (dropdown.contains(event.target)) {
+        clickedInsideDropdown = true;
+      }
+    });
+
+    if (!clickedInsideDropdown) {
+      closeAllDropdowns();
+    }
+  }
+  // 키보드 이벤트
+  function handleKeydown(event) {
+    if (event.key === 'Escape') {
+      closeAllDropdowns();
+      return;
+    }
+
+    const activeDropdown = document.querySelector('.trp-dropdown-area.active');
+    if (!activeDropdown) return;
+
+    const items = activeDropdown.querySelectorAll('.trp-dropdown_list-box a');
+    const currentFocus = document.activeElement;
+    const currentIndex = Array.from(items).indexOf(currentFocus);
+
+    switch (event.key) {
+      case 'ArrowDown':
+        event.preventDefault();
+        const nextIndex = currentIndex < items.length - 1 ? currentIndex + 1 : 0;
+        items[nextIndex].focus();
+        break;
+      case 'ArrowUp':
+        event.preventDefault();
+        const prevIndex = currentIndex > 0 ? currentIndex - 1 : items.length - 1;
+        items[prevIndex].focus();
+        break;
+      case 'Enter':
+        if (currentFocus && currentFocus.tagName === 'A') {
+          currentFocus.click();
+        }
+        break;
+    }
+  }
+
+  function initializeFocusEvents() {
+    const dropdownBtns = document.querySelectorAll('.js-dropdown-btn');
+    dropdownBtns.forEach(btn => {
+      btn.addEventListener('focus', function () {
+        this.style.outline = '2px solid #667eea';
+        this.style.outlineOffset = '2px';
+      });
+
+      btn.addEventListener('blur', function () {
+        this.style.outline = 'none';
+      });
+    });
+  }
+
+  function initializeItemClickEvents() {
+    // 모든 드롭다운 링크에 클릭 이벤트 추가
+    const dropdownLinks = document.querySelectorAll('.trp-dropdown_list-box a');
+    dropdownLinks.forEach(link => {
+      link.addEventListener('click', handleItemClick);
+    });
+  }
+
+  function init() {
+    console.log('드롭다운 메뉴가 초기화되었습니다.');
+
+    // 이벤트 리스너 등록
+    document.addEventListener('click', handleDocumentClick);
+    document.addEventListener('keydown', handleKeydown);
+
+    // 포커스 이벤트 초기화
+    initializeFocusEvents();
+
+    // 아이템 클릭 이벤트 초기화
+    initializeItemClickEvents();
+
+    // 전역 함수로 토글 함수 노출
+    window.trpJsDropdown = toggleDropdown;
+  }
+
+  // 외부 호출용 메서드들 반환
+  return {
+    init: init,
+    dropdown: toggleDropdown,
+    closeAll: closeAllDropdowns,
+    onSelect: function (callback) {
+      trpJsDropdownManager.closeAll();
+      onSelectCallback = callback;
+    },
+    destroy: function () {
+      document.removeEventListener('click', handleDocumentClick);
+      document.removeEventListener('keydown', handleKeydown);
+
+      // 링크 이벤트 리스너 제거
+      const dropdownLinks = document.querySelectorAll('.trp-dropdown_list-box a');
+      dropdownLinks.forEach(link => {
+        link.removeEventListener('click', handleItemClick);
+      });
+
+      console.log('드롭다운 이벤트 리스너가 제거되었습니다.');
+    }
+  };
+})();
