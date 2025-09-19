@@ -224,35 +224,36 @@
 						<col width="">		
 					</colgroup>
 					<tbody>
-					<tr>
-						<th scope="col">method 이름</th>
-						<th scope="col">method 설명</th>
-					</tr>
-					<tr>
-						<td>trpJsDropdown($id)</td>
-						<td>trpJsDropdownManager.dropdown($id) 과 동일한기능 </td>		
-					</tr>
-					<tr>
-						<td>.dropdown($id)</td>
-						<td>드롭다운 실행</td>		
-					</tr>
-					<tr>
-						<td>.init()</td>
-						<td>드롭다운 초기화</td>		
-					</tr>
-					<tr>
-						<td>.closeAll()</td>
-						<td>모든드롭다운 닫기</td>		
-					</tr>
-					<tr>
-						<td>.onSelect($callbackFn)</td>
-						<td>트롭다운 선택 아이템 콜백 함수()</td>		
-					</tr>
-					<tr>
-						<td>.destroy()</td>
-						<td>트롭다운 이벤트 삭제</td>		
-					</tr>
-					
+						<tr>
+							<th scope="col">method 이름</th>
+							<th scope="col">method 설명</th>
+						</tr>
+						<tr>
+							<td><strong>trpJsDropdown($id)</strong></td>
+							<td>trpJsDropdownManager.dropdown($id) 과 동일한기능 </td>		
+						</tr>
+						<tr>
+							<td>.dropdown($id)</td>
+							<td>드롭다운 등록</td>		
+						</tr>
+						<tr>
+							<td>.init()</td>
+							<td>드롭다운 이벤트 초기화</td>		
+						</tr>
+						<tr>
+							<td>.destroy()</td>
+							<td>트롭다운 이벤트 삭제</td>		
+						</tr>
+						<tr>
+							<td>.closeAll()</td>
+							<td>모든드롭다운 닫기</td>		
+						</tr>
+						<tr>
+							<td>.onSelect($callbackFn($selectObj))</td>
+							<td>트롭다운 선택 아이템 콜백 함수() <br>
+								$selectObj = { id : $id,  text : $text, value : $value }
+							</td>		
+						</tr>
 					</tbody>
 				</table>
 				
@@ -271,6 +272,7 @@
 				<div class="ex-body" style="display:none" >					
 					<div class="source"><!-- 소스 -->
 					
+
 
 <!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%;"> 1
  2
@@ -329,7 +331,8 @@
 55
 56
 57
-58</pre></td><td><pre style="margin: 0; line-height: 125%;"><span></span><span style="color: #959077">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</span>
+58
+59</pre></td><td><pre style="margin: 0; line-height: 125%;"><span></span><span style="color: #959077">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</span>
 <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">html</span> <span style="color: #A6E22E">xmlns</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span style="color: #A6E22E">lang</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;ko&quot;</span> <span style="color: #A6E22E">xml:lang</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;ko&quot;</span><span style="color: #F8F8F2">&gt;</span>
 <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">head</span><span style="color: #F8F8F2">&gt;</span>
 <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">meta</span> <span style="color: #A6E22E">http-equiv</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;Content-Type&quot;</span> <span style="color: #A6E22E">content</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;text/html; charset=utf-8&quot;</span><span style="color: #F8F8F2">&gt;</span>
@@ -340,10 +343,10 @@
 
 <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">style</span><span style="color: #F8F8F2">&gt;</span>
 <span style="color: #F8F8F2">	</span><span style="color: #FF4689">html,</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">body</span><span style="color: #F8F8F2"> { </span><span style="color: #66D9EF">margin</span><span style="color: #F8F8F2">:</span><span style="color: #AE81FF">0</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">padding</span><span style="color: #F8F8F2">:</span><span style="color: #AE81FF">0</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">min-height</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">100</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">height</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">100</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2">; }	</span>
-<span style="color: #F8F8F2">  .</span><span style="color: #A6E22E">trp-dropdown-area</span><span style="color: #F8F8F2"> { </span><span style="color: #66D9EF">position</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">relative</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">width</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">300</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2">;}</span>
+<span style="color: #F8F8F2">  .</span><span style="color: #A6E22E">trp-dropdown-area</span><span style="color: #F8F8F2"> { </span><span style="color: #66D9EF">position</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">relative</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">display</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">inline-block</span><span style="color: #F8F8F2">;}</span>
 <span style="color: #F8F8F2">  .</span><span style="color: #A6E22E">trp-dropdown-area</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">active</span><span style="color: #F8F8F2">  .</span><span style="color: #A6E22E">js-dropdown-btn</span><span style="color: #F8F8F2">{ </span><span style="color: #66D9EF">background-color</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">#ff0000</span><span style="color: #F8F8F2">; }</span>
 <span style="color: #F8F8F2">  .</span><span style="color: #A6E22E">js-dropdown-btn</span><span style="color: #F8F8F2"> { </span><span style="color: #66D9EF">height</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">30</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2">;}</span>
-<span style="color: #F8F8F2">  .</span><span style="color: #A6E22E">trp-dropdown_list-box</span><span style="color: #F8F8F2"> { </span><span style="color: #66D9EF">position</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">absolute</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">top</span><span style="color: #F8F8F2">:</span><span style="color: #AE81FF">30</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">left</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">0</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">width</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">100</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2">;</span><span style="color: #66D9EF">background-color</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">#ccc</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">  .</span><span style="color: #A6E22E">trp-dropdown_list-box</span><span style="color: #F8F8F2"> { </span><span style="color: #66D9EF">position</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">absolute</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">top</span><span style="color: #F8F8F2">:</span><span style="color: #AE81FF">30</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">left</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">0</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">width</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">100</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">min-width</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">150</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">background-color</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">#ccc</span><span style="color: #F8F8F2">;</span>
 <span style="color: #F8F8F2">    </span><span style="color: #66D9EF">display</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">none</span><span style="color: #F8F8F2">; </span>
 <span style="color: #F8F8F2">  }</span>
 <span style="color: #F8F8F2">  .</span><span style="color: #A6E22E">trp-dropdown_list-box</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">show</span><span style="color: #F8F8F2"> { </span><span style="color: #66D9EF">display</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">block</span><span style="color: #F8F8F2">; }</span>
@@ -359,14 +362,15 @@
     <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;trp-dropdown-area&quot;</span> <span style="color: #A6E22E">id</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;dropdown2&quot;</span><span style="color: #F8F8F2">&gt;</span>
       <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">button</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;js-dropdown-btn&quot;</span> <span style="color: #A6E22E">onclick</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;trpJsDropdown(&#39;dropdown2&#39;)&quot;</span><span style="color: #F8F8F2">&gt;</span>
         <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">span</span><span style="color: #F8F8F2">&gt;</span>언어 선택<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">span</span><span style="color: #F8F8F2">&gt;</span>
+        <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">i</span><span style="color: #F8F8F2">&gt;</span>▼<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">i</span><span style="color: #F8F8F2">&gt;</span>
       <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">button</span><span style="color: #F8F8F2">&gt;</span>
       <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;trp-dropdown_list-box&quot;</span><span style="color: #F8F8F2">&gt;</span>
         <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">ul</span><span style="color: #F8F8F2">&gt;</span>
-          <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">li</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">a</span> <span style="color: #A6E22E">href</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;#&quot;</span><span style="color: #F8F8F2">&gt;</span>🇰🇷 한국어<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">a</span><span style="color: #F8F8F2">&gt;&lt;/</span><span style="color: #FF4689">li</span><span style="color: #F8F8F2">&gt;</span>
-          <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">li</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">a</span> <span style="color: #A6E22E">href</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;#&quot;</span><span style="color: #F8F8F2">&gt;</span>🇺🇸 English<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">a</span><span style="color: #F8F8F2">&gt;&lt;/</span><span style="color: #FF4689">li</span><span style="color: #F8F8F2">&gt;</span>
-          <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">li</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">a</span> <span style="color: #A6E22E">href</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;#&quot;</span><span style="color: #F8F8F2">&gt;</span>🇯🇵 日本語<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">a</span><span style="color: #F8F8F2">&gt;&lt;/</span><span style="color: #FF4689">li</span><span style="color: #F8F8F2">&gt;</span>
-          <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">li</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">a</span> <span style="color: #A6E22E">href</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;#&quot;</span><span style="color: #F8F8F2">&gt;</span>🇨🇳 中文<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">a</span><span style="color: #F8F8F2">&gt;&lt;/</span><span style="color: #FF4689">li</span><span style="color: #F8F8F2">&gt;</span>
-          <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">li</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">a</span> <span style="color: #A6E22E">href</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;#&quot;</span><span style="color: #F8F8F2">&gt;</span>🇪🇸 Español<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">a</span><span style="color: #F8F8F2">&gt;&lt;/</span><span style="color: #FF4689">li</span><span style="color: #F8F8F2">&gt;</span>
+          <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">li</span> <span style="color: #A6E22E">data-val</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;ko&quot;</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">a</span> <span style="color: #A6E22E">href</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;#&quot;</span><span style="color: #F8F8F2">&gt;</span>🇰🇷 한국어<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">a</span><span style="color: #F8F8F2">&gt;&lt;/</span><span style="color: #FF4689">li</span><span style="color: #F8F8F2">&gt;</span>
+          <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">li</span> <span style="color: #A6E22E">data-val</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;us&quot;</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">a</span> <span style="color: #A6E22E">href</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;#&quot;</span><span style="color: #F8F8F2">&gt;</span>🇺🇸 English<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">a</span><span style="color: #F8F8F2">&gt;&lt;/</span><span style="color: #FF4689">li</span><span style="color: #F8F8F2">&gt;</span>
+          <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">li</span> <span style="color: #A6E22E">data-val</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;jp&quot;</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">a</span> <span style="color: #A6E22E">href</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;#&quot;</span><span style="color: #F8F8F2">&gt;</span>🇯🇵 日本語<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">a</span><span style="color: #F8F8F2">&gt;&lt;/</span><span style="color: #FF4689">li</span><span style="color: #F8F8F2">&gt;</span>
+          <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">li</span> <span style="color: #A6E22E">data-val</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;cn&quot;</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">a</span> <span style="color: #A6E22E">href</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;#&quot;</span><span style="color: #F8F8F2">&gt;</span>🇨🇳 中文<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">a</span><span style="color: #F8F8F2">&gt;&lt;/</span><span style="color: #FF4689">li</span><span style="color: #F8F8F2">&gt;</span>
+          <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">li</span> <span style="color: #A6E22E">data-val</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;es&quot;</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">a</span> <span style="color: #A6E22E">href</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;#&quot;</span><span style="color: #F8F8F2">&gt;</span>🇪🇸 Español<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">a</span><span style="color: #F8F8F2">&gt;&lt;/</span><span style="color: #FF4689">li</span><span style="color: #F8F8F2">&gt;</span>
         <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">ul</span><span style="color: #F8F8F2">&gt;</span>
       <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
     <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
@@ -374,11 +378,11 @@
     <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">script</span><span style="color: #F8F8F2">&gt;</span>
 <span style="color: #F8F8F2">      </span><span style="color: #959077">// 페이지 로드시 초기화</span>
 <span style="color: #F8F8F2">      document.</span><span style="color: #A6E22E">addEventListener</span><span style="color: #F8F8F2">(</span><span style="color: #E6DB74">&#39;DOMContentLoaded&#39;</span><span style="color: #F8F8F2">, </span><span style="color: #66D9EF">function</span><span style="color: #F8F8F2"> () {</span>
-<span style="color: #F8F8F2">        </span><span style="color: #A6E22E">trpJsDropdownManager</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">init</span><span style="color: #F8F8F2">();</span>
+<span style="color: #F8F8F2">        </span><span style="color: #A6E22E">trpJsDropdownManager</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">init</span><span style="color: #F8F8F2">();      </span><span style="color: #959077">// 이벤트 리스너 등록 </span>
 
 <span style="color: #F8F8F2">        </span><span style="color: #959077">// 선택 항목 콜백 함수 설정</span>
-<span style="color: #F8F8F2">        </span><span style="color: #A6E22E">trpJsDropdownManager</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">onSelect</span><span style="color: #F8F8F2">(</span><span style="color: #66D9EF">function</span><span style="color: #F8F8F2"> (</span><span style="color: #A6E22E">item</span><span style="color: #F8F8F2">, </span><span style="color: #A6E22E">dropdownId</span><span style="color: #F8F8F2">) {</span>
-<span style="color: #F8F8F2">          </span><span style="color: #A6E22E">console</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">log</span><span style="color: #F8F8F2">(</span><span style="color: #E6DB74">`선택된 항목: ${</span><span style="color: #A6E22E">item</span><span style="color: #E6DB74">}, 드롭다운 ID: ${</span><span style="color: #A6E22E">dropdownId</span><span style="color: #E6DB74">}`</span><span style="color: #F8F8F2">);</span>
+<span style="color: #F8F8F2">        </span><span style="color: #A6E22E">trpJsDropdownManager</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">onSelect</span><span style="color: #F8F8F2">(</span><span style="color: #66D9EF">function</span><span style="color: #F8F8F2"> (</span><span style="color: #A6E22E">$selectObj</span><span style="color: #F8F8F2">) {</span>
+<span style="color: #F8F8F2">          </span><span style="color: #A6E22E">console</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">log</span><span style="color: #F8F8F2">( </span><span style="color: #E6DB74">`드롭다운 ID: ${</span><span style="color: #A6E22E">$selectObj</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">id</span><span style="color: #E6DB74">}   선택된 항목Text: ${</span><span style="color: #A6E22E">$selectObj</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">text</span><span style="color: #E6DB74">}    선택된 항목value: ${</span><span style="color: #A6E22E">$selectObj</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">value</span><span style="color: #E6DB74">}`</span><span style="color: #F8F8F2"> );</span>
 <span style="color: #F8F8F2">        });</span>
 <span style="color: #F8F8F2">      });</span>
 <span style="color: #F8F8F2">    &lt;/</span><span style="color: #FF4689">script</span><span style="color: #F8F8F2">&gt;</span>
@@ -388,7 +392,6 @@
 <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">body</span><span style="color: #F8F8F2">&gt;</span>
 <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">html</span><span style="color: #F8F8F2">&gt;</span>
 </pre></td></tr></table></div>
-
 
 
 

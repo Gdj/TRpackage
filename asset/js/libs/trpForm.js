@@ -689,10 +689,14 @@ const trpJsDropdownManager = (function () {
     const itemText = link.textContent.trim();
     const dropdownArea = link.closest('.trp-dropdown-area');
     const dropdownId = dropdownArea ? dropdownArea.id : null;
-
+    let returnObj = {
+      id: dropdownId,
+      text: itemText,
+      value: link.closest('li').getAttribute('data-val')
+    };
     // 콜백 함수 실행
     if (onSelectCallback && typeof onSelectCallback === 'function') {
-      onSelectCallback(itemText, dropdownId);
+      onSelectCallback(returnObj);
     }
 
     // 모든 드롭다운 닫기
@@ -769,7 +773,7 @@ const trpJsDropdownManager = (function () {
   }
 
   function init() {
-    console.log('드롭다운 메뉴가 초기화되었습니다.');
+    console.log('trpJsDropdownManager 가 초기화되었습니다.');
 
     // 이벤트 리스너 등록
     document.addEventListener('click', handleDocumentClick);
@@ -787,14 +791,14 @@ const trpJsDropdownManager = (function () {
 
   // 외부 호출용 메서드들 반환
   return {
-    init: init,
-    dropdown: toggleDropdown,
-    closeAll: closeAllDropdowns,
-    onSelect: function (callback) {
+    init: init,                       // [필수] 링크 이벤트 리스너 등록 
+    dropdown: toggleDropdown,         // 드롭다운 토글
+    closeAll: closeAllDropdowns,      // 다른 모든 드롭다운 닫기
+    onSelect: function (callback) {   // 콜백 함수
       trpJsDropdownManager.closeAll();
       onSelectCallback = callback;
     },
-    destroy: function () {
+    destroy: function () {            // 링크 이벤트 리스너 제거
       document.removeEventListener('click', handleDocumentClick);
       document.removeEventListener('keydown', handleKeydown);
 
@@ -804,7 +808,7 @@ const trpJsDropdownManager = (function () {
         link.removeEventListener('click', handleItemClick);
       });
 
-      console.log('드롭다운 이벤트 리스너가 제거되었습니다.');
+      console.log('trpJsDropdownManager 이벤트 리스너가 제거되었습니다.');
     }
   };
 })();
