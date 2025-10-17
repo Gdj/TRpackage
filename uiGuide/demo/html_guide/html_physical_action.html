@@ -116,9 +116,21 @@
 <dialog id="dialog-popup" >
   <p>팝업 메시지 </p>
   <form method="dialog">
-    <button class="trp button type1" onclick="document.getElementById('modal-dialog').close()">닫기</button>
+    <button class="trp button type1" onclick="document.getElementById('dialog-popup').close()">닫기</button>
   </form>
 </dialog>
+
+<script>
+	const dialog = document.getElementById('dialog-popup');
+	/* 닫기 이벤트 */
+	dialog.addEventListener('close', function() {
+		console.log('Dialog closed');
+	});
+	/* Esc 닫기 이벤트 */
+	dialog.addEventListener('cancel', (event) => {
+		console.log('Dialog Esc closed');
+	})
+</script>
                 
 					</div>
 				</div>
@@ -131,24 +143,49 @@
 
 
 
-<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%;">1
-2
-3
-4
-5
-6
-7
-8
-9</pre></td><td><pre style="margin: 0; line-height: 125%;"><span></span><span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">button</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;trp button type1&quot;</span> <span style="color: #A6E22E">onclick</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;document.getElementById(&#39;dialog-popup&#39;).showModal()&quot;</span><span style="color: #F8F8F2">&gt;</span>모달 다이얼로그 열기<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">button</span><span style="color: #F8F8F2">&gt;</span>
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%;"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></td><td><pre style="margin: 0; line-height: 125%;"><span></span><span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">button</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;trp button type1&quot;</span> <span style="color: #A6E22E">onclick</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;document.getElementById(&#39;dialog-popup&#39;).showModal()&quot;</span><span style="color: #F8F8F2">&gt;</span>모달 다이얼로그 열기<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">button</span><span style="color: #F8F8F2">&gt;</span>
 <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">button</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;trp button type1&quot;</span> <span style="color: #A6E22E">onclick</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;document.getElementById(&#39;dialog-popup&#39;).show()&quot;</span><span style="color: #F8F8F2">&gt;</span>일반 다이얼로그 열기<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">button</span><span style="color: #F8F8F2">&gt;</span>
 
 <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">dialog</span> <span style="color: #A6E22E">id</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;dialog-popup&quot;</span> <span style="color: #F8F8F2">&gt;</span>
   <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>팝업 메시지 <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>
   <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">form</span> <span style="color: #A6E22E">method</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;dialog&quot;</span><span style="color: #F8F8F2">&gt;</span>
-    <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">button</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;trp button type1&quot;</span> <span style="color: #A6E22E">onclick</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;document.getElementById(&#39;modal-dialog&#39;).close()&quot;</span><span style="color: #F8F8F2">&gt;</span>닫기<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">button</span><span style="color: #F8F8F2">&gt;</span>
+    <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">button</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;trp button type1&quot;</span> <span style="color: #A6E22E">onclick</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;document.getElementById(&#39;dialog-popup&#39;).close()&quot;</span><span style="color: #F8F8F2">&gt;</span>닫기<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">button</span><span style="color: #F8F8F2">&gt;</span>
   <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">form</span><span style="color: #F8F8F2">&gt;</span>
 <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">dialog</span><span style="color: #F8F8F2">&gt;</span>
+
+<span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">script</span><span style="color: #F8F8F2">&gt;</span>
+<span style="color: #F8F8F2">	</span><span style="color: #66D9EF">const</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">dialog</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> document.</span><span style="color: #A6E22E">getElementById</span><span style="color: #F8F8F2">(</span><span style="color: #E6DB74">&#39;dialog-popup&#39;</span><span style="color: #F8F8F2">);</span>
+<span style="color: #F8F8F2">	</span><span style="color: #959077">/* 닫기 이벤트 */</span>
+<span style="color: #F8F8F2">	</span><span style="color: #A6E22E">dialog</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">addEventListener</span><span style="color: #F8F8F2">(</span><span style="color: #E6DB74">&#39;close&#39;</span><span style="color: #F8F8F2">, </span><span style="color: #66D9EF">function</span><span style="color: #F8F8F2">() {</span>
+<span style="color: #F8F8F2">		</span><span style="color: #A6E22E">console</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">log</span><span style="color: #F8F8F2">(</span><span style="color: #E6DB74">&#39;Dialog closed&#39;</span><span style="color: #F8F8F2">);</span>
+<span style="color: #F8F8F2">	});</span>
+<span style="color: #F8F8F2">	</span><span style="color: #959077">/* Esc 닫기 이벤트 */</span>
+<span style="color: #F8F8F2">	</span><span style="color: #A6E22E">dialog</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">addEventListener</span><span style="color: #F8F8F2">(</span><span style="color: #E6DB74">&#39;cancel&#39;</span><span style="color: #F8F8F2">, (</span><span style="color: #A6E22E">event</span><span style="color: #F8F8F2">) =&gt; {</span>
+<span style="color: #F8F8F2">		</span><span style="color: #A6E22E">console</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">log</span><span style="color: #F8F8F2">(</span><span style="color: #E6DB74">&#39;Dialog Esc closed&#39;</span><span style="color: #F8F8F2">);</span>
+<span style="color: #F8F8F2">	})</span>
+<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">script</span><span style="color: #F8F8F2">&gt;</span>
 </pre></td></tr></table></div>
+
 
 
 
