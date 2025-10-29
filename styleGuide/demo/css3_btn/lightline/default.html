@@ -7,107 +7,183 @@
     <script type="text/javascript" src="../../../../asset/js/libs/trpMenu.js"></script>
     <link rel="stylesheet" type="text/css" href="../../../../asset/css/trpBase.css" media="all" />
     <link rel="stylesheet" type="text/css" href="../../../../asset/css/common.css" media="all" />
-      <style lang="scss" scoped >
-    :root {
-      --lightOutLine : 2px;
-      --lightDegree : 155deg;
-    }
+    <style lang="scss" scoped >
+      :root {
+        --lightOutLine : 2px;
+        --lightDegree : 155deg;
+      }
+      .constainer { position: relative;
+        display: flex; flex-wrap: wrap; width: 100%; height: 300px;
+        justify-content: center; align-items: center;
+        background-color: #333;
+        > div { margin: 10px; }
+      }
 
-    .btn-type1 {
-      position: relative; display: block; width: 200px; height: 50px; box-sizing: border-box;
-      border: 0; padding: 0; margin: 0; border-radius: 100px;  
-      background-color: purple;
-      .txt { display: flex; justify-content: center; align-items: center;  box-sizing: border-box;
-        width: 100%; height: 100%;  border-radius: 100px;
-        font-size: 16px; font-weight: bold; text-align: center; color:#fff;
+
+      .btn-type1 {
+        position: relative; display: block; width: 200px; height: 50px; box-sizing: border-box;
+        border: 0; padding: 0; margin: 0;   
         background-color: purple;
+        .txt { display: flex; justify-content: center; align-items: center;  box-sizing: border-box;
+          width: 100%; height: 100%;  
+          font-size: 16px; font-weight: bold; text-align: center; color:#fff;
+          background-color: purple;
+        }
       }
-    }
-    .btn-type2 {
-      position: relative; display: block; width: 200px; height: 50px; box-sizing: border-box;
-      border: 0; padding: 0; margin: 0; border-radius: 10px;  
-      background-color: purple;
-      .txt { display: flex; justify-content: center; align-items: center;  box-sizing: border-box;
-        width: 100%; height: 100%; border-radius: 10px;
-        font-size: 16px; font-weight: bold; text-align: center; color:#fff;
+      .btn-type2 {
+        position: relative; display: block; width: 200px; height: 50px; box-sizing: border-box;
+        border: 0; padding: 0; margin: 0; border-radius: 10px;  
         background-color: purple;
+        .txt { display: flex; justify-content: center; align-items: center;  box-sizing: border-box;
+          width: 100%; height: 100%; border-radius: 10px;
+          font-size: 16px; font-weight: bold; text-align: center; color:#fff;
+          background-color: purple;
+        }
       }
-    }
-
-
-    /* ## 1. 빛반사 돌고 나타남 */
-    .trp_raound-light{ position: relative; overflow: hidden; isolation: isolate;
-      &::before { content: ""; position: absolute; top: 0; left: 0%; z-index: 0;
-        display: block; width: 100%; height: 100%;
-        background-image: linear-gradient(var(--lightDegree), #fff, transparent 20%, transparent 80%);
-        border-radius: 100px;  mix-blend-mode: lighten;
-      }
-      &::after { content: ""; position: absolute; top: 0; left: 0; z-index: 0;
-        display: block; width: 100%; height: 100%; 
-        background-image: linear-gradient(var(--lightDegree), transparent 20%, transparent 80%, #fff);
-        border-radius: 100px;  mix-blend-mode: lighten;
-      }
-      .txt { position: absolute; top: var(--lightOutLine); left: var(--lightOutLine); z-index: 1;
-        width: calc(100% - (var(--lightOutLine) * 2)); height: calc(100% - (var(--lightOutLine) * 2));
-      }
-      &:hover::before { /* infinite, 1, */
-        animation: motion-move_right 1s ease-out 1;
-      }
-      &:hover::after { 
-        animation: motion-move_left 1s ease-out 1;
-      }
-    }
-    @keyframes motion-move_right {
-      0%      { left: 0%;     opacity: 1; }
-      60%     { left: 100%;   opacity: 0; }
-      61%     { left: -50%;   opacity: 0; }
-      100%    { left: 0%;     opacity: 1; }
-    }
-    @keyframes motion-move_left {
-      0%      { left: 0%;     opacity: 1; }
-      60%     { left: -100%;  opacity: 0; }
-      61%     { left: 50%;    opacity: 0; }
-      100%    { left: 0%;     opacity: 1; }
-    }
-
-
-    /* ## 1. 빛이 돌고 사라짐 */
-    .trp_motionline-inout { display: block; width: 200px; height: 50px; box-sizing: border-box; border: 0; 
-      position: relative;
-      overflow: hidden;
-      border-radius: 10px; /* 모서리를 충분히 둥글게 처리 */
-      /* 긴 직사각형일수록 border-radius가 회전을 자연스럽게 만듭니다 */
-      background-color: purple;
-      .txt { display: flex; justify-content: center; align-items: center;  box-sizing: border-box;
-        border-radius: 10px;
-        position: absolute; top: var(--lightOutLine); left: var(--lightOutLine); z-index: 1;
-       
-        width: calc(100% - (var(--lightOutLine) * 2)); height: calc(100% - (var(--lightOutLine) * 2));
-        padding: var(--lightOutLine); margin: 0;
+      .btn-type3 {
+        position: relative; display: block; width: 200px; height: 50px; box-sizing: border-box;
+        border: 0; padding: 0; margin: 0; border-radius: 100px;  
         background-color: purple;
-        /* background-color: transparent; */
-        font-size: 16px; font-weight: bold; text-align: center; color:#fff;
+        .txt { display: flex; justify-content: center; align-items: center;  box-sizing: border-box;
+          width: 100%; height: 100%;  border-radius: 100px;
+          font-size: 16px; font-weight: bold; text-align: center; color:#fff;
+          background-color: purple;
+        }
       }
-      /* 2. 가상 요소: 크기를 100%보다 살짝 크게만 설정 */
-      &::before {
-        content: ""; position: absolute;
-        width: 200%; height: 200%; top: -50%; left: -50%; transform: rotate(90deg);
-        border-radius: 50%; z-index: 0; mix-blend-mode: lighten;
 
-        /* 그라데이션 적용 */
-        background-image: linear-gradient( 90deg, #fff, transparent 45%, transparent 55%, #fff );
-        opacity: 0; transition: opacity 0.3s ease-out;
+
+
+      /* ## 1.빛이 돌고 */
+      .trp_motionline-turn { position: relative;  
+        .txt { position: absolute; top: var(--lightOutLine); left: var(--lightOutLine); z-index: 1;
+          width: calc(100% - (var(--lightOutLine) * 2)); height: calc(100% - (var(--lightOutLine) * 2));
+        }
+        &::after, &::before { content: ""; position: absolute; /* z-index: -1;  */
+          /* box-sizing: initial; */ box-sizing: border-box;
+          width: 100%; height: 100%; top:50%; left: 50%; transform: translate( -50%, -50%);
+          padding: var(--lightOutLine); border-radius: inherit; 
+          mix-blend-mode: lighten; opacity: 0;
+        
+          /* background-image: conic-gradient( from var(--angleA), #ff4545, #00ff99, #006aff, #ff0095, #ff4545); */
+        }
+        &::after { /* 그라데이션 적용 */ 
+          background-image: conic-gradient( from var(--angleA), transparent 80%, #fff);
+        }
+        &::before { /* 그라데이션 적용 */
+          background-image: conic-gradient( from var(--angleB), transparent 80%, #fff);
+        }
+        &:hover::after {  opacity: .5;
+          animation: motion_turnA 1.5s linear infinite;
+        }
+        &:hover::before {  opacity: .5;
+          animation: motion_turnB 1.5s linear infinite;
+        }
       }
-      /* 3. 호버 시 애니메이션 적용 ( infinite, 1 ) */
-      &:hover::before { animation: motion_spin 1.2s linear infinite; }
-    }
-    @keyframes motion_spin {
-      0%      { width: 200%; transform: rotate(90deg); opacity: 0; }
-      10%     { opacity: 1; }
-      80%     { opacity: 1; }
-      100%    { width: 200%; transform: rotate(180deg); opacity: 0; }
-    }
-  </style>
+      /* 
+        - <length>	    길이 단위 값입니다.	10px, 2em, 5vw
+        - <number>	    실수(소수점 포함)입니다. 단위는 포함되지 않습니다.	1.5, 100, -0.5
+        - <integer>	    정수 값입니다.	1, 10, -5
+        - <angle>	      각도 값입니다. (이전 질문에서 사용됨)	45deg, 1.5rad, 0.5turn
+        - <time>	      시간 단위 값입니다.	100ms, 1s
+        - <percentage>	백분율 값입니다.	50%, 100%
+        - <color>       색상 값입니다.	#ff0000, rgb(255, 0, 0), red
+      */
+      @property --angleA{
+        syntax: "<angle>";
+        initial-value: 0deg;
+        inherits: false;
+      }
+      @property --angleB{
+        syntax: "<angle>";
+        initial-value: 180deg;
+        inherits: false;
+      }
+      @keyframes motion_turnA {
+        0%      { --angleA : 0deg;   /* opacity: 0; */ }
+        50%     { --angleA : 80deg;  /* opacity: 1; */ }
+        100%    { --angleA : 180deg; /* opacity: 0; */ }
+      }
+      @keyframes motion_turnB {
+        0%      { --angleB : 180deg; /* opacity: 0; */ }
+        50%     { --angleB : 260deg; /* opacity: 1; */ }
+        100%    { --angleB : 360deg; /* opacity: 0; */ }
+      }
+    
+
+
+      /* ## 2.빛이 돌고 사라짐 */
+      .trp_motionline-inout { position: relative; overflow: hidden;
+        border-radius: 10px; /* 모서리를 충분히 둥글게 처리 */
+        /* 긴 직사각형일수록 border-radius가 회전을 자연스럽게 만듭니다 */
+        background-color: purple;
+        .txt { display: flex; justify-content: center; align-items: center;  box-sizing: border-box;
+          border-radius: 10px;
+          position: absolute; top: var(--lightOutLine); left: var(--lightOutLine); z-index: 1;
+        
+          width: calc(100% - (var(--lightOutLine) * 2)); height: calc(100% - (var(--lightOutLine) * 2));
+          padding: var(--lightOutLine); margin: 0;
+          background-color: purple;
+          /* background-color: transparent; */
+          font-size: 16px; font-weight: bold; text-align: center; color:#fff;
+        }
+        /* 가상 요소: 크기를 100%보다 살짝 크게만 설정 */
+        &::before {
+          content: ""; position: absolute;
+          width: 200%; height: 200%; top: -50%; left: -50%; transform: rotate(90deg);
+          border-radius: 50%; z-index: 0; mix-blend-mode: lighten;
+
+          /* 그라데이션 적용 */
+          background-image: linear-gradient( 90deg, #fff, transparent 45%, transparent 55%, #fff );
+          opacity: 0; transition: opacity 0.3s ease-out;
+        }
+        /* 호버 시 애니메이션 적용 ( infinite, 1 ) */
+        &:hover::before { animation: motion_spin 1.2s linear infinite; }
+      }
+      @keyframes motion_spin {
+        0%      { width: 200%; transform: rotate(90deg); opacity: 0; }
+        10%     { opacity: 1; }
+        80%     { opacity: 1; }
+        100%    { width: 200%; transform: rotate(180deg); opacity: 0; }
+      }
+
+
+      
+      /* ## 3.빛반사 돌고 나타남 */
+      .trp_raound-light{ position: relative; overflow: hidden; isolation: isolate;
+        &::before { content: ""; position: absolute; top: 0; left: 0%; z-index: 0;
+          display: block; width: 100%; height: 100%;
+          background-image: linear-gradient(var(--lightDegree), #fff, transparent 20%, transparent 80%);
+          border-radius: inherit;  mix-blend-mode: lighten;
+        }
+        &::after { content: ""; position: absolute; top: 0; left: 0; z-index: 0;
+          display: block; width: 100%; height: 100%; 
+          background-image: linear-gradient(var(--lightDegree), transparent 20%, transparent 80%, #fff);
+          border-radius: inherit;  mix-blend-mode: lighten;
+        }
+        .txt { position: absolute; top: var(--lightOutLine); left: var(--lightOutLine); z-index: 1;
+          width: calc(100% - (var(--lightOutLine) * 2)); height: calc(100% - (var(--lightOutLine) * 2));
+        }
+        &:hover::before { /* infinite, 1, */
+          animation: motion-move_right 1s ease-out 1;
+        }
+        &:hover::after { 
+          animation: motion-move_left 1s ease-out 1;
+        }
+      }
+      @keyframes motion-move_right {
+        0%      { left: 0%;     opacity: 1; }
+        60%     { left: 100%;   opacity: 0; }
+        61%     { left: -50%;   opacity: 0; }
+        100%    { left: 0%;     opacity: 1; }
+      }
+      @keyframes motion-move_left {
+        0%      { left: 0%;     opacity: 1; }
+        60%     { left: -100%;  opacity: 0; }
+        61%     { left: 50%;    opacity: 0; }
+        100%    { left: 0%;     opacity: 1; }
+      }
+
+    </style>
 </head>
 
 <body>
@@ -142,21 +218,37 @@
                     <!-- 소스 -->
 
 
+  <div class="constainer">
+    <div>
+      <button class="btn-type1 ">
+        <div class="txt">default Button Type1</div>
+      </button>
+      <br>
+      <button class="btn-type1 trp_motionline-turn">
+        <div class="txt">motion Button Type1</div>
+      </button>
+    </div>
 
-    <button class="btn-type1 ">
-      <div class="txt">default Button</div>
-    </button>
-    <button class="btn-type1 trp_raound-light">
-      <div class="txt">motion Button</div>
-    </button>
+    <div>
+      <button class="btn-type2">
+        <div class="txt">default Button Type2</div>
+      </button>
+       <br>
+      <button class="btn-type2 trp_motionline-inout">
+        <div class="txt">motion Button Type2</div>
+      </button>
+    </div>
 
-
-    <button class="btn-type2">
-      <div class="txt">default Button</div>
-    </button>
-    <button class="btn-type2 trp_motionline-inout">
-      <div class="txt">motion Button</div>
-    </button>     
+    <div>
+      <button class="btn-type3">
+        <div class="txt">default Button Type3</div>
+      </button>
+      <br>
+      <button class="btn-type3 trp_raound-light">
+        <div class="txt">motion Button Type3</div>
+      </button>
+    </div>   
+  </div>   
                                     
                                                                     
 
@@ -281,25 +373,96 @@
 105
 106
 107
-108</pre></td><td><pre style="margin: 0; line-height: 125%;"><span></span>  <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">style</span> <span style="color: #A6E22E">lang</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;scss&quot;</span> <span style="color: #A6E22E">scoped</span> <span style="color: #F8F8F2">&gt;</span>
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178</pre></td><td><pre style="margin: 0; line-height: 125%;"><span></span>  <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">style</span> <span style="color: #A6E22E">lang</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;scss&quot;</span> <span style="color: #A6E22E">scoped</span> <span style="color: #F8F8F2">&gt;</span>
+<span style="color: #F8F8F2">    </span><span style="color: #FF4689">body</span><span style="color: #F8F8F2"> { </span><span style="color: #66D9EF">margin</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">0</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">padding</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">0</span><span style="color: #F8F8F2">;  </span><span style="color: #66D9EF">background-color</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">#333</span><span style="color: #F8F8F2">;  }</span>
 <span style="color: #F8F8F2">    :</span><span style="color: #A6E22E">root</span><span style="color: #F8F8F2"> {</span>
 <span style="color: #F8F8F2">      --lightOutLine : </span><span style="color: #AE81FF">2</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2">;</span>
 <span style="color: #F8F8F2">      --lightDegree : </span><span style="color: #AE81FF">155</span><span style="color: #66D9EF">deg</span><span style="color: #F8F8F2">;</span>
 <span style="color: #F8F8F2">    }</span>
 <span style="color: #F8F8F2">    .</span><span style="color: #A6E22E">constainer</span><span style="color: #F8F8F2"> { </span><span style="color: #66D9EF">position</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">relative</span><span style="color: #F8F8F2">;</span>
-<span style="color: #F8F8F2">      </span><span style="color: #66D9EF">display</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">flex</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">width</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">100</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">height</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">100</span><span style="color: #66D9EF">vh</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">      </span><span style="color: #66D9EF">display</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">flex</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">flex-wrap</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">wrap</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">width</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">100</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">height</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">100</span><span style="color: #66D9EF">vh</span><span style="color: #F8F8F2">;</span>
 <span style="color: #F8F8F2">      </span><span style="color: #66D9EF">justify-content</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">center</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">align-items</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">center</span><span style="color: #F8F8F2">;</span>
-<span style="color: #F8F8F2">      </span><span style="color: #66D9EF">background-color</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">#333</span><span style="color: #F8F8F2">;</span>
-<span style="color: #F8F8F2">      </span><span style="color: #ED007E; background-color: #1E0010">&amp;</span><span style="color: #F8F8F2"> </span><span style="color: #ED007E; background-color: #1E0010">&gt;</span><span style="color: #F8F8F2"> </span><span style="color: #ED007E; background-color: #1E0010">button</span><span style="color: #F8F8F2"> </span><span style="color: #ED007E; background-color: #1E0010">{</span><span style="color: #F8F8F2"> </span><span style="color: #66D9EF">margin</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">10</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2">; }</span>
+<span style="color: #F8F8F2">      </span><span style="color: #959077">/* background-color: #333; */</span>
+<span style="color: #F8F8F2">      </span><span style="color: #ED007E; background-color: #1E0010">&gt;</span><span style="color: #F8F8F2"> </span><span style="color: #ED007E; background-color: #1E0010">div</span><span style="color: #F8F8F2"> </span><span style="color: #ED007E; background-color: #1E0010">{</span><span style="color: #F8F8F2"> </span><span style="color: #66D9EF">margin</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">10</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2">; }</span>
 <span style="color: #F8F8F2">    </span><span style="color: #ED007E; background-color: #1E0010">}</span>
 
 
 <span style="color: #F8F8F2">    .</span><span style="color: #A6E22E">btn-type1</span><span style="color: #F8F8F2"> {</span>
 <span style="color: #F8F8F2">      </span><span style="color: #66D9EF">position</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">relative</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">display</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">block</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">width</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">200</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">height</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">50</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">box-sizing</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">border-box</span><span style="color: #F8F8F2">;</span>
-<span style="color: #F8F8F2">      </span><span style="color: #66D9EF">border</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">0</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">padding</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">0</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">margin</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">0</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">border-radius</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">100</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2">;  </span>
+<span style="color: #F8F8F2">      </span><span style="color: #66D9EF">border</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">0</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">padding</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">0</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">margin</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">0</span><span style="color: #F8F8F2">;   </span>
 <span style="color: #F8F8F2">      </span><span style="color: #66D9EF">background-color</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">purple</span><span style="color: #F8F8F2">;</span>
 <span style="color: #F8F8F2">      </span><span style="color: #ED007E; background-color: #1E0010">.txt</span><span style="color: #F8F8F2"> </span><span style="color: #ED007E; background-color: #1E0010">{</span><span style="color: #F8F8F2"> </span><span style="color: #66D9EF">display</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">flex</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">justify-content</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">center</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">align-items</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">center</span><span style="color: #F8F8F2">;  </span><span style="color: #66D9EF">box-sizing</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">border-box</span><span style="color: #F8F8F2">;</span>
-<span style="color: #F8F8F2">        </span><span style="color: #66D9EF">width</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">100</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">height</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">100</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2">;  </span><span style="color: #66D9EF">border-radius</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">100</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">        </span><span style="color: #66D9EF">width</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">100</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">height</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">100</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2">;  </span>
 <span style="color: #F8F8F2">        </span><span style="color: #66D9EF">font-size</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">16</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">font-weight</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">bold</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">text-align</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">center</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">color</span><span style="color: #F8F8F2">:</span><span style="color: #AE81FF">#fff</span><span style="color: #F8F8F2">;</span>
 <span style="color: #F8F8F2">        </span><span style="color: #66D9EF">background-color</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">purple</span><span style="color: #F8F8F2">;</span>
 <span style="color: #F8F8F2">      }</span>
@@ -314,19 +477,125 @@
 <span style="color: #F8F8F2">        </span><span style="color: #66D9EF">background-color</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">purple</span><span style="color: #F8F8F2">;</span>
 <span style="color: #F8F8F2">      }</span>
 <span style="color: #F8F8F2">    </span><span style="color: #ED007E; background-color: #1E0010">}</span>
+<span style="color: #F8F8F2">    .</span><span style="color: #A6E22E">btn-type3</span><span style="color: #F8F8F2"> {</span>
+<span style="color: #F8F8F2">      </span><span style="color: #66D9EF">position</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">relative</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">display</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">block</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">width</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">200</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">height</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">50</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">box-sizing</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">border-box</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">      </span><span style="color: #66D9EF">border</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">0</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">padding</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">0</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">margin</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">0</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">border-radius</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">100</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2">;  </span>
+<span style="color: #F8F8F2">      </span><span style="color: #66D9EF">background-color</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">purple</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">      </span><span style="color: #ED007E; background-color: #1E0010">.txt</span><span style="color: #F8F8F2"> </span><span style="color: #ED007E; background-color: #1E0010">{</span><span style="color: #F8F8F2"> </span><span style="color: #66D9EF">display</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">flex</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">justify-content</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">center</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">align-items</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">center</span><span style="color: #F8F8F2">;  </span><span style="color: #66D9EF">box-sizing</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">border-box</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">        </span><span style="color: #66D9EF">width</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">100</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">height</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">100</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2">;  </span><span style="color: #66D9EF">border-radius</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">100</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">        </span><span style="color: #66D9EF">font-size</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">16</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">font-weight</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">bold</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">text-align</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">center</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">color</span><span style="color: #F8F8F2">:</span><span style="color: #AE81FF">#fff</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">        </span><span style="color: #66D9EF">background-color</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">purple</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">      }</span>
+<span style="color: #F8F8F2">    </span><span style="color: #ED007E; background-color: #1E0010">}</span>
 
 
-<span style="color: #F8F8F2">    </span><span style="color: #959077">/* ## 1. 빛반사 돌고 나타남 */</span>
+
+<span style="color: #F8F8F2">    </span><span style="color: #959077">/* ## 1.빛이 돌고 */</span>
+<span style="color: #F8F8F2">    .</span><span style="color: #A6E22E">trp_motionline-turn</span><span style="color: #F8F8F2"> { </span><span style="color: #66D9EF">position</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">relative</span><span style="color: #F8F8F2">;  </span>
+<span style="color: #F8F8F2">      </span><span style="color: #ED007E; background-color: #1E0010">.txt</span><span style="color: #F8F8F2"> </span><span style="color: #ED007E; background-color: #1E0010">{</span><span style="color: #F8F8F2"> </span><span style="color: #66D9EF">position</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">absolute</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">top</span><span style="color: #F8F8F2">: </span><span style="color: #A6E22E">var</span><span style="color: #F8F8F2">(--lightOutLine); </span><span style="color: #66D9EF">left</span><span style="color: #F8F8F2">: </span><span style="color: #A6E22E">var</span><span style="color: #F8F8F2">(--lightOutLine); </span><span style="color: #66D9EF">z-index</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">1</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">        </span><span style="color: #66D9EF">width</span><span style="color: #F8F8F2">: calc(</span><span style="color: #AE81FF">100</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">-</span><span style="color: #F8F8F2"> </span><span style="color: #ED007E; background-color: #1E0010">(</span><span style="color: #A6E22E">var</span><span style="color: #F8F8F2">(--lightOutLine) </span><span style="color: #FF4689">*</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">2</span><span style="color: #F8F8F2">)); </span><span style="color: #66D9EF">height</span><span style="color: #F8F8F2">: calc(</span><span style="color: #AE81FF">100</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">-</span><span style="color: #F8F8F2"> </span><span style="color: #ED007E; background-color: #1E0010">(</span><span style="color: #A6E22E">var</span><span style="color: #F8F8F2">(--lightOutLine) </span><span style="color: #FF4689">*</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">2</span><span style="color: #F8F8F2">));</span>
+<span style="color: #F8F8F2">      }</span>
+<span style="color: #F8F8F2">      </span><span style="color: #FF4689">&amp;</span><span style="color: #F8F8F2">::</span><span style="color: #A6E22E">after</span><span style="color: #FF4689">,</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">&amp;</span><span style="color: #F8F8F2">::</span><span style="color: #A6E22E">before</span><span style="color: #F8F8F2"> { </span><span style="color: #66D9EF">content</span><span style="color: #F8F8F2">: </span><span style="color: #E6DB74">&quot;&quot;</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">position</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">absolute</span><span style="color: #F8F8F2">; </span><span style="color: #959077">/* z-index: -1;  */</span>
+<span style="color: #F8F8F2">        </span><span style="color: #959077">/* box-sizing: initial; */</span><span style="color: #F8F8F2"> </span><span style="color: #66D9EF">box-sizing</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">border-box</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">        </span><span style="color: #66D9EF">width</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">100</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">height</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">100</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">top</span><span style="color: #F8F8F2">:</span><span style="color: #AE81FF">50</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">left</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">50</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">transform</span><span style="color: #F8F8F2">: translate( </span><span style="color: #AE81FF">-50</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2">, </span><span style="color: #AE81FF">-50</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2">);</span>
+<span style="color: #F8F8F2">        </span><span style="color: #66D9EF">padding</span><span style="color: #F8F8F2">: </span><span style="color: #A6E22E">var</span><span style="color: #F8F8F2">(--lightOutLine); </span><span style="color: #66D9EF">border-radius</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">inherit</span><span style="color: #F8F8F2">; </span>
+<span style="color: #F8F8F2">        </span><span style="color: #66D9EF">mix-blend-mode</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">lighten</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">opacity</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">0</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">       </span>
+<span style="color: #F8F8F2">        </span><span style="color: #959077">/* background-image: conic-gradient( from var(--angleA), #ff4545, #00ff99, #006aff, #ff0095, #ff4545); */</span>
+<span style="color: #F8F8F2">      }</span>
+<span style="color: #F8F8F2">      </span><span style="color: #FF4689">&amp;</span><span style="color: #F8F8F2">::</span><span style="color: #A6E22E">after</span><span style="color: #F8F8F2"> { </span><span style="color: #959077">/* 그라데이션 적용 */</span><span style="color: #F8F8F2"> </span>
+<span style="color: #F8F8F2">        </span><span style="color: #66D9EF">background-image</span><span style="color: #F8F8F2">: </span><span style="color: #A6E22E">conic-gradient</span><span style="color: #F8F8F2">( from </span><span style="color: #A6E22E">var</span><span style="color: #F8F8F2">(--angleA), </span><span style="color: #66D9EF">transparent</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">80</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2">, </span><span style="color: #AE81FF">#fff</span><span style="color: #F8F8F2">);</span>
+<span style="color: #F8F8F2">      }</span>
+<span style="color: #F8F8F2">      </span><span style="color: #FF4689">&amp;</span><span style="color: #F8F8F2">::</span><span style="color: #A6E22E">before</span><span style="color: #F8F8F2"> { </span><span style="color: #959077">/* 그라데이션 적용 */</span>
+<span style="color: #F8F8F2">        </span><span style="color: #66D9EF">background-image</span><span style="color: #F8F8F2">: </span><span style="color: #A6E22E">conic-gradient</span><span style="color: #F8F8F2">( from </span><span style="color: #A6E22E">var</span><span style="color: #F8F8F2">(--angleB), </span><span style="color: #66D9EF">transparent</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">80</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2">, </span><span style="color: #AE81FF">#fff</span><span style="color: #F8F8F2">);</span>
+<span style="color: #F8F8F2">      }</span>
+<span style="color: #F8F8F2">      </span><span style="color: #FF4689">&amp;</span><span style="color: #F8F8F2">:</span><span style="color: #A6E22E">hover</span><span style="color: #F8F8F2">::</span><span style="color: #A6E22E">after</span><span style="color: #F8F8F2"> {  </span><span style="color: #66D9EF">opacity</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">.5</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">        </span><span style="color: #66D9EF">animation</span><span style="color: #F8F8F2">: motion_turnA </span><span style="color: #AE81FF">1.5</span><span style="color: #66D9EF">s</span><span style="color: #F8F8F2"> </span><span style="color: #66D9EF">linear</span><span style="color: #F8F8F2"> </span><span style="color: #66D9EF">infinite</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">      }</span>
+<span style="color: #F8F8F2">      </span><span style="color: #FF4689">&amp;</span><span style="color: #F8F8F2">:</span><span style="color: #A6E22E">hover</span><span style="color: #F8F8F2">::</span><span style="color: #A6E22E">before</span><span style="color: #F8F8F2"> {  </span><span style="color: #66D9EF">opacity</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">.5</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">        </span><span style="color: #66D9EF">animation</span><span style="color: #F8F8F2">: motion_turnB </span><span style="color: #AE81FF">1.5</span><span style="color: #66D9EF">s</span><span style="color: #F8F8F2"> </span><span style="color: #66D9EF">linear</span><span style="color: #F8F8F2"> </span><span style="color: #66D9EF">infinite</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">      }</span>
+<span style="color: #F8F8F2">    </span><span style="color: #ED007E; background-color: #1E0010">}</span>
+<span style="color: #F8F8F2">    </span><span style="color: #959077">/* </span>
+<span style="color: #959077">      - &lt;length&gt;	    길이 단위 값입니다.	10px, 2em, 5vw</span>
+<span style="color: #959077">      - &lt;number&gt;	    실수(소수점 포함)입니다. 단위는 포함되지 않습니다.	1.5, 100, -0.5</span>
+<span style="color: #959077">      - &lt;integer&gt;	    정수 값입니다.	1, 10, -5</span>
+<span style="color: #959077">      - &lt;angle&gt;	      각도 값입니다. (이전 질문에서 사용됨)	45deg, 1.5rad, 0.5turn</span>
+<span style="color: #959077">      - &lt;time&gt;	      시간 단위 값입니다.	100ms, 1s</span>
+<span style="color: #959077">      - &lt;percentage&gt;	백분율 값입니다.	50%, 100%</span>
+<span style="color: #959077">      - &lt;color&gt;       색상 값입니다.	#ff0000, rgb(255, 0, 0), red</span>
+<span style="color: #959077">    */</span>
+<span style="color: #F8F8F2">    @</span><span style="color: #66D9EF">property</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">--angleA</span><span style="color: #F8F8F2">{</span>
+<span style="color: #F8F8F2">      </span><span style="color: #FF4689">syntax:</span><span style="color: #F8F8F2"> </span><span style="color: #E6DB74">&quot;&lt;angle&gt;&quot;</span><span style="color: #FF4689">;</span>
+<span style="color: #F8F8F2">      </span><span style="color: #FF4689">initial-value:</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">0deg;</span>
+<span style="color: #F8F8F2">      </span><span style="color: #FF4689">inherits:</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">false;</span>
+<span style="color: #F8F8F2">    }</span>
+<span style="color: #F8F8F2">    @</span><span style="color: #66D9EF">property</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">--angleB</span><span style="color: #F8F8F2">{</span>
+<span style="color: #F8F8F2">      </span><span style="color: #FF4689">syntax:</span><span style="color: #F8F8F2"> </span><span style="color: #E6DB74">&quot;&lt;angle&gt;&quot;</span><span style="color: #FF4689">;</span>
+<span style="color: #F8F8F2">      </span><span style="color: #FF4689">initial-value:</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">180deg;</span>
+<span style="color: #F8F8F2">      </span><span style="color: #FF4689">inherits:</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">false;</span>
+<span style="color: #F8F8F2">    }</span>
+<span style="color: #F8F8F2">    @</span><span style="color: #66D9EF">keyframes</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">motion_turnA</span><span style="color: #F8F8F2"> {</span>
+<span style="color: #F8F8F2">      </span><span style="color: #FF4689">0%</span><span style="color: #F8F8F2">      { --angleA : </span><span style="color: #AE81FF">0</span><span style="color: #66D9EF">deg</span><span style="color: #F8F8F2">;   </span><span style="color: #959077">/* opacity: 0; */</span><span style="color: #F8F8F2"> }</span>
+<span style="color: #F8F8F2">      </span><span style="color: #FF4689">50%</span><span style="color: #F8F8F2">     { --angleA : </span><span style="color: #AE81FF">80</span><span style="color: #66D9EF">deg</span><span style="color: #F8F8F2">;  </span><span style="color: #959077">/* opacity: 1; */</span><span style="color: #F8F8F2"> }</span>
+<span style="color: #F8F8F2">      </span><span style="color: #FF4689">100%</span><span style="color: #F8F8F2">    { --angleA : </span><span style="color: #AE81FF">180</span><span style="color: #66D9EF">deg</span><span style="color: #F8F8F2">; </span><span style="color: #959077">/* opacity: 0; */</span><span style="color: #F8F8F2"> }</span>
+<span style="color: #F8F8F2">    }</span>
+<span style="color: #F8F8F2">    @</span><span style="color: #66D9EF">keyframes</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">motion_turnB</span><span style="color: #F8F8F2"> {</span>
+<span style="color: #F8F8F2">      </span><span style="color: #FF4689">0%</span><span style="color: #F8F8F2">      { --angleB : </span><span style="color: #AE81FF">180</span><span style="color: #66D9EF">deg</span><span style="color: #F8F8F2">; </span><span style="color: #959077">/* opacity: 0; */</span><span style="color: #F8F8F2"> }</span>
+<span style="color: #F8F8F2">      </span><span style="color: #FF4689">50%</span><span style="color: #F8F8F2">     { --angleB : </span><span style="color: #AE81FF">260</span><span style="color: #66D9EF">deg</span><span style="color: #F8F8F2">; </span><span style="color: #959077">/* opacity: 1; */</span><span style="color: #F8F8F2"> }</span>
+<span style="color: #F8F8F2">      </span><span style="color: #FF4689">100%</span><span style="color: #F8F8F2">    { --angleB : </span><span style="color: #AE81FF">360</span><span style="color: #66D9EF">deg</span><span style="color: #F8F8F2">; </span><span style="color: #959077">/* opacity: 0; */</span><span style="color: #F8F8F2"> }</span>
+<span style="color: #F8F8F2">    }</span>
+<span style="color: #F8F8F2">  </span>
+
+
+<span style="color: #F8F8F2">    </span><span style="color: #959077">/* ## 2.빛이 돌고 사라짐 */</span>
+<span style="color: #F8F8F2">    .</span><span style="color: #A6E22E">trp_motionline-inout</span><span style="color: #F8F8F2"> { </span><span style="color: #66D9EF">position</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">relative</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">overflow</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">hidden</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">      </span><span style="color: #66D9EF">border-radius</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">10</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2">; </span><span style="color: #959077">/* 모서리를 충분히 둥글게 처리 */</span>
+<span style="color: #F8F8F2">      </span><span style="color: #959077">/* 긴 직사각형일수록 border-radius가 회전을 자연스럽게 만듭니다 */</span>
+<span style="color: #F8F8F2">      </span><span style="color: #66D9EF">background-color</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">purple</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">      </span><span style="color: #ED007E; background-color: #1E0010">.txt</span><span style="color: #F8F8F2"> </span><span style="color: #ED007E; background-color: #1E0010">{</span><span style="color: #F8F8F2"> </span><span style="color: #66D9EF">display</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">flex</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">justify-content</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">center</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">align-items</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">center</span><span style="color: #F8F8F2">;  </span><span style="color: #66D9EF">box-sizing</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">border-box</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">        </span><span style="color: #66D9EF">border-radius</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">10</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">        </span><span style="color: #66D9EF">position</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">absolute</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">top</span><span style="color: #F8F8F2">: </span><span style="color: #A6E22E">var</span><span style="color: #F8F8F2">(--lightOutLine); </span><span style="color: #66D9EF">left</span><span style="color: #F8F8F2">: </span><span style="color: #A6E22E">var</span><span style="color: #F8F8F2">(--lightOutLine); </span><span style="color: #66D9EF">z-index</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">1</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">       </span>
+<span style="color: #F8F8F2">        </span><span style="color: #66D9EF">width</span><span style="color: #F8F8F2">: calc(</span><span style="color: #AE81FF">100</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">-</span><span style="color: #F8F8F2"> </span><span style="color: #ED007E; background-color: #1E0010">(</span><span style="color: #A6E22E">var</span><span style="color: #F8F8F2">(--lightOutLine) </span><span style="color: #FF4689">*</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">2</span><span style="color: #F8F8F2">)); </span><span style="color: #66D9EF">height</span><span style="color: #F8F8F2">: calc(</span><span style="color: #AE81FF">100</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">-</span><span style="color: #F8F8F2"> </span><span style="color: #ED007E; background-color: #1E0010">(</span><span style="color: #A6E22E">var</span><span style="color: #F8F8F2">(--lightOutLine) </span><span style="color: #FF4689">*</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">2</span><span style="color: #F8F8F2">));</span>
+<span style="color: #F8F8F2">        </span><span style="color: #66D9EF">padding</span><span style="color: #F8F8F2">: </span><span style="color: #A6E22E">var</span><span style="color: #F8F8F2">(--lightOutLine); </span><span style="color: #66D9EF">margin</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">0</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">        </span><span style="color: #66D9EF">background-color</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">purple</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">        </span><span style="color: #959077">/* background-color: transparent; */</span>
+<span style="color: #F8F8F2">        </span><span style="color: #66D9EF">font-size</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">16</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">font-weight</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">bold</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">text-align</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">center</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">color</span><span style="color: #F8F8F2">:</span><span style="color: #AE81FF">#fff</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">      }</span>
+<span style="color: #F8F8F2">      </span><span style="color: #959077">/* 가상 요소: 크기를 100%보다 살짝 크게만 설정 */</span>
+<span style="color: #F8F8F2">      </span><span style="color: #FF4689">&amp;</span><span style="color: #F8F8F2">::</span><span style="color: #A6E22E">before</span><span style="color: #F8F8F2"> {</span>
+<span style="color: #F8F8F2">        </span><span style="color: #66D9EF">content</span><span style="color: #F8F8F2">: </span><span style="color: #E6DB74">&quot;&quot;</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">position</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">absolute</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">        </span><span style="color: #66D9EF">width</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">200</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">height</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">200</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">top</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">-50</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">left</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">-50</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">transform</span><span style="color: #F8F8F2">: rotate(</span><span style="color: #AE81FF">90</span><span style="color: #66D9EF">deg</span><span style="color: #F8F8F2">);</span>
+<span style="color: #F8F8F2">        </span><span style="color: #66D9EF">border-radius</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">50</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">z-index</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">0</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">mix-blend-mode</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">lighten</span><span style="color: #F8F8F2">;</span>
+
+<span style="color: #F8F8F2">        </span><span style="color: #959077">/* 그라데이션 적용 */</span>
+<span style="color: #F8F8F2">        </span><span style="color: #66D9EF">background-image</span><span style="color: #F8F8F2">: linear-gradient( </span><span style="color: #AE81FF">90</span><span style="color: #66D9EF">deg</span><span style="color: #F8F8F2">, </span><span style="color: #AE81FF">#fff</span><span style="color: #F8F8F2">, </span><span style="color: #66D9EF">transparent</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">45</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2">, </span><span style="color: #66D9EF">transparent</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">55</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2">, </span><span style="color: #AE81FF">#fff</span><span style="color: #F8F8F2"> );</span>
+<span style="color: #F8F8F2">        </span><span style="color: #66D9EF">opacity</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">0</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">transition</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">opacity</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">0.3</span><span style="color: #66D9EF">s</span><span style="color: #F8F8F2"> </span><span style="color: #66D9EF">ease-out</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">      }</span>
+<span style="color: #F8F8F2">      </span><span style="color: #959077">/* 호버 시 애니메이션 적용 ( infinite, 1 ) */</span>
+<span style="color: #F8F8F2">      </span><span style="color: #FF4689">&amp;</span><span style="color: #F8F8F2">:</span><span style="color: #A6E22E">hover</span><span style="color: #F8F8F2">::</span><span style="color: #A6E22E">before</span><span style="color: #F8F8F2"> { </span><span style="color: #66D9EF">animation</span><span style="color: #F8F8F2">: motion_spin </span><span style="color: #AE81FF">1.2</span><span style="color: #66D9EF">s</span><span style="color: #F8F8F2"> </span><span style="color: #66D9EF">linear</span><span style="color: #F8F8F2"> </span><span style="color: #66D9EF">infinite</span><span style="color: #F8F8F2">; }</span>
+<span style="color: #F8F8F2">    </span><span style="color: #ED007E; background-color: #1E0010">}</span>
+<span style="color: #F8F8F2">    @</span><span style="color: #66D9EF">keyframes</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">motion_spin</span><span style="color: #F8F8F2"> {</span>
+<span style="color: #F8F8F2">      </span><span style="color: #FF4689">0%</span><span style="color: #F8F8F2">      { </span><span style="color: #66D9EF">width</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">200</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">transform</span><span style="color: #F8F8F2">: rotate(</span><span style="color: #AE81FF">90</span><span style="color: #66D9EF">deg</span><span style="color: #F8F8F2">); </span><span style="color: #66D9EF">opacity</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">0</span><span style="color: #F8F8F2">; }</span>
+<span style="color: #F8F8F2">      </span><span style="color: #FF4689">10%</span><span style="color: #F8F8F2">     { </span><span style="color: #66D9EF">opacity</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">1</span><span style="color: #F8F8F2">; }</span>
+<span style="color: #F8F8F2">      </span><span style="color: #FF4689">80%</span><span style="color: #F8F8F2">     { </span><span style="color: #66D9EF">opacity</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">1</span><span style="color: #F8F8F2">; }</span>
+<span style="color: #F8F8F2">      </span><span style="color: #FF4689">100%</span><span style="color: #F8F8F2">    { </span><span style="color: #66D9EF">width</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">200</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">transform</span><span style="color: #F8F8F2">: rotate(</span><span style="color: #AE81FF">180</span><span style="color: #66D9EF">deg</span><span style="color: #F8F8F2">); </span><span style="color: #66D9EF">opacity</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">0</span><span style="color: #F8F8F2">; }</span>
+<span style="color: #F8F8F2">    }</span>
+
+
+<span style="color: #F8F8F2">    </span>
+<span style="color: #F8F8F2">    </span><span style="color: #959077">/* ## 3.빛반사 돌고 나타남 */</span>
 <span style="color: #F8F8F2">    .</span><span style="color: #A6E22E">trp_raound-light</span><span style="color: #F8F8F2">{ </span><span style="color: #66D9EF">position</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">relative</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">overflow</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">hidden</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">isolation</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">isolate</span><span style="color: #F8F8F2">;</span>
 <span style="color: #F8F8F2">      </span><span style="color: #ED007E; background-color: #1E0010">&amp;::before</span><span style="color: #F8F8F2"> </span><span style="color: #ED007E; background-color: #1E0010">{</span><span style="color: #F8F8F2"> </span><span style="color: #66D9EF">content</span><span style="color: #F8F8F2">: </span><span style="color: #E6DB74">&quot;&quot;</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">position</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">absolute</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">top</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">0</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">left</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">0</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">z-index</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">0</span><span style="color: #F8F8F2">;</span>
 <span style="color: #F8F8F2">        </span><span style="color: #66D9EF">display</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">block</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">width</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">100</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">height</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">100</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2">;</span>
 <span style="color: #F8F8F2">        </span><span style="color: #66D9EF">background-image</span><span style="color: #F8F8F2">: linear-gradient(</span><span style="color: #A6E22E">var</span><span style="color: #F8F8F2">(--lightDegree), </span><span style="color: #AE81FF">#fff</span><span style="color: #F8F8F2">, </span><span style="color: #66D9EF">transparent</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">20</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2">, </span><span style="color: #66D9EF">transparent</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">80</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2">);</span>
-<span style="color: #F8F8F2">        </span><span style="color: #66D9EF">border-radius</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">100</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2">;  </span><span style="color: #66D9EF">mix-blend-mode</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">lighten</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">        </span><span style="color: #66D9EF">border-radius</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">inherit</span><span style="color: #F8F8F2">;  </span><span style="color: #66D9EF">mix-blend-mode</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">lighten</span><span style="color: #F8F8F2">;</span>
 <span style="color: #F8F8F2">      }</span>
 <span style="color: #F8F8F2">      </span><span style="color: #FF4689">&amp;</span><span style="color: #F8F8F2">::</span><span style="color: #A6E22E">after</span><span style="color: #F8F8F2"> { </span><span style="color: #66D9EF">content</span><span style="color: #F8F8F2">: </span><span style="color: #E6DB74">&quot;&quot;</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">position</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">absolute</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">top</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">0</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">left</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">0</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">z-index</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">0</span><span style="color: #F8F8F2">;</span>
 <span style="color: #F8F8F2">        </span><span style="color: #66D9EF">display</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">block</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">width</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">100</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">height</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">100</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2">; </span>
 <span style="color: #F8F8F2">        </span><span style="color: #66D9EF">background-image</span><span style="color: #F8F8F2">: linear-gradient(</span><span style="color: #A6E22E">var</span><span style="color: #F8F8F2">(--lightDegree), </span><span style="color: #66D9EF">transparent</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">20</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2">, </span><span style="color: #66D9EF">transparent</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">80</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2">, </span><span style="color: #AE81FF">#fff</span><span style="color: #F8F8F2">);</span>
-<span style="color: #F8F8F2">        </span><span style="color: #66D9EF">border-radius</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">100</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2">;  </span><span style="color: #66D9EF">mix-blend-mode</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">lighten</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">        </span><span style="color: #66D9EF">border-radius</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">inherit</span><span style="color: #F8F8F2">;  </span><span style="color: #66D9EF">mix-blend-mode</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">lighten</span><span style="color: #F8F8F2">;</span>
 <span style="color: #F8F8F2">      }</span>
 <span style="color: #F8F8F2">      .</span><span style="color: #A6E22E">txt</span><span style="color: #F8F8F2"> { </span><span style="color: #66D9EF">position</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">absolute</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">top</span><span style="color: #F8F8F2">: </span><span style="color: #A6E22E">var</span><span style="color: #F8F8F2">(--lightOutLine); </span><span style="color: #66D9EF">left</span><span style="color: #F8F8F2">: </span><span style="color: #A6E22E">var</span><span style="color: #F8F8F2">(--lightOutLine); </span><span style="color: #66D9EF">z-index</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">1</span><span style="color: #F8F8F2">;</span>
 <span style="color: #F8F8F2">        </span><span style="color: #66D9EF">width</span><span style="color: #F8F8F2">: calc(</span><span style="color: #AE81FF">100</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">-</span><span style="color: #F8F8F2"> </span><span style="color: #ED007E; background-color: #1E0010">(</span><span style="color: #A6E22E">var</span><span style="color: #F8F8F2">(--lightOutLine) </span><span style="color: #FF4689">*</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">2</span><span style="color: #F8F8F2">)); </span><span style="color: #66D9EF">height</span><span style="color: #F8F8F2">: calc(</span><span style="color: #AE81FF">100</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">-</span><span style="color: #F8F8F2"> </span><span style="color: #ED007E; background-color: #1E0010">(</span><span style="color: #A6E22E">var</span><span style="color: #F8F8F2">(--lightOutLine) </span><span style="color: #FF4689">*</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">2</span><span style="color: #F8F8F2">));</span>
@@ -351,45 +620,9 @@
 <span style="color: #F8F8F2">      </span><span style="color: #FF4689">100%</span><span style="color: #F8F8F2">    { </span><span style="color: #66D9EF">left</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">0</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2">;     </span><span style="color: #66D9EF">opacity</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">1</span><span style="color: #F8F8F2">; }</span>
 <span style="color: #F8F8F2">    }</span>
 
-
-<span style="color: #F8F8F2">    </span><span style="color: #959077">/* ## 1. 빛이 돌고 사라짐 */</span>
-<span style="color: #F8F8F2">    .</span><span style="color: #A6E22E">trp_motionline-inout</span><span style="color: #F8F8F2"> { </span><span style="color: #66D9EF">display</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">block</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">width</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">200</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">height</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">50</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">box-sizing</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">border-box</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">border</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">0</span><span style="color: #F8F8F2">; </span>
-<span style="color: #F8F8F2">      </span><span style="color: #66D9EF">position</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">relative</span><span style="color: #F8F8F2">;</span>
-<span style="color: #F8F8F2">      </span><span style="color: #66D9EF">overflow</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">hidden</span><span style="color: #F8F8F2">;</span>
-<span style="color: #F8F8F2">      </span><span style="color: #66D9EF">border-radius</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">10</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2">; </span><span style="color: #959077">/* 모서리를 충분히 둥글게 처리 */</span>
-<span style="color: #F8F8F2">      </span><span style="color: #959077">/* 긴 직사각형일수록 border-radius가 회전을 자연스럽게 만듭니다 */</span>
-<span style="color: #F8F8F2">      </span><span style="color: #66D9EF">background-color</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">purple</span><span style="color: #F8F8F2">;</span>
-<span style="color: #F8F8F2">      </span><span style="color: #ED007E; background-color: #1E0010">.txt</span><span style="color: #F8F8F2"> </span><span style="color: #ED007E; background-color: #1E0010">{</span><span style="color: #F8F8F2"> </span><span style="color: #66D9EF">display</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">flex</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">justify-content</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">center</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">align-items</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">center</span><span style="color: #F8F8F2">;  </span><span style="color: #66D9EF">box-sizing</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">border-box</span><span style="color: #F8F8F2">;</span>
-<span style="color: #F8F8F2">        </span><span style="color: #66D9EF">border-radius</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">10</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2">;</span>
-<span style="color: #F8F8F2">        </span><span style="color: #66D9EF">position</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">absolute</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">top</span><span style="color: #F8F8F2">: </span><span style="color: #A6E22E">var</span><span style="color: #F8F8F2">(--lightOutLine); </span><span style="color: #66D9EF">left</span><span style="color: #F8F8F2">: </span><span style="color: #A6E22E">var</span><span style="color: #F8F8F2">(--lightOutLine); </span><span style="color: #66D9EF">z-index</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">1</span><span style="color: #F8F8F2">;</span>
-<span style="color: #F8F8F2">       </span>
-<span style="color: #F8F8F2">        </span><span style="color: #66D9EF">width</span><span style="color: #F8F8F2">: calc(</span><span style="color: #AE81FF">100</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">-</span><span style="color: #F8F8F2"> </span><span style="color: #ED007E; background-color: #1E0010">(</span><span style="color: #A6E22E">var</span><span style="color: #F8F8F2">(--lightOutLine) </span><span style="color: #FF4689">*</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">2</span><span style="color: #F8F8F2">)); </span><span style="color: #66D9EF">height</span><span style="color: #F8F8F2">: calc(</span><span style="color: #AE81FF">100</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">-</span><span style="color: #F8F8F2"> </span><span style="color: #ED007E; background-color: #1E0010">(</span><span style="color: #A6E22E">var</span><span style="color: #F8F8F2">(--lightOutLine) </span><span style="color: #FF4689">*</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">2</span><span style="color: #F8F8F2">));</span>
-<span style="color: #F8F8F2">        </span><span style="color: #66D9EF">padding</span><span style="color: #F8F8F2">: </span><span style="color: #A6E22E">var</span><span style="color: #F8F8F2">(--lightOutLine); </span><span style="color: #66D9EF">margin</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">0</span><span style="color: #F8F8F2">;</span>
-<span style="color: #F8F8F2">        </span><span style="color: #66D9EF">background-color</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">purple</span><span style="color: #F8F8F2">;</span>
-<span style="color: #F8F8F2">        </span><span style="color: #959077">/* background-color: transparent; */</span>
-<span style="color: #F8F8F2">        </span><span style="color: #66D9EF">font-size</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">16</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">font-weight</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">bold</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">text-align</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">center</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">color</span><span style="color: #F8F8F2">:</span><span style="color: #AE81FF">#fff</span><span style="color: #F8F8F2">;</span>
-<span style="color: #F8F8F2">      }</span>
-<span style="color: #F8F8F2">      </span><span style="color: #959077">/* 2. 가상 요소: 크기를 100%보다 살짝 크게만 설정 */</span>
-<span style="color: #F8F8F2">      </span><span style="color: #FF4689">&amp;</span><span style="color: #F8F8F2">::</span><span style="color: #A6E22E">before</span><span style="color: #F8F8F2"> {</span>
-<span style="color: #F8F8F2">        </span><span style="color: #66D9EF">content</span><span style="color: #F8F8F2">: </span><span style="color: #E6DB74">&quot;&quot;</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">position</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">absolute</span><span style="color: #F8F8F2">;</span>
-<span style="color: #F8F8F2">        </span><span style="color: #66D9EF">width</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">200</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">height</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">200</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">top</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">-50</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">left</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">-50</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">transform</span><span style="color: #F8F8F2">: rotate(</span><span style="color: #AE81FF">90</span><span style="color: #66D9EF">deg</span><span style="color: #F8F8F2">);</span>
-<span style="color: #F8F8F2">        </span><span style="color: #66D9EF">border-radius</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">50</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">z-index</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">0</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">mix-blend-mode</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">lighten</span><span style="color: #F8F8F2">;</span>
-
-<span style="color: #F8F8F2">        </span><span style="color: #959077">/* 그라데이션 적용 */</span>
-<span style="color: #F8F8F2">        </span><span style="color: #66D9EF">background-image</span><span style="color: #F8F8F2">: linear-gradient( </span><span style="color: #AE81FF">90</span><span style="color: #66D9EF">deg</span><span style="color: #F8F8F2">, </span><span style="color: #AE81FF">#fff</span><span style="color: #F8F8F2">, </span><span style="color: #66D9EF">transparent</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">45</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2">, </span><span style="color: #66D9EF">transparent</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">55</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2">, </span><span style="color: #AE81FF">#fff</span><span style="color: #F8F8F2"> );</span>
-<span style="color: #F8F8F2">        </span><span style="color: #66D9EF">opacity</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">0</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">transition</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">opacity</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">0.3</span><span style="color: #66D9EF">s</span><span style="color: #F8F8F2"> </span><span style="color: #66D9EF">ease-out</span><span style="color: #F8F8F2">;</span>
-<span style="color: #F8F8F2">      }</span>
-<span style="color: #F8F8F2">      </span><span style="color: #959077">/* 3. 호버 시 애니메이션 적용 ( infinite, 1 ) */</span>
-<span style="color: #F8F8F2">      </span><span style="color: #FF4689">&amp;</span><span style="color: #F8F8F2">:</span><span style="color: #A6E22E">hover</span><span style="color: #F8F8F2">::</span><span style="color: #A6E22E">before</span><span style="color: #F8F8F2"> { </span><span style="color: #66D9EF">animation</span><span style="color: #F8F8F2">: motion_spin </span><span style="color: #AE81FF">1.2</span><span style="color: #66D9EF">s</span><span style="color: #F8F8F2"> </span><span style="color: #66D9EF">linear</span><span style="color: #F8F8F2"> </span><span style="color: #66D9EF">infinite</span><span style="color: #F8F8F2">; }</span>
-<span style="color: #F8F8F2">    </span><span style="color: #ED007E; background-color: #1E0010">}</span>
-<span style="color: #F8F8F2">    @</span><span style="color: #66D9EF">keyframes</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">motion_spin</span><span style="color: #F8F8F2"> {</span>
-<span style="color: #F8F8F2">      </span><span style="color: #FF4689">0%</span><span style="color: #F8F8F2">      { </span><span style="color: #66D9EF">width</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">200</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">transform</span><span style="color: #F8F8F2">: rotate(</span><span style="color: #AE81FF">90</span><span style="color: #66D9EF">deg</span><span style="color: #F8F8F2">); </span><span style="color: #66D9EF">opacity</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">0</span><span style="color: #F8F8F2">; }</span>
-<span style="color: #F8F8F2">      </span><span style="color: #FF4689">10%</span><span style="color: #F8F8F2">     { </span><span style="color: #66D9EF">opacity</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">1</span><span style="color: #F8F8F2">; }</span>
-<span style="color: #F8F8F2">      </span><span style="color: #FF4689">80%</span><span style="color: #F8F8F2">     { </span><span style="color: #66D9EF">opacity</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">1</span><span style="color: #F8F8F2">; }</span>
-<span style="color: #F8F8F2">      </span><span style="color: #FF4689">100%</span><span style="color: #F8F8F2">    { </span><span style="color: #66D9EF">width</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">200</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">transform</span><span style="color: #F8F8F2">: rotate(</span><span style="color: #AE81FF">180</span><span style="color: #66D9EF">deg</span><span style="color: #F8F8F2">); </span><span style="color: #66D9EF">opacity</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">0</span><span style="color: #F8F8F2">; }</span>
-<span style="color: #F8F8F2">    }</span>
 <span style="color: #F8F8F2">  &lt;/</span><span style="color: #FF4689">style</span><span style="color: #F8F8F2">&gt;</span>
 </pre></td></tr></table></div>
+
 
    
    
@@ -409,6 +642,9 @@
                     <!-- 소스 -->
 
                                 
+
+
+
 <!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%;"> 1
  2
  3
@@ -426,25 +662,48 @@
 15
 16
 17
-18</pre></td><td><pre style="margin: 0; line-height: 125%;"><span></span>  <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;constainer&quot;</span><span style="color: #F8F8F2">&gt;</span>
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29</pre></td><td><pre style="margin: 0; line-height: 125%;"><span></span>    <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+      <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">button</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;btn-type1 &quot;</span><span style="color: #F8F8F2">&gt;</span>
+        <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;txt&quot;</span><span style="color: #F8F8F2">&gt;</span>default Button Type1<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+      <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">button</span><span style="color: #F8F8F2">&gt;</span>
+      <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">br</span><span style="color: #F8F8F2">&gt;</span>
+      <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">button</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;btn-type1 trp_motionline-turn&quot;</span><span style="color: #F8F8F2">&gt;</span>
+        <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;txt&quot;</span><span style="color: #F8F8F2">&gt;</span>motion Button Type1<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+      <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">button</span><span style="color: #F8F8F2">&gt;</span>
+    <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
 
-    <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">button</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;btn-type1 &quot;</span><span style="color: #F8F8F2">&gt;</span>
-      <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;txt&quot;</span><span style="color: #F8F8F2">&gt;</span>default Button<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
-    <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">button</span><span style="color: #F8F8F2">&gt;</span>
-    <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">button</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;btn-type1 trp_raound-light&quot;</span><span style="color: #F8F8F2">&gt;</span>
-      <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;txt&quot;</span><span style="color: #F8F8F2">&gt;</span>motion Button<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
-    <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">button</span><span style="color: #F8F8F2">&gt;</span>
+    <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+      <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">button</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;btn-type2&quot;</span><span style="color: #F8F8F2">&gt;</span>
+        <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;txt&quot;</span><span style="color: #F8F8F2">&gt;</span>default Button Type2<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+      <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">button</span><span style="color: #F8F8F2">&gt;</span>
+       <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">br</span><span style="color: #F8F8F2">&gt;</span>
+      <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">button</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;btn-type2 trp_motionline-inout&quot;</span><span style="color: #F8F8F2">&gt;</span>
+        <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;txt&quot;</span><span style="color: #F8F8F2">&gt;</span>motion Button Type2<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+      <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">button</span><span style="color: #F8F8F2">&gt;</span>
+    <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
 
-
-    <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">button</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;btn-type2&quot;</span><span style="color: #F8F8F2">&gt;</span>
-      <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;txt&quot;</span><span style="color: #F8F8F2">&gt;</span>default Button<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
-    <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">button</span><span style="color: #F8F8F2">&gt;</span>
-    <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">button</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;btn-type2 trp_motionline-inout&quot;</span><span style="color: #F8F8F2">&gt;</span>
-      <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;txt&quot;</span><span style="color: #F8F8F2">&gt;</span>motion Button<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
-    <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">button</span><span style="color: #F8F8F2">&gt;</span>
-
-  <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+    <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+      <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">button</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;btn-type3&quot;</span><span style="color: #F8F8F2">&gt;</span>
+        <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;txt&quot;</span><span style="color: #F8F8F2">&gt;</span>default Button Type3<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+      <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">button</span><span style="color: #F8F8F2">&gt;</span>
+      <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">br</span><span style="color: #F8F8F2">&gt;</span>
+      <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">button</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;btn-type3 trp_raound-light&quot;</span><span style="color: #F8F8F2">&gt;</span>
+        <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;txt&quot;</span><span style="color: #F8F8F2">&gt;</span>motion Button Type3<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+      <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">button</span><span style="color: #F8F8F2">&gt;</span>
+    <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
 </pre></td></tr></table></div>
+
 
 
 

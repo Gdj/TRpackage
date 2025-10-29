@@ -8,43 +8,59 @@
 <body>
   <div class="constainer">
 
-    <button class="btn-type1 ">
-      <div class="txt">default Button</div>
-    </button>
-    <button class="btn-type1 trp_raound-light">
-      <div class="txt">motion Button</div>
-    </button>
+    <div>
+      <button class="btn-type1 ">
+        <div class="txt">default Button Type1</div>
+      </button>
+      <br>
+      <button class="btn-type1 trp_motionline-turn">
+        <div class="txt">motion Button Type1</div>
+      </button>
+    </div>
 
+    <div>
+      <button class="btn-type2">
+        <div class="txt">default Button Type2</div>
+      </button>
+       <br>
+      <button class="btn-type2 trp_motionline-inout">
+        <div class="txt">motion Button Type2</div>
+      </button>
+    </div>
 
-    <button class="btn-type2">
-      <div class="txt">default Button</div>
-    </button>
-    <button class="btn-type2 trp_motionline-inout">
-      <div class="txt">motion Button</div>
-    </button>
+    <div>
+      <button class="btn-type3">
+        <div class="txt">default Button Type3</div>
+      </button>
+      <br>
+      <button class="btn-type3 trp_raound-light">
+        <div class="txt">motion Button Type3</div>
+      </button>
+    </div>
 
   </div>
 
 
   <style lang="scss" scoped >
+    body { margin: 0; padding: 0;  background-color: #333;  }
     :root {
       --lightOutLine : 2px;
       --lightDegree : 155deg;
     }
     .constainer { position: relative;
-      display: flex; width: 100%; height: 100vh;
+      display: flex; flex-wrap: wrap; width: 100%; height: 100vh;
       justify-content: center; align-items: center;
-      background-color: #333;
-      & > button { margin: 10px; }
+      /* background-color: #333; */
+      > div { margin: 10px; }
     }
 
 
     .btn-type1 {
       position: relative; display: block; width: 200px; height: 50px; box-sizing: border-box;
-      border: 0; padding: 0; margin: 0; border-radius: 100px;  
+      border: 0; padding: 0; margin: 0;   
       background-color: purple;
       .txt { display: flex; justify-content: center; align-items: center;  box-sizing: border-box;
-        width: 100%; height: 100%;  border-radius: 100px;
+        width: 100%; height: 100%;  
         font-size: 16px; font-weight: bold; text-align: center; color:#fff;
         background-color: purple;
       }
@@ -59,19 +75,125 @@
         background-color: purple;
       }
     }
+    .btn-type3 {
+      position: relative; display: block; width: 200px; height: 50px; box-sizing: border-box;
+      border: 0; padding: 0; margin: 0; border-radius: 100px;  
+      background-color: purple;
+      .txt { display: flex; justify-content: center; align-items: center;  box-sizing: border-box;
+        width: 100%; height: 100%;  border-radius: 100px;
+        font-size: 16px; font-weight: bold; text-align: center; color:#fff;
+        background-color: purple;
+      }
+    }
 
 
-    /* ## 1. 빛반사 돌고 나타남 */
+
+    /* ## 1.빛이 돌고 */
+    .trp_motionline-turn { position: relative;  
+      .txt { position: absolute; top: var(--lightOutLine); left: var(--lightOutLine); z-index: 1;
+        width: calc(100% - (var(--lightOutLine) * 2)); height: calc(100% - (var(--lightOutLine) * 2));
+      }
+      &::after, &::before { content: ""; position: absolute; /* z-index: -1;  */
+        /* box-sizing: initial; */ box-sizing: border-box;
+        width: 100%; height: 100%; top:50%; left: 50%; transform: translate( -50%, -50%);
+        padding: var(--lightOutLine); border-radius: inherit; 
+        mix-blend-mode: lighten; opacity: 0;
+       
+        /* background-image: conic-gradient( from var(--angleA), #ff4545, #00ff99, #006aff, #ff0095, #ff4545); */
+      }
+      &::after { /* 그라데이션 적용 */ 
+        background-image: conic-gradient( from var(--angleA), transparent 80%, #fff);
+      }
+      &::before { /* 그라데이션 적용 */
+        background-image: conic-gradient( from var(--angleB), transparent 80%, #fff);
+      }
+      &:hover::after {  opacity: .5;
+        animation: motion_turnA 1.5s linear infinite;
+      }
+      &:hover::before {  opacity: .5;
+        animation: motion_turnB 1.5s linear infinite;
+      }
+    }
+    /* 
+      - <length>	    길이 단위 값입니다.	10px, 2em, 5vw
+      - <number>	    실수(소수점 포함)입니다. 단위는 포함되지 않습니다.	1.5, 100, -0.5
+      - <integer>	    정수 값입니다.	1, 10, -5
+      - <angle>	      각도 값입니다. (이전 질문에서 사용됨)	45deg, 1.5rad, 0.5turn
+      - <time>	      시간 단위 값입니다.	100ms, 1s
+      - <percentage>	백분율 값입니다.	50%, 100%
+      - <color>       색상 값입니다.	#ff0000, rgb(255, 0, 0), red
+    */
+    @property --angleA{
+      syntax: "<angle>";
+      initial-value: 0deg;
+      inherits: false;
+    }
+    @property --angleB{
+      syntax: "<angle>";
+      initial-value: 180deg;
+      inherits: false;
+    }
+    @keyframes motion_turnA {
+      0%      { --angleA : 0deg;   /* opacity: 0; */ }
+      50%     { --angleA : 80deg;  /* opacity: 1; */ }
+      100%    { --angleA : 180deg; /* opacity: 0; */ }
+    }
+    @keyframes motion_turnB {
+      0%      { --angleB : 180deg; /* opacity: 0; */ }
+      50%     { --angleB : 260deg; /* opacity: 1; */ }
+      100%    { --angleB : 360deg; /* opacity: 0; */ }
+    }
+  
+
+
+    /* ## 2.빛이 돌고 사라짐 */
+    .trp_motionline-inout { position: relative; overflow: hidden;
+      border-radius: 10px; /* 모서리를 충분히 둥글게 처리 */
+      /* 긴 직사각형일수록 border-radius가 회전을 자연스럽게 만듭니다 */
+      background-color: purple;
+      .txt { display: flex; justify-content: center; align-items: center;  box-sizing: border-box;
+        border-radius: 10px;
+        position: absolute; top: var(--lightOutLine); left: var(--lightOutLine); z-index: 1;
+       
+        width: calc(100% - (var(--lightOutLine) * 2)); height: calc(100% - (var(--lightOutLine) * 2));
+        padding: var(--lightOutLine); margin: 0;
+        background-color: purple;
+        /* background-color: transparent; */
+        font-size: 16px; font-weight: bold; text-align: center; color:#fff;
+      }
+      /* 가상 요소: 크기를 100%보다 살짝 크게만 설정 */
+      &::before {
+        content: ""; position: absolute;
+        width: 200%; height: 200%; top: -50%; left: -50%; transform: rotate(90deg);
+        border-radius: 50%; z-index: 0; mix-blend-mode: lighten;
+
+        /* 그라데이션 적용 */
+        background-image: linear-gradient( 90deg, #fff, transparent 45%, transparent 55%, #fff );
+        opacity: 0; transition: opacity 0.3s ease-out;
+      }
+      /* 호버 시 애니메이션 적용 ( infinite, 1 ) */
+      &:hover::before { animation: motion_spin 1.2s linear infinite; }
+    }
+    @keyframes motion_spin {
+      0%      { width: 200%; transform: rotate(90deg); opacity: 0; }
+      10%     { opacity: 1; }
+      80%     { opacity: 1; }
+      100%    { width: 200%; transform: rotate(180deg); opacity: 0; }
+    }
+
+
+    
+    /* ## 3.빛반사 돌고 나타남 */
     .trp_raound-light{ position: relative; overflow: hidden; isolation: isolate;
       &::before { content: ""; position: absolute; top: 0; left: 0%; z-index: 0;
         display: block; width: 100%; height: 100%;
         background-image: linear-gradient(var(--lightDegree), #fff, transparent 20%, transparent 80%);
-        border-radius: 100px;  mix-blend-mode: lighten;
+        border-radius: inherit;  mix-blend-mode: lighten;
       }
       &::after { content: ""; position: absolute; top: 0; left: 0; z-index: 0;
         display: block; width: 100%; height: 100%; 
         background-image: linear-gradient(var(--lightDegree), transparent 20%, transparent 80%, #fff);
-        border-radius: 100px;  mix-blend-mode: lighten;
+        border-radius: inherit;  mix-blend-mode: lighten;
       }
       .txt { position: absolute; top: var(--lightOutLine); left: var(--lightOutLine); z-index: 1;
         width: calc(100% - (var(--lightOutLine) * 2)); height: calc(100% - (var(--lightOutLine) * 2));
@@ -96,43 +218,6 @@
       100%    { left: 0%;     opacity: 1; }
     }
 
-
-    /* ## 1. 빛이 돌고 사라짐 */
-    .trp_motionline-inout { display: block; width: 200px; height: 50px; box-sizing: border-box; border: 0; 
-      position: relative;
-      overflow: hidden;
-      border-radius: 10px; /* 모서리를 충분히 둥글게 처리 */
-      /* 긴 직사각형일수록 border-radius가 회전을 자연스럽게 만듭니다 */
-      background-color: purple;
-      .txt { display: flex; justify-content: center; align-items: center;  box-sizing: border-box;
-        border-radius: 10px;
-        position: absolute; top: var(--lightOutLine); left: var(--lightOutLine); z-index: 1;
-       
-        width: calc(100% - (var(--lightOutLine) * 2)); height: calc(100% - (var(--lightOutLine) * 2));
-        padding: var(--lightOutLine); margin: 0;
-        background-color: purple;
-        /* background-color: transparent; */
-        font-size: 16px; font-weight: bold; text-align: center; color:#fff;
-      }
-      /* 2. 가상 요소: 크기를 100%보다 살짝 크게만 설정 */
-      &::before {
-        content: ""; position: absolute;
-        width: 200%; height: 200%; top: -50%; left: -50%; transform: rotate(90deg);
-        border-radius: 50%; z-index: 0; mix-blend-mode: lighten;
-
-        /* 그라데이션 적용 */
-        background-image: linear-gradient( 90deg, #fff, transparent 45%, transparent 55%, #fff );
-        opacity: 0; transition: opacity 0.3s ease-out;
-      }
-      /* 3. 호버 시 애니메이션 적용 ( infinite, 1 ) */
-      &:hover::before { animation: motion_spin 1.2s linear infinite; }
-    }
-    @keyframes motion_spin {
-      0%      { width: 200%; transform: rotate(90deg); opacity: 0; }
-      10%     { opacity: 1; }
-      80%     { opacity: 1; }
-      100%    { width: 200%; transform: rotate(180deg); opacity: 0; }
-    }
   </style>
   
 </body>
