@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>glass-effect</title>
+</head>
+<body>
+
+  <div class="container">
+    
+    <div class="bg_shape"></div>
+    <div class="glass trp_glass"></div>
+
+  </div>
+  
+
+  <style lang="scss" scoped >
+    .container { position: relative; width: 500px; height: 500px;  }
+    .bg_shape {
+      position: absolute; top: 50%; left: 50%;
+      width: 200px; height: 200px;
+
+      transform: translate(-50%, -50%);
+      background-color: red;
+    }
+    .glass {
+      position: absolute; top: 50%; left: 50%; margin-left: 100px;
+      width: 250px; height: 250px;
+      transform: translate(-50%, -50%);
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .trp_glass {
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+  </style>
+
+</body>
+</html>

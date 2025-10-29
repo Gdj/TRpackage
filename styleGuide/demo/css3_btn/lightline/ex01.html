@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>button round</title>
+</head>
+<body>
+  <div class="constainer">
+
+    <button class="btn-type1 ">
+      <div class="txt">default Button</div>
+    </button>
+    <button class="btn-type1 trp_raound-light">
+      <div class="txt">motion Button</div>
+    </button>
+
+
+    <button class="btn-type2">
+      <div class="txt">default Button</div>
+    </button>
+    <button class="btn-type2 trp_motionline-inout">
+      <div class="txt">motion Button</div>
+    </button>
+
+  </div>
+
+
+  <style lang="scss" scoped >
+    :root {
+      --lightOutLine : 2px;
+      --lightDegree : 155deg;
+    }
+    .constainer { position: relative;
+      display: flex; width: 100%; height: 100vh;
+      justify-content: center; align-items: center;
+      background-color: #333;
+      & > button { margin: 10px; }
+    }
+
+
+    .btn-type1 {
+      position: relative; display: block; width: 200px; height: 50px; box-sizing: border-box;
+      border: 0; padding: 0; margin: 0; border-radius: 100px;  
+      background-color: purple;
+      .txt { display: flex; justify-content: center; align-items: center;  box-sizing: border-box;
+        width: 100%; height: 100%;  border-radius: 100px;
+        font-size: 16px; font-weight: bold; text-align: center; color:#fff;
+        background-color: purple;
+      }
+    }
+    .btn-type2 {
+      position: relative; display: block; width: 200px; height: 50px; box-sizing: border-box;
+      border: 0; padding: 0; margin: 0; border-radius: 10px;  
+      background-color: purple;
+      .txt { display: flex; justify-content: center; align-items: center;  box-sizing: border-box;
+        width: 100%; height: 100%; border-radius: 10px;
+        font-size: 16px; font-weight: bold; text-align: center; color:#fff;
+        background-color: purple;
+      }
+    }
+
+
+    /* ## 1. 빛반사 돌고 나타남 */
+    .trp_raound-light{ position: relative; overflow: hidden; isolation: isolate;
+      &::before { content: ""; position: absolute; top: 0; left: 0%; z-index: 0;
+        display: block; width: 100%; height: 100%;
+        background-image: linear-gradient(var(--lightDegree), #fff, transparent 20%, transparent 80%);
+        border-radius: 100px;  mix-blend-mode: lighten;
+      }
+      &::after { content: ""; position: absolute; top: 0; left: 0; z-index: 0;
+        display: block; width: 100%; height: 100%; 
+        background-image: linear-gradient(var(--lightDegree), transparent 20%, transparent 80%, #fff);
+        border-radius: 100px;  mix-blend-mode: lighten;
+      }
+      .txt { position: absolute; top: var(--lightOutLine); left: var(--lightOutLine); z-index: 1;
+        width: calc(100% - (var(--lightOutLine) * 2)); height: calc(100% - (var(--lightOutLine) * 2));
+      }
+      &:hover::before { /* infinite, 1, */
+        animation: motion-move_right 1s ease-out 1;
+      }
+      &:hover::after { 
+        animation: motion-move_left 1s ease-out 1;
+      }
+    }
+    @keyframes motion-move_right {
+      0%      { left: 0%;     opacity: 1; }
+      60%     { left: 100%;   opacity: 0; }
+      61%     { left: -50%;   opacity: 0; }
+      100%    { left: 0%;     opacity: 1; }
+    }
+    @keyframes motion-move_left {
+      0%      { left: 0%;     opacity: 1; }
+      60%     { left: -100%;  opacity: 0; }
+      61%     { left: 50%;    opacity: 0; }
+      100%    { left: 0%;     opacity: 1; }
+    }
+
+
+    /* ## 1. 빛이 돌고 사라짐 */
+    .trp_motionline-inout { display: block; width: 200px; height: 50px; box-sizing: border-box; border: 0; 
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px; /* 모서리를 충분히 둥글게 처리 */
+      /* 긴 직사각형일수록 border-radius가 회전을 자연스럽게 만듭니다 */
+      background-color: purple;
+      .txt { display: flex; justify-content: center; align-items: center;  box-sizing: border-box;
+        border-radius: 10px;
+        position: absolute; top: var(--lightOutLine); left: var(--lightOutLine); z-index: 1;
+       
+        width: calc(100% - (var(--lightOutLine) * 2)); height: calc(100% - (var(--lightOutLine) * 2));
+        padding: var(--lightOutLine); margin: 0;
+        background-color: purple;
+        /* background-color: transparent; */
+        font-size: 16px; font-weight: bold; text-align: center; color:#fff;
+      }
+      /* 2. 가상 요소: 크기를 100%보다 살짝 크게만 설정 */
+      &::before {
+        content: ""; position: absolute;
+        width: 200%; height: 200%; top: -50%; left: -50%; transform: rotate(90deg);
+        border-radius: 50%; z-index: 0; mix-blend-mode: lighten;
+
+        /* 그라데이션 적용 */
+        background-image: linear-gradient( 90deg, #fff, transparent 45%, transparent 55%, #fff );
+        opacity: 0; transition: opacity 0.3s ease-out;
+      }
+      /* 3. 호버 시 애니메이션 적용 ( infinite, 1 ) */
+      &:hover::before { animation: motion_spin 1.2s linear infinite; }
+    }
+    @keyframes motion_spin {
+      0%      { width: 200%; transform: rotate(90deg); opacity: 0; }
+      10%     { opacity: 1; }
+      80%     { opacity: 1; }
+      100%    { width: 200%; transform: rotate(180deg); opacity: 0; }
+    }
+  </style>
+  
+</body>
+</html>
