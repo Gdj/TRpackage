@@ -25,60 +25,51 @@
 
 		<!-- s: api 설명 -->
 		<div class="api">
-			<h2 class="api-title">table css (리스트 2컬럼 )</h2>
+			<h2 class="api-title">table </h2>
 			<div class="api-body">
 				<dl>
 					<dt>설명</dt>					
-					<dd><span class="icon"></span>768 이하일때 테이블 해더를 숨기고 list 형태로 변경</dd>
+					<dd><span class="icon"></span>1024 이하일때 테이블 해더를 숨기고 list 형태로 변경</dd>
 				</dl>
 
 
  				<div class="ex_wapper">
-					<h3 class="api-title_h3">VIEW</h3>
+					<h3 class="api-title_h3">VIEW </h3>
 					<p class="ex-more"><a href="javascript:return false;"><span class="d-n">+</span><span style="display: inline;">-</span></a></p>
 					<p class="ex-view"><a href="ex01.html" target="_blank">View Sample</a></p>
 					<div class="ex-body d-n" >
 				    
-				    <div class="table-responsive_2col">
-              <table class="trp table-data-type1">
+
+            <div class="table-responsive">
+              <table>
+                <caption>자료실 목록입니다. No, 제목, 조회수, 작성자 및 등록일로 구성되어 있습니다.</caption>
+                <colgroup>
+                  <col style="width: 55px"><col><col style="width: 70px"><col style="width: 90px"><col style="width: 120px">
+                </colgroup>
                 <thead>
                   <tr>
-                    <th>Num</th>
-                    <th>Table heading1</th>
-                    <th>Table heading2</th>
-                    <th>Table heading3</th>
-                    <th>Table heading4</th>
-                    <th>Table heading5</th>
-                    <th>Table heading6</th>
+                    <th scope="col">No</th><th scope="col">제목</th>
+                    <th scope="col">조회수</th>
+                    <th scope="col">작성자</th>
+                    <th scope="col">등록일</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td class="mb-none">1</td>
-                    <td class="topbr" data-th="heading1">Table cell</td>
-                    <td data-th="heading2">Table cell</td>
-                    <td data-th="heading3">Table cell</td>
-                    <td data-th="heading4">Table cell</td>
-                    <td data-th="heading5">Table cell</td>
-                    <td data-th="heading6">Table cell</td>
+                    <td data-tit="No">2</td><td class="tal mb_block" data-tit="제목">
+                      <a href="#none" class="hover_line"><span style="">본문 제목 본문 제목 본문 제목 본문 제목 본문 제목 본문 제목 본문 제목 본문 제목 </span> </a>
+                    </td>
+                    <td data-tit="작성자">관리자</td>
+                    <td data-tit="등록일">2025-11-20</td>
+                    <td data-tit="조회수">117</td>
                   </tr>
                   <tr>
-                    <td class="mb-none">2</td>
-                    <td class="topbr" data-th="heading1">Table cell</td>
-                    <td data-th="heading2">Table cell</td>
-                    <td data-th="heading3">Table cell</td>
-                    <td data-th="heading4">Table cell</td>
-                    <td data-th="heading5">Table cell</td>
-                    <td data-th="heading6">Table cell</td>
-                  </tr>
-                  <tr>
-                    <td class="mb-none">3</td>
-                    <td class="topbr" data-th="heading1">Table cell</td>
-                    <td data-th="heading2">Table cell</td>
-                    <td data-th="heading3">Table cell</td>
-                    <td data-th="heading4">Table cell</td>
-                    <td data-th="heading5">Table cell</td>
-                    <td data-th="heading6">Table cell</td>
+                    <td data-tit="No">1</td><td class="tal mb_block" data-tit="제목">
+                      <a href="#none" class="hover_line"><span style="">본문 제목 본문 제목 본문 제목 본문 제목 본문 제목 본문 제목 본문 제목 본문 제목 </span> </a>
+                    </td>
+                    <td data-tit="작성자">관리자</td>
+                    <td data-tit="등록일">2025-11-20</td>
+                    <td data-tit="조회수">151</td>
                   </tr>
                 </tbody>
               </table>
@@ -196,7 +187,6 @@
 
 					</div>
 				</div>
-
 
 
 				<div class="ex_wapper">

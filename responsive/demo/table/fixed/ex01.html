@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>scroll Y</title>
   <link rel="stylesheet" type="text/css"  href="../../../../asset/css/trpBase.css" media="all" />
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.1.min.js" ></script>
   <style type="text/css">
   .table-wrap {position: relative; border-top: 2px solid #000; }
   .table-box .trp.table-data-type1 { border-top: 0;}
@@ -19,9 +20,11 @@
     /* .table-box--vertical::-webkit-scrollbar { display:none; } */ /* 웹킷 스크롤 숨김 */
     .table-box--vertical thead {
       display:table;
-      position:absolute;
-      top:0;
-      width:100%;
+      position:absolute; top:0; width:100%; 
+      box-sizing: border-box;
+    }
+    .table-box--vertical thead tr th{
+      border-right: 0 !important;
     }
   }
   </style>
@@ -31,13 +34,16 @@
   <div class="table-wrap">
     <div class="table-box table-box--vertical">
       <table class="trp table-data-type1 " cellspacing="0" cellpadding="0">
+        <colgroup>
+          <col style="width:25%"><col style="width:25%"><col style="width:25%"><col style="width:25%">
+        </colgroup>
         <thead>
-        <tr>
-          <th>1월</th>
-          <th>2월</th>
-          <th>3월</th>
-          <th>4월</th>
-        </tr>
+          <tr>
+            <th>1월</th>
+            <th>2월</th>
+            <th>3월</th>
+            <th>4월</th>
+          </tr>
         </thead>
         <tbody>
         <tr>
@@ -93,5 +99,12 @@
     </div>
   </div>
   
+  <script>
+    $(window).on("load resize", function(){
+      var _scrollbar_gutter = $(".table-data-type1").innerWidth();
+      $(".table-data-type1 thead").css("width", _scrollbar_gutter + "px");
+      console.log('_scrollbar_gutter : ', _scrollbar_gutter)
+    });
+  </script>
 </body>
 </html>
