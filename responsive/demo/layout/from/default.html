@@ -1,0 +1,1044 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+<title>media query | TR package </title>
+<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.11.1.js" charset="UTF-8"></script>
+<link rel="stylesheet" type="text/css"  href="../../../../asset/css/common.css" media="all" />
+<link rel="stylesheet" type="text/css"  href="../../../../asset/css/trpBase.css" media="all" />
+
+  <style lang="scss" scoped >
+    
+    .form-responsive {
+
+      .form-layout { display: flex; flex-wrap: wrap; margin-top: 0px;
+        width: calc(100% + 20px); margin-left: -10px;   
+        > *  { padding: 0 10px; }
+        .form-item { position: relative; margin-top: 20px;
+          em { color:#f00;}
+          .form-other { position: absolute; top:0; right:0; }                             // other
+          .form-label { display: inline-block; margin: 0 2px 5px; }                       // label
+          .form-data  { height: 30px;                                         // data
+            display: flex; flex-grow: 1; align-items: center;
+            > * { flex-grow: 1; }
+          }   
+        
+        }
+        &.form-row {
+          .form-item { display: flex; flex-direction: row; align-items: center;
+            .form-label { margin: 0; margin-right: 14px; flex-grow: 0; }
+            .form-data  { flex-grow: 1; display: inline-flex; } 
+          }
+        }
+      }
+
+
+      .data-box {
+        line-height: 30px; ;
+      }
+      /* form-box (켈린더 등..) */
+      .dash-box { display: flex; align-items: center;
+        >span{ flex-grow: 1; }
+        >div { flex:auto; min-width: 80px; }
+        >span + span, > span + div , > div + span , > div + div { margin-left: 5px; }
+        >.dash + span , >.dash + div { margin-left: 0px; }
+        >.dash { flex-grow: 0; display: inline-flex; align-items: center; margin: 0 5px;  text-align: center; }
+      }
+      /* input + button + 검색 */
+      .txt_btn-box { display: flex;  align-items: center;
+        input { flex-grow: 1; }
+        .btn { flex-grow: 0;  }
+        input + .btn, .btn + .btn { margin-left: 10px; }
+      }
+      /* 라디오, 체크박스 */
+      .input-group { display: flex; align-items: center;
+        label { margin-right: 0; line-height: 30px; }
+      }
+      /* input + text-notice */
+      .flex-box { display: flex; align-items: center; }
+
+    }
+    
+
+
+
+    /* 반응형 컬럼 */
+    /* col-p  퍼센트*/
+    /* 
+    @mixin trpCol-p($percent) { width: $percent + 0%; }
+    @for $j from 0 through 20{
+      .col-p#{5 * $j} { @include trpCol-p( 5 * $j ); }
+    }
+    @media all and (max-width:1024)  {
+      .col-mb{ }
+      .col-mb-auto { width: auto;  }
+
+      @for $j from 0 through 20{
+        .col-mb-p#{5 * $j} { @include trpCol-p( 5 * $j );  }
+      }
+    }
+    */
+
+    .col-p0 {
+      width: 0%;
+    }
+    .col-p5 {
+      width: 5%;
+    }
+    .col-p10 {
+      width: 10%;
+    }
+    .col-p15 {
+      width: 15%;
+    }
+    .col-p20 {
+      width: 20%;
+    }
+    .col-p25 {
+      width: 25%;
+    }
+    .col-p30 {
+      width: 30%;
+    }
+    .col-p35 {
+      width: 35%;
+    }
+    .col-p40 {
+      width: 40%;
+    }
+    .col-p45 {
+      width: 45%;
+    }
+    .col-p50 {
+      width: 50%;
+    }
+    .col-p55 {
+      width: 55%;
+    }
+    .col-p60 {
+      width: 60%;
+    }
+    .col-p65 {
+      width: 65%;
+    }
+    .col-p70 {
+      width: 70%;
+    }
+    .col-p75 {
+      width: 75%;
+    }
+    .col-p80 {
+      width: 80%;
+    }
+    .col-p85 {
+      width: 85%;
+    }
+    .col-p90 {
+      width: 90%;
+    }
+    .col-p95 {
+      width: 95%;
+    }
+    .col-p100 {
+      width: 100%;
+    }
+    @media all and (max-width: 1024px) {
+      /* 엘리먼트 퍼센트 col-mb-p0~100 */
+      .col-mb-auto {
+        width: auto;
+      }
+      .col-mb-p0 {
+        width: 0%;
+      }
+      .col-mb-p5 {
+        width: 5%;
+      }
+      .col-mb-p10 {
+        width: 10%;
+      }
+      .col-mb-p15 {
+        width: 15%;
+      }
+      .col-mb-p20 {
+        width: 20%;
+      }
+      .col-mb-p25 {
+        width: 25%;
+      }
+      .col-mb-p30 {
+        width: 30%;
+      }
+      .col-mb-p35 {
+        width: 35%;
+      }
+      .col-mb-p40 {
+        width: 40%;
+      }
+      .col-mb-p45 {
+        width: 45%;
+      }
+      .col-mb-p50 {
+        width: 50%;
+      }
+      .col-mb-p55 {
+        width: 55%;
+      }
+      .col-mb-p60 {
+        width: 60%;
+      }
+      .col-mb-p65 {
+        width: 65%;
+      }
+      .col-mb-p70 {
+        width: 70%;
+      }
+      .col-mb-p75 {
+        width: 75%;
+      }
+      .col-mb-p80 {
+        width: 80%;
+      }
+      .col-mb-p85 {
+        width: 85%;
+      }
+      .col-mb-p90 {
+        width: 90%;
+      }
+      .col-mb-p95 {
+        width: 95%;
+      }
+      .col-mb-p100 {
+        width: 100%;
+      }
+    }
+    
+  </style>
+</head>
+<body>
+  <div id="header"></div>
+  <div id="container">
+	<div id="lnb" class="gnb"></div>
+	<!-- s: 컨텐츠 시작 -->
+	<div id="contents" class="contents">
+		<!-- s: css 설명
+		<div class="desc_wapper">
+			<h1 class="desc_title">list</h1>
+			<p>목록에 대한 정의입니다.</p>
+		</div>
+		 -->
+		<!-- e: css 설명 -->
+	
+
+		<!-- s: api 설명 -->
+		<div class="api">
+			<h2 class="api-title">table </h2>
+			<div class="api-body">
+				<dl>
+					<dt>설명</dt>					
+					<dd><span class="icon"></span>1024 이하일때 테이블 해더를 숨기고 list 형태로 변경</dd>
+				</dl>
+
+
+ 				<div class="ex_wapper">
+					<h3 class="api-title_h3">VIEW </h3>
+					<p class="ex-more"><a href="javascript:return false;"><span class="d-n">+</span><span style="display: inline;">-</span></a></p>
+					<p class="ex-view"><a href="ex01.html" target="_blank">View Sample</a></p>
+					<div class="ex-body d-n" >
+				    
+
+    <div class="form-responsive">
+
+      <div class="form-layout">
+        <div class="col-p25 col-mb-p50">
+          <div class="form-item">
+            <label for="" class="form-label">입력폼</label>
+            <div class="form-data">
+              <input type="text" class="form-control" placeholder="title" />
+            </div>
+          </div>
+        </div>
+        <div class="col-p25 col-mb-p50">
+          <div class="form-item">
+            <div class="form-other"><em>* 필수값</em></div>
+            <label for="" class="form-label">입력폼 <em>*</em></label>
+            <div class="form-data">
+              <input type="text" class="form-control" placeholder="title" />
+            </div>
+          </div>
+        </div>
+        <div class="col-p50 col-mb-p100">
+          <div class="form-item">
+            <label for="" class="form-label">연월일</label>
+            <div class="form-data">
+              <div class="dash-box">
+                <span class="datepicker-box">
+                  <input type="text" class="js-datepicker" placeholder="yy-mm-dd" />
+                  <i class="spf spf-d_calendar"></i>
+                </span>
+                <span class="dash">~</span>
+                <span class="datepicker-box">
+                  <input type="text" class="js-datepicker" placeholder="yy-mm-dd" />
+                  <i class="spf spf-d_calendar"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-p25 col-mb-p40 col-sm-p100">
+          <div class="form-item">
+            <label for="" class="form-label">select</label>
+            <div class="form-data">
+              <div class="select-box">
+                <select class="" id="">
+                  <option value="" selected="" disabled="" hidden="">선택</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+                <i class="spf spf-d_caret-down"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-p30 col-mb-p60 col-sm-p100">
+          <div class="form-item">
+            <label for="" class="form-label">라디오</label>
+            <div class="form-data">
+              <span class="trp radio-box">
+                <input id="radio2-1" type="radio" name="radioSet2" />
+                <i></i>
+                <label for="radio2-1">radioSet2</label>
+              </span>
+              <span class="trp radio-box">
+                <input id="radio2-2" type="radio" name="radioSet2" />
+                <i></i>
+                <label for="radio2-2">radioSet2</label>
+              </span>
+              <span class="trp radio-box">
+                <input id="radio2-3" type="radio" name="radioSet2" />
+                <i></i>
+                <label for="radio2-3">radioSet2</label>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="col-p30 col-mb-p60 col-sm-p100">
+          <div class="form-item">
+            <label for="" class="form-label">체크박스</label>
+            <div class="form-data">
+              <span class="trp checkbox-box">
+                <input id="checkbox1" type="checkbox" name="" />
+                <i></i>
+                <label for="checkbox1">checkbox1</label>
+              </span>
+              <span class="trp checkbox-box">
+                <input id="checkbox2" type="checkbox" name="" />
+                <i></i>
+                <label for="checkbox2">checkbox2</label>
+              </span>
+              <span class="trp checkbox-box">
+                <input id="checkbox3" type="checkbox" name="" />
+                <i></i>
+                <label for="checkbox3">checkbox3</label>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <br>
+    <br>
+
+    <div class="form-responsive">
+
+      <div class="form-layout form-row">
+        <div class="col-p25 col-mb-p50">
+          <div class="form-item">
+            <label for="" class="form-label">입력폼</label>
+            <div class="form-data">
+              <input type="text" class="form-control" placeholder="title" />
+            </div>
+          </div>
+        </div>
+        <div class="col-p25 col-mb-p50">
+          <div class="form-item">
+            <label for="" class="form-label">입력폼 <em>*</em></label>
+            <div class="form-data">
+              <input type="text" class="form-control" placeholder="title" />
+            </div>
+          </div>
+        </div>
+        <div class="col-p50 col-mb-p100">
+          <div class="form-item">
+            <label for="" class="form-label">연월일</label>
+            <div class="form-data">
+              <div class="dash-box">
+                <span class="datepicker-box">
+                  <input type="text" class="js-datepicker" placeholder="yy-mm-dd" />
+                  <i class="spf spf-d_calendar"></i>
+                </span>
+                <span class="dash">~</span>
+                <span class="datepicker-box">
+                  <input type="text" class="js-datepicker" placeholder="yy-mm-dd" />
+                  <i class="spf spf-d_calendar"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-p25 col-mb-p40 col-sm-p100">
+          <div class="form-item">
+            <label for="" class="form-label">select</label>
+            <div class="form-data">
+              <div class="select-box">
+                <select class="" id="">
+                  <option value="" selected="" disabled="" hidden="">선택</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+                <i class="spf spf-d_caret-down"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-p30 col-mb-p60 col-sm-p100">
+          <div class="form-item">
+            <label for="" class="form-label">라디오</label>
+            <div class="form-data">
+              <span class="trp radio-box">
+                <input id="radio2-1" type="radio" name="radioSet2" />
+                <i></i>
+                <label for="radio2-1">radioSet2</label>
+              </span>
+              <span class="trp radio-box">
+                <input id="radio2-2" type="radio" name="radioSet2" />
+                <i></i>
+                <label for="radio2-2">radioSet2</label>
+              </span>
+              <span class="trp radio-box">
+                <input id="radio2-3" type="radio" name="radioSet2" />
+                <i></i>
+                <label for="radio2-3">radioSet2</label>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="col-p30 col-mb-p60 col-sm-p100">
+          <div class="form-item">
+            <label for="" class="form-label">체크박스</label>
+            <div class="form-data">
+              <span class="trp checkbox-box">
+                <input id="checkbox1" type="checkbox" name="" />
+                <i></i>
+                <label for="checkbox1">checkbox1</label>
+              </span>
+              <span class="trp checkbox-box">
+                <input id="checkbox2" type="checkbox" name="" />
+                <i></i>
+                <label for="checkbox2">checkbox2</label>
+              </span>
+              <span class="trp checkbox-box">
+                <input id="checkbox3" type="checkbox" name="" />
+                <i></i>
+                <label for="checkbox3">checkbox3</label>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+				    
+				    
+					</div>
+				</div> 
+				
+
+				<div class="ex_wapper">
+					<h3 class="api-title_h3 css">CSS</h3>
+					<div class="api-body_h3 css">
+
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%;"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53</pre></td><td><pre style="margin: 0; line-height: 125%;"><span></span>  <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">style</span> <span style="color: #A6E22E">lang</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;scss&quot;</span> <span style="color: #A6E22E">scoped</span> <span style="color: #F8F8F2">&gt;</span>
+<span style="color: #F8F8F2">    </span>
+<span style="color: #F8F8F2">    .</span><span style="color: #A6E22E">form-responsive</span><span style="color: #F8F8F2"> {</span>
+
+<span style="color: #F8F8F2">      </span><span style="color: #ED007E; background-color: #1E0010">.form-layout</span><span style="color: #F8F8F2"> </span><span style="color: #ED007E; background-color: #1E0010">{</span><span style="color: #F8F8F2"> </span><span style="color: #66D9EF">display</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">flex</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">flex-wrap</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">wrap</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">margin-top</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">0</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">        </span><span style="color: #66D9EF">width</span><span style="color: #F8F8F2">: calc(</span><span style="color: #AE81FF">100</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">+</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">20</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2">); </span><span style="color: #66D9EF">margin-left</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">-10</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2">;   </span>
+<span style="color: #F8F8F2">        </span><span style="color: #ED007E; background-color: #1E0010">&gt;</span><span style="color: #F8F8F2"> </span><span style="color: #ED007E; background-color: #1E0010">*</span><span style="color: #F8F8F2">  </span><span style="color: #ED007E; background-color: #1E0010">{</span><span style="color: #F8F8F2"> </span><span style="color: #66D9EF">padding</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">0</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">10</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2">; }</span>
+<span style="color: #F8F8F2">        .</span><span style="color: #A6E22E">form-item</span><span style="color: #F8F8F2"> { </span><span style="color: #66D9EF">position</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">relative</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">margin-top</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">20</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">          </span><span style="color: #ED007E; background-color: #1E0010">em</span><span style="color: #F8F8F2"> </span><span style="color: #ED007E; background-color: #1E0010">{</span><span style="color: #F8F8F2"> </span><span style="color: #66D9EF">color</span><span style="color: #F8F8F2">:</span><span style="color: #AE81FF">#f00</span><span style="color: #F8F8F2">;}</span>
+<span style="color: #F8F8F2">          .</span><span style="color: #A6E22E">form-other</span><span style="color: #F8F8F2"> { </span><span style="color: #66D9EF">position</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">absolute</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">top</span><span style="color: #F8F8F2">:</span><span style="color: #AE81FF">0</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">right</span><span style="color: #F8F8F2">:</span><span style="color: #AE81FF">0</span><span style="color: #F8F8F2">; }                             </span><span style="color: #FF4689">//</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">other</span>
+<span style="color: #F8F8F2">          .</span><span style="color: #A6E22E">form-label</span><span style="color: #F8F8F2"> { </span><span style="color: #66D9EF">display</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">inline-block</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">margin</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">0</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">2</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">5</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2">; }                       </span><span style="color: #FF4689">//</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">label</span>
+<span style="color: #F8F8F2">          .</span><span style="color: #A6E22E">form-data</span><span style="color: #F8F8F2">  { </span><span style="color: #66D9EF">height</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">30</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2">;                                         </span><span style="color: #ED007E; background-color: #1E0010">//</span><span style="color: #F8F8F2"> </span><span style="color: #ED007E; background-color: #1E0010">data</span>
+<span style="color: #F8F8F2">            </span><span style="color: #66D9EF">display</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">flex</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">flex-grow</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">1</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">align-items</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">center</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">            </span><span style="color: #ED007E; background-color: #1E0010">&gt;</span><span style="color: #F8F8F2"> </span><span style="color: #ED007E; background-color: #1E0010">*</span><span style="color: #F8F8F2"> </span><span style="color: #ED007E; background-color: #1E0010">{</span><span style="color: #F8F8F2"> </span><span style="color: #66D9EF">flex-grow</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">1</span><span style="color: #F8F8F2">; }</span>
+<span style="color: #F8F8F2">          </span><span style="color: #ED007E; background-color: #1E0010">}</span><span style="color: #F8F8F2">   </span>
+<span style="color: #F8F8F2">        </span>
+<span style="color: #F8F8F2">        </span><span style="color: #ED007E; background-color: #1E0010">}</span>
+<span style="color: #F8F8F2">        </span><span style="color: #FF4689">&amp;</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">form-row</span><span style="color: #F8F8F2"> {</span>
+<span style="color: #F8F8F2">          </span><span style="color: #ED007E; background-color: #1E0010">.form-item</span><span style="color: #F8F8F2"> </span><span style="color: #ED007E; background-color: #1E0010">{</span><span style="color: #F8F8F2"> </span><span style="color: #66D9EF">display</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">flex</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">flex-direction</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">row</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">align-items</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">center</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">            </span><span style="color: #ED007E; background-color: #1E0010">.form-label</span><span style="color: #F8F8F2"> </span><span style="color: #ED007E; background-color: #1E0010">{</span><span style="color: #F8F8F2"> </span><span style="color: #66D9EF">margin</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">0</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">margin-right</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">14</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">flex-grow</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">0</span><span style="color: #F8F8F2">; }</span>
+<span style="color: #F8F8F2">            .</span><span style="color: #A6E22E">form-data</span><span style="color: #F8F8F2">  { </span><span style="color: #66D9EF">flex-grow</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">1</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">display</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">inline-flex</span><span style="color: #F8F8F2">; } </span>
+<span style="color: #F8F8F2">          </span><span style="color: #ED007E; background-color: #1E0010">}</span>
+<span style="color: #F8F8F2">        </span><span style="color: #ED007E; background-color: #1E0010">}</span>
+<span style="color: #F8F8F2">      </span><span style="color: #ED007E; background-color: #1E0010">}</span>
+
+
+<span style="color: #F8F8F2">      .</span><span style="color: #A6E22E">data-box</span><span style="color: #F8F8F2"> {</span>
+<span style="color: #F8F8F2">        </span><span style="color: #66D9EF">line-height</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">30</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2">; ;</span>
+<span style="color: #F8F8F2">      }</span>
+<span style="color: #F8F8F2">      </span><span style="color: #959077">/* form-box (켈린더 등..) */</span>
+<span style="color: #F8F8F2">      .</span><span style="color: #A6E22E">dash-box</span><span style="color: #F8F8F2"> { </span><span style="color: #66D9EF">display</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">flex</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">align-items</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">center</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">        </span><span style="color: #ED007E; background-color: #1E0010">&gt;span{</span><span style="color: #F8F8F2"> </span><span style="color: #66D9EF">flex-grow</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">1</span><span style="color: #F8F8F2">; }</span>
+<span style="color: #F8F8F2">        </span><span style="color: #FF4689">&gt;div</span><span style="color: #F8F8F2"> { </span><span style="color: #66D9EF">flex</span><span style="color: #F8F8F2">:</span><span style="color: #66D9EF">auto</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">min-width</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">80</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2">; }</span>
+<span style="color: #F8F8F2">        </span><span style="color: #FF4689">&gt;span</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">+</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">span,</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">&gt;</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">span</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">+</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">div</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">,</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">&gt;</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">div</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">+</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">span</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">,</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">&gt;</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">div</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">+</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">div</span><span style="color: #F8F8F2"> { </span><span style="color: #66D9EF">margin-left</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">5</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2">; }</span>
+<span style="color: #F8F8F2">        </span><span style="color: #FF4689">&gt;</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">dash</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">+</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">span</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">,</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">&gt;</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">dash</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">+</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">div</span><span style="color: #F8F8F2"> { </span><span style="color: #66D9EF">margin-left</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">0</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2">; }</span>
+<span style="color: #F8F8F2">        </span><span style="color: #FF4689">&gt;</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">dash</span><span style="color: #F8F8F2"> { </span><span style="color: #66D9EF">flex-grow</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">0</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">display</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">inline-flex</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">align-items</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">center</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">margin</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">0</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">5</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2">;  </span><span style="color: #66D9EF">text-align</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">center</span><span style="color: #F8F8F2">; }</span>
+<span style="color: #F8F8F2">      </span><span style="color: #ED007E; background-color: #1E0010">}</span>
+<span style="color: #F8F8F2">      </span><span style="color: #959077">/* input + button + 검색 */</span>
+<span style="color: #F8F8F2">      .</span><span style="color: #A6E22E">txt_btn-box</span><span style="color: #F8F8F2"> { </span><span style="color: #66D9EF">display</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">flex</span><span style="color: #F8F8F2">;  </span><span style="color: #66D9EF">align-items</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">center</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">        </span><span style="color: #ED007E; background-color: #1E0010">input</span><span style="color: #F8F8F2"> </span><span style="color: #ED007E; background-color: #1E0010">{</span><span style="color: #F8F8F2"> </span><span style="color: #66D9EF">flex-grow</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">1</span><span style="color: #F8F8F2">; }</span>
+<span style="color: #F8F8F2">        .</span><span style="color: #A6E22E">btn</span><span style="color: #F8F8F2"> { </span><span style="color: #66D9EF">flex-grow</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">0</span><span style="color: #F8F8F2">;  }</span>
+<span style="color: #F8F8F2">        </span><span style="color: #FF4689">input</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">+</span><span style="color: #F8F8F2"> .</span><span style="color: #A6E22E">btn</span><span style="color: #FF4689">,</span><span style="color: #F8F8F2"> .</span><span style="color: #A6E22E">btn</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">+</span><span style="color: #F8F8F2"> .</span><span style="color: #A6E22E">btn</span><span style="color: #F8F8F2"> { </span><span style="color: #66D9EF">margin-left</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">10</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2">; }</span>
+<span style="color: #F8F8F2">      </span><span style="color: #ED007E; background-color: #1E0010">}</span>
+<span style="color: #F8F8F2">      </span><span style="color: #959077">/* 라디오, 체크박스 */</span>
+<span style="color: #F8F8F2">      .</span><span style="color: #A6E22E">input-group</span><span style="color: #F8F8F2"> { </span><span style="color: #66D9EF">display</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">flex</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">align-items</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">center</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">        </span><span style="color: #ED007E; background-color: #1E0010">label</span><span style="color: #F8F8F2"> </span><span style="color: #ED007E; background-color: #1E0010">{</span><span style="color: #F8F8F2"> </span><span style="color: #66D9EF">margin-right</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">0</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">line-height</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">30</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2">; }</span>
+<span style="color: #F8F8F2">      </span><span style="color: #ED007E; background-color: #1E0010">}</span>
+<span style="color: #F8F8F2">      </span><span style="color: #959077">/* input + text-notice */</span>
+<span style="color: #F8F8F2">      .</span><span style="color: #A6E22E">flex-box</span><span style="color: #F8F8F2"> { </span><span style="color: #66D9EF">display</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">flex</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">align-items</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">center</span><span style="color: #F8F8F2">; }</span>
+
+<span style="color: #F8F8F2">    </span><span style="color: #ED007E; background-color: #1E0010">}</span>
+
+<span style="color: #F8F8F2">  &lt;/</span><span style="color: #FF4689">style</span><span style="color: #F8F8F2">&gt;</span>
+</pre></td></tr></table></div>
+
+
+
+
+
+					</div>
+				</div>
+
+
+				<div class="ex_wapper">
+				<h3 class="api-title_h3 html">HTML</h3>
+					<div class="api-body_h3 html">
+						
+
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%;">  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209</pre></td><td><pre style="margin: 0; line-height: 125%;"><span></span>    <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;form-responsive&quot;</span><span style="color: #F8F8F2">&gt;</span>
+
+      <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;form-layout&quot;</span><span style="color: #F8F8F2">&gt;</span>
+        <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;col-p25 col-mb-p50&quot;</span><span style="color: #F8F8F2">&gt;</span>
+          <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;form-item&quot;</span><span style="color: #F8F8F2">&gt;</span>
+            <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">label</span> <span style="color: #A6E22E">for</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;&quot;</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;form-label&quot;</span><span style="color: #F8F8F2">&gt;</span>입력폼<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">label</span><span style="color: #F8F8F2">&gt;</span>
+            <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;form-data&quot;</span><span style="color: #F8F8F2">&gt;</span>
+              <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">input</span> <span style="color: #A6E22E">type</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;text&quot;</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;form-control&quot;</span> <span style="color: #A6E22E">placeholder</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;title&quot;</span> <span style="color: #F8F8F2">/&gt;</span>
+            <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+          <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+        <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+        <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;col-p25 col-mb-p50&quot;</span><span style="color: #F8F8F2">&gt;</span>
+          <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;form-item&quot;</span><span style="color: #F8F8F2">&gt;</span>
+            <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;form-other&quot;</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">em</span><span style="color: #F8F8F2">&gt;</span>* 필수값<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">em</span><span style="color: #F8F8F2">&gt;&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+            <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">label</span> <span style="color: #A6E22E">for</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;&quot;</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;form-label&quot;</span><span style="color: #F8F8F2">&gt;</span>입력폼 <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">em</span><span style="color: #F8F8F2">&gt;</span>*<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">em</span><span style="color: #F8F8F2">&gt;&lt;/</span><span style="color: #FF4689">label</span><span style="color: #F8F8F2">&gt;</span>
+            <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;form-data&quot;</span><span style="color: #F8F8F2">&gt;</span>
+              <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">input</span> <span style="color: #A6E22E">type</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;text&quot;</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;form-control&quot;</span> <span style="color: #A6E22E">placeholder</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;title&quot;</span> <span style="color: #F8F8F2">/&gt;</span>
+            <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+          <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+        <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+        <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;col-p50 col-mb-p100&quot;</span><span style="color: #F8F8F2">&gt;</span>
+          <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;form-item&quot;</span><span style="color: #F8F8F2">&gt;</span>
+            <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">label</span> <span style="color: #A6E22E">for</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;&quot;</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;form-label&quot;</span><span style="color: #F8F8F2">&gt;</span>연월일<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">label</span><span style="color: #F8F8F2">&gt;</span>
+            <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;form-data&quot;</span><span style="color: #F8F8F2">&gt;</span>
+              <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;dash-box&quot;</span><span style="color: #F8F8F2">&gt;</span>
+                <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">span</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;datepicker-box&quot;</span><span style="color: #F8F8F2">&gt;</span>
+                  <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">input</span> <span style="color: #A6E22E">type</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;text&quot;</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;js-datepicker&quot;</span> <span style="color: #A6E22E">placeholder</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;yy-mm-dd&quot;</span> <span style="color: #F8F8F2">/&gt;</span>
+                  <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">i</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;spf spf-d_calendar&quot;</span><span style="color: #F8F8F2">&gt;&lt;/</span><span style="color: #FF4689">i</span><span style="color: #F8F8F2">&gt;</span>
+                <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">span</span><span style="color: #F8F8F2">&gt;</span>
+                <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">span</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;dash&quot;</span><span style="color: #F8F8F2">&gt;</span>~<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">span</span><span style="color: #F8F8F2">&gt;</span>
+                <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">span</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;datepicker-box&quot;</span><span style="color: #F8F8F2">&gt;</span>
+                  <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">input</span> <span style="color: #A6E22E">type</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;text&quot;</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;js-datepicker&quot;</span> <span style="color: #A6E22E">placeholder</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;yy-mm-dd&quot;</span> <span style="color: #F8F8F2">/&gt;</span>
+                  <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">i</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;spf spf-d_calendar&quot;</span><span style="color: #F8F8F2">&gt;&lt;/</span><span style="color: #FF4689">i</span><span style="color: #F8F8F2">&gt;</span>
+                <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">span</span><span style="color: #F8F8F2">&gt;</span>
+              <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+            <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+          <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+        <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+        <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;col-p25 col-mb-p40 col-sm-p100&quot;</span><span style="color: #F8F8F2">&gt;</span>
+          <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;form-item&quot;</span><span style="color: #F8F8F2">&gt;</span>
+            <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">label</span> <span style="color: #A6E22E">for</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;&quot;</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;form-label&quot;</span><span style="color: #F8F8F2">&gt;</span>select<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">label</span><span style="color: #F8F8F2">&gt;</span>
+            <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;form-data&quot;</span><span style="color: #F8F8F2">&gt;</span>
+              <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;select-box&quot;</span><span style="color: #F8F8F2">&gt;</span>
+                <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">select</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;&quot;</span> <span style="color: #A6E22E">id</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;&quot;</span><span style="color: #F8F8F2">&gt;</span>
+                  <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">option</span> <span style="color: #A6E22E">value</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;&quot;</span> <span style="color: #A6E22E">selected</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;&quot;</span> <span style="color: #A6E22E">disabled</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;&quot;</span> <span style="color: #A6E22E">hidden</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;&quot;</span><span style="color: #F8F8F2">&gt;</span>선택<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">option</span><span style="color: #F8F8F2">&gt;</span>
+                  <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">option</span> <span style="color: #A6E22E">value</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;1&quot;</span><span style="color: #F8F8F2">&gt;</span>1<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">option</span><span style="color: #F8F8F2">&gt;</span>
+                  <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">option</span> <span style="color: #A6E22E">value</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;2&quot;</span><span style="color: #F8F8F2">&gt;</span>2<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">option</span><span style="color: #F8F8F2">&gt;</span>
+                  <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">option</span> <span style="color: #A6E22E">value</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;3&quot;</span><span style="color: #F8F8F2">&gt;</span>3<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">option</span><span style="color: #F8F8F2">&gt;</span>
+                  <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">option</span> <span style="color: #A6E22E">value</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;4&quot;</span><span style="color: #F8F8F2">&gt;</span>4<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">option</span><span style="color: #F8F8F2">&gt;</span>
+                  <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">option</span> <span style="color: #A6E22E">value</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;5&quot;</span><span style="color: #F8F8F2">&gt;</span>5<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">option</span><span style="color: #F8F8F2">&gt;</span>
+                <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">select</span><span style="color: #F8F8F2">&gt;</span>
+                <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">i</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;spf spf-d_caret-down&quot;</span><span style="color: #F8F8F2">&gt;&lt;/</span><span style="color: #FF4689">i</span><span style="color: #F8F8F2">&gt;</span>
+              <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+            <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+          <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+        <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+        <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;col-p30 col-mb-p60 col-sm-p100&quot;</span><span style="color: #F8F8F2">&gt;</span>
+          <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;form-item&quot;</span><span style="color: #F8F8F2">&gt;</span>
+            <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">label</span> <span style="color: #A6E22E">for</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;&quot;</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;form-label&quot;</span><span style="color: #F8F8F2">&gt;</span>라디오<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">label</span><span style="color: #F8F8F2">&gt;</span>
+            <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;form-data&quot;</span><span style="color: #F8F8F2">&gt;</span>
+              <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">span</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;trp radio-box&quot;</span><span style="color: #F8F8F2">&gt;</span>
+                <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">input</span> <span style="color: #A6E22E">id</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;radio2-1&quot;</span> <span style="color: #A6E22E">type</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;radio&quot;</span> <span style="color: #A6E22E">name</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;radioSet2&quot;</span> <span style="color: #F8F8F2">/&gt;</span>
+                <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">i</span><span style="color: #F8F8F2">&gt;&lt;/</span><span style="color: #FF4689">i</span><span style="color: #F8F8F2">&gt;</span>
+                <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">label</span> <span style="color: #A6E22E">for</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;radio2-1&quot;</span><span style="color: #F8F8F2">&gt;</span>radioSet2<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">label</span><span style="color: #F8F8F2">&gt;</span>
+              <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">span</span><span style="color: #F8F8F2">&gt;</span>
+              <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">span</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;trp radio-box&quot;</span><span style="color: #F8F8F2">&gt;</span>
+                <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">input</span> <span style="color: #A6E22E">id</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;radio2-2&quot;</span> <span style="color: #A6E22E">type</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;radio&quot;</span> <span style="color: #A6E22E">name</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;radioSet2&quot;</span> <span style="color: #F8F8F2">/&gt;</span>
+                <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">i</span><span style="color: #F8F8F2">&gt;&lt;/</span><span style="color: #FF4689">i</span><span style="color: #F8F8F2">&gt;</span>
+                <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">label</span> <span style="color: #A6E22E">for</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;radio2-2&quot;</span><span style="color: #F8F8F2">&gt;</span>radioSet2<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">label</span><span style="color: #F8F8F2">&gt;</span>
+              <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">span</span><span style="color: #F8F8F2">&gt;</span>
+              <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">span</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;trp radio-box&quot;</span><span style="color: #F8F8F2">&gt;</span>
+                <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">input</span> <span style="color: #A6E22E">id</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;radio2-3&quot;</span> <span style="color: #A6E22E">type</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;radio&quot;</span> <span style="color: #A6E22E">name</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;radioSet2&quot;</span> <span style="color: #F8F8F2">/&gt;</span>
+                <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">i</span><span style="color: #F8F8F2">&gt;&lt;/</span><span style="color: #FF4689">i</span><span style="color: #F8F8F2">&gt;</span>
+                <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">label</span> <span style="color: #A6E22E">for</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;radio2-3&quot;</span><span style="color: #F8F8F2">&gt;</span>radioSet2<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">label</span><span style="color: #F8F8F2">&gt;</span>
+              <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">span</span><span style="color: #F8F8F2">&gt;</span>
+            <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+          <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+        <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+        <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;col-p30 col-mb-p60 col-sm-p100&quot;</span><span style="color: #F8F8F2">&gt;</span>
+          <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;form-item&quot;</span><span style="color: #F8F8F2">&gt;</span>
+            <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">label</span> <span style="color: #A6E22E">for</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;&quot;</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;form-label&quot;</span><span style="color: #F8F8F2">&gt;</span>체크박스<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">label</span><span style="color: #F8F8F2">&gt;</span>
+            <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;form-data&quot;</span><span style="color: #F8F8F2">&gt;</span>
+              <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">span</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;trp checkbox-box&quot;</span><span style="color: #F8F8F2">&gt;</span>
+                <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">input</span> <span style="color: #A6E22E">id</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;checkbox1&quot;</span> <span style="color: #A6E22E">type</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;checkbox&quot;</span> <span style="color: #A6E22E">name</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;&quot;</span> <span style="color: #F8F8F2">/&gt;</span>
+                <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">i</span><span style="color: #F8F8F2">&gt;&lt;/</span><span style="color: #FF4689">i</span><span style="color: #F8F8F2">&gt;</span>
+                <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">label</span> <span style="color: #A6E22E">for</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;checkbox1&quot;</span><span style="color: #F8F8F2">&gt;</span>checkbox1<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">label</span><span style="color: #F8F8F2">&gt;</span>
+              <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">span</span><span style="color: #F8F8F2">&gt;</span>
+              <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">span</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;trp checkbox-box&quot;</span><span style="color: #F8F8F2">&gt;</span>
+                <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">input</span> <span style="color: #A6E22E">id</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;checkbox2&quot;</span> <span style="color: #A6E22E">type</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;checkbox&quot;</span> <span style="color: #A6E22E">name</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;&quot;</span> <span style="color: #F8F8F2">/&gt;</span>
+                <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">i</span><span style="color: #F8F8F2">&gt;&lt;/</span><span style="color: #FF4689">i</span><span style="color: #F8F8F2">&gt;</span>
+                <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">label</span> <span style="color: #A6E22E">for</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;checkbox2&quot;</span><span style="color: #F8F8F2">&gt;</span>checkbox2<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">label</span><span style="color: #F8F8F2">&gt;</span>
+              <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">span</span><span style="color: #F8F8F2">&gt;</span>
+              <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">span</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;trp checkbox-box&quot;</span><span style="color: #F8F8F2">&gt;</span>
+                <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">input</span> <span style="color: #A6E22E">id</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;checkbox3&quot;</span> <span style="color: #A6E22E">type</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;checkbox&quot;</span> <span style="color: #A6E22E">name</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;&quot;</span> <span style="color: #F8F8F2">/&gt;</span>
+                <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">i</span><span style="color: #F8F8F2">&gt;&lt;/</span><span style="color: #FF4689">i</span><span style="color: #F8F8F2">&gt;</span>
+                <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">label</span> <span style="color: #A6E22E">for</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;checkbox3&quot;</span><span style="color: #F8F8F2">&gt;</span>checkbox3<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">label</span><span style="color: #F8F8F2">&gt;</span>
+              <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">span</span><span style="color: #F8F8F2">&gt;</span>
+            <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+          <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+        <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+      <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+
+    <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+
+    <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">br</span><span style="color: #F8F8F2">&gt;</span>
+    <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">br</span><span style="color: #F8F8F2">&gt;</span>
+
+    <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;form-responsive&quot;</span><span style="color: #F8F8F2">&gt;</span>
+
+      <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;form-layout form-row&quot;</span><span style="color: #F8F8F2">&gt;</span>
+        <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;col-p25 col-mb-p50&quot;</span><span style="color: #F8F8F2">&gt;</span>
+          <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;form-item&quot;</span><span style="color: #F8F8F2">&gt;</span>
+            <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">label</span> <span style="color: #A6E22E">for</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;&quot;</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;form-label&quot;</span><span style="color: #F8F8F2">&gt;</span>입력폼<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">label</span><span style="color: #F8F8F2">&gt;</span>
+            <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;form-data&quot;</span><span style="color: #F8F8F2">&gt;</span>
+              <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">input</span> <span style="color: #A6E22E">type</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;text&quot;</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;form-control&quot;</span> <span style="color: #A6E22E">placeholder</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;title&quot;</span> <span style="color: #F8F8F2">/&gt;</span>
+            <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+          <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+        <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+        <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;col-p25 col-mb-p50&quot;</span><span style="color: #F8F8F2">&gt;</span>
+          <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;form-item&quot;</span><span style="color: #F8F8F2">&gt;</span>
+            <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">label</span> <span style="color: #A6E22E">for</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;&quot;</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;form-label&quot;</span><span style="color: #F8F8F2">&gt;</span>입력폼 <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">em</span><span style="color: #F8F8F2">&gt;</span>*<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">em</span><span style="color: #F8F8F2">&gt;&lt;/</span><span style="color: #FF4689">label</span><span style="color: #F8F8F2">&gt;</span>
+            <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;form-data&quot;</span><span style="color: #F8F8F2">&gt;</span>
+              <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">input</span> <span style="color: #A6E22E">type</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;text&quot;</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;form-control&quot;</span> <span style="color: #A6E22E">placeholder</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;title&quot;</span> <span style="color: #F8F8F2">/&gt;</span>
+            <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+          <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+        <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+        <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;col-p50 col-mb-p100&quot;</span><span style="color: #F8F8F2">&gt;</span>
+          <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;form-item&quot;</span><span style="color: #F8F8F2">&gt;</span>
+            <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">label</span> <span style="color: #A6E22E">for</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;&quot;</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;form-label&quot;</span><span style="color: #F8F8F2">&gt;</span>연월일<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">label</span><span style="color: #F8F8F2">&gt;</span>
+            <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;form-data&quot;</span><span style="color: #F8F8F2">&gt;</span>
+              <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;dash-box&quot;</span><span style="color: #F8F8F2">&gt;</span>
+                <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">span</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;datepicker-box&quot;</span><span style="color: #F8F8F2">&gt;</span>
+                  <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">input</span> <span style="color: #A6E22E">type</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;text&quot;</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;js-datepicker&quot;</span> <span style="color: #A6E22E">placeholder</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;yy-mm-dd&quot;</span> <span style="color: #F8F8F2">/&gt;</span>
+                  <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">i</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;spf spf-d_calendar&quot;</span><span style="color: #F8F8F2">&gt;&lt;/</span><span style="color: #FF4689">i</span><span style="color: #F8F8F2">&gt;</span>
+                <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">span</span><span style="color: #F8F8F2">&gt;</span>
+                <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">span</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;dash&quot;</span><span style="color: #F8F8F2">&gt;</span>~<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">span</span><span style="color: #F8F8F2">&gt;</span>
+                <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">span</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;datepicker-box&quot;</span><span style="color: #F8F8F2">&gt;</span>
+                  <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">input</span> <span style="color: #A6E22E">type</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;text&quot;</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;js-datepicker&quot;</span> <span style="color: #A6E22E">placeholder</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;yy-mm-dd&quot;</span> <span style="color: #F8F8F2">/&gt;</span>
+                  <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">i</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;spf spf-d_calendar&quot;</span><span style="color: #F8F8F2">&gt;&lt;/</span><span style="color: #FF4689">i</span><span style="color: #F8F8F2">&gt;</span>
+                <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">span</span><span style="color: #F8F8F2">&gt;</span>
+              <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+            <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+          <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+        <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+        <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;col-p25 col-mb-p40 col-sm-p100&quot;</span><span style="color: #F8F8F2">&gt;</span>
+          <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;form-item&quot;</span><span style="color: #F8F8F2">&gt;</span>
+            <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">label</span> <span style="color: #A6E22E">for</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;&quot;</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;form-label&quot;</span><span style="color: #F8F8F2">&gt;</span>select<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">label</span><span style="color: #F8F8F2">&gt;</span>
+            <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;form-data&quot;</span><span style="color: #F8F8F2">&gt;</span>
+              <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;select-box&quot;</span><span style="color: #F8F8F2">&gt;</span>
+                <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">select</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;&quot;</span> <span style="color: #A6E22E">id</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;&quot;</span><span style="color: #F8F8F2">&gt;</span>
+                  <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">option</span> <span style="color: #A6E22E">value</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;&quot;</span> <span style="color: #A6E22E">selected</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;&quot;</span> <span style="color: #A6E22E">disabled</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;&quot;</span> <span style="color: #A6E22E">hidden</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;&quot;</span><span style="color: #F8F8F2">&gt;</span>선택<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">option</span><span style="color: #F8F8F2">&gt;</span>
+                  <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">option</span> <span style="color: #A6E22E">value</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;1&quot;</span><span style="color: #F8F8F2">&gt;</span>1<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">option</span><span style="color: #F8F8F2">&gt;</span>
+                  <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">option</span> <span style="color: #A6E22E">value</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;2&quot;</span><span style="color: #F8F8F2">&gt;</span>2<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">option</span><span style="color: #F8F8F2">&gt;</span>
+                  <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">option</span> <span style="color: #A6E22E">value</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;3&quot;</span><span style="color: #F8F8F2">&gt;</span>3<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">option</span><span style="color: #F8F8F2">&gt;</span>
+                  <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">option</span> <span style="color: #A6E22E">value</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;4&quot;</span><span style="color: #F8F8F2">&gt;</span>4<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">option</span><span style="color: #F8F8F2">&gt;</span>
+                  <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">option</span> <span style="color: #A6E22E">value</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;5&quot;</span><span style="color: #F8F8F2">&gt;</span>5<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">option</span><span style="color: #F8F8F2">&gt;</span>
+                <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">select</span><span style="color: #F8F8F2">&gt;</span>
+                <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">i</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;spf spf-d_caret-down&quot;</span><span style="color: #F8F8F2">&gt;&lt;/</span><span style="color: #FF4689">i</span><span style="color: #F8F8F2">&gt;</span>
+              <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+            <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+          <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+        <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+        <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;col-p30 col-mb-p60 col-sm-p100&quot;</span><span style="color: #F8F8F2">&gt;</span>
+          <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;form-item&quot;</span><span style="color: #F8F8F2">&gt;</span>
+            <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">label</span> <span style="color: #A6E22E">for</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;&quot;</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;form-label&quot;</span><span style="color: #F8F8F2">&gt;</span>라디오<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">label</span><span style="color: #F8F8F2">&gt;</span>
+            <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;form-data&quot;</span><span style="color: #F8F8F2">&gt;</span>
+              <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">span</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;trp radio-box&quot;</span><span style="color: #F8F8F2">&gt;</span>
+                <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">input</span> <span style="color: #A6E22E">id</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;radio2-1&quot;</span> <span style="color: #A6E22E">type</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;radio&quot;</span> <span style="color: #A6E22E">name</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;radioSet2&quot;</span> <span style="color: #F8F8F2">/&gt;</span>
+                <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">i</span><span style="color: #F8F8F2">&gt;&lt;/</span><span style="color: #FF4689">i</span><span style="color: #F8F8F2">&gt;</span>
+                <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">label</span> <span style="color: #A6E22E">for</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;radio2-1&quot;</span><span style="color: #F8F8F2">&gt;</span>radioSet2<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">label</span><span style="color: #F8F8F2">&gt;</span>
+              <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">span</span><span style="color: #F8F8F2">&gt;</span>
+              <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">span</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;trp radio-box&quot;</span><span style="color: #F8F8F2">&gt;</span>
+                <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">input</span> <span style="color: #A6E22E">id</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;radio2-2&quot;</span> <span style="color: #A6E22E">type</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;radio&quot;</span> <span style="color: #A6E22E">name</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;radioSet2&quot;</span> <span style="color: #F8F8F2">/&gt;</span>
+                <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">i</span><span style="color: #F8F8F2">&gt;&lt;/</span><span style="color: #FF4689">i</span><span style="color: #F8F8F2">&gt;</span>
+                <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">label</span> <span style="color: #A6E22E">for</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;radio2-2&quot;</span><span style="color: #F8F8F2">&gt;</span>radioSet2<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">label</span><span style="color: #F8F8F2">&gt;</span>
+              <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">span</span><span style="color: #F8F8F2">&gt;</span>
+              <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">span</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;trp radio-box&quot;</span><span style="color: #F8F8F2">&gt;</span>
+                <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">input</span> <span style="color: #A6E22E">id</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;radio2-3&quot;</span> <span style="color: #A6E22E">type</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;radio&quot;</span> <span style="color: #A6E22E">name</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;radioSet2&quot;</span> <span style="color: #F8F8F2">/&gt;</span>
+                <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">i</span><span style="color: #F8F8F2">&gt;&lt;/</span><span style="color: #FF4689">i</span><span style="color: #F8F8F2">&gt;</span>
+                <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">label</span> <span style="color: #A6E22E">for</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;radio2-3&quot;</span><span style="color: #F8F8F2">&gt;</span>radioSet2<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">label</span><span style="color: #F8F8F2">&gt;</span>
+              <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">span</span><span style="color: #F8F8F2">&gt;</span>
+            <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+          <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+        <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+        <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;col-p30 col-mb-p60 col-sm-p100&quot;</span><span style="color: #F8F8F2">&gt;</span>
+          <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;form-item&quot;</span><span style="color: #F8F8F2">&gt;</span>
+            <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">label</span> <span style="color: #A6E22E">for</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;&quot;</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;form-label&quot;</span><span style="color: #F8F8F2">&gt;</span>체크박스<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">label</span><span style="color: #F8F8F2">&gt;</span>
+            <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;form-data&quot;</span><span style="color: #F8F8F2">&gt;</span>
+              <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">span</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;trp checkbox-box&quot;</span><span style="color: #F8F8F2">&gt;</span>
+                <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">input</span> <span style="color: #A6E22E">id</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;checkbox1&quot;</span> <span style="color: #A6E22E">type</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;checkbox&quot;</span> <span style="color: #A6E22E">name</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;&quot;</span> <span style="color: #F8F8F2">/&gt;</span>
+                <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">i</span><span style="color: #F8F8F2">&gt;&lt;/</span><span style="color: #FF4689">i</span><span style="color: #F8F8F2">&gt;</span>
+                <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">label</span> <span style="color: #A6E22E">for</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;checkbox1&quot;</span><span style="color: #F8F8F2">&gt;</span>checkbox1<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">label</span><span style="color: #F8F8F2">&gt;</span>
+              <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">span</span><span style="color: #F8F8F2">&gt;</span>
+              <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">span</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;trp checkbox-box&quot;</span><span style="color: #F8F8F2">&gt;</span>
+                <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">input</span> <span style="color: #A6E22E">id</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;checkbox2&quot;</span> <span style="color: #A6E22E">type</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;checkbox&quot;</span> <span style="color: #A6E22E">name</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;&quot;</span> <span style="color: #F8F8F2">/&gt;</span>
+                <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">i</span><span style="color: #F8F8F2">&gt;&lt;/</span><span style="color: #FF4689">i</span><span style="color: #F8F8F2">&gt;</span>
+                <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">label</span> <span style="color: #A6E22E">for</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;checkbox2&quot;</span><span style="color: #F8F8F2">&gt;</span>checkbox2<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">label</span><span style="color: #F8F8F2">&gt;</span>
+              <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">span</span><span style="color: #F8F8F2">&gt;</span>
+              <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">span</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;trp checkbox-box&quot;</span><span style="color: #F8F8F2">&gt;</span>
+                <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">input</span> <span style="color: #A6E22E">id</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;checkbox3&quot;</span> <span style="color: #A6E22E">type</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;checkbox&quot;</span> <span style="color: #A6E22E">name</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;&quot;</span> <span style="color: #F8F8F2">/&gt;</span>
+                <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">i</span><span style="color: #F8F8F2">&gt;&lt;/</span><span style="color: #FF4689">i</span><span style="color: #F8F8F2">&gt;</span>
+                <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">label</span> <span style="color: #A6E22E">for</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;checkbox3&quot;</span><span style="color: #F8F8F2">&gt;</span>checkbox3<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">label</span><span style="color: #F8F8F2">&gt;</span>
+              <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">span</span><span style="color: #F8F8F2">&gt;</span>
+            <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+          <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+        <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+      <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+
+    <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+</pre></td></tr></table></div>
+
+
+            
+							
+					</div>
+				</div>
+					
+		
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+		
+	
+  </div>		
+	<!-- e: 컨텐츠 끝 -->
+	<p class="cl-b"></p>
+</div>
+
+
+
+<script type="text/javascript">
+	$("#header").load("../../../head.html");
+	$("#lnb").load("../../../lnb.html");	
+
+
+	$(".ex-more a").click(function() {
+		$( this ).find("span").toggle();
+		$( this ).parent().siblings(".ex-body").slideToggle();
+		return false;
+	});
+
+</script>
+
+</body>
+</html>
