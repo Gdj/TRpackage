@@ -1,0 +1,51 @@
+
+<script type="text/javascript">
+	
+$(document).ready(function(){
+
+	$(".dep2-more a").click(function() {
+		$( this ).find("span").toggle();								// 버튼
+		$( this ).parent().parent().siblings(".sublist").slideToggle();	// 컨텐츠
+		return false;
+	});
+
+	/* 겟값 받기 */
+	var $_GET = {};
+		location.search.replace(/([^=&?]+)=([^&]+)/gi, function (a, b, c) {
+		 $_GET[decodeURIComponent(b)] = decodeURIComponent(c);
+	});	
+	
+	var _dep1, _dep2;
+	if($_GET.dep1){	_dep1 = $_GET.dep1; 	}else{ 		_dep1 = -1;	 	}
+	if($_GET.dep2){	_dep2 = $_GET.dep2; 	}else{ 		_dep2 = -1;	 	}
+	
+	function lnbActive(){
+		if(_dep1 == "-1"){ return false;}
+		$( ".mn_2depth" ).eq(_dep1).find(".dep2-more a span").toggle();				// 버튼
+		$( ".mn_2depth" ).eq(_dep1).find(".sublist").slideToggle();		// 컨텐츠	
+
+		if(_dep2 == "-1"){ return false;}
+		$(".list .mn_2depth .sublist li").removeClass("on");
+		$(".list .mn_2depth").eq(_dep1).find(".sublist li").eq(_dep2).addClass("on");
+	}
+
+	lnbActive();
+
+});// ready
+
+</script> 
+
+  	<h1 class="nav_h1"><a href="/TRpackage/uiGuide/index.html"><span>UI 가이드</span></a></h1>
+
+    <ul class="list">
+			<li class="mn_2depth">
+				<h2 class="nav_h2"><span>layout</span><p class="dep2-more" ><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p></h2>
+				<ul class="sublist">
+					<li><a href="/TRpackage/function/demo/layout/scroll/default.html?dep5=0&dep2=0">scroll</a></li>
+					<li><a href="/TRpackage/function/demo/layout/trpFNhasScrollBar/default.html?dep5=0&dep2=1">trpFNhasScrollBar</a></li>
+				</ul>
+			</li>
+
+    </ul>
+
+  	

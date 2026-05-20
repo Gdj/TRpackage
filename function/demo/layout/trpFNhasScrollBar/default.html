@@ -1,0 +1,555 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+<title> trpHasScrollBarX | TR package</title>
+<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="../../../../asset/js/libs/trpMenu.js"></script>
+<link rel="stylesheet" href="../../../../asset/css/common.css" type="text/css" media="all" />
+
+
+</head>
+<body>
+  <div id="header" ></div>
+  <div id="container">
+	<div id="lnb" class="gnb"></div>
+	<!-- s: 컨텐츠 시작 -->
+	<div id="contents" class="contents">
+		<!-- s: 스크립드 설명 -->
+		<div class="desc_wapper">
+			<h1 class="desc_title">trpFNhasScrollBarY, trpFNhasScrollBarX</h1>
+			<p>
+				스크롤바 생성여부를 컨테이너에 클래스를 출력해주는 함수.
+			</p>												
+		</div>
+		<!-- e: 스크립드 설명 -->
+	
+		<!-- s: api 설명 -->
+		<div class="api">
+			<h2 class="api-title">trpFNhasScrollBarY()</h2>
+			<div class="api-body">
+				<dl>
+					<dt>설명</dt>
+					<dd><span class="icon"></span>사용 :    trpFNhasScrollBarY.init('.js-scrollbar-wrap'); <br /> </dd>
+				</dl>
+				<table class="table_col" summary="생성되는 class 설명">
+					<caption>class 설명</caption>
+					<colgroup>
+						<col width="150">
+						<col width="">		
+					</colgroup>
+					<tbody>
+						<tr>
+							<th scope="col">속성 이름</th>
+							<th scope="col">속성 설명</th>
+						</tr>
+						<tr>
+							<td>init($컨테이너)</td>
+							<td>선택자로 컨테이너를 지정해주면,  <br />
+								그 컨테이너 내부의 .trpHasScrollBarY 요소의 스크롤바 존재 여부에 따라,  <br />
+								this 선택자에 "scrollbar_on" 클래스를 토글한다.
+							</td>
+							</td>		
+						</tr>
+						<tr>
+							<td>refresh</td>
+							<td>스크롤바의 존재 여부를 다시 체크하여, this 선택자에 "scrollbar_on" 클래스를 토글한다. <br />
+								스크롤바의 존재 여부가 바뀌는 상황에서, 이 함수를 호출하여 체크할 수 있다.
+							</td>		
+						</tr>
+					</tbody>
+				</table>
+
+				<table class="table_col" summary="생성되는 class 설명">
+					<caption>class 설명</caption>
+					<colgroup>
+						<col width="150">
+						<col width="">		
+					</colgroup>
+					<tbody>
+						<tr>
+							<th scope="col">클래스 이름</th>
+							<th scope="col">클래스 설명</th>
+						</tr>
+						<tr>
+							<td>js-TRPscrollbar-wrapper [변경]</td>
+							<td>
+								js-TRPscrollbar-wrapper 스크롤바 컨네이너 선택자로 ".init" 시 변경할수있다. <br />
+								그 컨테이너 내부의 .trpHasScrollBarY 요소의 스크롤바 존재 여부에 따라,  <br />
+								선택자에 "trpHasScroll_on" 클래스를 토글한다.
+							</td>
+							</td>		
+						</tr>
+						<tr>
+							<td>
+								trpHasScrollBarY [고정]
+								trpHasScrollBarX [고정]
+							</td>
+							<td>스크롤바 컨텐츠, 실제 스크롤이 생시는 요소</td>
+						</tr>
+						<tr>
+							<td>trpHasScroll_on [고정]</td>
+							<td>스크롤 여부 클래스, 
+							</td>		
+						</tr>
+					</tbody>
+				</table>
+			
+		
+			</div>
+		</div>
+		<!-- e: api 설명 -->
+
+
+		<!-- s: examples 예제 -->
+		<div class="ex_wapper">
+			<div class="section">
+				<h2 class="ex-title">예제) 1.기본 사용방법 scroll Y </h2>
+				<p class="ex-more" ><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p>
+				<p class="ex-view" ><a href="ex01.html" target="_blank">View</a></p>
+				<div class="ex-body" style="display:none" >					
+					<div class="source"><!-- 소스 -->
+					
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%;"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82</pre></td><td><pre style="margin: 0; line-height: 125%;"><span></span><span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">body</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;&quot;</span><span style="color: #F8F8F2">&gt;</span>
+
+  <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">style</span><span style="color: #F8F8F2">&gt;</span>
+<span style="color: #F8F8F2">    </span><span style="color: #FF4689">html,</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">body</span><span style="color: #F8F8F2"> { </span><span style="color: #66D9EF">position</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">relative</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">height</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">100</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2">;}</span>
+<span style="color: #F8F8F2">    .</span><span style="color: #A6E22E">scroll-wrap</span><span style="color: #F8F8F2"> { </span><span style="color: #66D9EF">position</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">relative</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">height</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">40</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2">;  </span><span style="color: #66D9EF">border</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">1</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2"> </span><span style="color: #66D9EF">solid</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">#33f</span><span style="color: #F8F8F2">;}</span>
+<span style="color: #F8F8F2">    .</span><span style="color: #A6E22E">scroll-wrap</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">trpHasScroll_on</span><span style="color: #FF4689">,</span><span style="color: #F8F8F2"> .</span><span style="color: #A6E22E">scroll-wrap</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">trpHasScroll_on</span><span style="color: #F8F8F2"> { </span><span style="color: #66D9EF">background-color</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">#aaa</span><span style="color: #F8F8F2">; }</span>
+
+<span style="color: #F8F8F2">    .</span><span style="color: #A6E22E">scroll-type</span><span style="color: #F8F8F2"> { </span><span style="color: #66D9EF">overflow</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">hidden</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">overflow-y</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">auto</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">height</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">100</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2">; }</span>
+<span style="color: #F8F8F2">    .</span><span style="color: #A6E22E">scroll-type</span><span style="color: #F8F8F2">::</span><span style="color: #A6E22E">-webkit-scrollbar</span><span style="color: #F8F8F2">{ </span><span style="color: #66D9EF">width</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">5</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">height</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">5</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">      </span><span style="color: #66D9EF">background-color</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">#ececec</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">      </span><span style="color: #66D9EF">-webkit-appearance</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">none</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">      </span><span style="color: #66D9EF">background-color</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">transparent</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">    }</span>
+<span style="color: #F8F8F2">    .</span><span style="color: #A6E22E">scroll-type</span><span style="color: #F8F8F2">::</span><span style="color: #A6E22E">-webkit-scrollbar-thumb</span><span style="color: #F8F8F2">  { </span>
+<span style="color: #F8F8F2">      </span><span style="color: #66D9EF">background-color</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">#898989</span><span style="color: #F8F8F2">; </span>
+<span style="color: #F8F8F2">      </span><span style="color: #66D9EF">border-radius</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">3</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">    }</span>
+<span style="color: #F8F8F2">  &lt;/</span><span style="color: #FF4689">style</span><span style="color: #F8F8F2">&gt;</span>
+
+  <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;scroll-wrap js-scrollbar-wrap&quot;</span><span style="color: #F8F8F2">&gt;</span>
+    <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;scroll-type trpHasScrollBarY&quot;</span><span style="color: #F8F8F2">&gt;</span>
+      <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>1<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>2<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>3<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>4<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>5<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>
+      <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>1<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>2<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>3<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>4<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>5<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>
+      <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>1<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>2<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>3<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>4<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>5<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>
+      <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>1<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>2<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>3<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>4<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>5<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>
+    <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+  <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+  <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;scroll-wrap js-scrollbar-wrap&quot;</span><span style="color: #F8F8F2">&gt;</span>
+    <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;scroll-type trpHasScrollBarY&quot;</span><span style="color: #F8F8F2">&gt;</span>
+      <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>1<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>2<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>3<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>4<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>5<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>
+      <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>1<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>2<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>3<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>4<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>5<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>
+      <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>1<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>2<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>3<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>4<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>5<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>
+      <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>1<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>2<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>3<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>4<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>5<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>
+      <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>1<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>2<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>3<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>4<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>5<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">p</span><span style="color: #F8F8F2">&gt;</span>
+    <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+  <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+
+  <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">script</span> <span style="color: #A6E22E">type</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;text/javascript&quot;</span><span style="color: #F8F8F2">&gt;	 </span>
+<span style="color: #F8F8F2">    </span><span style="color: #959077">/* IIFE (scrollbar) */</span>
+<span style="color: #F8F8F2">    </span><span style="color: #66D9EF">const</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">trpFNhasScrollBarY</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> (() =&gt; {</span>
+<span style="color: #F8F8F2">      </span><span style="color: #66D9EF">let</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">elements</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> [];</span>
+
+<span style="color: #F8F8F2">      </span><span style="color: #66D9EF">function</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">update</span><span style="color: #F8F8F2">(</span><span style="color: #A6E22E">wrapper</span><span style="color: #F8F8F2">) {</span>
+<span style="color: #F8F8F2">        </span><span style="color: #66D9EF">const</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">scrollEl</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">wrapper</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">querySelector</span><span style="color: #F8F8F2">(</span><span style="color: #E6DB74">&#39;.trpHasScrollBarY&#39;</span><span style="color: #F8F8F2">);</span>
+<span style="color: #F8F8F2">        </span><span style="color: #66D9EF">if</span><span style="color: #F8F8F2"> (</span><span style="color: #FF4689">!</span><span style="color: #A6E22E">scrollEl</span><span style="color: #F8F8F2">) </span><span style="color: #66D9EF">return</span><span style="color: #F8F8F2">;</span>
+
+<span style="color: #F8F8F2">        </span><span style="color: #66D9EF">const</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">check</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">scrollEl</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">scrollHeight</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">&gt;</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">scrollEl</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">clientHeight</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">        </span><span style="color: #A6E22E">wrapper</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">classList</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">toggle</span><span style="color: #F8F8F2">(</span><span style="color: #E6DB74">&#39;trpHasScroll_on&#39;</span><span style="color: #F8F8F2">, </span><span style="color: #A6E22E">check</span><span style="color: #F8F8F2">);</span>
+<span style="color: #F8F8F2">      }</span>
+
+<span style="color: #F8F8F2">      </span><span style="color: #66D9EF">function</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">refresh</span><span style="color: #F8F8F2">() {</span>
+<span style="color: #F8F8F2">        </span><span style="color: #A6E22E">elements</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">forEach</span><span style="color: #F8F8F2">(</span><span style="color: #A6E22E">update</span><span style="color: #F8F8F2">);</span>
+<span style="color: #F8F8F2">      }</span>
+
+<span style="color: #F8F8F2">      </span><span style="color: #66D9EF">function</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">init</span><span style="color: #F8F8F2">(</span><span style="color: #A6E22E">selector</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> </span><span style="color: #E6DB74">&#39;.js-TRPscrollbar-wrapper&#39;</span><span style="color: #F8F8F2">) {</span>
+<span style="color: #F8F8F2">        </span><span style="color: #66D9EF">const</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">newElements</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> document.</span><span style="color: #A6E22E">querySelectorAll</span><span style="color: #F8F8F2">(</span><span style="color: #A6E22E">selector</span><span style="color: #F8F8F2">);</span>
+<span style="color: #F8F8F2">        </span><span style="color: #A6E22E">newElements</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">forEach</span><span style="color: #F8F8F2">(</span><span style="color: #A6E22E">wrapper</span><span style="color: #F8F8F2"> =&gt; {</span>
+<span style="color: #F8F8F2">          </span><span style="color: #66D9EF">if</span><span style="color: #F8F8F2"> (</span><span style="color: #A6E22E">elements</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">includes</span><span style="color: #F8F8F2">(</span><span style="color: #A6E22E">wrapper</span><span style="color: #F8F8F2">)) </span><span style="color: #66D9EF">return</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">          </span><span style="color: #A6E22E">elements</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">push</span><span style="color: #F8F8F2">(</span><span style="color: #A6E22E">wrapper</span><span style="color: #F8F8F2">);</span>
+<span style="color: #F8F8F2">          </span><span style="color: #66D9EF">const</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">scrollEl</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">wrapper</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">querySelector</span><span style="color: #F8F8F2">(</span><span style="color: #E6DB74">&#39;.trpHasScrollBarY&#39;</span><span style="color: #F8F8F2">);</span>
+<span style="color: #F8F8F2">          </span><span style="color: #66D9EF">if</span><span style="color: #F8F8F2"> (</span><span style="color: #FF4689">!</span><span style="color: #A6E22E">scrollEl</span><span style="color: #F8F8F2">) </span><span style="color: #66D9EF">return</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">          </span><span style="color: #A6E22E">update</span><span style="color: #F8F8F2">(</span><span style="color: #A6E22E">wrapper</span><span style="color: #F8F8F2">);</span>
+<span style="color: #F8F8F2">          </span><span style="color: #FF4689">new</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">ResizeObserver</span><span style="color: #F8F8F2">(() =&gt; {</span>
+<span style="color: #F8F8F2">            </span><span style="color: #A6E22E">update</span><span style="color: #F8F8F2">(</span><span style="color: #A6E22E">wrapper</span><span style="color: #F8F8F2">);</span>
+<span style="color: #F8F8F2">          }).</span><span style="color: #A6E22E">observe</span><span style="color: #F8F8F2">(</span><span style="color: #A6E22E">scrollEl</span><span style="color: #F8F8F2">);</span>
+
+<span style="color: #F8F8F2">        });</span>
+<span style="color: #F8F8F2">      }</span>
+
+<span style="color: #F8F8F2">      window.</span><span style="color: #A6E22E">addEventListener</span><span style="color: #F8F8F2">(</span><span style="color: #E6DB74">&#39;resize&#39;</span><span style="color: #F8F8F2">, </span><span style="color: #A6E22E">refresh</span><span style="color: #F8F8F2">);</span>
+
+<span style="color: #F8F8F2">      </span><span style="color: #66D9EF">return</span><span style="color: #F8F8F2"> {</span>
+<span style="color: #F8F8F2">        </span><span style="color: #A6E22E">init</span><span style="color: #F8F8F2">,</span>
+<span style="color: #F8F8F2">        </span><span style="color: #A6E22E">refresh</span>
+<span style="color: #F8F8F2">      };</span>
+
+<span style="color: #F8F8F2">    })();</span>
+
+<span style="color: #F8F8F2">    </span><span style="color: #A6E22E">trpFNhasScrollBarY</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">init</span><span style="color: #F8F8F2">(</span><span style="color: #E6DB74">&#39;.js-scrollbar-wrap&#39;</span><span style="color: #F8F8F2">);</span>
+<span style="color: #F8F8F2">  &lt;/</span><span style="color: #FF4689">script</span><span style="color: #F8F8F2">&gt;</span>
+
+<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">body</span><span style="color: #F8F8F2">&gt;</span>
+</pre></td></tr></table></div>
+
+
+
+
+
+
+
+				
+					</div><!--// 소스 -->
+				</div>
+			</div>			
+		</div>
+		<!-- e: examples 예제 -->
+
+
+
+		<!-- s: examples 예제 -->
+		<div class="ex_wapper">
+			<div class="section">
+				<h2 class="ex-title">예제) 2.기본 사용방법 scroll X </h2>
+				<p class="ex-more" ><a href="javascript:return false;"><span>+</span><span style="display:none" >-</span></a></p>
+				<p class="ex-view" ><a href="ex02.html" target="_blank">View</a></p>
+				<div class="ex-body" style="display:none" >					
+					<div class="source"><!-- 소스 -->
+					
+
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%;">  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106</pre></td><td><pre style="margin: 0; line-height: 125%;"><span></span><span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">body</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;&quot;</span><span style="color: #F8F8F2">&gt;</span>
+
+  <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">style</span><span style="color: #F8F8F2">&gt;</span>
+<span style="color: #F8F8F2">    .</span><span style="color: #A6E22E">scroll-wrap</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">trpHasScroll_on</span><span style="color: #FF4689">,</span><span style="color: #F8F8F2"> .</span><span style="color: #A6E22E">scroll-wrap</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">trpHasScroll_on</span><span style="color: #F8F8F2"> { </span><span style="color: #66D9EF">background-color</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">#aaa</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">border</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">1</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2"> </span><span style="color: #66D9EF">solid</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">#33f</span><span style="color: #F8F8F2">;  }</span>
+
+<span style="color: #F8F8F2">    .</span><span style="color: #A6E22E">scroll-typeX</span><span style="color: #F8F8F2"> { </span><span style="color: #66D9EF">overflow</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">hidden</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">overflow-x</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">auto</span><span style="color: #F8F8F2">; }</span>
+<span style="color: #F8F8F2">    .</span><span style="color: #A6E22E">scroll-typeX</span><span style="color: #F8F8F2">::</span><span style="color: #A6E22E">-webkit-scrollbar</span><span style="color: #F8F8F2">{</span>
+<span style="color: #F8F8F2">      </span><span style="color: #66D9EF">background-color</span><span style="color: #F8F8F2">:</span><span style="color: #AE81FF">#dedede</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">width</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">4</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">height</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">4</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">      </span><span style="color: #66D9EF">-webkit-appearance</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">none</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">    }</span>
+<span style="color: #F8F8F2">    .</span><span style="color: #A6E22E">scroll-typeX</span><span style="color: #F8F8F2">::</span><span style="color: #A6E22E">-webkit-scrollbar-thumb</span><span style="color: #F8F8F2">  { </span>
+<span style="color: #F8F8F2">      </span><span style="color: #66D9EF">background-color</span><span style="color: #F8F8F2">:</span><span style="color: #AE81FF">#222</span><span style="color: #F8F8F2">; </span>
+<span style="color: #F8F8F2">      </span><span style="color: #66D9EF">border-radius</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">3</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">    }</span>
+
+<span style="color: #F8F8F2">    </span><span style="color: #FF4689">table</span><span style="color: #F8F8F2"> { </span><span style="color: #66D9EF">width</span><span style="color: #F8F8F2">:</span><span style="color: #AE81FF">100</span><span style="color: #66D9EF">%</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">border</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">1</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2"> </span><span style="color: #66D9EF">solid</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">#000</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">text-align</span><span style="color: #F8F8F2">:</span><span style="color: #66D9EF">center</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">table-layout</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">fixed</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">border-collapse</span><span style="color: #F8F8F2">: </span><span style="color: #66D9EF">collapse</span><span style="color: #F8F8F2">;  }</span>
+<span style="color: #F8F8F2">    </span><span style="color: #FF4689">table</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">td</span><span style="color: #F8F8F2">{ </span><span style="color: #66D9EF">padding</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">10</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2">; </span><span style="color: #66D9EF">border</span><span style="color: #F8F8F2">: </span><span style="color: #AE81FF">1</span><span style="color: #66D9EF">px</span><span style="color: #F8F8F2"> </span><span style="color: #66D9EF">solid</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">#000</span><span style="color: #F8F8F2">;}</span>
+<span style="color: #F8F8F2">  &lt;/</span><span style="color: #FF4689">style</span><span style="color: #F8F8F2">&gt;</span>
+
+
+  <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;scroll-wrap js-scrollbar-wrap&quot;</span><span style="color: #F8F8F2">&gt;</span>
+    <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;scroll-typeX trpHasScrollBarX&quot;</span><span style="color: #F8F8F2">&gt;</span>
+      <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">table</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;&quot;</span><span style="color: #F8F8F2">&gt;</span>
+        <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">colgroup</span><span style="color: #F8F8F2">&gt;</span>
+          <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">col</span> <span style="color: #A6E22E">style</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;min-width:200px;&quot;</span><span style="color: #F8F8F2">&gt;</span>
+          <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">col</span> <span style="color: #A6E22E">style</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;min-width:200px;&quot;</span><span style="color: #F8F8F2">&gt;</span>
+          <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">col</span> <span style="color: #A6E22E">style</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;min-width:200px;&quot;</span><span style="color: #F8F8F2">&gt;</span>
+          <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">col</span> <span style="color: #A6E22E">style</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;min-width:200px;&quot;</span><span style="color: #F8F8F2">&gt;</span>
+        <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">colgroup</span><span style="color: #F8F8F2">&gt;</span>
+        <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">tbody</span><span style="color: #F8F8F2">&gt;</span>
+          <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">tr</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">td</span><span style="color: #F8F8F2">&gt;</span>this 선택자에, &quot;scrollbar_on&quot;클래스 여부로 스크롤바가 생겼을때 스타일을 달리 줄수 있다.<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">td</span><span style="color: #F8F8F2">&gt;</span>
+          <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">td</span><span style="color: #F8F8F2">&gt;</span>true(스크롤이 생성되었을때) | false(스크롤이 없을때)<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">td</span><span style="color: #F8F8F2">&gt;</span>
+          <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">td</span><span style="color: #F8F8F2">&gt;</span>this 선택자에, &quot;scrollbar_on&quot;클래스 여부로 스크롤바가 생겼을때 스타일을 달리 줄수 있다.<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">td</span><span style="color: #F8F8F2">&gt;</span>
+          <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">td</span><span style="color: #F8F8F2">&gt;</span>true(스크롤이 생성되었을때) | false(스크롤이 없을때)<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">td</span><span style="color: #F8F8F2">&gt;</span>
+        <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">tr</span><span style="color: #F8F8F2">&gt;&lt;/</span><span style="color: #FF4689">tbody</span><span style="color: #F8F8F2">&gt;</span>
+      <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">table</span><span style="color: #F8F8F2">&gt;</span>
+    <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+  <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+  <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;scroll-wrap js-scrollbar-wrap&quot;</span><span style="color: #F8F8F2">&gt;</span>
+    <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">div</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;scroll-typeX trpHasScrollBarX&quot;</span><span style="color: #F8F8F2">&gt;</span>
+      <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">table</span> <span style="color: #A6E22E">class</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;&quot;</span><span style="color: #F8F8F2">&gt;</span>
+        <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">colgroup</span><span style="color: #F8F8F2">&gt;</span>
+          <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">col</span> <span style="color: #A6E22E">style</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;min-width:200px;&quot;</span><span style="color: #F8F8F2">&gt;</span>
+          <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">col</span> <span style="color: #A6E22E">style</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;min-width:200px;&quot;</span><span style="color: #F8F8F2">&gt;</span>
+          <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">col</span> <span style="color: #A6E22E">style</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;min-width:200px;&quot;</span><span style="color: #F8F8F2">&gt;</span>
+          <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">col</span> <span style="color: #A6E22E">style</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;min-width:200px;&quot;</span><span style="color: #F8F8F2">&gt;</span>
+          <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">col</span> <span style="color: #A6E22E">style</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;min-width:200px;&quot;</span><span style="color: #F8F8F2">&gt;</span>
+          <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">col</span> <span style="color: #A6E22E">style</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;min-width:200px;&quot;</span><span style="color: #F8F8F2">&gt;</span>
+        <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">colgroup</span><span style="color: #F8F8F2">&gt;</span>
+        <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">tbody</span><span style="color: #F8F8F2">&gt;</span>
+          <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">tr</span><span style="color: #F8F8F2">&gt;&lt;</span><span style="color: #FF4689">td</span><span style="color: #F8F8F2">&gt;</span>this 선택자에, &quot;scrollbar_on&quot;클래스 여부로 스크롤바가 생겼을때 스타일을 달리 줄수 있다.<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">td</span><span style="color: #F8F8F2">&gt;</span>
+          <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">td</span><span style="color: #F8F8F2">&gt;</span>true(스크롤이 생성되었을때) | false(스크롤이 없을때)<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">td</span><span style="color: #F8F8F2">&gt;</span>
+          <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">td</span><span style="color: #F8F8F2">&gt;</span>this 선택자에, &quot;scrollbar_on&quot;클래스 여부로 스크롤바가 생겼을때 스타일을 달리 줄수 있다.<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">td</span><span style="color: #F8F8F2">&gt;</span>
+          <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">td</span><span style="color: #F8F8F2">&gt;</span>true(스크롤이 생성되었을때) | false(스크롤이 없을때)<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">td</span><span style="color: #F8F8F2">&gt;</span>
+          <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">td</span><span style="color: #F8F8F2">&gt;</span>this 선택자에, &quot;scrollbar_on&quot;클래스 여부로 스크롤바가 생겼을때 스타일을 달리 줄수 있다.<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">td</span><span style="color: #F8F8F2">&gt;</span>
+          <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">td</span><span style="color: #F8F8F2">&gt;</span>true(스크롤이 생성되었을때) | false(스크롤이 없을때)<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">td</span><span style="color: #F8F8F2">&gt;</span>
+        <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">tr</span><span style="color: #F8F8F2">&gt;&lt;/</span><span style="color: #FF4689">tbody</span><span style="color: #F8F8F2">&gt;</span>
+      <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">table</span><span style="color: #F8F8F2">&gt;</span>
+    <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+  <span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">div</span><span style="color: #F8F8F2">&gt;</span>
+
+  <span style="color: #F8F8F2">&lt;</span><span style="color: #FF4689">script</span> <span style="color: #A6E22E">type</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;text/javascript&quot;</span><span style="color: #F8F8F2">&gt;	 </span>
+<span style="color: #F8F8F2">    </span><span style="color: #959077">/* IIFE (scrollbar) */</span>
+<span style="color: #F8F8F2">    </span><span style="color: #66D9EF">const</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">trpFNhasScrollBarX</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> (() =&gt; {</span>
+<span style="color: #F8F8F2">      </span><span style="color: #66D9EF">let</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">elements</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> [];</span>
+
+<span style="color: #F8F8F2">      </span><span style="color: #66D9EF">function</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">update</span><span style="color: #F8F8F2">(</span><span style="color: #A6E22E">wrapper</span><span style="color: #F8F8F2">) {</span>
+<span style="color: #F8F8F2">        </span><span style="color: #66D9EF">const</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">scrollEl</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">wrapper</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">querySelector</span><span style="color: #F8F8F2">(</span><span style="color: #E6DB74">&#39;.trpHasScrollBarX&#39;</span><span style="color: #F8F8F2">);</span>
+<span style="color: #F8F8F2">        </span><span style="color: #66D9EF">if</span><span style="color: #F8F8F2"> (</span><span style="color: #FF4689">!</span><span style="color: #A6E22E">scrollEl</span><span style="color: #F8F8F2">) </span><span style="color: #66D9EF">return</span><span style="color: #F8F8F2">;</span>
+
+<span style="color: #F8F8F2">        </span><span style="color: #66D9EF">const</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">check</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">scrollEl</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">scrollWidth</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">&gt;</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">scrollEl</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">clientWidth</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">        </span><span style="color: #A6E22E">wrapper</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">classList</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">toggle</span><span style="color: #F8F8F2">(</span><span style="color: #E6DB74">&#39;trpHasScroll_on&#39;</span><span style="color: #F8F8F2">, </span><span style="color: #A6E22E">check</span><span style="color: #F8F8F2">);</span>
+<span style="color: #F8F8F2">      }</span>
+
+<span style="color: #F8F8F2">      </span><span style="color: #66D9EF">function</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">refresh</span><span style="color: #F8F8F2">() {</span>
+<span style="color: #F8F8F2">        </span><span style="color: #A6E22E">elements</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">forEach</span><span style="color: #F8F8F2">(</span><span style="color: #A6E22E">update</span><span style="color: #F8F8F2">);</span>
+<span style="color: #F8F8F2">      }</span>
+
+<span style="color: #F8F8F2">      </span><span style="color: #66D9EF">function</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">init</span><span style="color: #F8F8F2">(</span><span style="color: #A6E22E">selector</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> </span><span style="color: #E6DB74">&#39;.js-TRPscrollbar-wrapper&#39;</span><span style="color: #F8F8F2">) {</span>
+<span style="color: #F8F8F2">        </span><span style="color: #66D9EF">const</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">newElements</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> document.</span><span style="color: #A6E22E">querySelectorAll</span><span style="color: #F8F8F2">(</span><span style="color: #A6E22E">selector</span><span style="color: #F8F8F2">);</span>
+<span style="color: #F8F8F2">        </span><span style="color: #A6E22E">newElements</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">forEach</span><span style="color: #F8F8F2">(</span><span style="color: #A6E22E">wrapper</span><span style="color: #F8F8F2"> =&gt; {</span>
+<span style="color: #F8F8F2">          </span><span style="color: #66D9EF">if</span><span style="color: #F8F8F2"> (</span><span style="color: #A6E22E">elements</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">includes</span><span style="color: #F8F8F2">(</span><span style="color: #A6E22E">wrapper</span><span style="color: #F8F8F2">)) </span><span style="color: #66D9EF">return</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">          </span><span style="color: #A6E22E">elements</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">push</span><span style="color: #F8F8F2">(</span><span style="color: #A6E22E">wrapper</span><span style="color: #F8F8F2">);</span>
+<span style="color: #F8F8F2">          </span><span style="color: #66D9EF">const</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">scrollEl</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">wrapper</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">querySelector</span><span style="color: #F8F8F2">(</span><span style="color: #E6DB74">&#39;.trpHasScrollBarX&#39;</span><span style="color: #F8F8F2">);</span>
+<span style="color: #F8F8F2">          </span><span style="color: #66D9EF">if</span><span style="color: #F8F8F2"> (</span><span style="color: #FF4689">!</span><span style="color: #A6E22E">scrollEl</span><span style="color: #F8F8F2">) </span><span style="color: #66D9EF">return</span><span style="color: #F8F8F2">;</span>
+<span style="color: #F8F8F2">          </span><span style="color: #A6E22E">update</span><span style="color: #F8F8F2">(</span><span style="color: #A6E22E">wrapper</span><span style="color: #F8F8F2">);</span>
+<span style="color: #F8F8F2">          </span><span style="color: #FF4689">new</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">ResizeObserver</span><span style="color: #F8F8F2">(() =&gt; {</span>
+<span style="color: #F8F8F2">            </span><span style="color: #A6E22E">update</span><span style="color: #F8F8F2">(</span><span style="color: #A6E22E">wrapper</span><span style="color: #F8F8F2">);</span>
+<span style="color: #F8F8F2">          }).</span><span style="color: #A6E22E">observe</span><span style="color: #F8F8F2">(</span><span style="color: #A6E22E">scrollEl</span><span style="color: #F8F8F2">);</span>
+
+<span style="color: #F8F8F2">        });</span>
+<span style="color: #F8F8F2">      }</span>
+
+<span style="color: #F8F8F2">      window.</span><span style="color: #A6E22E">addEventListener</span><span style="color: #F8F8F2">(</span><span style="color: #E6DB74">&#39;resize&#39;</span><span style="color: #F8F8F2">, </span><span style="color: #A6E22E">refresh</span><span style="color: #F8F8F2">);</span>
+
+<span style="color: #F8F8F2">      </span><span style="color: #66D9EF">return</span><span style="color: #F8F8F2"> {</span>
+<span style="color: #F8F8F2">        </span><span style="color: #A6E22E">init</span><span style="color: #F8F8F2">,</span>
+<span style="color: #F8F8F2">        </span><span style="color: #A6E22E">refresh</span>
+<span style="color: #F8F8F2">      };</span>
+
+<span style="color: #F8F8F2">    })();</span>
+
+<span style="color: #F8F8F2">    </span><span style="color: #A6E22E">trpFNhasScrollBarX</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">init</span><span style="color: #F8F8F2">(</span><span style="color: #E6DB74">&#39;.js-scrollbar-wrap&#39;</span><span style="color: #F8F8F2">);</span>
+<span style="color: #F8F8F2">  &lt;/</span><span style="color: #FF4689">script</span><span style="color: #F8F8F2">&gt;</span>
+
+<span style="color: #F8F8F2">&lt;/</span><span style="color: #FF4689">body</span><span style="color: #F8F8F2">&gt;</span>
+</pre></td></tr></table></div>
+
+ 
+
+
+
+				
+					</div><!--// 소스 -->
+				</div>
+			</div>			
+		</div>
+		<!-- e: examples 예제 -->
+
+				
+
+	</div>
+	<!-- e: 컨텐츠 끝 -->
+</div>
+
+
+
+<script type="text/javascript">
+	$("#header").load("../../../head.html");
+	$("#lnb").load("../../../lnb.html");	
+
+	$(".ex-more a").click(function() {
+		$( this ).find("span").toggle();
+		$( this ).parent().siblings(".ex-body").slideToggle();
+		return false;
+	});
+
+	$(".icon-more a").click(function() {
+		$( this ).find("span").toggle();
+		$( this ).parent().siblings(".ex-body").slideToggle();
+		return false;
+	});
+</script>
+
+</body>
+</html>

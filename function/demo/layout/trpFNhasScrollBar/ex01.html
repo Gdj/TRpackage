@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>trpFNhasScrollBarY</title>
+  <!-- <script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js"></script> -->
+  <script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js" charset="UTF-8"></script>
+  <script type="text/javascript" src="../../../../asset/js/libs/trpUtility.js"></script> 
+  <link rel="stylesheet" type="text/css" href="../../../../asset/css/trpBase.css" media="all">
+</head>
+<body class="">
+
+  <style>
+    html, body { position: relative; height: 100%;}
+    .scroll-wrap { position: relative; height: 40%;  border: 1px solid #33f;}
+    .scroll-wrap.trpHasScroll_on, .scroll-wrap.trpHasScroll_on { background-color: #aaa; }
+
+    .scroll-type { overflow: hidden; overflow-y: auto; height: 100%; }
+    .scroll-type::-webkit-scrollbar{ width: 5px; height: 5px;
+      background-color: #ececec;
+      -webkit-appearance: none;
+      background-color: transparent;
+    }
+    .scroll-type::-webkit-scrollbar-thumb  { 
+      background-color: #898989; 
+      border-radius: 3px;
+    }
+  </style>
+
+  <div class="scroll-wrap js-scrollbar-wrap">
+    <div class="scroll-type trpHasScrollBarY">
+      <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p>
+      <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p>
+      <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p>
+      <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p>
+    </div>
+  </div>
+  <div class="scroll-wrap js-scrollbar-wrap">
+    <div class="scroll-type trpHasScrollBarY">
+      <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p>
+      <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p>
+      <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p>
+      <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p>
+      <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p>
+    </div>
+  </div>
+
+  <script type="text/javascript">	 
+    /* IIFE (scrollbar) */
+    const trpFNhasScrollBarY = (() => {
+      let elements = [];
+
+      function update(wrapper) {
+        const scrollEl = wrapper.querySelector('.trpHasScrollBarY');
+        if (!scrollEl) return;
+
+        const check = scrollEl.scrollHeight > scrollEl.clientHeight;
+        wrapper.classList.toggle('trpHasScroll_on', check);
+      }
+
+      function refresh() {
+        elements.forEach(update);
+      }
+
+      function init(selector = '.js-TRPscrollbar-wrapper') {
+        const newElements = document.querySelectorAll(selector);
+        newElements.forEach(wrapper => {
+          if (elements.includes(wrapper)) return;
+          elements.push(wrapper);
+          const scrollEl = wrapper.querySelector('.trpHasScrollBarY');
+          if (!scrollEl) return;
+          update(wrapper);
+          new ResizeObserver(() => {
+            update(wrapper);
+          }).observe(scrollEl);
+
+        });
+      }
+
+      window.addEventListener('resize', refresh);
+
+      return {
+        init,
+        refresh
+      };
+
+    })();
+
+    trpFNhasScrollBarY.init('.js-scrollbar-wrap');
+  </script>
+
+</body>
+</html>
+
