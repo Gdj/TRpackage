@@ -3,9 +3,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
 <title> trpFnArrayUtitls | TR package</title>
-<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.js" charset="UTF-8"></script>
+<script type="text/javascript" src="../../../../asset/js/libs/jquery-1.12.1.min.js" charset="UTF-8"></script>
 <script type="text/javascript" src="../../../../asset/js/libs/trpMenu.js"></script>
-<link rel="stylesheet" type="text/css"  href="../../../../asset/css/common.css" media="all" />
+<link rel="stylesheet" href="../../../../asset/css/common.css" type="text/css" media="all" />
 
 
 </head>
@@ -15,21 +15,21 @@
 	<div id="lnb" class="gnb"></div>
 	<!-- s: 컨텐츠 시작 -->
 	<div id="contents" class="contents">
-
         <!-- s: 스크립드 설명 -->
         <div class="desc_wapper">
-          <h1 class="desc_title">trpFn_scrollHas()</h1>
+          <h1 class="desc_title">trpFnArrayUtitls.js</h1>
           <p>
-            스크롤 관련 유틸
-            <br> trpFn_scrollHas
+            배열 관련 유틸
+            <br> trpFnArrayUtitls.js 불러오면 다음 유틸을 사용할수 있습니다.
+            <br> &lt;script type="text/javascript" src="./js/libs/trpFnArrayUtitls.js"&gt;&lt;/script&gt;
           </p>
         </div>
         <!-- e: 스크립드 설명 -->
         	
        
-        <!-- s: api trpFn_scrollHas($arr) 설명 -->
+        <!-- s: api trpShuffle($arr) 설명 -->
         <div class="api">
-          <h2 class="api-title">trpFn_scrollHas($el)</h2>
+          <h2 class="api-title">trpShuffle($arr)</h2>
           <div class="api-body">
             <dl>
               <dt>설명</dt>
@@ -55,7 +55,192 @@
           </div>
         </div>
         <!-- e: api 설명 -->
-
+        
+        
+        <!-- s: api trpArrTper($arr) 설명 -->
+        <div class="api">
+          <h2 class="api-title">trpArrTper($arr)</h2>
+          <div class="api-body">
+            <dl>
+              <dt>설명</dt>
+              <dd><span class="icon"></span>배열의 최대값으로 각각의 백분율 퍼센트배열 리턴 (소숫접 2재짜리까지)</dd>
+            </dl>
+            <table class="table_col" summary="생성되는 class 설명">
+              <caption>class 설명</caption>
+              <colgroup>
+                <col width="150">
+                  <col width="">
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th scope="col">파라미터 이름</th>
+                  <th scope="col">파마미너 설명</th>
+                </tr>
+                <tr>
+                  <td>$arr</td>
+                  <td>number 배열값</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- e: api 설명 -->
+        
+        
+        <!-- s: api trpMaxTper($arr, $max) 설명 -->
+        <div class="api">
+          <h2 class="api-title">trpMaxTper($arr, $max)</h2>
+          <div class="api-body">
+            <dl>
+              <dt>설명</dt>
+              <dd><span class="icon"></span>최대값으로 각각의 백분율 퍼센트배열 리턴 (소숫접 2재짜리까지)</dd>
+            </dl>
+            <table class="table_col" summary="생성되는 class 설명">
+              <caption>class 설명</caption>
+              <colgroup>
+                <col width="150">
+                  <col width="">
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th scope="col">파라미터 이름</th>
+                  <th scope="col">파마미너 설명</th>
+                </tr>
+                <tr>
+                  <td>$arr</td>
+                  <td>number 배열값</td>
+                </tr> 
+                <tr>
+                  <td>$max</td>
+                  <td>number 최대값 : 100%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- e: api 설명 -->
+        
+        
+        <!-- s: api trpArrMax($arr) 설명 -->
+        <div class="api">
+          <h2 class="api-title">trpArrMax($arr)</h2>
+          <div class="api-body">
+            <dl>
+              <dt>설명</dt>
+              <dd><span class="icon"></span>배열중 최대값 리턴</dd>
+            </dl>
+            <table class="table_col" summary="생성되는 class 설명">
+              <caption>class 설명</caption>
+              <colgroup>
+                <col width="150">
+                  <col width="">
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th scope="col">파라미터 이름</th>
+                  <th scope="col">파마미너 설명</th>
+                </tr>
+                <tr>
+                  <td>$arr</td>
+                  <td>number 배열값</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- e: api 설명 -->
+             
+        
+        <!-- s: api trpArrMaxIndex($arr) 설명 -->
+        <div class="api">
+          <h2 class="api-title">trpArrMaxIndex($arr)</h2>
+          <div class="api-body">
+            <dl>
+              <dt>설명</dt>
+              <dd><span class="icon"></span>배열중 최대값의 Index를 리털</dd>
+            </dl>
+            <table class="table_col" summary="생성되는 class 설명">
+              <caption>class 설명</caption>
+              <colgroup>
+                <col width="150">
+                  <col width="">
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th scope="col">파라미터 이름</th>
+                  <th scope="col">파마미너 설명</th>
+                </tr>
+                <tr>
+                  <td>$arr</td>
+                  <td>number 배열값</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- e: api 설명 -->
+                
+        
+        <!-- s: api trpArrAve($arr) 설명 -->
+        <div class="api">
+          <h2 class="api-title">trpArrAve($arr)</h2>
+          <div class="api-body">
+            <dl>
+              <dt>설명</dt>
+              <dd><span class="icon"></span>배열 평균값을 리턴</dd>
+            </dl>
+            <table class="table_col" summary="생성되는 class 설명">
+              <caption>class 설명</caption>
+              <colgroup>
+                <col width="150">
+                  <col width="">
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th scope="col">파라미터 이름</th>
+                  <th scope="col">파마미너 설명</th>
+                </tr>
+                <tr>
+                  <td>$arr</td>
+                  <td>number 배열값</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- e: api 설명 -->
+                    
+        
+        <!-- s: api trpArrSum($arr) 설명 -->
+        <div class="api">
+          <h2 class="api-title">trpArrSum($arr)</h2>
+          <div class="api-body">
+            <dl>
+              <dt>설명</dt>
+              <dd><span class="icon"></span>배열 총합을 리턴</dd>
+            </dl>
+            <table class="table_col" summary="생성되는 class 설명">
+              <caption>class 설명</caption>
+              <colgroup>
+                <col width="150">
+                  <col width="">
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th scope="col">파라미터 이름</th>
+                  <th scope="col">파마미너 설명</th>
+                </tr>
+                <tr>
+                  <td>$arr</td>
+                  <td>number 배열값</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- e: api 설명 -->
+        
+        
         
 
 		<!-- s: examples 예제 -->

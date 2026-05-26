@@ -1,4 +1,3 @@
-
 <script type="text/javascript">
   $(document).ready(function(){
 	
@@ -33,24 +32,25 @@
 	/* 겟값 받기 */
 	var $_GET = {};
 		location.search.replace(/([^=&?]+)=([^&]+)/gi, function (a, b, c) {
-		 $_GET[decodeURIComponent(b)] = decodeURIComponent(c);
+    $_GET[decodeURIComponent(b)] = decodeURIComponent(c);
 	});	
 	
 	var _dep1, _dep2;
 	if($_GET.dep1){	_dep1 = $_GET.dep1; 	}else{ 		_dep1 = -1;	 	}
 	if($_GET.dep2){	_dep2 = $_GET.dep2; 	}else{ 		_dep2 = -1;	 	}
+  console.log("_GET.dep1 : ", $_GET);
 	
 	function lnbActive(){
 		if(_dep1 == "-1"){ return false;}
 		$( ".mn_2depth" ).eq(_dep1).find(".dep2-more a").attr("data-active",true);	// 버튼 활성화속성
-		$( ".mn_2depth" ).eq(_dep1).find(".dep2-more a").addClass("on");			// 버튼 활성화
-		$( ".mn_2depth" ).eq(_dep1).find(".sublist").slideDown("fast");				// 컨텐츠 활성화
+		$( ".mn_2depth" ).eq(_dep1).find(".dep2-more a").addClass("on");			      // 버튼 활성화
+		$( ".mn_2depth" ).eq(_dep1).find(".sublist").slideDown("fast");				      // 컨텐츠 활성화
 		
 		//$( ".mn_2depth" ).eq(_dep1).find(".dep2-more a span").toggle();			// 버튼 활성화
-		//$( ".mn_2depth" ).eq(_dep1).find(".sublist").slideToggle();				// 컨텐츠 활성화
+		//$( ".mn_2depth" ).eq(_dep1).find(".sublist").slideToggle();				  // 컨텐츠 활성화
 
 		if(_dep2 == "-1"){ return false;}
-		$(".list .mn_2depth .sublist li").removeClass("on");							// 2뎁스 초기화 
+		$(".list .mn_2depth .sublist li").removeClass("on");							            // 2뎁스 초기화 
 		$(".list .mn_2depth").eq(_dep1).find(".sublist li").eq(_dep2).addClass("on");	// 2뎁스 활성화
 	}
 
@@ -204,7 +204,7 @@
     </li>
     
     <li class="mn_2depth">
-      <!-- dep1=11 -->
+      <!-- dep1=10 -->
       <h2 class="nav_h2"><span>utitls</span>
         <p class="dep2-more" ><a href="javascript:return false;" ><span class="plus">+</span><span class="minus"  >-</span></a></p>
       </h2>
