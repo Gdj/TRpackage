@@ -154,8 +154,8 @@
 				</dl>
 
 				
-				<table class="table_col" summary="gsap 옵션 설명">
-					<caption>gsap 옵션</caption>
+				<table class="table_col" summary="gsap 속성 설명">
+					<caption>gsap 속성</caption>
 					<colgroup>
 						<col width="150">
 						<col width="">		
@@ -612,11 +612,130 @@
 				</table>
 				
 			
-
+				<div class="row2">
+					<div class="mr10">
+						<strong>이벤트</strong>
+						<table class="table_col" summary="scrollTrigger Event 설명">
+							<caption>scrollTrigger  Event</caption>
+							<colgroup>
+								<col width="150">
+								<col width="">		
+							</colgroup>
+							<tbody>
+								<tr>
+									<th scope="col">scrollTrigger Event</th>
+									<th scope="col">scrollTrigger Event 설명</th>
+								</tr>
+								onEnter, onLeave, onEnterBack, onLeaveBack
+								<tr>
+									<td>.onEnter:(()=>{...})</td>
+									<td>.onEnter: ({progress, direction, isActive}) <br>
+										순방향 영역에 들어올때.
+									</td>		
+								</tr>
+								<tr>
+									<td>.onLeave:(()=>{...})</td>
+									<td>.onLeave: ({progress, direction, isActive}) <br>
+										순방향 영역에 벗어날때.
+									</td>		
+								</tr>
+								<tr>
+									<td>.onEnterBack:(()=>{...})</td>
+									<td>
+										onLeaveBack: ({progress, direction, isActive}) <br>
+										역방향 영역에 들어올때.
+									</td>		
+								</tr>
+								<tr>
+									<td>.onLeaveBack:(()=>{...})</td>
+									<td>onLeaveBack: ({progress, direction, isActive}) <br>
+										역방향 영역에 벗어날때.
+									</td>		
+								</tr>
+								<tr>
+									<td>.onUpdate: (self)=>{ ... }</td>
+									<td>
+										self.progress, self.direction, self.isActive  <br>
+										이벤트가 업데이트 되는 동안 호출됨.
+									</td>		
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="ml10">
+						<strong>위상값 설명</strong>
+						<table class="table_col" summary="위상값 설명">
+							<caption>scrollTrigger  Event</caption>
+							<colgroup>
+								<col width="80">
+								<col width="auto">		
+								<col width="auto">		
+							</colgroup>
+							<tbody>
+								<tr>
+									<th>문법</th>
+									<th>기준</th>
+									<th>의미</th>
+								</tr>
+									<tr>
+											<td><code>"&lt;"</code></td>
+											<td>이전 애니메이션 시작</td>
+											<td>같은 시점 시작</td>
+									</tr>
+									<tr>
+											<td><code>"&gt;"</code></td>
+											<td>이전 애니메이션 끝</td>
+											<td>끝난 뒤 시작</td>
+									</tr>
+									<tr>
+											<td><code>"&lt;+=0.5"</code></td>
+											<td>이전 애니메이션 시작</td>
+											<td>0.5초 뒤</td>
+									</tr>
+									<tr>
+											<td><code>"&lt;-=0.5"</code></td>
+											<td>이전 애니메이션 시작</td>
+											<td>0.5초 앞</td>
+									</tr>
+									<tr>
+											<td><code>"&gt;+=0.5"</code></td>
+											<td>이전 애니메이션 끝</td>
+											<td>0.5초 뒤</td>
+									</tr>
+									<tr>
+											<td><code>"&gt;-=0.5"</code></td>
+											<td>이전 애니메이션 끝</td>
+											<td>0.5초 앞</td>
+									</tr>
+									<tr>
+											<td><code>"+=0.5"</code></td>
+											<td>현재 타임라인 끝</td>
+											<td>0.5초 후</td>
+									</tr>
+									<tr>
+											<td><code>"-=0.5"</code></td>
+											<td>현재 타임라인 끝</td>
+											<td>0.5초 전</td>
+									</tr>
+									<tr>
+											<td><code>"0.5"</code></td>
+											<td>절대 시간</td>
+											<td>타임라인 0.5초 위치</td>
+									</tr>
+									<tr>
+											<td><code>"5"</code></td>
+											<td>절대 시간</td>
+											<td>타임라인 5초 위치</td>
+									</tr>
+							</tbody>
+					</table>
+					</div>
+				</div>
 	
 			</div>
 		</div>
 		<!-- e: api 설명 -->
+
 
 		<!-- s: examples 예제 1 -->
 		<div class="ex_wapper">
