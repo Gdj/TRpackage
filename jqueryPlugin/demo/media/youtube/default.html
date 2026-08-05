@@ -270,9 +270,62 @@
           </table>
 
 
+             <div class="ex_wapper">
+				<h3 class="api-title_h3 html">HTML (기본사용)</h3>
+        <div class="api-body_h3 html">
+
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%;"><span></span><span style="color: #FF4689">&lt;</span><span style="color: #A6E22E">script</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">type</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;text/javascript&quot;</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">id</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;www-widgetapi-script&quot;</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">src</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;https://www.youtube.com/s/player/ea6f527e/www-widgetapi.vflset/www-widgetapi.js&quot;</span><span style="color: #F8F8F2"> </span><span style="color: #66D9EF">async</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;&quot;</span><span style="color: #FF4689">&gt;&lt;</span><span style="color: #ED007E; background-color: #1E0010">/script&gt;</span>
+<span style="color: #FF4689">&lt;</span><span style="color: #A6E22E">script</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">src</span><span style="color: #FF4689">=</span><span style="color: #E6DB74">&quot;https://www.youtube.com/iframe_api&quot;</span><span style="color: #FF4689">&gt;&lt;</span><span style="color: #ED007E; background-color: #1E0010">/script&gt;</span>
+
+<span style="color: #FF4689">&lt;</span><span style="color: #A6E22E">script</span><span style="color: #FF4689">&gt;</span>
+<span style="color: #66D9EF">function</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">onYouTubeIframeAPIReady</span><span style="color: #F8F8F2">() {</span>
+<span style="color: #F8F8F2">    </span><span style="color: #A6E22E">player</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">=</span><span style="color: #F8F8F2"> </span><span style="color: #FF4689">new</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">YT</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">Player</span><span style="color: #F8F8F2">(</span><span style="color: #E6DB74">&#39;youtube_view&#39;</span><span style="color: #F8F8F2">, {</span>
+<span style="color: #F8F8F2">        </span><span style="color: #A6E22E">height</span><span style="color: #FF4689">:</span><span style="color: #F8F8F2"> </span><span style="color: #E6DB74">&#39;100%&#39;</span><span style="color: #F8F8F2">,</span>
+<span style="color: #F8F8F2">        </span><span style="color: #A6E22E">width</span><span style="color: #FF4689">:</span><span style="color: #F8F8F2"> </span><span style="color: #E6DB74">&#39;100%&#39;</span><span style="color: #F8F8F2">,</span>
+<span style="color: #F8F8F2">        </span><span style="color: #A6E22E">videoId</span><span style="color: #FF4689">:</span><span style="color: #F8F8F2"> </span><span style="color: #E6DB74">&#39;Ymu1EGJfIUs&#39;</span><span style="color: #F8F8F2">,</span>
+<span style="color: #F8F8F2">        </span><span style="color: #A6E22E">playerVars</span><span style="color: #FF4689">:</span><span style="color: #F8F8F2"> {</span>
+<span style="color: #F8F8F2">            </span><span style="color: #A6E22E">autoplay</span><span style="color: #FF4689">:</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">1</span><span style="color: #F8F8F2">,          </span><span style="color: #959077">// 자동재생</span>
+<span style="color: #F8F8F2">            </span><span style="color: #A6E22E">controls</span><span style="color: #FF4689">:</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">0</span><span style="color: #F8F8F2">,          </span><span style="color: #959077">// 컨트롤러 숨김</span>
+<span style="color: #F8F8F2">            </span><span style="color: #A6E22E">disablekb</span><span style="color: #FF4689">:</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">1</span><span style="color: #F8F8F2">,         </span><span style="color: #959077">// 키보드 조작 비활성</span>
+<span style="color: #F8F8F2">            </span><span style="color: #A6E22E">fs</span><span style="color: #FF4689">:</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">0</span><span style="color: #F8F8F2">,                </span><span style="color: #959077">// 전체화면 버튼 숨김</span>
+<span style="color: #F8F8F2">            </span><span style="color: #A6E22E">modestbranding</span><span style="color: #FF4689">:</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">1</span><span style="color: #F8F8F2">,    </span><span style="color: #959077">// YouTube 로고 최소화</span>
+<span style="color: #F8F8F2">            </span><span style="color: #A6E22E">rel</span><span style="color: #FF4689">:</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">0</span><span style="color: #F8F8F2">,               </span><span style="color: #959077">// 종료 후 관련 영상 최소화</span>
+<span style="color: #F8F8F2">            </span><span style="color: #A6E22E">iv_load_policy</span><span style="color: #FF4689">:</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">3</span><span style="color: #F8F8F2">,    </span><span style="color: #959077">// 카드/주석 숨김</span>
+<span style="color: #F8F8F2">            </span><span style="color: #A6E22E">cc_load_policy</span><span style="color: #FF4689">:</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">0</span><span style="color: #F8F8F2">,    </span><span style="color: #959077">// 자막 끄기</span>
+<span style="color: #F8F8F2">            </span><span style="color: #A6E22E">playsinline</span><span style="color: #FF4689">:</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">1</span><span style="color: #F8F8F2">,</span>
+<span style="color: #F8F8F2">            </span><span style="color: #A6E22E">loop</span><span style="color: #FF4689">:</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">1</span><span style="color: #F8F8F2">,              </span><span style="color: #959077">// 반복재생</span>
+<span style="color: #F8F8F2">            </span><span style="color: #A6E22E">playlist</span><span style="color: #FF4689">:</span><span style="color: #F8F8F2"> </span><span style="color: #E6DB74">&#39; M7lc1UVf-VE &#39;</span><span style="color: #F8F8F2">, </span><span style="color: #959077">// loop 사용 시 반드시 필요</span>
+<span style="color: #F8F8F2">            </span><span style="color: #A6E22E">mute</span><span style="color: #FF4689">:</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">1</span><span style="color: #F8F8F2">,              </span><span style="color: #959077">// 자동재생하려면 대부분의 브라우저에서 필요</span>
+<span style="color: #F8F8F2">            </span><span style="color: #A6E22E">start</span><span style="color: #FF4689">:</span><span style="color: #F8F8F2"> </span><span style="color: #AE81FF">0</span>
+<span style="color: #F8F8F2">        },</span>
+<span style="color: #F8F8F2">        </span><span style="color: #A6E22E">events</span><span style="color: #FF4689">:</span><span style="color: #F8F8F2"> {</span>
+<span style="color: #F8F8F2">            </span><span style="color: #A6E22E">onReady</span><span style="color: #FF4689">:</span><span style="color: #F8F8F2"> </span><span style="color: #66D9EF">function</span><span style="color: #F8F8F2"> (</span><span style="color: #A6E22E">event</span><span style="color: #F8F8F2">) {</span>
+<span style="color: #F8F8F2">                </span><span style="color: #A6E22E">event</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">target</span><span style="color: #F8F8F2">.</span><span style="color: #A6E22E">playVideo</span><span style="color: #F8F8F2">();</span>
+<span style="color: #F8F8F2">            },</span>
+<span style="color: #F8F8F2">            </span><span style="color: #A6E22E">onStateChange</span><span style="color: #FF4689">:</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">videoEnd</span>
+<span style="color: #F8F8F2">        }</span>
+<span style="color: #F8F8F2">    });</span>
+<span style="color: #F8F8F2">}</span>
+<span style="color: #FF4689">&lt;</span><span style="color: #ED007E; background-color: #1E0010">/script&gt; </span>
+</pre></div>
+
+
+
+
+        </div>
+      </div>
+
+
+
         </div>
       </div>
       <!-- e: api 설명 -->
+
+
+   
+
+
 
       <!-- s: examples 예제 -->
       <div class="ex_wapper">
